@@ -1,9 +1,12 @@
 # biblatex-sbl
 SBL style files for biblatex
 
-State: *very* alpha
+State:
+
+    *very* alpha
 
 Testing:
+
     The main test files are docs/sblref.tex and docs/sbl.bib
 
     To test in place:
@@ -22,6 +25,7 @@ Testing:
         Handbook of Style
 
 Installing:
+
     Put the contents of the latex directory into
         $TEXMFHOME/tex/latex/biblatex-sbl/
 
