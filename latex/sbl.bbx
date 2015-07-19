@@ -1,0 +1,241 @@
+\ProvidesFile{sbl.bbx}[2014/05/17 v0.1 SBL biblatex bibliography style]
+
+\blx@inputonce{biblatex-sbl.def}{SBL generic definitions}{}{}{}{}
+
+\defbibenvironment{bibliography}
+  {\citereset
+   \def\abx@str{abx@lstr}%
+   \renewcommand*{\revsdnamedelim}{\addcomma}%
+   \setcounter{maxnames}{100}%
+   \setcounter{maxitems}{100}%
+   \DeclareNameAlias{author}{sortname}%
+   \DeclareNameAlias{editor}{sortname}%
+   \DeclareNameAlias{translator}{sortname}%
+   \renewcommand*{\newunitpunct}{\addperiod\space}%
+   \renewbibmacro{dashcheck}[2]{\usebibmacro{bbx:dashcheck}{##1}{##2}}%
+   \renewbibmacro*{savehash}{\savefield{fullhash}{\bbx@lasthash}}%
+   \sloppy
+   \list{}{%
+     \leftmargin\bibhang
+      \itemindent-\leftmargin
+      \itemsep\bibitemsep
+      \parsep\bibparsep}}
+    {\endlist}
+    {\item}
+
+
+\InitializeBibliographyStyle{%
+  \global\undef\bbx@lasthash
+}
+
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{shortjournal+issuetitle}%
+  \setunit{\bibpagerefpunct}%
+  \printfield[plainpages]{pages}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{book}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{volumeof}%
+  \usebibmacro{booktitle+maintitle}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \usebibmacro{byorigeditor+others}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{suppbook}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \printfield{type}%
+  \setunit{\addspace}%
+  \usebibmacro{to}%
+  \usebibmacro{booktitle+maintitle}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{bybookauthor}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit%
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{collection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{editor+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{volume+part}%
+  \usebibmacro{booktitle+maintitle}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{incollection}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \printfield[pagesin]{pages}%
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookeditor+others}%
+     \newunit}
+  \usebibmacro{volume+part}%
+  \usebibmacro{maintitle}%
+  \newunit
+  \usebibmacro{bymaineditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \printfield{volumes}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{inlexicon}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{inreference}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{shortbooktitle+shortmaintitle}%
+  \newunit
+  \usebibmacro{volume+pages}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{review}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \iffieldundef{title}
+    {\newunit}
+    {\setunit{\addcomma\addspace}}%
+  \usebibmacro{revdtitle}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{revdauthor/revdeditor}%
+  \newunit
+  \usebibmacro{shortjournal+issuetitle}%
+  \setunit{\bibpagerefpunct}%
+  \printfield[plainpages]{pages}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{seminarpaper}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \printfield[pagesin]{pages}%
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookeditor+others}%
+     \newunit}
+  \usebibmacro{volume+part}%
+  \usebibmacro{maintitle}%
+  \newunit
+  \usebibmacro{bymaineditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \printfield{volumes}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{thesis}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \printfield{type}%
+  \setunit{\addcomma\addspace}%
+  \usebibmacro{institution+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \printfield{type}%
+  \setunit{\addspace}%
+  \printfield{eventtitle}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
+\endinput

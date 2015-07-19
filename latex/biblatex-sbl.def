@@ -1,0 +1,782 @@
+\RequireBibliographyStyle{standard}
+
+\ExecuteBibliographyOptions{%
+  citetracker,
+  punctfont,
+  usetranslator,
+  urldate=comp,
+  dateabbrev=false,
+  autocite=footnote,
+  url,
+  related,
+  isbn=false,
+  ibidtracker=false
+}
+
+\urlstyle{same}
+\def\UrlBreaks{\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+ \do\)\do\,\do\?\do\'\do+\do\=\do\#}%
+\def\UrlSpecials{\do\.{\penalty\UrlBreakPenalty\mathchar`.}%
+  \do\-{\penalty\UrlBreakPenalty\mathchar`-}%
+  \do\ {\Url@space}\do\%{\Url@percent}\do\^^M{\Url@space}%
+  \Url@force@Tilde}% package option may force faked text-ascii-tilde
+
+\NewBibliographyString{to}
+\NewBibliographyString{of}
+\NewBibliographyString{withpreface}
+\NewBibliographyString{preface}
+\NewBibliographyString{nopages}
+\NewBibliographyString{presentedpaper}
+
+\DeclareLanguageMapping{english}{sbl-english}
+
+\uspunctuation
+\renewcommand*{\bibpagerefpunct}{\addcolon\space}
+\renewcommand*{\subtitlepunct}{\addcolon\space}
+\newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
+
+\setcounter{mincompwidth}{10}
+
+\DeclareFieldFormat{doi}{%
+  \printtext{doi}\addcolon
+  \ifhyperref
+    {\href{http://dx.doi.org/#1}{\nolinkurl{#1}}}
+    {\nolinkurl{#1}}}
+\DeclareFieldFormat{edition}{%
+  \ifinteger{#1}
+    {\mkbibordedition{#1}~\bibsstring{edition}}
+    {#1\isdot}}
+    \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
+\DeclareFieldFormat{part}{#1}
+\DeclareFieldFormat{postnote}{\mkcomprange{#1}}
+\DeclareFieldFormat{multipostnote}{#1}
+\DeclareFieldFormat{byauthor}{\bibstring{byauthor} #1}
+\DeclareFieldFormat{revdtitle}{\biblstring{reviewof} \mkbibemph{#1}}
+\DeclareFieldFormat{shorttitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{shortbooktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{shortmaintitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
+\DeclareFieldFormat{preface}{#1}
+\DeclareFieldFormat{seriesseries}{#1}
+
+\DeclareFieldFormat{pages}{\mkcomprange{#1}}
+\DeclareFieldFormat{pagesin}{\mkcomprange[\mkpageprefix]{#1} \usebibmacro{in}}
+\DeclareFieldFormat{volume}{#1}
+\DeclareFieldFormat{vol}{\bibsstring{volume}~#1}
+\DeclareFieldFormat{volumeof}{\bibsstring{volume}~#1 \bibstring{of}}
+\DeclareFieldFormat{volumes}{#1~\bibsstring{volumes}}
+\DeclareFieldFormat{partof}{\bibstring{part}~#1 \bibstring{of}}
+\DeclareFieldFormat{no}{\bibsstring{number}~#1}
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat{urldate}{\bibstring{urlseen}\space#1}
+
+\DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
+\DeclareFieldFormat{quote}{\mkbibquote{#1}}
+
+\DeclareFieldFormat[inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
+\DeclareFieldFormat[inreference,inlexicon]{booktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[inreference,inlexicon]{shortbooktitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[inreference,inlexicon]{maintitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[inreference,inlexicon]{shortmaintitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[inproceedings]{type}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
+
+\DeclareNameAlias{withpreface}{default}
+
+\DeclareBibliographyAlias{cite:mvbook}{cite:book}
+\DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
+\DeclareBibliographyAlias{mvreference}{mvbook}
+\DeclareBibliographyAlias{cite:mvreference}{cite:mvbook}
+\DeclareBibliographyAlias{reference}{book}
+\DeclareBibliographyAlias{cite:reference}{cite:book}
+\DeclareBibliographyAlias{inreference}{inreference}
+\DeclareBibliographyAlias{cite:inreference}{cite:inreference}
+\DeclareBibliographyAlias{lexicon}{reference}
+\DeclareBibliographyAlias{cite:lexicon}{cite:reference}
+\DeclareBibliographyAlias{mvlexicon}{mvreference}
+\DeclareBibliographyAlias{cite:mvlexicon}{cite:mvreference}
+\DeclareBibliographyAlias{inbook}{incollection}
+\DeclareBibliographyAlias{cite:inbook}{cite:incollection}
+
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\newcommand*{\volpostnotedelim}{\addcolon}
+
+\providecommand*{\mkibid}[1]{#1}
+
+
+% ------------------------------------------------------------------
+% SOURCE MAPS
+% ------------------------------------------------------------------
+%   - cut titles at colons to create short titles
+%   - copy titles to shorttitles if they are empty
+% ------------------------------------------------------------------
+
+\DeclareSourcemap{
+  \maps{
+    \map{
+      \step[fieldsource=title, match=\regexp{(.*?):}, final]
+      \step[fieldset=shorttitle, fieldvalue={$1}]
+    }
+    \map{
+      \step[fieldsource=booktitle, match=\regexp{(.*?):}, final]
+      \step[fieldset=shortbooktitle, fieldvalue={$1}]
+    }
+    \map{
+      \step[fieldsource=maintitle, match=\regexp{(.*?):}, final]
+      \step[fieldset=shortmaintitle, fieldvalue={$1}]
+    }
+    \map{
+      \step[fieldsource=title, final]
+      \step[fieldset=shorttitle, origfieldval]
+    }
+    \map{
+      \step[fieldsource=booktitle, final]
+      \step[fieldset=shortbooktitle, origfieldval]
+    }
+    \map{
+      \step[fieldsource=maintitle, final]
+      \step[fieldset=shortmaintitle, origfieldval]
+    }
+    \map{
+      \step[fieldsource=journaltitle, final]
+      \step[fieldset=shortjournal, origfieldval]
+    }
+    \map[overwrite]{
+      \pertype{inlexicon}
+      \step[fieldset=options, fieldvalue={skipbib=true}]
+    }
+  }
+}
+
+% ------------------------------------------------------------------
+% DATA INHERITANCE
+% ------------------------------------------------------------------
+%   - inherit to shortmaintitle and shortbooktitle from shorttitle
+%   - inheritance for mvlexicon, lexicon, inlexicon
+% ------------------------------------------------------------------
+
+\DeclareDataInheritance{mvbook,mvcollection,mvreference}
+    {book,inbook,collection,incollection,reference,inreference}{%
+  \inherit{shorttitle}{shortmaintitle}
+}
+
+\DeclareDataInheritance{book,collection,reference}
+    {inbook,incollection,inreference}{%
+  \inherit{shorttitle}{shortbooktitle}
+}
+
+\DeclareDataInheritance{mvlexicon}{lexicon,inlexicon}{%
+  \inherit{title}{maintitle}
+  \inherit{subtitle}{mainsubtitle}
+  \inherit{titleaddon}{maintitleaddon}
+  \inherit{shorttitle}{shortmaintitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+}
+
+\DeclareDataInheritance{lexicon}{inlexicon}{%
+  \inherit{title}{booktitle}
+  \inherit{subtitle}{booksubtitle}
+  \inherit{titleaddon}{booktitleaddon}
+  \inherit{shorttitle}{shortbooktitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+}
+
+% ------------------------------------------------------------------
+% LANGUAGE
+% ------------------------------------------------------------------
+%   - use literals for origlanguage if no translation found
+% ------------------------------------------------------------------
+
+\renewcommand*{\lbx@lfromlang}{%
+  \iffieldundef{origlanguage}
+    {\unspace}
+    {\ifbibstring{from\thefield{origlanguage}}
+      {\biblstring{from\thefield{origlanguage}}}
+      {from \printfield{origlanguage}}}}
+
+\renewcommand*{\lbx@sfromlang}{%
+  \iffieldundef{origlanguage}
+    {\unspace}
+    {\ifbibstring{from\thefield{origlanguage}}
+       {\bibsstring{from\thefield{origlanguage}}}
+       {from \printfield{origlanguage}}}}
+
+% ------------------------------------------------------------------
+% JOINING WORD MACROS
+% ------------------------------------------------------------------
+
+\newbibmacro*{in}{%
+  \printtext{\bibstring{in}}%
+  \setunit{\addspace}}
+
+\newbibmacro*{to}{%
+  \printtext{\bibstring{to}}%
+  \setunit{\addspace}}
+
+\newbibmacro*{of}{%
+  \printtext{\bibstring{of}}%
+  \setunit{\addspace}}
+
+% ------------------------------------------------------------------
+% TITLE MACROS
+% ------------------------------------------------------------------
+
+\newbibmacro*{shorttitle}{%
+  \iffieldundef{shorttitle}
+    {}
+    {\printtext[title]{%
+       \printfield[titlecase]{shorttitle}%
+       \newunit}}}
+
+\newbibmacro*{shortbooktitle}{%
+  \iffieldundef{shortbooktitle}
+    {}
+    {\printtext[booktitle]{%
+       \printfield[titlecase]{shortbooktitle}%
+       \newunit}}}
+
+\newbibmacro*{shortmaintitle}{%
+  \iffieldundef{shortmaintitle}
+    {}
+    {\printtext[maintitle]{%
+       \printfield[titlecase]{shortmaintitle}%
+       \newunit}}}
+
+\renewbibmacro*{title}{%
+  \ifciteseen
+    {\ifboolexpr{
+       test {\iffieldundef{author}}
+       and
+       not test {\iffieldundef{editor}}
+     }
+       {}
+       {\usebibmacro{shorttitle}}}
+    {\ifboolexpr{
+       test {\iffieldundef{title}}
+       and
+       test {\iffieldundef{subtitle}}
+     }
+       {}
+       {\printtext[title]{%
+          \printfield[titlecase]{title}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{subtitle}}%
+        \newunit}%
+     \printfield{titleaddon}}}
+
+\renewbibmacro*{booktitle}{%
+  \ifciteseen
+    {\usebibmacro{shortbooktitle}}
+    {\ifboolexpr{
+       test {\iffieldundef{booktitle}}
+       and
+       test {\iffieldundef{booksubtitle}}
+     }
+       {}
+       {\printtext[booktitle]{%
+          \printfield[titlecase]{booktitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{booksubtitle}}%
+        \newunit}%
+     \printfield{booktitleaddon}}}
+
+\renewbibmacro*{maintitle}{%
+  \ifciteseen
+    {\usebibmacro{shortmaintitle}}
+    {\ifboolexpr{
+       test {\iffieldundef{maintitle}}
+       and
+       test {\iffieldundef{mainsubtitle}}
+     }
+       {}
+       {\printtext[maintitle]{%
+          \printfield[titlecase]{maintitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{mainsubtitle}}%
+        \newunit}%
+     \printfield{maintitleaddon}}}
+
+\newbibmacro*{booktitle+maintitle}{%
+  \iffieldundef{booktitle}
+    {\iffieldundef{maintitle}
+      {}
+      {\usebibmacro{maintitle}%
+       \clearfield{maintitle}%
+       \clearfield{mainsubtitle}%
+       \clearfield{maintitleaddon}
+       \newunit}}
+    {\usebibmacro{booktitle}%
+     \clearfield{booktitle}%
+     \clearfield{booksubtitle}%
+     \clearfield{bootitleaddon}%
+     \newunit}}
+
+\newbibmacro*{shortbooktitle+shortmaintitle}{%
+  \iffieldundef{shortbooktitle}
+    {\iffieldundef{shortmaintitle}
+      {}
+      {\usebibmacro{shortmaintitle}
+       \newunit}}
+    {\usebibmacro{shortbooktitle}%
+     \newunit}}
+
+\newbibmacro*{revdtitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{revdtitle}}
+    and
+    test {\iffieldundef{revdsubtitle}}
+  }
+    {}
+    {\printtext[revdtitle]{%
+       \printfield[titlecase]{revdtitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{revdsubtitle}}%
+     \newunit}%
+  \printfield{revdtitleaddon}}
+
+\newbibmacro*{shortjournal}{%
+  \iffieldundef{shortjournal}
+    {}
+    {\printtext[shortjournal]{%
+       \printfield[titlecase]{shortjournal}%
+       \newunit}}}
+
+\newbibmacro*{shortjournal+issuetitle}{%
+  \printfield{shortjournal}%
+  \setunit*{\addspace}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
+
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit{\addperiod}%
+  \printfield{number}%
+  \setunit{\addcomma\space}%
+  \printfield{eid}}
+
+\newbibmacro*{volume+part}{%
+  \iffieldundef{volume}
+    {}
+    {\iffieldundef{part}
+       {\printfield[volumeof]{volume}}
+       {\printfield[vol]{volume}%
+        \setunit{\addcomma\addspace}%
+        \printfield[partof]{part}}
+     \setunit{\addspace}}}
+
+% ------------------------------------------------------------------
+% NAME MACROS
+% ------------------------------------------------------------------
+
+\renewbibmacro*{author}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{author}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{author}%
+     }{%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{author}%
+          \usebibmacro{savehash}}%
+       \iffieldundef{authortype}
+         {}
+         {\setunit{\addcomma\space}%
+          \usebibmacro{authorstrg}}}}
+    {\global\undef\bbx@lasthash}}
+
+\renewbibmacro*{bybookauthor}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{bookauthor}}
+  }
+    {\usebibmacro{bytypestrg}{author}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{bookauthor}}
+    {}
+}
+     
+\renewbibmacro*{editor}{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{editor}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{editor}%
+     }{%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{editor}%
+          \usebibmacro{savehash}}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{editorstrg}%
+     }%
+     \clearname{editor}}
+    {\global\undef\bbx@lasthash}}
+
+\renewbibmacro*{editor+others}{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{editor}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{editor}%
+     }{%
+       \printnames{editor}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{editor+othersstrg}%
+     }%
+     \clearname{editor}}
+    {}}
+
+\renewbibmacro*{translator}{%
+  \ifboolexpr{
+    test \ifusetranslator
+    and
+    not test {\ifnameundef{translator}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{translator}%
+     }{%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{translator}%
+          \usebibmacro{savehash}}%
+     }%
+     \setunit{\addcomma\space}%
+     \usebibmacro{translatorstrg}%
+     \clearname{translator}}
+    {\global\undef\bbx@lasthash}}
+
+\renewbibmacro*{translator+others}{%
+  \ifboolexpr{
+    test \ifusetranslator
+    and
+    not test {\ifnameundef{translator}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{translator}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{translatorstrg}%
+     }{%
+       \printnames{translator}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{translator+othersstrg}%
+     }%
+     \clearname{translator}}
+    {}}
+
+\newbibmacro*{bybookeditor+others}{%
+  \iffieldundef{booktitle}
+    {}
+    {\ifnameundef{editor}
+       {}
+       {\usebibmacro{byeditor+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[byeditor]{editor}%
+        \clearname{editor}%
+        \newunit}%
+     \ifnameundef{bookeditor}
+       {}
+       {\usebibmacro{byeditor+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[byeditor]{bookeditor}%
+        \clearname{bookeditor}%
+        \newunit}%
+     \usebibmacro{bybooktranslator+others}}}
+
+\newbibmacro*{bymaineditor+others}{%
+  \iffieldundef{maintitle}
+    {}
+    {\ifnameundef{editor}
+       {}
+       {\usebibmacro{byeditor+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[byeditor]{editor}%
+        \clearname{editor}%
+        \newunit}%
+     \ifnameundef{maineditor}
+       {}
+       {\usebibmacro{byeditor+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[byeditor]{maineditor}%
+        \clearname{maineditor}%
+        \newunit}%
+     \usebibmacro{bymaintranslator+others}}}
+
+\newbibmacro*{byorigeditor+others}{%
+  \ifnameundef{origeditor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{origeditor}%
+     \clearname{origeditor}%
+     \newunit}%
+  \usebibmacro{byorigtranslator+others}}
+
+\newbibmacro*{bybooktranslator+others}{%
+  \ifnameundef{translator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{translator}%
+     \clearname{translator}%
+     \newunit}%
+  \ifnameundef{booktranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{booktranslator}%
+     \clearname{booktranslator}%
+     \newunit}}
+
+\newbibmacro*{bymaintranslator+others}{%
+  \ifnameundef{translator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{translator}%
+     \clearname{translator}%
+     \newunit}%
+  \ifnameundef{maintranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{maintranslator}%
+     \clearname{maintranslator}%
+     \newunit}}
+
+\newbibmacro*{byorigtranslator+others}{%
+  \ifnameundef{origtranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{origtranslator}%
+     \clearname{origtranslator}%
+     \newunit}}
+
+\newbibmacro*{revdauthor}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{revdauthor}}
+  }
+    {\bibstring{byauthor}%
+     \setunit{\addspace}%
+     \ifciteseen{%
+       \printnames[labelname]{revdauthor}%
+     }{%
+       \printnames{revdauthor}%
+       \iffieldundef{authortype}
+         {}
+         {\setunit{\addcomma\space}%
+          \usebibmacro{authorstrg}}}}
+    {}}
+
+\newbibmacro*{revdeditor}{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{revdeditor}}
+  }
+    {\bibsstring{byeditor}%
+     \setunit{\addspace}%
+     \ifciteseen{%
+       \printnames[labelname]{revdeditor}%
+     }{%
+       \printnames{revdeditor}%
+     }%
+     \clearname{revdeditor}}
+    {}}
+
+\newbibmacro*{revdauthor/revdeditor}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{revdauthor}}
+  }
+    {\usebibmacro{revdauthor}}
+    {\usebibmacro{revdeditor}}}
+
+
+\newbibmacro*{revdauthor/revdeditor+revdtitle}{%
+  \biblstring{reviewof}%
+  \setunit{\addspace}%
+  \usebibmacro{revdauthor/revdeditor}%
+  \ifciteseen
+    {}
+    {\setunit{\addcomma\space}%
+     \usebibmacro{revdtitle}}}
+
+\newbibmacro*{withpreface}{%
+  \ifnameundef{preface}
+    {}
+    {\bibstring{withpreface}%
+     \setunit{\addspace}%
+  \printnames[withpreface]{preface}}}
+
+\renewbibmacro*{withothers}{%
+  \usebibmacro{withcommentator}%
+  \clearname{commentator}%
+  \newunit
+  \usebibmacro{withannotator}%
+  \clearname{annotator}%
+  \newunit
+  \usebibmacro{withintroduction}%
+  \clearname{introduction}%
+  \newunit
+  \usebibmacro{withforeword}%
+  \clearname{foreword}%
+  \newunit
+  \usebibmacro{withpreface}%
+  \clearname{preface}%
+  \newunit
+  \usebibmacro{withafterword}%
+  \clearname{afterword}}
+
+\newbibmacro*{shortseries+number}{%
+  \iffieldundef{shortseries}
+    {\printfield{series}}
+    {\printfield{shortseries}}%
+  \setunit{\addspace}%
+  \iffieldundef{seriesseries}
+    {}
+    {\printfield{seriesseries}%
+     \printtext{/}}%
+  \printfield{number}%
+  \newunit}
+
+\renewbibmacro*{publisher+location+date}{%
+  \usebibmacro{reprint}%
+  \printlist{location}%
+  \iflistundef{publisher}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addcolon\space}}%
+  \printlist{publisher}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{date}%
+  \newunit}
+
+\newbibmacro*{origpublisher+location+date}{%
+  \printlist{origlocation}%
+  \iflistundef{origpublisher}
+    {\setunit*{\addcomma\space}}
+    {\setunit*{\addcolon\space}}%
+  \printlist{origpublisher}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{origdate}%
+  \newunit}
+
+\newbibmacro*{volume}{%
+  \iffieldundef{volume}
+    {}
+    {\setunit{\addspace}%
+     \global\booltrue{usevolpostnotedelim}%
+     \printfield{volume}%
+     \newunit}}
+
+\newbibmacro*{volumeof}{%
+  \iffieldundef{volume}
+    {}
+    {\iffieldundef{part}
+       {\printfield[volumeof]{volume}%
+        \setunit{\addspace}}
+       {}}}%
+
+\newbibmacro*{volume+pages}{%
+  \iffieldundef{volume}
+    {}
+    {\setunit{\addspace}%
+     \printfield{volume}%
+     \setunit{\addcolon}}
+  \printfield{pages}%
+  \newunit}
+
+\newbibmacro*{volume+part+pages}{%
+  \iffieldundef{volume}
+    {}
+    {\setunit{\addspace}%
+     \printfield{volume}%
+     \setunit{\addperiod}%
+     \printfield{part}%
+     \setunit{\addcolon}}
+  \printfield{pages}%
+  \newunit}
+
+\renewbibmacro*{url+urldate}{%
+  \iffieldundef{urlyear}
+    {}
+    {\printurldate}%
+  \newunit
+  \printfield{url}}
+
+\newbibmacro*{ebookedition}{%
+  \iffieldundef{ebookedition}
+    {}
+    {\printfield{ebookedition}}}
+
+\newbibmacro*{reprint}{%
+  \ifboolexpr{
+    not test {\iffieldundef{origpublisher}}
+    or
+    not test {\iffieldundef{origlocation}}
+    or
+    not test {\iffieldundef{origyear}}
+    or
+    not test {\iffieldundef{origdate}}
+  }
+    {\usebibmacro{origpublisher+location+date}%
+     \newunit
+     \bibstring{reprint}%
+     \setunit{\addcomma\addspace}}
+    {}}
+    
+\newbibmacro*{origdate}{\printorigdate}
+
+\renewbibmacro*{postnote}{%
+  \iffieldundef{postnote}
+    {}
+    {\printfield{postnote}}}
+
+
+% ------------------------------------------------------------------
+% BIBLIOGRAPHY REPEATED AUTHOR MACROS
+% ------------------------------------------------------------------
+
+\renewcommand*{\bibnamedash}{%
+  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
+
+\newbibmacro*{bbx:dashcheck}[2]{%
+  \ifboolexpr{
+    test {\iffieldequals{fullhash}{\bbx@lasthash}}
+    and
+    not test \iffirstonpage
+  }
+    {#1}
+    {#2}}
+
+\newbibmacro*{cbx:dashcheck}[2]{#2}
+
+\newbibmacro*{dashcheck}[2]{%
+  \usebibmacro{cbx:dashcheck}{#1}{#2}}
+
+\newbibmacro*{savehash}{}
+

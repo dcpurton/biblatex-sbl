@@ -1,0 +1,35 @@
+\ProvidesFile{sbl-english.lbx}
+
+\DeclareBibliographyStrings{%
+  inherit          = {english},
+  to               = {{to}{to}},
+  of               = {{of}{of}},
+  nopages          = {{no pages}{n.p\adddot}},
+  editor           = {{ed\adddot}{ed\adddot}},
+  editors          = {{eds\adddot}{eds\adddot}},
+  byeditor         = {{edited by}{ed\adddot}},
+  bytranslator     = {{translated \lbx@lfromlang\ by}{trans\adddot}},
+  withpreface      = {{with preface by}{with preface by}},
+  introduction     = {{introduction}{introduction}},
+  foreword         = {{foreword}{foreword}},
+  preface          = {{preface}{preface}},
+  reprint          = {{repr\adddot}{repr\adddot}},
+  phdthesis        = {{Ph.D\adddot\ diss\adddot}{Ph.D\adddot\ diss\adddot}},
+  presentedpaper   = {{paper presented at}{paper presented at}}
+}
+
+InheritBibliographyExtras{english}
+
+\DeclareBibliographyExtras{%
+  \protected\def\mkbibdatelong#1#2#3{%
+    \iffieldundef{#3}
+      {}
+      {\stripzeros{\thefield{#3}}%
+       \iffieldundef{#2}{}{\nobreakspace}}%
+    \iffieldundef{#2}
+      {}
+      {\mkbibmonth{\thefield{#2}}%
+       \iffieldundef{#1}{}{\space}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
+}
+

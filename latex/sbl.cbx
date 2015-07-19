@@ -1,0 +1,305 @@
+\ProvidesFile{sbl.cbx}[2014/05/17 v0.1 SBL biblatex citation style]
+
+\blx@inputonce{biblatex-sbl.def}{SBL generic definitions}{}{}{}{}
+
+\newbool{suppresspostnote}
+\newbool{usevolpostnotedelim}
+
+\newbibmacro*{cite}{%
+  \boolfalse{suppresspostnote}%
+  \boolfalse{usevolpostnotedelim}%
+  \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
+  \printtext{%
+    \ifboolexpr{%
+        test {\ifciteibid}
+        and
+        not test {\iffirstonpage}}
+      {\usebibmacro{cite:ibid}}
+      {\usedriver{}{cite:\thefield{entrytype}}}}}
+
+\newbibmacro*{cite:ibid}{%
+  \printtext[bibhyperlink]{\bibstring[\mkibid]{ibidem}}}
+
+\newbibmacro*{bibentrycite}{%
+  \citereset
+  \def\abx@str{abx@lstr}%
+  \renewcommand*{\revsdnamedelim}{\addcomma}%
+  \setcounter{maxnames}{100}%
+  \setcounter{maxitems}{100}%
+  \DeclareNameAlias{author}{sortname}%
+  \DeclareNameAlias{editor}{sortname}%
+  \DeclareNameAlias{translator}{sortname}%
+  \renewcommand*{\newunitpunct}{\addperiod\space}%
+  \sloppy
+  \printtext{\usedriver{}{\thefield{entrytype}}}}
+
+\newbibmacro*{cite:postnote}{%
+  \ifbool{suppresspostnote}{}{%
+    \ifbool{usevolpostnotedelim}
+      {\setunit{\volpostnotedelim}}
+      {\setunit{\postnotedelim}}%
+    \usebibmacro{postnote}}}
+
+\DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\cite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\bibentrycite}
+  {}
+  {\usebibmacro{bibentrycite}}
+  {\multicitedelim}
+  {}
+
+\DeclareCiteCommand{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\footcitetext}[\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareBibliographyDriver{cite:article}{%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\usebibmacro{shortjournal+issuetitle}%
+     \setunit{\bibpagerefpunct}%
+     \printfield{pages}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:book}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\usebibmacro{volumeof}%
+     \usebibmacro{booktitle+maintitle}%
+     \newunit
+     \usebibmacro{byeditor+others}%
+     \newunit
+     \printfield{volumes}%
+     \newunit
+     \printfield{edition}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{byorigeditor+others}%
+       \newunit
+       \usebibmacro{publisher+location+date}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:suppbook}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \ifciteseen
+    {\printfield{type}}
+    {\printfield{type}%
+     \setunit{\addspace}%
+     \usebibmacro{to}%
+     \usebibmacro{booktitle+maintitle}%
+     \newunit
+     \usebibmacro{bybookauthor}%
+     \newunit
+     \usebibmacro{byeditor+others}%
+     \newunit
+     \printfield{volumes}%
+     \newunit
+     \printfield{edition}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{publisher+location+date}%
+     }%
+     \newunit
+     \printfield{pages}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:collection}{%
+  \usebibmacro{editor+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\usebibmacro{volumeof}%
+     \usebibmacro{booktitle+maintitle}%
+     \newunit
+     \usebibmacro{byeditor+others}%
+     \newunit
+     \printfield{edition}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{publisher+location+date}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:incollection}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\usebibmacro{in}%
+     \usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookeditor+others}%
+     \newunit
+     \usebibmacro{volumeof}%
+     \usebibmacro{maintitle}%
+     \newunit
+     \usebibmacro{bymaineditor+others}%
+     \newunit
+     \printfield{volumes}%
+     \newunit
+     \printfield{edition}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{publisher+location+date}%
+     }%
+     \newunit
+     \iffieldundef{part}
+       {\printfield{pages}}
+       {\usebibmacro{volume+part+pages}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:inlexicon}{%
+  \nocite{\thefield{lexiconref}}%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \ifciteseen
+    {\usebibmacro{shortbooktitle+shortmaintitle}%
+     \usebibmacro{volume}}
+    {\usebibmacro{title}%
+     \usebibmacro{shortbooktitle+shortmaintitle}%
+     \newunit
+     \usebibmacro{volume+pages}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:inreference}{%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {\usebibmacro{volume}}
+    {\usebibmacro{shortbooktitle+shortmaintitle}%
+     \newunit
+     \usebibmacro{volume+pages}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:review}{%
+  \usebibmacro{author/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{revdtitle}%
+  \newunit
+  \ifciteseen
+    {\printtext[parens]{\usebibmacro{revdauthor/revdeditor}}}
+    {\usebibmacro{revdauthor/revdeditor}%
+     \newunit
+     \usebibmacro{shortjournal+issuetitle}%
+     \setunit{\bibpagerefpunct}%
+     \printfield{pages}%
+     \renewcommand*{\newunitpunct}{\addperiod\space}%
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:seminarpaper}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookeditor+others}%
+     \newunit
+     \usebibmacro{volumeof}%
+     \usebibmacro{maintitle}%
+     \newunit
+     \usebibmacro{bymaineditor+others}%
+     \newunit
+     \printfield{volumes}%
+     \newunit
+     \printfield{edition}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{publisher+location+date}%
+     }%
+     \newunit
+     \iffieldundef{part}
+       {\printfield{pages}}
+       {\usebibmacro{volume+part+pages}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:thesis}{%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \printfield{type}%
+       \setunit{\addcomma\addspace}%
+       \usebibmacro{institution+location+date}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
+
+\DeclareBibliographyDriver{cite:inproceedings}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\printtext[parens]{%
+       \printfield{type}%
+       \setunit{\addspace}%
+       \printfield{eventtitle}%
+       \newunit
+       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+       \usebibmacro{publisher+location+date}}%
+       \newunit
+       \usebibmacro{doi+eprint+url}}}
+
+\endinput
