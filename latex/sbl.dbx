@@ -23,22 +23,48 @@
   revdauthor,
   revdeditor}
 
+\DeclareDatamodelFields[type=field, datatype=date]{
+  releasedate}
+
+\DeclareDatamodelFields[type=field, datatype=datepart]{
+  releaseday,
+  releasemonth,
+  releaseyear}
+
+\DeclareDatamodelEntryfields[book]{
+  releasedate,
+  releaseday,
+  releasemonth,
+  releaseyear}
+
 \DeclareDatamodelEntryfields[book]{
   origeditor,
   origtranslator,
   preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   seriesseries,
   shortmaintitle}
 
 \DeclareDatamodelEntryfields[mvbook]{
   origeditor,
   origtranslator,
-  preface}
+  preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear}
 
 \DeclareDatamodelEntryfields[inbook,bookinbook,suppbook]{
   origeditor,
   origtranslator,
   preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   shortbooktitle,
   shortmaintitle}
 
@@ -48,6 +74,10 @@
   origeditor,
   origtranslator,
   preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   shortmaintitle}
 
 \DeclareDatamodelEntryfields[mvcollection,mvreference]{
@@ -55,7 +85,11 @@
   maineditor,
   origeditor,
   origtranslator,
-  preface}
+  preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear}
 
 \DeclareDatamodelEntryfields[incollection,suppcollection,inreference]{
   bookeditor,
@@ -63,13 +97,25 @@
   origeditor,
   origtranslator,
   preface,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   shortbooktitle,
   shortmaintitle}
 
 \DeclareDatamodelEntryfields[proceedings]{
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   shortmaintitle}
 
 \DeclareDatamodelEntryfields[inproceedings]{
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   shortbooktitle,
   shortmaintitle}
 
@@ -117,6 +163,10 @@
   preface,
   publisher,
   pubstate,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   series,
   shortmaintitle,
   subtitle,
@@ -170,6 +220,10 @@
   preface,
   publisher,
   pubstate,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   subtitle,
   titleaddon,
   translator,
@@ -231,6 +285,10 @@
   preface,
   publisher,
   pubstate,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   series,
   shortbooktitle,
   shortmaintitle,
@@ -285,6 +343,10 @@
   origtranslator,
   pages,
   pubstate,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   revdauthor,
   revdeditor,
   revdtitle,
@@ -351,6 +413,10 @@
   preface,
   publisher,
   pubstate,
+  relaesedate,
+  releaseday,
+  releasemonth,
+  releaseyear,
   series,
   shortbooktitle,
   shortmaintitle,
