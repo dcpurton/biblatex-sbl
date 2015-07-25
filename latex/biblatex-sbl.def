@@ -1,10 +1,19 @@
 \RequireBibliographyStyle{standard}
 
+\protected\def\blx@imc@printorigdate{}
+\blx@regimcs{\printreleasedate}
+\DeclareBibliographyOption{releasedate}{%
+  \ifcsdef{mkbibrange#1}
+    {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
+    {\blx@err@invopt{releasedate=#1}{}}}
+
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
   usetranslator,
   urldate=comp,
+  date=comp,
+  releasedate=comp,
   dateabbrev=false,
   autocite=footnote,
   url,
@@ -27,6 +36,7 @@
 \NewBibliographyString{preface}
 \NewBibliographyString{nopages}
 \NewBibliographyString{presentedpaper}
+\NewBibliographyString{released}
 
 \DeclareLanguageMapping{english}{sbl-english}
 
@@ -46,7 +56,19 @@
   \ifinteger{#1}
     {\mkbibordedition{#1}~\bibsstring{edition}}
     {#1\isdot}}
-    \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
+\DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
+\DeclareFieldFormat{eprint:literal}{#1}
+\DeclareFieldFormat{eprint}{%
+  \iffieldundef{eprinttype}
+    {eprint}
+    {\thefield{eprinttype}}%
+  \newunitpunct
+  \ifhyperref
+    {\url{#1}}
+    {\nolinkurl{#1}}%
+  \iffieldundef{eprintclass}
+    {}
+    {\addspace\mkbibparens{\thefield{eprintclass}}}}
 \DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat{postnote}{\mkcomprange{#1}}
 \DeclareFieldFormat{multipostnote}{#1}
@@ -69,6 +91,7 @@
 \DeclareFieldFormat{no}{\bibsstring{number}~#1}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\space#1}
+\DeclareFieldFormat{releasedate}{\bibstring{released}\space#1}
 
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
@@ -97,6 +120,10 @@
 \DeclareBibliographyAlias{cite:mvlexicon}{cite:mvreference}
 \DeclareBibliographyAlias{inbook}{incollection}
 \DeclareBibliographyAlias{cite:inbook}{cite:incollection}
+
+\DeclareLabeldate{%
+  \field{releasedate}
+}
 
 \renewcommand*{\newunitpunct}{\addcomma\space}
 \newcommand*{\volpostnotedelim}{\addcolon}
@@ -359,6 +386,27 @@
   \setunit{\addcolon\space}%
   \usebibmacro{issue}%
   \newunit}
+
+\renewbibmacro*{issue+date}{%
+  \ifboolexpr{
+    test {\iffieldundef{year}}
+    and
+    test {\iffieldundef{issue}}
+    and
+    test {\iffieldundef{date}}
+    and
+    test {\iffieldundef{month}}
+    and
+    test {\iffieldundef{day}}
+  }
+    {}
+    {\printtext[parens]{%
+       \iffieldundef{issue}
+         {\usebibmacro{date}}
+         {\printfield{issue}%
+          \setunit*{\addspace}%
+          \usebibmacro{date}}}%
+     \newunit}}
 
 \renewbibmacro*{volume+number+eid}{%
   \printfield{volume}%
@@ -750,6 +798,8 @@
     {}}
     
 \newbibmacro*{origdate}{\printorigdate}
+
+\newbibmacro*{releasedate}{\printreleasedate}
 
 \renewbibmacro*{postnote}{%
   \iffieldundef{postnote}
