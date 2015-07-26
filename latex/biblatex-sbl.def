@@ -132,6 +132,42 @@
 
 
 % ------------------------------------------------------------------
+% LIST OF ABBREVIATIONS
+% ------------------------------------------------------------------
+
+\DeclareBibliographyDriver{shorthand}{%
+  \iffieldundef{shortjournal}
+    {}
+    {\printfield{journaltitle}}%
+  \iffieldundef{shortseries}
+    {}
+    {\printfield{series}}%
+}
+
+% skip repeated shorthands
+\defbibcheck{shorthand}{%
+  \iffieldundef{series}
+    {}
+    {\ifcsdef{\strfield{series}}
+      {\skipentry}
+      {\savefieldcs{series}{\strfield{series}}}%   
+    }%
+  \iffieldundef{journaltitle}
+    {}
+    {\ifcsdef{\strfield{journaltitle}}
+      {\skipentry}
+      {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
+    }%
+}
+
+\DeclareSortingScheme{shortjournal}{%
+  \sort{%
+    \field{shortjournal}%
+  }%
+}
+
+
+% ------------------------------------------------------------------
 % SOURCE MAPS
 % ------------------------------------------------------------------
 %   - cut titles at colons to create short titles
@@ -165,8 +201,12 @@
       \step[fieldset=shortmaintitle, origfieldval]
     }
     \map{
-      \step[fieldsource=journaltitle, final]
-      \step[fieldset=shortjournal, origfieldval]
+      \step[fieldsource=shortjournal, match=\regexp{(.*)}, final]
+      \step[fieldset=shorthand, fieldvalue={\emph{$1}}]
+    }
+    \map{
+      \step[fieldsource=shortseries, final]
+      \step[fieldset=shorthand, origfieldval]
     }
     \map[overwrite]{
       \pertype{inlexicon}
