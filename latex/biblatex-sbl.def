@@ -7,6 +7,11 @@
     {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
     {\blx@err@invopt{releasedate=#1}{}}}
 
+\DeclareBibliographyOption{ibidpage}[true]{%
+  \ifstrequal{#1}{true}
+    {\ExecuteBibliographyOptions{loccittracker=true}}
+    {\ExecuteBibliographyOptions{loccittracker=false}}}
+
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
@@ -19,7 +24,8 @@
   url,
   related,
   isbn=false,
-  ibidtracker=false
+  ibidtracker=true,
+  ibidpage=true
 }
 
 \urlstyle{same}

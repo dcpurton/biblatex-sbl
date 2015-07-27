@@ -5,6 +5,8 @@
 \newbool{suppresspostnote}
 \newbool{usevolpostnotedelim}
 
+\newtoggle{cbx:loccit}
+
 \newbibmacro*{cite}{%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
@@ -18,7 +20,10 @@
       {\usedriver{}{cite:\thefield{entrytype}}}}}
 
 \newbibmacro*{cite:ibid}{%
-  \printtext[bibhyperlink]{\bibstring[\mkibid]{ibidem}}}
+  \printtext[bibhyperlink]{\bibstring[\mkibid]{ibidem}}%
+  \ifloccit
+    {\global\booltrue{suppresspostnote}}
+    {}}
 
 \newbibmacro*{bibentrycite}{%
   \citereset
