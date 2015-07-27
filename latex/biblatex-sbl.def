@@ -136,12 +136,19 @@
 % ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{shorthand}{%
-  \iffieldundef{shortjournal}
-    {}
-    {\printfield{journaltitle}}%
-  \iffieldundef{shortseries}
-    {}
-    {\printfield{series}}%
+  \ifboolexpr{
+    test {\iffieldundef{shortjournal}}
+    and
+    test {\iffieldundef{shortseries}}
+  }
+    {\usebibmacro{bibentrycite}}
+    {\iffieldundef{shortjournal}
+       {}
+       {\printfield{journaltitle}}%
+     \iffieldundef{shortseries}
+       {}
+       {\printfield{series}}%
+    }%
 }
 
 % skip repeated shorthands
