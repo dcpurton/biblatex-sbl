@@ -147,7 +147,14 @@
     and
     test {\iffieldundef{shortseries}}
   }
-    {\usebibmacro{bibentrycite}}
+    {\ifboolexpr{
+       test {\ifentrytype{lexicon}}
+       or
+       test {\ifentrytype{mvlexicon}}
+     }
+       {\usebibmacro{lexiconshorthandcite}}
+       {\usebibmacro{bibentrycite}}%
+    }
     {\iffieldundef{shortjournal}
        {}
        {\printfield{journaltitle}}%
@@ -179,6 +186,28 @@
   }%
 }
 
+\newbibmacro*{lexiconshorthandcite}{%
+  \def\abx@str{abx@lstr}%
+  \renewcommand*{\newunitpunct}{\addperiod\space}%
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{volume+part}%
+  \usebibmacro{booktitle+maintitle}%
+  \newunit
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \printfield{edition}%
+  \newunit
+  \printfield{volumes}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \usebibmacro{publisher+location+date}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+}
 
 % ------------------------------------------------------------------
 % SOURCE MAPS
@@ -220,6 +249,12 @@
     \map{
       \step[fieldsource=shortseries, final]
       \step[fieldset=shorthand, origfieldval]
+    }
+    \map{
+      \pertype{mvlexicon}
+      \pertype{lexicon}
+      \step[fieldsource=shorttitle, match=\regexp{(.*)}, final]
+      \step[fieldset=shorthand, fieldvalue={\emph{$1}}]
     }
     \map[overwrite]{
       \pertype{inlexicon}
