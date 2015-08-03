@@ -903,7 +903,7 @@
 % ------------------------------------------------------------------
 
 \renewcommand*{\bibnamedash}{%
-  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
+  \leavevmode\raise -0.4ex\hbox to 4.5em{\hrulefill}.\space}
 
 \newbibmacro*{bbx:dashcheck}[2]{%
   \ifboolexpr{
