@@ -299,7 +299,8 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\printtext[parens]{%
+    {\setunit{\addspace}%
+     \printtext[parens]{%
        \printfield{type}%
        \setunit{\addspace}%
        \printfield{eventtitle}%
