@@ -75,6 +75,9 @@
   \iffieldundef{eprintclass}
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
+\renewcommand*{\volcitedelim}{\addcolon}
+\DeclareFieldFormat{volcitevolume}{#1}
+\DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
 \DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat{postnote}{\mkcomprange{#1}}
 \DeclareFieldFormat{multipostnote}{#1}
