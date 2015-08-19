@@ -88,7 +88,7 @@
   \ifciteseen
     {}
     {\usebibmacro{shortjournal+issuetitle}%
-     \setunit{\bibpagerefpunct}%
+     \setunit{\addcolon\space}%
      \printfield{pages}%
      \newunit
      \usebibmacro{releasedate}%
@@ -197,9 +197,7 @@
        \usebibmacro{publisher+location+date}%
      }%
      \newunit
-     \iffieldundef{part}
-       {\printfield{pages}}
-       {\usebibmacro{volume+part+pages}}%
+     \usebibmacro{volume+part+pages}%
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
@@ -241,7 +239,7 @@
     {\usebibmacro{revdauthor/revdeditor}%
      \newunit
      \usebibmacro{shortjournal+issuetitle}%
-     \setunit{\bibpagerefpunct}%
+     \setunit{\addcolon\space}%
      \printfield{pages}%
      \renewcommand*{\newunitpunct}{\addperiod\space}%
      \usebibmacro{doi+eprint+url}}}
@@ -272,9 +270,7 @@
        \usebibmacro{publisher+location+date}%
      }%
      \newunit
-     \iffieldundef{part}
-       {\printfield{pages}}
-       {\usebibmacro{volume+part+pages}}%
+     \usebibmacro{volume+part+pages}%
      \newunit
      \usebibmacro{doi+eprint+url}}}
 

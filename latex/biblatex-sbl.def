@@ -47,7 +47,6 @@
 \DeclareLanguageMapping{english}{sbl-english}
 
 \uspunctuation
-\renewcommand*{\bibpagerefpunct}{\addcolon\space}
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
 
@@ -843,20 +842,21 @@
     {}
     {\setunit{\addspace}%
      \printfield{volume}%
-     \setunit{\addcolon}}
-  \printfield{pages}%
-  \newunit}
+     \setunit{\volpostnotedelim}}
+  \printfield{pages}}
 
 \newbibmacro*{volume+part+pages}{%
-  \iffieldundef{volume}
+  \ifboolexpr{
+    test {\iffieldundef{volume}}
+    or
+    test {\iffieldundef{part}}
+  }
     {}
-    {\setunit{\addspace}%
-     \printfield{volume}%
+    {\printfield{volume}%
      \setunit{\addperiod}%
      \printfield{part}%
-     \setunit{\addcolon}}
-  \printfield{pages}%
-  \newunit}
+     \setunit{\volpostnotedelim}}
+  \printfield{pages}}
 
 \renewbibmacro*{url+urldate}{%
   \iffieldundef{urlyear}
