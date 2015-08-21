@@ -25,7 +25,9 @@
   related,
   isbn=false,
   ibidtracker=true,
-  ibidpage=true
+  ibidpage=true,
+  maxbibnames=99,
+  maxcitenames=3
 }
 
 \urlstyle{same}
