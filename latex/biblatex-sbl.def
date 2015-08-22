@@ -12,6 +12,107 @@
     {\ExecuteBibliographyOptions{loccittracker=true}}
     {\ExecuteBibliographyOptions{loccittracker=false}}}
 
+% ------------------------------------------------------------------
+% CITEPAGES OPTION
+% ------------------------------------------------------------------
+
+\renewbibmacro*{postnote}{}
+\newbibmacro*{pages}{}
+
+\DeclareBibliographyOption{citepages}[permit]{%
+  \ifcsdef{cbx@opt@citepages@#1}
+    {\csuse{cbx@opt@citepages@#1}}
+    {\PackageError{biblatex}
+       {Invalid option 'citepages=#1'}
+       {Valid values are 'sbl', 'permit', 'suppress', 'omit', 'separate'.}}}
+
+\providebibmacro*{postnote}{}
+\providebibmacro*{pages}{}
+
+\def\cbx@opt@citepages@sbl{%
+  \renewbibmacro*{pages}{%
+    \printfield{pages}
+    \iffieldundef{postnote}
+      {}
+      {\iffieldpages{postnote}
+         {}
+         {\setunit{\addspace}%
+          \printtext{\mkbibparens{\printfield{postnote}}}}}}%
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {}
+      {\printfield{postnote}}}}
+
+\def\cbx@opt@citepages@permit{%
+  \renewbibmacro*{pages}{%
+    \printfield{pages}%
+    \iffieldundef{postnote}
+      {}
+      {\setunit{\addspace}%
+       \printtext{\mkbibparens{\printfield{postnote}}}}}%
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {\printfield{pages}}
+      {\iffieldpages{postnote}
+         {\printfield{postnote}}
+         {\printfield{pages}%
+          \setunit*{\addspace}%
+          \printtext{\mkbibparens{\printfield{postnote}}}}}}}
+
+\def\cbx@opt@citepages@suppress{%
+  \renewbibmacro*{pages}{%
+    \iffieldundef{postnote}
+      {}
+      {\printfield{postnote}}}%
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {}
+      {\printfield{postnote}}}}
+
+\def\cbx@opt@citepages@omit{%
+  \renewbibmacro*{pages}{%
+    \iffieldundef{postnote}
+      {\printfield{pages}}
+      {\printfield{postnote}}}%
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {\printfield{pages}}
+      {\iffieldpages{postnote}
+         {\printfield{postnote}}
+         {\printfield{pages}%
+          \setunit*{\addspace}%
+          \printtext{\mkbibparens{\printfield{postnote}}}}}}}
+
+\def\cbx@opt@citepages@separate{%
+  \renewbibmacro*{pages}{%
+    \printfield{pages}%
+    \iffieldundef{postnote}
+      {}
+      {\setunit{\addspace}%
+       \printtext{\mkbibparens{%
+         \iffieldpages{postnote}
+           {\bibstring{thiscite}%
+            \setunit{\addspace}}
+           {}%
+         \printfield{postnote}}}}}%
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {\printfield{pages}}
+      {\iffieldpages{postnote}
+         {\printfield{postnote}}
+         {\printfield{pages}%
+          \setunit*{\addspace}%
+          \printtext{\mkbibparens{%
+            \iffieldpages{postnote}
+              {\bibstring{thiscite}%
+               \setunit{\addspace}}
+              {}%
+            \printfield{postnote}}}}}}}
+
+% ------------------------------------------------------------------
+% STYLE OPTION
+% ------------------------------------------------------------------
+
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
@@ -27,7 +128,8 @@
   ibidtracker=true,
   ibidpage=true,
   maxbibnames=99,
-  maxcitenames=3
+  maxcitenames=3,
+  citepages=sbl
 }
 
 \urlstyle{same}
@@ -845,7 +947,7 @@
     {\setunit{\addspace}%
      \printfield{volume}%
      \setunit{\volpostnotedelim}}
-  \printfield{pages}}
+  \usebibmacro{pages}}
 
 \newbibmacro*{volume+part+pages}{%
   \ifboolexpr{
@@ -858,7 +960,7 @@
      \setunit{\addperiod}%
      \printfield{part}%
      \setunit{\volpostnotedelim}}
-  \printfield{pages}}
+  \usebibmacro{pages}}
 
 \renewbibmacro*{url+urldate}{%
   \iffieldundef{urlyear}
@@ -896,11 +998,6 @@
 \newbibmacro*{origdate}{\printorigdate}
 
 \newbibmacro*{releasedate}{\printreleasedate}
-
-\renewbibmacro*{postnote}{%
-  \iffieldundef{postnote}
-    {}
-    {\printfield{postnote}}}
 
 
 % ------------------------------------------------------------------

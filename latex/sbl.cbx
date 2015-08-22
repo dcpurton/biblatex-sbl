@@ -89,7 +89,7 @@
     {}
     {\usebibmacro{shortjournal+issuetitle}%
      \setunit{\addcolon\space}%
-     \printfield{pages}%
+     \usebibmacro{pages}%
      \newunit
      \usebibmacro{releasedate}%
      \newunit
@@ -145,7 +145,7 @@
        \usebibmacro{publisher+location+date}%
      }%
      \newunit
-     \printfield{pages}%
+     \usebibmacro{pages}%
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
@@ -240,7 +240,7 @@
      \newunit
      \usebibmacro{shortjournal+issuetitle}%
      \setunit{\addcolon\space}%
-     \printfield{pages}%
+     \usebibmacro{pages}%
      \renewcommand*{\newunitpunct}{\addperiod\space}%
      \usebibmacro{doi+eprint+url}}}
 
