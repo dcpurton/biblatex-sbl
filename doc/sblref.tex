@@ -1893,7 +1893,7 @@ TODO: Not yet supported.
 \subsubsection{Bible Commentaries}
 
 \begin{vb}
-@book{hooker:1991,
+@commentary{hooker:1991,
   author = hooker,
   title = {The Gospel according to Saint Mark},
   series = BNTC,
@@ -1915,12 +1915,214 @@ TODO: Not yet supported.
   Mark.} BNTC 2. Peabody, MA: Hendrickson, 1991.
 \end{refimp}
 
-\subsubsection{A Single Volume of a Multivolume Commentary in a Series}
+\paragraph{Articles and Notes in Study Bibles}
 
-The style for citing a single volume of a multivolume commentary in a series
-is the same as for a titled volume in a multivolume edited work (§6.2.21). The
-style for citing the entire work follows that for a multivolume work
-(§6.2.20).
+\begin{vb}
+@inbook{petersen:2006,
+  author = petersen,
+  title = {Ezekiel},
+  pages = {1096-1167},
+  booktitle = {The HarperCollins Study Bible Fully Revised and
+               Updated: New Revised Standard Version, with the
+               Apocryphal\slash Deuterocanonical Books},
+  editor = attridge # " and others",
+  location = sanfrancisco,
+  publisher = harpersanfrancisco,
+  date = {2006}
+}
+\end{vb}
+
+\begin{sloppy}
+  \citetest{3}{1096}{5}{1096}{petersen:2006}
+\end{sloppy}
+
+\begin{refimp}
+  3. David L. Petersen, “Ezekiel,” in \emph{The HarperCollins Study Bible
+  Fully Revised and Updated: New Revised Standard Version, with the
+  Apocryphal\slash Deuterocanonical Books,} ed.\ Harold W. Attridge et al.
+  (San Francisco: HarperSanFrancisco, 2006), 1096.\footnote{Should be
+  “1096–167.”?}
+
+  5. Petersen, “Ezekiel,” 1096.
+
+  \hangindent\bibindent Petersen, David L. “Ezekiel.” Pages
+  1096–1167\footnote{Should be “1096–167”} in \emph{The HarperCollins Study
+  Bible Fully Revised and Updated, New Revised Standard Version, with the
+  Apocryphal\slash Deuterocanonical Books.} Edited by Harold W. Attridge et
+  al. San Francisco: HarperSanFrancisco, 2006.
+\end{refimp}
+
+\paragraph{Single-Volume Commentaries on the Entire Bible}
+
+\begin{vb}
+@incommentary{partain:1995,
+  author = partain,
+  title = {Numbers},
+  pages = {175-179},
+  booktitle = {Mercer Commentary on the Bible},
+  editor = mills # " and others",
+  location = macon,
+  publisher = mup,
+  date = {1995}
+}
+\end{vb}
+
+\citetestnpf{5}{8}{175}{partain:1995}
+
+\begin{refimp}
+  5. Jack G. Partain, “Numbers,” in \emph{Mercer Commentary on the Bible,}
+  ed.\ Watson E. Mills et al. (Macon, GA: Mercer University Press, 1995),
+  175–79.
+
+  8. Partain, “Numbers,” 175.
+
+  \hangindent\bibindent Partain, Jack G. “Numbers.” Pages 175–79 in
+  \emph{Mercer Commentary on the Bible.} Edited by Watson E. Mills et al.
+  Macon, GA: Mercer University Press, 1995.
+\end{refimp}
+
+\subsubsection{Multivolume Commentaries}
+
+\paragraph{Multivolume Commentaries on a Single Biblical Book by One Author}
+
+\begin{vb}
+@mvcommentary{dahood:1965-1970,
+  author = dahood,
+  title = {Psalms},
+  volumes = {3},
+  series = AB,
+  shortseries = {AB},
+  number = {16--17A},
+  location = gardencity,
+  publisher = doubleday,
+  date = {1965/1970}
+}
+\end{vb}
+
+\citetest{4}{3:127}{7}{2:121}{dahood:1965-1970}
+
+\begin{refimp}
+  4. Mitchell Dahood, \emph{Psalms,} 3 vols., AB 16–17A (Garden City,
+  N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970), 3:127.
+
+  7. Dahood, \emph{Psalms,} 2:121.
+
+  \hangindent\bibindent Dahood, Mitchell. \emph{Psalms.} 3 vols. AB 16–17A.
+  Garden City, N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970.
+\end{refimp}
+
+\begin{vb}
+@commentary{dahood:1965,
+  author = dahood,
+  title = {Psalms I: 1--50},
+  shorttitle = {Psalms I: 1--50},
+  series = AB,
+  shortseries = {AB},
+  number = {16},
+  location = gardencity,
+  publisher = doubleday,
+  year = {1965}
+}
+
+@commentary{dahood:1968,
+  author = dahood,
+  title = {Psalms II: 51--100},
+  shorttitle = {Psalms II: 51--100},
+  series = AB,
+  shortseries = {AB},
+  number = {17},
+  location = gardencity,
+  publisher = doubleday,
+  year = {1968}
+}
+\end{vb}
+
+{\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite[44]\{dahood:1965\}}\par
+   \color{biblatex-colour}
+   78. \cite[44]{dahood:1965}.\par
+   \color{black}
+   \texttt{\textbackslash autocite[78]\{dahood:1965\}}\par
+   \color{biblatex-colour}
+   79. \cite[78]{dahood:1965}.\par
+   \color{black}
+   \texttt{\textbackslash autocite[347]\{dahood:1968\}}\par
+   \color{biblatex-colour}
+   82. \cite[347]{dahood:1968}.\par
+   \color{black}
+   \texttt{\textbackslash autocite[351]\{dahood:1968\}}\par
+   \color{biblatex-colour}
+   86. \cite[351]{dahood:1968}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{dahood:1965}.\par
+   \renewbibmacro*{dashcheck}[2]{%
+     \usebibmacro{cbx:dashcheck}{#1}{#1}}
+   \hangindent\bibindent\bibentrycite{dahood:1968}\par}
+
+\begin{refimp}
+  78. Mitchell Dahood, \emph{Psalms I: 1–50,} AB 16 (Garden City, NY:
+  Doubleday, 1965), 44.
+
+  79. Dahood, \emph{Psalms I: 1–50,} 78.
+
+  82. Mitchell Dahood, \emph{Psalms II: 51–100,} AB 17 (Garden City, NY:
+  Doubleday, 1968), 347.
+
+  86. Dahood, \emph{Psalms II: 51–100,} 351.
+
+  \hangindent\bibindent Dahood, Mitchell. \emph{Psalms I: 1–50.} Vol.~1 of
+  \emph{Psalms.} AB 16. Garden City, NY: Doubleday, 1965.
+
+  \hangindent\bibindent\bibnamedash \emph{Psalms II: 51–100.} Vol.~2 of
+  \emph{Psalms.} AB 17. Garden City, N.Y.:\footnote{Should be “NY:”?}
+  Doubleday, 1968.
+\end{refimp}
+
+\paragraph{Multivolume Commentaries for the Entire Bible by Multiple Authors}
+
+\begin{vb}
+@incommentary{miller:2001,
+  author = miller,
+  title = {The Book of Jeremiah: Introduction, Commentary,
+           and Reflections},
+  pages = {553-926},
+  booktitle = {Introduction to Prophetic Literature, Isaiah,
+               Jeremiah, Baruch, Letter of Jeremiah,
+               Lamentations, Ezekiel},
+  volume = {6},
+  maintitle = NIB,
+  shortmaintitle = {NIB},
+  maineditor = keck,
+  location = nashville,
+  publisher = abingdon,
+  date = {2001}
+}
+\end{vb}
+
+\citetestns{1}{577}{miller:2001}
+
+\texttt{\textbackslash usepackage[style=sbl,commentaryfullbibref=false]\{biblatex\} \\
+  \textbackslash printbibliography}
+
+{\color{biblatex-colour}
+ \togglefalse{commentaryfullbibref}
+ \hangindent\bibindent\bibentrycite{miller:2001}.\par}
+
+\begin{refimp}
+  1. Patrick D. Miller, \emph{NIB} 6:577.
+
+  \hangindent\bibindent Miller, Patrick D. “The Book of Jeremiah:
+  Introduction, Commentary, and Reflections.” Pages 553–926 in
+  \emph{Introduction to Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter
+  of Jeremiah, Lamentations, Ezekiel.} Vol.~6 of \emph{New Interpreter’s
+  Bible.} Edited by Leander E. Keck. Nashville: Abingdon, 2001.
+
+  \hangindent\bibindent Miller, Patrick D. “The Book of Jeremiah:
+  Introduction, Commentary, and Reflections.” \emph{NIB} 6:553–926.
+\end{refimp}
 
 \subsubsection{SBL Seminar Papers}
 

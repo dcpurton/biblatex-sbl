@@ -1,6 +1,6 @@
 \DeclareDatamodelEntrytypes{
-  lexicon,
-  mvlexicon,
+  commentary,
+  incommentary,
   inlexicon,
   review,
   seminarpaper}

@@ -110,6 +110,17 @@
             \printfield{postnote}}}}}}}
 
 % ------------------------------------------------------------------
+% COMMENTARY OPTIONS
+% ------------------------------------------------------------------
+
+\newtoggle{commentaryfullbibref}
+
+\DeclareBibliographyOption{commentaryfullbibref}[true]{%
+  \ifstrequal{#1}{true}
+    {\toggletrue{commentaryfullbibref}}
+    {\togglefalse{commentaryfullbibref}}}
+
+% ------------------------------------------------------------------
 % STYLE OPTION
 % ------------------------------------------------------------------
 
@@ -129,7 +140,8 @@
   ibidpage=true,
   maxbibnames=99,
   maxcitenames=3,
-  citepages=sbl
+  citepages=sbl,
+  commentaryfullbibref=true
 }
 
 \urlstyle{same}
@@ -226,6 +238,9 @@
 \DeclareBibliographyAlias{cite:mvlexicon}{cite:mvreference}
 \DeclareBibliographyAlias{inbook}{incollection}
 \DeclareBibliographyAlias{cite:inbook}{cite:incollection}
+\DeclareBibliographyAlias{commentary}{book}
+\DeclareBibliographyAlias{mvcommentary}{book}
+\DeclareBibliographyAlias{cite:mvcommentary}{cite:mvbook}
 
 \DeclareLabeldate{%
   \field{releasedate}

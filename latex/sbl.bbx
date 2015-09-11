@@ -90,6 +90,28 @@
   \usebibmacro{finentry}%
 }
 
+\DeclareBibliographyDriver{incommentary}{%
+  \iffieldundef{volume}
+    {\usedriver{}{incollection}}
+    {\iftoggle{commentaryfullbibref}
+       {\usedriver{}{incollection}}
+       {\usedriver{}{incommentary:short}}}%
+}
+
+\DeclareBibliographyDriver{incommentary:short}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{shortmaintitle}%
+  \newunit
+  \usebibmacro{volume+pages}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \usebibmacro{finentry}%
+}
+
 \DeclareBibliographyDriver{collection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{editor+others}%
