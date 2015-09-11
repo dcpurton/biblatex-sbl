@@ -31,7 +31,7 @@
 \definecolor{reference-colour}{rgb}{1,0.6,0}
 
 \newcommand\citetest[5]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite[#2]\{#5\}}\par
    \color{biblatex-colour}
@@ -40,9 +40,12 @@
    \texttt{\textbackslash autocite[#4]\{#5\}}\par
    \color{biblatex-colour}
    #3. \cite[#4]{#5}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#5}.\par}}
 \newcommand\citetestnb[5]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite[#2]\{#5\}}\par
    \color{biblatex-colour}
@@ -52,22 +55,28 @@
    \color{biblatex-colour}
    #3. \cite[#4]{#5}.}}
 \newcommand\citetestns[3]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite[#2]\{#3\}}\par
    \color{biblatex-colour}
    #1. \cite[#2]{#3}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#3}.\par}}
 \newcommand\citetestnp[3]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#3\}}\par
    \color{biblatex-colour}
    #1. \cite{#3}.\par
    #2. \cite{#3}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#3}.\par}}
 \newcommand\citetestnpf[4]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#4\}}\par
    \color{biblatex-colour}
@@ -76,42 +85,50 @@
    \texttt{\textbackslash autocite[#3]\{#4\}}\par
    \color{biblatex-colour}
    #2. \cite[#3]{#4}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#4}.\par}}
 \newcommand\citetestnsnp[2]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#2\}}\par
    \color{biblatex-colour}
    #1. \cite{#2}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#2}.\par}}
 \newcommand\citetestnsnpnb[2]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#2\}}\par
    \color{biblatex-colour}
    #1. \cite{#2}.\par}}
 \newcommand\citetestlex[2]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#2\}}\par
    \color{biblatex-colour}
    #1. \cite{#2}.\par}}
 \newcommand\citetestlexns[3]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite[#2]\{#3\}}\par
    \color{biblatex-colour}
    #1. \cite[#2]{#3}.\par}}
 \newcommand\citetestbib[1]{%
-  {\textbf{BibLaTeX Output}\par
+  {\textsc{BibLaTeX Output}\par
    \nobreak
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#1}.\par}}
 
 \newenvironment{refimp}{%
   \begin{minipage}{\linewidth}
     \setlength{\parskip}{1ex}
-    \textbf{Reference Implementation}\par
+    \textsc{Reference Implementation}\par
     \nobreak
     \color{reference-colour}
 }{\end{minipage}}
