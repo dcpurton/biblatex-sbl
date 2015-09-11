@@ -208,12 +208,8 @@
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
 
-\DeclareFieldFormat[inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
-\DeclareFieldFormat[inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
-\DeclareFieldFormat[inreference,inlexicon]{booktitle}{\mkbibemph{#1}}
-\DeclareFieldFormat[inreference,inlexicon]{shortbooktitle}{\mkbibemph{#1}}
-\DeclareFieldFormat[inreference,inlexicon]{maintitle}{\mkbibemph{#1}}
-\DeclareFieldFormat[inreference,inlexicon]{shortmaintitle}{\mkbibemph{#1}}
+\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
 \DeclareFieldFormat[inproceedings]{type}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 
 \DeclareNameAlias{withpreface}{default}
@@ -224,8 +220,6 @@
 \DeclareBibliographyAlias{cite:mvreference}{cite:mvbook}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{cite:reference}{cite:book}
-\DeclareBibliographyAlias{inreference}{inreference}
-\DeclareBibliographyAlias{cite:inreference}{cite:inreference}
 \DeclareBibliographyAlias{lexicon}{reference}
 \DeclareBibliographyAlias{cite:lexicon}{cite:reference}
 \DeclareBibliographyAlias{mvlexicon}{mvreference}
