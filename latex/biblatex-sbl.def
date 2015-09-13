@@ -16,6 +16,8 @@
 % CITEPAGES OPTION
 % ------------------------------------------------------------------
 
+\DeclareRangeChars{~,;-+/:}
+
 \renewbibmacro*{postnote}{}
 \newbibmacro*{pages}{}
 
@@ -55,9 +57,12 @@
       {\printfield{pages}}
       {\iffieldpages{postnote}
          {\printfield{postnote}}
-         {\printfield{pages}%
-          \setunit*{\addspace}%
-          \printtext{\mkbibparens{\printfield{postnote}}}}}}}
+         {\iffieldundef{pages}
+            {\newunit
+             \printfield{postnote}}
+            {\printfield{pages}%
+             \setunit*{\addspace}%
+             \printtext{\mkbibparens{\printfield{postnote}}}}}}}}
 
 \def\cbx@opt@citepages@suppress{%
   \renewbibmacro*{pages}{%
@@ -79,9 +84,12 @@
       {\printfield{pages}}
       {\iffieldpages{postnote}
          {\printfield{postnote}}
-         {\printfield{pages}%
-          \setunit*{\addspace}%
-          \printtext{\mkbibparens{\printfield{postnote}}}}}}}
+         {\iffieldundef{pages}
+            {\newunit
+             \printfield{postnote}}
+            {\printfield{pages}%
+             \setunit*{\addspace}%
+             \printtext{\mkbibparens{\printfield{postnote}}}}}}}}
 
 \def\cbx@opt@citepages@separate{%
   \renewbibmacro*{pages}{%
