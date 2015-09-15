@@ -395,7 +395,6 @@
 % ------------------------------------------------------------------
 
 \DeclareDataInheritance{mvlexicon}{lexicon,inlexicon}{%
-  \inherit{shorttitle}{shortmaintitle}
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
@@ -405,7 +404,6 @@
 }
 
 \DeclareDataInheritance{lexicon}{inlexicon}{%
-  \inherit{shorttitle}{shortbooktitle}
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
