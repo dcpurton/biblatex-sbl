@@ -11,6 +11,7 @@
 @string{bromiley = {Bromiley, Geoffrey W.}}
 @string{brown = {Brown, Colin}}
 @string{buchanan = {Buchanan, Neil}}
+@string{buttrick = {Buttrick, George A.}}
 @string{clarke = {Clarke, Andrew D.}}
 @string{crenshaw = {Crenshaw, James L.}}
 @string{dahn = {Dahn, Karl}}
@@ -98,12 +99,6 @@
 @string{BNTC = {Black's New Testament Commentaries}}
 @string{NIB = {New Interpreter's Bible}}
 @string{NIBCOT = {New International Biblical Commentary on the Old Testament}}
-
-@comment{Dictionaries}
-@string{IDB = {The Interpreter's Dictionary of the Bible}}
-@string{NIDNTT = {New International Dictionary of New Testament Theology}}
-@string{TDNT = {Theological Dictionary of the New Testament}}
-@string{TLNT = {Theological Lexicon of the New Testament}}
 
 @comment{Journals and Magazines}
 @string{atlanticmonthly = {Atlantic Monthly}}
@@ -631,19 +626,28 @@
   date = {1988}
 }
 
+@mvreference{IDB,
+  editor = buttrick,
+  title = {The Interpreter's Dictionary of the Bible},
+  shorttitle = {IDB},
+  volumes = {4},
+  location = newyork,
+  publisher = abingdon,
+  date = {1962}
+}
+
 @inreference{stendahl:1962,
   author = stendahl,
   title = {Biblical Theology, Contemporary},
   shorttitle = {Biblical Theology},
-  maintitle = IDB,
-  shortmaintitle = {IDB},
   volume = {1},
-  pages = {418-432}
+  pages = {418-432},
+  sblxref = {IDB}
 }
 
 @mvlexicon{NIDNTT,
   editor = brown,
-  title = NIDNTT,
+  title = {New International Dictionary of New Testament Theology},
   shorttitle = {NIDNTT},
   volumes = {4},
   location = grandrapids,
@@ -656,13 +660,12 @@
   title = {See, Vision, Eye},
   volume = {3},
   pages = {511-521},
-  crossref = {NIDNTT},
-  lexiconref = {NIDNTT}
+  sblxref = {NIDNTT}
 }
 
 @mvlexicon{TDNT,
   editor = kittel # " and " # friedrich,
-  title = TDNT,
+  title = {Theological Dictionary of the New Testament},
   shorttitle = {TDNT},
   translator = bromiley,
   volumes = {10},
@@ -676,13 +679,12 @@
   title = {\gr{διακονέω, διακονία, κτλ}},
   volume = {2},
   pages = {81-93},
-  crossref = {TDNT},
-  lexiconref = {TDNT}
+  sblxref = {TDNT}
 }
 
 @mvlexicon{TLNT,
   author = spicq,
-  title = TLNT,
+  title = {Theological Lexicon of the New Testament},
   shorttitle = {TLNT},
   editor = ernest,
   translator = ernest,
@@ -697,8 +699,7 @@
   title = {\gr{ἀτακτέω, ἄτακτος, ἀτάκτως}},
   volume = {1},
   pages = {223-224},
-  crossref = {TLNT},
-  lexiconref = {TLNT}
+  sblxref = {TLNT}
 }
 
 @inlexicon{spicq:amoibe,
@@ -706,8 +707,7 @@
   title = {\gr{ἀμοιβή}},
   volume = {1},
   pages = {95-96},
-  crossref = {TLNT},
-  lexiconref = {TLNT}
+  sblxref = {TLNT}
 }
 
 @inlexicon{beyer:diakoneo,
@@ -715,8 +715,7 @@
   title = {\gr{διακονέω}},
   volume = {2},
   pages = {81-87},
-  crossref = {TDNT},
-  lexiconref = {TDNT}
+  sblxref = {TDNT}
 }
 
 @inlexicon{dahn:horao,
@@ -724,8 +723,7 @@
   title = {\gr{ὁράω}},
   volume = {3},
   pages = {511-518},
-  crossref = {NIDNTT},
-  lexiconref = {NIDNTT}
+  sblxref = {NIDNTT}
 }
 
 @inproceedings{niditch:1994,

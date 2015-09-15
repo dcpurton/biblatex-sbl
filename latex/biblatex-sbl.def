@@ -264,32 +264,47 @@
 % LIST OF ABBREVIATIONS
 % ------------------------------------------------------------------
 
-\DeclareBibliographyDriver{shorthand}{%
-  \ifboolexpr{
-    test {\iffieldundef{shortjournal}}
-    and
-    test {\iffieldundef{shortseries}}
-  }
-    {\ifboolexpr{
-       test {\ifentrytype{lexicon}}
-       or
-       test {\ifentrytype{mvlexicon}}
-     }
-       {\usebibmacro{lexiconshorthandcite}}
-       {\usebibmacro{bibentrycite}}%
-    }
-    {\iffieldundef{shortjournal}
-       {}
-       {\printfield{journaltitle}}%
-     \iffieldundef{shortseries}
-       {}
-       {\printfield{series}}%
-    }%
+\newlength{\abbrevwidth}
+
+\def\setmaxlength#1#2{%
+  \ifdim\dimexpr#2>\dimexpr#1
+    \global\setlength{#1}{#2}%
+  \fi
 }
 
-% skip repeated shorthands
-\defbibcheck{shorthand}{%
-  \iffieldundef{series}
+\defbibenvironment{abbreviations}
+  {\list
+     {\printfield[shorthandwidth]{shortjournal}%
+      \printfield[shorthandwidth]{shortseries}%
+      \iffieldsequal{shorthand}{shorttitle}
+        {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+        {\printfield[shorthandwidth]{shorthand}}}
+     {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
+      \setmaxlength{\abbrevwidth}{\shortserieswidth}%
+      \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
+      \setlength{\labelwidth}{\abbrevwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}%
+      \renewcommand*{\makelabel}[1]{##1\hss}}}
+  {\endlist}
+  {\item}
+
+\DeclareBibliographyDriver{abbreviations}{%
+  \renewcommand*{\finentrypunct}{}%
+  \iffieldundef{shorthand}{}{%
+    \iffieldsequal{shorthand}{shorttitle}
+      {\usebibmacro{abbrev:book}}
+      {\usebibmacro{bibentrycite}}}%
+  \iffieldundef{shortjournal}{}{\printfield{journaltitle}}%
+  \iffieldundef{shortseries}{}{\printfield{series}}%
+  \usebibmacro{finentry}%
+}
+
+\defbibcheck{abbreviations}{%
+  \iffieldundef{shortseries}
     {}
     {\ifcsdef{\strfield{series}}
       {\skipentry}
@@ -301,15 +316,26 @@
       {\skipentry}
       {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
     }%
+  \ifboolexpr{
+    test {\iffieldundef{shorthand}}
+    and
+    test {\iffieldundef{shortjournal}}
+    and
+    test {\iffieldundef{shortseries}}
+  }
+    {\skipentry}
+    {}%
 }
 
-\DeclareSortingScheme{shortjournal}{%
+\DeclareSortingScheme{abbreviations}{%
   \sort{%
+    \field{shorthand}%
     \field{shortjournal}%
+    \field{shortseries}%
   }%
 }
 
-\newbibmacro*{lexiconshorthandcite}{%
+\newbibmacro*{abbrev:book}{%
   \def\abx@str{abx@lstr}%
   \renewcommand*{\newunitpunct}{\addperiod\space}%
   \usebibmacro{title}%
@@ -346,41 +372,17 @@
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
     \map{
-      \step[fieldsource=booktitle, match=\regexp{(.*?):}, final]
-      \step[fieldset=shortbooktitle, fieldvalue={$1}]
-    }
-    \map{
-      \step[fieldsource=maintitle, match=\regexp{(.*?):}, final]
-      \step[fieldset=shortmaintitle, fieldvalue={$1}]
-    }
-    \map{
-      \step[fieldsource=title, final]
-      \step[fieldset=shorttitle, origfieldval]
-    }
-    \map{
-      \step[fieldsource=booktitle, final]
-      \step[fieldset=shortbooktitle, origfieldval]
-    }
-    \map{
-      \step[fieldsource=maintitle, final]
-      \step[fieldset=shortmaintitle, origfieldval]
-    }
-    \map{
-      \step[fieldsource=shortjournal, match=\regexp{(.*)}, final]
-      \step[fieldset=shorthand, fieldvalue={\emph{$1}}]
-    }
-    \map{
-      \step[fieldsource=shortseries, final]
-      \step[fieldset=shorthand, origfieldval]
-    }
-    \map{
       \pertype{mvlexicon}
+      \pertype{mvreference}
       \pertype{lexicon}
-      \step[fieldsource=shorttitle, match=\regexp{(.*)}, final]
-      \step[fieldset=shorthand, fieldvalue={\emph{$1}}]
+      \pertype{reference}
+      \step[fieldsource=shorttitle, final]
+      \step[fieldset=shorthand, origfieldval]
     }
     \map[overwrite]{
       \pertype{inlexicon}
+      \pertype{mvreference}
+      \pertype{reference}
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
   }
@@ -389,35 +391,24 @@
 % ------------------------------------------------------------------
 % DATA INHERITANCE
 % ------------------------------------------------------------------
-%   - inherit to shortmaintitle and shortbooktitle from shorttitle
 %   - inheritance for mvlexicon, lexicon, inlexicon
 % ------------------------------------------------------------------
 
-\DeclareDataInheritance{mvbook,mvcollection,mvreference}
-    {book,inbook,collection,incollection,reference,inreference}{%
-  \inherit{shorttitle}{shortmaintitle}
-}
-
-\DeclareDataInheritance{book,collection,reference}
-    {inbook,incollection,inreference}{%
-  \inherit{shorttitle}{shortbooktitle}
-}
-
 \DeclareDataInheritance{mvlexicon}{lexicon,inlexicon}{%
+  \inherit{shorttitle}{shortmaintitle}
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
-  \inherit{shorttitle}{shortmaintitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
 }
 
 \DeclareDataInheritance{lexicon}{inlexicon}{%
+  \inherit{shorttitle}{shortbooktitle}
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
-  \inherit{shorttitle}{shortbooktitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
@@ -465,24 +456,21 @@
 
 \newbibmacro*{shorttitle}{%
   \iffieldundef{shorttitle}
-    {}
-    {\printtext[title]{%
-       \printfield[titlecase]{shorttitle}%
-       \newunit}}}
+    {\printtext[title]{\printfield[titlecase]{title}}}
+    {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
+  \newunit}
 
 \newbibmacro*{shortbooktitle}{%
   \iffieldundef{shortbooktitle}
-    {}
-    {\printtext[booktitle]{%
-       \printfield[titlecase]{shortbooktitle}%
-       \newunit}}}
+    {\printtext[booktitle]{\printfield[titlecase]{booktitle}}}
+    {\printtext[booktitle]{\printfield[titlecase]{shortbooktitle}}}%
+  \newunit}
 
 \newbibmacro*{shortmaintitle}{%
   \iffieldundef{shortmaintitle}
-    {}
-    {\printtext[maintitle]{%
-       \printfield[titlecase]{shortmaintitle}%
-       \newunit}}}
+    {\printtext[maintitle]{\printfield[titlecase]{maintitle}}}
+    {\printtext[maintitle]{\printfield[titlecase]{shortmaintitle}}}%
+  \newunit}
 
 \renewbibmacro*{title}{%
   \ifciteseen
@@ -554,8 +542,8 @@
      \newunit}}
 
 \newbibmacro*{shortbooktitle+shortmaintitle}{%
-  \iffieldundef{shortbooktitle}
-    {\iffieldundef{shortmaintitle}
+  \iffieldundef{booktitle}
+    {\iffieldundef{maintitle}
       {}
       {\usebibmacro{shortmaintitle}
        \newunit}}
@@ -575,6 +563,12 @@
        \printfield[titlecase]{revdsubtitle}}%
      \newunit}%
   \printfield{revdtitleaddon}}
+
+\newbibmacro*{sblxrefshortbooktitle+sblxrefshortmaintitle}{%
+  \iffieldundef{sblxref}
+    {\usebibmacro{shortbooktitle+shortmaintitle}}
+    {\entrydata{\thefield{sblxref}}{%
+       \usebibmacro{shorttitle}}}}
 
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}

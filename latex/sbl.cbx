@@ -235,26 +235,27 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inlexicon}{%
-  \nocite{\thefield{lexiconref}}%
+  \nocite{\thefield{sblxref}}%
   \usebibmacro{author/translator+others}%
   \newunit
   \ifciteseen
-    {\usebibmacro{shortbooktitle+shortmaintitle}%
+    {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
      \usebibmacro{volume}}
     {\usebibmacro{title}%
-     \usebibmacro{shortbooktitle+shortmaintitle}%
+     \usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inreference}{%
+  \nocite{\thefield{sblxref}}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
   \ifciteseen
     {\usebibmacro{volume}}
-    {\usebibmacro{shortbooktitle+shortmaintitle}%
+    {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
      \newunit

@@ -12,7 +12,7 @@
   revdtitleaddon,
   shortbooktitle,
   shortmaintitle,
-  lexiconref}
+  sblxref}
 
 \DeclareDatamodelFields[type=list, datatype=name]{
   bookeditor,
