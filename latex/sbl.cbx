@@ -17,13 +17,18 @@
         and
         not test {\iffirstonpage}}
       {\usebibmacro{cite:ibid}}
-      {\usedriver{}{cite:\thefield{entrytype}}}}}
+      {\iffieldundef{shorthand}
+         {\usedriver{}{cite:\thefield{entrytype}}}
+         {\usebibmacro{cite:shorthand}}}}}
 
 \newbibmacro*{cite:ibid}{%
   \printtext[bibhyperlink]{\bibstring[\mkibid]{ibidem}}%
   \ifloccit
     {\global\booltrue{suppresspostnote}}
     {}}
+
+\newbibmacro*{cite:shorthand}{%
+  \printtext[bibhyperlink]{\printfield{shorthand}}}
 
 \newbibmacro*{bibentrycite}{%
   \citereset
@@ -39,6 +44,9 @@
   \printtext{\usedriver{}{\thefield{entrytype}}}}
 
 \newbibmacro*{cite:postnote}{%
+  \iffieldundef{shorthand}
+    {}
+    {\renewcommand*{\postnotedelim}{\addspace}}%
   \ifbool{suppresspostnote}{}{%
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}
