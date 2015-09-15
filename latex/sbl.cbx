@@ -46,7 +46,12 @@
 \newbibmacro*{cite:postnote}{%
   \iffieldundef{shorthand}
     {}
-    {\renewcommand*{\postnotedelim}{\addspace}}%
+    {\if\instring{:}{\thefield{postnote}}%
+       \renewcommand*{\postnotedelim}{\addspace}%
+     \else\fi
+     \if\instring{§}{\thefield{postnote}}%
+       \renewcommand*{\postnotedelim}{\addspace}%
+     \else\fi}%
   \ifbool{suppresspostnote}{}{%
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}
