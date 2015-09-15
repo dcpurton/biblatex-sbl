@@ -172,7 +172,8 @@
 \DeclareBibliographyDriver{cite:incommentary}{%
   \iffieldundef{volume}
     {\usedriver{}{cite:incollection}}
-    {\cbx@opt@citepages@omit
+    {\usebibmacro{usesblxref}%
+     \cbx@opt@citepages@omit
      \global\booltrue{suppresspostnote}%
      \usebibmacro{author/translator+others}%
      \newunit
@@ -235,7 +236,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inlexicon}{%
-  \nocite{\thefield{sblxref}}%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
   \ifciteseen
@@ -249,7 +250,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inreference}{%
-  \nocite{\thefield{sblxref}}%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%

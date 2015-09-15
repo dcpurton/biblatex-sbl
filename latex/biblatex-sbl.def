@@ -371,14 +371,6 @@
       \step[fieldsource=title, match=\regexp{(.*?):}, final]
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
-    \map{
-      \pertype{mvlexicon}
-      \pertype{mvreference}
-      \pertype{lexicon}
-      \pertype{reference}
-      \step[fieldsource=shorttitle, final]
-      \step[fieldset=shorthand, origfieldval]
-    }
     \map[overwrite]{
       \pertype{inlexicon}
       \pertype{mvreference}
@@ -391,22 +383,37 @@
 % ------------------------------------------------------------------
 % DATA INHERITANCE
 % ------------------------------------------------------------------
-%   - inheritance for mvlexicon, lexicon, inlexicon
-% ------------------------------------------------------------------
 
-\DeclareDataInheritance{mvlexicon}{lexicon,inlexicon}{%
+\DeclareDataInheritance{mvbook,mvcollection,mvreference}
+    {book,inbook,collection,incollection,reference,inreference}{%
+  \inherit{editor}{maineditor}
+  \inherit{shorttitle}{shortmaintitle}
+}
+
+\DeclareDataInheritance{book,collection,reference}
+    {inbook,incollection,inreference}{%
+  \inherit{editor}{bookeditor}
+  \inherit{shorttitle}{shortbooktitle}
+}
+
+\DeclareDataInheritance{mvlexicon,mvcommentary}
+    {lexicon,inlexicon,commentary,incommentary}{%
+  \inherit{editor}{maineditor}
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
+  \inherit{shorttitle}{shortmaintitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
 }
 
-\DeclareDataInheritance{lexicon}{inlexicon}{%
+\DeclareDataInheritance{lexicon,commentary}{inlexicon,incommentary}{%
+  \inherit{editor}{bookeditor}
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
+  \inherit{shorttitle}{shortbooktitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
@@ -1007,6 +1014,11 @@
 \newbibmacro*{origdate}{\printorigdate}
 
 \newbibmacro*{releasedate}{\printreleasedate}
+
+\newbibmacro*{usesblxref}{%
+  \iffieldundef{sblxref}
+    {}
+    {\nocite{\thefield{sblxref}}}}
 
 
 % ------------------------------------------------------------------
