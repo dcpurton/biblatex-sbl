@@ -265,14 +265,47 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{The Full History of a Translated Volume}
 
-TODO: Related entries not yet supported.
+\begin{vb}
+@book{wellhausen:1883,
+  author = wellhausen,
+  title = {Prolegomena zur Geschichte Israels},
+  edition = {2},
+  location = berlin,
+  publisher = reimer,
+  date = {1883}
+}
+
+@book{wellhausen:1885,
+  author = wellhausen,
+  title = {Prolegomena to the History of Israel},
+  translator = black # " and " # enzies,
+  preface = smith,
+  location = edinburgh,
+  publisher = acblack,
+  related = {wellhausen:1883},
+  relatedtype = {translationof},
+  date = {1885}
+}
+
+@book{wellhausen:1957,
+  author = wellhausen,
+  title = {Prolegomena to the History of Ancient Israel},
+  location = newyork,
+  publisher = meridian,
+  related = {wellhausen:1885},
+  relatedtype = {reprintof},
+  date = {1957}
+}
+\end{vb}
+
+\citetestns{3}{296}{wellhausen:1957}
 
 \begin{refimp}
   3. Julius Wellhausen, \emph{Prolegomena to the History of Ancient Israel}
   (New York: Meridian Books, 1957), 296; repr. of \emph{Prolegomena to the
   History of Israel,} trans.\ J. Sutherland Black and A. Enzies, with preface
   by W. Robertson Smith (Edinburgh: Black, 1885); trans.\ of \emph{Prolegomena
-  zur Geschichte Israels,} 2nd ed, (Berlin: Reimer, 1883).
+  zur Geschichte Israels,} 2nd ed. (Berlin: Reimer, 1883).
 
   \hangindent\bibindent Julius Wellhausen,\footnote{Should be “Wellhausen,
   Julius.”?} \emph{Prolegomena to the History of Ancient Israel.} New York:

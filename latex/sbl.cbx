@@ -56,7 +56,10 @@
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}
       {\setunit{\postnotedelim}}%
-    \usebibmacro{postnote}}}
+    \usebibmacro{postnote}}%
+  \setunit{\addsemicolon\space}%
+  \usebibmacro{related:init}%
+  \usebibmacro{related}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}
@@ -93,6 +96,23 @@
   {\usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
+
+% ------------------------------------------------------------------
+% RELATED MACROS
+% ------------------------------------------------------------------
+
+\renewbibmacro*{related:default}[1]{%
+  \entrydata*{#1}{%
+    \usedriver
+      {\renewbibmacro*{author/editor+others/translator+others}{}%
+       \renewbibmacro*{related:init}{}}
+      {cite:\thefield{entrytype}}%
+    \setunit{\addsemicolon\addspace}%
+    \usebibmacro{related}}}
+
+% ------------------------------------------------------------------
+% CITE DRIVERS
+% ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{cite:article}{%
   \usebibmacro{author/editor+others/translator+others}%

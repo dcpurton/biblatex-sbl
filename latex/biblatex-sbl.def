@@ -888,7 +888,8 @@
 \newbibmacro*{withpreface}{%
   \ifnameundef{preface}
     {}
-    {\bibstring{withpreface}%
+    {\setunit{\addcomma\addspace}%
+     \bibstring{withpreface}%
      \setunit{\addspace}%
   \printnames[withpreface]{preface}}}
 

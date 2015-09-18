@@ -24,6 +24,12 @@
 
 \InitializeBibliographyStyle{%
   \global\undef\bbx@lasthash
+  \renewbibmacro*{related:default}[1]{%
+    \entrydata*{#1}{%
+      \usedriver
+        {\renewbibmacro*{author/editor+others/translator+others}{}%
+         \renewbibmacro*{related:init}{}}
+        {\thefield{entrytype}}}}%
 }
 
 \DeclareBibliographyDriver{article}{%
@@ -62,6 +68,9 @@
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \usebibmacro{related:init}%
+  \usebibmacro{related}%
   \usebibmacro{finentry}%
 }
 
