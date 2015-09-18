@@ -36,7 +36,7 @@
 
 \def\cbx@opt@citepages@sbl{%
   \renewbibmacro*{pages}{%
-    \printfield{pages}
+    \printfield{pages}%
     \iffieldundef{postnote}
       {}
       {\iffieldpages{postnote}
