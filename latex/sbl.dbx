@@ -15,7 +15,9 @@
 
 \DeclareDatamodelFields[type=list, datatype=name]{
   bookeditor,
+  booktranslator,
   maineditor,
+  maintranslator,
   origeditor,
   origtranslator,
   preface,

@@ -135,9 +135,9 @@
   \ifciteseen
     {}
     {\usebibmacro{volumeof}%
-     \usebibmacro{booktitle+maintitle}%
+     \usebibmacro{maintitle}%
      \newunit
-     \usebibmacro{byeditor+others}%
+     \usebibmacro{bymaineditor+others}%
      \newunit
      \printfield{volumes}%
      \newunit
@@ -161,11 +161,16 @@
     {\printfield{type}%
      \setunit{\addspace}%
      \usebibmacro{to}%
-     \usebibmacro{booktitle+maintitle}%
-     \newunit
+     \usebibmacro{booktitle}%
+     \setunit*{\newunitpunct}%
      \usebibmacro{bybookauthor}%
+     \setunit*{\newunitpunct}%
+     \usebibmacro{bybookeditor+others}%
+     \setunit*{\newunitpunct}%
+     \usebibmacro{volumeof}%
+     \usebibmacro{maintitle}%
      \newunit
-     \usebibmacro{byeditor+others}%
+     \usebibmacro{bymaineditor+others}%
      \newunit
      \printfield{volumes}%
      \newunit
@@ -223,9 +228,11 @@
   \ifciteseen
     {}
     {\usebibmacro{volumeof}%
-     \usebibmacro{booktitle+maintitle}%
+     \usebibmacro{maintitle}%
      \newunit
-     \usebibmacro{byeditor+others}%
+     \usebibmacro{bymaineditor+others}%
+     \newunit
+     \printfield{volumes}%
      \newunit
      \printfield{edition}%
      \newunit
