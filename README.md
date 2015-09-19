@@ -1,5 +1,5 @@
 # biblatex-sbl
-SBL style files for biblatex
+Society of Biblical Literature, 2nd Edition (SBL) style files for Biblatex
 
 State:
 
