@@ -2,8 +2,8 @@
 
 \usepackage{fontspec}
 \usepackage{microtype}
-\usepackage{verbatim}
 \usepackage{xcolor}
+\usepackage{listings}
 \usepackage[style=sbl,backend=biber,ibidtracker=false,ibidpage=false]{biblatex}
 \addbibresource{sbl.bib}
 
@@ -133,10 +133,99 @@
     \color{reference-colour}
 }{\end{minipage}}
 
-\newenvironment{vb}{%
-  \setlength{\parskip}{0pt}
-  \verbatim}{\endverbatim}
+\lstdefinelanguage{BibTeX}{%
+  keywords={%
+    @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
+    @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@inproceedings,%
+    @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper%
+  },
+  emph={%
+    author,title,location,publisher,date,shorttitle,translator,edition,preface,%
+    related,relatedtype,editor,series,shortseries,number,journaltitle,%
+    shortjournal,volume,pages,type,booktitle,bookauthor,origlocation,%
+    origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
+    bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
+    revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
+    eventtitle,releasedate,origtranslator,volumes,shortmaintitle%
+  },
+  sensitive=false,
+}
 
+\lstset{%
+ language=BibTeX,
+ backgroundcolor=\color{gray!15},
+ basicstyle=\ttfamily,
+ breaklines=true,
+ keywordstyle=\color{teal},
+ emphstyle=\color{purple},
+ columns=fullflexible,
+}
+
+
+\makeatletter
+\lst@InputCatcodes
+\def\lst@DefEC{%
+ \lst@CCECUse \lst@ProcessLetter
+  ^^80^^81^^82^^83^^84^^85^^86^^87^^88^^89^^8a^^8b^^8c^^8d^^8e^^8f%
+  ^^90^^91^^92^^93^^94^^95^^96^^97^^98^^99^^9a^^9b^^9c^^9d^^9e^^9f%
+  ^^a0^^a1^^a2^^a3^^a4^^a5^^a6^^a7^^a8^^a9^^aa^^ab^^ac^^ad^^ae^^af%
+  ^^b0^^b1^^b2^^b3^^b4^^b5^^b6^^b7^^b8^^b9^^ba^^bb^^bc^^bd^^be^^bf%
+  ^^c0^^c1^^c2^^c3^^c4^^c5^^c6^^c7^^c8^^c9^^ca^^cb^^cc^^cd^^ce^^cf%
+  ^^d0^^d1^^d2^^d3^^d4^^d5^^d6^^d7^^d8^^d9^^da^^db^^dc^^dd^^de^^df%
+  ^^e0^^e1^^e2^^e3^^e4^^e5^^e6^^e7^^e8^^e9^^ea^^eb^^ec^^ed^^ee^^ef%
+  ^^f0^^f1^^f2^^f3^^f4^^f5^^f6^^f7^^f8^^f9^^fa^^fb^^fc^^fd^^fe^^ff%
+  % Greek support
+  ^^^^0370^^^^0371^^^^0372^^^^0373^^^^0374^^^^0375^^^^0376^^^^0377%
+  ^^^^0378^^^^0379^^^^037a^^^^037b^^^^037c^^^^037d^^^^037e^^^^037f%
+  ^^^^0380^^^^0381^^^^0382^^^^0383^^^^0384^^^^0385^^^^0386^^^^0387%
+  ^^^^0388^^^^0389^^^^038a^^^^038b^^^^038c^^^^038d^^^^038e^^^^038f%
+  ^^^^0390^^^^0391^^^^0392^^^^0393^^^^0394^^^^0395^^^^0396^^^^0397%
+  ^^^^0398^^^^0399^^^^039a^^^^039b^^^^039c^^^^039d^^^^039e^^^^039f%
+  ^^^^03a0^^^^03a1^^^^03a2^^^^03a3^^^^03a4^^^^03a5^^^^03a6^^^^03a7%
+  ^^^^03a8^^^^03a9^^^^03aa^^^^03ab^^^^03ac^^^^03ad^^^^03ae^^^^03af%
+  ^^^^03b0^^^^03b1^^^^03b2^^^^03b3^^^^03b4^^^^03b5^^^^03b6^^^^03b7%
+  ^^^^03b8^^^^03b9^^^^03ba^^^^03bb^^^^03bc^^^^03bd^^^^03be^^^^03bf%
+  ^^^^03c0^^^^03c1^^^^03c2^^^^03c3^^^^03c4^^^^03c5^^^^03c6^^^^03c7%
+  ^^^^03c8^^^^03c9^^^^03ca^^^^03cb^^^^03cc^^^^03cd^^^^03ce^^^^03cf%
+  ^^^^03d0^^^^03d1^^^^03d2^^^^03d3^^^^03d4^^^^03d5^^^^03d6^^^^03d7%
+  ^^^^03d8^^^^03d9^^^^03da^^^^03db^^^^03dc^^^^03dd^^^^03de^^^^03df%
+  ^^^^03e0^^^^03e1%
+  % Greek extended support
+  ^^^^1f00^^^^1f01^^^^1f02^^^^1f03^^^^1f04^^^^1f05^^^^1f06^^^^1f07%
+  ^^^^1f08^^^^1f09^^^^1f0a^^^^1f0b^^^^1f0c^^^^1f0d^^^^1f0e^^^^1f0f%
+  ^^^^1f10^^^^1f11^^^^1f12^^^^1f13^^^^1f14^^^^1f15^^^^1f16^^^^1f17%
+  ^^^^1f18^^^^1f19^^^^1f1a^^^^1f1b^^^^1f1c^^^^1f1d^^^^1f1e^^^^1f1f%
+  ^^^^1f20^^^^1f21^^^^1f22^^^^1f23^^^^1f24^^^^1f25^^^^1f26^^^^1f27%
+  ^^^^1f28^^^^1f29^^^^1f2a^^^^1f2b^^^^1f2c^^^^1f2d^^^^1f2e^^^^1f2f%
+  ^^^^1f30^^^^1f31^^^^1f32^^^^1f33^^^^1f34^^^^1f35^^^^1f36^^^^1f37%
+  ^^^^1f38^^^^1f39^^^^1f3a^^^^1f3b^^^^1f3c^^^^1f3d^^^^1f3e^^^^1f3f%
+  ^^^^1f40^^^^1f41^^^^1f42^^^^1f43^^^^1f44^^^^1f45^^^^1f46^^^^1f47%
+  ^^^^1f48^^^^1f49^^^^1f4a^^^^1f4b^^^^1f4c^^^^1f4d^^^^1f4e^^^^1f4f%
+  ^^^^1f50^^^^1f51^^^^1f52^^^^1f53^^^^1f54^^^^1f55^^^^1f56^^^^1f57%
+  ^^^^1f58^^^^1f59^^^^1f5a^^^^1f5b^^^^1f5c^^^^1f5d^^^^1f5e^^^^1f5f%
+  ^^^^1f60^^^^1f61^^^^1f62^^^^1f63^^^^1f64^^^^1f65^^^^1f66^^^^1f67%
+  ^^^^1f68^^^^1f69^^^^1f6a^^^^1f6b^^^^1f6c^^^^1f6d^^^^1f6e^^^^1f6f%
+  ^^^^1f70^^^^1f71^^^^1f72^^^^1f73^^^^1f74^^^^1f75^^^^1f76^^^^1f77%
+  ^^^^1f78^^^^1f79^^^^1f7a^^^^1f7b^^^^1f7c^^^^1f7d^^^^1f7e^^^^1f7f%
+  ^^^^1f80^^^^1f81^^^^1f82^^^^1f83^^^^1f84^^^^1f85^^^^1f86^^^^1f87%
+  ^^^^1f88^^^^1f89^^^^1f8a^^^^1f8b^^^^1f8c^^^^1f8d^^^^1f8e^^^^1f8f%
+  ^^^^1f90^^^^1f91^^^^1f92^^^^1f93^^^^1f94^^^^1f95^^^^1f96^^^^1f97%
+  ^^^^1f98^^^^1f99^^^^1f9a^^^^1f9b^^^^1f9c^^^^1f9d^^^^1f9e^^^^1f9f%
+  ^^^^1fa0^^^^1fa1^^^^1fa2^^^^1fa3^^^^1fa4^^^^1fa5^^^^1fa6^^^^1fa7%
+  ^^^^1fa8^^^^1fa9^^^^1faa^^^^1fab^^^^1fac^^^^1fad^^^^1fae^^^^1faf%
+  ^^^^1fb0^^^^1fb1^^^^1fb2^^^^1fb3^^^^1fb4^^^^1fb5^^^^1fb6^^^^1fb7%
+  ^^^^1fb8^^^^1fb9^^^^1fba^^^^1fbb^^^^1fbc^^^^1fbd^^^^1fbe^^^^1fbf%
+  ^^^^1fc0^^^^1fc1^^^^1fc2^^^^1fc3^^^^1fc4^^^^1fc5^^^^1fc6^^^^1fc7%
+  ^^^^1fc8^^^^1fc9^^^^1fca^^^^1fcb^^^^1fcc^^^^1fcd^^^^1fce^^^^1fcf%
+  ^^^^1fd0^^^^1fd1^^^^1fd2^^^^1fd3^^^^1fd4^^^^1fd5^^^^1fd6^^^^1fd7%
+  ^^^^1fd8^^^^1fd9^^^^1fda^^^^1fdb^^^^1fdc^^^^1fdd^^^^1fde^^^^1fdf%
+  ^^^^1fe0^^^^1fe1^^^^1fe2^^^^1fe3^^^^1fe4^^^^1fe5^^^^1fe6^^^^1fe7%
+  ^^^^1fe8^^^^1fe9^^^^1fea^^^^1feb^^^^1fec^^^^1fed^^^^1fee^^^^1fef%
+  ^^^^1ff0^^^^1ff1^^^^1ff2^^^^1ff3^^^^1ff4^^^^1ff5^^^^1ff6^^^^1ff7%
+  ^^^^1ff8^^^^1ff9^^^^1ffa^^^^1ffb^^^^1ffc^^^^1ffd^^^^1ffe^^^^1fff%
+  ^^00}
+\lst@RestoreCatcodes
+\makeatother
 
 \begin{document}
 
@@ -148,25 +237,20 @@ The following examples define SBL style for notes and bibliographies more
 fully than the select rules in §6 of the second edition of the SBL Handbook of
 Style.
 
-Note that the bib database entries shown below make extensive use of
-abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
-\texttt{sbl.bib} for the definitions used.
-
 \setcounter{subsection}{1}
 \subsection{General Examples: Books}
 
 \subsubsection{A Book by a Single Author}
 
-\begin{vb}
+\begin{lstlisting}
 @book{talbert:1992,
-  author = talbert,
-  title = {Reading John: A Literary and Theological Commentary
-           on the Fourth Gospel and the Johannine Epistles},
-  location = newyork,
-  publisher = crossroad,
+  author = {Talbert, Charles H.},
+  title = {Reading John: A Literary and Theological Commentary on the Fourth Gospel and the Johannine Epistles},
+  location = {New York},
+  publisher = {Crossroad},
   date = {1992}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{15}{127}{19}{22}{talbert:1992}
 
@@ -185,15 +269,15 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book by Two or Three Authors}
 
-\begin{vb}
+\begin{lstlisting}
 @book{robinson+koester:1971,
-  author = robinson # " and " # koester,
+  author = {Robinson, James M. and Koester, Helmut},
   title = {Trajectories through Early Christianity},
-  location = philadelphia,
-  publisher = fortress,
+  location = {Philadelphia},
+  publisher = {Fortress},
   date = {1971}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{4}{237}{12}{23}{robinson+koester:1971}
 
@@ -210,16 +294,15 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book by More than Three Authors}
 
-\begin{vb}
+\begin{lstlisting}
 @book{scott+etal:1993,
-  author = scott # " and " # dean # " and " # sparks # " and "
-           # lazar,
+  author = {Scott, Bernard Brandon and Dean, Margaret and Sparks, Kristen and LaZar, Frances},
   title = {Reading New Testament Greek},
-  location = peabody,
-  publisher = hendrickson,
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1993}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{7}{53}{9}{42}{scott+etal:1993}
 
@@ -236,18 +319,17 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Translated Volume}
 
-\begin{vb}
+\begin{lstlisting}
 @book{egger:1996,
-  author = egger,
-  title = {How to Read the New Testament: An Introduction to
-           Linguistic and Historical-Critical Methodology},
+  author = {Egger, Wilhelm},
+  title = {How to Read the New Testament: An Introduction to Linguistic and Historical-Critical Methodology},
   shorttitle = {How to Read},
-  translator = heinegg,
-  location = peabody,
-  publisher = hendrickson,
+  translator = {Heinegg, Peter},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1996}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{14}{28}{18}{291}{egger:1996}
 
@@ -265,38 +347,38 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{The Full History of a Translated Volume}
 
-\begin{vb}
+\begin{lstlisting}
 @book{wellhausen:1883,
-  author = wellhausen,
+  author = {Wellhausen, Julius},
   title = {Prolegomena zur Geschichte Israels},
   edition = {2},
-  location = berlin,
-  publisher = reimer,
+  location = {Berlin},
+  publisher = {Reimer},
   date = {1883}
 }
 
 @book{wellhausen:1885,
-  author = wellhausen,
+  author = {Wellhausen, Julius},
   title = {Prolegomena to the History of Israel},
-  translator = black # " and " # enzies,
-  preface = smith,
-  location = edinburgh,
-  publisher = acblack,
+  translator = {Black, J. Sutherland and Enzies, A.},
+  preface = {Smith, W. Robertson},
+  location = {Edinburgh},
+  publisher = {Black},
   related = {wellhausen:1883},
   relatedtype = {translationof},
   date = {1885}
 }
 
 @book{wellhausen:1957,
-  author = wellhausen,
+  author = {Wellhausen, Julius},
   title = {Prolegomena to the History of Ancient Israel},
-  location = newyork,
-  publisher = meridian,
+  location = {New York},
+  publisher = {Meridian Books},
   related = {wellhausen:1885},
   relatedtype = {reprintof},
   date = {1957}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestns{3}{296}{wellhausen:1957}
 
@@ -317,16 +399,16 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book with One Editor}
 
-\begin{vb}
+\begin{lstlisting}
 @book{tigay:1985,
-  editor = tigay,
+  editor = {Tigay, Jeffrey H.},
   title = {Empirical Models for Biblical Criticism},
   shorttitle = {Empiracle Models},
-  location = philadelphia,
-  publisher = upp,
+  location = {Philadelphia},
+  publisher = {University of Pennsylvania Press},
   date = {1985}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{5}{35}{9}{38}{tigay:1985}
 
@@ -343,19 +425,18 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book with Two or Three Editors}
 
-\begin{vb}
+\begin{lstlisting}
 @book{kaltner+mckenzie:2002,
-  editor = kaltner # " and " # mckenzie,
-  title = {Beyond Babel: A Handbook for Biblical Hebrew and
-           Related Languages},
-  series = RBS,
+  editor = {Kaltner, John and McKenzie, Steven L.},
+  title = {Beyond Babel: A Handbook for Biblical Hebrew and Related Languages},
+  series = {Resources for Biblical Study},
   shortseries = {RBS},
   number = {42},
-  location = atlanta,
-  publisher = sbl,
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
   date = {2002}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{44}{xii}{47}{viii}{kaltner+mckenzie:2002}
 
@@ -373,21 +454,19 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book with Four or More Editors}
 
-\begin{vb}
+\begin{lstlisting}
 @book{oates+etal:2001,
-  editor = oates # " and " # willis # " and " # bagnall #
-           "and " # worp,
-  title = {Checklist of Editions of Greek and Latin Papyri,
-           Ostraca, and Tablets},
+  editor = {Oates, John F. and Willis, William H. and Bagnall, Roger S. and Worp, Klass A.},
+  title = {Checklist of Editions of Greek and Latin Papyri, Ostraca, and Tablets},
   edition = {5},
-  series = BASPSup,
+  series = {Bulletin of the American Society of Papyrologists, Supplements},
   shortseries = {BASPSup},
   number = {9},
-  location = oakville,
-  publisher = asp,
+  location = {Oakville, CT},
+  publisher = {American Society of Papyrologists},
   date = {2001}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{4}{10}{oates+etal:2001}
 
@@ -404,16 +483,16 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book with Both Author and Editor}
 
-\begin{vb}
+\begin{lstlisting}
 @book{schillebeeckx:1986,
-  author = schillebeeckx,
+  author = {Schillebeeckx, Edward},
   title = {The Schillebeeckx Reader},
-  editor = schreiter,
-  location = edinburgh,
-  publisher = ttclark,
+  editor = {Schreiter, Robert J.},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
   date = {1986}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{45}{20}{schillebeeckx:1986}
 
@@ -427,17 +506,17 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Book with Author, Editor, and Translator}
 
-\begin{vb}
+\begin{lstlisting}
 @book{blass+debrunner:1982,
-  author = blass # " and " # debrunner,
+  author = {Blass, Friedrich and Debrunner, Albert},
   title = {Grammatica del greco del Nuovo Testamento},
-  editor = rehkopf,
-  translator = pisi,
-  location = brescia,
-  publisher = paideia,
+  editor = {Rehkopf, Friedrich},
+  translator = {Pisi, Giordana},
+  location = {Brescia},
+  publisher = {Paideia},
   date = {1982}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{3}{40}{blass+debrunner:1982}
 
@@ -453,17 +532,17 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{A Title in a Modern Work Citing a Nonroman Alphabet}
 
-\begin{vb}
+\begin{lstlisting}
 @article{irvine:2014,
-  author = irvine,
+  author = {Irvine, Stuart A.},
   title = {Idols [\emph{ktbwnm}]: A note on Hosea 13:2a},
-  journal = JBL,
+  journaltitle = {Journal of Biblical Literature},
   shortjournal = {JBL},
   volume = {133},
   date = {2014},
   pages = {509-517}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnpnb{34}{irvine:2014}
 
@@ -474,18 +553,17 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{An Article in and Edited Volume}
 
-\begin{vb}
+\begin{lstlisting}
 @incollection{attridge:1986,
-  author = attridge,
+  author = {Attridge, Harold W.},
   title = {Jewish Historiography},
   pages = {311-343},
   booktitle = {Early Judaism and Its Modern Interpreters},
-  editor = kraft # " and " # nickelsburg,
-  publisher = philadelphia # ": " # fortress # "; " #
-              atlanta # ": " # scholars,
+  editor = {Kraft, Robert A. and Nickelsburg, George W. E.},
+  publisher = {Philadelphia: Fortress; Atlanta: Scholars Press},
   date = {1986}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnp{3}{6}{attridge:1986}
 
@@ -503,21 +581,19 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 
 \subsubsection{An Article in a Festschrift}
 
-\begin{vb}
+\begin{lstlisting}
 @incollection{vanseters:1995,
-  author = vanseters,
+  author = {Van Seters, John},
   title = {The Theology of the Yahwist: A Preliminary Sketch},
-  shortttitle = {Theology of the Yahwist},
+  shorttitle = {Theology of the Yahwist},
   pages = {219-228},
-  booktitle = {“Wer ist wie du, Herr, unter den Göttern?”:
-               Studien zur Theologie und Religionsgeschichte
-               Israels für Otto Kaiser zum 70. Geburtstag},
-  editor = kottsieper # " and others",
-  location = göttingen,
-  publisher = vandr,
+  booktitle = {“Wer ist wie du, Herr, unter den Göttern?”: Studien zur Theologie und Religionsgeschichte Israels für Otto Kaiser zum 70. Geburtstag},
+  editor = {Kottsieper, Ingo and others},
+  location = {Göttingen},
+  publisher = {Vandenhoaeck \& Ruprecht},
   date = {1995}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnpf{8}{17}{222}{vanseters:1995}
 
@@ -539,19 +615,18 @@ abbreviations defined by \texttt{@string} in \texttt{sbl.bib}. See the top of
 \subsubsection{An Introduction, Preface, or Foreword Written by Someone Other
 Than the Author}
 
-\begin{vb}
+\begin{lstlisting}
 @suppbook{boers:1996,
-  author = boers,
+  author = {Boers, Hendrikus},
   type = {introduction},
-  booktitle = {How to Read the New Testament: An Introduction to
-               Linguistic and Historical-Critical Methodology},
-  bookauthor = egger,
-  translator = heinegg,
-  location = peabody,
-  publisher = hendrickson,
+  booktitle = {How to Read the New Testament: An Introduction to Linguistic and Historical-Critical Methodology},
+  bookauthor = {Egger, Wilhelm},
+  translator = {Heinegg, Peter},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1996}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{2}{xi-xxi}{6}{xi-xx}{boers:1996}
 
@@ -570,19 +645,17 @@ Than the Author}
 
 \subsubsection{Multiple Publishers for a Single Book}
 
-\begin{vb}
+\begin{lstlisting}
 @book{gerhardsson:1961,
-  author = gerhardsson,
-  title = {Memory and Manuscript: Oral Tradition and Written
-           Transmission in Rabbinic Judaism and Early Christianity},
-  series = ASNU,
+  author = {Gerhardsson, Birger},
+  title = {Memory and Manuscript: Oral Tradition and Written Transmission in Rabbinic Judaism and Early Christianity},
+  series = {Acta seminarii neotestamentici upsaliensis},
   shortseries = {ASNU},
   number = {22},
-  publisher = lund # ": " # gleerup # "; " #
-              copenhagen # ": " # munksgaard,
+  publisher = {Lund: Gleerup; Copenhagen: Munksgaard},
   date = {1961}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestbib{gerhardsson:1961}
 
@@ -595,17 +668,16 @@ Than the Author}
 
 \subsubsection{A Revised Edition}
 
-\begin{vb}
+\begin{lstlisting}
 @book{pritchard:1969,
-  editor = pritchard,
-  title = {Ancient Near Eastern Texts Relating to the Old
-           Testament},
+  editor = {Pritchard, James B.},
+  title = {Ancient Near Eastern Texts Relating to the Old Testament},
   edition = {3},
-  location = princeton,
-  publisher = pup,
+  location = {Princeton},
+  publisher = {Princeton University Press},
   date = {1969}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{87}{xxi}{pritchard:1969}
 
@@ -618,17 +690,16 @@ Than the Author}
   Old Testament.} 3rd ed. Princeton: Princeton University Press, 1969.
 \end{refimp}
 
-\vspace{\parskip}
-\begin{vb}
+\begin{lstlisting}
 @book{blenkinsopp:1996,
-  author = blenkinsopp,
+  author = {Blenkinsopp, Joseph},
   title = {A History of Prophecy in Israel},
   edition = {\autocap{r}ev.\ and enl.\ ed.},
-  location = louisville,
-  publisher = wjk,
+  location = {Louisville},
+  publisher = {Westminster John Knox},
   date = {1996}
-} 
-\end{vb}  
+}
+\end{lstlisting}  
 
 \citetestns{56}{81}{blenkinsopp:1996}
 
@@ -642,19 +713,18 @@ Than the Author}
 
 \subsubsection{A Recent Reprint Title}
 
-\begin{vb}
+\begin{lstlisting}
 @book{vanseters:1997,
-  author = vanseters,
-  title = {In Search of History: Histeriography in the Ancient
-           World and the Origins of Biblical History},
-  origlocation = newhavan,
-  origpublisher = yup,
+  author = {Van Seters, John},
+  title = {In Search of History: Histeriography in the Ancient World and the Origins of Biblical History},
+  origlocation = {New Havan},
+  origpublisher = {Yale University Press},
   origdate = {1983},
-  location = winonalake,
-  publisher = eisenbrauns,
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
   date = {1997}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{5}{35}{vanseters:1997}
 
@@ -671,19 +741,17 @@ Than the Author}
 
 \subsubsection{A Reprint Title in the Public Domain}
 
-\begin{vb}
+\begin{lstlisting}
 @book{deissmann:1995,
-  author = deissmann,
-  title = {Light from the Ancient East: The New Testament
-           Illustrated by Recently Discovered Texts of the
-           Graeco-Roman World},
-  origtranslator = strachan,
+  author = {Deissmann, Gustav Adolf},
+  title = {Light from the Ancient East: The New Testament Illustrated by Recently Discovered Texts of the Graeco-Roman World},
+  origtranslator = {Strachan, Lionel R. M.},
   origdate = {1927},
-  location = peabody,
-  publisher = hendrickson,
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1955}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{5}{55}{deissmann:1995}
 
@@ -700,18 +768,18 @@ Than the Author}
 
 \subsubsection{A Forthcoming Book}
 
-\begin{vb}
+\begin{lstlisting}
 @book{harrison+welborn:forthcoming,
-  editor = harrison # " and " # welborn,
+  editor = {Harrison, James R. and Welborn, L. L.},
   title = {The First Urban Churches 2: Roman Corinth},
   shorttitle = {Roman Corinth},
-  series = WGRWSup,
+  series = {Writings from the Greco-Roman World Supplement Series},
   shortseries = {WGRWSup},
-  location = atlanta,
-  publisher = sblpress,
+  location = {Atlanta},
+  publisher = {SBL Press},
   pubstate = {forthcoming}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{9}{12}{201}{harrison+welborn:forthcoming}
 
@@ -728,18 +796,18 @@ Than the Author}
 
 \subsubsection{A Multivolume Work}
 
-\begin{vb}
+\begin{lstlisting}
 @mvbook{harnack:1896-1905,
-  author = harnack,
+  author = {Harnack, Adolf},
   title = {History of Dogma},
-  translator = buchanan,
+  translator = {Buchanan, Neil},
   origlanguage = {the 3rd German ed.},
   volumes = {7},
-  location = boston,
-  publisher = littlebrown,
-  date = {1896-1905}
+  location = {Boston},
+  publisher = {Little, Brown},
+  date = {1896/1905}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{5}{56}{9}{2:126}{harnack:1896-1905}
 
@@ -756,19 +824,19 @@ Than the Author}
 
 \subsubsection{A Titled Volume in a Multivolume, Edited Work}
 
-\begin{vb}
+\begin{lstlisting}
 @collection{winter+clarke:1993,
-  editor = winter # " and " # clarke,
+  editor = {Winter, Bruce W. and Clarke, Andrew D.},
   title = {The Book of Acts in Its Ancient Literary Setting},
   shorttitle = {Book of Acts},
   volume = {1},
   maintitle = {The Book of Acts in Its First Century Setting},
-  maineditor = winter,
-  location = grandrapids,
-  publisher = eerdmans,
+  maineditor = {Winter, Bruce W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
   date = {1993}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{5}{25}{16}{25}{winter+clarke:1993}
 
@@ -787,21 +855,20 @@ Than the Author}
 
 \subsubsection{A Chapter within a Multivolume Work}
 
-\begin{vb}
+\begin{lstlisting}
 @incollection{mason:1996,
-  author = mason,
+  author = {Mason, Steve},
   title = {Josephus on Canon and Scriptures},
   pages = {217-235},
   volume = {1},
   part = {1},
-  maintitle = {Hebrew Bible\slash Old Testament: The History of
-               Its Interpretation},
-  editor = sæbø,
-  location = göttingen,
-  publisher = vandr,
+  maintitle = {Hebrew Bible\slash Old Testament: The History of Its Interpretation},
+  editor = {Sæbø, Magne},
+  location = {Göttingen},
+  publisher = {Vandenhoaeck \& Ruprecht},
   date = {1996}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{24}{28}{224}{mason:1996}
 
@@ -821,22 +888,22 @@ Than the Author}
 
 \subsubsection{A Chapter within a Titled Volume in a Multivolume Work}
 
-\begin{vb}
+\begin{lstlisting}
 @incollection{peterson:1993,
-  author = peterson,
+  author = {Peterson, David},
   title = {The Motif of Fulfilment and the Purpose of Luke-Acts},
   shorttitle = {Motif of Fulfilment},
   pages = {83-104},
   booktitle = {The Book of Acts in Its Ancient Literary Setting},
-  bookeditor = winter # " and " # clarke,
+  bookeditor = {Winter, Bruce W. and Clarke, Andrew D.},
   volume = {1},
   maintitle = {The Book of Acts in Its First Century Setting},
-  maineditor = winter,
-  location = grandrapids,
-  publisher = eerdmans,
+  maineditor = {Winter, Bruce W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
   date = {1993}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnpf{66}{78}{92}{peterson:1993}
 
@@ -859,18 +926,18 @@ Than the Author}
 
 \subsubsection{A Work in a Series}
 
-\begin{vb}
+\begin{lstlisting}
 @book{hofius:1989,
-  author = hofius,
+  author = {Hofius, Otfried},
   title = {Paulusstudien},
-  series = WUNT,
+  series = {Wissenschaftliche Untersuchungen zum Neuen Testament},
   shortseries = {WUNT},
   number = {51},
-  location = tübingen,
-  publisher = mohrsiebeck,
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
   date = {1989}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{12}{122}{14}{124}{hofius:1989}
 
@@ -884,20 +951,20 @@ Than the Author}
   1989.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @book{jeremias:1967,
-  author = jeremias,
+  author = {Jeremias, Joachim},
   title = {The Prayers of Jesus},
   shorttitle = {Prayers},
-  series = SBT2,
+  series = {Studies in Biblical Theology},
   shortseries = {SBT},
   seriesseries = {2},
   number = {6},
-  location = naperville,
-  publisher = allenson,
+  location = {Naperville, IL},
+  publisher = {Allenson},
   date = {1967}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{23}{123-127}{32}{126}{jeremias:1967}
 
@@ -913,20 +980,20 @@ Than the Author}
 
 \subsubsection{Electronic Book}
 
-\begin{vb}
+\begin{lstlisting}
 @book{reventlow:2009,
-  author = reventlow,
+  author = {Reventlow, Henning Graf},
   title = {From the Old Testament to Origen},
   volume = {1},
   maintitle = {History of Biblical Interpretation},
-  maintranslator = perdue,
-  location = atlanta,
-  publisher = sbl,
+  maintranslator = {Perdue, Leo G.},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
   date = 2009,
-  eprint = nook,
+  eprint = {Nook},
   eprinttype = {ebook}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{14}{ch.~1.3}{18}{ch.~1.3}{reventlow:2009}
 
@@ -944,18 +1011,18 @@ Than the Author}
   Atlanta: Society of Biblical Literature, 2009. Nook edition.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @book{wright:2014,
-  author = wright,
+  author = {Wright, Jacob L.},
   title = {David, King of Israel, and Caleb in Biblical Memory},
   shorttitle = {David, King of Israel},
-  location = cambridge,
-  publisher = cup,
+  location = {Cambridge},
+  publisher = {Cambridge University Press},
   date = {2014},
-  eprint = kindle,
+  eprint = {Kindle},
   eprinttype = {ebook}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{3}{ch.~3, \mkbibquote{Introducing David}}{21}{ch.~5,
 \mkbibquote{Evidence from Qumran}}{wright:2014}
@@ -972,18 +1039,17 @@ Than the Author}
   Kindle edition.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @book{killebrew+steiner:2014,
-  editor = killebrew # " and " # steiner,
-  title = {The Oxford Handbook of the Archaeology of
-           the Levant: c.~8000–332 BCE},
+  editor = {Killebrew, Ann E. and Steiner, Margreet},
+  title = {The Oxford Handbook of the Archaeology of the Levant: c.~8000--332 BCE},
   shorttitle = {Archaeology of the Levant},
-  location = oxford,
-  publisher = oup,
+  location = {Oxford},
+  publisher = {Oxford University Press},
   date = {2014},
   doi = {10.1093/oxfordhb/9780199212972.001.0001}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnp{53}{55}{killebrew+steiner:2014}
 
@@ -1000,19 +1066,19 @@ Than the Author}
   Press, 2014. doi:10.1093/ oxfordhb/9780199212972.001.0001.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @book{kaufman:1974,
-  author = kaufman,
+  author = {Kaufman, Stephen},
   title = {The Akkadian Influences on Aramaic},
-  series = AS,
+  series = {Assyriological Studies},
   shortseries = {AS},
   number = {19},
-  location = chicago,
-  publisher = oiuc,
+  location = {Chicago},
+  publisher = {The Oriental Institute of the University of Chicago},
   date = {1974},
   url = {http://oi.uchicago.edu/pdf/as19.pdf}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{29}{32}{123}{kaufman:1974}
 
@@ -1032,18 +1098,18 @@ Than the Author}
 
 \subsubsection{A Journal Article}
 
-\begin{vb}
+\begin{lstlisting}
 @article{leyerle:1993,
-  author = leyerle,
+  author = {Leyerle, Blake},
   title = {John Chrysostom on the Gaze},
   shorttitle = {Chrysostom},
-  journaltitle = JECS,
+  journaltitle = {Journal of Early Christian Studies},
   shortjournal = {JECS},
   volume = {1},
   date = {1993},
-  pages = {159-74}
+  pages = {159-174}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnpf{7}{23}{161}{leyerle:1993}
 
@@ -1058,17 +1124,17 @@ Than the Author}
 
 \subsubsection{A Journal Article with Multiple Page Locations and Volumes}
 
-\begin{vb}
+\begin{lstlisting}
 @article{wildberger:1965,
-  author = wildberger,
-  title = {Das Abbild Gottes: Gen 1:26–30},
-  journal = TZ,
+  author = {Wildberger, Hans},
+  title = {Das Abbild Gottes: Gen 1:26--30},
+  journaltitle = {Theologische Zeitschrift},
   shortjournal = {TZ},
   volume = {21},
   date = {1965},
   pages = {245-259, 481-501}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnp{21}{wildberger:1965}
 
@@ -1080,17 +1146,17 @@ Than the Author}
   \emph{TZ} 21 (1965): 245–59, 481–501.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @article{wellhausen:1876-1877,
-  author = wellhausen,
+  author = {Wellhausen, Julius},
   title = {Die Composition des Hexateuchs},
-  journal = JDT,
+  journaltitle = {Jahrbuch für deutsche Theologie},
   shortjournal = {JDT},
-  volume = {21 (1876): 39–450; 22},
+  volume = {21 (1876): 392--450; 22},
   date = {1877},
   pages = {407-479}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnp{24}{wellhausen:1876-1877}
 
@@ -1104,18 +1170,17 @@ Than the Author}
 
 \subsubsection{A Journal Article Republished in a Collected Volume}
 
-\begin{vb}
+\begin{lstlisting}
 @article{freedman:1977,
-  author = freedman,
-  title = {Pottery, Poetry, and Prophecy: An Essay on Biblical
-           Poetry},
-  journal = JBL,
+  author = {Freedman, David Noel},
+  title = {Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry},
+  journaltitle = {Journal of Biblical Literature},
   shortjournal = {JBL},
   volume = {96},
   date = {1977},
   pages = {5-26}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestns{20}{20}{freedman:1977}
 
@@ -1128,19 +1193,17 @@ Than the Author}
   An Essay on Biblical Poetry.” \emph{JBL} 96 (1977): 5–26.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @incollection{freedman:1980,
-  author = freedman,
-  title = {Pottery, Poetry, and Prophecy: An Essay on Biblical
-           Poetry},
-  booktitle = {Pottery, Poetry, and Prophecy: Studies in Early
-               Hebrew Poetry},
-  location = winonalake,
-  publisher = eisenbrauns,
+  author = {Freedman, David Noel},
+  title = {Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry},
+  booktitle = {Pottery, Poetry, and Prophecy: Studies in Early Hebrew Poetry},
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
   date = {1980},
   pages = {1-22}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestns{20}{14}{freedman:1980}
 
@@ -1158,18 +1221,18 @@ Than the Author}
 
 \subsubsection{A Book Review}
 
-\begin{vb}
+\begin{lstlisting}
 @review{teeple:1966,
-  author = teeple,
-  revdauthor = robert # " and " # feuillet,
+  author = {Teeple, Howard M.},
+  revdauthor = {Robert, André and Feuillet, André},
   revdtitle = {Introduction to the New Testament},
-  journaltitle = JBR,
+  journaltitle = {Journal of Bible and Religion},
   shortjournal = {JBR},
   volume = {34},
   date = {1966},
   pages = {368-370}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{8}{21}{369}{teeple:1966}
 
@@ -1185,18 +1248,18 @@ Than the Author}
   368–70.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @review{pelikan:1992,
-  author = pelikan,
+  author = {Pelikan, Jaroslav},
   title = {The Things That You're Liable to Read in the Bible},
   shorttitle = {Things That You're Liable to Read},
-  revdeditor = freedman,
+  revdeditor = {Freedman, David Noel},
   revdtitle = {The Anchor Bible Dictionary},
   journaltitle = {New York Times Review of Books},
   date = {1992-12-20},
   pages = {3}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnp{9}{pelikan:1992}
 
@@ -1212,18 +1275,17 @@ Than the Author}
   3.\textsuperscript{\emph{a}}
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @article{petersen:1988,
-  author = petersen,
-  title = {Hebrew Bible Textbooks},
-  subtitle = {A Review Article},
-  journaltitle = CRBR,
+  author = {Petersen, David L.},
+  title = {Hebrew Bible Textbooks: A Review Article},
+  journaltitle = {Critical Review of Books in Religion},
   shortjournal = {CRBR},
   volume = {1},
   date = {1988},
   pages = {1-18}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{7}{14}{8}{petersen:1988}
 
@@ -1239,15 +1301,15 @@ Than the Author}
 
 \subsubsection{An Unpublished Dissertation or Thesis}
 
-\begin{vb}
+\begin{lstlisting}
 @thesis{klosinski:1988,
-  author = klosinski,
+  author = {Klosinski, Lee E.},
   title = {Meals in Mark},
   type = {phdthesis},
-  institution = claremont,
+  institution = {The Claremont Graduate School},
   date = {1988}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetest{21}{22-44}{26}{23}{klosinski:1988}
 
@@ -1263,27 +1325,27 @@ Than the Author}
 
 \subsubsection{An Article in an Encyclopaedia or a Dictionary}
 
-\begin{vb}
+\begin{lstlisting}
 @mvreference{IDB,
-  editor = buttrick,
+  editor = {Buttrick, George A.},
   title = {The Interpreter's Dictionary of the Bible},
   shorttitle = {IDB},
   volumes = {4},
-  location = newyork,
-  publisher = abingdon,
+  location = {New York},
+  publisher = {Abingdon},
   date = {1962},
   shorthand = {IDB}
 }
 
 @inreference{stendahl:1962,
-  author = stendahl,
+  author = {Stendahl, Krister},
   title = {Biblical Theology, Contemporary},
   shorttitle = {Biblical Theology},
   volume = {1},
   pages = {418-432},
   sblxref = {IDB}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnpf{33}{36}{419}{stendahl:1962}
 
@@ -1301,26 +1363,26 @@ Than the Author}
 For the discussion of a word or a family of words, give the entire title and
 page range of the article:
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{NIDNTT,
-  editor = brown,
+  editor = {Brown, Colin},
   title = {New International Dictionary of New Testament Theology},
   shorttitle = {NIDNTT},
   volumes = {4},
-  location = grandrapids,
-  publisher = zondervan,
+  location = {Grand Rapids},
+  publisher = {Zondervan},
   date = {1975/1985},
   shorthand = {NIDNTT}
 }
 
 @inlexicon{dahn+liefeld:see+vision+eye,
-  author = dahn # " and " # liefeld,
+  author = {Dahn, Karl and Liefeld, Walter L.},
   title = {See, Vision, Eye},
   volume = {3},
   pages = {511-521},
   sblxref = {NIDNTT}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestlex{3}{dahn+liefeld:see+vision+eye}
 
@@ -1328,27 +1390,27 @@ page range of the article:
   3. Karl Dahn and Walter L. Liefeld, “See, Vision, Eye,” \emph{NIDNTT} 3:511–21.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{TDNT,
-  editor = kittel # " and " # friedrich,
+  editor = {Kittel, Gerhard and Friedrich, Gerhard},
   title = {Theological Dictionary of the New Testament},
   shorttitle = {TDNT},
-  translator = bromily,
+  translator = {Bromiley, Geoffrey W.},
   volumes = {10},
-  location = grandrapids,
-  publisher = eerdmans,
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
   date = {1964/1976},
   shorthand = {TDNT}
 }
 
 @inlexicon{beyer:diakoneo+diakonia+ktl,
-  author = beyer,
-  title = {\gr{διακονέω, διακονία, κτλ}},
+  author = {Beyer, Hermann W.},
+  title = {\gr{διακονέω, διακονία, κτλ}},
   volume = {2},
   pages = {81-93},
   sblxref = {TDNT}
 }
-\end{vb}
+\end{lstlisting}
   
 \citetestlex{6}{beyer:diakoneo+diakonia+ktl}
 
@@ -1356,28 +1418,28 @@ page range of the article:
   6. Hermann W. Beyer, “\gr{διακονέω, διακονία, κτλ},” \emph{TDNT} 2:81–93.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{TLNT,
-  author = spicq,
+  author = {Spicq, Ceslas},
   title = {Theological Lexicon of the New Testament},
   shorttitle = {TLNT},
-  editor = ernest,
-  translator = ernest,
+  editor = {Ernest, James D.},
+  translator = {Ernest, James D.},
   volumes = {3},
-  location = peabody,
-  publisher = hendrickson,
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1994},
   shorthand = {TLNT}
 }
 
 @inlexicon{spicq:atakteo+ataktos+ataktos,
-  author = spicq,
-  title = {\gr{ἀτακτέω, ἄτακτος, ἀτάκτως}},
+  author = {Spicq, Ceslas},
+  title = {\gr{ἀτακτέω, ἄτακτος, ἀτάκτως}},
   volume = {1},
   pages = {223-224},
   sblxref = {TLNT}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestlex{7}{spicq:atakteo+ataktos+ataktos}
 
@@ -1385,28 +1447,28 @@ page range of the article:
   7. Ceslas Spicq, “\gr{ἀτακτέω, ἄτακτος, ἀτάκτως},” \emph{TLNT} 1:223–24.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{TLNT,
-  author = spicq,
+  author = {Spicq, Ceslas},
   title = {Theological Lexicon of the New Testament},
   shorttitle = {TLNT},
-  editor = ernest,
-  translator = ernest,
+  editor = {Ernest, James D.},
+  translator = {Ernest, James D.},
   volumes = {3},
-  location = peabody,
-  publisher = hendrickson,
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1994},
   shorthand = {TLNT}
 }
 
 @inlexicon{spicq:amoibe,
-  author = spicq,
-  title = {\gr{ἀμοιβή}},
+  author = {Spicq, Ceslas},
+  title = {\gr{ἀμοιβή}},
   volume = {1},
   pages = {95-96},
   sblxref = {TLNT}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestlex{143}{spicq:amoibe}
 
@@ -1419,27 +1481,27 @@ page range of the article:
 For the discussion of a specific word in an article covering a larger group of
 words, name just the word discussed and those pages on which it is discussed:
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{TDNT,
-  editor = kittel # " and " # friedrich,
+  editor = {Kittel, Gerhard and Friedrich, Gerhard},
   title = {Theological Dictionary of the New Testament},
   shorttitle = {TDNT},
-  translator = bromily,
+  translator = {Bromiley, Geoffrey W.},
   volumes = {10},
-  location = grandrapids,
-  publisher = eerdmans,
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
   date = {1964/1976},
   shorthand = {TDNT}
 }
 
 @inlexicon{beyer:diakoneo,
-  author = beyer,
-  title = {\gr{διακονέω}},
+  author = {Beyer, Hermann W.},
+  title = {\gr{διακονέω}},
   volume = {2},
   pages = {81-87},
   sblxref = {TDNT}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestlex{23}{beyer:diakoneo}
 
@@ -1447,26 +1509,26 @@ words, name just the word discussed and those pages on which it is discussed:
   23. Hermann W. Beyer, “\gr{διακονέω},” \emph{TDNT} 2:81–87.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @mvlexicon{NIDNTT,
-  editor = brown,
+  editor = {Brown, Colin},
   title = {New International Dictionary of New Testament Theology},
   shorttitle = {NIDNTT},
   volumes = {4},
-  location = grandrapids,
-  publisher = zondervan,
+  location = {Grand Rapids},
+  publisher = {Zondervan},
   date = {1975/1985},
   shorthand = {NIDNTT}
 }
 
 @inlexicon{dahn:horao,
-  author = dahn,
-  title = {\gr{ὁράω}},
+  author = {Dahn, Karl},
+  title = {\gr{ὁράω}},
   volume = {3},
   pages = {511-518},
   sblxref = {NIDNTT}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestlex{26}{dahn:horao}
 
@@ -1526,18 +1588,17 @@ In the bibliography, cite only the theological dictionary.
 
 \subsubsection{A Paper Presented at a Professional Society}
 
-\begin{vb}
+\begin{lstlisting}
 @inproceedings{niditch:1994,
-  author = niditch,
+  author = {Niditch, Susan},
   title = {Oral Culture and Written Documents},
   shorttitle = {Oral Culture},
   type = {presentedpaper},
-  eventtitle = {the Annual Meeting of the New England Region
-                of the SBL},
-  location = worcester,
+  eventtitle = {the Annual Meeting of the New England Region of the SBL},
+  location = {Worcester, MA},
   date = {1994-03-25}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{31}{13-17}{35}{14}{niditch:1994}
 
@@ -1555,18 +1616,18 @@ In the bibliography, cite only the theological dictionary.
 
 \subsubsection{An Article in a Magazine}
 
-\begin{vb}
+\begin{lstlisting}
 @article{saldarini:1998,
-  author = saldarini,
+  author = {Saldarini, Anthony J.},
   title = {Babatha's Story},
-  journaltitle = BAR,
+  journaltitle = {Biblical Archeology Review},
   shortjournal = {BAR},
   volume = {24},
   number = {2},
   date = {1998},
   pages = {23-33, 36-37, 72-74}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestnpf{8}{27}{28}{saldarini:1998}
 
@@ -1582,19 +1643,18 @@ In the bibliography, cite only the theological dictionary.
 
 \subsubsection{An Electronic Journal Article}
 
-\begin{vb}
+\begin{lstlisting}
 @article{springer:2014,
-  author = springer,
-  title = {Of Roosers and \emph{Repetitio}: Ambrose’s
-           \emph{Aeterne rerum conditor}},
-  journal = VC,
+  author = {Springer, Carl P. E.},
+  title = {Of Roosers and \emph{Repetitio}: Ambrose's \emph{Aeterne rerum conditor}},
+  journaltitle = {Vigiliae Christianae},
   shortjournal = {VC},
   volume = {68},
   date = {2014},
   pages = {155-177},
   doi = {10.1163/15700720-12341158}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{43}{45}{158}{springer:2014}
 
@@ -1610,19 +1670,18 @@ In the bibliography, cite only the theological dictionary.
   68(2014): 155–77. \url{doi:10.1163/15700720-12341158}.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @article{truehart:1996,
-  author = truehart,
+  author = {Truehart, Charles},
   title = {Welcome to the Next Church},
   shorttitle = {Next Church},
-  url = {http://www.theatlantic.com/atlantic/issues/
-         96aug/nxtchrch/nxtchrch.htm},
-  journaltitle = atlanticmonthly,
+  url = {http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm},
+  journaltitle = {Atlantic Monthly},
   volume = {278},
   date = {1996-08},
   pages = {37-58}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{8}{12}{37}{truehart:1996}
 
@@ -1639,13 +1698,12 @@ In the bibliography, cite only the theological dictionary.
   \url{http://www.theatlantic.com/past/docs/issues/96aug/nxtchrch/nxtchrch.htm}.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @article{kirk:2007,
-  author = kirk,
-  title = {Karl Polanyi, Marshall Sahlins, and the Study of
-           Ancient Social Relations},
+  author = {Kirk, Alan},
+  title = {Karl Polanyi, Marshall Sahlins, and the Study of Ancient Social Relations},
   shorttitle = {Karl Polanyi},
-  journal = JBL,
+  journaltitle = {Journal of Biblical Literature},
   shortjournal = {JBL},
   volume = {126},
   date = {2007},
@@ -1653,7 +1711,7 @@ In the bibliography, cite only the theological dictionary.
   doi = {10.2307/27638428},
   url = {http://www.jstor.org/stable/27638428}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{31}{35}{186}{kirk:2007}
 
@@ -1899,17 +1957,17 @@ TODO: Not yet supported.
 
 \subsubsection{Strack-Billerbeck,\newline\emph{Kommentar zum Neuen Testament}}
 
-\begin{vb}
+\begin{lstlisting}
 @book{str-b,
-  author = strack # " and " # billerbeck,
+  author = {Strack, Hermann L. and Billerbeck, Paul},
   title = {Kommentar zum Neuen Testament aus Talmud und Midrasch},
   volumes = {6},
-  location = munich,
-  publisher = beck,
+  location = {Munich},
+  publisher = {Beck},
   date = {1922/1961},
   shorthand = {Str-B}
 }
-\end{vb}
+\end{lstlisting}
 
 {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -1954,18 +2012,18 @@ TODO: Not yet supported.
 
 \subsubsection{Bible Commentaries}
 
-\begin{vb}
+\begin{lstlisting}
 @commentary{hooker:1991,
-  author = hooker,
+  author = {Hooker, Morna},
   title = {The Gospel according to Saint Mark},
-  series = BNTC,
+  series = {Black's New Testament Commentaries},
   shortseries = {BNTC},
   number = {2},
-  location = peabody,
-  publisher = hendrickson,
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
   date = {1991}
 }
-\end{vb}  
+\end{lstlisting}  
 
 \citetestns{6}{223}{hooker:1991}
 
@@ -1979,20 +2037,18 @@ TODO: Not yet supported.
 
 \paragraph{Articles and Notes in Study Bibles}
 
-\begin{vb}
+\begin{lstlisting}
 @inbook{petersen:2006,
-  author = petersen,
+  author = {Petersen, David L.},
   title = {Ezekiel},
   pages = {1096-1167},
-  booktitle = {The HarperCollins Study Bible Fully Revised and
-               Updated: New Revised Standard Version, with the
-               Apocryphal\slash Deuterocanonical Books},
-  editor = attridge # " and others",
-  location = sanfrancisco,
-  publisher = harpersanfrancisco,
+  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard Version, with the Apocryphal\slash Deuterocanonical Books},
+  editor = {Attridge, Harold W. and others},
+  location = {San Francisco},
+  publisher = {HarperSanFrancisco},
   date = {2006}
 }
-\end{vb}
+\end{lstlisting}
 
 \begin{sloppy}
   \citetest{3}{1096}{5}{1096}{petersen:2006}
@@ -2016,18 +2072,18 @@ TODO: Not yet supported.
 
 \paragraph{Single-Volume Commentaries on the Entire Bible}
 
-\begin{vb}
+\begin{lstlisting}
 @incommentary{partain:1995,
-  author = partain,
+  author = {Partain, Jack G.},
   title = {Numbers},
   pages = {175-179},
   booktitle = {Mercer Commentary on the Bible},
-  editor = mills # " and others",
-  location = macon,
-  publisher = mup,
+  editor = {Mills, Watson E. and others},
+  location = {Macon, GA},
+  publisher = {Mercer University Press},
   date = {1995}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnpf{5}{8}{175}{partain:1995}
 
@@ -2047,19 +2103,19 @@ TODO: Not yet supported.
 
 \paragraph{Multivolume Commentaries on a Single Biblical Book by One Author}
 
-\begin{vb}
+\begin{lstlisting}
 @mvcommentary{dahood:1965-1970,
-  author = dahood,
+  author = {Dahood, Mitchell},
   title = {Psalms},
   volumes = {3},
-  series = AB,
+  series = {Anchor Bible},
   shortseries = {AB},
   number = {16--17A},
-  location = gardencity,
-  publisher = doubleday,
+  location = {Garden City, NY},
+  publisher = {Doubleday},
   date = {1965/1970}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetest{4}{3:127}{7}{2:121}{dahood:1965-1970}
 
@@ -2073,31 +2129,35 @@ TODO: Not yet supported.
   Garden City, N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970.
 \end{refimp}
 
-\begin{vb}
+\begin{lstlisting}
 @commentary{dahood:1965,
-  author = dahood,
+  author = {Dahood, Mitchell},
   title = {Psalms I: 1--50},
   shorttitle = {Psalms I: 1--50},
-  series = AB,
+  volume = {2},
+  maintitle = {Psalms},
+  series = {Anchor Bible},
   shortseries = {AB},
   number = {16},
-  location = gardencity,
-  publisher = doubleday,
-  year = {1965}
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1965}
 }
 
 @commentary{dahood:1968,
-  author = dahood,
+  author = {Dahood, Mitchell},
   title = {Psalms II: 51--100},
   shorttitle = {Psalms II: 51--100},
-  series = AB,
+  volume = {2},
+  maintitle = {Psalms},
+  series = {Anchor Bible},
   shortseries = {AB},
   number = {17},
-  location = gardencity,
-  publisher = doubleday,
-  year = {1968}
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1968}
 }
-\end{vb}
+\end{lstlisting}
 
 {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -2145,36 +2205,33 @@ TODO: Not yet supported.
 
 \paragraph{Multivolume Commentaries for the Entire Bible by Multiple Authors}
 
-\begin{vb}
+\begin{lstlisting}
 @mvcommentary{NIB,
-  editor = keck,
+  editor = {Keck, Leander E.},
   title = {The New Interpreter's Bible},
   shorttitle = {NIB},
   volumes = {12},
-  location = nashville,
-  publisher = abingdon,
+  location = {Nashville},
+  publisher = {Abingdon},
   date = {1994/2004},
   shorthand = {NIB}
 }
 
 @incommentary{miller:2001,
-  author = miller,
-  title = {The Book of Jeremiah: Introduction, Commentary,
-           and Reflections},
+  author = {Miller, Patrick D.},
+  title = {The Book of Jeremiah: Introduction, Commentary, and Reflections},
   pages = {553-926},
-  booktitle = {Introduction to Prophetic Literature, Isaiah,
-               Jeremiah, Baruch, Letter of Jeremiah,
-               Lamentations, Ezekiel},
+  booktitle = {Introduction to Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter of Jeremiah, Lamentations, Ezekiel},
   volume = {6},
   maintitle = {The New Interpreter's Bible},
   shortmaintitle = {NIB},
-  maineditor = keck,
-  location = nashville,
-  publisher = abingdon,
+  maineditor = {Keck, Leander E.},
+  location = {Nashville},
+  publisher = {Abingdon},
   date = {2001},
   sblxref = {NIB}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestns{1}{577}{miller:2001}
 
@@ -2200,20 +2257,20 @@ TODO: Not yet supported.
 
 \subsubsection{SBL Seminar Papers}
 
-\begin{vb}
+\begin{lstlisting}
 @seminarpaper{crenshaw:2001,
-  author = crenshaw,
+  author = {Crenshaw, James L.},
   title = {Theodicy in the Book of the Twelve},
   booktitle = {Society of Biblical Literature 2001 Seminar Papers},
-  series = SBLSP,
+  series = {Society of Biblical Literature Seminar Papers},
   shortseries = {SBLSP},
   number = {40},
-  location = atlanta,
-  publisher = sbl,
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
   date = {2001},
   pages = {1-18}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnp{33}{crenshaw:2001}
 
@@ -2235,17 +2292,16 @@ necessary to indicate the medium in the citation.
 
 \subsubsection{Text Editions Published Online with No Print Counterpart}
 
-\begin{vb}
+\begin{lstlisting}
 @article{wilhelm:2013,
-  editor = wilhelm,
-  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit
-           Šattiwazza von Mitrani (CTH 51.I)},
+  editor = {Wilhelm, Gernot},
+  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I)},
   shorttitle = {Der Vertrag Šuppiluliumas I},
   releasedate = {2013-02-24},
   eprint = {doi:hethiter.net/: CTH 51.I (INTR 2013-02-24)},
   eprinttype = {literal}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnp{2}{4}{wilhelm:2013}
 
@@ -2264,14 +2320,14 @@ necessary to indicate the medium in the citation.
 
 \subsubsection{Online Database}
 
-\begin{vb}
+\begin{lstlisting}
 @article{cobb:figurines,
   author = {{Cobb Institute of Archaeology}},
   title = {The Figurines of Maresha, the Persian Era},
   eprint = {http://www.cobb.msstate.edu/dignew/Maresha/index.html},
   eprinttype = {DigMaster}
 }
-\end{vb}
+\end{lstlisting}
 
 \citetestnsnp{37}{cobb:figurines}
 
@@ -2287,14 +2343,13 @@ necessary to indicate the medium in the citation.
 
 \subsubsection{Websites and Blogs}
 
-\begin{vb}
-  @article{100cuneiform,
-    title = {The One Hundred Most Important Cuneiform Objects},
-    eprint = {http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_
-              most_important_cuneiform_objects},
-    eprinttype = {cdli:wiki}
-  }
-\end{vb}
+\begin{lstlisting}
+@article{100cuneiform,
+  title = {The One Hundred Most Important Cuneiform Objects},
+  eprint = {http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects},
+  eprinttype = {cdli:wiki}
+}
+\end{lstlisting}
 
 \citetestnsnp{10}{100cuneiform}
 
