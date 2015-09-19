@@ -100,11 +100,13 @@
 }
 
 \DeclareBibliographyDriver{incommentary}{%
+  \usebibmacro{bibindex}%
   \iffieldundef{volume}
     {\usedriver{}{incollection}}
     {\iftoggle{commentaryfullbibref}
        {\usedriver{}{incollection}}
        {\usedriver{}{incommentary:short}}}%
+  \usebibmacro{finentry}%
 }
 
 \DeclareBibliographyDriver{incommentary:short}{%
