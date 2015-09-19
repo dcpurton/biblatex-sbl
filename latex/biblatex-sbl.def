@@ -464,19 +464,25 @@
 
 \newbibmacro*{shorttitle}{%
   \iffieldundef{shorttitle}
-    {\printtext[title]{\printfield[titlecase]{title}}}
+    {\iffieldundef{title}
+       {}
+       {\printtext[title]{\printfield[titlecase]{title}}}}
     {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
   \newunit}
 
 \newbibmacro*{shortbooktitle}{%
   \iffieldundef{shortbooktitle}
-    {\printtext[booktitle]{\printfield[titlecase]{booktitle}}}
+    {\iffieldundef{booktitle}
+       {}
+       {\printtext[booktitle]{\printfield[titlecase]{booktitle}}}}
     {\printtext[booktitle]{\printfield[titlecase]{shortbooktitle}}}%
   \newunit}
 
 \newbibmacro*{shortmaintitle}{%
   \iffieldundef{shortmaintitle}
-    {\printtext[maintitle]{\printfield[titlecase]{maintitle}}}
+    {\iffieldundef{maintitle}
+       {}
+       {\printtext[maintitle]{\printfield[titlecase]{maintitle}}}}
     {\printtext[maintitle]{\printfield[titlecase]{shortmaintitle}}}%
   \newunit}
 
@@ -744,42 +750,38 @@
     {}}
 
 \newbibmacro*{bybookeditor+others}{%
-  \iffieldundef{booktitle}
+  \ifnameundef{editor}
     {}
-    {\ifnameundef{editor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{editor}%
-        \clearname{editor}%
-        \newunit}%
-     \ifnameundef{bookeditor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{bookeditor}%
-        \clearname{bookeditor}%
-        \newunit}%
-     \usebibmacro{bybooktranslator+others}}}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \clearname{editor}%
+     \newunit}%
+  \ifnameundef{bookeditor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{bookeditor}%
+     \clearname{bookeditor}%
+     \newunit}%
+  \usebibmacro{bybooktranslator+others}}
 
 \newbibmacro*{bymaineditor+others}{%
-  \iffieldundef{maintitle}
+  \ifnameundef{editor}
     {}
-    {\ifnameundef{editor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{editor}%
-        \clearname{editor}%
-        \newunit}%
-     \ifnameundef{maineditor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{maineditor}%
-        \clearname{maineditor}%
-        \newunit}%
-     \usebibmacro{bymaintranslator+others}}}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \clearname{editor}%
+     \newunit}%
+  \ifnameundef{maineditor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{maineditor}%
+     \clearname{maineditor}%
+     \newunit}%
+  \usebibmacro{bymaintranslator+others}}
 
 \newbibmacro*{byorigeditor+others}{%
   \ifnameundef{origeditor}
@@ -805,7 +807,8 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{booktranslator}%
      \clearname{booktranslator}%
-     \newunit}}
+     \newunit}%
+  \usebibmacro{withothers}}
 
 \newbibmacro*{bymaintranslator+others}{%
   \ifnameundef{translator}
@@ -821,7 +824,8 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{maintranslator}%
      \clearname{maintranslator}%
-     \newunit}}
+     \newunit}%
+  \usebibmacro{withothers}}
 
 \newbibmacro*{byorigtranslator+others}{%
   \ifnameundef{origtranslator}
