@@ -1,5 +1,4 @@
 \DeclareDatamodelEntrytypes{
-  commentary,
   incommentary,
   inlexicon,
   review,
