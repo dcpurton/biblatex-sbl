@@ -296,6 +296,8 @@
   {\item}
 
 \DeclareBibliographyDriver{abbreviations}{%
+  \citereset
+  \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
   \iffieldundef{shorthand}{}{%
     \iffieldsequal{shorthand}{shorttitle}
@@ -339,7 +341,6 @@
 }
 
 \newbibmacro*{abbrev:book}{%
-  \def\abx@str{abx@lstr}%
   \renewcommand*{\newunitpunct}{\addperiod\space}%
   \usebibmacro{title}%
   \newunit
