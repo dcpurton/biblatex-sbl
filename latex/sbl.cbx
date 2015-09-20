@@ -28,7 +28,9 @@
     {}}
 
 \newbibmacro*{cite:shorthand}{%
-  \printtext[bibhyperlink]{\printfield{shorthand}}}
+  \iffieldsequal{shorthand}{shorttitle}
+    {\printtext{\mkbibemph{\printtext[bibhyperlink]{\printfield{shorthand}}}}}
+    {\printtext[bibhyperlink]{\printfield{shorthand}}}}
 
 \newbibmacro*{bibentrycite}{%
   \citereset
