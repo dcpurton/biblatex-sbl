@@ -603,18 +603,12 @@
 
 \newbibmacro*{shortjournal+issuetitle}{%
   \usebibmacro{shortjournal}%
-  \setunit*{\addspace}%
   \iffieldundef{series}
     {}
     {\newunit
-     \printfield{series}%
-     \setunit{\addspace}}%
+     \printfield{series}}%
   \usebibmacro{volume+number+eid}%
-  \setunit{\addspace}%
-  \usebibmacro{issue+date}%
-  \setunit{\addcolon\space}%
-  \usebibmacro{issue}%
-  \newunit}
+  \usebibmacro{issue+date}}
 
 \renewbibmacro*{issue+date}{%
   \ifboolexpr{
@@ -629,19 +623,29 @@
     test {\iffieldundef{day}}
   }
     {}
-    {\printtext[parens]{%
-       \iffieldundef{issue}
-         {\usebibmacro{date}}
-         {\printfield{issue}%
-          \setunit*{\addspace}%
-          \usebibmacro{date}}}%
-     \newunit}}
+    {\iffieldundef{volume}
+      {\setunit{\addcomma\space}%
+        \iffieldundef{issue}
+          {\usebibmacro{date}}
+          {\printfield{issue}%
+           \setunit*{\addspace}%
+           \usebibmacro{date}}
+        \newunit}
+       {\setunit{\addspace}%
+        \printtext[parens]{%
+          \iffieldundef{issue}
+            {\usebibmacro{date}}
+            {\printfield{issue}%
+             \setunit*{\addspace}%
+             \usebibmacro{date}}}%
+        \setunit{\addcolon\space}}}}
 
 \renewbibmacro*{volume+number+eid}{%
+  \setunit*{\addspace}%
   \printfield{volume}%
-  \setunit{\addperiod}%
+  \setunit*{\addperiod}%
   \printfield{number}%
-  \setunit{\addcomma\space}%
+  \setunit*{\addcomma\space}%
   \printfield{eid}}
 
 \newbibmacro*{volume+part}{%
