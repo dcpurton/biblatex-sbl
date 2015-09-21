@@ -28,6 +28,7 @@
     {}}
 
 \newbibmacro*{cite:shorthand}{%
+  \usebibmacro{usesblxref}%
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext[bibhyperlink]{\printfield{shorthand}}}}}
     {\printtext[bibhyperlink]{\printfield{shorthand}}}}
@@ -117,6 +118,7 @@
 % ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{cite:article}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -131,6 +133,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:book}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -156,6 +159,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:suppbook}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \ifciteseen
@@ -190,6 +194,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:commentary}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -224,6 +229,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:collection}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{editor+others}%
   \newunit
   \usebibmacro{title}%
@@ -247,6 +253,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:incollection}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -305,6 +312,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:review}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -322,6 +330,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:seminarpaper}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -352,6 +361,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:thesis}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{title}%
@@ -367,6 +377,7 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inproceedings}{%
+  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%

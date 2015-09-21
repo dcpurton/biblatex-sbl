@@ -146,7 +146,8 @@
     origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
-    eventtitle,releasedate,origtranslator,volumes,shortmaintitle%
+    eventtitle,releasedate,origtranslator,volumes,shortmaintitle,options,%
+    editortype%
   },
   sensitive=false,
 }
@@ -229,13 +230,11 @@
 
 \begin{document}
 
+\tableofcontents
+
 \setcounter{section}{5}
 
 \section{General Examples}
-
-The following examples define SBL style for notes and bibliographies more
-fully than the select rules in §6 of the second edition of the SBL Handbook of
-Style.
 
 \setcounter{subsection}{1}
 \subsection{General Examples: Books}
@@ -1955,7 +1954,7 @@ TODO: Not yet supported.
   Paris, 1857–1886.
 \end{refimp}
 
-\subsubsection{Strack-Billerbeck,\newline\emph{Kommentar zum Neuen Testament}}
+\subsubsection{Strack-Billerbeck, \emph{Kommentar zum Neuen Testament}}
 
 \begin{lstlisting}
 @book{str-b,
@@ -1987,7 +1986,7 @@ TODO: Not yet supported.
   Munich: Beck, 1922–1961.
 \end{refimp}
 
-\subsubsection{\emph{Aufsteig und Niedergang der römischen\newline Welt (ANRW)}}
+\subsubsection{\emph{Aufsteig und Niedergang der römischen Welt (ANRW)}}
 
 TODO: Not yet supported.
 
@@ -2363,6 +2362,82 @@ necessary to indicate the medium in the citation.
   cdli:wiki.
   \url{http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects}.
 \end{refimp}
+
+\section{Other Examples}
+
+\subsection{BDAG, BDB, BDF, \emph{HALOT}}
+
+\begin{lstlisting}
+@book{BDAG,
+  author = {Danker, Frederick W. and Bauer, Walter and Arndt, William F. and Gingrich, F. Wilbur},
+  title = {Greek-English Lexicon of the New Testament and Other Early Christian Literature.},
+  edition = {3},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {2000},
+  shorthand = {BDAG}
+}
+\end{lstlisting}
+
+\citetestns{1}{35}{BDAG}
+
+\begin{lstlisting}
+@book{BDB,
+  author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
+  title = {A Hebrew and English Lexicon of the Old Testament},
+  shorthand = {BDB},
+  options = {skipbib=true},
+  sblxref = {BDB:1906}
+}
+
+@book{BDB:1906,
+  author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
+  title = {A Hebrew and English Lexicon of the Old Testament},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {1906}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+\nobreak
+\texttt{\textbackslash autocite[432]\{BDB\}}\par
+\color{biblatex-colour}
+2. \cite[432]{BDB}.\par
+\color{black}
+\texttt{\textbackslash printbibliography}\par
+\color{biblatex-colour}
+\hangindent\bibindent\bibentrycite{BDB:1906}.\par}
+
+\begin{lstlisting}
+@book{BDF,
+  author = {Blass, Friedrich and Debrunner, Albert and Funk Robert W.},
+  title = {A Greek Grammar of the New Testament and Other Early Christian Literature},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1961},
+  shorthand = {BDF}
+}
+\end{lstlisting}
+
+\citetestns{3}{§441}{BDF}
+
+\begin{lstlisting}
+@mvbook{HALOT,
+  author = {Koehler, Ludwig and Baumgartner, Walter and Stamm, Johann J.},
+  title = {The Hebrew and Aramaic Lexicon of the Old Testament},
+  shorttitle = {HALOT},
+  editor = {Richardson, Mervyn E. J.},
+  editortype = {Translated and edited under the supervision of},
+  volumes = {4},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1994/1999},
+  shorthand = {HALOT}
+}
+\end{lstlisting}
+
+\citetestns{4}{2:223}{HALOT}
 
 \printbiblist{abbreviations}
 
