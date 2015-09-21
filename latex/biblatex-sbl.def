@@ -300,11 +300,18 @@
   \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
   \iffieldundef{shorthand}{}{%
+    \bibhypertarget{\thefield{shorthand}}{}%
     \iffieldsequal{shorthand}{shorttitle}
       {\usebibmacro{abbrev:book}}
       {\usebibmacro{bibentrycite}}}%
-  \iffieldundef{shortjournal}{}{\printfield{journaltitle}}%
-  \iffieldundef{shortseries}{}{\printfield{series}}%
+  \iffieldundef{shortjournal}
+    {}
+    {\bibhypertarget{\thefield{shortjournal}}{}%
+     \printfield{journaltitle}}%
+  \iffieldundef{shortseries}
+    {}
+    {\bibhypertarget{\thefield{shortseries}}{}%
+     \printfield{series}}%
   \usebibmacro{finentry}%
 }
 
@@ -588,7 +595,7 @@
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
     {\printfield{journaltitle}}
-    {\printfield{shortjournal}}}
+    {\printtext{\bibhyperlink{\thefield{shortjournal}}{\thefield{shortjournal}}}}}
 
 \newbibmacro*{shortjournal+issuetitle}{%
   \usebibmacro{shortjournal}%
@@ -920,7 +927,7 @@
 \newbibmacro*{shortseries+number}{%
   \iffieldundef{shortseries}
     {\printfield{series}}
-    {\printfield{shortseries}}%
+    {\printtext{\bibhyperlink{\thefield{shortseries}}{\thefield{shortseries}}}}%
   \setunit{\addspace}%
   \iffieldundef{seriesseries}
     {}
