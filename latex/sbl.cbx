@@ -22,7 +22,13 @@
          {\usebibmacro{cite:shorthand}}}}}
 
 \newbibmacro*{cite:ibid}{%
-  \printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}%
+  \ifboolexpr{
+    test {\ifentrytype{inlexicon}}
+    or
+    test {\ifentrytype{inreference}}
+  }
+    {\printtext{\bibhyperref[\thefield{sblxref}]{\bibstring[\mkibid]{ibidem}}}}
+    {\printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}}%
   \ifloccit
     {\global\booltrue{suppresspostnote}}
     {}}

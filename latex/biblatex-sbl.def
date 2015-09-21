@@ -590,7 +590,10 @@
   \iffieldundef{sblxref}
     {\usebibmacro{shortbooktitle+shortmaintitle}}
     {\entrydata{\thefield{sblxref}}{%
-       \usebibmacro{shorttitle}}}}
+       \iffieldundef{shorttitle}
+         {\usebibmacro{shorttitle}}
+         {\printtext[shorttitle]{%
+            \bibhyperlink{\thefield{shorthand}}{\thefield{shorttitle}}}}}}}
 
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
