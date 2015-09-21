@@ -639,7 +639,7 @@
           {\printfield{issue}%
            \setunit*{\addspace}%
            \usebibmacro{date}}
-        \newunit}
+        \setunit{\addcomma\space}}
        {\setunit{\addspace}%
         \printtext[parens]{%
           \iffieldundef{issue}
