@@ -595,6 +595,15 @@
          {\printtext[shorttitle]{%
             \bibhyperlink{\thefield{shorthand}}{\thefield{shorttitle}}}}}}}
 
+\newbibmacro*{sblxrefshortmaintitle}{%
+  \iffieldundef{sblxref}
+    {\usebibmacro{shortmaintitle}}
+    {\entrydata{\thefield{sblxref}}{%
+       \iffieldundef{shorttitle}
+         {\usebibmacro{shorttitle}}
+         {\printtext[shorttitle]{%
+            \bibhyperlink{\thefield{shorthand}}{\thefield{shorttitle}}}}}}}
+
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
     {\printfield{journaltitle}}
