@@ -598,7 +598,8 @@
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
     {\printfield{journaltitle}}
-    {\printtext{\bibhyperlink{\thefield{shortjournal}}{\thefield{shortjournal}}}}}
+    {\printtext[shortjournal]{%
+       \bibhyperlink{\thefield{shortjournal}}{\thefield{shortjournal}}}}}
 
 \newbibmacro*{shortjournal+issuetitle}{%
   \usebibmacro{shortjournal}%
@@ -930,7 +931,8 @@
 \newbibmacro*{shortseries+number}{%
   \iffieldundef{shortseries}
     {\printfield{series}}
-    {\printtext{\bibhyperlink{\thefield{shortseries}}{\thefield{shortseries}}}}%
+    {\printtext[shortseries]{%
+       \bibhyperlink{\thefield{shortseries}}{\thefield{shortseries}}}}%
   \setunit{\addspace}%
   \iffieldundef{seriesseries}
     {}
