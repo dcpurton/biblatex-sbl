@@ -310,7 +310,9 @@
   \newunit
   \usebibmacro{title}%
   \ifciteseen
-    {\usebibmacro{volume}}
+    {\newunit
+     \global\booltrue{usevolpostnotedelim}%
+     \printfield{volume}}
     {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%

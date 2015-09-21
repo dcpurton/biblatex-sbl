@@ -124,12 +124,12 @@
 % COMMENTARY OPTIONS
 % ------------------------------------------------------------------
 
-\newtoggle{commentaryfullbibref}
+\newtoggle{fullbibrefs}
 
-\DeclareBibliographyOption{commentaryfullbibref}[true]{%
+\DeclareBibliographyOption{fullbibrefs}[false]{%
   \ifstrequal{#1}{true}
-    {\toggletrue{commentaryfullbibref}}
-    {\togglefalse{commentaryfullbibref}}}
+    {\toggletrue{fullbibrefs}}
+    {\togglefalse{fullbibrefs}}}
 
 % ------------------------------------------------------------------
 % STYLE OPTION
@@ -152,7 +152,7 @@
   maxbibnames=99,
   maxcitenames=3,
   citepages=sbl,
-  commentaryfullbibref=true
+  fullbibrefs=false
 }
 
 \urlstyle{same}

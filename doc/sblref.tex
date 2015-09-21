@@ -148,7 +148,7 @@
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
     eventtitle,releasedate,origtranslator,volumes,shortmaintitle,options,%
-    editortype%
+    editortype,crossref%
   },
   sensitive=false,
 }
@@ -1341,11 +1341,19 @@ Than the Author}
   shorttitle = {Biblical Theology},
   volume = {1},
   pages = {418-432},
+  crossref = {IDB},
   sblxref = {IDB}
 }
 \end{lstlisting}  
 
 \citetestnpf{33}{36}{419}{stendahl:1962}
+
+\texttt{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
+  \textbackslash printbibliography}
+
+{\color{biblatex-colour}
+ \toggletrue{fullbibrefs}
+ \hangindent\bibindent\bibentrycite{stendahl:1962}.\par}
 
 \begin{refimp}
   33. Krister Stendahl, “Biblical Theology, Contemporary,” \emph{IDB}
@@ -2221,23 +2229,19 @@ TODO: Not yet supported.
   pages = {553-926},
   booktitle = {Introduction to Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter of Jeremiah, Lamentations, Ezekiel},
   volume = {6},
-  maintitle = {The New Interpreter's Bible},
-  shortmaintitle = {NIB},
-  maineditor = {Keck, Leander E.},
-  location = {Nashville},
-  publisher = {Abingdon},
   date = {2001},
+  crossref = {NIB},
   sblxref = {NIB}
 }
 \end{lstlisting}
 
 \citetestns{1}{577}{miller:2001}
 
-\texttt{\textbackslash usepackage[style=sbl,commentaryfullbibref=false]\{biblatex\} \\
+\texttt{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
   \textbackslash printbibliography}
 
 {\color{biblatex-colour}
- \togglefalse{commentaryfullbibref}
+ \toggletrue{fullbibrefs}
  \hangindent\bibindent\bibentrycite{miller:2001}.\par}
 
 \begin{refimp}
@@ -2247,7 +2251,8 @@ TODO: Not yet supported.
   Introduction, Commentary, and Reflections.” Pages 553–926 in
   \emph{Introduction to Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter
   of Jeremiah, Lamentations, Ezekiel.} Vol.~6 of \emph{New Interpreter’s
-  Bible.} Edited by Leander E. Keck. Nashville: Abingdon, 2001.
+  Bible.} Edited by Leander E. Keck.\footnote{Should include “12 vols.”?}
+  Nashville: Abingdon, 2001.
 
   \hangindent\bibindent Miller, Patrick D. “The Book of Jeremiah:
   Introduction, Commentary, and Reflections.” \emph{NIB} 6:553–926.

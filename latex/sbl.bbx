@@ -102,7 +102,7 @@
   \usebibmacro{bibindex}%
   \iffieldundef{volume}
     {\usedriver{}{incollection}}
-    {\iftoggle{commentaryfullbibref}
+    {\iftoggle{fullbibrefs}
        {\usedriver{}{incollection}}
        {\usedriver{}{incommentary:short}}}%
   \usebibmacro{finentry}%
@@ -181,6 +181,14 @@
 }
 
 \DeclareBibliographyDriver{inreference}{%
+  \usebibmacro{bibindex}%
+  \iftoggle{fullbibrefs}
+     {\usedriver{}{incollection}}
+     {\usedriver{}{inreference:short}}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{inreference:short}{%
   \usebibmacro{bibindex}%
   \usebibmacro{author/translator+others}%
   \newunit
