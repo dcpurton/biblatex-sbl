@@ -382,10 +382,15 @@
       \step[fieldsource=title, match=\regexp{(.*?):}, final]
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
-    \map[overwrite]{
+    \map{
       \pertype{inlexicon}
+      \step[fieldset=options, fieldvalue={skipbib=true}]
+    }
+    \map{
+      \pertype{mvcommentary}
       \pertype{mvreference}
       \pertype{reference}
+      \step[fieldsource=shorthand, match=\regexp{.*?}, final]
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
   }
@@ -399,6 +404,7 @@
     {book,inbook,collection,incollection,reference,inreference}{%
   \inherit{editor}{maineditor}
   \inherit{shorttitle}{shortmaintitle}
+  \noinherit{endyear}
 }
 
 \DeclareDataInheritance{book,collection,reference}
@@ -417,6 +423,7 @@
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
+  \noinherit{endyear}
 }
 
 \DeclareDataInheritance{lexicon,commentary}{inlexicon,incommentary}{%
