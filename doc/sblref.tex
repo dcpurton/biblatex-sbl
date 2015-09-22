@@ -138,7 +138,8 @@
   keywords={%
     @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@inproceedings,%
-    @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper%
+    @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
+    @reference%
   },
   emph={%
     author,title,location,publisher,date,shorttitle,translator,edition,preface,%
@@ -2373,7 +2374,7 @@ necessary to indicate the medium in the citation.
 \subsection{BDAG, BDB, BDF}
 
 \begin{lstlisting}
-@book{BDAG,
+@lexicon{BDAG,
   author = {Danker, Frederick W. and Bauer, Walter and Arndt, William F. and Gingrich, F. Wilbur},
   title = {Greek-English Lexicon of the New Testament and Other Early Christian Literature.},
   edition = {3},
@@ -2387,7 +2388,7 @@ necessary to indicate the medium in the citation.
 \citetestns{1}{35}{BDAG}
 
 \begin{lstlisting}
-@book{BDB,
+@lexicon{BDB,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
@@ -2395,7 +2396,7 @@ necessary to indicate the medium in the citation.
   sblxref = {BDB:1906}
 }
 
-@book{BDB:1906,
+@lexicon{BDB:1906,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   location = {Oxford},
@@ -2440,8 +2441,7 @@ necessary to indicate the medium in the citation.
   location = {Leiden},
   publisher = {Brill},
   date = {1994/1999},
-  shorthand = {HALOT},
-  options = {skipbib=false}
+  shorthand = {HALOT}
 }
 \end{lstlisting}
 
@@ -2459,8 +2459,7 @@ necessary to indicate the medium in the citation.
   location = {Peabody, MA},
   publisher = {Hendrickson},
   date = {1997},
-  shorthand = {TLOT},
-  options = {skipbib=false}
+  shorthand = {TLOT}
 }
 \end{lstlisting}
 

@@ -263,6 +263,35 @@
 
 \providecommand*{\mkibid}[1]{#1}
 
+% ------------------------------------------------------------------
+% BIBLIOGRAPHY
+% ------------------------------------------------------------------
+
+\renewrobustcmd*{\printbibliography}{%
+  \begingroup
+  \blx@key@bibcheck{bibliography}
+  \edef\on@line{\on@line}%
+  \@ifnextchar[%]
+    {\blx@printbibliography}
+    {\blx@printbibliography[]}}
+\defbibcheck{bibliography}{%
+  \blx@skipentries
+  \blx@includeentries
+}
+\def\blx@skipentries{}
+\def\blx@includeentries{}
+\def\addskipentry#1{%
+  \edef\X{%
+    \noexpand\iffieldequalstr{entrykey}{#1}
+      {\noexpand\toggletrue{blx@skipentry}}
+      {}}%
+  \expandafter\g@addto@macro\expandafter\blx@skipentries\expandafter{\X}}
+\def\addincludeentry#1{%
+  \edef\X{%
+    \noexpand\iffieldequalstr{entrykey}{#1}
+      {\noexpand\togglefalse{blx@skipentry}}
+      {}}%
+  \expandafter\g@addto@macro\expandafter\blx@includeentries\expandafter{\X}}
 
 % ------------------------------------------------------------------
 % LIST OF ABBREVIATIONS
@@ -385,13 +414,6 @@
     }
     \map{
       \pertype{inlexicon}
-      \step[fieldset=options, fieldvalue={skipbib=true}]
-    }
-    \map{
-      \pertype{mvcommentary}
-      \pertype{mvreference}
-      \pertype{reference}
-      \step[fieldsource=shorthand, match=\regexp{.*?}, final]
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
   }

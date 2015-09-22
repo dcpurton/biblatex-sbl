@@ -8,6 +8,7 @@
 \newtoggle{cbx:loccit}
 
 \newbibmacro*{cite}{%
+  \addincludeentry{\thefield{entrykey}}%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
@@ -220,6 +221,7 @@
   \iffieldundef{volume}
     {\usedriver{}{cite:incollection}}
     {\usebibmacro{usesblxref}%
+     \iffieldundef{sblxref}{}{\addskipentry{\thefield{sblxref}}}%
      \cbx@opt@citepages@omit
      \global\booltrue{suppresspostnote}%
      \usebibmacro{author/translator+others}%
@@ -302,6 +304,7 @@
 
 \DeclareBibliographyDriver{cite:inreference}{%
   \usebibmacro{usesblxref}%
+  \iffieldundef{sblxref}{}{\addskipentry{\thefield{sblxref}}}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
