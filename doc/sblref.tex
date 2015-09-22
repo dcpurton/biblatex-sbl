@@ -148,7 +148,8 @@
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
     eventtitle,releasedate,origtranslator,volumes,shortmaintitle,options,%
-    editortype,crossref%
+    editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
+    editorctype%
   },
   sensitive=false,
 }
@@ -2369,7 +2370,7 @@ necessary to indicate the medium in the citation.
 
 \section{Other Examples}
 
-\subsection{BDAG, BDB, BDF, \emph{HALOT}}
+\subsection{BDAG, BDB, BDF}
 
 \begin{lstlisting}
 @book{BDAG,
@@ -2426,8 +2427,10 @@ necessary to indicate the medium in the citation.
 
 \citetestns{3}{§441}{BDF}
 
+\subsection{\emph{HALOT,} \emph{TLOT}}
+
 \begin{lstlisting}
-@mvbook{HALOT,
+@mvlexicon{HALOT,
   author = {Koehler, Ludwig and Baumgartner, Walter and Stamm, Johann J.},
   title = {The Hebrew and Aramaic Lexicon of the Old Testament},
   shorttitle = {HALOT},
@@ -2437,11 +2440,31 @@ necessary to indicate the medium in the citation.
   location = {Leiden},
   publisher = {Brill},
   date = {1994/1999},
-  shorthand = {HALOT}
+  shorthand = {HALOT},
+  options = {skipbib=false}
 }
 \end{lstlisting}
 
 \citetestns{4}{2:223}{HALOT}
+
+\begin{lstlisting}
+@mvreference{TLOT,
+  title = {Theological Lexicon of the Old Testament},
+  shorttitle = {TLOT},
+  editor = {Jenni, Ernst},
+  editora = {Westermann, Claus},
+  editoratype = {\bibstring{withassistance}},
+  translator = {Biddle, Mark E.},
+  volumes = {3},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1997},
+  shorthand = {TLOT},
+  options = {skipbib=false}
+}
+\end{lstlisting}
+
+\citetestns{5}{1:24}{TLOT}
 
 \printbiblist{abbreviations}
 

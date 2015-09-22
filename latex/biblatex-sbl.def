@@ -165,6 +165,7 @@
 
 \NewBibliographyString{to}
 \NewBibliographyString{of}
+\NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
 \NewBibliographyString{preface}
 \NewBibliographyString{nopages}
@@ -781,6 +782,26 @@
      \clearname{translator}}
     {}}
 
+\renewbibmacro*{byeditor}{%
+  \ifnameundef{editor}
+    {}
+    {\usebibmacro{bytypestrg}{editor}{editor}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \setunit{\addcomma\space}}%
+  \usebibmacro{byeditorx}}
+  
+\renewbibmacro*{byeditor+others}{%
+  \ifnameundef{editor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \clearname{editor}%
+     \setunit{\addcomma\space}}%
+  \usebibmacro{byeditorx}%
+  \usebibmacro{bytranslator+others}}
+
 \newbibmacro*{bybookeditor+others}{%
   \ifnameundef{editor}
     {}
@@ -796,6 +817,7 @@
      \printnames[byeditor]{bookeditor}%
      \clearname{bookeditor}%
      \newunit}%
+  \usebibmacro{byeditorx}%
   \usebibmacro{bybooktranslator+others}}
 
 \newbibmacro*{bymaineditor+others}{%
@@ -813,6 +835,7 @@
      \printnames[byeditor]{maineditor}%
      \clearname{maineditor}%
      \newunit}%
+  \usebibmacro{byeditorx}%
   \usebibmacro{bymaintranslator+others}}
 
 \newbibmacro*{byorigeditor+others}{%
