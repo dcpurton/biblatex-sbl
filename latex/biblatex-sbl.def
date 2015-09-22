@@ -701,6 +701,15 @@
 % NAME MACROS
 % ------------------------------------------------------------------
 
+\renewbibmacro*{bytypestrg}[2]{%
+  \iffieldundef{#1type}
+    {\bibstring{by#2}}
+    {\ifbibxstring{by\thefield{#1type}}
+       {\bibstring{by\thefield{#1type}}}
+       {\ifbibxstring{\thefield{#1type}}
+          {\bibstring{\thefield{#1type}}}
+          {\printtext{\thefield{#1type}}}}}}
+
 \renewbibmacro*{author}{%
   \ifboolexpr{
     test \ifuseauthor
