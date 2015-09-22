@@ -22,11 +22,7 @@
          {\usebibmacro{cite:shorthand}}}}}
 
 \newbibmacro*{cite:ibid}{%
-  \ifboolexpr{
-    test {\ifentrytype{inlexicon}}
-    or
-    test {\ifentrytype{inreference}}
-  }
+  \ifentrytype{inlexicon}
     {\printtext{\bibhyperref[\thefield{sblxref}]{\bibstring[\mkibid]{ibidem}}}}
     {\printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}}%
   \ifloccit
