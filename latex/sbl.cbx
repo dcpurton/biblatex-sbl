@@ -6,11 +6,13 @@
 \newbool{usevolpostnotedelim}
 
 \newtoggle{cbx:loccit}
+\newtoggle{usingibid}
 
 \newbibmacro*{cite}{%
   \addincludeentry{\thefield{entrykey}}%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
+  \global\togglefalse{usingibid}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
   \printtext{%
     \ifboolexpr{%
@@ -23,6 +25,7 @@
          {\usebibmacro{cite:shorthand}}}}}
 
 \newbibmacro*{cite:ibid}{%
+  \global\toggletrue{usingibid}%
   \ifentrytype{inlexicon}
     {\printtext{\bibhyperref[\thefield{sblxref}]{\bibstring[\mkibid]{ibidem}}}}
     {\printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}}%
@@ -53,12 +56,14 @@
 \newbibmacro*{cite:postnote}{%
   \iffieldundef{shorthand}
     {}
-    {\if\instring{:}{\thefield{postnote}}%
-       \renewcommand*{\postnotedelim}{\addspace}%
-     \else\fi
-     \if\instring{§}{\thefield{postnote}}%
-       \renewcommand*{\postnotedelim}{\addspace}%
-     \else\fi}%
+    {\iftoggle{usingibid}
+       {}
+       {\if\instring{:}{\thefield{postnote}}%
+          \renewcommand*{\postnotedelim}{\addspace}%
+        \else\fi
+          \if\instring{§}{\thefield{postnote}}%
+          \renewcommand*{\postnotedelim}{\addspace}%
+        \else\fi}}%
   \ifbool{suppresspostnote}{}{%
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}
