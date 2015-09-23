@@ -188,7 +188,7 @@
 \DeclareFieldFormat{edition}{%
   \ifinteger{#1}
     {\mkbibordedition{#1}~\bibsstring{edition}}
-    {#1\isdot}}
+    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
 \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
 \DeclareFieldFormat{eprint:literal}{#1}
 \DeclareFieldFormat{eprint}{%
@@ -229,6 +229,7 @@
 \DeclareFieldFormat{urldate}{\bibstring{urlseen}\space#1}
 \DeclareFieldFormat{releasedate}{\bibstring{released}\space#1}
 
+\DeclareFieldFormat{editortype}{\ifcapital{\MakeCapital{#1}}{#1}}
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
 
@@ -708,7 +709,7 @@
        {\bibstring{by\thefield{#1type}}}
        {\ifbibxstring{\thefield{#1type}}
           {\bibstring{\thefield{#1type}}}
-          {\printtext{\thefield{#1type}}}}}}
+          {\printtext[editortype]{\thefield{#1type}}}}}}
 
 \renewbibmacro*{author}{%
   \ifboolexpr{
