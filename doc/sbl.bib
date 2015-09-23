@@ -739,19 +739,21 @@
   shorthand = {BDAG}
 }
 
-@lexicon{BDB,
+@lexicon{BDB:abbrev,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
   options = {skipbib=true},
-  sblxref = {BDB:1906}
 }
 
-@lexicon{BDB:1906,
-  crossref = {BDB},
+@lexicon{BDB,
+  crossref = {BDB:abbrev},
   location = {Oxford},
   publisher = {Oxford University Press},
-  date = {1906}
+  date = {1906},
+  shorthand = {BDB},
+  sblxref = {BDB:abbrev},
+  options = {skipbiblist=true}
 }
 
 @book{BDF,

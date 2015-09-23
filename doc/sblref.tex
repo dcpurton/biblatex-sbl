@@ -2388,31 +2388,25 @@ necessary to indicate the medium in the citation.
 \citetestns{1}{35}{BDAG}
 
 \begin{lstlisting}
-@lexicon{BDB,
+@lexicon{BDB:abbrev,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
   options = {skipbib=true},
-  sblxref = {BDB:1906}
 }
 
-@lexicon{BDB:1906,
-  crossref = {BDB},
+@lexicon{BDB,
+  crossref = {BDB:abbrev},
   location = {Oxford},
   publisher = {Oxford University Press},
-  date = {1906}
+  date = {1906},
+  shorthand = {BDB},
+  sblxref = {BDB:abbrev},
+  options = {skipbiblist=true}
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-\nobreak
-\texttt{\textbackslash autocite[432]\{BDB\}}\par
-\color{biblatex-colour}
-2. \cite[432]{BDB}.\par
-\color{black}
-\texttt{\textbackslash printbibliography}\par
-\color{biblatex-colour}
-\hangindent\bibindent\bibentrycite{BDB:1906}.\par}
+\citetestns{2}{432}{BDB}
 
 \begin{lstlisting}
 @book{BDF,

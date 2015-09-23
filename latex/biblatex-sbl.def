@@ -368,6 +368,8 @@
   }
     {\skipentry}
     {}%
+  \blx@setoptions@entry
+  \iftoggle{blx@skipbiblist}{\skipentry}{}%
 }
 
 \DeclareSortingScheme{abbreviations}{%
