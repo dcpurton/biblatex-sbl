@@ -264,6 +264,27 @@
 
 \providecommand*{\mkibid}[1]{#1}
 
+\newbibmacro*{name:last-first}[4]{%
+  \ifuseprefix
+    {\usebibmacro{name:delim}{#3#1}%
+     \usebibmacro{name:hook}{#3#1}%
+     \ifblank{#3}{}{%
+       \ifcapital
+         {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+         {\mkbibnameprefix{#3}\isdot}%
+       \ifpunctmark{'}{}{\bibnamedelimc}}%
+     \mkbibnamelast{#1}\isdot
+     \ifblank{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
+     \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
+    {\usebibmacro{name:delim}{#1}%
+     \usebibmacro{name:hook}{#1}%
+     \mkbibnamelast{#1}\isdot
+     \ifblank{#2#3}{}{\revsdnamepunct}%
+     \ifblank{#2}{}{\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
+     \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+     \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{\addcomma\addspace#4}\isdot}}}
+
+
 % ------------------------------------------------------------------
 % BIBLIOGRAPHY
 % ------------------------------------------------------------------
