@@ -206,6 +206,7 @@
 \DeclareFieldFormat{volcitevolume}{#1}
 \DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
 \DeclareFieldFormat{part}{#1}
+\DeclareFieldFormat{pt}{\bibstring{part}~#1}
 \DeclareFieldFormat{postnote}{\mkcomprange{#1}}
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{byauthor}{\bibstring{byauthor} #1}
@@ -719,11 +720,14 @@
   \iffieldundef{volume}
     {}
     {\iffieldundef{part}
-       {\printfield[volumeof]{volume}}
+       {\usebibmacro{volumeof}}
        {\printfield[vol]{volume}%
         \setunit{\addcomma\addspace}%
-        \printfield[partof]{part}}
-     \setunit{\addspace}}}
+        \iffieldundef{maintitle}
+          {\printfield[pt]{part}%
+           \newunit}
+          {\printfield[partof]{part}
+           \setunit{\addspace}}}}}
 
 % ------------------------------------------------------------------
 % NAME MACROS
@@ -1076,9 +1080,14 @@
   \iffieldundef{volume}
     {}
     {\iffieldundef{part}
-       {\printfield[volumeof]{volume}%
-        \setunit{\addspace}}
-       {}}}%
+      {\iffieldundef{maintitle}
+        {\ifbibliography
+           {\printfield[vol]{volume}%
+            \newunit}
+           {}}
+        {\printfield[volumeof]{volume}%
+         \setunit{\addspace}}}
+      {}}}%
 
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
@@ -1100,6 +1109,16 @@
      \printfield{part}%
      \setunit{\volpostnotedelim}}
   \usebibmacro{pages}}
+
+\newbibmacro*{volume+part+nomaintitle}{%
+  \iffieldundef{volume}
+    {}
+    {\iffieldundef{maintitle}
+       {\printfield{volume}%
+        \setunit{\addperiod}%
+        \printfield{part}%
+        \global\booltrue{usevolpostnotedelim}}
+       {}}}
 
 \renewbibmacro*{url+urldate}{%
   \iffieldundef{urlyear}
