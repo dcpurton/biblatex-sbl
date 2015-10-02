@@ -131,6 +131,17 @@
     {\toggletrue{fullbibrefs}}
     {\togglefalse{fullbibrefs}}}
 
+
+% ------------------------------------------------------------------
+% ENTRY OPTIONS
+% ------------------------------------------------------------------
+
+\newtoggle{blx@firstcitenoshorthand}
+
+
+\DeclareEntryOption{firstcitenoshorthand}[true]{%
+  \settoggle{blx@firstcitenoshorthand}{#1}}
+
 % ------------------------------------------------------------------
 % STYLE OPTION
 % ------------------------------------------------------------------

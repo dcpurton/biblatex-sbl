@@ -24,7 +24,11 @@
         and
         not test {\iffirstonpage}}
       {\usebibmacro{cite:ibid}}
-      {\iffieldundef{shorthand}
+      {\ifboolexpr{
+         not test {\ifciteseen}
+         and
+         test {\iftoggle{blx@firstcitenoshorthand}}
+       }
          {\usedriver{}{cite:\thefield{entrytype}}}
          {\usebibmacro{cite:shorthand}}}}}
 
