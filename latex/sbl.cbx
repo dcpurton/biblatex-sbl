@@ -24,13 +24,15 @@
         and
         not test {\iffirstonpage}}
       {\usebibmacro{cite:ibid}}
-      {\ifboolexpr{
-         not test {\ifciteseen}
-         and
-         test {\iftoggle{blx@firstcitenoshorthand}}
-       }
+      {\iffieldundef{shorthand}
          {\usedriver{}{cite:\thefield{entrytype}}}
-         {\usebibmacro{cite:shorthand}}}}}
+         {\ifboolexpr{
+            not test {\ifciteseen}
+            and
+            test {\iftoggle{blx@firstcitenoshorthand}}
+          }
+            {\usedriver{}{cite:\thefield{entrytype}}}
+            {\usebibmacro{cite:shorthand}}}}}}
 
 \newbibmacro*{cite:ibid}{%
   \global\toggletrue{usingibid}%
