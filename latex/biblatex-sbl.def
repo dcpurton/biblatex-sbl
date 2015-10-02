@@ -331,10 +331,18 @@
 \defbibenvironment{abbreviations}
   {\list
      {\printfield[shorthandwidth]{shortjournal}%
-      \printfield[shorthandwidth]{shortseries}%
-      \iffieldsequal{shorthand}{shorttitle}
-        {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-        {\printfield[shorthandwidth]{shorthand}}}
+      \iffieldundef{clone}
+        {\printfield[shorthandwidth]{shortseries}}
+        {}%
+      \ifboolexpr{
+        test {\iffieldundef{clone}}
+        and
+        not test {\iffieldundef{shortseries}}
+      }
+        {}
+        {\iffieldsequal{shorthand}{shorttitle}
+           {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+           {\printfield[shorthandwidth]{shorthand}}}}
      {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
       \setmaxlength{\abbrevwidth}{\shortserieswidth}%
       \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
@@ -353,27 +361,35 @@
   \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
   \iffieldundef{shorthand}{}{%
-    \bibhypertarget{\thefield{shorthand}}{}%
-    \iffieldsequal{shorthand}{shorttitle}
-      {\usebibmacro{abbrev:book}}
-      {\usebibmacro{bibentrycite}}}%
+    \ifboolexpr{
+      test {\iffieldundef{clone}}
+      and
+      not test {\iffieldundef{shortseries}}
+    }
+      {}
+      {\bibhypertarget{\thefield{shorthand}}{}%
+       \iffieldsequal{shorthand}{shorttitle}
+         {\usebibmacro{abbrev:book}}
+         {\usebibmacro{bibentrycite}}}}%
   \iffieldundef{shortjournal}
     {}
     {\bibhypertarget{\thefield{shortjournal}}{}%
      \printfield{journaltitle}}%
   \iffieldundef{shortseries}
     {}
-    {\bibhypertarget{\thefield{shortseries}}{}%
-     \printfield{series}}%
+    {\iffieldundef{clone}
+       {\bibhypertarget{\thefield{shortseries}}{}%
+        \printfield{series}}
+       {}}%
   \usebibmacro{finentry}%
 }
 
 \defbibcheck{abbreviations}{%
   \iffieldundef{shortseries}
     {}
-    {\ifcsdef{\strfield{series}}
+    {\ifcsdef{\strfield{series}\strfield{clone}}
       {\skipentry}
-      {\savefieldcs{series}{\strfield{series}}}%   
+      {\savefieldcs{series}{\strfield{series}\strfield{clone}}}%   
     }%
   \iffieldundef{journaltitle}
     {}
@@ -440,6 +456,16 @@
     \map{
       \pertype{inlexicon}
       \step[fieldset=options, fieldvalue={skipbib=true}]
+    }
+    \map[overwrite]{
+      \step[fieldsource=shorthand, final]
+      \step[fieldsource=shortseries, final]
+      \step[fieldsource=shorthand, match=\regexp{(.*)}]
+      \step[fieldset=shorthand, null]
+      \step[entryclone={shortseries-}]
+      \step[fieldset=shorthand, fieldvalue={$1}]
+      \step[fieldsource=entrykey, match=\regexp{(.*)}]
+      \step[fieldset=clone, fieldvalue={shortseries-$1}]
     }
   }
 }

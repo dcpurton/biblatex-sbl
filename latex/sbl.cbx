@@ -10,6 +10,10 @@
 
 \newbibmacro*{cite}{%
   \addincludeentry{\thefield{entrykey}}%
+  \iffieldundef{clone}
+    {}
+    {\nocite{\thefield{clone}}%
+     \addskipentry{\thefield{clone}}}%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
   \global\togglefalse{usingibid}%
