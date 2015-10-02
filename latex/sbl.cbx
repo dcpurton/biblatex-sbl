@@ -73,7 +73,10 @@
         \else\fi
           \if\instring{§}{\thefield{postnote}}%
           \renewcommand*{\postnotedelim}{\addspace}%
-        \else\fi}}%
+        \else\fi
+        \iftoggle{blx@useshorthandpostnotedelim}
+          {\renewcommand*{\postnotedelim}{\shorthandpostnotedelim}}
+          {}}}%
   \ifbool{suppresspostnote}{}{%
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}

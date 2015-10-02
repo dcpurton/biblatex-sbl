@@ -137,10 +137,15 @@
 % ------------------------------------------------------------------
 
 \newtoggle{blx@firstcitenoshorthand}
-
+\newtoggle{blx@useshorthandpostnotedelim}
+\def\shorthandpostnotedelim{}
 
 \DeclareEntryOption{firstcitenoshorthand}[true]{%
   \settoggle{blx@firstcitenoshorthand}{#1}}
+\DeclareEntryOption{shorthandpostnotedelim}{%
+  \toggletrue{blx@useshorthandpostnotedelim}%
+  \def\shorthandpostnotedelim{#1}}
+
 
 % ------------------------------------------------------------------
 % STYLE OPTION
