@@ -136,10 +136,16 @@
 % ENTRY OPTIONS
 % ------------------------------------------------------------------
 
+\newtoggle{blx@skipbiblistseries}
+\newtoggle{blx@skipbiblistshorthand}
 \newtoggle{blx@firstcitenoshorthand}
 \newtoggle{blx@useshorthandpostnotedelim}
 \def\shorthandpostnotedelim{}
 
+\DeclareEntryOption{skipbiblistseries}[true]{%
+  \settoggle{blx@skipbiblistseries}{#1}}
+\DeclareEntryOption{skipbiblistshorthand}[true]{%
+  \settoggle{blx@skipbiblistshorthand}{#1}}
 \DeclareEntryOption{firstcitenoshorthand}[true]{%
   \settoggle{blx@firstcitenoshorthand}{#1}}
 \DeclareEntryOption{shorthandpostnotedelim}{%
@@ -424,6 +430,20 @@
     {}%
   \blx@setoptions@entry
   \iftoggle{blx@skipbiblist}{\skipentry}{}%
+  \iftoggle{blx@skipbiblistseries}
+    {\iffieldundef{shortseries}
+       {}
+       {\iffieldundef{shorthand}
+          {\skipentry}
+          {\iffieldundef{clone}{\skipentry}{}}}}
+    {}%
+  \iftoggle{blx@skipbiblistshorthand}
+   {\iffieldundef{shorthand}
+      {}
+      {\iffieldundef{shortseries}
+         {\skipentry}
+         {\iffieldundef{clone}{}{\skipentry}}}}
+   {}%
 }
 
 \DeclareSortingScheme{abbreviations}{%
