@@ -136,12 +136,15 @@
 % ENTRY OPTIONS
 % ------------------------------------------------------------------
 
+\newtoggle{blx@citebytitle}
 \newtoggle{blx@skipbiblistseries}
 \newtoggle{blx@skipbiblistshorthand}
 \newtoggle{blx@firstcitenoshorthand}
 \newtoggle{blx@useshorthandpostnotedelim}
 \def\shorthandpostnotedelim{}
 
+\DeclareEntryOption{citebytitle}[true]{%
+  \settoggle{blx@citebytitle}{#1}}
 \DeclareEntryOption{skipbiblistseries}[true]{%
   \settoggle{blx@skipbiblistseries}{#1}}
 \DeclareEntryOption{skipbiblistshorthand}[true]{%
