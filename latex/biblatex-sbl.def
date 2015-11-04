@@ -417,7 +417,7 @@
       {\skipentry}
       {\savefieldcs{series}{\strfield{series}\strfield{clone}}}%   
     }%
-  \iffieldundef{journaltitle}
+  \iffieldundef{shortjournal}
     {}
     {\ifcsdef{\strfield{journaltitle}}
       {\skipentry}
