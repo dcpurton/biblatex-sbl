@@ -423,6 +423,12 @@
       {\skipentry}
       {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
     }%
+  \iffieldundef{shorthand}
+    {}
+    {\ifcsdef{\strfield{shorthand}\strfield{title}}
+      {\skipentry}
+      {\savefieldcs{shorthand}{\strfield{shorthand}\strfield{title}}}%   
+    }%
   \ifboolexpr{
     test {\iffieldundef{shorthand}}
     and
