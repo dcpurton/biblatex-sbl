@@ -141,6 +141,7 @@
 \newtoggle{blx@skipbiblistshorthand}
 \newtoggle{blx@firstcitenoshorthand}
 \newtoggle{blx@useshorthandpostnotedelim}
+\newtoggle{blx@shortciteauthor}
 \def\shorthandpostnotedelim{}
 
 \DeclareEntryOption{citebytitle}[true]{%
@@ -154,6 +155,8 @@
 \DeclareEntryOption{shorthandpostnotedelim}{%
   \toggletrue{blx@useshorthandpostnotedelim}%
   \def\shorthandpostnotedelim{#1}}
+\DeclareEntryOption{shortciteauthor}[true]{%
+  \settoggle{blx@shortciteauthor}{#1}}
 
 
 % ------------------------------------------------------------------
@@ -580,12 +583,14 @@
 % ------------------------------------------------------------------
 
 \newbibmacro*{shorttitle}{%
-  \iffieldundef{shorttitle}
-    {\iffieldundef{title}
-       {}
-       {\printtext[title]{\printfield[titlecase]{title}}}}
-    {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
-  \newunit}
+  \iftoggle{blx@shortciteauthor}
+    {}
+    {\iffieldundef{shorttitle}
+       {\iffieldundef{title}
+          {}
+          {\printtext[title]{\printfield[titlecase]{title}}}}
+       {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
+     \newunit}}
 
 \newbibmacro*{shortbooktitle}{%
   \iffieldundef{shortbooktitle}
