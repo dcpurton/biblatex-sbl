@@ -64,6 +64,9 @@
   \printtext{\usedriver{}{\thefield{entrytype}}}}
 
 \newbibmacro*{setpostnotedelim}{%
+  \if\instring{.}{\thefield{postnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
   \if\instring{:}{\thefield{postnote}}%
     \renewcommand*{\postnotedelim}{\addspace}%
   \else\fi
