@@ -63,17 +63,21 @@
   \sloppy
   \printtext{\usedriver{}{\thefield{entrytype}}}}
 
+\newbibmacro*{setpostnotedelim}{%
+  \if\instring{:}{\thefield{postnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
+  \if\instring{§}{\thefield{postnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
+}
+
 \newbibmacro*{cite:postnote}{%
   \iffieldundef{shorthand}
     {}
     {\iftoggle{usingibid}
        {}
-       {\if\instring{:}{\thefield{postnote}}%
-          \renewcommand*{\postnotedelim}{\addspace}%
-        \else\fi
-          \if\instring{§}{\thefield{postnote}}%
-          \renewcommand*{\postnotedelim}{\addspace}%
-        \else\fi
+       {\usebibmacro{setpostnotedelim}%
         \iftoggle{blx@useshorthandpostnotedelim}
           {\renewcommand*{\postnotedelim}{\shorthandpostnotedelim}}
           {}}}%
