@@ -152,6 +152,10 @@
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
+  \ifentrytype{bookinbook}
+    {\newunit
+     \usebibmacro{byeditor+others}}
+    {}%
   \newunit
   \printfield[pagesin]{pages}%
   \iffieldundef{booktitle}

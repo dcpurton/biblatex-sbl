@@ -310,7 +310,11 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\usebibmacro{in}%
+    {\ifentrytype{bookinbook}
+       {\newunit
+        \usebibmacro{byeditor+others}}
+       {}%
+     \usebibmacro{in}%
      \usebibmacro{booktitle}%
      \setunit*{\newunitpunct}%
      \usebibmacro{bybookeditor+others}%

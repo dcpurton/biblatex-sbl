@@ -507,19 +507,22 @@
 \DeclareDataInheritance{mvbook,mvcollection,mvreference}
     {book,inbook,collection,incollection,reference,inreference}{%
   \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
   \inherit{shorttitle}{shortmaintitle}
   \noinherit{endyear}
 }
 
 \DeclareDataInheritance{book,collection,reference}
-    {inbook,incollection,inreference}{%
+    {bookinbook,inbook,incollection,inreference}{%
   \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
   \inherit{shorttitle}{shortbooktitle}
 }
 
 \DeclareDataInheritance{mvlexicon,mvcommentary}
     {lexicon,inlexicon,commentary,incommentary}{%
   \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
@@ -532,6 +535,7 @@
 
 \DeclareDataInheritance{lexicon,commentary}{inlexicon,incommentary}{%
   \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
