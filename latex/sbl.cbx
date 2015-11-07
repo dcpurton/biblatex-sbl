@@ -80,10 +80,7 @@
     {}
     {\iftoggle{usingibid}
        {}
-       {\usebibmacro{setpostnotedelim}%
-        \iftoggle{blx@useshorthandpostnotedelim}
-          {\renewcommand*{\postnotedelim}{\shorthandpostnotedelim}}
-          {}}}%
+       {\usebibmacro{setpostnotedelim}}}%
   \ifbool{suppresspostnote}{}{%
     \ifbool{usevolpostnotedelim}
       {\setunit{\volpostnotedelim}}
