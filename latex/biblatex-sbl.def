@@ -417,33 +417,6 @@
 }
 
 \defbibcheck{abbreviations}{%
-  \iffieldundef{shortseries}
-    {}
-    {\ifcsdef{\strfield{series}\strfield{clone}}
-      {\skipentry}
-      {\savefieldcs{series}{\strfield{series}\strfield{clone}}}%   
-    }%
-  \iffieldundef{shortjournal}
-    {}
-    {\ifcsdef{\strfield{journaltitle}}
-      {\skipentry}
-      {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
-    }%
-  \iffieldundef{shorthand}
-    {}
-    {\ifcsdef{\strfield{shorthand}\strfield{title}}
-      {\skipentry}
-      {\savefieldcs{shorthand}{\strfield{shorthand}\strfield{title}}}%   
-    }%
-  \ifboolexpr{
-    test {\iffieldundef{shorthand}}
-    and
-    test {\iffieldundef{shortjournal}}
-    and
-    test {\iffieldundef{shortseries}}
-  }
-    {\skipentry}
-    {}%
   \blx@setoptions@entry
   \iftoggle{blx@skipbiblist}{\skipentry}{}%
   \iftoggle{blx@skipbiblistseries}
@@ -460,6 +433,36 @@
          {\skipentry}
          {\iffieldundef{clone}{}{\skipentry}}}}
    {}%
+  \iftoggle{blx@skipentry}
+    {}
+    {\iffieldundef{shortseries}
+       {}
+       {\ifcsdef{\strfield{series}\strfield{clone}}
+         {\skipentry}
+         {\savefieldcs{series}{\strfield{series}\strfield{clone}}}%   
+       }%
+     \iffieldundef{shortjournal}
+       {}
+       {\ifcsdef{\strfield{journaltitle}}
+         {\skipentry}
+         {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
+       }%
+     \iffieldundef{shorthand}
+       {}
+       {\ifcsdef{\strfield{shorthand}\strfield{title}}
+         {\skipentry}
+         {\savefieldcs{shorthand}{\strfield{shorthand}\strfield{title}}}%   
+       }%
+     \ifboolexpr{
+       test {\iffieldundef{shorthand}}
+       and
+       test {\iffieldundef{shortjournal}}
+       and
+       test {\iffieldundef{shortseries}}
+     }
+       {\skipentry}
+       {}%
+    }%
 }
 
 \DeclareSortingScheme{abbreviations}{%
