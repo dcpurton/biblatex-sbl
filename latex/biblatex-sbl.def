@@ -142,6 +142,7 @@
 \newtoggle{blx@firstcitenoshorthand}
 \newtoggle{blx@useshorthandpostnotedelim}
 \newtoggle{blx@shortciteauthor}
+\newtoggle{blx@nolongcite}
 \def\shorthandpostnotedelim{}
 
 \DeclareEntryOption{citebytitle}[true]{%
@@ -157,6 +158,8 @@
   \def\shorthandpostnotedelim{#1}}
 \DeclareEntryOption{shortciteauthor}[true]{%
   \settoggle{blx@shortciteauthor}{#1}}
+\DeclareEntryOption{nolongcite}[true]{%
+  \settoggle{blx@nolongcite}{#1}}
 
 
 % ------------------------------------------------------------------

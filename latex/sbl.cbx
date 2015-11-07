@@ -147,6 +147,9 @@
 % ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{cite:article}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -161,6 +164,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:book}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -188,6 +194,9 @@
   \usebibmacro{volume+part+nomaintitle}}
 
 \DeclareBibliographyDriver{cite:suppbook}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -223,6 +232,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:commentary}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -244,6 +256,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:incommentary}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \iffieldundef{volume}
     {\usedriver{}{cite:incollection}}
     {\usebibmacro{usesblxref}%
@@ -259,6 +274,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:collection}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{editor+others}%
   \newunit
@@ -283,6 +301,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:incollection}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -315,6 +336,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inlexicon}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
@@ -329,6 +353,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inreference}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \iffieldundef{sblxref}{}{\addskipentry{\thefield{sblxref}}}%
   \usebibmacro{author/translator+others}%
@@ -345,6 +372,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:review}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
@@ -362,6 +392,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:seminarpaper}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
@@ -393,6 +426,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:thesis}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author}%
   \newunit
@@ -409,6 +445,9 @@
      \usebibmacro{doi+eprint+url}}}
 
 \DeclareBibliographyDriver{cite:inproceedings}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
