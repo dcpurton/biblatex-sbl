@@ -124,29 +124,6 @@
   \usebibmacro{finentry}%
 }
 
-\DeclareBibliographyDriver{collection}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{editor+others}%
-  \newunit
-  \usebibmacro{title}%
-  \newunit
-  \usebibmacro{volume+part}%
-  \usebibmacro{maintitle}%
-  \newunit
-  \usebibmacro{bymaineditor+others}%
-  \newunit
-  \printfield{edition}%
-  \newunit
-  \printfield{volumes}%
-  \newunit
-  \usebibmacro{shortseries+number}%
-  \newunit
-  \usebibmacro{publisher+location+date}%
-  \newunit
-  \usebibmacro{doi+eprint+url}%
-  \usebibmacro{finentry}%
-}
-
 \DeclareBibliographyDriver{incollection}{%
   \usebibmacro{bibindex}%
   \usebibmacro{author/editor+others/translator+others}%

@@ -270,33 +270,6 @@
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
-\DeclareBibliographyDriver{cite:collection}{%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
-  \usebibmacro{usesblxref}%
-  \usebibmacro{editor+others}%
-  \newunit
-  \usebibmacro{title}%
-  \ifciteseen
-    {}
-    {\usebibmacro{volumeof}%
-     \usebibmacro{maintitle}%
-     \newunit
-     \usebibmacro{bymaineditor+others}%
-     \newunit
-     \printfield{volumes}%
-     \newunit
-     \printfield{edition}%
-     \newunit
-     \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{publisher+location+date}}%
-     \newunit
-     \usebibmacro{doi+eprint+url}}}
-
 \DeclareBibliographyDriver{cite:incollection}{%
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
