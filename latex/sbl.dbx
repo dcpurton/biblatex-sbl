@@ -1,4 +1,5 @@
 \DeclareDatamodelEntrytypes{
+  ancienttext,
   incommentary,
   inlexicon,
   review,

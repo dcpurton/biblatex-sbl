@@ -32,6 +32,37 @@
         {\thefield{entrytype}}}}%
 }
 
+\DeclareBibliographyDriver{classictext}{%
+  \usebibmacro{bibindex}%
+  \DeclareFieldFormat[classictext]{title}{\mkbibemph{##1}}%
+  \usedriver{}{incollection}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{ancienttext}{%
+  \usebibmacro{bibindex}%
+  \iffieldequalstr{entrysubtype}{ANRW}
+    {\usebibmacro{author/editor+others/translator+others}%
+     \newunit
+     \usebibmacro{title}%
+     \newunit
+     \entrydata{\thefield{sblxref}}{%
+       \printtext[title]{\bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}
+     \setunit{\addspace}%
+     \usebibmacro{volume+part+pages}%
+     \newunit
+     \entrydata{\thefield{sblxref}}{\printfield{titleaddon}}%
+     \clearfield{pages}%
+     \setunit{\addcomma\addspace}%
+     \usebibmacro{volume+part+pages}%
+     \newunit
+     \entrydata{\thefield{sblxref}}{\usebibmacro{bymaineditor+others}}%
+     \usebibmacro{publisher+location+date}}%
+    {\DeclareFieldFormat[ancienttext]{title}{\mkbibemph{##1}}%
+     \usedriver{}{book}}%
+  \usebibmacro{finentry}%
+}
+
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
   \usebibmacro{author/translator+others}%

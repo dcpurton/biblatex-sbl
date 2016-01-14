@@ -48,7 +48,20 @@
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext{%
        \bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}}}
-    {\printtext{\bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}}
+    {\printtext{\bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}%
+  \ifentrytype{ancienttext}
+    {\iffieldundef{sblxref}
+      {}
+      {\usebibmacro{setaltpostnotedelim}%
+       \setunit{\postnotedelim}%
+       \printfield{altpostnote}%
+       \setunit{\addspace}%
+       \printtext[parens]{%
+         \ancienttextcite{\thefield{sblxref}}%
+         \newunit
+         \usebibmacro{ancienttext+volume+pages}}%
+         \global\booltrue{suppresspostnote}}}
+    {}}
 
 \newbibmacro*{bibentrycite}{%
   \citereset
@@ -71,6 +84,18 @@
     \renewcommand*{\postnotedelim}{\addspace}%
   \else\fi
   \if\instring{§}{\thefield{postnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
+}
+
+\newbibmacro*{setaltpostnotedelim}{%
+  \if\instring{.}{\thefield{altpostnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
+  \if\instring{:}{\thefield{altpostnote}}%
+    \renewcommand*{\postnotedelim}{\addspace}%
+  \else\fi
+  \if\instring{§}{\thefield{altpostnote}}%
     \renewcommand*{\postnotedelim}{\addspace}%
   \else\fi
 }
@@ -100,6 +125,12 @@
   {\usebibmacro{prenote}}
   {\usebibmacro{cite}}
   {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\ancienttextcite}
+  {}
+  {\usebibmacro{ancienttextcite}}
+  {}
   {\usebibmacro{cite:postnote}}
 
 \DeclareCiteCommand{\bibentrycite}
@@ -142,6 +173,60 @@
 % ------------------------------------------------------------------
 % CITE DRIVERS
 % ------------------------------------------------------------------
+
+\DeclareBibliographyDriver{cite:ancienttext}{%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \printfield{altpostnote}%
+  \newunit
+  \ifciteseen
+    {}
+    {\usebibmacro{byeditor+others}}%
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{ANRW}}
+    or
+    test {\ifboolexpr{
+            test {\ifciteseen}
+            and
+            test {\iffieldequalstr{entrysubtype}{COS}}
+         }}
+  }
+    {\newunit
+     \printtext{\ancienttextcite{\thefield{sblxref}}}%
+     \newunit
+     \usebibmacro{ancienttext+volume+pages}}
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \ancienttextcite{\thefield{sblxref}}%
+       \newunit
+       \usebibmacro{ancienttext+volume+pages}}}%
+  \global\booltrue{suppresspostnote}}
+
+\DeclareBibliographyDriver{cite:classictext}{%
+  \usebibmacro{usesblxref}%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{shorttitle}%
+  \iffieldundef{altpostnote}
+    {\usebibmacro{ancienttext+volume+pages}%
+     \usebibmacro{classic:translator+series}%
+     \global\booltrue{suppresspostnote}}
+    {\ifboolexpr{
+       test {\iffieldequalstr{entrysubtype}{churchfather}}
+       or
+       test {\iffieldequalstr{entrysubtype}{patrologia}}
+     }
+        {\setunit{\addspace}}
+        {}%
+     \printfield{altpostnote}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \ancienttextcite{\thefield{sblxref}}%
+       \newunit
+       \usebibmacro{ancienttext+volume+pages}}%
+     \global\booltrue{suppresspostnote}}}
 
 \DeclareBibliographyDriver{cite:article}{%
   \iftoggle{blx@nolongcite}

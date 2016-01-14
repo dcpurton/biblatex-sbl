@@ -263,6 +263,14 @@
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
 \DeclareFieldFormat[inproceedings]{type}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
+\DeclareFieldFormat[ancienttext]{title}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{inscription}}
+    or
+    test {\iffieldequalstr{entrysubtype}{chronicle}}
+  }
+    {#1}
+    {\mkbibquote{#1}}}
 
 \DeclareNameAlias{withpreface}{default}
 
@@ -486,6 +494,15 @@
     }
     \map{
       \pertype{inlexicon}
+      \step[fieldset=options, fieldvalue={skipbib=true}]
+    }
+    \map{
+      \step[fieldsource=entrysubtype, match=\regexp{ANRW}, final]
+      \step[fieldset=options, fieldvalue={skipbib=false}]
+    }
+    \map{
+      \pertype{ancienttext}
+      \pertype{classictext}
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
     \map[overwrite]{
@@ -1225,6 +1242,108 @@
     {}
     {\nocite{\thefield{sblxref}}}}
 
+
+% ------------------------------------------------------------------
+% ANCIENT AND CLASSIC TEXT MACROS
+% ------------------------------------------------------------------
+
+\newbool{usingshortcite}
+
+\newbibmacro*{ancienttextcite}{%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
+  \global\boolfalse{usingshortcite}%
+  \ifboolexpr{%
+    test {\iftoggle{blx@shortciteauthor}}
+    and
+    test {\ifciteseen}
+  }
+    {\global\booltrue{usingshortcite}}
+    {}%
+  \addincludeentry{\thefield{entrykey}}%
+  \iffieldundef{clone}
+    {}
+    {\nocite{\thefield{clone}}%
+     \addskipentry{\thefield{clone}}}%
+  \booltrue{suppresspostnote}%
+  \boolfalse{usevolpostnotedelim}%
+  \global\togglefalse{usingibid}%
+  \printtext{%
+    \iffieldundef{shorthand}
+      {\usedriver{}{cite:\thefield{entrytype}}}
+      {\ifboolexpr{
+         not test {\ifciteseen}
+         and
+         test {\iftoggle{blx@firstcitenoshorthand}}
+       }
+         {\usedriver{}{cite:\thefield{entrytype}}}
+         {\global\booltrue{usingshortcite}%
+          \usebibmacro{cite:shorthand}}}}}
+
+\newbibmacro*{ancienttext+volume+pages}{%
+  \ifbool{usingshortcite}
+    {\usebibmacro{setpostnotedelim}}{}%
+  \usebibmacro{volume}%
+  \setunit{\addperiod}%
+  \printfield{part}%
+  \ifbool{usevolpostnotedelim}
+    {\setunit{\volpostnotedelim}}
+    {\setunit{\postnotedelim}}%
+  \ifciteseen
+    {\usebibmacro{postnote}}
+    {\iffieldundef{pages}
+       {\usebibmacro{postnote}}
+       {\usebibmacro{pages}}}}
+
+\newbibmacro*{classic:translator+series}{%
+  \ifboolexpr{
+    not test {\ifnameundef{translator}}
+    or
+    not test {\iffieldundef{series}}
+  }
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \printnames[labelname]{translator}%
+       \newunit
+       \usebibmacro{shortseries+number}}}
+    {}}
+
+
+% ------------------------------------------------------------------
+% ALTERNATE POSTNOTE MACROS
+% ------------------------------------------------------------------
+
+\DeclareListParser{\dopipedlist}{|}
+
+\def\setuppostnotes{%
+  \global\undef\postnotefirst
+  \global\undef\postnotelast
+  \edef\cbx@tempa{{\thefield{postnote}}}%
+  \renewcommand\do[1]{%
+    \ifundef{\postnotelast}
+      {\gdef\postnotelast{##1}}
+      {\gdef\postnotefirst{##1}}}%
+  \expandafter\dopipedlist\cbx@tempa
+  \ifundef{\postnotefirst}
+    {\if\instring{|}{\thefield{postnote}}%
+       \global\let\postnotefirst\postnotelast
+       \global\undef\postnotelast
+     \fi}
+    {\let\cbx@tempa\postnotefirst
+     \global\let\postnotefirst\postnotelast
+     \global\let\postnotelast\cbx@tempa}}
+
+\renewbibmacro*{prenote}{%
+  \setuppostnotes
+  \restorefield{postnote}{\postnotelast}%
+  \restorefield{altpostnote}{\postnotefirst}%
+  \iffieldundef{prenote}
+    {}
+    {\printfield{prenote}%
+     \setunit{\prenotedelim}}}
+
+\DeclareFieldFormat{altpostnote}{\mkcomprange{#1}}
 
 % ------------------------------------------------------------------
 % BIBLIOGRAPHY REPEATED AUTHOR MACROS
