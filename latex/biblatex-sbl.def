@@ -29,32 +29,42 @@
     {\csuse{cbx@opt@citepages@#1}}
     {\PackageError{biblatex}
        {Invalid option 'citepages=#1'}
-       {Valid values are 'sbl', 'permit', 'suppress', 'omit', 'separate'.}}}
+       {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
 
 \providebibmacro*{postnote}{}
 \providebibmacro*{pages}{}
 
 \def\cbx@opt@citepages@sbl{%
   \renewbibmacro*{pages}{%
-    \printfield{pages}%
-    \iffieldundef{postnote}
+    \iffieldundef{pages}
       {}
-      {\iffieldpages{postnote}
+      {\printfield{pages}%
+       \iffieldundef{postnote}
          {}
-         {\setunit{\addspace}%
-          \printtext{\mkbibparens{\printfield{postnote}}}}}}%
+         {\iffieldpages{postnote}
+            {}
+            {\setunit{\addspace}%
+             \printtext[parens]{\printfield{postnote}}}}}}
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
-      {}
-      {\printfield{postnote}}}}
+      {\printfield{pages}}
+      {\iffieldpages{postnote}
+         {\printfield{postnote}}
+         {\iffieldundef{pages}
+            {\printfield{postnote}}
+            {\printfield{pages}%
+             \setunit{\addspace}%
+             \printtext[parens]{\printfield{postnote}}}}}}}
 
 \def\cbx@opt@citepages@permit{%
   \renewbibmacro*{pages}{%
-    \printfield{pages}%
-    \iffieldundef{postnote}
+    \iffieldundef{pages}
       {}
-      {\setunit{\addspace}%
-       \printtext{\mkbibparens{\printfield{postnote}}}}}%
+      {\printfield{pages}%
+       \iffieldundef{postnote}
+         {}
+         {\setunit{\addspace}%
+          \printtext[parens]{\printfield{postnote}}}}}
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
@@ -65,23 +75,19 @@
              \printfield{postnote}}
             {\printfield{pages}%
              \setunit*{\addspace}%
-             \printtext{\mkbibparens{\printfield{postnote}}}}}}}}
-
-\def\cbx@opt@citepages@suppress{%
-  \renewbibmacro*{pages}{%
-    \iffieldundef{postnote}
-      {}
-      {\printfield{postnote}}}%
-  \renewbibmacro*{postnote}{%
-    \iffieldundef{postnote}
-      {}
-      {\printfield{postnote}}}}
+             \printtext[parens]{\printfield{postnote}}}}}}}
 
 \def\cbx@opt@citepages@omit{%
   \renewbibmacro*{pages}{%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\printfield{postnote}}}%
+    \iffieldundef{pages}
+      {}
+      {\iffieldundef{postnote}
+         {\printfield{pages}}
+         {\iffieldpages{postnote}
+            {\printfield{postnote}}
+            {\printfield{pages}%
+             \setunit*{\addspace}%
+             \printtext[parens]{\printfield{postnote}}}}}}
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
@@ -92,33 +98,38 @@
              \printfield{postnote}}
             {\printfield{pages}%
              \setunit*{\addspace}%
-             \printtext{\mkbibparens{\printfield{postnote}}}}}}}}
+             \printtext[parens]{\printfield{postnote}}}}}}}
 
 \def\cbx@opt@citepages@separate{%
   \renewbibmacro*{pages}{%
-    \printfield{pages}%
-    \iffieldundef{postnote}
+    \iffieldundef{pages}
       {}
-      {\setunit{\addspace}%
-       \printtext{\mkbibparens{%
-         \iffieldpages{postnote}
-           {\bibstring{thiscite}%
-            \setunit{\addspace}}
-           {}%
-         \printfield{postnote}}}}}%
-  \renewbibmacro*{postnote}{%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\iffieldpages{postnote}
-         {\printfield{postnote}}
-         {\printfield{pages}%
-          \setunit*{\addspace}%
-          \printtext{\mkbibparens{%
+      {\printfield{pages}%
+       \iffieldundef{postnote}
+         {}
+         {\setunit{\addspace}%
+           \printtext[parens]{%
             \iffieldpages{postnote}
               {\bibstring{thiscite}%
                \setunit{\addspace}}
               {}%
-            \printfield{postnote}}}}}}}
+            \printfield{postnote}}}}}
+  \renewbibmacro*{postnote}{%
+    \iffieldundef{postnote}
+      {\printfield{pages}}
+      {\iffieldpages{postnote}
+         {\printfield{postnote}}
+         {\iffieldundef{pages}
+            {\printfield{postnote}}
+            {\printfield{pages}%
+             \setunit*{\addspace}%
+             \printtext[parens]{%
+               \iffieldpages{postnote}
+                 {\bibstring{thiscite}%
+                  \setunit{\addspace}}
+                 {}%
+               \printfield{postnote}}}}}}}
+
 
 % ------------------------------------------------------------------
 % COMMENTARY OPTIONS

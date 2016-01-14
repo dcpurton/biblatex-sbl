@@ -423,8 +423,11 @@
   \usebibmacro{title}%
   \ifciteseen
     {\newunit
-     \global\booltrue{usevolpostnotedelim}%
-     \printfield{volume}}
+     \iffieldundef{volume}
+       {}
+       {\newunit
+        \global\booltrue{usevolpostnotedelim}%
+        \printfield{volume}}}
     {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
