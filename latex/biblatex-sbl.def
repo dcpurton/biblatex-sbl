@@ -1279,7 +1279,24 @@
        }
          {\usedriver{}{cite:\thefield{entrytype}}}
          {\global\booltrue{usingshortcite}%
-          \usebibmacro{cite:shorthand}}}}}
+          \usebibmacro{cite:shorthand}%
+          \setunit{\addspace}%
+          \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+
+\newbibmacro*{ancienttext+volume+nomaintitle}{%
+  \iffieldundef{maintitle}
+    {\ifbool{usingshortcite}
+       {\usebibmacro{setpostnotedelim}}{}%
+     \usebibmacro{volume}%
+     \setunit{\addperiod}%
+     \printfield{part}%
+     \ifbool{usevolpostnotedelim}
+       {\setunit{\volpostnotedelim}}
+       {\setunit{\postnotedelim}}%
+     \ifciteseen
+       {}
+       {\usebibmacro{pages}}}
+    {}}
 
 \newbibmacro*{ancienttext+volume+pages}{%
   \ifbool{usingshortcite}
