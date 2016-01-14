@@ -1,0 +1,42 @@
+\ProvidesFile{sbl-german.lbx}
+
+\DeclareBibliographyStrings{%
+  inherit          = {german},
+  to               = {{zu}{zu}},
+  of               = {{von}{von}},
+  nopages          = {{keine Seiten}{k. S\adddot}},
+  editor           = {{Hg\adddot}{Hg\adddot}},
+  editors          = {{Hgg\adddot}{Hgg\adddot}},
+  byeditor         = {{herausgegeben von}{hg. v\adddot}},
+  bytranslator     = {{übersetzt \lbx@lfromlang\ by}{übers\adddot}},
+  withpreface      = {{mit einem Geleitwort von}{mit einem Geleitwort von}},
+  introduction     = {{Einleitung}{Einleitung}},
+  foreword         = {{Vorwort}{Vorwort}},
+  preface          = {{Geleitwort}{Geleitwort}},
+  reprint          = {{Ndr\adddot}{Ndr\adddot}},
+  phdthesis        = {{Diss\adddot}{Diss\adddot}},
+  presentedpaper   = {{paper presented at}{paper presented at}},
+  released         = {{veröffentlicht}{veröffentlicht}},
+  withassistance   = {{mit Unterstützung von}{mit Unterstützung von}},
+  byeditortr       = {{übersetzt \lbx@lfromlang\ und herausgegeben von}%
+                      {übers\adddotspace \lbx@sfromlang\ und hg. v\adddot}},
+  byeditorco       = {{kommentiert und herausgegeben von}%
+                      {komm\adddotspace und hg. v\adddot}},
+  byeditoran       = {{kommentiert und herausgegeben von}%
+                      {komm\adddotspace und hg. v\adddot}}
+}
+
+InheritBibliographyExtras{german}
+
+\DeclareBibliographyExtras{%
+  \protected\def\mkbibdatelong#1#2#3{%
+    \iffieldundef{#3}
+      {}
+      {\stripzeros{\thefield{#3}}%
+       \iffieldundef{#2}{}{\nobreakspace}}%
+    \iffieldundef{#2}
+      {}
+      {\mkbibmonth{\thefield{#2}}%
+       \iffieldundef{#1}{}{\space}}%
+    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
+}
