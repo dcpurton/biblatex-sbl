@@ -65,6 +65,7 @@
 
 \newbibmacro*{bibentrycite}{%
   \citereset
+  \toggletrue{blx@bibliography}%
   \def\abx@str{abx@lstr}%
   \renewcommand*{\revsdnamedelim}{\addcomma}%
   \setcounter{maxnames}{100}%
