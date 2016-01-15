@@ -49,6 +49,9 @@
     {\printtext{\mkbibemph{\printtext{%
        \bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}}}
     {\printtext{\bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}%
+  \iffieldequalstr{entrysubtype}{RIMA}
+    {\restorefield{volume}{\abx@field@number}}
+    {}%
   \ifentrytype{ancienttext}
     {\iffieldundef{sblxref}
       {}
