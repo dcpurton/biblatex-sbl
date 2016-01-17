@@ -249,6 +249,7 @@
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{byauthor}{\bibstring{byauthor} #1}
 \DeclareFieldFormat{revdtitle}{\biblstring{reviewof} \mkbibemph{#1}}
+\DeclareFieldFormat{revdshorttitle}{\biblstring{reviewof} \mkbibemph{#1}}
 \DeclareFieldFormat{shorttitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortbooktitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortmaintitle}{\mkbibemph{#1}}
@@ -723,19 +724,29 @@
     {\usebibmacro{shortbooktitle}%
      \newunit}}
 
+\newbibmacro*{revdshorttitle}{%
+  \iffieldundef{revdshorttitle}
+     {\iffieldundef{revdtitle}
+        {}
+        {\printtext[revdtitle]{\printfield[titlecase]{revdtitle}}}}
+     {\printtext[revdtitle]{\printfield[titlecase]{revdshorttitle}}}%
+   \newunit}
+
 \newbibmacro*{revdtitle}{%
-  \ifboolexpr{
-    test {\iffieldundef{revdtitle}}
-    and
-    test {\iffieldundef{revdsubtitle}}
-  }
-    {}
-    {\printtext[revdtitle]{%
-       \printfield[titlecase]{revdtitle}%
-       \setunit{\subtitlepunct}%
-       \printfield[titlecase]{revdsubtitle}}%
-     \newunit}%
-  \printfield{revdtitleaddon}}
+  \ifciteseen
+    {\usebibmacro{revdshorttitle}}
+    {\ifboolexpr{
+       test {\iffieldundef{revdtitle}}
+       and
+       test {\iffieldundef{revdsubtitle}}
+     }
+       {}
+       {\printtext[revdtitle]{%
+          \printfield[titlecase]{revdtitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{revdsubtitle}}%
+        \newunit}%
+     \printfield{revdtitleaddon}}}
 
 \newbibmacro*{sblxrefshortbooktitle+sblxrefshortmaintitle}{%
   \iffieldundef{sblxref}

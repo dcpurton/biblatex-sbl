@@ -9,6 +9,7 @@
   clone,
   seriesseries,
   revdtitle,
+  revdshorttitle,
   revdsubtitle,
   revdtitleaddon,
   shortbooktitle,
