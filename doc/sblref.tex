@@ -1,8 +1,6 @@
-%!TEX program=lualatex
 \documentclass[a4paper]{article}
 
 \usepackage{fontspec}
-\usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{listings}
 \usepackage{hyperref}
@@ -46,6 +44,20 @@
    \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#5}.\par}}
+\newcommand\citetestbib[6]{%
+  {\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite[#2]\{#5\}}\par
+   \color{biblatex-colour}
+   #1. \cite[#2]{#5}.\par
+   \color{black}
+   \texttt{\textbackslash autocite[#4]\{#5\}}\par
+   \color{biblatex-colour}
+   #3. \cite[#4]{#5}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{#6}.\par}}
 \newcommand\citetestnb[5]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -65,18 +77,45 @@
    \color{black}
    \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#3}.\par}}
+   \sloppy\hangindent\bibindent\bibentrycite{#3}.\par}}
+\newcommand\citetestnsbib[4]{%
+  {\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite[#2]\{#3\}}\par
+   \color{biblatex-colour}
+   #1. \cite[#2]{#3}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{#4}.\par}}
 \newcommand\citetestnp[3]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
    \texttt{\textbackslash autocite\{#3\}}\par
    \color{biblatex-colour}
    #1. \cite{#3}.\par
+   \color{black}
+   \texttt{\textbackslash autocite\{#3\}}\par
+   \color{biblatex-colour}
    #2. \cite{#3}.\par
    \color{black}
    \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#3}.\par}}
+\newcommand\citetestnpbib[4]{%
+  {\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite\{#3\}}\par
+   \color{biblatex-colour}
+   #1. \cite{#3}.\par
+   \color{black}
+   \texttt{\textbackslash autocite\{#3\}}\par
+   \color{biblatex-colour}
+   #2. \cite{#3}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{#4}.\par}}
 \newcommand\citetestnpf[4]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -91,6 +130,20 @@
    \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#4}.\par}}
+\newcommand\citetestnpfbib[5]{%
+  {\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite\{#4\}}\par
+   \color{biblatex-colour}
+   #1. \cite{#4}.\par
+   \color{black}
+   \texttt{\textbackslash autocite[#3]\{#4\}}\par
+   \color{biblatex-colour}
+   #2. \cite[#3]{#4}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{#5}.\par}}
 \newcommand\citetestnsnp[2]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -101,6 +154,16 @@
    \texttt{\textbackslash printbibliography}\par
    \color{biblatex-colour}
    \hangindent\bibindent\bibentrycite{#2}.\par}}
+\newcommand\citetestnsnpbib[3]{%
+  {\textsc{BibLaTeX Output}\par
+   \nobreak
+   \texttt{\textbackslash autocite\{#2\}}\par
+   \color{biblatex-colour}
+   #1. \cite{#2}.\par
+   \color{black}
+   \texttt{\textbackslash printbibliography}\par
+   \color{biblatex-colour}
+   \hangindent\bibindent\bibentrycite{#3}.\par}}
 \newcommand\citetestnsnpnb[2]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
@@ -119,7 +182,7 @@
    \texttt{\textbackslash autocite[#2]\{#3\}}\par
    \color{biblatex-colour}
    #1. \cite[#2]{#3}.\par}}
-\newcommand\citetestbib[1]{%
+\newcommand\citetestonlybib[1]{%
   {\textsc{BibLaTeX Output}\par
    \nobreak
    \color{black}
@@ -140,7 +203,7 @@
     @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@inproceedings,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
-    @reference%
+    @reference,@mvcollection,@bookinbook,@ancienttext,@classictext%
   },
   emph={%
     author,title,location,publisher,date,shorttitle,translator,edition,preface,%
@@ -151,7 +214,7 @@
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
     eventtitle,releasedate,origtranslator,volumes,shortmaintitle,options,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
-    editorctype%
+    editorctype,entrysubtype,sortkey,titleaddon%
   },
   sensitive=false,
 }
@@ -664,7 +727,7 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestbib{gerhardsson:1961}
+\citetestonlybib{gerhardsson:1961}
 
 \begin{refimp}
   \hangindent\bibindent Birger Gerhardsson,\footnote{Should be “Gerhardsson,
@@ -1576,14 +1639,14 @@ numbers.
 
 In the bibliography, cite only the theological dictionary.
 
-\citetestbib{NIDNTT}
+\citetestonlybib{NIDNTT}
 
 \begin{refimp}
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
   of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
 \end{refimp}
 
-\citetestbib{TDNT}
+\citetestonlybib{TDNT}
 
 \begin{refimp}
   \hangindent\bibindent Kittel, Gerhard, and Gerhard Friedrich, eds.
@@ -1591,7 +1654,7 @@ In the bibliography, cite only the theological dictionary.
   W. Bromiley. 10~vols. Grand Rapids: Eerdmans, 1964–1976.
 \end{refimp}
 
-\citetestbib{TLNT}
+\citetestonlybib{TLNT}
 
 \begin{refimp}
   \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
@@ -1746,7 +1809,46 @@ In the bibliography, cite only the theological dictionary.
 
 \paragraph{Citing \emph{COS}}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@mvcollection{COS,
+  editor = {Hallo, William W.},
+  title = {The Context of Scripture},
+  shorttitle = {COS},
+  volumes = {3},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1997/2002},
+  shorthand = {COS},
+  options = {skipbib}
+}
+
+@collection{hallo:1997,
+  editor = {Hallo, William W.},
+  title = {Canonical Compositions from the Biblical World},
+  shorttitle = {COS},
+  maintitle = {The Context of Scripture},
+  volume = {1},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1997},
+  shorthand = {COS},
+  sblxref = {COS},
+  options = {skipbiblist}
+}
+
+@ancienttext{greathymnaten,
+  entrysubtype = {COS},
+  title = {The Great Hymn to the Aten},
+  shorttitle = {Great Hymn to the Aten},
+  translator = {Lichtheim, Miriam},
+  volume = {1},
+  part = {26},
+  pages = {44-46},
+  sblxref = {hallo:1997}
+}
+\end{lstlisting}
+
+\citetestnpbib{7}{11}{greathymnaten}{hallo:1997}
 
 \begin{refimp}
   7. “The Great Hymn to the Aten,” trans. Miriam Lichtheim (\emph{COS}
@@ -1761,6 +1863,27 @@ TODO: Not yet supported.
 
 \paragraph{Citing Other Texts}
 
+\begin{lstlisting}
+@collection{ANET,
+  editor = {Pritchard, James B.},
+  title = {Ancient Near Eastern Texts Relating to the Old Testament},
+  shorttitle = {ANET},
+  edition = {3},
+  location = {Princeton},
+  publisher = {Princeton University Press},
+  date = {1969},
+  shorthand = {ANET}
+}
+
+@ancienttext{suppiluliumas,
+  title = {Suppiluliumas and the Egyptian Queen},
+  translator = {Goetz, Albrecht},
+  sblxref = {ANET},
+}
+\end{lstlisting}
+
+\citetestnsbib{16}{319}{suppiluliumas}{ANET}
+
 \begin{refimp}
   16. “Suppiluliumas and the Egyptian Queen,” trans. Albrecht Goetze
   (\emph{ANET,} 319).
@@ -1770,6 +1893,24 @@ TODO: Not yet supported.
   University Press, 1969.
 \end{refimp}
 
+\begin{lstlisting}
+@book{dalley:1991,
+  author = {Dalley, Stephanie},
+  title = {Myths from Mesopotamia},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {1991}
+}
+
+@ancienttext{erraandishum,
+  title = {Erra and Ishum},
+  pages = {282-315},
+  sblxref = {dalley:1991},
+}
+\end{lstlisting}
+
+\citetestnsnpbib{5}{erraandishum}{dalley:1991}
+
 \begin{refimp}
   5. “Erra and Ishum” (Stephanie Dalley, \emph{Myths from Mesopotamia}
   [Oxford: Oxford University Press, 1991], 282–315).
@@ -1778,70 +1919,263 @@ TODO: Not yet supported.
   Oxford: Oxford University Press, 1991.
 \end{refimp}
 
+\begin{lstlisting}
+@book{foster:1993,
+  author = {Foster, Benjamin},
+  title = {Before the Muses: An Anthology of Akkadian Literature},
+  volume = {1},
+  location = {Bethesda, MD},
+  publisher = {CDL},
+  date = {1993}
+}
+
+@ancienttext{erraandishum:foster,
+  title = {Erra and Ishum},
+  pages = {771-805},
+  sblxref = {foster:1993},
+}
+\end{lstlisting}
+
+\citetestnsnpbib{5}{erraandishum:foster}{foster:1993}
+
 \begin{refimp}
   5. “Erra and Ishum” (Benjamin Foster, \emph{Before the Muses: An Anthology
   of Akkadian Literature} [Bethesda, MD: CDL, 1993], 1:771–805).
   
   \hangindent\bibindent Foster, Benjamin. \emph{Before the Muses: An Anthology of
-  Akkadian Literature.} Vol.~1 Bethesda, MD: COL, 1993.
+  Akkadian Literature.} Vol.~1. Bethesda, MD: COL, 1993.
 \end{refimp}
+
+\begin{lstlisting}
+@mvbook{AEL,
+  author = {Lichtheim, Miriam},
+  title = {Ancient Egyptian Literature},
+  shorttitle = {AEL},
+  volumes = {3},
+  location = {Berkeley},
+  publisher = {University of California Press},
+  date = {1971/1980},
+  shorthand = {AEL},
+  options = {skipbib}
+}
+
+@book{lichtheim:1976,
+  author = {Lichtheim, Miriam},
+  title = {Ancient Egyptian Literature},
+  shorttitle = {AEL},
+  volume = {2},
+  location = {Berkeley},
+  publisher = {University of California Press},
+  date = {1976},
+  shorthand = {AEL},
+  sblxref = {AEL},
+  options = {skipbiblist,firstcitenoshorthand}
+}
+
+@ancienttext{doomedprince,
+  title = {The Doomed Prince},
+  pages = {200-203},
+  sblxref = {lichtheim:1976},
+}
+\end{lstlisting}
+
+\citetestnpfbib{34}{36}{200-203}{doomedprince}{lichtheim:1976}
 
 \begin{refimp}
   34. “The Doomed Prince” (Miriam Lichtheim, \emph{Ancient Egyptian
-  Literature} [Berkeley: University of California Press, 1976], 2:200–203).
+  Literature} [Berkeley: University of California Press, 1976],
+  2:200–203).\footnote{Should be “200–3”?}
   
-  36. “The Doomed Prince” (\emph{AEL} 2:200–203).
+  36. “The Doomed Prince” (\emph{AEL} 2:200–203).\footnote{Should be “200–3”?}
   
   \hangindent \bibindent Lichtheim, Miriam. Ancient Egyptian Literature.
   Vol~2. Berkeley: University of California Press, 1976.
 \end{refimp}
 
+\begin{lstlisting}
+@book{hoffner:1990,
+  author = {Hoffner, Jr., Harry A.},
+  title = {Hittite Myths},
+  editor = {Beckman, Gary M.},
+  series = {Writings from the Ancient World},
+  shortseries = {WAW},
+  number = {2},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1990}
+}
+
+@ancienttext{disappearanceofsungod,
+  title = {The Disappearance of the Sun God},
+  sblxref = {hoffner:1990},
+}
+\end{lstlisting}
+
+\citetestnsbib{12}{§3 (A I 11--17)|26}{disappearanceofsungod}{hoffner:1990}
+
 \begin{refimp}
   12. “The Disappearance of the Sun God,” §3 (A I 11–17) (Harry A. Hoffner
-  Jr., \emph{Hittite Myths} [ed. Gary M. Beckman; WAW 2; Atlanta: Scholars
+  Jr., \emph{Hittite Myths} [ed. Gary M. Beckman; WAW 2;\footnote{Editor,
+  series, and number should be outside of parentheses?} Atlanta: Scholars
   Press, 1990], 26).
   
   \hangindent\bibindent Hoffner, Harry A., Jr. \emph{Hittite Myths.} Edited by
   Gary M. Beckman. WAW 2. Atlanta: Scholars Press, 1990.
 \end{refimp}
 
+\begin{lstlisting}
+@mvbook{RIMA,
+  entrysubtype = {RIMA},
+  author = {Grayson, Albert Kirk},
+  title = {Assyrian Rulers of the Early First Millennium BC \mkibparens{1114--859 BC}},
+  series = {The Royal Inscriptions of Mesopotamia, Assyrian Periods},
+  shortseries = {RIMA},
+  number = {2},
+  location = {Toronto},
+  publisher = {University of Toronto Press},
+  date = {1991},
+  shorthand = {RIMA},
+  options = {skipbiblistshorthand,firstcitenoshorthand}
+}
+
+@ancienttext{ashurinscription,
+  entrysubtype = {inscription},
+  title = {Ashur Inscription},
+  pages = {143-144},
+  sblxref = {RIMA}
+}
+\end{lstlisting}
+
+\citetestbib{32}{obv.\ lines 10–17|}{34}{obv.\ lines 10–17|}{ashurinscription}{RIMA}
+
 \begin{refimp}
   32. Ashur Inscription, obv.\ lines 10–17 (Albert Kirk Grayson,
   \emph{Assyrian Rulers of the Early First Millennium BC [1114–859 BC],} RIMA
   2 [Toronto: University of Toronto Press, 1991], 143–44).
+
+  34. Ashur Inscription, obv.\ lines 10–17 (RIMA 2:143–44).
 
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian Rulers of the
   Early First Millennium BC (1114–859 BC).} RIMA 2. Toronto: University of
   Toronto Press, 1991.
 \end{refimp}
 
+\begin{lstlisting}
+@book{ABC,
+  author = {Grayson, Albert Kirk},
+  title = {Assyrian and Babylonian Chronicles},
+  shorttitle = {ABC},
+  series = {Texts from Cuneiform Sources},
+  shortseries = {TCS},
+  number = {5},
+  location = {Locust Valley, NY},
+  publisher = {Augustin},
+  date = {1975},
+  shorthand = {ABC},
+  options = {firstcitenoshorthand}
+}
+
+@ancienttext{esarhaddonchronicle,
+  entrysubtype = {chronicle},
+  title = {Esarhaddon Chronicle},
+  sblxref = {ABC}
+}
+\end{lstlisting}
+
+\citetestbib{33}{lines 3–4|125}{34}{lines 3–4|125}{esarhaddonchronicle}{ABC}
+
 \begin{refimp}
   33. Esarhaddon Chronicle, lines 3–4 (Albert Kirk Grayson, \emph{Assyrian and
-  Babylonian Chronicles,} TCS [Locust Valley; NY: Augustin, 1975], 125).
+  Babylonian Chronicles,} TCS [Locust Valley, NY: Augustin, 1975], 125).
 
-  33. Esarhaddon Chronicle, lines 3–4 (ABC, 125).
+  33. Esarhaddon Chronicle, lines 3–4 (\emph{ABC,} 125).
 
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian and Babylonian
-  Chronicles.} TCS. Locust Valley; NY: Augustin, 1975.
+  Chronicles.} TCS. Locust Valley, NY: Augustin, 1975.
 \end{refimp}
+
+\begin{lstlisting}
+@book{ARM1,
+  author = {Dossin, Georges},
+  title = {Lettres},
+  series = {Archives royales de Mari},
+  shortseries = {ARM},
+  number = {1},
+  origdate = {1946},
+  location = {Paris},
+  publisher = {Geuthner},
+  date = {1967},
+  shorthand = {ARM},
+  options = {skipbiblistshorthand}
+}
+\end{lstlisting}
+
+\citetestns{45}{1.3}{ARM1}
 
 \begin{refimp}
   45. ARM 1.3.
 
-  \hangindent\bibindent Dossin, Georges. \emph{Lettres.} ARM 1.1946. Repr.,
+  \hangindent\bibindent Dossin, Georges. \emph{Lettres.} ARM 1. 1946. Repr.,
   Paris: Geuthner, 1967.
 \end{refimp}
+
+\begin{lstlisting}
+@book{ARMT1,
+  author = {Dossin, Georges},
+  title = {Correspondance de Šamši-Addu et de ses fils},
+  series = {Archives royales de Mari, transcrite et traduite},
+  shortseries = {ARMT},
+  number = {1},
+  location = {Paris},
+  publisher = {Imprimerei nationale},
+  date = {1950},
+  shorthand = {ARMT},
+  options = {skipbiblistshorthand}
+}
+\end{lstlisting}
+
+\citetestns{45}{1.3}{ARMT1}
 
 \begin{refimp}
   45. ARMT 1.3.
 
-  \hangindent\bibindent Georges Dossin, \emph{Correspondance de Šamši-Addu et de
-  ses fils.} ARMT 1. Paris: Imprimerei nationale, 1950.
+  \hangindent\bibindent Georges Dossin,\footnote{Should be “Dossin,
+  Georges.”?} \emph{Correspondance de Šamši-Addu et de ses fils.} ARMT 1.
+  Paris: Imprimerei nationale, 1950.
 \end{refimp}
 
 \subsubsection{Loeb Classical Library (Greek and Latin)}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@mvbook{josephus,
+  title = {Josephus},
+  translator = {Thackery, Henry St. J. and others},
+  volumes = {10},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1926/1965},
+  options = {citebytitle},
+  sortkey = {Josephus}
+}
+
+@classictext{josephus:ant,
+  author = {Josephus},
+  title = {Ant.},
+  sblxref = {josephus}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash parencite[2.233-235]\{josephus:ant\}}\par
+  \color{biblatex-colour}
+  \parencite[2.233-235]{josephus:ant}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[2.233-235]\{josephus:ant\}}\par
+  \color{biblatex-colour}
+1. \cite[2.233-235]{josephus:ant}.\par}
 
 \begin{refimp}
   (Josephus, \emph{Ant.} 2.233–235)
@@ -1849,9 +2183,69 @@ TODO: Not yet supported.
   1. Josephus, \emph{Ant.}\ 2.233–235.
 \end{refimp}
 
+\begin{lstlisting}
+@mvbook{tacitus,
+  author = {Tacitus},
+  title = {The Histories and The Annals},
+  translator = {Clifford H. Moore and John Jackson},
+  volumes = {4},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1937}
+}
+
+@classictext{tacitus:ann,
+  author = {Tacitus},
+  title = {Ann.},
+  sblxref = {tacitus}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash autocite[15.18-19]\{tacitus:ann\}}\par
+  \color{biblatex-colour}
+4. \cite[15.18-19]{tacitus:ann}.\par}
+
 \begin{refimp}
   4. Tacitus, \emph{Ann.}\ 15.18–19
 \end{refimp}
+
+\begin{lstlisting}
+@mvbook{josephus,
+  title = {Josephus},
+  translator = {Thackery, Henry St. J. and others},
+  volumes = {10},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1926/1965},
+  options = {citebytitle},
+  sortkey = {Josephus}
+}
+
+@classictext{josephus:ant:thackery,
+  author = {Josephus},
+  title = {Ant.},
+  translator = {Thackery},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  sblxref = {josephus}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash parencite[2.233-235]\{josephus:ant:thackery\}}\par
+  \color{biblatex-colour}
+  \parencite[2.233-235]{josephus:ant:thackery}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[2.233-235]\{josephus:ant:thackery\}}\par
+  \color{biblatex-colour}
+5. \cite[2.233-235]{josephus:ant:thackery}.\par}
 
 \begin{refimp}
   (Josephus, \emph{Ant.}\ 2.233–235 [Thackeray, LCL])
@@ -1859,39 +2253,150 @@ TODO: Not yet supported.
   5. Josephus, \emph{Ant.}\ 2.233–235 (Thackeray, LCL).
 \end{refimp}
 
+\begin{lstlisting}
+@mvbook{tacitus,
+  author = {Tacitus},
+  title = {The Histories and The Annals},
+  translator = {Clifford H. Moore and John Jackson},
+  volumes = {4},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1937}
+}
+
+@classictext{tacitus:ann:jackson,
+  author = {Tacitus},
+  title = {Ann.},
+  translator = {Jackson},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  sblxref = {tacitus}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash autocite[15.18-19]\{tacitus:ann:jackson\}}\par
+  \color{biblatex-colour}
+6. \cite[15.18-19]{tacitus:ann:jackson}.\par}
+
 \begin{refimp}
   6. Tacitus, \emph{Ann.}\ 15.18–19 (Jackson, LCL).
 \end{refimp}
 
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash printbibliopgrahy}\par
+  \color{biblatex-colour}
+\hangindent\bibindent\bibentrycite{josephus}.\par
+\hangindent\bibindent\bibentrycite{tacitus}.\par}
+
 \begin{refimp}
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10 vols. LCL Cambridge: Harvard University Press, 1926–1965.
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
-  Translated by Clifford H. Moore and John Jackson. 4 vols. LCL Cambridge:
+  Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
   Harvard University Press, 1937.
 \end{refimp}
 
+\begin{lstlisting}
+@mvbook{josephus,
+  title = {Josephus},
+  translator = {Thackery, Henry St. J. and others},
+  volumes = {10},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1926/1965},
+  options = {citebytitle},
+  sortkey = {Josephus}
+}
+
+@book{josephus:ant1-19,
+  author = {Josephus, Flavius},
+  title = {The Jewish Antiquities, Books 1--19},
+  shorttitle = {Ant.},
+  translator =  {Thackery, Henry St. J. and others},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1930/1965},
+  sblxref = {josephus},
+  options = {skipbib}
+}
+\end{lstlisting}
+
+\citetestnsnpbib{14}{josephus:ant1-19}{josephus}
+
 \begin{refimp}
   14. Flavius Josephus, \emph{The Jewish Antiquities, Books 1–19,} trans.\
-  Henry St.]. Thackeray et al., LCL (Cambridge: Harvard University Press,
+  Henry St.\ J. Thackeray et al., LCL (Cambridge: Harvard University Press,
   1930–1965).
 
-  \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10 vols. LCL Cambridge: Harvard University Press, 1926–1965.
+  \hangindent\bibindent \emph{Josephus.} Translated by Henry St.\ J. Thackeray
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 \end{refimp}
 
 \subsubsection{Papyri, Ostraca, and Epigraphica}
 
-TODO: Not yet supported.
-
 \paragraph{Papyri and Ostraca in General}
+
+\begin{lstlisting}
+@ancienttext{p.cair.zen.,
+  editor = {Edgar, C. C.},
+  title = {Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du Caire},
+  location = {Cairo},
+  shorthand = {P.Cair.Zen.},
+  options = {skipbib,citebytitle}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash parencite[59003]\{p.cair.zen.\}}\par
+  \color{biblatex-colour}
+  \parencite[59003]{p.cair.zen.}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[59003]\{p.cair.zen.\}}\par
+  \color{biblatex-colour}
+22. \cite[59003]{p.cair.zen.}.\par}
 
 \begin{refimp}
   (P.Cair.Zen.\ 59003)
 
   22. P.Cair.Zen.\ 59003.
+\end{refimp}
 
+\begin{lstlisting}
+@book{hunt+edgar:1932,
+  author = {Hunt, Arthur S. and Edgar, Campbell C.},
+  title = {Select Papyri},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1932},
+  options = {shortciteauthor}
+}
+
+@ancienttext{p.cair.zen.:hunt+edgar,
+  editor = {Edgar, C. C.},
+  title = {Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du Caire},
+  location = {Cairo},
+  shorthand = {P.Cair.Zen.},
+  sblxref = {hunt+edgar:1932},
+  options = {skipbib,citebytitle}
+}
+\end{lstlisting}
+
+\citetestnb{22}{59003|1:96}{22}{59003|§31}{p.cair.zen.:hunt+edgar}
+
+\begin{refimp}
   22. P.Cair.Zen.\ 59003 (Arthur S. Hunt and Campbell C. Edgar, \emph{Select
   Papyri,} LCL [Cambridge: Harvard University Press, 1932], 1:96).
 
@@ -1902,12 +2407,65 @@ TODO: Not yet supported.
 
 \paragraph{Greek Magical Papyri}
 
+\begin{lstlisting}
+@ancienttext{PGM,
+  editor = {Preisendaz, Karl},
+  title = {Papyri Graecae Magicae: Die griechischen Zauberpapyri},
+  shorttitle = {PGM},
+  edition = {2},
+  location = {Stuttgart},
+  publisher = {Teubner},
+  date = {1973/1974},
+  shorthand = {PGM},
+  options = {skipbib}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash parencite[III. 1-164]\{PGM\}}\par
+  \color{biblatex-colour}
+  \parencite[III. 1-164]{PGM}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[III. 1-164]\{PGM\}}\par
+  \color{biblatex-colour}
+22. \cite[III. 1-164]{PGM}.\par}
+
 \begin{refimp}
   (PGM III. 1–164)
 
   22. PGM III. 1–164.
+\end{refimp}
 
-  22. PGM IIL 1–164 (Betz).
+\begin{lstlisting}
+@book{betz:1996,
+  author = {Betz, Hans Dieter},
+  title = {The Greek Magical Papyri in Translation, Including the Demotic Spells},
+  edition = {2},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1996},
+  options = {nolongcite,shortciteauthor}
+}
+
+@ancienttext{PGM:betz,
+  editor = {Preisendaz, Karl},
+  title = {Papyri Graecae Magicae: Die griechischen Zauberpapyri},
+  shorttitle = {PGM},
+  edition = {2},
+  location = {Stuttgart},
+  publisher = {Teubner},
+  date = {1973/1974},
+  shorthand = {PGM},
+  sblxref = {betz:1996},
+  options = {skipbib}
+}
+\end{lstlisting}
+
+\citetestnsbib{22}{III. 1-164|}{PGM:betz}{betz:1996}
+
+\begin{refimp}
+  22. PGM III. 1–164 (Betz).
 
   \hangindent\bibindent Betz, Hans Dieter. \emph{The Greek Magical Papyri in
   Translation, Including the Demotic Spells.} 2nd ed. Chicago: University of
@@ -1916,13 +2474,69 @@ TODO: Not yet supported.
 
 \subsubsection{Ancient Epistles and Homilies}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@classictext{heraclitus:epistle1,
+  author = {Heraclitus},
+  title = {Epistle 1}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash parencite[10]\{heraclitus:epistle1\}}\par
+  \color{biblatex-colour}
+  \parencite[10]{heraclitus:epistle1}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[10]\{heraclitus:epistle1\}}\par
+  \color{biblatex-colour}
+34. \cite[10]{heraclitus:epistle1}.\par}
 
 \begin{refimp}
   (Heraclitus, \emph{Epistle 1,} 10)
 
   34. Heraclitus, \emph{Epistle 1,} 10.
+\end{refimp}
 
+\begin{lstlisting}
+@book{malherbe:1977,
+  editor = {Malherbe, Abraham J.},
+  title = {The Cynic Epistles: A Study Edition},
+  series = {Stuttgarter Bibelstudien},
+  shortseries = {SBS},
+  number = {12},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1977}
+}
+
+@bookinbook{heraclitus:epistle1:worley:1977,
+  author = {Heraclitus},
+  title = {Epistle 1},
+  translator = {Worley, David},
+  pages = {187},
+  crossref = {malherbe:1977}
+}
+
+@classictext{heraclitus:epistle1:worley,
+  author = {Heraclitus},
+  title = {Epistle 1},
+  translator = {Worley},
+  sblxref = {heraclitus:epistle1:worley:1977}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash autocite[10]\{heraclitus:epistle1:worley\}}\par
+  \color{biblatex-colour}
+  36. \cite[10]{heraclitus:epistle1:worley}.\par
+  \color{black}
+  \texttt{\textbackslash printbibliography}\par
+  \color{biblatex-colour}
+  \hangindent\bibindent\bibentrycite{heraclitus:epistle1:worley:1977}.\par
+\hangindent\bibindent\bibentrycite{malherbe:1977}}
+
+\begin{refimp}
   36. Heraclitus, \emph{Epistle 1,} 10 (Worley).
 
   \hangindent\bibindent Heraclitus. \emph{Epistle 1.} Translated by David
@@ -1935,28 +2549,128 @@ TODO: Not yet supported.
 
 \subsubsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@mvcollection{ANF:Roberts+Donaldson,
+  title = {The Ante-Nicene Fathers},
+  editor = {Roberts, Alexander and Donaldson, James},
+  origdate = {1885/1887},
+  volumes = {10},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994},
+  options = {citebytitle}
+}
+
+@mvcollection{ANF,
+  title = {The Ante-Nicene Fathers},
+  shorttitle = {ANF},
+  shorthand = {ANF},
+  options = {skipbib},
+  sblxref = {ANF:Roberts+Donaldson}
+} 
+
+@classictext{clementinehomilies,
+  entrysubtype = {churchfather},
+  title = {The Clementine Homilies},
+  sblxref = {ANF}
+}
+\end{lstlisting}
+
+\citetestnsbib{14}{1.3|8:223}{clementinehomilies}{ANF:Roberts+Donaldson}
 
 \begin{refimp}
-  14. \emph{The Clementine Homilies} 1.3 (ANF 8:223).
+  14. \emph{The Clementine Homilies} 1.3 (\emph{ANF} 8:223).
 
   \hangindent\bibindent \emph{The Ante-Nicene Fathers.} Edited by Alexander
   Roberts and James Donaldson. 1885–1887. 10 vols. Repr., Peabody, MA:
   Hendrickson, 1994.
 \end{refimp}
 
+\begin{lstlisting}
+@mvcollection{NPNF1:Schaff,
+  title = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
+  editor = {Schaff, Philip},
+  origdate = {1886/1889},
+  volumes = {14},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994},
+  options = {citebytitle}
+}
+
+@mvcollection{NPNF1,
+  title = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
+  shorttitle = {NPNF\textsuperscript{1}},
+  shorthand = {NPNF\textsuperscript{1}},
+  sblxref = {NPNF1:Schaff},
+  options = {skipbib}
+}
+
+@classictext{augustine:letters,
+  entrysubtype = {churchfather},
+  author = {Augustine},
+  title = {Letters of St.\ Augustine},
+  volume = {1},
+  maintitle = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
+  crossref = {NPNF1:Schaff},
+  sblxref = {NPNF1},
+  options = {skipbib=false}
+}
+\end{lstlisting}
+
+\citetestns{44}{28.3.5|252}{augustine:letters}
+
 \begin{refimp}
-  44. Augustine, \emph{Letters of St. Augustin} 28.3.5
-  (NPNF\textsuperscript{1} 1:252).
+  44. Augustine, \emph{Letters of St.\ Augustin} 28.3.5
+  (\emph{NPNF\textsuperscript{1}} 1:252).
   
-  \hangindent\bibindent Augustine. \emph{The Letters of St. Augustin.} In
+  \hangindent\bibindent Augustine. \emph{The Letters of St.\ Augustin.} In
   vol.~1 of \emph{The Nicene and Post-Nicene Fathers,} Series 1. Edited by
   Philip Schaff. 1886–1889. 14 vols. Repr., Peabody, MA: Hendrickson, 1994.
 \end{refimp}
 
 \subsubsection{J.-P. Migne's Patrologia Latina and Patrologia Graeca}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@mvcollection{PL,
+  title = {\emph{Patrologia Latina}},
+  editor = {Migne, J.-P.},
+  volumes = {217},
+  location = {Paris},
+  date = {1844/1864},
+  shorthand = {PL},
+  options = {citebytitle}
+}
+
+@mvcollection{PG,
+  title = {\emph{Patrologia Graeca}},
+  editor = {Migne, J.-P.},
+  volumes = {162},
+  location = {Paris},
+  date = {1857/1886},
+  shorthand = {PG},
+  options = {citebytitle}
+}
+
+@classictext{gregory:orationestheologicae,
+  entrysubtype = {patrologia},
+  author = {{Gregory of Nazianzus}},
+  title = {Orationes theologicae},
+  sblxref = {PG},
+  volume = {36}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash autocite[4|12c]\{gregory:orationestheologicae\}}\par
+  \color{biblatex-colour}
+  6. \cite[4|12c]{gregory:orationestheologicae}.\par
+  \color{black}
+  \texttt{\textbackslash printbibliography}\par
+  \color{biblatex-colour}
+  \hangindent\bibindent\bibentrycite{PL}.\par
+\hangindent\bibindent\bibentrycite{PG}\par}
 
 \begin{refimp}
   6. Gregory of Nazianzus, \emph{Orationes theologicae} 4 (PG 36:12c).
@@ -1971,7 +2685,7 @@ TODO: Not yet supported.
 \subsubsection{Strack-Billerbeck, \emph{Kommentar zum Neuen Testament}}
 
 \begin{lstlisting}
-@book{Str-B,
+@mvbook{Str-B,
   author = {Strack, Hermann L. and Billerbeck, Paul},
   title = {Kommentar zum Neuen Testament aus Talmud und Midrasch},
   volumes = {6},
@@ -2002,7 +2716,47 @@ TODO: Not yet supported.
 
 \subsubsection{\emph{Aufsteig und Niedergang der römischen Welt (ANRW)}}
 
-TODO: Not yet supported.
+\begin{lstlisting}
+@mvcollection{ANRW,
+  editor = {Temporini, Hildegard and Haase, Wolfgang},
+  title = {Aufstieg und Niedergang der römischen Welt: Geschichte und Kultur Roms im Spiegel der neueren Forschung.},
+  shorttitle = {ANRW},
+  titleaddon = {Part 2, \emph{Principat}},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1972/},
+  shorthand = {ANRW}
+}
+
+@ancienttext{anderson:pepaideumenos,
+  entrysubtype = {ANRW},
+  author = {Anderson, Graham},
+  title = {The \emph{Pepaideumenos} in Action: Sophists and Their Outlook in the Early Empire},
+  shorttitle = {\emph{Pepaideumenos}},
+  volume = {33},
+  part = {1},
+  pages = {80-208},
+  location = {New York},
+  publisher = {de Gruyter},
+  date = {1989},
+  sblxref = {ANRW}
+}
+\end{lstlisting}
+
+{\textsc{BibLaTeX Output}\par
+  \nobreak
+  \texttt{\textbackslash autocite\{anderson:pepaideumenos\}}\par
+  \color{biblatex-colour}
+  76. \cite{anderson:pepaideumenos}.\par
+  \color{black}
+  \texttt{\textbackslash autocite[86]\{anderson:pepaideumenos\}}\par
+  \color{biblatex-colour}
+  79. \cite[86]{anderson:pepaideumenos}.\par
+  \color{black}
+  \texttt{\textbackslash printbibliography}\par
+  \color{biblatex-colour}
+  \sloppy\hangindent\bibindent\bibentrycite{anderson:pepaideumenos}.\par
+\hangindent\bibindent\bibentrycite{ANRW}\par}
 
 \begin{refimp}
   76. Graham Anderson, “The \emph{pepaideumenos} in Action: Sophists and Their
@@ -2014,9 +2768,7 @@ TODO: Not yet supported.
   Sophists and Their Outlook in the Early Empire.” \emph{ANRW} 33.1:80–208.
   Part 2, \emph{Principat,} 33.1. Edited by H. Temporini and W. Haase. New
   York: de Gruyter, 1989.
-\end{refimp}
 
-\begin{refimp}
   \hangindent\bibindent Temporini, Hildegard, and Wolfgang Haase, eds.
   \emph{Aufstieg und Niedergang der romischen Welt: Geschichte und Kultur Roms
   im Spiegel der neueren Forschung.} Part 2, \emph{Principat.} Berlin: de
