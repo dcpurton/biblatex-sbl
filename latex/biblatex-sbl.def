@@ -173,6 +173,7 @@
 \NewBibliographyString{released}
 
 \DeclareLanguageMapping{english}{sbl-english}
+\DeclareLanguageMapping{german}{sbl-german}
 
 \uspunctuation
 \renewcommand*{\subtitlepunct}{\addcolon\space}
