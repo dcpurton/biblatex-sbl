@@ -222,10 +222,13 @@
 \NewBibliographyString{presentedpaper}
 \NewBibliographyString{released}
 
-\DeclareLanguageMapping{english}{sbl-english}
+\DeclareLanguageMapping{english}{sbl-american}
+\DeclareLanguageMapping{american}{sbl-american}
+\DeclareLanguageMapping{british}{sbl-british}
+\DeclareLanguageMapping{australian}{sbl-australian}
+\DeclareLanguageMapping{newzealand}{sbl-newzealand}
 \DeclareLanguageMapping{german}{sbl-german}
 
-\uspunctuation
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
 
