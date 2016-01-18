@@ -2,25 +2,18 @@
 
 \ProvidesFile{sbl.bbx}[\sbl@abx@bbxid]
 
-\defbibenvironment{bibliography}
-  {\citereset
-   \def\abx@str{abx@lstr}%
-   \renewcommand*{\revsdnamedelim}{\addcomma}%
-   \DeclareNameAlias{author}{sortname}%
-   \DeclareNameAlias{editor}{sortname}%
-   \DeclareNameAlias{translator}{sortname}%
-   \renewcommand*{\newunitpunct}{\addperiod\space}%
-   \renewbibmacro{dashcheck}[2]{\usebibmacro{bbx:dashcheck}{##1}{##2}}%
-   \renewbibmacro*{savehash}{\savefield{fullhash}{\bbx@lasthash}}%
-   \sloppy
-   \list{}{%
-     \leftmargin\bibhang
-      \itemindent-\leftmargin
-      \itemsep\bibitemsep
-      \parsep\bibparsep}}
-    {\endlist}
-    {\item}
-
+\AtBeginBibliography{%
+  \citereset
+  \def\abx@str{abx@lstr}%
+  \renewcommand*{\revsdnamedelim}{\addcomma}%
+  \DeclareNameAlias{author}{sortname}%
+  \DeclareNameAlias{editor}{sortname}%
+  \DeclareNameAlias{translator}{sortname}%
+  \renewcommand*{\newunitpunct}{\addperiod\space}%
+  \renewbibmacro{dashcheck}[2]{\usebibmacro{bbx:dashcheck}{#1}{#2}}%
+  \renewbibmacro*{savehash}{\savefield{fullhash}{\bbx@lasthash}}%
+  \sloppy
+}
 
 \InitializeBibliographyStyle{%
   \global\undef\bbx@lasthash
