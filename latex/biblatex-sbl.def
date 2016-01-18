@@ -236,6 +236,7 @@
 \DeclareLanguageMapping{australian}{sbl-australian}
 \DeclareLanguageMapping{newzealand}{sbl-newzealand}
 \DeclareLanguageMapping{german}{sbl-german}
+\DeclareLanguageMapping{spanish}{sbl-spanish}
 
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
