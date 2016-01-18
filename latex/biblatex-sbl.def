@@ -13,18 +13,6 @@
 
 \ProvidesFile{biblatex-sbl.def}[\sbl@abx@defid]
 
-\protected\def\blx@imc@printreleasedate{}
-\blx@regimcs{\printreleasedate}
-\DeclareBibliographyOption{releasedate}{%
-  \ifcsdef{mkbibrange#1}
-    {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
-    {\blx@err@invopt{releasedate=#1}{}}}
-
-\DeclareBibliographyOption{ibidpage}[true]{%
-  \ifstrequal{#1}{true}
-    {\ExecuteBibliographyOptions{loccittracker=true}}
-    {\ExecuteBibliographyOptions{loccittracker=false}}}
-
 % ------------------------------------------------------------------
 % CITEPAGES OPTION
 % ------------------------------------------------------------------
@@ -182,8 +170,20 @@
 
 
 % ------------------------------------------------------------------
-% STYLE OPTION
+% STYLE OPTIONS
 % ------------------------------------------------------------------
+
+\protected\def\blx@imc@printreleasedate{}
+\blx@regimcs{\printreleasedate}
+\DeclareBibliographyOption{releasedate}{%
+  \ifcsdef{mkbibrange#1}
+    {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
+    {\blx@err@invopt{releasedate=#1}{}}}
+
+\DeclareBibliographyOption{ibidpage}[true]{%
+  \ifstrequal{#1}{true}
+    {\ExecuteBibliographyOptions{loccittracker=true}}
+    {\ExecuteBibliographyOptions{loccittracker=false}}}
 
 \ExecuteBibliographyOptions{%
   citetracker,
