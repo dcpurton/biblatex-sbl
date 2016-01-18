@@ -1,5 +1,18 @@
 \RequireBibliographyStyle{standard}
 
+% ------------------------------------------------------------------
+% VERSION STRINGS
+% ------------------------------------------------------------------
+
+\def\sbl@abx@date{2016/01/18}
+\def\sbl@abx@version{0.2}
+\def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style}
+\def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style}
+\def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization}
+\def\sbl@abx@defid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl definitions and macros}
+
+\ProvidesFile{biblatex-sbl.def}[\sbl@abx@defid]
+
 \protected\def\blx@imc@printreleasedate{}
 \blx@regimcs{\printreleasedate}
 \DeclareBibliographyOption{releasedate}{%

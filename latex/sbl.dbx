@@ -1,3 +1,5 @@
+\ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
+
 \DeclareDatamodelEntrytypes{
   ancienttext,
   incommentary,
