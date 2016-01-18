@@ -1,4 +1,5 @@
 \RequireBibliographyStyle{standard}
+\RequireBiber[3]
 
 % ------------------------------------------------------------------
 % VERSION STRINGS
