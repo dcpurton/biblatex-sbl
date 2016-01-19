@@ -34,6 +34,21 @@
             {\usedriver{}{cite:\thefield{entrytype}}}
             {\usebibmacro{cite:shorthand}}}}}}
 
+% redefine default loccit tracker so that citations with no postnote also match
+\def\blx@loccit@tracker#1{%
+  \global\csundef{blx@lastnote@#1@\abx@field@entrykey}%
+  \blx@imc@iffieldundef{postnote}
+    {\global\cslet{blx@lastnote@#1@\abx@field@entrykey}\abx@field@entrykey}
+    {\global\cslet{blx@lastnote@#1@\abx@field@entrykey}\abx@field@postnote}
+     \xifinlistcs\abx@field@entrykey{blx@trackkeys@#1}
+       {}
+       {\listcsxadd{blx@trackkeys@#1}\abx@field@entrykey}}
+
+\def\blx@loccit@check#1{%
+  \blx@imc@iffieldundef{postnote}
+    {\blx@imc@iffieldequalcs{entrykey}{blx@lastnote@#1@\abx@field@entrykey}}
+    {\blx@imc@iffieldequalcs{postnote}{blx@lastnote@#1@\abx@field@entrykey}}}
+
 \newbibmacro*{cite:ibid}{%
   \global\toggletrue{usingibid}%
   \ifentrytype{inlexicon}
