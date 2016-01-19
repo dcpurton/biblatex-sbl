@@ -1,5 +1,9 @@
-\ProvidesFile{sbl-british.lbx}[\abx@lbxid]
+\ProvidesFile{sbl-british.lbx}[\sbl@abx@lbxid]
+
+\InheritBibliographyStrings{sbl-english}
 
 \InheritBibliographyExtras{british}
-\InheritBibliographyExtras{sbl-english}
-\InheritBibliographyStrings{sbl-english}
+
+\DeclareBibliographyExtras{%
+  \DeclarePunctuationPairs{colon}{*}
+}
