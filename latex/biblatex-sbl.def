@@ -233,8 +233,6 @@
 \DeclareLanguageMapping{english}{sbl-american}
 \DeclareLanguageMapping{american}{sbl-american}
 \DeclareLanguageMapping{british}{sbl-british}
-\DeclareLanguageMapping{australian}{sbl-australian}
-\DeclareLanguageMapping{newzealand}{sbl-newzealand}
 \DeclareLanguageMapping{german}{sbl-german}
 \DeclareLanguageMapping{spanish}{sbl-spanish}
 
