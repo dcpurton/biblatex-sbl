@@ -8,6 +8,9 @@
   \PackageError{sbl-biblatex}{BibLaTeX v3.0 or greater is required}
 \fi
 
+% Require xparse
+\RequirePackage{xparse}
+
 % ------------------------------------------------------------------
 % VERSION STRINGS
 % ------------------------------------------------------------------
@@ -24,9 +27,6 @@
 % ------------------------------------------------------------------
 % CITEPAGES OPTION
 % ------------------------------------------------------------------
-
-\def\instring#1#2{TT\fi\begingroup
-  \edef\x{\endgroup\noexpand\in@{#1}{#2}}\x\ifin@}
 
 \DeclareRangeChars{~,;-+/:}
 
@@ -1377,30 +1377,32 @@
 % ALTERNATE POSTNOTE MACROS
 % ------------------------------------------------------------------
 
-\DeclareListParser{\dopipedlist}{|}
+\ExplSyntaxOn
+\cs_generate_variant:Nn \__xparse_split_argument:nnn { nno }
+\cs_new_eq:NN \eSplitArgument  \__xparse_split_argument:nno
+\DeclareDocumentCommand \splitpostnote
+{ > { \eSplitArgument { 1 } { | } } m }
+{ \savepostnotes #1 }
+\DeclareDocumentCommand{\savepostnotes}{mm}{%
+  \IfNoValueTF{#2}
+    {\gdef\postnotelast{#1}}
+    {\tl_if_empty:nF {#1}
+       {\gdef\postnotefirst{#1}}%
+     \tl_if_empty:nF {#2}
+       {\gdef\postnotelast{#2}}}}
+\ExplSyntaxOff
 
 \def\setuppostnotes{%
   \global\undef\postnotefirst
   \global\undef\postnotelast
-  \edef\cbx@tempa{{\thefield{postnote}}}%
-  \renewcommand\do[1]{%
-    \ifundef{\postnotelast}
-      {\gdef\postnotelast{##1}}
-      {\gdef\postnotefirst{##1}}}%
-  \expandafter\dopipedlist\cbx@tempa
-  \ifundef{\postnotefirst}
-    {\if\instring{|}{\thefield{postnote}}%
-       \global\let\postnotefirst\postnotelast
-       \global\undef\postnotelast
-     \fi}
-    {\let\cbx@tempa\postnotefirst
-     \global\let\postnotefirst\postnotelast
-     \global\let\postnotelast\cbx@tempa}}
+  \splitpostnote{\abx@field@postnote}}
 
 \renewbibmacro*{prenote}{%
-  \setuppostnotes
-  \restorefield{postnote}{\postnotelast}%
-  \restorefield{altpostnote}{\postnotefirst}%
+  \iffieldundef{postnote}
+    {}
+    {\setuppostnotes
+     \restorefield{postnote}{\postnotelast}%
+     \restorefield{altpostnote}{\postnotefirst}}%
   \iffieldundef{prenote}
     {}
     {\printfield{prenote}%
