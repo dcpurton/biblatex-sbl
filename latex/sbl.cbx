@@ -75,7 +75,7 @@
        \printfield{altpostnote}%
        \setunit{\addspace}%
        \printtext[parens]{%
-         \ancienttextcite{\thefield{sblxref}}%
+         \printtext{\ancienttextcite{\thefield{sblxref}}}%
          \newunit
          \usebibmacro{ancienttext+volume+pages}}%
          \global\booltrue{suppresspostnote}}}
@@ -218,7 +218,7 @@
      \usebibmacro{ancienttext+volume+pages}}
     {\setunit{\addspace}%
      \printtext[parens]{%
-       \ancienttextcite{\thefield{sblxref}}%
+       \printtext{\ancienttextcite{\thefield{sblxref}}}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}}%
   \global\booltrue{suppresspostnote}}
@@ -242,7 +242,7 @@
      \printfield{altpostnote}%
      \setunit{\addspace}%
      \printtext[parens]{%
-       \ancienttextcite{\thefield{sblxref}}%
+       \printtext{\ancienttextcite{\thefield{sblxref}}}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}%
      \global\booltrue{suppresspostnote}}}
