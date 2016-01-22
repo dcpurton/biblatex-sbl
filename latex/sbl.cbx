@@ -7,6 +7,7 @@
 
 \newtoggle{cbx:loccit}
 \newtoggle{usingibid}
+\newtoggle{relatedseen}
 
 \newbibmacro*{cite}{%
   \addincludeentry{\thefield{entrykey}}%
@@ -17,6 +18,9 @@
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
   \global\togglefalse{usingibid}%
+  \ifciteseen
+    {\global\toggletrue{relatedseen}}
+    {\global\togglefalse{relatedseen}}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
   \printtext{%
     \ifboolexpr{%
@@ -137,9 +141,11 @@
       {\setunit{\volpostnotedelim}}
       {\setunit{\postnotedelim}}%
     \usebibmacro{postnote}}%
-  \setunit{\addsemicolon\space}%
-  \usebibmacro{related:init}%
-  \usebibmacro{related}}
+  \iftoggle{relatedseen}
+    {}
+    {\setunit{\addsemicolon\space}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}
