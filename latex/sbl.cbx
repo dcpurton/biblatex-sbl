@@ -55,9 +55,7 @@
 
 \newbibmacro*{cite:ibid}{%
   \global\toggletrue{usingibid}%
-  \ifentrytype{inlexicon}
-    {\printtext{\bibhyperref[\thefield{sblxref}]{\bibstring[\mkibid]{ibidem}}}}
-    {\printtext[bibhyperref]{\bibstring[\mkibid]{ibidem}}}%
+  \bibstring[\mkibid]{ibidem}%
   \ifloccit
     {\global\booltrue{suppresspostnote}}
     {}}
@@ -66,8 +64,8 @@
   \usebibmacro{usesblxref}%
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext{%
-       \bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}}}
-    {\printtext{\bibhyperlink{\thefield{shorthand}}{\thefield{shorthand}}}}%
+       \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
+    {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}%
   \iffieldequalstr{entrysubtype}{RIMA}
     {\restorefield{volume}{\abx@field@number}}
     {}%

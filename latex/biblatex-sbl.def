@@ -440,19 +440,19 @@
       not test {\iffieldundef{shortseries}}
     }
       {}
-      {\bibhypertarget{\thefield{shorthand}}{}%
+      {\bibhypertarget{\strfield{shorthand}}{}%
        \iffieldsequal{shorthand}{shorttitle}
          {\toggletrue{blx@citebytitle}}
          {}%
          \usebibmacro{bibentrycite}}}%
   \iffieldundef{shortjournal}
     {}
-    {\bibhypertarget{\thefield{shortjournal}}{}%
+    {\bibhypertarget{\strfield{shortjournal}}{}%
      \printfield{journaltitle}}%
   \iffieldundef{shortseries}
     {}
     {\iffieldundef{clone}
-       {\bibhypertarget{\thefield{shortseries}}{}%
+       {\bibhypertarget{\strfield{shortseries}}{}%
         \printfield{series}}
        {}}%
   \usebibmacro{finentry}%
@@ -778,7 +778,7 @@
        \iffieldundef{shorttitle}
          {\usebibmacro{shorttitle}}
          {\printtext[shorttitle]{%
-            \bibhyperlink{\thefield{shorthand}}{\thefield{shorttitle}}}}}}}
+            \bibhyperlink{\strfield{shorthand}}{\thefield{shorttitle}}}}}}}
 
 \newbibmacro*{sblxrefshortmaintitle}{%
   \iffieldundef{sblxref}
@@ -787,13 +787,13 @@
        \iffieldundef{shorttitle}
          {\usebibmacro{shorttitle}}
          {\printtext[shorttitle]{%
-            \bibhyperlink{\thefield{shorthand}}{\thefield{shorttitle}}}}}}}
+            \bibhyperlink{\strfield{shorthand}}{\thefield{shorttitle}}}}}}}
 
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
     {\printfield{journaltitle}}
     {\printtext[shortjournal]{%
-       \bibhyperlink{\thefield{shortjournal}}{\thefield{shortjournal}}}}}
+       \bibhyperlink{\strfield{shortjournal}}{\thefield{shortjournal}}}}}
 
 \newbibmacro*{shortjournal+issuetitle}{%
   \usebibmacro{shortjournal}%
@@ -1164,7 +1164,7 @@
   \iffieldundef{shortseries}
     {\printfield{series}}
     {\printtext[shortseries]{%
-       \bibhyperlink{\thefield{shortseries}}{\thefield{shortseries}}}}%
+       \bibhyperlink{\strfield{shortseries}}{\thefield{shortseries}}}}%
   \setunit{\addspace}%
   \iffieldundef{seriesseries}
     {}
