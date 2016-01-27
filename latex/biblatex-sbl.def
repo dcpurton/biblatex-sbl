@@ -921,7 +921,7 @@
        \usebibmacro{editor+othersstrg}%
      }%
      \clearname{editor}}
-    {\global\undef\bbx@lasthash}}
+    {}}
 
 \renewbibmacro*{translator+others}{%
   \ifboolexpr{
@@ -943,7 +943,7 @@
        \usebibmacro{translator+othersstrg}%
      }%
      \clearname{translator}}
-    {\global\undef\bbx@lasthash}}
+    {}}
 
 \renewbibmacro*{byeditor}{%
   \ifnameundef{editor}
