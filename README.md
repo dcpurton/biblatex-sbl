@@ -1,50 +1,59 @@
 # biblatex-sbl
 Society of Biblical Literature, 2nd Edition (SBL) style files for Biblatex
 
-State:
+## State
 
-    *very* alpha
+Most types of notes and bibliographies are supported. However, the style should not be considered production ready.
 
-Testing:
+## Testing
 
-    The main test files are docs/sblref.tex and docs/sbl.bib
+The main test files are docs/sblref.tex and docs/sbl.bib
 
-    To test in place:
-        add the path to the style files to your search path:
-            export TEXINPUTS="../latex/:"     # (under UNIX)
+To test in place:
 
-        You should be able to then run:
-            xetex sblref
-            biber sblref
-            xetex sblref
-            biber sblref
-            xetex sblref
-        to get a clean build of sblref.pdf
+* Add the path to the style files to your search path:
 
-        sblref.pdf contains most of the examples in the 2nd edition of the SBL
-        Handbook of Style
+    ```
+    export TEXINPUTS="../latex/:"     # (under UNIX)
+    ```
 
-Installing:
+* You should be able to then run:
 
-    Put the contents of the latex directory into
-        $TEXMFHOME/tex/latex/biblatex-sbl/
+    ```
+    xelatex sblref
+    biber sblref
+    xelatex sblref
+    ...
+    ```
 
-    You can find $TEXMFHOME by running:
-        kpsewhich -var-value=TEXMFHOME
+* Several passes of `xelatex` and `biber` are required to get a clean build of `sblref.pdf`.
 
-Licence:
+* `sblref.pdf` contains most of the examples in the 2nd edition of the SBL Handbook of Style.
 
-    Copyright 2015 David Purton
+## Installing
 
-    This work may be distributed and/or modified under the
-    conditions of the LaTeX Project Public License, either version 1.3
-    of this license or (at your option) any later version.
-    The latest version of this license is in
-        http://www.latex-project.org/lppl.txt
-    and version 1.3 or later is part of all distributions of LaTeX
-    version 2005/12/01 or later.
+Put the contents of the latex directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 
-    This work has the LPPL maintenance status `maintained'.
+You can find $TEXMFHOME by running:
 
-    The Current Maintainer of this work is David Purton.
+```        
+kpsewhich -var-value=TEXMFHOME
+```
 
+## Licence
+
+```
+Copyright 2016 David Purton
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License, either version 1.3
+of this license or (at your option) any later version.
+The latest version of this license is in
+    http://www.latex-project.org/lppl.txt
+and version 1.3 or later is part of all distributions of LaTeX
+version 2005/12/01 or later.
+
+This work has the LPPL maintenance status `maintained'.
+
+The Current Maintainer of this work is David Purton.
+```
