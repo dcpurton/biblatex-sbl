@@ -286,7 +286,7 @@
 \DeclareFieldFormat{volume}{#1}
 \DeclareFieldFormat{vol}{\bibsstring{volume}~#1}
 \DeclareFieldFormat{volumeof}{\bibsstring{volume}~#1 \bibstring{of}}
-\DeclareFieldFormat{volumes}{#1~\bibsstring{volumes}}
+\DeclareFieldFormat{volumes}{#1\ifnumeral{#1}{~\bibsstring{volumes}}{}}
 \DeclareFieldFormat{partof}{\bibstring{part}~#1 \bibstring{of}}
 \DeclareFieldFormat{no}{\bibsstring{number}~#1}
 \DeclareFieldFormat{url}{\url{#1}}
