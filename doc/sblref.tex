@@ -20,6 +20,8 @@
 \setlength{\parskip}{0.5\baselineskip}
 
 \makeatletter
+\renewcommand*{\bibnamedash}{%
+  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
 \renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
             {-2.5ex\@plus -1ex \@minus -.25ex}%
             {1.25ex \@plus .25ex}%
