@@ -1136,7 +1136,8 @@
     \iffieldequalstr{relatedtype}{reprint}
       {\setunit{\addsemicolon\space}%
        \usebibmacro{related:init}%
-       \usebibmacro{related}}
+       \usebibmacro{related}%
+       \global\toggletrue{relatedseen}}
       {}}}
 
 \renewbibmacro*{publisher+location+date}{%
@@ -1271,8 +1272,7 @@
 \newbibmacro*{related:reprint}[1]{%
   \entrydata*{#1}{%
     \usedriver
-      {%
-       \renewbibmacro*{related:init}{}%
+      {\renewbibmacro*{related:init}{}%
        \renewbibmacro*{parens+publisher+location+date}{%
          \newunit
          \usebibmacro{publisher+location+date}}}
