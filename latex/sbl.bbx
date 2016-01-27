@@ -4,6 +4,7 @@
 
 \AtBeginBibliography{%
   \citereset
+  \global\undef\bbx@lasthash
   \def\abx@str{abx@lstr}%
   \renewcommand*{\revsdnamedelim}{\addcomma}%
   \DeclareNameAlias{author}{sortname}%
@@ -16,7 +17,6 @@
 }
 
 \InitializeBibliographyStyle{%
-  \global\undef\bbx@lasthash
   \renewbibmacro*{related:default}[1]{%
     \entrydata*{#1}{%
       \usedriver

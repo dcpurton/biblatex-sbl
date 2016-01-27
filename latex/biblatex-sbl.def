@@ -237,6 +237,7 @@
 \DeclareLanguageMapping{spanish}{sbl-spanish}
 
 \renewcommand*{\subtitlepunct}{\addcolon\space}
+\newcommand*{\namedashpunct}{\adddot\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
 
 \setcounter{mincompwidth}{10}
@@ -877,6 +878,9 @@
     {\ifciteseen{%
        \printnames[labelname]{author}%
      }{%
+       \iffieldundef{authortype}
+         {\renewcommand*{\namedashpunct}{\adddot\space}}
+         {\renewcommand*{\namedashpunct}{\addcomma\space}}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
          {\printnames{author}%
@@ -899,25 +903,6 @@
     {}
 }
      
-\renewbibmacro*{editor}{%
-  \ifboolexpr{
-    test \ifuseeditor
-    and
-    not test {\ifnameundef{editor}}
-  }
-    {\ifciteseen{%
-       \printnames[labelname]{editor}%
-     }{%
-       \usebibmacro{dashcheck}
-         {\bibnamedash}
-         {\printnames{editor}%
-          \usebibmacro{savehash}}%
-       \setunit{\addcomma\space}%
-       \usebibmacro{editorstrg}%
-     }%
-     \clearname{editor}}
-    {\global\undef\bbx@lasthash}}
-
 \renewbibmacro*{editor+others}{%
   \ifboolexpr{
     test \ifuseeditor
@@ -927,30 +912,15 @@
     {\ifciteseen{%
        \printnames[labelname]{editor}%
      }{%
-       \printnames{editor}%
+       \renewcommand*{\namedashpunct}{\addcomma\space}%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{editor}%
+          \usebibmacro{savehash}}%
        \setunit{\addcomma\space}%
        \usebibmacro{editor+othersstrg}%
      }%
      \clearname{editor}}
-    {}}
-
-\renewbibmacro*{translator}{%
-  \ifboolexpr{
-    test \ifusetranslator
-    and
-    not test {\ifnameundef{translator}}
-  }
-    {\ifciteseen{%
-       \printnames[labelname]{translator}%
-     }{%
-       \usebibmacro{dashcheck}
-         {\bibnamedash}
-         {\printnames{translator}%
-          \usebibmacro{savehash}}%
-     }%
-     \setunit{\addcomma\space}%
-     \usebibmacro{translatorstrg}%
-     \clearname{translator}}
     {\global\undef\bbx@lasthash}}
 
 \renewbibmacro*{translator+others}{%
@@ -964,12 +934,16 @@
        \setunit{\addcomma\space}%
        \usebibmacro{translatorstrg}%
      }{%
-       \printnames{translator}%
+       \renewcommand{\namedashpunct}{\addcomma\space}%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{translator}%
+          \usebibmacro{savehash}}%
        \setunit{\addcomma\space}%
        \usebibmacro{translator+othersstrg}%
      }%
      \clearname{translator}}
-    {}}
+    {\global\undef\bbx@lasthash}}
 
 \renewbibmacro*{byeditor}{%
   \ifnameundef{editor}
@@ -1415,7 +1389,7 @@
 % ------------------------------------------------------------------
 
 \renewcommand*{\bibnamedash}{%
-  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
+  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}\namedashpunct}
 
 \newbibmacro*{bbx:dashcheck}[2]{%
   \ifboolexpr{
