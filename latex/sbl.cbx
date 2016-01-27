@@ -22,6 +22,9 @@
     {\global\toggletrue{relatedseen}}
     {\global\togglefalse{relatedseen}}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
+  \iffieldequalstr{relatedtype}{reprint}
+    {\renewcommand*{\relatedpunct}{\addcomma\space}}
+    {}%
   \printtext{%
     \ifboolexpr{%
         test {\ifciteibid}
@@ -62,6 +65,7 @@
 
 \newbibmacro*{cite:shorthand}{%
   \usebibmacro{usesblxref}%
+  \global\toggletrue{relatedseen}%
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext{%
        \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
@@ -85,6 +89,12 @@
 
 \newbibmacro*{bibentrycite}{%
   \citereset
+  \global\togglefalse{relatedseen}%
+  \iffieldequalstr{relatedtype}{reprint}
+    {\iffieldundef{relatedstring}
+       {\renewcommand*{\relatedpunct}{\addcomma\space}}
+       {}}%
+    {}%
   \toggletrue{blx@bibliography}%
   \def\abx@str{abx@lstr}%
   \renewcommand*{\revsdnamedelim}{\addcomma}%
@@ -187,18 +197,6 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-% ------------------------------------------------------------------
-% RELATED MACROS
-% ------------------------------------------------------------------
-
-\renewbibmacro*{related:default}[1]{%
-  \entrydata*{#1}{%
-    \usedriver
-      {\renewbibmacro*{author/editor+others/translator+others}{}%
-       \renewbibmacro*{related:init}{}}
-      {cite:\thefield{entrytype}}%
-    \setunit{\addsemicolon\addspace}%
-    \usebibmacro{related}}}
 
 % ------------------------------------------------------------------
 % CITE DRIVERS
@@ -295,12 +293,7 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{byorigeditor+others}%
-       \newunit
-       \usebibmacro{publisher+location+date}}%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{volume+part+nomaintitle}}
@@ -333,11 +326,7 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{publisher+location+date}%
-     }%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{pages}%
      \newunit
@@ -358,12 +347,7 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{byorigeditor+others}%
-       \newunit
-       \usebibmacro{publisher+location+date}}%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
@@ -414,11 +398,7 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{publisher+location+date}%
-     }%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{volume+part+pages}%
      \newunit
@@ -507,11 +487,7 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{publisher+location+date}%
-     }%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{volume+part+pages}%
      \newunit

@@ -239,6 +239,7 @@
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\namedashpunct}{\adddot\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
+\renewcommand*{\relateddelim}{\addsemicolon\space}
 
 \setcounter{mincompwidth}{10}
 
@@ -1001,16 +1002,6 @@
   \usebibmacro{byeditorx}%
   \usebibmacro{bymaintranslator+others}}
 
-\newbibmacro*{byorigeditor+others}{%
-  \ifnameundef{origeditor}
-    {}
-    {\usebibmacro{byeditor+othersstrg}%
-     \setunit{\addspace}%
-     \printnames[byeditor]{origeditor}%
-     \clearname{origeditor}%
-     \newunit}%
-  \usebibmacro{byorigtranslator+others}}
-
 \newbibmacro*{bybooktranslator+others}{%
   \ifnameundef{translator}
     {}
@@ -1044,15 +1035,6 @@
      \clearname{maintranslator}%
      \newunit}%
   \usebibmacro{withothers}}
-
-\newbibmacro*{byorigtranslator+others}{%
-  \ifnameundef{origtranslator}
-    {}
-    {\usebibmacro{bytranslator+othersstrg}%
-     \setunit{\addspace}%
-     \printnames[bytranslator]{origtranslator}%
-     \clearname{origtranslator}%
-     \newunit}}
 
 \newbibmacro*{revdauthor}{%
   \ifboolexpr{
@@ -1147,6 +1129,16 @@
   \printfield{number}%
   \newunit}
 
+\newbibmacro*{parens+publisher+location+date}{%
+  \setunit{\space}
+  \printtext[parens]{%
+    \usebibmacro{publisher+location+date}%
+    \iffieldequalstr{relatedtype}{reprint}
+      {\setunit{\addsemicolon\space}%
+       \usebibmacro{related:init}%
+       \usebibmacro{related}}
+      {}}}
+
 \renewbibmacro*{publisher+location+date}{%
   \usebibmacro{reprint}%
   \printlist{location}%
@@ -1154,7 +1146,7 @@
     {\setunit*{\addcomma\space}}
     {\setunit*{\addcolon\space}}%
   \printlist{publisher}%
-  \setunit{\addcomma\space}%
+  \setunit*{\addcomma\space}%
   \usebibmacro{date}%
   \newunit}
 
@@ -1239,15 +1231,15 @@
     not test {\iffieldundef{origlocation}}
     or
     not test {\iffieldundef{origyear}}
-    or
-    not test {\iffieldundef{origdate}}
   }
     {\usebibmacro{origpublisher+location+date}%
-     \newunit
+     \ifbibliography
+       {\setunit{\addperiod\space}}
+       {\setunit{\addsemicolon\space}}%
      \bibstring{reprint}%
      \setunit{\addcomma\addspace}}
     {}}
-    
+
 \renewbibmacro*{date}{%
   \printdate
   \setunit{\addcomma\addspace}%
@@ -1261,6 +1253,30 @@
   \iffieldundef{sblxref}
     {}
     {\nocite{\thefield{sblxref}}}}
+
+
+% ------------------------------------------------------------------
+% RELATED MACROS
+% ------------------------------------------------------------------
+
+\renewbibmacro*{related:default}[1]{%
+  \entrydata*{#1}{%
+    \usedriver
+      {\renewbibmacro*{author/editor+others/translator+others}{}%
+       \renewbibmacro*{related:init}{}}
+      {cite:\thefield{entrytype}}
+    \setunit{\relateddelim}%
+    \usebibmacro{related}}}
+
+\newbibmacro*{related:reprint}[1]{%
+  \entrydata*{#1}{%
+    \usedriver
+      {%
+       \renewbibmacro*{related:init}{}%
+       \renewbibmacro*{parens+publisher+location+date}{%
+         \newunit
+         \usebibmacro{publisher+location+date}}}
+      {cite:\thefield{entrytype}}}}
 
 
 % ------------------------------------------------------------------

@@ -6,6 +6,7 @@
   \citereset
   \global\undef\bbx@lasthash
   \def\abx@str{abx@lstr}%
+  \renewcommand*{\relateddelim}{\addperiod\space}
   \renewcommand*{\revsdnamedelim}{\addcomma}%
   \DeclareNameAlias{author}{sortname}%
   \DeclareNameAlias{editor}{sortname}%
@@ -23,7 +24,20 @@
         {\renewbibmacro*{author/editor+others/translator+others}{}%
          \renewbibmacro*{related:init}{}}
         {\thefield{entrytype}}}}%
+  \renewbibmacro*{related:reprint}[1]{%
+    \entrydata*{#1}{%
+      \usedriver
+        {\renewbibmacro*{related:init}{}}
+        {\thefield{entrytype}}}}%
 }
+
+\AtEveryBibitem{%
+  \global\togglefalse{relatedseen}%
+  \iffieldequalstr{relatedtype}{reprint}
+    {\iffieldundef{relatedstring}
+       {\renewcommand*{\relatedpunct}{\addcomma\space}}
+       {}}%
+    {}}%
 
 \DeclareBibliographyDriver{classictext}{%
   \usebibmacro{bibindex}%
@@ -88,14 +102,14 @@
   \newunit
   \usebibmacro{shortseries+number}%
   \newunit
-  \usebibmacro{byorigeditor+others}%
-  \newunit
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \usebibmacro{related:init}%
-  \usebibmacro{related}%
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -121,6 +135,10 @@
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -179,6 +197,10 @@
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
