@@ -34,7 +34,7 @@ To test in place:
 
 Put the contents of the latex directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 
-You can find $TEXMFHOME by running:
+You can find `$TEXMFHOME` by running:
 
 ```        
 kpsewhich -var-value=TEXMFHOME
@@ -43,7 +43,7 @@ kpsewhich -var-value=TEXMFHOME
 ## Licence
 
 ```
-Copyright 2016 David Purton
+Copyright 2015-2016 David Purton
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
