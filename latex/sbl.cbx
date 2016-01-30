@@ -512,7 +512,7 @@
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
-\DeclareBibliographyDriver{cite:inproceedings}{%
+\DeclareBibliographyDriver{cite:unpublished}{%
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
@@ -524,14 +524,12 @@
     {}
     {\setunit{\addspace}%
      \printtext[parens]{%
-       \printfield{type}%
+       \printfield{howpublished}%
        \setunit{\addspace}%
-       \printfield{eventtitle}%
+       \printfield{note}%
        \newunit
        \renewcommand*{\newunitpunct}{\addsemicolon\space}%
        \usebibmacro{publisher+location+date}}%
-       \newunit
-       \usebibmacro{pages}%
        \newunit
        \usebibmacro{doi+eprint+url}}}
 

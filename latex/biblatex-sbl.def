@@ -300,7 +300,7 @@
 
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
-\DeclareFieldFormat[inproceedings]{type}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
+\DeclareFieldFormat{howpublished}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inscription}}

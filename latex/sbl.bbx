@@ -294,15 +294,15 @@
   \usebibmacro{finentry}%
 }
 
-\DeclareBibliographyDriver{inproceedings}{%
+\DeclareBibliographyDriver{unpublished}{%
   \usebibmacro{bibindex}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
   \newunit
-  \printfield{type}%
+  \printfield{howpublished}%
   \setunit{\addspace}%
-  \printfield{eventtitle}%
+  \printfield{note}%
   \newunit
   \usebibmacro{publisher+location+date}%
   \newunit

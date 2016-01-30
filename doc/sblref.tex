@@ -203,7 +203,7 @@
 \lstdefinelanguage{BibTeX}{%
   keywords={%
     @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
-    @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@inproceedings,%
+    @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@unpublished,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
     @reference,@mvcollection,@bookinbook,@ancienttext,@classictext%
   },
@@ -214,7 +214,7 @@
     origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
-    eventtitle,releasedate,volumes,shortmaintitle,options,%
+    howpublished,note,releasedate,volumes,shortmaintitle,options,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon%
   },
@@ -1670,12 +1670,12 @@ In the bibliography, cite only the theological dictionary.
 \subsubsection{A Paper Presented at a Professional Society}
 
 \begin{lstlisting}
-@inproceedings{niditch:1994,
+@unpublished{niditch:1994,
   author = {Niditch, Susan},
   title = {Oral Culture and Written Documents},
   shorttitle = {Oral Culture},
-  type = {presentedpaper},
-  eventtitle = {the Annual Meeting of the New England Region of the SBL},
+  howpublished = {presentedpaper},
+  note = {the Annual Meeting of the New England Region of the SBL},
   location = {Worcester, MA},
   date = {1994-03-25}
 }
