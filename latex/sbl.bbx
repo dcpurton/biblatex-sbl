@@ -86,10 +86,12 @@
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \iftoggle{blx@citebytitle}
-    {}
-    {\usebibmacro{author/editor+others/translator+others}}%
-  \newunit
-  \usebibmacro{title}%
+    {\usebibmacro{title}%
+     \newunit
+     \printnames[default]{author}}
+    {\usebibmacro{author/editor+others/translator+others}%
+     \newunit
+     \usebibmacro{title}}%
   \newunit
   \usebibmacro{volume+part}%
   \usebibmacro{maintitle}%
