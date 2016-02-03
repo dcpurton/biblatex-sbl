@@ -107,6 +107,25 @@
   \sloppy
   \printtext{\usedriver{}{\thefield{entrytype}}}}
 
+\newbibmacro*{biblistcite}{%
+  \sloppy
+  \hangindent 6em\rlap
+      {\printfield[shorthandwidth]{shortjournal}%
+       \iffieldundef{clone}
+         {\printfield[shorthandwidth]{shortseries}}
+         {}%
+       \ifboolexpr{
+         test {\iffieldundef{clone}}
+         and
+         not test {\iffieldundef{shortseries}}
+       }
+         {}
+         {\iffieldsequal{shorthand}{shorttitle}
+            {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+            {\printfield[shorthandwidth]{shorthand}}}}%
+  \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
+}
+
 \ExplSyntaxOn
 \cs_new_protected:Nn \sbl_ifinstringt:nnn {
    \tl_if_in:nnT {#2}{#1}{#3}}
@@ -177,6 +196,12 @@
   {}
   {\usebibmacro{bibentrycite}}
   {\multicitedelim}
+  {}
+
+\DeclareCiteCommand{\biblistcite}
+  {}
+  {\usebibmacro{biblistcite}}
+  {}
   {}
 
 \DeclareCiteCommand{\parencite}[\mkbibparens]
