@@ -857,6 +857,19 @@
           {\printfield[partof]{part}
            \setunit{\addspace}}}}}
 
+\newbibmacro*{involume+part}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    not test {\iffieldundef{volume}}
+    and
+    test {\iffieldundef{pages}}
+  }
+    {\bibstring{in}%
+     \setunit{\space}}
+    {}%
+  \usebibmacro{volume+part}}
+
 % ------------------------------------------------------------------
 % NAME MACROS
 % ------------------------------------------------------------------
