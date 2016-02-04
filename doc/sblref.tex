@@ -1,211 +1,158 @@
 \documentclass[a4paper]{article}
 
 \usepackage{fontspec}
+\usepackage{xparse}
 \usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{titlesec}
 \usepackage{listings}
 \usepackage{hyperref}
 \usepackage[style=sbl,backend=biber,ibidtracker=false,ibidpage=false]{biblatex}
 \addbibresource{sbl.bib}
 
-\newfontfamily\greekfont[Script=Greek,Contextuals=Alternate,Ligatures=Required]{SBL_BLit.ttf}
-\newfontfamily\hebrewfont[Script=Hebrew,Contextuals=Alternate,Ligatures=Required]{SBL_BLit.ttf}
-\newfontfamily\translitfont[Script=Latin]{SBL_BLit.ttf}
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+\setromanfont[Ligatures=TeX]{Linux Libertine O}
+\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+
 \newcommand{\gr}[1]{{\greekfont #1}}
-\newcommand{\he}[1]{{\hebrewfont #1}}
-\newcommand{\tl}[1]{{\translitfont #1}}
 
-\setmonofont[Scale=MatchLowercase]{DejaVuSansMono.ttf}
+\renewcommand{\familydefault}{\sfdefault}
 
-\setlength{\parindent}{0em}
-\setlength{\parskip}{0.5\baselineskip}
+\newfontfamily\greekfont[Script=Greek,Contextuals=Alternate,Ligatures=Required,
+  Scale=MatchLowercase]{SBL BibLit}
 
-\makeatletter
+\renewcommand{\bibfont}{\rm}
+
 \renewcommand*{\bibnamedash}{%
   \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
-\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
-            {-2.5ex\@plus -1ex \@minus -.25ex}%
-            {1.25ex \@plus .25ex}%
-            {\normalfont\normalsize\bfseries}}
-\makeatother
+
+\titleformat{\paragraph}
+{\normalfont\sf\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+{\normalfont\sf\small\scshape}{\thesubparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{2ex plus 1ex minus 0.2ex}{0.5ex}
+\titlespacing*{\subparagraph}{0pt}{1ex plus 0.2ex}{0em}
+
+\titleclass{\subsubparagraph}{straight}[\subparagraph]
+\titleformat{\subsubparagraph}{\normalfont\small\tt}{}{1em}{}
+\titlespacing*{\subsubparagraph}{0pt}{0pt}{0pt}
+
 \setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
 
-\definecolor{biblatex-colour}{rgb}{0.4,0.6,0.8}
-\definecolor{reference-colour}{rgb}{1,0.6,0}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.25ex}
 
-\newcommand\citetest[5]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#5\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#5}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[#4]\{#5\}}\par
-   \color{biblatex-colour}
-   #3. \cite[#4]{#5}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#5}.\par}}
-\newcommand\citetestbib[6]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#5\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#5}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[#4]\{#5\}}\par
-   \color{biblatex-colour}
-   #3. \cite[#4]{#5}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#6}.\par}}
-\newcommand\citetestnb[5]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#5\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#5}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[#2]\{#5\}}\par
-   \color{biblatex-colour}
-   #3. \cite[#4]{#5}.}}
-\newcommand\citetestns[3]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#3\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#3}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \sloppy\hangindent\bibindent\bibentrycite{#3}.\par}}
-\newcommand\citetestnsbib[4]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#3\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#3}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#4}.\par}}
-\newcommand\citetestnp[3]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#3\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#3}.\par
-   \color{black}
-   \texttt{\textbackslash autocite\{#3\}}\par
-   \color{biblatex-colour}
-   #2. \cite{#3}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#3}.\par}}
-\newcommand\citetestnpbib[4]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#3\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#3}.\par
-   \color{black}
-   \texttt{\textbackslash autocite\{#3\}}\par
-   \color{biblatex-colour}
-   #2. \cite{#3}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#4}.\par}}
-\newcommand\citetestnpf[4]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#4\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#4}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[#3]\{#4\}}\par
-   \color{biblatex-colour}
-   #2. \cite[#3]{#4}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#4}.\par}}
-\newcommand\citetestnpfbib[5]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#4\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#4}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[#3]\{#4\}}\par
-   \color{biblatex-colour}
-   #2. \cite[#3]{#4}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#5}.\par}}
-\newcommand\citetestnsnp[2]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#2\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#2}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#2}.\par}}
-\newcommand\citetestnsnpbib[3]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#2\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#2}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#3}.\par}}
-\newcommand\citetestnsnpnb[2]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#2\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#2}.\par}}
-\newcommand\citetestlex[2]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite\{#2\}}\par
-   \color{biblatex-colour}
-   #1. \cite{#2}.\par}}
-\newcommand\citetestlexns[3]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[#2]\{#3\}}\par
-   \color{biblatex-colour}
-   #1. \cite[#2]{#3}.\par}}
-\newcommand\citetestonlybib[1]{%
-  {\textsc{BibLaTeX Output}\par
-   \nobreak
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{#1}.\par}}
+\hyphenation{nash-ville}
+
+\definecolor{biblatex-colour}{rgb}{0.25,0.25,0.65}
+\definecolor{reference-colour}{rgb}{0,0.6,0.15}
+
+\ExplSyntaxOn
+\NewDocumentCommand \samplemacro { m }
+  {
+    \subsubparagraph*{#1}
+  }
+\NewDocumentCommand \sblrefsamplecite { s m m m o o m }
+  {
+    \IfNoValueTF { #5 }
+      {
+        \IfNoValueT { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2\{#7\}}
+              }
+            \color{biblatex-colour}
+            #4\csuse{#3}{#7}
+          }
+      }
+      {
+        \IfNoValueTF { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5]\{#7\}}
+              }
+            \color{biblatex-colour}
+            #4\csuse{#3}[#5]{#7}
+          }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5][#6]\{#7\}}
+              }
+            \color{biblatex-colour}
+            #4\csuse{#3}[#5][#6]{#7}
+          }
+      }
+  }
+\NewDocumentCommand \samplecite { s m o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      {
+        \sblrefsamplecite{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \sampleparencite { s o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      {
+        \sblrefsamplecite{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \samplebib { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbibliography}
+      }
+    \color{biblatex-colour}
+    \rmfamily\hangindent\bibindent\bibentrycite{#2}.\par
+    \color{black}
+  }
+\NewDocumentCommand \samplebiblist { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbiblist\{abbreviations\}}
+      }
+    \color{biblatex-colour}
+    \biblistcite{#2}
+    \color{black}
+  }
+\NewDocumentCommand \refbiblist { m m }
+  {
+    \color{reference-colour}
+    \strut\rmfamily\hangindent 6em\rlap{#1}\hskip 6em #2\par
+    \color{black}
+  }
+\ExplSyntaxOff
+
+\newenvironment{biboutput}{%
+  \subparagraph{Biblatex Output}
+}{\color{black}}
 
 \newenvironment{refimp}{%
-  \begin{minipage}{\linewidth}
-    \setlength{\parskip}{1ex}
-    \textsc{Reference Implementation}\par
-    \nobreak
-    \color{reference-colour}
-}{\end{minipage}}
+  \subparagraph{Reference Implementation}
+  \color{reference-colour}
+  \rm
+}{\par\color{black}}
 
 \lstdefinelanguage{BibTeX}{%
   keywords={%
     @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@unpublished,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
-    @reference,@mvcollection,@bookinbook,@ancienttext,@classictext%
+    @reference,@mvcollection,@bookinbook,@ancienttext,@classictext,@online%
   },
   emph={%
     author,title,location,publisher,date,shorttitle,translator,edition,preface,%
@@ -224,13 +171,14 @@
 \lstset{%
  language=BibTeX,
  backgroundcolor=\color{gray!15},
- basicstyle=\ttfamily,
+ basicstyle=\ttfamily\small,
  breaklines=true,
  keywordstyle=\color{teal},
  emphstyle=\color{purple},
  columns=fullflexible,
+ breakatwhitespace=true,
+ morecomment=[s][\color{black}]{=\ \{}{\}}
 }
-
 
 \makeatletter
 \lst@InputCatcodes
@@ -307,6 +255,8 @@
 
 \tableofcontents
 
+\clearpage
+
 \setcounter{section}{5}
 
 \section{Notes and Bibliographies}
@@ -326,8 +276,11 @@
 }
 \end{lstlisting}
 
-\citetest{15}{127}{19}{22}{talbert:1992}
-
+\begin{biboutput}
+  \samplecite{15}[127]{talbert:1992}
+  \samplecite{19}[22]{talbert:1992}
+  \samplebib{talbert:1992}
+\end{biboutput}
 
 \begin{refimp}
   15. Charles H. Talbert, \emph{Reading John: A Literary and Theological
@@ -353,7 +306,11 @@
 }
 \end{lstlisting}  
 
-\citetest{4}{237}{12}{23}{robinson+koester:1971}
+\begin{biboutput}
+  \samplecite{4}[237]{robinson+koester:1971}
+  \samplecite{12}[23]{robinson+koester:1971}
+  \samplebib{robinson+koester:1971}
+\end{biboutput}
 
 \begin{refimp}
   4. James M. Robinson and Helmut Koester, \emph{Trajectories through Early
@@ -378,7 +335,11 @@
 }
 \end{lstlisting}  
 
-\citetest{7}{53}{9}{42}{scott+etal:1993}
+\begin{biboutput}
+  \samplecite{7}[53]{scott+etal:1993}
+  \samplecite{9}[42]{scott+etal:1993}
+  \samplebib{scott+etal:1993}
+\end{biboutput}
 
 \begin{refimp}
   7. Bernard Brandon Scott et al., \emph{Reading New Testament Greek} (Peabody, MA:
@@ -405,7 +366,11 @@
 }
 \end{lstlisting}  
 
-\citetest{14}{28}{18}{291}{egger:1996}
+\begin{biboutput}
+  \samplecite{14}[28]{egger:1996}
+  \samplecite{18}[291]{egger:1996}
+  \samplebib{egger:1996}
+\end{biboutput}
 
 \begin{refimp}
   14. Wilhelm Egger, \emph{How to Read the New Testament: An Introduction to
@@ -454,7 +419,10 @@
 }
 \end{lstlisting}
 
-\citetestns{3}{296}{wellhausen:1957}
+\begin{biboutput}
+  \samplecite{3}[296]{wellhausen:1957}
+  \samplebib{wellhausen:1957}
+\end{biboutput}
 
 \begin{refimp}
   3. Julius Wellhausen, \emph{Prolegomena to the History of Ancient Israel}
@@ -484,7 +452,11 @@
 }
 \end{lstlisting}  
 
-\citetest{5}{35}{9}{38}{tigay:1985}
+\begin{biboutput}
+  \samplecite{5}[35]{tigay:1985}
+  \samplecite{9}[38]{tigay:1985}
+  \samplebib{tigay:1985}
+\end{biboutput}
 
 \begin{refimp}
   5. Jeffrey H. Tigay, ed., \emph{Empirical Models for Biblical Criticism}
@@ -512,18 +484,25 @@
 }
 \end{lstlisting}  
 
-\citetest{44}{xii}{47}{viii}{kaltner+mckenzie:2002}
+\begin{biboutput}
+  \samplecite{44}[xii]{kaltner+mckenzie:2002}
+  \samplecite{47}[viii]{kaltner+mckenzie:2002}
+  \samplebib{kaltner+mckenzie:2002}
+  \samplebiblist{kaltner+mckenzie:2002}
+\end{biboutput}
 
 \begin{refimp}
   44. John Kaltner and Steven L. McKenzie, eds., \emph{Beyond Babel: A Handbook
   for Biblical Hebrew and Related Languages,} RBS 42 (Atlanta: Society of
   Biblical Literature, 2002), xii.
 
-  47. Kaltner and McKenzie,\footnote{Should include \emph{Beyond Babel}?} viii.
+  47. Kaltner and McKenzie,\footnote{Should include \emph{“Beyond Babel,”}?} viii.
 
   \hangindent\bibindent Kaltner, John, and Steven L. McKenzie, eds.
   \emph{Beyond Babel: A Handbook for Biblical Hebrew and Related Languages.}
   RBS 42. Atlanta: Society of Biblical Literature, 2002.
+
+  \refbiblist{RBS}{Resources for Biblical Study}
 \end{refimp}
 
 \subsubsection{A Book with Four or More Editors}
@@ -542,7 +521,11 @@
 }
 \end{lstlisting}  
 
-\citetestns{4}{10}{oates+etal:2001}
+\begin{biboutput}
+  \samplecite{4}[10]{oates+etal:2001}
+  \samplebib{oates+etal:2001}
+  \samplebiblist{oates+etal:2001}
+\end{biboutput}
 
 \begin{refimp}
   4. John F. Oates et al., eds., \emph{Checklist of Editions of Greek and Latin
@@ -553,6 +536,9 @@
   and Klaas A. Worp, eds. \emph{Checklist of Editions of Greek and Latin
   Papyri, Ostraca, and Tablets.} 5th~ed. BASPSup 9. Oakville, CT: American
   Society of Papyrologists, 2001.
+
+  \refbiblist{BASPSup}{Bulletin of the American Society of Papyrologists,
+  Supplements}
 \end{refimp}
 
 \subsubsection{A Book with Both Author and Editor}
@@ -568,7 +554,10 @@
 }
 \end{lstlisting}  
 
-\citetestns{45}{20}{schillebeeckx:1986}
+\begin{biboutput}
+  \samplecite{45}[20]{schillebeeckx:1986}
+  \samplebib{schillebeeckx:1986}
+\end{biboutput}
 
 \begin{refimp}
   45. Edward Schillebeeckx, \emph{The Schillebeeckx Reader,} ed. Robert J.
@@ -592,7 +581,10 @@
 }
 \end{lstlisting}  
 
-\citetestns{3}{40}{blass+debrunner:1982}
+\begin{biboutput}
+  \samplecite{3}[40]{blass+debrunner:1982}
+  \samplebib{blass+debrunner:1982}
+\end{biboutput}
 
 \begin{refimp}
   3. Friedrich Blass and Albert Debrunner, \emph{Grammatica del greco del
@@ -618,11 +610,16 @@
 }
 \end{lstlisting}
 
-\citetestnsnpnb{34}{irvine:2014}
+\begin{biboutput}
+  \samplecite{34}{irvine:2014}
+  \samplebiblist{irvine:2014}
+\end{biboutput}
 
 \begin{refimp}
   34. Stuart A. Irvine, “Idols [\emph{ktbwnm}]: A Note on Hosea 13:2a,”
   \emph{JBL} 133 (2014): 509–17.
+
+  \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
 
 \subsubsection{An Article in and Edited Volume}
@@ -639,7 +636,11 @@
 }
 \end{lstlisting}  
 
-\citetestnpf{3}{6}{314-317}{attridge:1986}
+\begin{biboutput}
+  \samplecite{3}{attridge:1986}
+  \samplecite{6}{attridge:1986}
+  \samplebib{attridge:1986}
+\end{biboutput}
 
 \begin{refimp}
   3. Harold W. Attridge, “Jewish Historiography,” in \emph{Early Judaism and
@@ -669,7 +670,11 @@
 }
 \end{lstlisting}  
 
-\citetestnpf{8}{17}{222}{vanseters:1995}
+\begin{biboutput}
+  \samplecite{8}{vanseters:1995}
+  \samplecite{17}[222]{vanseters:1995}
+  \samplebib{vanseters:1995}
+\end{biboutput}
 
 \begin{refimp}
   8. John Van Seters, “The Theology of the Yahwist: A Preliminary Sketch,” in
@@ -702,7 +707,11 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetest{2}{xi-xxi}{6}{xi-xx}{boers:1996}
+\begin{biboutput}
+  \samplecite{2}[xi-xii]{boers:1996}
+  \samplecite{6}[xi-xx]{boers:1996}
+  \samplebib{boers:1996}
+\end{biboutput}
 
 \begin{refimp}
   2. Hendrikus Boers, introduction to \emph{How to Read the New Testament: An
@@ -723,7 +732,7 @@ Than the Author}
 @book{gerhardsson:1961,
   author = {Gerhardsson, Birger},
   title = {Memory and Manuscript: Oral Tradition and Written Transmission in Rabbinic Judaism and Early Christianity},
-  series = {Acta seminarii neotestamentici upsaliensis},
+  series = {Acta Seminarii Neotestamentici Upsaliensis},
   shortseries = {ASNU},
   number = {22},
   publisher = {Lund: Gleerup; Copenhagen: Munksgaard},
@@ -731,13 +740,18 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestonlybib{gerhardsson:1961}
+\begin{biboutput}
+  \samplebib{gerhardsson:1961}
+  \samplebiblist{gerhardsson:1961}
+\end{biboutput}
 
 \begin{refimp}
   \hangindent\bibindent Birger Gerhardsson,\footnote{Should be “Gerhardsson,
   Birger.”?} \emph{Memory and Manuscript: Oral Tradition and Written
   Transmission in Rabbinic Judaism and Early Christianity.} ASNU 22. Lund:
   Gleerup; Copenhagen: Munksgaard, 1961.
+
+  \refbiblist{ASNU}{Acta Seminarii Neotestamentici Upsaliensis}
 \end{refimp}
 
 \subsubsection{A Revised Edition}
@@ -753,7 +767,10 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestns{87}{xxi}{pritchard:1969}
+\begin{biboutput}
+  \samplecite{87}[xxi]{pritchard:1969}
+  \samplebib{pritchard:1969}
+\end{biboutput}
 
 \begin{refimp}
   87. James B. Pritchard, ed., \emph{Ancient Near Eastern Texts Relating to
@@ -775,7 +792,10 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestns{56}{81}{blenkinsopp:1996}
+\begin{biboutput}
+  \samplecite{56}[81]{blenkinsopp:1996}
+  \samplebib{blenkinsopp:1996}
+\end{biboutput}
 
 \begin{refimp}
   56. Joseph Blenkinsopp, \emph{A History of Prophecy in Israel,} rev.\ and
@@ -800,7 +820,10 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestns{5}{35}{vanseters:1997}
+\begin{biboutput}
+  \samplecite{5}[35]{vanseters:1997}
+  \samplebib{vanseters:1997}
+\end{biboutput}
 
 \begin{refimp}
   5. John Van Seters, \emph{In Search of History: Historiography in the
@@ -827,7 +850,10 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestns{5}{55}{deissmann:1995}
+\begin{biboutput}
+  \samplecite{5}[55]{deissmann:1995}
+  \samplebib{deissmann:1995}
+\end{biboutput}
 
 \begin{refimp}
   5. Gustav Adolf Deissmann, \emph{Light from the Ancient East: The New Testament
@@ -856,7 +882,12 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnpf{9}{12}{201}{harrison+welborn:forthcoming}
+\begin{biboutput}
+  \samplecite{9}{harrison+welborn:forthcoming}
+  \samplecite{12}[201]{harrison+welborn:forthcoming}
+  \samplebib{harrison+welborn:forthcoming}
+  \samplebiblist{harrison+welborn:forthcoming}
+\end{biboutput}
 
 \begin{refimp}
   9. James R. Harrison and L. L. Welborn, eds., \emph{The First Urban Churches
@@ -867,6 +898,8 @@ Than the Author}
   \hangindent\bibindent Harrison, James R.\footnote{Should be “Harrison, James
   R.,”} and L. L. Welborn, eds. \emph{The First Urban Churches 2: Roman
   Corinth.} WGRWSup. Atlanta: SBL Press, forthcoming.
+
+  \refbiblist{WGRWSup}{Writings from the Greco-Roman World Supplement Series}
 \end{refimp}
 
 \subsubsection{A Multivolume Work}
@@ -884,11 +917,15 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetest{5}{56}{9}{2:126}{harnack:1896-1905}
+\begin{biboutput}
+  \samplecite{5}{harnack:1896-1905}
+  \samplecite{9}[2:126]{harnack:1896-1905}
+  \samplebib{harnack:1896-1905}
+\end{biboutput}
 
 \begin{refimp}
   5. Adolf Harnack, \emph{History of Dogma,} trans. Neil Buchanan, 7 vols.
-  (Boston: Little, Brown), 56.
+  (Boston: Little, Brown).
 
   9. Harnack, \emph{History of Dogma,} 2:126.
 
@@ -913,7 +950,11 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetest{5}{25}{16}{25}{winter+clarke:1993}
+\begin{biboutput}
+  \samplecite{5}[25]{winter+clarke:1993}
+  \samplecite{16}[25]{winter+clarke:1993}
+  \samplebib{winter+clarke:1993}
+\end{biboutput}
 
 \begin{refimp}
   5. Bruce W. Winter and Andrew D. Clarke, eds., \emph{The Book of Acts in Its
@@ -945,7 +986,11 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnpf{24}{28}{224}{mason:1996}
+\begin{biboutput}
+  \samplecite{24}{mason:1996}
+  \samplecite{28}[224]{mason:1996}
+  \samplebib{mason:1996}
+\end{biboutput}
 
 \begin{refimp}
   24. Steve Mason, “Josephus on Canon and Scriptures,” in \emph{Hebrew
@@ -980,7 +1025,11 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestnpf{66}{78}{92}{peterson:1993}
+\begin{biboutput}
+  \samplecite{66}{peterson:1993}
+  \samplecite{78}[92]{peterson:1993}
+  \samplebib{peterson:1993}
+\end{biboutput}
 
 \begin{refimp}
   66. David Peterson, “The Motif of Fulfilment and the Purpose of Luke-Acts,”
@@ -1014,7 +1063,12 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetest{12}{122}{14}{124}{hofius:1989}
+\begin{biboutput}
+  \samplecite{12}[122]{hofius:1989}
+  \samplecite{14}[124]{hofius:1989}
+  \samplebib{hofius:1989}
+  \samplebiblist{hofius:1989}
+\end{biboutput}
 
 \begin{refimp}
   12. Otfried Hofius, \emph{Paulusstudien,} WUNT 51 (Tübingen: Mohr Siebeck,
@@ -1024,7 +1078,11 @@ Than the Author}
 
   Hofius, Otfried. \emph{Paulusstudien.} WUNT 51. Tübingen: Mohr Siebeck,
   1989.
+  
+  \refbiblist{WUNT}{Wissenschaftliche Untersuchungen zum Neuen Testament}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{jeremias:1967,
@@ -1041,7 +1099,12 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetest{23}{123-127}{32}{126}{jeremias:1967}
+\begin{biboutput}
+  \samplecite{23}[123-127]{jeremias:1967}
+  \samplecite{32}[126]{jeremias:1967}
+  \samplebib{jeremias:1967}
+  \samplebiblist{jeremias:1967}
+\end{biboutput}
 
 \begin{refimp}
   23. Joachim Jeremias, \emph{The Prayers of Jesus,} SBT 2/6 (Naperville, IL:
@@ -1051,6 +1114,8 @@ Than the Author}
 
   \hangindent\bibindent Jeremias, Joachim. The Prayers of Jesus. SBT 2/6.
   Naperville, IL: Allenson, 1967.
+
+  \refbiblist{SBT}{Studies in Biblical Theology}
 \end{refimp}
 
 \subsubsection{Electronic Book}
@@ -1070,7 +1135,11 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetest{14}{ch.~1.3}{18}{ch.~1.3}{reventlow:2009}
+\begin{biboutput}
+  \samplecite{14}[ch.~1.3]{reventlow:2009}
+  \samplecite{18}[ch.~1.3]{reventlow:2009}
+  \samplebib{reventlow:2009}
+\end{biboutput}
 
 \begin{refimp}
   14. Henning Graf Reventlow, \emph{From the Old Testament to Origen.}
@@ -1086,6 +1155,8 @@ Than the Author}
   Atlanta: Society of Biblical Literature, 2009. Nook edition.
 \end{refimp}
 
+\medskip
+
 \begin{lstlisting}
 @book{wright:2014,
   author = {Wright, Jacob L.},
@@ -1099,8 +1170,15 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetest{3}{ch.~3, \mkbibquote{Introducing David}}{21}{ch.~5,
-\mkbibquote{Evidence from Qumran}}{wright:2014}
+\begin{biboutput}
+  \samplemacro{\textbackslash autocite[ch.\textasciitilde 3, \textbackslash
+  mkibquote\{Introducing David\}]\{wright:2014\}}
+  \samplecite*{3}[ch.~3, \mkbibquote{Introducing David}]{wright:2014}
+  \samplemacro{\textbackslash autocite[ch.\textasciitilde 5, \textbackslash
+  mkibquote\{Evidence from Qumran\}]\{wright:2014\}}
+  \samplecite*{21}[ch.~5, \mkbibquote{Evidence from Qumran}]{wright:2014}
+  \samplebib{wright:2014}
+\end{biboutput}
 
 \begin{refimp}
   3. Jacob L. Wright, \emph{David, King of Israel, and Caleb in Biblical
@@ -1126,7 +1204,11 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnp{53}{55}{killebrew+steiner:2014}
+\begin{biboutput}
+  \samplecite{53}{killebrew+steiner:2014}
+  \samplecite{55}{killebrew+steiner:2014}
+  \samplebib{killebrew+steiner:2014}
+\end{biboutput}
 
 \begin{refimp}
   53. Ann E. Killebrew and Margreet Steiner, eds., \emph{The Oxford Handbook
@@ -1155,7 +1237,12 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnpf{29}{32}{123}{kaufman:1974}
+\begin{biboutput}
+  \samplecite{29}{kaufman:1974}
+  \samplecite{32}[123]{kaufman:1974}
+  \samplebib{kaufman:1974}
+  \samplebiblist{kaufman:1974}
+\end{biboutput}
 
 \begin{refimp}
   29. Stephen Kaufman. \emph{The Akkadian Influences on Aramaic,} AS 19
@@ -1167,6 +1254,8 @@ Than the Author}
   \hangindent\bibindent Kaufman, Stephen. \emph{The Akkadian Influences on
   Aramaic.} AS 19. Chicago: The Oriental Institute of the University of
   Chicago, 1974. \url{http://oi.uchicago.edu/pdf/as19.pdf.}
+
+  \refbiblist{AS}{Assyriological Studies}
 \end{refimp}
 
 \subsection{General Examples: Journal Articles, Reviews, and Dissertations}
@@ -1186,7 +1275,12 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestnpf{7}{23}{161}{leyerle:1993}
+\begin{biboutput}
+  \samplecite{7}{leyerle:1993}
+  \samplecite{23}[161]{leyerle:1993}
+  \samplebib{leyerle:1993}
+  \samplebiblist{leyerle:1993}
+\end{biboutput}
 
 \begin{refimp}
   7. Blake Leyerle, “John Chrysostom on the Gaze,” \emph{JECS} 1 (1993): 159–74.
@@ -1195,6 +1289,8 @@ Than the Author}
 
   \hangindent\bibindent Leyerle, Blake. “John Chrysostom on the Gaze.”
   \emph{JECS} 1 (1993): 159–74.
+
+  \refbiblist{\emph{JECS}}{\emph{Journal of Early Christian Studies}}
 \end{refimp}
 
 \subsubsection{A Journal Article with Multiple Page Locations and Volumes}
@@ -1211,7 +1307,11 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnsnp{21}{wildberger:1965}
+\begin{biboutput}
+  \samplecite{21}{wildberger:1965}
+  \samplebib{wildberger:1965}
+  \samplebiblist{wildberger:1965}
+\end{biboutput}
 
 \begin{refimp}
   21. Hans Wildberger, “Das Abbild Gottes: Gen 1:26–30,” \emph{TZ} 21 (1965):
@@ -1219,6 +1319,8 @@ Than the Author}
 
   \hangindent\bibindent Wildberger, Hans. “Das Abbild Gottes: Gen 1:26–30.”
   \emph{TZ} 21 (1965): 245–59, 481–501.
+
+  \refbiblist{\emph{TZ}}{\emph{Theologische Zeitschrift}}
 \end{refimp}
 
 \begin{lstlisting}
@@ -1227,13 +1329,17 @@ Than the Author}
   title = {Die Composition des Hexateuchs},
   journaltitle = {Jahrbuch für deutsche Theologie},
   shortjournal = {JDT},
-  volume = {21 (1876): 392--450; 22},
+  volume = {21 \mkbibparens{1876}: 392--450; 22},
   date = {1877},
   pages = {407-479}
 }
 \end{lstlisting}
 
-\citetestnsnp{24}{wellhausen:1876-1877}
+\begin{biboutput}
+  \samplecite{24}{wellhausen:1876-1877}
+  \samplebib{wellhausen:1876-1877}
+  \samplebiblist{wellhausen:1876-1877}
+\end{biboutput}
 
 \begin{refimp}
   24. Julius Wellhausen, “Die Composition des Hexateuchs,” \emph{JDT} 21
@@ -1241,6 +1347,8 @@ Than the Author}
 
   \hangindent\bibindent Wellhausen, Julius. “Die Composition des Hexateuchs.”
   \emph{JDT} 21 (1876): 392–450; 22 (1877): 407–79.
+
+  \refbiblist{\emph{JDT}}{\emph{Jahrbuch für deutsche Theologie}}
 \end{refimp}
 
 \subsubsection{A Journal Article Republished in a Collected Volume}
@@ -1257,7 +1365,11 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestns{20}{20}{freedman:1977}
+\begin{biboutput}
+  \samplecite{20}[20]{freedman:1977}
+  \samplebib{freedman:1977}
+  \samplebiblist{freedman:1977}
+\end{biboutput}
 
 \begin{refimp}
   20. David Noel Freedman, “Pottery, Poetry, and Prophecy: An Essay on
@@ -1266,6 +1378,8 @@ Than the Author}
 
   \hangindent\bibindent Freedman, David Noel. “Pottery, Poetry, and Prophecy:
   An Essay on Biblical Poetry.” \emph{JBL} 96 (1977): 5–26.
+
+  \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
 
 \begin{lstlisting}
@@ -1280,7 +1394,10 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestns{20}{14}{freedman:1980}
+\begin{biboutput}
+  \samplecite{20}[14]{freedman:1980}
+  \samplebib{freedman:1980}
+\end{biboutput}
 
 \begin{refimp}
   20. David Noel Freedman, “Pottery, Poetry, and Prophecy: An Essay on Biblical
@@ -1309,7 +1426,12 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnpf{8}{21}{369}{teeple:1966}
+\begin{biboutput}
+  \samplecite{8}{teeple:1966}
+  \samplecite{21}[369]{teeple:1966}
+  \samplebib{teeple:1966}
+  \samplebiblist{teeple:1966}
+\end{biboutput}
 
 \begin{refimp}
   8. Howard M. Teeple, review of \emph{Introduction to the New Testament,} by
@@ -1321,6 +1443,8 @@ Than the Author}
   \hangindent\bibindent Teeple, Howard M. Review of \emph{Introduction to the
   New Testament,} by André Robert and André Feuillet. \emph{JBR} 34 (1966):
   368–70.
+
+  \refbiblist{\emph{JBR}}{\emph{Journal of Bible and Religion}}
 \end{refimp}
 
 \begin{lstlisting}
@@ -1335,7 +1459,10 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnsnp{9}{pelikan:1992}
+\begin{biboutput}
+  \samplecite{9}{pelikan:1992}
+  \samplebib{pelikan:1992}
+\end{biboutput}
 
 \begin{refimp}
   9. Jaroslav Pelikan, “The Things That You're Liable to Read in the Bible,”
@@ -1360,7 +1487,12 @@ Than the Author}
 }
 \end{lstlisting}
 
-\citetestnpf{7}{14}{8}{petersen:1988}
+\begin{biboutput}
+  \samplecite{7}{petersen:1988}
+  \samplecite{14}[8]{petersen:1988}
+  \samplebib{petersen:1988}
+  \samplebiblist{petersen:1988}
+\end{biboutput}
 
 \begin{refimp}
   7. David Petersen, “Hebrew Bible Textbooks: A Review Article,” \emph{CRBR} 1
@@ -1370,6 +1502,8 @@ Than the Author}
 
   \hangindent\bibindent Petersen, David. “Hebrew Bible Textbooks: A Review
   Article.” \emph{CRBR} 1 (1988): 1–18.
+
+  \refbiblist{\emph{CRBR}}{\emph{Critical Review of Books in Religion}}
 \end{refimp}
 
 \subsubsection{An Unpublished Dissertation or Thesis}
@@ -1384,7 +1518,11 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetest{21}{22-44}{26}{23}{klosinski:1988}
+\begin{biboutput}
+  \samplecite{21}[22-44]{klosinski:1988}
+  \samplecite{26}[23]{klosinski:1988}
+  \samplebib{klosinski:1988}
+\end{biboutput}
 
 \begin{refimp}
   21. Lee E. Klosinski, “Meals in Mark” (PhD diss., The Claremont Graduate
@@ -1421,14 +1559,17 @@ Than the Author}
 }
 \end{lstlisting}  
 
-\citetestnpf{33}{36}{419}{stendahl:1962}
-
-\texttt{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
+\begin{biboutput}
+  \samplecite{33}{stendahl:1962}
+  \samplecite{36}[419]{stendahl:1962}
+  \samplebib{stendahl:1962}
+  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
   \textbackslash printbibliography}
-
-{\color{biblatex-colour}
- \toggletrue{fullbibrefs}
- \hangindent\bibindent\bibentrycite{stendahl:1962}.\par}
+  \toggletrue{fullbibrefs}
+  \samplebib*{stendahl:1962}
+  \togglefalse{fullbibrefs}
+  \samplebiblist{IDB}
+\end{biboutput}
 
 \begin{refimp}
   33. Krister Stendahl, “Biblical Theology, Contemporary,” \emph{IDB}
@@ -1437,12 +1578,12 @@ Than the Author}
   36. Stendahl, “Biblical Theology,” 1:419.
   
   Stendahl, Krister. “Biblical Theology, Contemporary.” \emph{IDB} 1:418–32.
+
+  \refbiblist{\emph{IDB}}{\emph{The Interpreter's Dictionary of the Bible.}
+  Edited by George A. Buttrick. 4 vols. New York: Abingdon, 1962}
 \end{refimp}
 
 \subsubsection{An Article in a Lexicon or Theological Dictionary}
-
-For the discussion of a word or a family of words, give the entire title and
-page range of the article:
 
 \begin{lstlisting}
 @mvlexicon{NIDNTT,
@@ -1465,11 +1606,24 @@ page range of the article:
 }
 \end{lstlisting}
 
-\citetestlex{3}{dahn+liefeld:see+vision+eye}
+\begin{biboutput}
+  \samplecite{3}{dahn+liefeld:see+vision+eye}
+  \samplebib{NIDNTT}
+  \samplebiblist{NIDNTT}
+\end{biboutput}
 
 \begin{refimp}
   3. Karl Dahn and Walter L. Liefeld, “See, Vision, Eye,” \emph{NIDNTT} 3:511–21.
+
+  \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
+  of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
+
+  \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
+  Testament Theology.} Edited by Colin Brown. 4~vols. Grand Rapids: Zondervan,
+  1975-1985}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{TDNT,
@@ -1493,11 +1647,28 @@ page range of the article:
 }
 \end{lstlisting}
   
-\citetestlex{6}{beyer:diakoneo+diakonia+ktl}
+\begin{biboutput}
+  \samplecite{6}{beyer:diakoneo+diakonia+ktl}
+  \samplecite{25}[83]{beyer:diakoneo+diakonia+ktl}
+  \samplebib{TDNT}
+  \samplebiblist{TDNT}
+\end{biboutput}
 
 \begin{refimp}
   6. Hermann W. Beyer, “\gr{διακονέω, διακονία, κτλ},” \emph{TDNT} 2:81–93.
+
+  25. Beyer, \emph{TDNT} 2:83.
+
+  \hangindent\bibindent Kittel, Gerhard, and Gerhard Friedrich, eds.
+  \emph{Theological Dictionary of the New Testament.} Translated by Geoffrey
+  W. Bromiley. 10~vols. Grand Rapids: Eerdmans, 1964–1976.
+
+  \refbiblist{\emph{TDNT}}{\emph{Theological Dictionary of the New Testament.}
+    Edited by Gerhard Kittel and Gerhard Friedrich. Translated by Geoffrey W.
+  Bromiley. 10 vols. Grand Rapids: Eerdmans, 1964–1976}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{TLNT,
@@ -1522,11 +1693,25 @@ page range of the article:
 }
 \end{lstlisting}
 
-\citetestlex{7}{spicq:atakteo+ataktos+ataktos}
+\begin{biboutput}
+  \samplecite{7}{spicq:atakteo+ataktos+ataktos}
+  \samplebib{TLNT}
+  \samplebiblist{TLNT}
+\end{biboutput}
 
 \begin{refimp}
   7. Ceslas Spicq, “\gr{ἀτακτέω, ἄτακτος, ἀτάκτως},” \emph{TLNT} 1:223–24.
+
+  \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
+  Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
+  Hendrickson, 1994.
+
+  \refbiblist{\emph{TLNT}}{\emph{Theological Lexicon of the New Testament.}
+    Ceslas Spicq. Translated and edited by James D. Ernest. 3~vols. Peabody,
+  MA: Hendrickson, 1994}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{TLNT,
@@ -1551,16 +1736,28 @@ page range of the article:
 }
 \end{lstlisting}
 
-\citetestlex{143}{spicq:amoibe}
+\begin{biboutput}
+  \samplecite{143}{spicq:amoibe}
+  \samplecite{147}[95]{spicq:amoibe}
+  \samplebib{TLNT}
+  \samplebiblist{TLNT}
+\end{biboutput}
 
 \begin{refimp}
   143. Ceslas Spicq, “\gr{ἀμοιβή},” \emph{TLNT} 1:95–96.
+
+  147. Spicq, \emph{TLNT} 1:95.
+
+  \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
+  Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
+  Hendrickson, 1994.
+
+  \refbiblist{\emph{TLNT}}{\emph{Theological Lexicon of the New Testament.}
+    Ceslas Spicq. Translated and edited by James D. Ernest. 3~vols. Peabody,
+  MA: Hendrickson, 1994}
 \end{refimp}
 
-\bigskip
-
-For the discussion of a specific word in an article covering a larger group of
-words, name just the word discussed and those pages on which it is discussed:
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{TDNT,
@@ -1584,11 +1781,20 @@ words, name just the word discussed and those pages on which it is discussed:
 }
 \end{lstlisting}
 
-\citetestlex{23}{beyer:diakoneo}
+\begin{biboutput}
+  \samplecite{23}{beyer:diakoneo}
+  \samplebiblist{TDNT}
+\end{biboutput}
 
 \begin{refimp}
   23. Hermann W. Beyer, “\gr{διακονέω},” \emph{TDNT} 2:81–87.
+
+  \refbiblist{\emph{TDNT}}{\emph{Theological Dictionary of the New Testament.}
+    Edited by Gerhard Kittel and Gerhard Friedrich. Translated by Geoffrey W.
+  Bromiley. 10 vols. Grand Rapids: Eerdmans, 1964–1976}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{NIDNTT,
@@ -1611,60 +1817,24 @@ words, name just the word discussed and those pages on which it is discussed:
 }
 \end{lstlisting}
 
-\citetestlex{26}{dahn:horao}
+\begin{biboutput}
+  \samplecite{26}{dahn:horao}
+  \samplecite{29}[511]{dahn:horao}
+  \samplebib{NIDNTT}
+  \samplebiblist{NIDNTT}
+\end{biboutput}
 
 \begin{refimp}
   26. Karl Dahn, “\gr{ὁράω},” \emph{NIDNTT} 3:511–18.
-\end{refimp}
 
-\bigskip
-
-Subsequent entries need to include only the dictionary volume and page
-numbers.
-
-\citetestlexns{25}{83}{beyer:diakoneo+diakonia+ktl}
-
-\begin{refimp}
-  25. Beyer, \emph{TDNT} 2:83.
-\end{refimp}
-
-\citetestlexns{29}{511}{dahn:horao}
-
-\begin{refimp}
   29. Dahn, \emph{NIDNTT} 3:511.
-\end{refimp}
 
-\citetestlexns{147}{95}{spicq:amoibe}
-
-\begin{refimp}
-  147. Spicq, \emph{TLNT} 1:95.
-\end{refimp}
-
-\bigskip
-
-In the bibliography, cite only the theological dictionary.
-
-\citetestonlybib{NIDNTT}
-
-\begin{refimp}
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
   of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
-\end{refimp}
 
-\citetestonlybib{TDNT}
-
-\begin{refimp}
-  \hangindent\bibindent Kittel, Gerhard, and Gerhard Friedrich, eds.
-  \emph{Theological Dictionary of the New} Testament. Translated by Geoffrey
-  W. Bromiley. 10~vols. Grand Rapids: Eerdmans, 1964–1976.
-\end{refimp}
-
-\citetestonlybib{TLNT}
-
-\begin{refimp}
-  \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
-  Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
-  Hendrickson, 1994.
+  \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
+    Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids:
+  Zondervan, 1975–1978}
 \end{refimp}
 
 \subsubsection{A Paper Presented at a Professional Society}
@@ -1680,7 +1850,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetest{31}{13-17}{35}{14}{niditch:1994}
+\begin{biboutput}
+  \samplecite{31}[13-17]{niditch:1994}
+  \samplecite{35}[14]{niditch:1994}
+  \samplebib{niditch:1994}
+\end{biboutput}
 
 \begin{refimp}
   31. Susan Niditch, “Oral Culture and Written Documents” (paper presented at
@@ -1700,7 +1874,7 @@ In the bibliography, cite only the theological dictionary.
 @article{saldarini:1998,
   author = {Saldarini, Anthony J.},
   title = {Babatha's Story},
-  journaltitle = {Biblical Archeology Review},
+  journaltitle = {Biblical Archaeology Review},
   shortjournal = {BAR},
   volume = {24},
   number = {2},
@@ -1709,7 +1883,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}  
 
-\citetestnpf{8}{27}{28}{saldarini:1998}
+\begin{biboutput}
+  \samplecite{8}{saldarini:1998}
+  \samplecite{27}[28]{saldarini:1998}
+  \samplebib{saldarini:1998}
+  \samplebiblist{saldarini:1998}
+\end{biboutput}
 
 \begin{refimp}
   8.Anthony J. Saldarini, “Babatha’s Story,” \emph{BAR} 24.2 (1998): 28–33,
@@ -1719,6 +1898,8 @@ In the bibliography, cite only the theological dictionary.
 
  \hangindent\bibindent Saldarini, Anthony J. “Babatha’s Story.” \emph{BAR}
  24.2 (1998): 28–33, 36–37, 72–74.
+
+ \refbiblist{\emph{BAR}}{\emph{Biblical Archaeology Review}}
 \end{refimp}
 
 \subsubsection{An Electronic Journal Article}
@@ -1736,7 +1917,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpf{43}{45}{158}{springer:2014}
+\begin{biboutput}
+  \samplecite{43}{springer:2014}
+  \samplecite{45}[158]{springer:2014}
+  \samplebib{springer:2014}
+  \samplebiblist{springer:2014}
+\end{biboutput}
 
 \begin{refimp}
   43. Carl P. E. Springer, “Of Roosters and \emph{Repetitio}: Ambrose’s
@@ -1748,6 +1934,8 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Springer, Carl P. E. “Of Roosters and
   \emph{Repetitio}: Ambrose’s \emph{Aeterne rerum conditor}.” \emph{VC} 68
   (2014): 155–77. \url{doi:10.1163/15700720-12341158}.
+
+  \refbiblist{\emph{VC}}{\emph{Vigiliae Christianae}}
 \end{refimp}
 
 \begin{lstlisting}
@@ -1763,7 +1951,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpf{8}{12}{37}{truehart:1996}
+\begin{biboutput}
+  \samplecite{8}{truehart:1996}
+  \samplecite{12}[37]{truehart:1996}
+  \samplebib{truehart:1996}
+\end{biboutput}
 
 \begin{refimp}
   8. Charles Truehart, “Welcome to the Next Church,” \emph{Atlantic Monthly}
@@ -1772,9 +1964,8 @@ In the bibliography, cite only the theological dictionary.
 
   12. Truehart, “Next Church,” 37.
  
-  \hangindent\bibindent Truehart, Charles. “Welcome to the Next Church.”
-  \emph{Atlantic Monthly} 278 (August
-  1996): 37–58.
+  \sloppy\hangindent\bibindent Truehart, Charles. “Welcome to the Next Church.”
+  \emph{Atlantic Monthly} 278 (August 1996): 37–58.
   \url{http://www.theatlantic.com/past/docs/issues/96aug/nxtchrch/nxtchrch.htm}.
 \end{refimp}
 
@@ -1793,7 +1984,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpf{31}{35}{186}{kirk:2007}
+\begin{biboutput}
+  \samplecite{31}{kirk:2007}
+  \samplecite{35}[186]{kirk:2007}
+  \samplebib{kirk:2007}
+  \samplebiblist{kirk:2007}
+\end{biboutput}
 
 \begin{refimp}
   31. Alan Kirk, “Karl Polanyi, Marshall Sahlins, and the Study of Ancient Social
@@ -1802,10 +1998,15 @@ In the bibliography, cite only the theological dictionary.
 
   35. Kirk, “Karl Polanyi,” 186.
 
-  \hangindent\bibindent Alan Kirk. “Karl Polanyi, Marshall Sahlins, and the
-  Study of Ancient Social Relations,” \emph{JBL} 126 (2007): 182–91.
-  \url{doi:10.2307/27638428}. \url{http://www.jstor.org/stable/27638428}.
+  \hangindent\bibindent Alan Kirk.\footnote{Should be “Kirk, Alan.”?} “Karl
+  Polanyi, Marshall Sahlins, and the Study of Ancient Social Relations,”
+  \emph{JBL} 126 (2007): 182–91. \url{doi:10.2307/27638428}.
+  \url{http://www.jstor.org/stable/27638428}.
+
+  \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
+
+\break
 
 \subsection{Special Examples}
 
@@ -1852,7 +2053,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpbib{7}{11}{greathymnaten}{hallo:1997}
+\begin{biboutput}
+  \samplecite{7}{greathymnaten}
+  \samplecite{11}{greathymnaten}
+  \samplebib{hallo:1997}
+  \samplebiblist{COS}
+\end{biboutput}
 
 \begin{refimp}
   7. “The Great Hymn to the Aten,” trans. Miriam Lichtheim (\emph{COS}
@@ -1863,6 +2069,9 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Hallo, William W., ed. \emph{Canonical Compositions
   from the Biblical World.} Vol.~1 of \emph{The Context of Scripture.} Leiden:
   Brill, 1997.
+
+  \refbiblist{\emph{COS}}{\emph{The Context of Scripture.} Edited by William
+  W. Hallo. 3 vols. Leiden: Brill, 1997–2002}
 \end{refimp}
 
 \paragraph{Citing Other Texts}
@@ -1886,7 +2095,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsbib{16}{319}{suppiluliumas}{ANET}
+\begin{biboutput}
+  \samplecite{16}[319]{suppiluliumas}
+  \samplebib{ANET}
+  \samplebiblist{ANET}
+\end{biboutput}
 
 \begin{refimp}
   16. “Suppiluliumas and the Egyptian Queen,” trans. Albrecht Goetze
@@ -1895,7 +2108,13 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Pritchard, James B., ed. \emph{Ancient Near Eastern
   Texts Relating to the Old Testament.} 3rd ed. Princeton: Princeton
   University Press, 1969.
+
+  \refbiblist{\emph{ANET}}{\emph{Ancient Near Eastern Texts Relating to the
+    Old Testament.} Edited by James B. Pritchard. 3rd ed. Princeton: Princeton
+  University Press, 1969}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{dalley:1991,
@@ -1913,7 +2132,10 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsnpbib{5}{erraandishum}{dalley:1991}
+\begin{biboutput}
+  \samplecite{5}{erraandishum}
+  \samplebib{dalley:1991}
+\end{biboutput}
 
 \begin{refimp}
   5. “Erra and Ishum” (Stephanie Dalley, \emph{Myths from Mesopotamia}
@@ -1923,10 +2145,13 @@ In the bibliography, cite only the theological dictionary.
   Oxford: Oxford University Press, 1991.
 \end{refimp}
 
+\medskip
+
 \begin{lstlisting}
 @book{foster:1993,
   author = {Foster, Benjamin},
   title = {Before the Muses: An Anthology of Akkadian Literature},
+  shorttitle = {Muses},
   volume = {1},
   location = {Bethesda, MD},
   publisher = {CDL},
@@ -1940,15 +2165,20 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsnpbib{5}{erraandishum:foster}{foster:1993}
+\begin{biboutput}
+  \samplecite{5}{erraandishum:foster}
+  \samplebib{foster:1993}
+\end{biboutput}
 
 \begin{refimp}
   5. “Erra and Ishum” (Benjamin Foster, \emph{Before the Muses: An Anthology
   of Akkadian Literature} [Bethesda, MD: CDL, 1993], 1:771–805).
   
   \hangindent\bibindent Foster, Benjamin. \emph{Before the Muses: An Anthology of
-  Akkadian Literature.} Vol.~1. Bethesda, MD: COL, 1993.
+  Akkadian Literature.} Vol.~1. Bethesda, MD: CDL, 1993.
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{AEL,
@@ -1983,7 +2213,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpfbib{34}{36}{200-203}{doomedprince}{lichtheim:1976}
+\begin{biboutput}
+  \samplecite{34}{doomedprince}
+  \samplecite{36}[200-203]{doomedprince}
+  \samplebib{lichtheim:1976}
+  \samplebiblist{AEL}
+\end{biboutput}
 
 \begin{refimp}
   34. “The Doomed Prince” (Miriam Lichtheim, \emph{Ancient Egyptian
@@ -1992,9 +2227,14 @@ In the bibliography, cite only the theological dictionary.
   
   36. “The Doomed Prince” (\emph{AEL} 2:200–203).\footnote{Should be “200–3”?}
   
-  \hangindent \bibindent Lichtheim, Miriam. Ancient Egyptian Literature.
-  Vol~2. Berkeley: University of California Press, 1976.
+  \hangindent \bibindent Lichtheim, Miriam. \emph{Ancient Egyptian
+  Literature.} Vol~2. Berkeley: University of California Press, 1976.
+
+  \refbiblist{\emph{AEL}}{\emph{Ancient Egyptian Literature.} Miriam
+  Lichtheim. 3~vols. Berkeley: University of California Press, 1971–1980}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{hoffner:1990,
@@ -2015,7 +2255,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsbib{12}{§3 (A I 11--17)|26}{disappearanceofsungod}{hoffner:1990}
+\begin{biboutput}
+  \samplecite{12}[§3 (A I 11--17)|26]{disappearanceofsungod}
+  \samplebib{hoffner:1990}
+  \samplebiblist{hoffner:1990}
+\end{biboutput}
 
 \begin{refimp}
   12. “The Disappearance of the Sun God,” §3 (A I 11–17) (Harry A. Hoffner
@@ -2025,7 +2269,11 @@ In the bibliography, cite only the theological dictionary.
   
   \hangindent\bibindent Hoffner, Harry A., Jr. \emph{Hittite Myths.} Edited by
   Gary M. Beckman. WAW 2. Atlanta: Scholars Press, 1990.
+
+  \refbiblist{WAW}{Writings from the Ancient World}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{RIMA,
@@ -2050,7 +2298,16 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestbib{32}{obv.\ lines 10–17|}{34}{obv.\ lines 10–17|}{ashurinscription}{RIMA}
+\begin{biboutput}
+  \samplemacro{\textbackslash autocite[obv.\textbackslash{} lines
+  10--17|]\{ashurinscription\}}
+  \samplecite*{32}[obv.\ lines 10--17|]{ashurinscription}
+  \samplemacro{\textbackslash autocite[obv.\textbackslash{} lines
+  10--17|]\{ashurinscription\}}
+  \samplecite*{34}[obv.\ lines 10--17|]{ashurinscription}
+  \samplebib{RIMA}
+  \samplebiblist{shortseries-RIMA}
+\end{biboutput}
 
 \begin{refimp}
   32. Ashur Inscription, obv.\ lines 10–17 (Albert Kirk Grayson,
@@ -2062,7 +2319,11 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian Rulers of the
   Early First Millennium BC (1114–859 BC).} RIMA 2. Toronto: University of
   Toronto Press, 1991.
+
+  \refbiblist{RIMA}{The Royal Inscriptions of Mesopotamia, Assyrian Periods}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{ABC,
@@ -2086,7 +2347,13 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestbib{33}{lines 3–4|125}{34}{lines 3–4|125}{esarhaddonchronicle}{ABC}
+\begin{biboutput}
+  \samplecite{33}[lines 3--4|125]{esarhaddonchronicle}
+  \samplecite{34}[lines 3--4|125]{esarhaddonchronicle}
+  \samplebib{ABC}
+  \samplebiblist{ABC}
+  \samplebiblist*{shortseries-ABC}
+\end{biboutput}
 
 \begin{refimp}
   33. Esarhaddon Chronicle, lines 3–4 (Albert Kirk Grayson, \emph{Assyrian and
@@ -2096,7 +2363,14 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian and Babylonian
   Chronicles.} TCS. Locust Valley, NY: Augustin, 1975.
+
+  \refbiblist{\emph{ABC}}{\emph{Assyrian and Babylonian Chronicles.} Albert K.
+  Grayson. TCS 5. Locust Valley, NY: Augustin, 1975}
+
+  \refbiblist{TCS}{Texts from Cuneiform Sources}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{ARM1,
@@ -2114,14 +2388,22 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestns{45}{1.3}{ARM1}
+\begin{biboutput}
+  \samplecite{45}[1.3]{ARM1}
+  \samplebib{ARM1}
+  \samplebiblist{shortseries-ARM1}
+\end{biboutput}
 
 \begin{refimp}
   45. ARM 1.3.
 
   \hangindent\bibindent Dossin, Georges. \emph{Lettres.} ARM 1. 1946. Repr.,
   Paris: Geuthner, 1967.
+
+  \refbiblist{ARM}{Archives royales de Mari}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{ARMT1,
@@ -2138,7 +2420,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestns{45}{1.3}{ARMT1}
+\begin{biboutput}
+  \samplecite{45}[1.3]{ARMT1}
+  \samplebib{ARMT1}
+  \samplebiblist{shortseries-ARMT1}
+\end{biboutput}
 
 \begin{refimp}
   45. ARMT 1.3.
@@ -2146,6 +2432,8 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Georges Dossin,\footnote{Should be “Dossin,
   Georges.”?} \emph{Correspondance de Šamši-Addu et de ses fils.} ARMT 1.
   Paris: Imprimerei nationale, 1950.
+
+  \refbiblist{ARMT}{Archives royales de Mari, transcrite et traduite}
 \end{refimp}
 
 \subsubsection{Loeb Classical Library (Greek and Latin)}
@@ -2171,21 +2459,25 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash parencite[2.233-235]\{josephus:ant\}}\par
-  \color{biblatex-colour}
-  \parencite[2.233-235]{josephus:ant}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[2.233-235]\{josephus:ant\}}\par
-  \color{biblatex-colour}
-1. \cite[2.233-235]{josephus:ant}.\par}
+\begin{biboutput}
+  \sampleparencite[2.233-235]{josephus:ant}
+  \samplecite{1}[2.233-235]{josephus:ant}
+  \samplebib{josephus}
+  \samplebiblist{josephus}
+\end{biboutput}
 
 \begin{refimp}
   (Josephus, \emph{Ant.} 2.233–235)
 
   1. Josephus, \emph{Ant.}\ 2.233–235.
+
+  \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{tacitus,
@@ -2207,15 +2499,23 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash autocite[15.18-19]\{tacitus:ann\}}\par
-  \color{biblatex-colour}
-4. \cite[15.18-19]{tacitus:ann}.\par}
+\begin{biboutput}
+  \samplecite{4}[15.18-19]{tacitus:ann}
+  \samplebib{tacitus}
+  \samplebiblist{tacitus}
+\end{biboutput}
 
 \begin{refimp}
   4. Tacitus, \emph{Ann.}\ 15.18–19
+
+  \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
+  Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
+  Harvard University Press, 1937.
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{josephus,
@@ -2241,21 +2541,25 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash parencite[2.233-235]\{josephus:ant:thackery\}}\par
-  \color{biblatex-colour}
-  \parencite[2.233-235]{josephus:ant:thackery}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[2.233-235]\{josephus:ant:thackery\}}\par
-  \color{biblatex-colour}
-5. \cite[2.233-235]{josephus:ant:thackery}.\par}
+\begin{biboutput}
+  \sampleparencite[2.233-235]{josephus:ant:thackery}
+  \samplecite{5}[2.233-235]{josephus:ant:thackery}
+  \samplebib{josephus}
+  \samplebiblist{josephus}
+\end{biboutput}
 
 \begin{refimp}
   (Josephus, \emph{Ant.}\ 2.233–235 [Thackeray, LCL])
 
   5. Josephus, \emph{Ant.}\ 2.233–235 (Thackeray, LCL).
+
+  \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{tacitus,
@@ -2280,31 +2584,23 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash autocite[15.18-19]\{tacitus:ann:jackson\}}\par
-  \color{biblatex-colour}
-6. \cite[15.18-19]{tacitus:ann:jackson}.\par}
+\begin{biboutput}
+  \samplecite{6}[15.18-19]{tacitus:ann:jackson}
+  \samplebib{tacitus}
+  \samplebiblist{tacitus}
+\end{biboutput}
 
 \begin{refimp}
   6. Tacitus, \emph{Ann.}\ 15.18–19 (Jackson, LCL).
-\end{refimp}
-
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash printbibliopgrahy}\par
-  \color{biblatex-colour}
-\hangindent\bibindent\bibentrycite{josephus}.\par
-\hangindent\bibindent\bibentrycite{tacitus}.\par}
-
-\begin{refimp}
-  \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
   Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
   Harvard University Press, 1937.
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvbook{josephus,
@@ -2335,7 +2631,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsnpbib{14}{josephus:ant1-19}{josephus}
+\begin{biboutput}
+  \samplecite{14}{josephus:ant1-19}
+  \samplebib{josephus}
+  \samplebiblist{josephus}
+\end{biboutput}
 
 \begin{refimp}
   14. Flavius Josephus, \emph{The Jewish Antiquities, Books 1–19,} trans.\
@@ -2344,6 +2644,8 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St.\ J. Thackeray
   et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
 
 \subsubsection{Papyri, Ostraca, and Epigraphica}
@@ -2360,21 +2662,19 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash parencite[59003]\{p.cair.zen.\}}\par
-  \color{biblatex-colour}
-  \parencite[59003]{p.cair.zen.}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[59003]\{p.cair.zen.\}}\par
-  \color{biblatex-colour}
-22. \cite[59003]{p.cair.zen.}.\par}
+\begin{biboutput}
+  \sampleparencite[59003]{p.cair.zen.}
+  \samplecite{22}[59003]{p.cair.zen.}
+  \samplebiblist{p.cair.zen.}
+\end{biboutput}
 
 \begin{refimp}
   (P.Cair.Zen.\ 59003)
 
   22. P.Cair.Zen.\ 59003.
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{hunt+edgar:1932,
@@ -2398,13 +2698,21 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnb{22}{59003|1:96}{22}{59003|§31}{p.cair.zen.:hunt+edgar}
+\begin{biboutput}
+  \samplecite{22}[59003|1:96]{p.cair.zen.:hunt+edgar}
+  \samplecite{22}[59003|§31]{p.cair.zen.:hunt+edgar}
+  \samplebib{hunt+edgar:1932}
+  \samplebiblist{hunt+edgar:1932}
+  \samplebiblist*{p.cair.zen.:hunt+edgar}
+\end{biboutput}
 
 \begin{refimp}
   22. P.Cair.Zen.\ 59003 (Arthur S. Hunt and Campbell C. Edgar, \emph{Select
   Papyri,} LCL [Cambridge: Harvard University Press, 1932], 1:96).
 
   22. P.Cair.Zen. 59003 (Hunt and Edgar §31).
+
+  \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
 
 \paragraph{Epigraphica}
@@ -2425,21 +2733,23 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash parencite[III. 1-164]\{PGM\}}\par
-  \color{biblatex-colour}
-  \parencite[III. 1-164]{PGM}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[III. 1-164]\{PGM\}}\par
-  \color{biblatex-colour}
-22. \cite[III. 1-164]{PGM}.\par}
+\begin{biboutput}
+  \sampleparencite[III. 1-164]{PGM}
+  \samplecite{22}[III. 1-164]{PGM}
+  \samplebiblist{PGM}
+\end{biboutput}
 
 \begin{refimp}
-  (PGM III. 1–164)
+  (\emph{PGM} III. 1–164)
 
-  22. PGM III. 1–164.
+  22. \emph{PGM} III. 1–164.
+
+  \refbiblist{\emph{PGM}}{\emph{Papyri Graecae Magicae: Die griechischen
+    Zauberpapyri.} Edited by Karl Preisendanz. 2nd ed. Stuttgart: Teubner,
+  1973–1974}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{betz:1996,
@@ -2466,14 +2776,22 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsbib{22}{III. 1-164|}{PGM:betz}{betz:1996}
+\begin{biboutput}
+  \samplecite{22}[III. 1-164|]{PGM:betz}
+  \samplebib{betz:1996}
+  \samplebiblist{PGM:betz}
+\end{biboutput}
 
 \begin{refimp}
-  22. PGM III. 1–164 (Betz).
+  22. \emph{PGM} III. 1–164 (Betz).
 
   \hangindent\bibindent Betz, Hans Dieter. \emph{The Greek Magical Papyri in
   Translation, Including the Demotic Spells.} 2nd ed. Chicago: University of
   Chicago Press, 1996.
+
+  \refbiblist{\emph{PGM}}{\emph{Papyri Graecae Magicae: Die griechischen
+    Zauberpapyri.} Edited by Karl Preisendanz. 2nd ed. Stuttgart: Teubner,
+  1973–1974}
 \end{refimp}
 
 \subsubsection{Ancient Epistles and Homilies}
@@ -2485,15 +2803,10 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash parencite[10]\{heraclitus:epistle1\}}\par
-  \color{biblatex-colour}
-  \parencite[10]{heraclitus:epistle1}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[10]\{heraclitus:epistle1\}}\par
-  \color{biblatex-colour}
-34. \cite[10]{heraclitus:epistle1}.\par}
+\begin{biboutput}
+  \sampleparencite[10]{heraclitus:epistle1}
+  \samplecite{34}[10]{heraclitus:epistle1}
+\end{biboutput}
 
 \begin{refimp}
   (Heraclitus, \emph{Epistle 1,} 10)
@@ -2529,16 +2842,15 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash autocite[10]\{heraclitus:epistle1:worley\}}\par
-  \color{biblatex-colour}
-  36. \cite[10]{heraclitus:epistle1:worley}.\par
-  \color{black}
-  \texttt{\textbackslash printbibliography}\par
-  \color{biblatex-colour}
-  \hangindent\bibindent\bibentrycite{heraclitus:epistle1:worley:1977}.\par
-\hangindent\bibindent\bibentrycite{malherbe:1977}}
+\begin{biboutput}
+  \samplecite{36}[10]{heraclitus:epistle1:worley}
+  \samplebib{heraclitus:epistle1:worley:1977}
+  If \texttt{malherbe:1977} is referenced more than \texttt{microssrefs} times
+  then:\par
+  \samplebib{heraclitus:epistle1:worley:1977}
+  \samplebib*{malherbe:1977}
+  \samplebiblist{malherbe:1977}
+\end{biboutput}
 
 \begin{refimp}
   36. Heraclitus, \emph{Epistle 1,} 10 (Worley).
@@ -2549,6 +2861,8 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Malherbe, Abraham J., ed. \emph{The Cynic Epistles: A
   Study Edition.} SBS 12. Atlanta: Scholars Press, 1977.
+
+  \refbiblist{SBS}{Stuttgarter Bibelstudien}
 \end{refimp}
 
 \subsubsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
@@ -2581,7 +2895,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsbib{14}{1.3|8:223}{clementinehomilies}{ANF:Roberts+Donaldson}
+\begin{biboutput}
+  \samplecite{14}[1.3|8:223]{clementinehomilies}
+  \samplebib{ANF:Roberts+Donaldson}
+  \samplebiblist{ANF}
+\end{biboutput}
 
 \begin{refimp}
   14. \emph{The Clementine Homilies} 1.3 (\emph{ANF} 8:223).
@@ -2590,11 +2908,15 @@ In the bibliography, cite only the theological dictionary.
   Roberts and James Donaldson. 1885–1887. 10 vols.\footnote{Should be “10
   vols.\ 1885–1887.”?} Repr., Peabody, MA:
   Hendrickson, 1994.
+
+  \refbiblist{\emph{ANF}}{\emph{Ante-Nicene Fathers}}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvcollection{NPNF1:Schaff,
-  title = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
+  title = {The Nicene and Post-Nicene Fathers, \emph{Series~1}},
   editor = {Schaff, Philip},
   origdate = {1886/1889},
   volumes = {14},
@@ -2606,26 +2928,29 @@ In the bibliography, cite only the theological dictionary.
 }
 
 @mvcollection{NPNF1,
-  title = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
+  title = {The Nicene and Post-Nicene Fathers, \emph{Series~1}},
   shorttitle = {NPNF\textsuperscript{1}},
   shorthand = {NPNF\textsuperscript{1}},
-  sblxref = {NPNF1:Schaff},
   options = {skipbib}
 }
 
 @classictext{augustine:letters,
   entrysubtype = {churchfather},
   author = {Augustine},
-  title = {Letters of St.\ Augustine},
+  title = {The Letters of St.\ Augustin},
+  shorttitle = {Letters of St.\ Augustin},
   volume = {1},
-  maintitle = {The Nicene and Post-Nicene Fathers, \emph{Series 1}},
   crossref = {NPNF1:Schaff},
   sblxref = {NPNF1},
-  options = {skipbib=false}
+  options = {nolongcite,skipbib=false}
 }
 \end{lstlisting}
 
-\citetestns{44}{28.3.5|252}{augustine:letters}
+\begin{biboutput}
+  \samplecite{44}[28.3.5|252]{augustine:letters}
+  \samplebib{augustine:letters}
+  \samplebiblist{NPNF1}
+\end{biboutput}
 
 \begin{refimp}
   44. Augustine, \emph{Letters of St.\ Augustin} 28.3.5
@@ -2635,6 +2960,9 @@ In the bibliography, cite only the theological dictionary.
   vol.~1 of \emph{The Nicene and Post-Nicene Fathers,} Series 1. Edited by
   Philip Schaff. 1886–1889. 14 vols.\footnote{Should be “14 vols.\
   1886–1889.”?} Repr., Peabody, MA: Hendrickson, 1994.
+
+  \refbiblist{\emph{NPNF\textsuperscript{1}}}{\emph{The Nicene and Post-Nicene
+  Fathers,} Series 1}
 \end{refimp}
 
 \subsubsection{J.-P. Migne's Patrologia Latina and Patrologia Graeca}
@@ -2671,16 +2999,13 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash autocite[4|12c]\{gregory:orationestheologicae\}}\par
-  \color{biblatex-colour}
-  6. \cite[4|12c]{gregory:orationestheologicae}.\par
-  \color{black}
-  \texttt{\textbackslash printbibliography}\par
-  \color{biblatex-colour}
-  \hangindent\bibindent\bibentrycite{PL}.\par
-\hangindent\bibindent\bibentrycite{PG}\par}
+\begin{biboutput}
+  \samplecite{6}[4|12c]{gregory:orationestheologicae}
+  \samplebib{PL}
+  \samplebib*{PG}
+  \samplebiblist{PG}
+  \samplebiblist*{PL}
+\end{biboutput}
 
 \begin{refimp}
   6. Gregory of Nazianzus, \emph{Orationes theologicae} 4 (PG 36:12c).
@@ -2690,6 +3015,12 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Patrologia Graeca. Edited by J.-P. Migne. 162 vols.
   Paris, 1857–1886.
+
+  \refbiblist{PG}{Patrologia Graeca. Edited by Jacques-Paul Migne. 162 vols.
+  Paris, 1857–1886}
+
+  \refbiblist{PL}{Patrologia Latina. Edited by Jacques-Paul Migne. 217 vols.
+  Paris, 1844–1864}
 \end{refimp}
 
 \subsubsection{Strack-Billerbeck, \emph{Kommentar zum Neuen Testament}}
@@ -2706,15 +3037,13 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[See the discussion of ἐκρατοῦντο in][2:271]\{Str-B\}}\par
-   \color{biblatex-colour}
-   3. \cite[See the discussion of \gr{ἐκρατοῦντο} in][2:271]{Str-B}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{Str-B}.\par}
+\begin{biboutput}
+  \samplemacro{\textbackslash autocite[See the discussion of \textbackslash
+  gr\{ἐκρατοῦντο\} in][2:271]\{Str-B\}}
+  \samplecite*{3}[See the discussion of \gr{ἐκρατοῦντο} in][2:271]{Str-B}
+  \samplebib{Str-B}
+  \samplebiblist{Str-B}
+\end{biboutput}
 
 \begin{refimp}
   3. See the discussion of \gr{ἐκρατοῦντο} in Str-B 2:271.
@@ -2753,20 +3082,13 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-  \nobreak
-  \texttt{\textbackslash autocite\{anderson:pepaideumenos\}}\par
-  \color{biblatex-colour}
-  76. \cite{anderson:pepaideumenos}.\par
-  \color{black}
-  \texttt{\textbackslash autocite[86]\{anderson:pepaideumenos\}}\par
-  \color{biblatex-colour}
-  79. \cite[86]{anderson:pepaideumenos}.\par
-  \color{black}
-  \texttt{\textbackslash printbibliography}\par
-  \color{biblatex-colour}
-  \sloppy\hangindent\bibindent\bibentrycite{anderson:pepaideumenos}.\par
-\hangindent\bibindent\bibentrycite{ANRW}\par}
+\begin{biboutput}
+  \samplecite{76}{anderson:pepaideumenos}
+  \samplecite{79}[86]{anderson:pepaideumenos}
+  \samplebib{anderson:pepaideumenos}
+  \samplebib*{ANRW}
+  \samplebiblist{ANRW}
+\end{biboutput}
 
 \begin{refimp}
   76. Graham Anderson, “The \emph{pepaideumenos} in Action: Sophists and Their
@@ -2783,6 +3105,11 @@ In the bibliography, cite only the theological dictionary.
   \emph{Aufstieg und Niedergang der romischen Welt: Geschichte und Kultur Roms
   im Spiegel der neueren Forschung.} Part 2, \emph{Principat.} Berlin: de
   Gruyter, 1972–.
+
+  \refbiblist{\emph{ANRW}}{\emph{Aufstieg und Niedergang der römischen Welt:
+    Geschichte und Kultur Roms im Spiegel der neueren Forschung.} Part 2,
+    \emph{Principat.} Edited by Hildegard Temporini and Wolfgang Haase.
+  Berlin: de Gruyter, 1972–}
 \end{refimp}
 
 \subsubsection{Bible Commentaries}
@@ -2800,7 +3127,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}  
 
-\citetestns{6}{223}{hooker:1991}
+\begin{biboutput}
+  \samplecite{6}[223]{hooker:1991}
+  \samplebib{hooker:1991}
+  \samplebiblist{hooker:1991}
+\end{biboutput}
 
 \begin{refimp}
   8. Morna Hooker, \emph{The Gospel according to Saint Mark,} BNTC 2 (Peabody,
@@ -2808,6 +3139,8 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Hooker, Morna. \emph{The Gospel according to Saint
   Mark.} BNTC 2. Peabody, MA: Hendrickson, 1991.
+
+  \refbiblist{BNTC}{Black’s New Testament Commentaries}
 \end{refimp}
 
 \paragraph{Articles and Notes in Study Bibles}
@@ -2817,7 +3150,8 @@ In the bibliography, cite only the theological dictionary.
   author = {Petersen, David L.},
   title = {Ezekiel},
   pages = {1096-1167},
-  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard Version, with the Apocryphal\slash Deuterocanonical Books},
+  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New
+  Revised Standard Version, with the Apocryphal/Deuterocanonical Books},
   editor = {Attridge, Harold W. and others},
   location = {San Francisco},
   publisher = {HarperSanFrancisco},
@@ -2825,9 +3159,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\begin{sloppy}
-  \citetest{3}{1096}{5}{1096}{petersen:2006}
-\end{sloppy}
+\begin{biboutput}
+  \samplecite{3}[1096]{petersen:2006}
+  \samplecite{5}[1096]{petersen:2006}
+  \samplebib{petersen:2006}
+\end{biboutput}
 
 \begin{refimp}
   3. David L. Petersen, “Ezekiel,” in \emph{The HarperCollins Study Bible
@@ -2841,8 +3177,8 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent Petersen, David L. “Ezekiel.” Pages
   1096–1167\footnote{Should be “1096–167”} in \emph{The HarperCollins Study
   Bible Fully Revised and Updated, New Revised Standard Version, with the
-  Apocryphal\slash Deuterocanonical Books.} Edited by Harold W. Attridge et
-  al. San Francisco: HarperSanFrancisco, 2006.
+  Apocryphal/Deuterocanonical Books.} Edited by Harold W. Attridge et al. San
+  Francisco: HarperSanFrancisco, 2006.
 \end{refimp}
 
 \paragraph{Single-Volume Commentaries on the Entire Bible}
@@ -2860,7 +3196,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnpf{5}{8}{175}{partain:1995}
+\begin{biboutput}
+  \samplecite{5}{partain:1995}
+  \samplecite{8}[175]{partain:1995}
+  \samplebib{partain:1995}
+\end{biboutput}
 
 \begin{refimp}
   5. Jack G. Partain, “Numbers,” in \emph{Mercer Commentary on the Bible,}
@@ -2892,7 +3232,12 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetest{4}{3:127}{7}{2:121}{dahood:1965-1970}
+\begin{biboutput}
+  \samplecite{4}[3:127]{dahood:1965-1970}
+  \samplecite{7}[2:121]{dahood:1965-1970}
+  \samplebib{dahood:1965-1970}
+  \samplebiblist{dahood:1965-1970}
+\end{biboutput}
 
 \begin{refimp}
   4. Mitchell Dahood, \emph{Psalms,} 3 vols., AB 16–17A (Garden City,
@@ -2902,7 +3247,11 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Dahood, Mitchell. \emph{Psalms.} 3 vols. AB 16–17A.
   Garden City, N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970.
+
+  \refbiblist{AB}{Anchor Bible}
 \end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @commentary{dahood:1965,
@@ -2934,30 +3283,16 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-{\textsc{BibLaTeX Output}\par
-   \nobreak
-   \texttt{\textbackslash autocite[44]\{dahood:1965\}}\par
-   \color{biblatex-colour}
-   78. \cite[44]{dahood:1965}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[78]\{dahood:1965\}}\par
-   \color{biblatex-colour}
-   79. \cite[78]{dahood:1965}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[347]\{dahood:1968\}}\par
-   \color{biblatex-colour}
-   82. \cite[347]{dahood:1968}.\par
-   \color{black}
-   \texttt{\textbackslash autocite[351]\{dahood:1968\}}\par
-   \color{biblatex-colour}
-   86. \cite[351]{dahood:1968}.\par
-   \color{black}
-   \texttt{\textbackslash printbibliography}\par
-   \color{biblatex-colour}
-   \hangindent\bibindent\bibentrycite{dahood:1965}.\par
-   \renewbibmacro*{dashcheck}[2]{%
-     \usebibmacro{cbx:dashcheck}{#1}{#1}}
-   \hangindent\bibindent\bibentrycite{dahood:1968}\par}
+\begin{biboutput}
+  \samplecite{78}[44]{dahood:1965}
+  \samplecite{79}[78]{dahood:1965}
+  \samplecite{82}[374]{dahood:1968}
+  \samplebib{dahood:1965}
+  \renewbibmacro*{dashcheck}[2]{%
+    \usebibmacro{cbx:dashcheck}{#1}{#1}}
+  \samplebib*{dahood:1968}
+  \samplebiblist{dahood:1965}
+\end{biboutput}
 
 \begin{refimp}
   78. Mitchell Dahood, \emph{Psalms I: 1–50,} AB 16 (Garden City, NY:
@@ -2976,6 +3311,8 @@ In the bibliography, cite only the theological dictionary.
   \hangindent\bibindent\bibnamedash \emph{Psalms II: 51–100.} Vol.~2 of
   \emph{Psalms.} AB 17. Garden City, N.Y.:\footnote{Should be “NY:”?}
   Doubleday, 1968.
+
+  \refbiblist{AB}{Anchor Bible}
 \end{refimp}
 
 \paragraph{Multivolume Commentaries for the Entire Bible by Multiple Authors}
@@ -3004,14 +3341,16 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestns{1}{577}{miller:2001}
-
-\texttt{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
+\begin{biboutput}
+  \samplecite{1}[577]{miller:2001}
+  \samplebib{miller:2001}
+  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
   \textbackslash printbibliography}
-
-{\color{biblatex-colour}
- \toggletrue{fullbibrefs}
- \hangindent\bibindent\bibentrycite{miller:2001}.\par}
+  \toggletrue{fullbibrefs}
+  \samplebib*{miller:2001}
+  \togglefalse{fullbibrefs}
+  \samplebiblist{NIB}
+\end{biboutput}
 
 \begin{refimp}
   1. Patrick D. Miller, \emph{NIB} 6:577.
@@ -3025,6 +3364,9 @@ In the bibliography, cite only the theological dictionary.
 
   \hangindent\bibindent Miller, Patrick D. “The Book of Jeremiah:
   Introduction, Commentary, and Reflections.” \emph{NIB} 6:553–926.
+
+  \refbiblist{\emph{NIB}}{\emph{The New Interpreter’s Bible.} Edited by
+  Leander E. Keck. 12~vols. Nashville: Abingdon, 1994–2004}
 \end{refimp}
 
 \subsubsection{SBL Seminar Papers}
@@ -3044,7 +3386,11 @@ In the bibliography, cite only the theological dictionary.
 }
 \end{lstlisting}
 
-\citetestnsnp{33}{crenshaw:2001}
+\begin{biboutput}
+  \samplecite{33}{crenshaw:2001}
+  \samplebib{crenshaw:2001}
+  \samplebiblist{crenshaw:2001}
+\end{biboutput}
 
 \begin{refimp}
   33. James L. Crenshaw, “Theodicy in the Book of the Twelve,” \emph{Society
@@ -3055,6 +3401,8 @@ In the bibliography, cite only the theological dictionary.
   Twelve.” Pages 1–18 in \emph{Society of Biblical Literature 2001 Seminar
   Papers.} SBLSPS\textsuperscript{\emph{a}} 40. Atlanta: Society of Biblical
   Literature, 2001.
+
+  \refbiblist{SBLSP}{Society of Biblical Literature Seminar Papers}
 \end{refimp}
 
 \subsubsection{A CD-ROM Reference (with a Corresponding Print Edition)}
@@ -3065,9 +3413,9 @@ necessary to indicate the medium in the citation.
 \subsubsection{Text Editions Published Online with No Print Counterpart}
 
 \begin{lstlisting}
-@article{wilhelm:2013,
+@online{wilhelm:2013,
   editor = {Wilhelm, Gernot},
-  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I)},
+  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani \mkbibparens{CTH 51.I}},
   shorttitle = {Der Vertrag Šuppiluliumas I},
   releasedate = {2013-02-24},
   eprint = {doi:hethiter.net/: CTH 51.I (INTR 2013-02-24)},
@@ -3075,7 +3423,11 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestnp{2}{4}{wilhelm:2013}
+\begin{biboutput}
+  \samplecite{2}{wilhelm:2013}
+  \samplecite{4}{wilhelm:2013}
+  \samplebib{wilhelm:2013}
+\end{biboutput}
 
 \begin{refimp}
   2. Gernot Wilhelm, ed., “Der Vertrag Šuppiluliumas I. von Ḫatti mit
@@ -3093,7 +3445,7 @@ necessary to indicate the medium in the citation.
 \subsubsection{Online Database}
 
 \begin{lstlisting}
-@article{cobb:figurines,
+@online{cobb:figurines,
   author = {{Cobb Institute of Archaeology}},
   title = {The Figurines of Maresha, the Persian Era},
   eprint = {http://www.cobb.msstate.edu/dignew/Maresha/index.html},
@@ -3101,7 +3453,10 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestnsnp{37}{cobb:figurines}
+\begin{biboutput}
+  \samplecite{37}{cobb:figurines}
+  \samplebib{cobb:figurines}
+\end{biboutput}
 
 \begin{refimp}
   37. Cobb Institute of Archaeology. “The Figurines of Maresha, the Persian
@@ -3116,18 +3471,19 @@ necessary to indicate the medium in the citation.
 \subsubsection{Websites and Blogs}
 
 \begin{lstlisting}
-@article{100cuneiform,
+@online{100cuneiform,
   title = {The One Hundred Most Important Cuneiform Objects},
-  eprint = {http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects},
+  eprint = {http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_ important_cuneiform_objects},
   eprinttype = {cdli:wiki}
 }
 \end{lstlisting}
 
-\citetestnsnp{10}{100cuneiform}
+\begin{biboutput}
+  \samplecite{10}{100cuneiform}
+  \samplebib{100cuneiform}
+\end{biboutput}
 
 \begin{refimp}
-  \raggedright 
-
   10. “The One Hundred Most Important Cuneiform Objects,” cdli:wiki,
   \url{http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects}.
 
@@ -3152,7 +3508,20 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestns{1}{35}{BDAG}
+\begin{biboutput}
+  \samplecite{1}[35]{BDAG}
+  \samplebib{BDAG}
+  \samplebiblist{BDAG}
+\end{biboutput}
+
+\begin{refimp}
+  \refbiblist{BDAG}{Danker, Frederick W., Walter Bauer, William F. Arndt, and
+    F. Wilbur Gingrich. \emph{Greek-English Lexicon of the New Testament and
+    Other Early Christian Literature.} 3rd ed. Chicago: University of Chicago
+  Press, 2000}
+\end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @lexicon{BDB:abbrev,
@@ -3173,11 +3542,22 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestns{2}{432}{BDB}
+\begin{biboutput}
+  \samplecite{2}[432]{BDB}
+  \samplebib{BDB}
+  \samplebiblist{BDB:abbrev}
+\end{biboutput}
+
+\begin{refimp}
+  \refbiblist{BDB}{Brown, Francis, S. R. Driver, and Charles A. Briggs.
+  \emph{A Hebrew and Aramaic Lexicon of the Old Testament}}
+\end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @book{BDF,
-  author = {Blass, Friedrich and Debrunner, Albert and Funk Robert W.},
+  author = {Blass, Friedrich and Debrunner, Albert and Funk, Robert W.},
   title = {A Greek Grammar of the New Testament and Other Early Christian Literature},
   location = {Chicago},
   publisher = {University of Chicago Press},
@@ -3186,7 +3566,17 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestns{3}{§441}{BDF}
+\begin{biboutput}
+  \samplecite{3}[§441]{BDF}
+  \samplebib{BDF}
+  \samplebiblist{BDF}
+\end{biboutput}
+
+\begin{refimp}
+  \refbiblist{BDF}{Blass, Friedrich, Albert Debrunner, and Robert W. Funk.
+    \emph{A Greek Grammar of the New Testament and Other Early Christian
+  Literature.} Chicago: University of Chicago Press, 1961}
+\end{refimp}
 
 \subsection{\emph{HALOT,} \emph{TLOT}}
 
@@ -3205,7 +3595,20 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestns{4}{2:223}{HALOT}
+\begin{biboutput}
+  \samplecite{4}[2:223]{HALOT}
+  \samplebib{HALOT}
+  \samplebiblist{HALOT}
+\end{biboutput}
+
+\begin{refimp}
+  \refbiblist{\emph{HALOT}}{\emph{The Hebrew and Aramaic Lexicon of the Old
+    Testament.} Ludwig Koehler, Walter Baumgartner, and Johann J. Stamm.
+    Translated and edited under the supervision of Mervyn E. J. Richardson. 4
+  vols. Leiden: Brill, 1994–1999}
+\end{refimp}
+
+\medskip
 
 \begin{lstlisting}
 @mvlexicon{TLOT,
@@ -3223,9 +3626,23 @@ necessary to indicate the medium in the citation.
 }
 \end{lstlisting}
 
-\citetestns{5}{1:24}{TLOT}
+\begin{biboutput}
+  \samplecite{5}[1:24]{TLOT}
+  \samplebib{TLOT}
+  \samplebiblist{TLOT}
+\end{biboutput}
+
+\begin{refimp}
+  \refbiblist{\emph{TLOT}}{\emph{Theological Lexicon of the Old Testament.}
+    Edited by Ernst Jenni, with assistance from Claus Westermann. Translated
+  by Mark E. Biddle. 3 vols. Peabody, MA: Hendrickson, 1997}
+\end{refimp}
+
+\clearpage
 
 \printbiblist{abbreviations}
+
+\clearpage
 
 \printbibliography
 
