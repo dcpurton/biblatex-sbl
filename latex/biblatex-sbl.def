@@ -330,6 +330,8 @@
 \DeclareBibliographyAlias{commentary}{book}
 \DeclareBibliographyAlias{mvcommentary}{book}
 \DeclareBibliographyAlias{cite:mvcommentary}{cite:mvbook}
+\DeclareBibliographyAlias{cite:online}{cite:article}
+\DeclareBibliographyAlias{online}{article}
 
 \DeclareLabeldate{%
   \field{releasedate}
