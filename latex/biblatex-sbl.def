@@ -562,45 +562,34 @@
 % DATA INHERITANCE
 % ------------------------------------------------------------------
 
-\DeclareDataInheritance{mvbook,mvcollection,mvreference}
-    {book,inbook,collection,incollection,reference,inreference}{%
-  \inherit{editor}{maineditor}
-  \inherit{translator}{maintranslator}
-  \inherit{shorttitle}{shortmaintitle}
-  \noinherit{endyear}
-}
-
-\DeclareDataInheritance{book,collection,reference}
-    {bookinbook,inbook,incollection,inreference}{%
-  \inherit{editor}{bookeditor}
-  \inherit{translator}{booktranslator}
-  \inherit{shorttitle}{shortbooktitle}
-}
-
-\DeclareDataInheritance{mvlexicon,mvcommentary}
-    {lexicon,inlexicon,commentary,incommentary}{%
-  \inherit{editor}{maineditor}
-  \inherit{translator}{maintranslator}
+\DeclareDataInheritance{mvbook,mvcollection,mvreference,mvlexicon,mvcommentary}
+    {book,inbook,collection,incollection,reference,inreference,bookinbook,
+     lexicon,commentary,inlexicon,incommentary,classictext}{%
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
   \inherit{shorttitle}{shortmaintitle}
+  \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
   \noinherit{endyear}
 }
 
-\DeclareDataInheritance{lexicon,commentary}{inlexicon,incommentary}{%
-  \inherit{editor}{bookeditor}
-  \inherit{translator}{booktranslator}
+\DeclareDataInheritance{book,collection,reference,lexicon,commentary}
+    {inbook,incollection,inreference, inlexicon,incommentary,
+     bookinbook,classictext}{%
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
   \inherit{shorttitle}{shortbooktitle}
+  \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
+  \noinherit{endyear}
 }
 
 \DeclareDataInheritance{*}{*}{%
