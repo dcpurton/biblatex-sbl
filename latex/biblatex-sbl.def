@@ -584,6 +584,7 @@
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
   \inherit{shorttitle}{shortbooktitle}
+  \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
   \noinherit{sorttitle}
