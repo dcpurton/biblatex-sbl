@@ -23,12 +23,10 @@ To test in place:
     xelatex sblref
     biber sblref
     xelatex sblref
-    ...
+    xelatex sblref
     ```
 
-* Several passes of `xelatex` and `biber` are required to get a clean build of `sblref.pdf`.
-
-* `sblref.pdf` contains most of the examples in the 2nd edition of the SBL Handbook of Style.
+* `sblref.pdf` contains all examples in the 2nd edition of the SBL Handbook of Style.
 
 ## Installing
 
@@ -39,6 +37,13 @@ You can find `$TEXMFHOME` by running:
 ```        
 kpsewhich -var-value=TEXMFHOME
 ```
+
+## Requirements
+
+The following packages are required:
+
+* biblatex (at least version 3.0)
+* xparse
 
 ## Licence
 
