@@ -1150,8 +1150,11 @@
 
 \newcounter{currentpublisher}
 \newcounter{currentlocation}
+\newcounter{publishertotal}
+\newcounter{locationtotal}
 
 \DeclareListFormat{publisher}{%
+  \setcounter{publishertotal}{\value{listtotal}}%
   \usebibmacro{list:delim}{#1}%
   #1\isdot
   \ifnumequal{\value{currentpublisher}}{\value{listtotal}}
@@ -1159,6 +1162,7 @@
     {\addtocounter{currentpublisher}{1}}}
 
 \DeclareListFormat{location}{%
+  \setcounter{locationtotal}{\value{listtotal}}%
   \usebibmacro{list:delim}{#1}%
   #1\isdot
   \ifnumequal{\value{currentlocation}}{\value{listtotal}}
@@ -1174,6 +1178,13 @@
     {}
     {\printlist[][\value{currentpublisher}-\value{currentpublisher}]{publisher}}%
   \setunit*{\addsemicolon\space}%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{locationtotal}}{1}}
+    and
+    test {\ifnumgreater{\value{currentlocation}}{\value{publishertotal}}}
+  }
+    {\setcounter{currentlocation}{0}}
+    {}%
   \ifboolexpr{
     test {\ifnumgreater{\value{currentpublisher}}{0}}
     or
