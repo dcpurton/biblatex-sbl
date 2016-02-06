@@ -30,6 +30,8 @@
 
 \DeclareRangeChars{~,;-+/:}
 
+\NumCheckSetup{\def\mkbibparens#1{#1}}
+
 \renewbibmacro*{postnote}{}
 \newbibmacro*{pages}{}
 
