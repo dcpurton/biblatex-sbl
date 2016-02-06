@@ -1146,14 +1146,53 @@
        \global\toggletrue{relatedseen}}
       {}}}
 
+\newcounter{currentpublisher}
+\newcounter{currentlocation}
+
+\DeclareListFormat{publisher}{%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{currentpublisher}}{\value{listtotal}}
+    {\setcounter{currentpublisher}{0}}
+    {\addtocounter{currentpublisher}{1}}}
+
+\DeclareListFormat{location}{%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{currentlocation}}{\value{listtotal}}
+    {\setcounter{currentlocation}{0}}
+    {\addtocounter{currentlocation}{1}}}
+
+\newbibmacro*{loop:location+publisher}{%
+  \ifnumequal{\value{currentlocation}}{0}
+    {}
+    {\printlist[][\value{currentlocation}-\value{currentlocation}]{location}%
+     \setunit*{\addcolon\space}}%
+  \ifnumequal{\value{currentpublisher}}{0}
+    {}
+    {\printlist[][\value{currentpublisher}-\value{currentpublisher}]{publisher}}%
+  \setunit*{\addsemicolon\space}%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{currentpublisher}}{0}}
+    or
+    test {\ifnumgreater{\value{currentlocation}}{0}}
+  }
+    {\usebibmacro{loop:location+publisher}}
+    {}}
+
+\newbibmacro*{init:location+publisher}{%
+  \iflistundef{location}
+    {\setcounter{currentlocation}{0}}
+    {\setcounter{currentlocation}{1}}%
+  \iflistundef{publisher}
+    {\setcounter{currentpublisher}{0}}
+    {\setcounter{currentpublisher}{1}}}
+
 \renewbibmacro*{publisher+location+date}{%
   \usebibmacro{reprint}%
-  \printlist{location}%
-  \iflistundef{publisher}
-    {\setunit*{\addcomma\space}}
-    {\setunit*{\addcolon\space}}%
-  \printlist{publisher}%
-  \setunit*{\addcomma\space}%
+  \usebibmacro{init:location+publisher}%
+  \usebibmacro{loop:location+publisher}%
+  \setunit{\addcomma\space}%
   \usebibmacro{date}%
   \newunit}
 
