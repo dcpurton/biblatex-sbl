@@ -1318,6 +1318,15 @@
 % RELATED MACROS
 % ------------------------------------------------------------------
 
+\DeclareFieldFormat{related:multivolume}{#1}
+\DeclareFieldFormat{related:origpubin}{#1}
+\DeclareFieldFormat{related:origpubas}{#1}
+\expandafter\undef\csname abx@macro@\detokenize{related:multivolume}\endcsname
+\expandafter\undef\csname abx@macro@\detokenize{related:bytranslator}\endcsname
+\expandafter\undef\csname abx@macro@\detokenize{related:origpubas}\endcsname
+\expandafter\undef\csname abx@macro@\detokenize{related:origpubin}\endcsname
+\expandafter\undef\csname abx@macro@\detokenize{related:reprintfrom}\endcsname
+
 \renewbibmacro*{related:default}[1]{%
   \entrydata*{#1}{%
     \usedriver
