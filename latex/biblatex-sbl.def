@@ -835,7 +835,7 @@
   \printfield{volume}%
   \setunit*{\addperiod}%
   \printfield{number}%
-  \setunit*{\addcomma\space}%
+  \setunit{\addcomma\space}%
   \printfield{eid}}
 
 \newbibmacro*{volume+part}{%
