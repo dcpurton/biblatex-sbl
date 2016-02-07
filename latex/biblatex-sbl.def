@@ -267,6 +267,18 @@
   \iffieldundef{eprintclass}
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
+\DeclareFieldFormat{eprint:arxiv}{%
+  arXiv\addcolon\space
+  \ifhyperref
+    {\href{http://arxiv.org/\abx@arxivpath/#1}{%
+       \nolinkurl{#1}%
+       \iffieldundef{eprintclass}
+         {}
+         {\addspace\mkbibbrackets{\thefield{eprintclass}}}}}
+    {\nolinkurl{#1}
+     \iffieldundef{eprintclass}
+       {}
+       {\addspace\mkbibbrackets{\thefield{eprintclass}}}}}
 \renewcommand*{\volcitedelim}{\addcolon}
 \DeclareFieldFormat{volcitevolume}{#1}
 \DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
