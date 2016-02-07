@@ -293,7 +293,7 @@
 \DeclareFieldFormat{partof}{\bibstring{part}~#1 \bibstring{of}}
 \DeclareFieldFormat{no}{\bibsstring{number}~#1}
 \DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat{urldate}{#1}
+\DeclareFieldFormat{urldate}{}
 \DeclareFieldFormat{releasedate}{\bibstring{released}\space#1}
 
 \DeclareFieldFormat{editortype}{\ifcapital{\MakeCapital{#1}}{#1}}
