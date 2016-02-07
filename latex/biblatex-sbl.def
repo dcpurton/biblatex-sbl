@@ -901,14 +901,14 @@
 
 \renewbibmacro*{bybookauthor}{%
   \ifboolexpr{
-    test \ifuseauthor
-    and
-    not test {\ifnameundef{bookauthor}}
+    test {\ifnameundef{bookauthor}}
+    or
+    test {\ifnamesequal{author}{bookauthor}}
   }
+    {}
     {\usebibmacro{bytypestrg}{author}{author}%
      \setunit{\addspace}%
-     \printnames[byauthor]{bookauthor}}
-    {}
+     \printnames[byauthor]{bookauthor}}%
 }
      
 \renewbibmacro*{editor+others}{%
