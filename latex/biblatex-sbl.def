@@ -889,6 +889,104 @@
           {\bibstring{\thefield{#1type}}}
           {\printtext[editortype]{\thefield{#1type}}}}}}
 
+\renewbibmacro*{editorstrg}{%
+  \printtext[editortype]{%
+    \iffieldundef{editortype}
+      {\ifboolexpr{
+         test {\ifnumgreater{\value{editor}}{1}}
+         or
+         test {\ifandothers{editor}}
+       }
+         {\bibsstring{editors}}
+         {\bibsstring{editor}}}
+      {\ifbibxstring{\thefield{editortype}}
+         {\ifboolexpr{
+            test {\ifnumgreater{\value{editor}}{1}}
+            or
+            test {\ifandothers{editor}}
+          }
+            {\bibstring{\thefield{editortype}s}}
+            {\bibstring{\thefield{editortype}}}}
+         {\thefield{editortype}}}}}
+
+\newbibmacro*{editor+othersstrg}{%
+  \iffieldundef{editortype}
+    {\ifboolexpr{
+       test {\ifnumgreater{\value{editor}}{1}}
+       or
+       test {\ifandothers{editor}}
+     }
+       {\def\abx@tempa{editors}}
+       {\def\abx@tempa{editor}}}
+    {\ifboolexpr{
+       test {\ifnumgreater{\value{editor}}{1}}
+       or
+       test {\ifandothers{editor}}
+     }
+       {\edef\abx@tempa{\thefield{editortype}s}}
+       {\edef\abx@tempa{\thefield{editortype}}}}%
+  \let\abx@tempb=\empty
+  \ifnamesequal{editor}{translator}
+    {\appto\abx@tempa{tr}%
+     \appto\abx@tempb{\clearname{translator}}}
+    {}%
+  \ifnamesequal{editor}{commentator}
+    {\appto\abx@tempa{co}%
+     \appto\abx@tempb{\clearname{commentator}}}
+    {\ifnamesequal{editor}{annotator}
+       {\appto\abx@tempa{an}%
+        \appto\abx@tempb{\clearname{annotator}}}
+       {}}%
+  \ifnamesequal{editor}{introduction}
+    {\appto\abx@tempa{in}%
+     \appto\abx@tempb{\clearname{introduction}}}
+    {\ifnamesequal{editor}{foreword}
+       {\appto\abx@tempa{fo}%
+        \appto\abx@tempb{\clearname{foreword}}}
+       {\ifnamesequal{editor}{afterword}
+          {\appto\abx@tempa{af}%
+           \appto\abx@tempb{\clearname{afterword}}}
+          {}}}%
+  \ifbibxstring{\abx@tempa}
+    {\printtext[editortype]{\bibsstring{\abx@tempa}}\abx@tempb}
+    {\usebibmacro{editorstrg}}}
+
+\renewbibmacro*{translatorstrg}{%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{translator}}{1}}
+    or
+    test {\ifandothers{translator}}
+  }
+    {\bibsstring{translators}}
+    {\bibsstring{translator}}}
+    
+\renewbibmacro*{translator+othersstrg}{%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{translator}}{1}}
+    or
+    test {\ifandothers{translator}}
+  }
+    {\def\abx@tempa{translators}}
+    {\def\abx@tempa{translator}}%
+  \ifnamesequal{translator}{commentator}
+    {\appto\abx@tempa{co}%
+     \clearname{commentator}}
+    {\ifnamesequal{translator}{annotator}
+       {\appto\abx@tempa{an}%
+        \clearname{annotator}}
+       {}}%
+  \ifnamesequal{translator}{introduction}
+    {\appto\abx@tempa{in}%
+     \clearname{introduction}}
+    {\ifnamesequal{translator}{foreword}
+       {\appto\abx@tempa{fo}%
+        \clearname{foreword}}
+       {\ifnamesequal{translator}{afterword}
+          {\appto\abx@tempa{af}%
+           \clearname{afterword}}
+          {}}}%
+  \bibsstring{\abx@tempa}}
+
 \renewbibmacro*{author}{%
   \ifboolexpr{
     test \ifuseauthor
