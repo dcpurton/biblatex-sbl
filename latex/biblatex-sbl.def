@@ -679,9 +679,9 @@
 \renewbibmacro*{title}{%
   \ifciteseen
     {\ifboolexpr{
-       test {\iffieldundef{author}}
+       test {\ifnameundef{author}}
        and
-       not test {\iffieldundef{editor}}
+       not test {\ifnameundef{editor}}
      }
        {}
        {\usebibmacro{shorttitle}}}
