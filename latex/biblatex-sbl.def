@@ -1417,9 +1417,26 @@
 \renewbibmacro*{related:default}[1]{%
   \entrydata*{#1}{%
     \usedriver
-      {\renewbibmacro*{author/editor+others/translator+others}{}%
-       \renewbibmacro*{related:init}{}}
-      {cite:\thefield{entrytype}}
+      {\ifnameundef{savedauthor}
+         {\ifnameundef{savededitor}
+            {}
+            {\ifnamesequal{editor}{savededitor}
+               {\clearname{editor}}
+               {}}}
+         {\ifnamesequal{author}{savedauthor}
+            {\clearname{author}}
+            {}}
+       \renewbibmacro*{related:init}{%
+         \ifnameundef{savedauthor}
+           {}
+           {\restorename{author}{\abx@name@savedauthor}}%
+         \ifnameundef{savededitor}
+           {}
+           {\restorename{editor}{\abx@namesavededitor}}}%
+       \DeclareNameAlias{sortname}{default}}
+      {\ifbibliography
+         {\thefield{entrytype}}
+         {cite:\thefield{entrytype}}}%
     \setunit{\relateddelim}%
     \usebibmacro{related}}}
 
@@ -1427,10 +1444,14 @@
   \entrydata*{#1}{%
     \usedriver
       {\renewbibmacro*{related:init}{}%
-       \renewbibmacro*{parens+publisher+location+date}{%
-         \newunit
-         \usebibmacro{publisher+location+date}}}
-      {cite:\thefield{entrytype}}}}
+       \ifbibliography
+         {\renewbibmacro*{parens+publisher+location+date}{%
+            \newunit
+            \usebibmacro{publisher+location+date}}}
+         {}}
+      {\ifbibliography
+         {\thefield{entrytype}}
+         {cite:\thefield{entrytype}}}}}
 
 
 % ------------------------------------------------------------------

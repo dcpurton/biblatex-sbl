@@ -17,20 +17,6 @@
   \sloppy
 }
 
-\InitializeBibliographyStyle{%
-  \renewbibmacro*{related:default}[1]{%
-    \entrydata*{#1}{%
-      \usedriver
-        {\renewbibmacro*{author/editor+others/translator+others}{}%
-         \renewbibmacro*{related:init}{}}
-        {\thefield{entrytype}}}}%
-  \renewbibmacro*{related:reprint}[1]{%
-    \entrydata*{#1}{%
-      \usedriver
-        {\renewbibmacro*{related:init}{}}
-        {\thefield{entrytype}}}}%
-}
-
 \AtEveryBibitem{%
   \global\togglefalse{relatedseen}%
   \iffieldequalstr{relatedtype}{reprint}
