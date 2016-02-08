@@ -908,7 +908,7 @@
             {\bibstring{\thefield{editortype}}}}
          {\thefield{editortype}}}}}
 
-\newbibmacro*{editor+othersstrg}{%
+\renewbibmacro*{editor+othersstrg}{%
   \iffieldundef{editortype}
     {\ifboolexpr{
        test {\ifnumgreater{\value{editor}}{1}}
