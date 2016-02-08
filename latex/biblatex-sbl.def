@@ -619,7 +619,7 @@
 \renewcommand*{\lbx@lfromlang}{%
   \iffieldundef{origlanguage}
     {\unspace}
-    {\ifbibstring{from\thefield{origlanguage}}
+    {\ifbibxstring{from\abx@field@origlanguage}
       {\biblstring{from\thefield{origlanguage}}}
       {from \printfield{origlanguage}}}}
 
