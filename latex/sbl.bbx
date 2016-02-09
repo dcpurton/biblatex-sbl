@@ -18,12 +18,7 @@
 }
 
 \AtEveryBibitem{%
-  \global\togglefalse{relatedseen}%
-  \iffieldequalstr{relatedtype}{reprint}
-    {\iffieldundef{relatedstring}
-       {\renewcommand*{\relatedpunct}{\addcomma\space}}
-       {}}%
-    {}}%
+  \global\togglefalse{relatedseen}}%
 
 \DeclareBibliographyDriver{classictext}{%
   \usebibmacro{bibindex}%

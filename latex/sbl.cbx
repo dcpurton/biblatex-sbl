@@ -22,9 +22,6 @@
     {\global\toggletrue{relatedseen}}
     {\global\togglefalse{relatedseen}}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
-  \iffieldequalstr{relatedtype}{reprint}
-    {\renewcommand*{\relatedpunct}{\addcomma\space}}
-    {}%
   \printtext{%
     \ifboolexpr{%
         test {\ifciteibid}
@@ -90,11 +87,6 @@
 \newbibmacro*{bibentrycite}{%
   \citereset
   \global\togglefalse{relatedseen}%
-  \iffieldequalstr{relatedtype}{reprint}
-    {\iffieldundef{relatedstring}
-       {\renewcommand*{\relatedpunct}{\addcomma\space}}
-       {}}%
-    {}%
   \toggletrue{blx@bibliography}%
   \def\abx@str{abx@lstr}%
   \renewcommand*{\revsdnamedelim}{\addcomma}%
