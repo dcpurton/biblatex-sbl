@@ -1474,6 +1474,13 @@
 \expandafter\undef\csname abx@macro@\detokenize{related:origpubin}\endcsname
 \expandafter\undef\csname abx@macro@\detokenize{related:reprintfrom}\endcsname
 
+\renewbibmacro*{begrelated}{%
+  \global\booltrue{bbx@inset}}
+
+\renewbibmacro*{endrelated}{%
+  \global\boolfalse{bbx@inset}%
+  \usebibmacro*{savehash}}
+
 \renewbibmacro*{related:default}[1]{%
   \entrydata*{#1}{%
     \usedriver
@@ -1639,6 +1646,8 @@
 % BIBLIOGRAPHY REPEATED AUTHOR MACROS
 % ------------------------------------------------------------------
 
+\newbool{bbx@inset}
+
 \renewcommand*{\bibnamedash}{%
   \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}\namedashpunct}
 
@@ -1647,6 +1656,12 @@
     test {\iffieldequals{fullhash}{\bbx@lasthash}}
     and
     not test \iffirstonpage
+    and
+    (
+       not bool {bbx@inset}
+       or
+       test {\iffieldequalstr{entrysetcount}{1}}
+    )
   }
     {#1}
     {#2}}
