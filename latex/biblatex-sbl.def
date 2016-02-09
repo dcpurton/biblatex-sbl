@@ -1487,14 +1487,15 @@
 % RELATED MACROS
 % ------------------------------------------------------------------
 
-\DeclareFieldFormat{related:multivolume}{#1}
-\DeclareFieldFormat{related:origpubin}{#1}
-\DeclareFieldFormat{related:origpubas}{#1}
-\expandafter\undef\csname abx@macro@\detokenize{related:multivolume}\endcsname
-\expandafter\undef\csname abx@macro@\detokenize{related:bytranslator}\endcsname
-\expandafter\undef\csname abx@macro@\detokenize{related:origpubas}\endcsname
-\expandafter\undef\csname abx@macro@\detokenize{related:origpubin}\endcsname
-\expandafter\undef\csname abx@macro@\detokenize{related:reprintfrom}\endcsname
+\csundef{abx@ffd@*@related:multivolume}
+\csundef{abx@ffd@*@related:origpubin}
+\csundef{abx@ffd@*@related:origpubas}
+\csundef{abx@ffd@*@relatedstring:reprintfrom}
+\csundef{abx@macro@related:multivolume}
+\csundef{abx@macro@related:bytranslator}
+\csundef{abx@macro@related:origpubas}
+\csundef{abx@macro@related:origpubin}
+\csundef{abx@macro@related:reprintfrom}
 
 \renewbibmacro*{begrelated}{%
   \global\booltrue{bbx@inset}}
