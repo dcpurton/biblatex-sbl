@@ -1100,6 +1100,28 @@
      \clearname{editor}}
     {}}
 
+\renewbibmacro*{translator+others}{%
+  \ifboolexpr{
+    test \ifusetranslator
+    and
+    not test {\ifnameundef{translator}}
+  }
+    {\ifciteseen{%
+       \printnames[labelname]{translator}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{translatorstrg}%
+     }{%
+       \renewcommand{\namedashpunct}{\addcomma\space}%
+       \usebibmacro{dashcheck}
+         {\bibnamedash}
+         {\printnames{translator}%
+          \usebibmacro{savehash}}%
+       \setunit{\addcomma\space}%
+       \usebibmacro{translator+othersstrg}%
+     }%
+     \clearname{translator}}
+    {}}
+
 \renewbibmacro*{byeditor}{%
   \ifnameundef{editor}
     {}
