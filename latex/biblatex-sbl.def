@@ -1403,10 +1403,10 @@
     {}
     {\iffieldundef{part}
       {\iffieldundef{maintitle}
-        {\ifbibliography
+        {\ifbool{volumewithpages}
+           {}
            {\printfield[vol]{volume}%
-            \newunit}
-           {}}
+            \newunit}}
         {\printfield[volumeof]{volume}%
          \setunit{\addspace}}}
       {}}}%
@@ -1435,7 +1435,7 @@
 \newbibmacro*{volume+part+nomaintitle}{%
   \iffieldundef{volume}
     {}
-    {\iffieldundef{maintitle}
+    {\ifbool{volumewithpages}
        {\printfield{volume}%
         \setunit{\addperiod}%
         \printfield{part}%
@@ -1551,6 +1551,7 @@
 % ------------------------------------------------------------------
 
 \newbool{usingshortcite}
+\newbool{volumewithpages}
 
 \newbibmacro*{ancienttextcite}{%
   \iftoggle{blx@nolongcite}
@@ -1571,6 +1572,7 @@
      \addskipentry{\thefield{clone}}}%
   \booltrue{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
+  \booltrue{volumewithpages}%
   \global\togglefalse{usingibid}%
   \printtext{%
     \iffieldundef{shorthand}
