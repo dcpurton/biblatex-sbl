@@ -50,7 +50,12 @@
      \usebibmacro{volume+part+pages}%
      \newunit
      \entrydata{\thefield{sblxref}}{\usebibmacro{bymaineditor+others}}%
-     \usebibmacro{publisher+location+date}}%
+     \usebibmacro{publisher+location+date}%
+     \newunit
+     \iftoggle{relatedseen}
+       {}
+       {\usebibmacro{related:init}%
+        \usebibmacro{related}}}
     {\DeclareFieldFormat[ancienttext]{title}{\mkbibemph{##1}}%
      \usedriver{}{book}}%
   \usebibmacro{finentry}%
@@ -68,6 +73,11 @@
   \usebibmacro{releasedate}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -153,6 +163,11 @@
   \usebibmacro{volume+pages}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -220,6 +235,11 @@
   \usebibmacro{volume+pages}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -239,6 +259,11 @@
   \printfield[plainpages]{pages}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -269,6 +294,11 @@
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -283,6 +313,11 @@
   \usebibmacro{institution+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
@@ -297,6 +332,11 @@
   \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \usebibmacro{finentry}%
 }
 
