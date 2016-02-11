@@ -16,7 +16,16 @@
   revdtitleaddon,
   shortbooktitle,
   shortmaintitle,
-  sblxref}
+  sblxref,
+  withauthortype,
+  witheditortype,
+  withtranslatortype,
+  withbookauthortype,
+  withbookeditortype,
+  withbooktranslatortype,
+  withmainauthortype,
+  withmaineditortype,
+  withmaintranslatortype}
 
 \DeclareDatamodelFields[type=list, datatype=name]{
   bookeditor,
@@ -24,7 +33,16 @@
   maineditor,
   maintranslator,
   revdauthor,
-  revdeditor}
+  revdeditor,
+  withauthor,
+  witheditor,
+  withtranslator,
+  withbookauthor,
+  withbookeditor,
+  withbooktranslator,
+  withmainauthor,
+  withmaineditor,
+  withmaintranslator}
 
 \DeclareDatamodelFields[type=field, datatype=date]{
   releasedate}

@@ -224,6 +224,7 @@
 
 \NewBibliographyString{to}
 \NewBibliographyString{of}
+\NewBibliographyString{with}
 \NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
 \NewBibliographyString{presentedpaper}
@@ -305,8 +306,28 @@
 \DeclareFieldFormat{releasedate}{\bibstring{released}\space#1}
 
 \DeclareFieldFormat{editortype}{\ifcapital{\MakeCapital{#1}}{#1}}
+\DeclareFieldFormat{withauthortype}{#1}
+\DeclareFieldFormat{witheditortype}{#1}
+\DeclareFieldFormat{withtranslatortype}{#1}
+\DeclareFieldFormat{withbookauthortype}{#1}
+\DeclareFieldFormat{withbookeditortype}{#1}
+\DeclareFieldFormat{withbooktranslatortype}{#1}
+\DeclareFieldFormat{withmainauthortype}{#1}
+\DeclareFieldFormat{withmaineditortype}{#1}
+\DeclareFieldFormat{withmaintranslatortype}{#1}
+
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
+
+\DeclareNameAlias{withauthor}{first-last}
+\DeclareNameAlias{witheditor}{first-last}
+\DeclareNameAlias{withtranslator}{first-last}
+\DeclareNameAlias{withbookauthor}{first-last}
+\DeclareNameAlias{withbookeditor}{first-last}
+\DeclareNameAlias{withbooktranslator}{first-last}
+\DeclareNameAlias{withmainauthor}{first-last}
+\DeclareNameAlias{withmaineditor}{first-last}
+\DeclareNameAlias{withmaintranslator}{first-last}
 
 \DeclareFieldFormat{relatedstring:reprint}{#1\printunit{\addcomma\space}}
 
@@ -936,6 +957,21 @@
 % NAME MACROS
 % ------------------------------------------------------------------
 
+\newbibmacro*{withname}[1]{%
+  \ifnameundef{with#1}
+    {}
+    {\setunit{\addcomma\space}%
+     \iffieldundef{with#1type}
+       {\bibstring{with}}
+       {\ifbibxstring{with\thefield{with#1type}}
+          {\bibstring{with\thefield{with#1type}}}
+          {\ifbibxstring{\thefield{with#1type}}
+             {\bibstring{\thefield{with#1type}}}
+             {\printtext[with#1type]{\thefield{with#1type}}}}}%
+     \setunit{\space}%
+     \printnames{with#1}%
+     \clearname{with#1}}}
+
 \renewbibmacro*{bytypestrg}[2]{%
   \iffieldundef{#1type}
     {\bibstring{by#2}}
@@ -1062,7 +1098,8 @@
        \iffieldundef{authortype}
          {}
          {\setunit{\addcomma\space}%
-          \usebibmacro{authorstrg}}}}
+          \usebibmacro{authorstrg}}%
+       \usebibmacro{withname}{author}}}
     {\global\undef\bbx@lasthash}}
 
 \renewbibmacro*{bybookauthor}{%
@@ -1074,7 +1111,8 @@
     {}
     {\usebibmacro{bytypestrg}{author}{author}%
      \setunit{\addspace}%
-     \printnames[byauthor]{bookauthor}}%
+     \printnames[byauthor]{bookauthor}%
+     \usebibmacro{withname}{author}}%
 }
      
 \renewbibmacro*{editor+others}{%
@@ -1093,6 +1131,7 @@
           \usebibmacro{savehash}}%
        \setunit{\addcomma\space}%
        \usebibmacro{editor+othersstrg}%
+       \usebibmacro{withname}{editor}%
      }%
      \clearname{editor}}
     {}}
@@ -1115,6 +1154,7 @@
           \usebibmacro{savehash}}%
        \setunit{\addcomma\space}%
        \usebibmacro{translator+othersstrg}%
+       \usebibmacro{withname}{translator}%
      }%
      \clearname{translator}}
     {}}
@@ -1125,7 +1165,8 @@
     {\usebibmacro{bytypestrg}{editor}{editor}%
      \setunit{\addspace}%
      \printnames[byeditor]{editor}%
-     \setunit{\addcomma\space}}%
+     \usebibmacro{withname}{editor}%
+     \newunit}%
   \usebibmacro{byeditorx}}
   
 \renewbibmacro*{byeditor+others}{%
@@ -1135,9 +1176,29 @@
      \setunit{\addspace}%
      \printnames[byeditor]{editor}%
      \clearname{editor}%
-     \setunit{\addcomma\space}}%
+     \usebibmacro{withname}{editor}%
+     \newunit}%
   \usebibmacro{byeditorx}%
   \usebibmacro{bytranslator+others}}
+
+\renewbibmacro*{bytranslator}{%
+  \ifnameundef{translator}
+    {}
+    {\bibstring{bytranslator}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{translator}%
+     \usebibmacro{withname}{translator}}}
+
+\renewbibmacro*{bytranslator+others}{%
+  \ifnameundef{translator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{translator}%
+     \clearname{translator}%
+     \usebibmacro{withname}{translator}%
+     \newunit}%
+  \usebibmacro{withothers}}
 
 \newbibmacro*{bybookeditor+others}{%
   \ifnameundef{editor}
@@ -1146,6 +1207,7 @@
      \setunit{\addspace}%
      \printnames[byeditor]{editor}%
      \clearname{editor}%
+     \usebibmacro{withname}{editor}%
      \newunit}%
   \ifnameundef{bookeditor}
     {}
@@ -1153,6 +1215,7 @@
      \setunit{\addspace}%
      \printnames[byeditor]{bookeditor}%
      \clearname{bookeditor}%
+     \usebibmacro{withname}{bookeditor}%
      \newunit}%
   \usebibmacro{byeditorx}%
   \usebibmacro{bybooktranslator+others}}
@@ -1164,6 +1227,7 @@
      \setunit{\addspace}%
      \printnames[byeditor]{editor}%
      \clearname{editor}%
+     \usebibmacro{withname}{editor}%
      \newunit}%
   \ifnameundef{maineditor}
     {}
@@ -1171,6 +1235,7 @@
      \setunit{\addspace}%
      \printnames[byeditor]{maineditor}%
      \clearname{maineditor}%
+     \usebibmacro{withname}{maineditor}%
      \newunit}%
   \usebibmacro{byeditorx}%
   \usebibmacro{bymaintranslator+others}}
@@ -1182,6 +1247,7 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{translator}%
      \clearname{translator}%
+     \usebibmacro{withname}{translator}%
      \newunit}%
   \ifnameundef{booktranslator}
     {}
@@ -1189,6 +1255,7 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{booktranslator}%
      \clearname{booktranslator}%
+     \usebibmacro{withname}{booktranslator}%
      \newunit}%
   \usebibmacro{withothers}}
 
@@ -1199,6 +1266,7 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{translator}%
      \clearname{translator}%
+     \usebibmacro{withname}{translator}%
      \newunit}%
   \ifnameundef{maintranslator}
     {}
@@ -1206,6 +1274,7 @@
      \setunit{\addspace}%
      \printnames[bytranslator]{maintranslator}%
      \clearname{maintranslator}%
+     \usebibmacro{withname}{maintranslator}%
      \newunit}%
   \usebibmacro{withothers}}
 

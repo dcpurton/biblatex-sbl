@@ -163,7 +163,8 @@
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
     note,releasedate,volumes,shortmaintitle,options,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
-    editorctype,entrysubtype,sortkey,titleaddon%
+    editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
+    withtranslator,withtranslatortype%
   },
   sensitive=false,
   breaklines=true,
@@ -399,7 +400,8 @@
   author = {Wellhausen, Julius},
   title = {Prolegomena to the History of Israel},
   translator = {Black, J. Sutherland and Enzies, A.},
-  preface = {Smith, W. Robertson},
+  withtranslator = {Smith, W. Robertson},
+  withtranslatortype = {withpreface},
   location = {Edinburgh},
   publisher = {Black},
   related = {wellhausen:1883},
@@ -3617,8 +3619,8 @@ necessary to indicate the medium in the citation.
   title = {Theological Lexicon of the Old Testament},
   shorttitle = {TLOT},
   editor = {Jenni, Ernst},
-  editora = {Westermann, Claus},
-  editoratype = {withassistance},
+  witheditor = {Westermann, Claus},
+  witheditortype = {withassistance},
   translator = {Biddle, Mark E.},
   volumes = {3},
   location = {Peabody, MA},
@@ -3637,7 +3639,7 @@ necessary to indicate the medium in the citation.
 \begin{refimp}
   \refbiblist{\emph{TLOT}}{\emph{Theological Lexicon of the Old Testament.}
     Edited by Ernst Jenni, with assistance from Claus Westermann. Translated
-  by Mark E. Biddle. 3 vols. Peabody, MA: Hendrickson, 1997}
+  by Mark E. Biddle. 3~vols. Peabody, MA: Hendrickson, 1997}
 \end{refimp}
 
 \clearpage
