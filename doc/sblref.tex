@@ -1,5 +1,7 @@
 \documentclass[a4paper]{article}
 
+\PassOptionsToPackage{obeyspaces}{url}
+
 \usepackage{fontspec}
 \usepackage{xparse}
 \usepackage{xcolor}
@@ -161,7 +163,7 @@
     origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
-    note,releasedate,volumes,shortmaintitle,options,%
+    note,releasedate,volumes,shortmaintitle,options,eprintclass,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
     withtranslator,withtranslatortype%
@@ -3422,8 +3424,9 @@ necessary to indicate the medium in the citation.
   title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani \mkbibparens{CTH 51.I}},
   shorttitle = {Der Vertrag Šuppiluliumas I},
   releasedate = {2013-02-24},
-  eprint = {doi:hethiter.net/: CTH 51.I (INTR 2013-02-24)},
-  eprinttype = {literal}
+  eprint = {CTH 51.I},
+  eprintclass = {INTR 2013-02-24},
+  eprinttype = {hethiter}
 }
 \end{lstlisting}
 

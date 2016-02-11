@@ -253,7 +253,6 @@
     {\mkbibordedition{#1}~\bibsstring{edition}}
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
 \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
-\DeclareFieldFormat{eprint:literal}{#1}
 \DeclareFieldFormat{eprint}{%
   \iffieldundef{eprinttype}
     {eprint}
@@ -277,6 +276,20 @@
      \iffieldundef{eprintclass}
        {}
        {\addspace\mkbibbrackets{\thefield{eprintclass}}}}}
+\DeclareFieldFormat{eprint:hethiter}{%
+  \printtext{doi}\addcolon
+  \ifhyperref
+    {\href{http://hethiter.net/:\%20#1}{%
+       hethiter\slash\addcolon\space
+       \nolinkurl{#1}%
+       \iffieldundef{eprintclass}
+         {}
+         {\addspace\mkbibparens{\thefield{eprintclass}}}}}
+    {hethiter\slash\addcolon\space
+     \nolinkurl{#1}
+     \iffieldundef{eprintclass}
+       {}
+       {\addspace\mkbibparens{\thefield{eprintclass}}}}}
 \renewcommand*{\volcitedelim}{\addcolon}
 \DeclareFieldFormat{volcitevolume}{#1}
 \DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
