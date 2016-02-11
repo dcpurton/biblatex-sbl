@@ -226,7 +226,6 @@
 \NewBibliographyString{of}
 \NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
-\NewBibliographyString{nopages}
 \NewBibliographyString{presentedpaper}
 \NewBibliographyString{released}
 
