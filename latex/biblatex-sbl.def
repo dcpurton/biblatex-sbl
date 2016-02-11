@@ -226,7 +226,6 @@
 \NewBibliographyString{of}
 \NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
-\NewBibliographyString{preface}
 \NewBibliographyString{nopages}
 \NewBibliographyString{presentedpaper}
 \NewBibliographyString{released}
@@ -292,7 +291,6 @@
 \DeclareFieldFormat{shortbooktitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortmaintitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
-\DeclareFieldFormat{preface}{#1}
 \DeclareFieldFormat{seriesseries}{#1}
 
 \DeclareFieldFormat{pages}{\mkcomprange{#1}}
@@ -324,8 +322,6 @@
   }
     {#1}
     {\mkbibquote{#1}}}
-
-\DeclareNameAlias{withpreface}{default}
 
 \DeclareBibliographyAlias{cite:mvbook}{cite:book}
 \DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
@@ -1266,33 +1262,6 @@
     {}
     {\setunit{\addcomma\space}%
      \usebibmacro{revdtitle}}}
-
-\newbibmacro*{withpreface}{%
-  \ifnameundef{preface}
-    {}
-    {\setunit{\addcomma\addspace}%
-     \bibstring{withpreface}%
-     \setunit{\addspace}%
-  \printnames[withpreface]{preface}}}
-
-\renewbibmacro*{withothers}{%
-  \usebibmacro{withcommentator}%
-  \clearname{commentator}%
-  \newunit
-  \usebibmacro{withannotator}%
-  \clearname{annotator}%
-  \newunit
-  \usebibmacro{withintroduction}%
-  \clearname{introduction}%
-  \newunit
-  \usebibmacro{withforeword}%
-  \clearname{foreword}%
-  \newunit
-  \usebibmacro{withpreface}%
-  \clearname{preface}%
-  \newunit
-  \usebibmacro{withafterword}%
-  \clearname{afterword}}
 
 \newbibmacro*{shortseries+number}{%
   \iffieldundef{shortseries}
