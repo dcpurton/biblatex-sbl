@@ -32,7 +32,7 @@ To test in place:
 
 Put the contents of the `latex` directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 
-Put the contexts of the `doc` directory into `$TEXMFHOME/doc/latex/biblatex-sbl/`
+Put the contents of the `doc` directory into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
 
