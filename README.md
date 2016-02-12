@@ -7,7 +7,7 @@ Most types of notes and bibliographies are supported. However, the style should 
 
 ## Testing
 
-The main test files are docs/sblref.tex and docs/sbl.bib
+The main test files are `docs/biblatex-sbl-test.tex` and `docs/biblatex-sbl.bib`
 
 To test in place:
 
@@ -20,17 +20,19 @@ To test in place:
 * You should be able to then run:
 
     ```
-    xelatex sblref
-    biber sblref
-    xelatex sblref
-    xelatex sblref
+    xelatex biblatex-sbl-test
+    biber biblatex-sbl-test
+    xelatex biblatex-sbl-test
+    xelatex biblatex-sbl-test
     ```
 
-* `sblref.pdf` contains all examples in the 2nd edition of the SBL Handbook of Style.
+* `biblatex-sbl-test.pdf` contains all examples in the 2nd edition of the SBL Handbook of Style.
 
 ## Installing
 
-Put the contents of the latex directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
+Put the contents of the `latex` directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
+
+Put the contexts of the `doc` directory into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
 
