@@ -198,7 +198,6 @@
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
-  urldate=comp,
   date=comp,
   releasedate=comp,
   dateabbrev=false,
