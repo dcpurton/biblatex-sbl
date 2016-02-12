@@ -206,7 +206,7 @@
   url,
   related,
   isbn=false,
-  ibidtracker=true,
+  ibidtracker=false,
   ibidpage=true,
   maxbibnames=99,
   maxcitenames=3,
