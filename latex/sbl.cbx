@@ -501,7 +501,7 @@
      \newunit
      \usebibmacro{doi+eprint+url}}}
 
-\DeclareBibliographyDriver{cite:unpublished}{%
+\DeclareBibliographyDriver{cite:misc}{%
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
@@ -511,13 +511,34 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\setunit{\addspace}%
-     \printtext[parens]{%
-       \printfield{note}%
-       \newunit
-       \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \usebibmacro{publisher+location+date}}%
-       \newunit
-       \usebibmacro{doi+eprint+url}}}
+    {\usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{byeditor+others}%
+     \newunit
+     \printfield{howpublished}%
+     \newunit
+     \usebibmacro{shortseries+number}%
+     \newunit
+     \iffieldundef{journaltitle}
+       {\ifboolexpr{
+          not test {\iffieldundef{note}}
+          or
+          not test {\iffieldundef{publisher}}
+          or
+          not test {\iffieldundef{location}}
+          or
+          not test {\iffieldundef{date}}
+        }
+          {\setunit{\addspace}%
+           \printtext[parens]{%
+           \printfield{note}%
+           \newunit
+           \renewcommand*{\newunitpunct}{\addsemicolon\space}%
+           \usebibmacro{publisher+location+date}}}
+          {}}
+       {\usebibmacro{shortjournal+issuetitle}%
+        \usebibmacro{pages}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}}
 
 \endinput

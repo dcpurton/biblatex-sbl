@@ -317,15 +317,26 @@
   \usebibmacro{finentry}%
 }
 
-\DeclareBibliographyDriver{unpublished}{%
+\DeclareBibliographyDriver{misc}{%
   \usebibmacro{bibindex}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
   \newunit
-  \printfield{note}%
+  \usebibmacro{byauthor}%
   \newunit
-  \usebibmacro{publisher+location+date}%
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \printfield{howpublished}%
+  \newunit
+  \usebibmacro{shortseries+number}%
+  \newunit
+  \iffieldundef{journaltitle}
+    {\printfield{note}%
+     \newunit
+     \usebibmacro{publisher+location+date}}
+    {\usebibmacro{shortjournal+issuetitle}%
+     \printfield[plainpages]{pages}}%
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
