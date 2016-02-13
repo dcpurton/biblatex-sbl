@@ -1347,11 +1347,15 @@
     {\setunit{\addcomma\space}%
      \usebibmacro{revdtitle}}}
 
-\newbibmacro*{shortseries+number}{%
+\newbibmacro*{shortseries}{%
   \iffieldundef{shortseries}
     {\printfield{series}}
     {\printtext[shortseries]{%
        \bibhyperlink{\strfield{shortseries}}{\thefield{shortseries}}}}%
+}
+
+\newbibmacro*{shortseries+number}{%
+  \usebibmacro{shortseries}%
   \setunit{\addspace}%
   \iffieldundef{seriesseries}
     {}

@@ -61,13 +61,16 @@
     {\global\booltrue{suppresspostnote}}
     {}}
 
-\newbibmacro*{cite:shorthand}{%
-  \usebibmacro{usesblxref}%
-  \global\toggletrue{relatedseen}%
+\newbibmacro{shorthand}{%
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext{%
        \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
-    {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}%
+    {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
+
+\newbibmacro*{cite:shorthand}{%
+  \usebibmacro{usesblxref}%
+  \global\toggletrue{relatedseen}%
+  \usebibmacro{shorthand}%
   \iffieldequalstr{entrysubtype}{RIMA}
     {\restorefield{volume}{\abx@field@number}}
     {}%
@@ -184,6 +187,23 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand{\citeseries}
+  {}
+  {\usebibmacro{shortseries}}
+  {}
+  {}
+
+\DeclareCiteCommand{\citejournal}
+  {}
+  {\usebibmacro{shortjournal}}
+  {}
+  {}
+
+\DeclareCiteCommand{\citeshorthand}
+  {}
+  {\usebibmacro{shorthand}}
+  {}
+  {}
 
 % ------------------------------------------------------------------
 % CITE DRIVERS
