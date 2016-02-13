@@ -151,7 +151,7 @@
 
 \lstdefinelanguage{BibTeX}{%
   keywords={%
-    @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,%
+    @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,@misc,%
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@unpublished,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
     @reference,@mvcollection,@bookinbook,@ancienttext,@classictext,@online%
@@ -1842,11 +1842,17 @@ Than the Author}
 \subsubsection{A Paper Presented at a Professional Society}
 
 \begin{lstlisting}
+@misc{SBL,
+  series = {Society of Biblical Literature},
+  shortseries = {SBL},
+  options = {skipbib}
+}
+
 @unpublished{niditch:1994,
   author = {Niditch, Susan},
   title = {Oral Culture and Written Documents},
   shorttitle = {Oral Culture},
-  note = {\autocap{p}aper presented at the Annual Meeting of the New England Region of the SBL},
+  note = {\autocap{p}aper presented at the Annual Meeting of the New England Region of the \citeseries{SBL}},
   location = {Worcester, MA},
   date = {1994-03-25}
 }
@@ -1856,6 +1862,7 @@ Than the Author}
   \samplecite{31}[13-17]{niditch:1994}
   \samplecite{35}[14]{niditch:1994}
   \samplebib{niditch:1994}
+  \samplebiblist{SBL}
 \end{biboutput}
 
 \begin{refimp}
@@ -1868,6 +1875,8 @@ Than the Author}
   \hangindent\bibindent Niditch, Susan. “Oral Culture and Written Documents.”
   Paper presented at the Annual Meeting of the New England Region of the SBL
   Worcester, MA, 25 March 1994.
+
+  \refbiblist{SBL}{Society of Biblical Literature}
 \end{refimp}
 
 \subsubsection{An Article in a Magazine}
@@ -2007,8 +2016,6 @@ Than the Author}
 
   \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
-
-\break
 
 \subsection{Special Examples}
 
@@ -3219,6 +3226,8 @@ Than the Author}
   \emph{Mercer Commentary on the Bible.} Edited by Watson E. Mills et al.
   Macon, GA: Mercer University Press, 1995.
 \end{refimp}
+
+\break
 
 \subsubsection{Multivolume Commentaries}
 
