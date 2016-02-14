@@ -180,6 +180,11 @@
 % STYLE OPTIONS
 % ------------------------------------------------------------------
 
+% Change footnote style
+\renewcommand\@makefntext[1]{% 
+    \parindent 1em% 
+    \@thefnmark.~#1}
+
 \protected\def\blx@imc@printreleasedate{}
 \blx@regimcs{\printreleasedate}
 \DeclareBibliographyOption{releasedate}{%
