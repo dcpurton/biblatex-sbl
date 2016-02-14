@@ -158,15 +158,12 @@
 % ENTRY OPTIONS
 % ------------------------------------------------------------------
 
-\newtoggle{blx@citebytitle}
 \newtoggle{blx@skipbiblistseries}
 \newtoggle{blx@skipbiblistshorthand}
 \newtoggle{blx@firstcitenoshorthand}
 \newtoggle{blx@shortciteauthor}
 \newtoggle{blx@nolongcite}
 
-\DeclareEntryOption{citebytitle}[true]{%
-  \settoggle{blx@citebytitle}{#1}}
 \DeclareEntryOption{skipbiblistseries}[true]{%
   \settoggle{blx@skipbiblistseries}{#1}}
 \DeclareEntryOption{skipbiblistshorthand}[true]{%
@@ -444,6 +441,8 @@
 % LIST OF ABBREVIATIONS
 % ------------------------------------------------------------------
 
+\newtoggle{blx@abbrevcite}
+
 \newlength{\abbrevwidth}
 
 \def\setmaxlength#1#2{%
@@ -493,7 +492,7 @@
       {}
       {\bibhypertarget{\strfield{shorthand}}{}%
        \iffieldsequal{shorthand}{shorttitle}
-         {\toggletrue{blx@citebytitle}}
+         {\toggletrue{blx@abbrevcite}}
          {}%
          \usebibmacro{bibentrycite}}}%
   \iffieldundef{shortjournal}
