@@ -290,7 +290,10 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\usebibmacro{volumeof}%
+    {\newunit
+     \usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{volumeof}%
      \usebibmacro{maintitle}%
      \newunit
      \usebibmacro{bymaineditor+others}%
