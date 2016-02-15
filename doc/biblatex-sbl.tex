@@ -1,0 +1,419 @@
+\documentclass{ltxdockit}[2011/03/25]
+
+\usepackage{xcolor}
+\usepackage{btxdockit}
+\usepackage{fontspec}
+\usepackage{xparse}
+\usepackage{framed}
+
+\usepackage[style=sbl,backend=biber]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\hypersetup{colorlinks,citecolor=spot}
+
+\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
+\setromanfont[Ligatures=TeX]{Linux Libertine O}
+\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+
+\newcommand*{\biblatexsbl}{\sty{biblatex-sbl}\xspace}
+\newcommand*{\biblatexsblhome}{https://github.com/dcpurton/biblatex-sbl/}
+\newcommand*{\biblatex}{\sty{biblatex}\xspace}
+
+\ExplSyntaxOn
+\NewDocumentCommand \samplemacro { m }
+  {
+    \texttt{#1}\par
+  }
+\NewDocumentCommand \sblrefsamplecite { s m m m o o m }
+  {
+    \IfNoValueTF { #5 }
+      {
+        \IfNoValueT { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2\{#7\}}
+              }
+            \hspace*{\bibindent}#4\csuse{#3}{#7}
+          }
+      }
+      {
+        \IfNoValueTF { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5]\{#7\}}
+              }
+            \hspace*{\bibindent}#4\csuse{#3}[#5]{#7}
+          }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5][#6]\{#7\}}
+              }
+            \hspace*{\bibindent}#4\csuse{#3}[#5][#6]{#7}
+          }
+      }
+  }
+\NewDocumentCommand \samplecite { s m o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      {
+        \sblrefsamplecite{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+  }
+\NewDocumentCommand \sampleparencite { s o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      {
+        \sblrefsamplecite{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+  }
+\NewDocumentCommand \samplebib { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbibliography}
+      }
+    \hangindent\bibindent\bibentrycite{#2}.\par
+  }
+\NewDocumentCommand \samplebiblist { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbiblist\{abbreviations\}}
+      }
+    \biblistcite{#2}
+  }
+\ExplSyntaxOff
+
+\lstset{%
+  basicstyle=\displayverbfont\normalsize
+}
+
+\makeatletter
+\def\ltd@printarg@iv(#1|#2){[\prm{#1}|\prm{#2}]\ltd@parseargs}
+\def\ltd@printarg@v<#1|>{[\prm{#1}|]\ltd@parseargs}
+
+\titlepage{%
+  title={\biblatexsbl},
+  subtitle={SBL Style Using \biblatex},
+  url={\biblatexsblhome},
+  author={David Purton},
+  email={dcpurton@marshwiggle.net},
+  revision={\sbl@abx@version},
+  date={\today}}
+\makeatother
+
+\hypersetup{%
+  pdftitle={biblatex-sbl},
+  pdfsubject={SBL Style Using biblatex},
+  pdfauthor={David Purton},
+  pdfkeywords={sbl, biblatex, bibliography, citation}}
+
+\definecolor{spot}{rgb}{0.25,0.25,0.65}
+\colorlet{shadecolor}{black!15}
+
+\begin{document}
+
+\printtitlepage
+
+\tableofcontents
+
+\section{Introduction}
+
+\biblatexsbl provides support to \biblatex and LaTeX for citations,
+bibliography, and a list of abbreviations in the style recommended by the
+Society of Biblical Literature (\cite{SBL}). The style conforms to the second
+edition of the \cite{SBLHS}.
+
+The style supports all examples given in the handbook (see
+\sty{biblatex-sbl-test.pdf}). Short form citations and a list of abbreviations
+containing series, journals, and shorthands are handled automatically.
+\emph{Ibidem} is supported, but not enabled by default. Only note style
+citations, not Author-Date citations are supported. Primary sources can be
+cited in parentheses. \biblatexsbl is compatible with \biblatex's support for
+\sty{hyperref}.
+
+For anything not covered in this manual, please see the \biblatex
+documentation. Bugs and feature requests can be submitted at
+\url{\biblatexsblhome}.
+
+\section{Requirements}
+
+\biblatexsbl requires at least version 3.0 of \biblatex and the \sty{xparse}
+package. \sty{biber} must be used. \sty{bibtex} is not supported. For
+localization \sty{babel} and \sty{csquotes} are recommended.
+
+\section{Usage}
+
+The following minimal example will set up \biblatexsbl to conform to the
+defaults of the \cite{SBLHS}.
+
+\begin{quote}
+\begin{lstlisting}[style=latex]{}
+\documentclass{article}
+\usepackage[style=sbl,backend=biber]{biblatex}
+\addbibresource{<bibfile.bib>}
+\begin{document}
+\printbiblist{abbreviations}
+\printbibliography
+\end{document}
+\end{lstlisting}
+\end{quote}
+
+\subsection{Localization}
+
+By default \biblatexsbl uses American style punctuation and quotation marks.
+You can choose a different style by including the \sty{babel} and
+\sty{csquotes} packages in your document preamble.
+e.g.,
+
+\begin{quote}
+\begin{lstlisting}[style=latex]{}
+\usepackage[german]{babel}
+\usepackage{csquotes}
+\usepackage[style=sbl,backend=biber]{biblatex}
+\end{lstlisting}
+\end{quote}
+
+Currently \opt{english} (including variants such as \opt{british},
+\opt{australian}, etc.), \opt{spanish}, and \opt{german} are supported.
+
+\subsection{Commands}
+
+The standard commands for \biblatexsbl generally follow those defined by
+\biblatex. Included below are the most typical commands. For more commands and
+options, reference the \biblatex manual.
+
+\begin{ltxsyntax}
+
+\cmditem{autocite}{key}
+\cmditem{autocite}[postnote]{key}
+\cmditem{autocite}[prenote][]{key}
+\cmditem{autocite}[prenote][postnote]{key}
+\cmditem{autocite}(altpostnote|postnote){key}
+\cmditem{autocite}<altpostnote|>{key}
+\cmditem{autocite}[prenote](altpostnote|postnote){key}
+\cmditem{autocite}[prenote]<altpostnote|>{key}
+
+\cmd{autocite} inserts a citation as a footnote. It works as in the standard
+\biblatex styles, except that that \bibfield{postnote} argument can be divided
+into two using the pipe (\sty{|}) character. This creates an
+\bibfield{altpostnote} field which is used in some of the examples from §6.4
+of the \cite{SBLHS}. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[See][1.3|8:223]{clementinehomilies}
+\end{snugshade}
+
+\cmditem{parencite}{key}
+\cmditem{parencite}[postnote]{key}
+\cmditem{parencite}[prenote][]{key}
+\cmditem{parencite}[prenote][postnote]{key}
+\cmditem{parencite}(altpostnote|postnote){key}
+\cmditem{parencite}<altpostnote|>{key}
+\cmditem{parencite}[prenote](altpostnote|postnote){key}
+\cmditem{parencite}[prenote]<altpostnote|>{key}
+
+\cmd{parencite} works in the same way as \cmd{autocite} except that the
+citation is placed inside parentheses instead of in a footnote. This is most
+useful for citing primary sources. e.g.,
+
+\begin{snugshade}
+  \sampleparencite[2.233-235]{josephus:ant}
+\end{snugshade}
+
+\cmditem{seriescite}{key}
+\cmditem{journalcite}{key}
+\cmditem{shorthandcite}{key}
+
+\cmd{seriescite}, \cmd{journalcite}, and \cmd{shorthandcite} inserts the
+respective abbreviation into the text and also adds it to the list of
+abbreviations. The abbreviation is hyperlinked to the list of abbreviations if
+the \sty{hyperref} package is loaded.
+
+These commands ignore the \bibfield{prenote} and \bibfield{postnote} fields,
+so can safely be used anywhere within a database entry.
+
+\cmditem{printbiblist}
+
+This command prints a bibliography list. In \biblatexsbl all abbreviations
+(series, journals, and shorthands) can be printed using the following command:
+
+\begin{quote}
+  \verb+\printbiblist[...]{abbreviations}+
+\end{quote}
+
+See the \biblatex manual for an explanation of available optional arguments.
+
+\cmditem{printbiblioraphy}
+
+Inserts the bibliography. See the \biblatex manual for an explanation of
+available optional arguments.
+
+\end{ltxsyntax}
+
+\subsection{Package Options}
+
+\biblatexsbl defaults to the recommendations of the \cite{SBL}, but it also
+supports many of the standard options from \biblatex as well as a few custom
+ones outlined below.
+
+\begin{optionlist}
+
+\optitem[false]{ibidtracker}{\opt{true}, \opt{false}}
+
+This option controls the \emph{ibidem} tracker. The possible choices are:
+
+\begin{valuelist}
+\item[true] Enable the tracker: \emph{ibid.}\ will be used.
+\item[false] Disable the tracker: \emph{ibid.}\ will not be used.
+\end{valuelist}
+
+\optitem[sbl]{citepages}{\opt{sbl}, \opt{permit}, \opt{omit}, \opt{separate}}
+
+Use this option to fine-tune the formatting of the \bibfield{pages} field
+the first time an entry is cited.
+
+\begin{valuelist}
+\item[sbl] The \bibfield{postnote} field is not printed for first citations.
+  e.g.,
+
+  \begin{snugshade}
+    \samplecite{1}[159]{leyerle:1993}
+    \samplecite{2}[159]{leyerle:1993}
+    \samplecite{3}{leyerle:1993}
+  \end{snugshade}
+
+  If \bibfield{postnote} is not a page range, then it is printed in
+  parentheses after \bibfield{pages}. e.g.,
+
+  \citereset
+
+  \begin{snugshade}
+    \samplecite{1}[a note]{leyerle:1993}
+    \samplecite{2}[a note]{leyerle:1993}
+  \end{snugshade}
+
+\item[permit] The \bibfield{postnote} is printed in parentheses after the
+  \bibfield{pages} field. e.g.,
+
+  \citereset
+  \makeatletter\cbx@opt@citepages@permit\makeatother
+
+  \begin{snugshade}
+    \samplecite{1}[159]{leyerle:1993}
+    \samplecite{2}[159]{leyerle:1993}
+  \end{snugshade}
+
+  If \bibfield{postnote} is not a page range, then \bibfield{pages} is printed
+  for subsequent citations, and the \bibfield{postnote} is printed in
+  parentheses. e.g.,
+
+  \begin{snugshade}
+    \samplecite{3}[a note]{leyerle:1993}
+  \end{snugshade}
+
+\item[omit] The \bibfield{pages} field is not printed unless
+  \bibfield{postnote} is empty or not a page range. e.g.,
+
+  \citereset
+  \makeatletter\cbx@opt@citepages@omit\makeatother
+
+  \begin{snugshade}
+    \samplecite{1}[159]{leyerle:1993}
+    \samplecite{2}[159]{leyerle:1993}
+    \samplecite{3}{leyerle:1993}
+    \samplecite{4}[a note]{leyerle:1993}
+  \end{snugshade}
+
+\item[separate] The \bibfield{postnote} is printed in parentheses after the
+  \bibfield{pages} field preceeded by the bibliography string \sty{thiscite}.
+  e.g.,
+
+  \citereset
+  \makeatletter\cbx@opt@citepages@separate\makeatother
+
+  \begin{snugshade}
+    \samplecite{1}[159]{leyerle:1993}
+    \samplecite{2}[159]{leyerle:1993}
+  \end{snugshade}
+
+  If \bibfield{postnote} is not a page range, then \sty{firstcite} is not
+  used. e.g.,
+
+  \begin{snugshade}
+    \samplecite{3}[a note]{leyerle:1993}
+  \end{snugshade}
+
+  \makeatletter\cbx@opt@citepages@sbl\makeatother
+
+\end{valuelist}
+
+\boolitem[false]{fullbibrefs}
+
+The \emph{Student Supplement for the} \cite{SBLHS} permits two styles for the
+bibliography entry for Bible dictionaries and encyclopaedias, and multivolume
+commentaries for the entire Bible by multiple
+authors.\autocite[4–5]{SBLHS:studentsupp}
+
+This option applies to \bibfield{@inreference} and \bibfield{@incommentary}
+entry types.
+
+\begin{valuelist}
+\item[true] The bibliography entry is printed in long form. e.g.,
+
+  \begin{snugshade}
+    \toggletrue{fullbibrefs}
+    \nocite{IDB}
+    \samplebib*{stendahl:1962}
+    \togglefalse{fullbibrefs}
+  \end{snugshade}
+
+\item[false] The bibliography entry is printed in a short form. e.g.,
+
+  \begin{snugshade}
+    \samplebib*{stendahl:1962}
+  \end{snugshade}
+\end{valuelist}
+
+\boolitem[true]{sblfootnotes}
+
+This option controls the style of footnotes.
+
+\begin{valuelist}
+\item[false] Footnotes are printed with a superscript and hanging indent (or
+  whatever other default has been set up by your style):
+
+  \begin{snugshade}
+    \hangindent\bibindent\textsuperscript{1}\cite{talbert:1992}.
+  \end{snugshade}
+
+\item[true] Footnotes are printed with a with a normal number followed by a
+  period and the first line indented:
+
+  \begin{snugshade}
+    \citereset
+    \samplecite*{1}{talbert:1992}
+    \citereset
+  \end{snugshade}
+\end{valuelist}
+
+\end{optionlist}
+
+\section{Database Guide}
+
+\printbiblist[heading=biblistintoc]{abbreviations}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

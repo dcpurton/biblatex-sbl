@@ -5,9 +5,13 @@ Society of Biblical Literature, 2nd Edition (SBL) style files for Biblatex
 
 Most types of notes and bibliographies are supported. However, the style should not be considered production ready.
 
+## Documentation
+
+See `doc/biblatex-sbl.pdf` for style documentation and `doc/biblatex-sbl-test.pdf` for example entries from the 2nd edition of the SBL Handbook of Style.
+
 ## Testing
 
-The main test files are `docs/biblatex-sbl-test.tex` and `docs/biblatex-sbl.bib`
+The main test files are `doc/biblatex-sbl-test.tex` and `doc/biblatex-sbl.bib`
 
 To test in place:
 
