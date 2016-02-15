@@ -180,10 +180,13 @@
 % STYLE OPTIONS
 % ------------------------------------------------------------------
 
-% Change footnote style
-\renewcommand\@makefntext[1]{% 
-    \parindent 1em% 
-    \@thefnmark.~#1}
+% footnote style
+\DeclareBibliographyOption{sblfootnotes}[true]{%
+  \ifstrequal{#1}{true}
+    {\renewcommand\@makefntext[1]{% 
+       \parindent 1em% 
+       \@thefnmark.~##1}}
+    {}}
 
 \protected\def\blx@imc@printreleasedate{}
 \blx@regimcs{\printreleasedate}
@@ -206,7 +209,8 @@
   maxbibnames=99,
   maxcitenames=3,
   citepages=sbl,
-  fullbibrefs=false
+  fullbibrefs=false,
+  sblfootnotes=true
 }
 
 \urlstyle{same}

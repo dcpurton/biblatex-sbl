@@ -64,7 +64,7 @@
                 \samplemacro{\textbackslash #2\{#7\}}
               }
             \color{biblatex-colour}
-            #4\csuse{#3}{#7}
+            \hspace*{\bibindent}#4\csuse{#3}{#7}
           }
       }
       {
@@ -75,7 +75,7 @@
                 \samplemacro{\textbackslash #2[#5]\{#7\}}
               }
             \color{biblatex-colour}
-            #4\csuse{#3}[#5]{#7}
+            \hspace*{\bibindent}#4\csuse{#3}[#5]{#7}
           }
           {
             \IfBooleanF { #1 }
@@ -83,7 +83,7 @@
                 \samplemacro{\textbackslash #2[#5][#6]\{#7\}}
               }
             \color{biblatex-colour}
-            #4\csuse{#3}[#5][#6]{#7}
+            \hspace*{\bibindent}#4\csuse{#3}[#5][#6]{#7}
           }
       }
   }
@@ -154,7 +154,8 @@
     @book,@article,@incollection,@suppbook,@mvbook,@collection,@review,@misc,%
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@unpublished,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
-    @reference,@mvcollection,@bookinbook,@ancienttext,@classictext,@online%
+    @reference,@mvcollection,@bookinbook,@ancienttext,@classictext,@online,%
+    @manual%
   },
   emph={%
     author,title,location,publisher,date,shorttitle,translator,edition,preface,%
@@ -285,11 +286,11 @@
 \end{biboutput}
 
 \begin{refimp}
-  15. Charles H. Talbert, \emph{Reading John: A Literary and Theological
-  Commentary on the Fourth Gospel and the Johannine Epistles} (New York:
-  Crossroad, 1992), 127.
+  \hspace*{\bibindent}15. Charles H. Talbert, \emph{Reading John: A Literary
+  and Theological Commentary on the Fourth Gospel and the Johannine Epistles}
+  (New York: Crossroad, 1992), 127.
 
-  19. Talbert, \emph{Reading John,} 22.
+  \hspace*{\bibindent}19. Talbert, \emph{Reading John,} 22.
 
   \hangindent\bibindent Talbert, Charles H. \emph{Reading John: A Literary and
   Theological Commentary on the Fourth Gospel and the Johannine Epistles.} New
@@ -315,11 +316,12 @@
 \end{biboutput}
 
 \begin{refimp}
-  4. James M. Robinson and Helmut Koester, \emph{Trajectories through Early
-  Christianity} (Philadelphia: Fortress, 1971), 237.
+  \hspace*{\bibindent}4. James M. Robinson and Helmut Koester,
+  \emph{Trajectories through Early Christianity} (Philadelphia: Fortress,
+  1971), 237.
 
-  12. Robinson and Koester, \emph{Trajectories through Early Christianity,}
-  23.
+  \hspace*{\bibindent}12. Robinson and Koester, \emph{Trajectories through
+  Early Christianity,} 23.
 
   \hangindent\bibindent Robinson, James M., and Helmut Koester. \emph{Trajectories
   through Early Christianity.} Philadelphia: Fortress, 1971.
@@ -344,10 +346,10 @@
 \end{biboutput}
 
 \begin{refimp}
-  7. Bernard Brandon Scott et al., \emph{Reading New Testament Greek} (Peabody, MA:
-  Hendrickson, 1993), 53.
+  \hspace*{\bibindent}7. Bernard Brandon Scott et al., \emph{Reading New
+  Testament Greek} (Peabody, MA: Hendrickson, 1993), 53.
   
-  9. Scott et al., \emph{Reading New Testament Greek,} 42.
+  \hspace*{\bibindent}9. Scott et al., \emph{Reading New Testament Greek,} 42.
 
   \hangindent\bibindent Scott, Bernard Brandon, Margaret Dean, Kristen Sparks,
   and Frances LaZar. \emph{Reading New Testament Greek.} Peabody, MA:
@@ -375,11 +377,11 @@
 \end{biboutput}
 
 \begin{refimp}
-  14. Wilhelm Egger, \emph{How to Read the New Testament: An Introduction to
-  Linguistic and Historical-Critical Methodology,} trans. Peter Heinegg
-  (Peabody, MA: Hendrickson, 1996), 28.
+  \hspace*{\bibindent}14. Wilhelm Egger, \emph{How to Read the New Testament:
+  An Introduction to Linguistic and Historical-Critical Methodology,} trans.
+  Peter Heinegg (Peabody, MA: Hendrickson, 1996), 28.
 
-  18. Egger, \emph{How to Read,} 291.
+  \hspace*{\bibindent}18. Egger, \emph{How to Read,} 291.
   
   \hangindent\bibindent Egger, Wilhelm. \emph{How to Read the New Testament:
   An Introduction to Linguistic and Historical-Critical Methodology.}
@@ -423,16 +425,18 @@
 \end{lstlisting}
 
 \begin{biboutput}
-  \samplecite{3}[296]{wellhausen:1957}
+  \samplemacro{\textbackslash autocite[296]\{wellhausen:1957\}}
+  \sloppy\samplecite*{3}[296]{wellhausen:1957}
   \samplebib{wellhausen:1957}
 \end{biboutput}
 
 \begin{refimp}
-  3. Julius Wellhausen, \emph{Prolegomena to the History of Ancient Israel}
-  (New York: Meridian Books, 1957), 296; repr. of \emph{Prolegomena to the
-  History of Israel,} trans.\ J. Sutherland Black and A. Enzies, with preface
-  by W. Robertson Smith (Edinburgh: Black, 1885); trans.\ of \emph{Prolegomena
-  zur Geschichte Israels,} 2nd ed. (Berlin: Reimer, 1883).
+  \hspace*{\bibindent}3. Julius Wellhausen, \emph{Prolegomena to the History
+  of Ancient Israel} (New York: Meridian Books, 1957), 296; repr. of
+  \emph{Prolegomena to the History of Israel,} trans.\ J. Sutherland Black and
+  A. Enzies, with preface by W. Robertson Smith (Edinburgh: Black, 1885);
+  trans.\ of \emph{Prolegomena zur Geschichte Israels,} 2nd ed. (Berlin:
+  Reimer, 1883).
 
   \hangindent\bibindent Julius Wellhausen,\footnote{Should be “Wellhausen,
   Julius.”?} \emph{Prolegomena to the History of Ancient Israel.} New York:
@@ -441,6 +445,8 @@
   Robertson Smith. Edinburgh: Black, 1885. Translation of \emph{Prolegomena
   zur Geschichte Israels.} 2nd ed. Berlin: Reimer, 1883.
 \end{refimp}
+
+\break
 
 \subsubsection{A Book with One Editor}
 
@@ -462,10 +468,11 @@
 \end{biboutput}
 
 \begin{refimp}
-  5. Jeffrey H. Tigay, ed., \emph{Empirical Models for Biblical Criticism}
-  (Philadelphia: University of Pennsylvania Press, 1985), 35.
+  \hspace*{\bibindent}5. Jeffrey H. Tigay, ed., \emph{Empirical Models for
+  Biblical Criticism} (Philadelphia: University of Pennsylvania Press, 1985),
+  35.
 
-  9. Tigay, \emph{Empirical Models,} 38.
+  \hspace*{\bibindent}9. Tigay, \emph{Empirical Models,} 38.
 
   \hangindent\bibindent Tigay, Jeffrey H., ed. \emph{Empirical Models for
   Biblical Criticism.} Philadelphia: University of Pennsylvania Press,
@@ -495,15 +502,16 @@
 \end{biboutput}
 
 \begin{refimp}
-  44. John Kaltner and Steven L. McKenzie, eds., \emph{Beyond Babel: A Handbook
-  for Biblical Hebrew and Related Languages,} RBS 42 (Atlanta: Society of
-  Biblical Literature, 2002), xii.
+  \hspace*{\bibindent}44. John Kaltner and Steven L. McKenzie, eds.,
+  \emph{Beyond Babel: A Handbook for Biblical Hebrew and Related Languages,}
+  RBS~42 (Atlanta: Society of Biblical Literature, 2002), xii.
 
-  47. Kaltner and McKenzie,\footnote{Should include \emph{“Beyond Babel,”}?} viii.
+  \hspace*{\bibindent}47. Kaltner and McKenzie,\footnote{Should include
+  \emph{“Beyond Babel,”}?} viii.
 
   \hangindent\bibindent Kaltner, John, and Steven L. McKenzie, eds.
   \emph{Beyond Babel: A Handbook for Biblical Hebrew and Related Languages.}
-  RBS 42. Atlanta: Society of Biblical Literature, 2002.
+  RBS~42. Atlanta: Society of Biblical Literature, 2002.
 
   \refbiblist{RBS}{Resources for Biblical Study}
 \end{refimp}
@@ -531,13 +539,13 @@
 \end{biboutput}
 
 \begin{refimp}
-  4. John F. Oates et al., eds., \emph{Checklist of Editions of Greek and Latin
-  Papyri, Ostraca, and Tablets,} 5th~ed., BASPSup 9 (Oakville, CT: American
-  Society of Papyrologists, 2001), 10.
+  \hspace*{\bibindent}4. John F. Oates et al., eds., \emph{Checklist of
+  Editions of Greek and Latin Papyri, Ostraca, and Tablets,} 5th~ed., BASPSup
+  9 (Oakville, CT: American Society of Papyrologists, 2001), 10.
 
   \hangindent\bibindent Oates, John F., William H. Willis, Roger S. Bagnall,
   and Klaas A. Worp, eds. \emph{Checklist of Editions of Greek and Latin
-  Papyri, Ostraca, and Tablets.} 5th~ed. BASPSup 9. Oakville, CT: American
+  Papyri, Ostraca, and Tablets.} 5th~ed. BASPSup~9. Oakville, CT: American
   Society of Papyrologists, 2001.
 
   \refbiblist{BASPSup}{Bulletin of the American Society of Papyrologists,
@@ -563,8 +571,8 @@
 \end{biboutput}
 
 \begin{refimp}
-  45. Edward Schillebeeckx, \emph{The Schillebeeckx Reader,} ed. Robert J.
-  Schreiter (Edinburgh: T\&T Clark, 1986), 20.
+  \hspace*{\bibindent}45. Edward Schillebeeckx, \emph{The Schillebeeckx
+  Reader,} ed. Robert J. Schreiter (Edinburgh: T\&T Clark, 1986), 20.
 
   \hangindent\bibindent Schillebeeckx, Edward. \emph{The Schillebeeckx
   Reader.} Edited by Robert J. Schreiter. Edinburgh: T\&T Clark, 1986.
@@ -590,9 +598,9 @@
 \end{biboutput}
 
 \begin{refimp}
-  3. Friedrich Blass and Albert Debrunner, \emph{Grammatica del greco del
-  Nuovo Testamento,} ed. Friedrich Rehkopf, trans. Giordana Pisi (Brescia:
-  Paideia, 1982), 40.
+  \hspace*{\bibindent}3. Friedrich Blass and Albert Debrunner,
+  \emph{Grammatica del greco del Nuovo Testamento,} ed. Friedrich Rehkopf,
+  trans. Giordana Pisi (Brescia: Paideia, 1982), 40.
 
   \hangindent\bibindent Blass, Friedrich, and Albert Debrunner.
   \emph{Grammatica del greco del Nuovo Testamento.} Edited by Friedrich
@@ -619,8 +627,8 @@
 \end{biboutput}
 
 \begin{refimp}
-  34. Stuart A. Irvine, “Idols [\emph{ktbwnm}]: A Note on Hosea 13:2a,”
-  \emph{JBL} 133 (2014): 509–17.
+  \hspace*{\bibindent}34. Stuart A. Irvine, “Idols [\emph{ktbwnm}]: A Note on
+  Hosea 13:2a,” \emph{JBL}~133 (2014): 509–17.
 
   \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
@@ -646,11 +654,12 @@
 \end{biboutput}
 
 \begin{refimp}
-  3. Harold W. Attridge, “Jewish Historiography,” in \emph{Early Judaism and
-  Its Modern Interpreters,} ed. Robert A. Kraft and George W. E. Nickelsburg
-  (Philadelphia: Fortress; Atlanta: Scholars Press, 1986), 311–43.
+  \hspace*{\bibindent}3. Harold W. Attridge, “Jewish Historiography,” in
+  \emph{Early Judaism and Its Modern Interpreters,} ed. Robert A. Kraft and
+  George W. E. Nickelsburg (Philadelphia: Fortress; Atlanta: Scholars Press,
+  1986), 311–43.
   
-  6. Attridge, “Jewish Historiography,” 314–17.
+  \hspace*{\bibindent}6. Attridge, “Jewish Historiography,” 314–17.
 
   Attridge, Harold A. “Jewish Historiography.” Pages 311–43 in \emph{Early
   Judaism and Its Modern Interpreters.} Edited by Robert A. Kraft and George
@@ -665,7 +674,7 @@
   title = {The Theology of the Yahwist: A Preliminary Sketch},
   shorttitle = {Theology of the Yahwist},
   pages = {219-228},
-  booktitle = {“Wer ist wie du, Herr, unter den Göttern?”: Studien zur Theologie und Religionsgeschichte Israels für Otto Kaiser zum 70. Geburtstag},
+  booktitle = {“Wer ist wie du, Herr, unter den Göttern?”: Studien zur Theologie und Religionsgeschichte Israels für Otto Kaiser zum~70. Geburtstag},
   editor = {Kottsieper, Ingo and others},
   location = {Göttingen},
   publisher = {Vandenhoaeck \& Ruprecht},
@@ -680,17 +689,18 @@
 \end{biboutput}
 
 \begin{refimp}
-  8. John Van Seters, “The Theology of the Yahwist: A Preliminary Sketch,” in
-  \emph{“Wer ist wie du, Herr, unter den Göttern?”: Studien zur Theologie und
-  Religionsgeschichte Israels für Otto Kaiser zum 70. Geburtstag,} ed. Ingo
-  Kottsieper et al. (Göttingen: Vandenhoeck \& Ruprecht, 1995), 219–28.
+  \hspace*{\bibindent}8. John Van Seters, “The Theology of the Yahwist: A
+  Preliminary Sketch,” in \emph{“Wer ist wie du, Herr, unter den Göttern?”:
+  Studien zur Theologie und Religionsgeschichte Israels für Otto Kaiser zum
+70. Geburtstag,} ed. Ingo Kottsieper et al. (Göttingen: Vandenhoeck \&
+  Ruprecht, 1995), 219–28.
 
-  17. Van Seters, “Theology of the Yahwist,” 222.
+  \hspace*{\bibindent}17. Van Seters, “Theology of the Yahwist,” 222.
 
   \hangindent\bibindent Van Seters, John. “The Theology of the Yahwist: A
   Preliminary Sketch.” Pages~219–28 in \emph{“Wer ist wie du, Herr, unter den
   Göttern?”: Studien zur Theologie und Religionsgeschichte Israels für Otto
-  Kaiser zum 70. Geburtstag.} Edited by Ingo Kottsieper et al. Göttingen:
+  Kaiser zum~70. Geburtstag.} Edited by Ingo Kottsieper et al. Göttingen:
   Vandenhoeck \& Ruprecht, 1995.
 \end{refimp}
 
@@ -717,11 +727,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  2. Hendrikus Boers, introduction to \emph{How to Read the New Testament: An
-  Introduction to Linguistic and Historical-Critical Methodology,} by Wilhelm
-  Egger, trans. Peter Heinegg (Peabody; MA: Hendrickson, 1996), xi–xxi.
+  \hspace*{\bibindent}2. Hendrikus Boers, introduction to \emph{How to Read
+  the New Testament: An Introduction to Linguistic and Historical-Critical
+  Methodology,} by Wilhelm Egger, trans. Peter Heinegg (Peabody; MA:
+  Hendrickson, 1996), xi–xxi.
 
-  6. Boers, introduction, xi–xx.
+  \hspace*{\bibindent}6. Boers, introduction, xi–xx.
 
   \hangindent\bibindent Boers, Hendrikus. Introduction to \emph{How to Read
   the New Testament: An Introduction to Linguistic and Historical-Critical
@@ -752,7 +763,7 @@ Than the Author}
 \begin{refimp}
   \hangindent\bibindent Birger Gerhardsson,\footnote{Should be “Gerhardsson,
   Birger.”?} \emph{Memory and Manuscript: Oral Tradition and Written
-  Transmission in Rabbinic Judaism and Early Christianity.} ASNU 22. Lund:
+  Transmission in Rabbinic Judaism and Early Christianity.} ASNU~22. Lund:
   Gleerup; Copenhagen: Munksgaard, 1961.
 
   \refbiblist{ASNU}{Acta Seminarii Neotestamentici Upsaliensis}
@@ -777,12 +788,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  87. James B. Pritchard, ed., \emph{Ancient Near Eastern Texts Relating to
-  the Old Testament,} 3rd ed. (Princeton: Princeton University Press, 1969),
-  xxi.
+  \hspace*{\bibindent}87. James B. Pritchard, ed., \emph{Ancient Near Eastern
+  Texts Relating to the Old Testament,} 3rd~ed. (Princeton: Princeton
+  University Press, 1969), xxi.
 
   Pritchard, James B., ed. \emph{Ancient Near Eastern Texts Relating to the
-  Old Testament.} 3rd ed. Princeton: Princeton University Press, 1969.
+  Old Testament.} 3rd~ed. Princeton: Princeton University Press, 1969.
 \end{refimp}
 
 \begin{lstlisting}
@@ -802,11 +813,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  56. Joseph Blenkinsopp, \emph{A History of Prophecy in Israel,} rev.\ and
-  enl.\ ed. (Louisville: Westminster John Knox, 1996), 81.
+  \hspace*{\bibindent}56. Joseph Blenkinsopp, \emph{A History of Prophecy in
+  Israel,} rev.\ and enl.\ ed. (Louisville: Westminster John Knox, 1996), 81.
 
-  Blenkinsopp, Joseph. \emph{A History of Prophecy in Israel.} Rev.\ and enl.\
-  ed. Louisville: Westminster John Knox, 1996.
+  \hangindent\bibindent Blenkinsopp, Joseph. \emph{A History of Prophecy in
+  Israel.} Rev.\ and enl.\ ed. Louisville: Westminster John Knox, 1996.
 \end{refimp}
 
 \subsubsection{A Recent Reprint Title}
@@ -830,9 +841,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. John Van Seters, \emph{In Search of History: Historiography in the
-  Ancient World and the Origins of Biblical History} (New Haven: Yale
-  University Press, 1983; repr., Winona Lake, IN: Eisenbrauns, 1997), 35.
+  \hspace*{\bibindent}5. John Van Seters, \emph{In Search of History:
+  Historiography in the Ancient World and the Origins of Biblical History}
+  (New Haven: Yale University Press, 1983; repr., Winona Lake, IN:
+  Eisenbrauns, 1997), 35.
 
   \hangindent\bibindent Van Seters, John. \emph{In Search of History:
   Historiography in the Ancient World and the Origins of Biblical History.}
@@ -860,10 +872,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. Gustav Adolf Deissmann, \emph{Light from the Ancient East: The New Testament
-  Illustrated by Recently Discovered Texts of the Graeco-Roman World} (trans.
-  Lionel R. M. Strachan;\footnote{Should be “, trans.\ Lionel R.\ M.\ Strachan
-  (”?} 1927; repr., Peabody, MA: Hendrickson, 1995), 55.
+  \hspace*{\bibindent}5. Gustav Adolf Deissmann, \emph{Light from the Ancient
+  East: The New Testament Illustrated by Recently Discovered Texts of the
+  Graeco-Roman World} (trans. Lionel R. M. Strachan;\footnote{Should be “,
+  trans.\ Lionel R.\ M.\ Strachan (”?} 1927; repr., Peabody, MA: Hendrickson,
+  1995), 55.
 
   \hangindent\bibindent Deissmann, Gustav Adolf. \emph{Light from the Ancient
   East: The New Testament Illustrated by Recently Discovered Texts of the
@@ -894,10 +907,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  9. James R. Harrison and L. L. Welborn, eds., \emph{The First Urban Churches
-  2: Roman Corinth,} WGRWSup (Atlanta: SBL Press, forthcoming).
+  \hspace*{\bibindent}9. James R. Harrison and L. L. Welborn, eds., \emph{The
+  First Urban Churches 2: Roman Corinth,} WGRWSup (Atlanta: SBL Press,
+  forthcoming).
 
-  12. Harrison and Welborn, \emph{Roman Corinth,} 201.
+  \hspace*{\bibindent}12. Harrison and Welborn, \emph{Roman Corinth,} 201.
 
   \hangindent\bibindent Harrison, James R.\footnote{Should be “Harrison, James
   R.,”} and L. L. Welborn, eds. \emph{The First Urban Churches 2: Roman
@@ -928,10 +942,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. Adolf Harnack, \emph{History of Dogma,} trans. Neil Buchanan, 7 vols.
-  (Boston: Little, Brown).
+  \hspace*{\bibindent}5. Adolf Harnack, \emph{History of Dogma,} trans. Neil
+  Buchanan, 7 vols. (Boston: Little, Brown).
 
-  9. Harnack, \emph{History of Dogma,} 2:126.
+  \hspace*{\bibindent}9. Harnack, \emph{History of Dogma,} 2:126.
 
   \hangindent\bibindent Harnack, Adolf. \emph{History of Dogma.} Translated
   from the 3rd German ed. by Neil Buchanan. 7 vols. Boston: Little, Brown,
@@ -961,11 +975,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. Bruce W. Winter and Andrew D. Clarke, eds., \emph{The Book of Acts in Its
-  Ancient Literary Setting,} vol.~1 of \emph{The Book of Acts in Its First
-  Century Setting,} ed. Bruce W. Winter (Grand Rapids: Eerdmans, 1993), 25.
+  \hspace*{\bibindent}5. Bruce W. Winter and Andrew D. Clarke, eds., \emph{The
+  Book of Acts in Its Ancient Literary Setting,} vol.~1 of \emph{The Book of
+  Acts in Its First Century Setting,} ed. Bruce W. Winter (Grand Rapids:
+  Eerdmans, 1993), 25.
 
-  16. Winter and Clarke, \emph{Book of Acts,} 25.
+  \hspace*{\bibindent}16. Winter and Clarke, \emph{Book of Acts,} 25.
 
   \hangindent\bibindent Winter, Bruce W., and Andrew D. Clarke, eds. \emph{The
   Book of Acts in Its Ancient Literary Setting.} Vol.~1 of \emph{The Book of
@@ -997,12 +1012,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  24. Steve Mason, “Josephus on Canon and Scriptures,” in \emph{Hebrew
-  Bible\slash Old Testament: The History of Its Interpretation,} ed. Magne
-  Saebø (Göttingen: Vandenhoeck \& Ruprecht, 1996),
+  \hspace*{\bibindent}24. Steve Mason, “Josephus on Canon and Scriptures,” in
+  \emph{Hebrew Bible\slash Old Testament: The History of Its Interpretation,}
+  ed. Magne Saebø (Göttingen: Vandenhoeck \& Ruprecht, 1996),
   1.1:217–335.\footnote{Should be “1.1:217–35.”?}
 
-  28. Mason, “Josephus on Canon and Scriptures,” 224.
+  \hspace*{\bibindent}28. Mason, “Josephus on Canon and Scriptures,” 224.
 
   \hangindent\bibindent Mason, Steve. “Josephus on Canon and Scriptures.”
   Pages 217–35 in vol.~1, part 1 of \emph{Hebrew Bible\slash Old Testament:
@@ -1036,13 +1051,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  66. David Peterson, “The Motif of Fulfilment and the Purpose of Luke-Acts,”
-  in \emph{The Book of Acts in Its Ancient Literary Setting,} ed. Bruce W.
-  Winter and Andrew D. Clarke, vol.~1 of \emph{The Book of Acts in Its First
-  Century Setting,} ed. Bruce W. Winter (Grand Rapids: Eerdmans, 1993),
-  83–104.
+  \hspace*{\bibindent}66. David Peterson, “The Motif of Fulfilment and the
+  Purpose of Luke-Acts,” in \emph{The Book of Acts in Its Ancient Literary
+  Setting,} ed. Bruce W. Winter and Andrew D. Clarke, vol.~1 of \emph{The Book
+  of Acts in Its First Century Setting,} ed. Bruce W. Winter (Grand Rapids:
+  Eerdmans, 1993), 83–104.
 
-  78. Peterson, “Motif of Fulfilment,” 92.
+  \hspace*{\bibindent}78. Peterson, “Motif of Fulfilment,” 92.
 
   \hangindent\bibindent David Peterson,\footnote{Should be “Peterson,
   David.”?} “The Motif of Fulfilment and the Purpose of Luke-Acts.”
@@ -1075,12 +1090,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  12. Otfried Hofius, \emph{Paulusstudien,} WUNT 51 (Tübingen: Mohr Siebeck,
-  1989), 122.
+  \hspace*{\bibindent}12. Otfried Hofius, \emph{Paulusstudien,} WUNT 51
+  (Tübingen: Mohr Siebeck, 1989), 122.
 
-  14. Hofius, \emph{Paulusstudien,} 124.
+  \hspace*{\bibindent}14. Hofius, \emph{Paulusstudien,} 124.
 
-  Hofius, Otfried. \emph{Paulusstudien.} WUNT 51. Tübingen: Mohr Siebeck,
+  Hofius, Otfried. \emph{Paulusstudien.} WUNT~51. Tübingen: Mohr Siebeck,
   1989.
   
   \refbiblist{WUNT}{Wissenschaftliche Untersuchungen zum Neuen Testament}
@@ -1111,13 +1126,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  23. Joachim Jeremias, \emph{The Prayers of Jesus,} SBT 2/6 (Naperville, IL:
-  Allenson, 1967), 123–27.
+  \hspace*{\bibindent}23. Joachim Jeremias, \emph{The Prayers of Jesus,}
+  SBT~2/6 (Naperville, IL: Allenson, 1967), 123–27. 
 
-  32. Jeremias, \emph{Prayers,} 126.
+  \hspace*{\bibindent}32. Jeremias, \emph{Prayers,} 126.
 
-  \hangindent\bibindent Jeremias, Joachim. The Prayers of Jesus. SBT 2/6.
-  Naperville, IL: Allenson, 1967.
+  \hangindent\bibindent Jeremias, Joachim. \emph{The Prayers of Jesus.}
+  SBT~2/6. Naperville, IL: Allenson, 1967.
 
   \refbiblist{SBT}{Studies in Biblical Theology}
 \end{refimp}
@@ -1146,12 +1161,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  14. Henning Graf Reventlow, \emph{From the Old Testament to Origen.}
-  Vol.~1\footnote{Should be “, vol.~1”?} of \emph{History of Biblical
-  Interpretation,} trans. Leo G. Perdue (Atlanta: Society of Biblical
+  \hspace*{\bibindent}14. Henning Graf Reventlow, \emph{From the Old Testament
+  to Origen.} Vol.~1\footnote{Should be “, vol.~1”?} of \emph{History of
+  Biblical Interpretation,} trans. Leo G. Perdue (Atlanta: Society of Biblical
   Literature, 2009), Nook edition, ch.~1.3.
 
-  18. Reventlow, \emph{From the Old Testament to Origen,} ch.~1.3.
+  \hspace*{\bibindent}18. Reventlow, \emph{From the Old Testament to Origen,}
+  ch.~1.3.
   
   \hangindent\bibindent Reventlow, Henning Graf. \emph{From the Old Testament
   to Origen.} Volume\footnote{Should be “Vol.” as elsewhere?} 1 of
@@ -1185,11 +1201,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  3. Jacob L. Wright, \emph{David, King of Israel, and Caleb in Biblical
-  Memory} (Cambridge: Cambridge University Press, 2014), Kindle edition,
-  ch.~3, “Introducing David.”
+  \hspace*{\bibindent}3. Jacob L. Wright, \emph{David, King of Israel, and
+  Caleb in Biblical Memory} (Cambridge: Cambridge University Press, 2014),
+  Kindle edition, ch.~3, “Introducing David.”
 
-  21. Wright, \emph{David, King of Israel,} ch.~5, “Evidence from Qumran.”
+  \hspace*{\bibindent}21. Wright, \emph{David, King of Israel,} ch.~5,
+  “Evidence from Qumran.”
 
   \hangindent\bibindent Jacob L. Wright, \emph{David, King of Israel, and
   Caleb in Biblical Memory.} Cambridge: Cambridge University Press, 2014.
@@ -1215,11 +1232,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  53. Ann E. Killebrew and Margreet Steiner, eds., \emph{The Oxford Handbook
-  of the Archaeology of the Levant: c.~8000–332 BCE} (Oxford: Oxford
-  University Press, 2014), doi:10.1093/oxfordhb/9780199212972.001.0001.
+  \hspace*{\bibindent}53. Ann E. Killebrew and Margreet Steiner, eds.,
+  \emph{The Oxford Handbook of the Archaeology of the Levant: c.~8000–332 BCE}
+  (Oxford: Oxford University Press, 2014),
+  doi:10.1093/oxfordhb/9780199212972.001.0001.
 
-  55. Killebrew and Steiner, \emph{Archaeology of the Levant.}
+  \hspace*{\bibindent}55. Killebrew and Steiner, \emph{Archaeology of the
+  Levant.}
 
   \hangindent\bibindent Killebrew, Ann E.\footnote{Should be “Killebrew, Ann
   E.,”?} and Margreet Steiner, eds. \emph{The Oxford Handbook of the
@@ -1249,14 +1268,14 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  29. Stephen Kaufman. \emph{The Akkadian Influences on Aramaic,} AS 19
-  (Chicago: The Oriental Institute of the University of Chicago, 1974),
-  \nolinkurl{http://oi.uchicago.edu/pdf/as19.pdf.}
+  \hspace*{\bibindent}29. Stephen Kaufman. \emph{The Akkadian Influences on
+  Aramaic,} AS~19 (Chicago: The Oriental Institute of the University of
+  Chicago, 1974), \nolinkurl{http://oi.uchicago.edu/pdf/as19.pdf.}
 
-  32. Kaufman, \emph{Akkadian Influences on Aramaic,} 123.
+  \hspace*{\bibindent}32. Kaufman, \emph{Akkadian Influences on Aramaic,} 123.
 
   \hangindent\bibindent Kaufman, Stephen. \emph{The Akkadian Influences on
-  Aramaic.} AS 19. Chicago: The Oriental Institute of the University of
+  Aramaic.} AS~19. Chicago: The Oriental Institute of the University of
   Chicago, 1974. \nolinkurl{http://oi.uchicago.edu/pdf/as19.pdf.}
 
   \refbiblist{AS}{Assyriological Studies}
@@ -1287,9 +1306,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  7. Blake Leyerle, “John Chrysostom on the Gaze,” \emph{JECS} 1 (1993): 159–74.
+  \hspace*{\bibindent}7. Blake Leyerle, “John Chrysostom on the Gaze,”
+  \emph{JECS} 1 (1993): 159–74.
 
-  23. Leyerle, “John Chrysostom,” 161.
+  \hspace*{\bibindent}23. Leyerle, “John Chrysostom,” 161.
 
   \hangindent\bibindent Leyerle, Blake. “John Chrysostom on the Gaze.”
   \emph{JECS} 1 (1993): 159–74.
@@ -1318,11 +1338,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  21. Hans Wildberger, “Das Abbild Gottes: Gen 1:26–30,” \emph{TZ} 21 (1965):
-  245–59, 481–501.
+  \hspace*{\bibindent}21. Hans Wildberger, “Das Abbild Gottes: Gen 1:26–30,”
+  \emph{TZ}~21 (1965): 245–59, 481–501.
 
   \hangindent\bibindent Wildberger, Hans. “Das Abbild Gottes: Gen 1:26–30.”
-  \emph{TZ} 21 (1965): 245–59, 481–501.
+  \emph{TZ}~21 (1965): 245–59, 481–501.
 
   \refbiblist{\emph{TZ}}{\emph{Theologische Zeitschrift}}
 \end{refimp}
@@ -1344,11 +1364,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  24. Julius Wellhausen, “Die Composition des Hexateuchs,” \emph{JDT} 21
-  (1876): 392–450; 22 (1877): 407–79.
+  \hspace*{\bibindent}24. Julius Wellhausen, “Die Composition des Hexateuchs,”
+  \emph{JDT}~21 (1876): 392–450; 22 (1877): 407–79.
 
   \hangindent\bibindent Wellhausen, Julius. “Die Composition des Hexateuchs.”
-  \emph{JDT} 21 (1876): 392–450; 22 (1877): 407–79.
+  \emph{JDT}~21 (1876): 392–450; 22 (1877): 407–79.
 
   \refbiblist{\emph{JDT}}{\emph{Jahrbuch für deutsche Theologie}}
 \end{refimp}
@@ -1374,12 +1394,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  20. David Noel Freedman, “Pottery, Poetry, and Prophecy: An Essay on
-  Biblical Poetry,” \emph{JBL} 96 (1977): 20.\footnote{Should be “5–26” (full
-    page reference) as elsewhere?}
+  \hspace*{\bibindent}20. David Noel Freedman, “Pottery, Poetry, and Prophecy:
+  An Essay on Biblical Poetry,” \emph{JBL}~96 (1977): 20.\footnote{Should be
+  “5–26” (full page reference) as elsewhere?}
 
   \hangindent\bibindent Freedman, David Noel. “Pottery, Poetry, and Prophecy:
-  An Essay on Biblical Poetry.” \emph{JBL} 96 (1977): 5–26.
+  An Essay on Biblical Poetry.” \emph{JBL}~96 (1977): 5–26.
 
   \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
 \end{refimp}
@@ -1402,10 +1422,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  20. David Noel Freedman, “Pottery, Poetry, and Prophecy: An Essay on Biblical
-  Poetry,” in \emph{Pottery, Poetry, and Prophecy: Studies in Early Hebrew
-  Poetry} (Winona Lake, IN: Eisenbrauns, 1980), 14.\footnote{Should be “1–22”
-  (full page reference) as elsewhere?}
+  \hspace*{\bibindent}20. David Noel Freedman, “Pottery, Poetry, and Prophecy:
+  An Essay on Biblical Poetry,” in \emph{Pottery, Poetry, and Prophecy:
+  Studies in Early Hebrew Poetry} (Winona Lake, IN: Eisenbrauns, 1980),
+  14.\footnote{Should be “1–22” (full page reference) as elsewhere?}
 
   \hangindent\bibindent Freedman, David Noel. “Pottery, Poetry, and Prophecy:
   An Essay on Biblical Poetry.” Pages 1–22 in \emph{Pottery, Poetry, and
@@ -1436,11 +1456,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  8. Howard M. Teeple, review of \emph{Introduction to the New Testament,} by
-  André Robert and André Feuillet, \emph{JBR} 34 (1966): 368–70.
+  \hspace*{\bibindent}8. Howard M. Teeple, review of \emph{Introduction to the
+  New Testament,} by André Robert and André Feuillet, \emph{JBR} 34 (1966):
+  368–70.
   
-  21. Teeple, review of \emph{Introduction to the New Testament} (by Robert
-  and Feuillet), 369.
+  \hspace*{\bibindent}21. Teeple, review of \emph{Introduction to the New
+  Testament} (by Robert and Feuillet), 369.
 
   \hangindent\bibindent Teeple, Howard M. Review of \emph{Introduction to the
   New Testament,} by André Robert and André Feuillet. \emph{JBR} 34 (1966):
@@ -1467,9 +1488,9 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  9. Jaroslav Pelikan, “The Things That You're Liable to Read in the Bible,”
-  review of \emph{The Anchor Bible Dictionary,} ed. David Noel Freedman.
-  \emph{New York Times Review of Books,} 20 December 1992, 3.
+  \hspace*{\bibindent}9. Jaroslav Pelikan, “The Things That You're Liable to
+  Read in the Bible,” review of \emph{The Anchor Bible Dictionary,} ed. David
+  Noel Freedman. \emph{New York Times Review of Books,} 20 December 1992, 3.
   
   \hangindent\bibindent Pelikan, Jaroslav. “The Things That You're Liable to
   Read in the Bible,” review of \emph{The Anchor Bible Dictionary,} ed. David
@@ -1497,10 +1518,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  7. David Petersen, “Hebrew Bible Textbooks: A Review Article,” \emph{CRBR} 1
-  (1988): 1–18.
+  \hspace*{\bibindent}7. David Petersen, “Hebrew Bible Textbooks: A Review
+  Article,” \emph{CRBR} 1 (1988): 1–18.
 
-  14. Petersen, “Hebrew Bible Textbooks,” 8.
+  \hspace*{\bibindent}14. Petersen, “Hebrew Bible Textbooks,” 8.
 
   \hangindent\bibindent Petersen, David. “Hebrew Bible Textbooks: A Review
   Article.” \emph{CRBR} 1 (1988): 1–18.
@@ -1527,10 +1548,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  21. Lee E. Klosinski, “Meals in Mark” (PhD diss., The Claremont Graduate
-  School, 1988), 22–44.
+  \hspace*{\bibindent}21. Lee E. Klosinski, “Meals in Mark” (PhD diss., The
+  Claremont Graduate School, 1988), 22–44.
 
-  26. Klosinski, “Meals in Mark,” 23.
+  \hspace*{\bibindent}26. Klosinski, “Meals in Mark,” 23.
 
   \hangindent\bibindent Klosinski, Lee. E. “Meals in Mark.” PhD diss., The
   Claremont Graduate School, 1988.
@@ -1574,10 +1595,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  33. Krister Stendahl, “Biblical Theology, Contemporary,” \emph{IDB}
-  1:418–32.
+  \hspace*{\bibindent}33. Krister Stendahl, “Biblical Theology, Contemporary,”
+  \emph{IDB} 1:418–32.
   
-  36. Stendahl, “Biblical Theology,” 1:419.
+  \hspace*{\bibindent}36. Stendahl, “Biblical Theology,” 1:419.
   
   Stendahl, Krister. “Biblical Theology, Contemporary.” \emph{IDB} 1:418–32.
 
@@ -1615,7 +1636,8 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  3. Karl Dahn and Walter L. Liefeld, “See, Vision, Eye,” \emph{NIDNTT} 3:511–21.
+  \hspace*{\bibindent}3. Karl Dahn and Walter L. Liefeld, “See, Vision, Eye,”
+  \emph{NIDNTT} 3:511–21.
 
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
   of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
@@ -1657,9 +1679,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  6. Hermann W. Beyer, “\gr{διακονέω, διακονία, κτλ},” \emph{TDNT} 2:81–93.
+  \hspace*{\bibindent}6. Hermann W. Beyer, “\gr{διακονέω, διακονία, κτλ},”
+  \emph{TDNT} 2:81–93.
 
-  25. Beyer, \emph{TDNT} 2:83.
+  \hspace*{\bibindent}25. Beyer, \emph{TDNT} 2:83.
 
   \hangindent\bibindent Kittel, Gerhard, and Gerhard Friedrich, eds.
   \emph{Theological Dictionary of the New Testament.} Translated by Geoffrey
@@ -1702,7 +1725,8 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  7. Ceslas Spicq, “\gr{ἀτακτέω, ἄτακτος, ἀτάκτως},” \emph{TLNT} 1:223–24.
+  \hspace*{\bibindent}7. Ceslas Spicq, “\gr{ἀτακτέω, ἄτακτος, ἀτάκτως},”
+  \emph{TLNT} 1:223–24.
 
   \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
   Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
@@ -1789,10 +1813,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  23. Hermann W. Beyer, “\gr{διακονέω},” \emph{TDNT} 2:81–87.
+  \hspace*{\bibindent}23. Hermann W. Beyer, “\gr{διακονέω},” \emph{TDNT}
+  2:81–87.
 
   \refbiblist{\emph{TDNT}}{\emph{Theological Dictionary of the New Testament.}
-    Edited by Gerhard Kittel and Gerhard Friedrich. Translated by Geoffrey W.
+  Edited by Gerhard Kittel and Gerhard Friedrich. Translated by Geoffrey W.
   Bromiley. 10 vols. Grand Rapids: Eerdmans, 1964–1976}
 \end{refimp}
 
@@ -1827,15 +1852,15 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  26. Karl Dahn, “\gr{ὁράω},” \emph{NIDNTT} 3:511–18.
+  \hspace*{\bibindent}26. Karl Dahn, “\gr{ὁράω},” \emph{NIDNTT} 3:511–18.
 
-  29. Dahn, \emph{NIDNTT} 3:511.
+  \hspace*{\bibindent}29. Dahn, \emph{NIDNTT} 3:511.
 
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
   of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
 
   \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
-    Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids:
+  Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids:
   Zondervan, 1975–1978}
 \end{refimp}
 
@@ -1866,11 +1891,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  31. Susan Niditch, “Oral Culture and Written Documents” (paper presented at
-  the Annual Meeting of the New England Region of the SBL, Worcester, MA, 25
-  March 1994), 13–17.
+  \hspace*{\bibindent}31. Susan Niditch, “Oral Culture and Written Documents”
+  (paper presented at the Annual Meeting of the New England Region of the SBL,
+  Worcester, MA, 25 March 1994), 13–17.
 
-  35. Niditch, “Oral Culture,” 14.
+  \hspace*{\bibindent}35. Niditch, “Oral Culture,” 14.
 
   \hangindent\bibindent Niditch, Susan. “Oral Culture and Written Documents.”
   Paper presented at the Annual Meeting of the New England Region of the SBL
@@ -1902,13 +1927,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  8.Anthony J. Saldarini, “Babatha’s Story,” \emph{BAR} 24.2 (1998): 28–33,
-  36–37, 72–74.
+  \hspace*{\bibindent}8.Anthony J. Saldarini, “Babatha’s Story,”
+  \emph{BAR}~24.2 (1998): 28–33, 36–37, 72–74.
 
-  27. Saldarini, “Babatha’s Story,” 28.
+  \hspace*{\bibindent}27. Saldarini, “Babatha’s Story,” 28.
 
- \hangindent\bibindent Saldarini, Anthony J. “Babatha’s Story.” \emph{BAR}
- 24.2 (1998): 28–33, 36–37, 72–74.
+ \hangindent\bibindent Saldarini, Anthony J. “Babatha’s Story.”
+ \emph{BAR}~24.2 (1998): 28–33, 36–37, 72–74.
 
  \refbiblist{\emph{BAR}}{\emph{Biblical Archaeology Review}}
 \end{refimp}
@@ -1936,14 +1961,14 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  43. Carl P. E. Springer, “Of Roosters and \emph{Repetitio}: Ambrose’s
-  \emph{Aeterne rerum conditor},” \emph{VC} 68 (2014): 155–77,
-  \nolinkurl{doi:10.1163/15700720-12341158}.
+  \hspace*{\bibindent}43. Carl P. E. Springer, “Of Roosters and
+  \emph{Repetitio}: Ambrose’s \emph{Aeterne rerum conditor},” \emph{VC}~68
+  (2014): 155–77, \nolinkurl{doi:10.1163/15700720-12341158}.
 
-  45. Springer, “Of Roosters and \emph{Repetitio},” 158.
+  \hspace*{\bibindent}45. Springer, “Of Roosters and \emph{Repetitio},” 158.
 
   \hangindent\bibindent Springer, Carl P. E. “Of Roosters and
-  \emph{Repetitio}: Ambrose’s \emph{Aeterne rerum conditor}.” \emph{VC} 68
+  \emph{Repetitio}: Ambrose’s \emph{Aeterne rerum conditor}.” \emph{VC}~68
   (2014): 155–77. \nolinkurl{doi:10.1163/15700720-12341158}.
 
   \refbiblist{\emph{VC}}{\emph{Vigiliae Christianae}}
@@ -1969,11 +1994,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  8. Charles Truehart, “Welcome to the Next Church,” \emph{Atlantic Monthly}
-  278 (August 1996): 37–58,
+  \hspace*{\bibindent}8. Charles Truehart, “Welcome to the Next Church,”
+  \emph{Atlantic Monthly} 278 (August 1996): 37–58,
   \nolinkurl{http://www.theatlantic.com/past/docs/issues/96aug/nxtchrch/nxtchrch.htm}.
 
-  12. Truehart, “Next Church,” 37.
+  \hspace*{\bibindent}12. Truehart, “Next Church,” 37.
  
   \sloppy\hangindent\bibindent Truehart, Charles. “Welcome to the Next Church.”
   \emph{Atlantic Monthly} 278 (August 1996): 37–58.
@@ -2003,15 +2028,16 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  31. Alan Kirk, “Karl Polanyi, Marshall Sahlins, and the Study of Ancient Social
-  Relations,” \emph{JBL} 126 (2007): 182–91, \nolinkurl{doi:10.2307/27638428},
+  \hspace*{\bibindent}31. Alan Kirk, “Karl Polanyi, Marshall Sahlins, and the
+  Study of Ancient Social Relations,” \emph{JBL}~126 (2007): 182–91,
+  \nolinkurl{doi:10.2307/27638428},
   \nolinkurl{http://www.jstor.org/stable/27638428}.
 
-  35. Kirk, “Karl Polanyi,” 186.
+  \hspace*{\bibindent}35. Kirk, “Karl Polanyi,” 186.
 
   \hangindent\bibindent Alan Kirk.\footnote{Should be “Kirk, Alan.”?} “Karl
   Polanyi, Marshall Sahlins, and the Study of Ancient Social Relations,”
-  \emph{JBL} 126 (2007): 182–91. \nolinkurl{doi:10.2307/27638428}.
+  \emph{JBL}~126 (2007): 182–91. \nolinkurl{doi:10.2307/27638428}.
   \nolinkurl{http://www.jstor.org/stable/27638428}.
 
   \refbiblist{\emph{JBL}}{\emph{Journal of Biblical Literature}}
@@ -2070,10 +2096,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  7. “The Great Hymn to the Aten,” trans. Miriam Lichtheim (\emph{COS}
-  1.26:44–46).
+  \hspace*{\bibindent}7. “The Great Hymn to the Aten,” trans. Miriam Lichtheim
+  (\emph{COS} 1.26:44–46).
 
-  11. “Great Hymn to the Aten,” \emph{COS} 1.26:44–46.
+  \hspace*{\bibindent}11. “Great Hymn to the Aten,” \emph{COS} 1.26:44–46.
 
   \hangindent\bibindent Hallo, William W., ed. \emph{Canonical Compositions
   from the Biblical World.} Vol.~1 of \emph{The Context of Scripture.} Leiden:
@@ -2111,15 +2137,15 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  16. “Suppiluliumas and the Egyptian Queen,” trans. Albrecht Goetze
-  (\emph{ANET,} 319).
+  \hspace*{\bibindent}16. “Suppiluliumas and the Egyptian Queen,” trans.
+  Albrecht Goetze (\emph{ANET,} 319).
 
   \hangindent\bibindent Pritchard, James B., ed. \emph{Ancient Near Eastern
-  Texts Relating to the Old Testament.} 3rd ed. Princeton: Princeton
+  Texts Relating to the Old Testament.} 3rd~ed. Princeton: Princeton
   University Press, 1969.
 
   \refbiblist{\emph{ANET}}{\emph{Ancient Near Eastern Texts Relating to the
-    Old Testament.} Edited by James B. Pritchard. 3rd ed. Princeton: Princeton
+  Old Testament.} Edited by James B. Pritchard. 3rd~ed. Princeton: Princeton
   University Press, 1969}
 \end{refimp}
 
@@ -2147,8 +2173,8 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. “Erra and Ishum” (Stephanie Dalley, \emph{Myths from Mesopotamia}
-  [Oxford: Oxford University Press, 1991], 282–315).
+  \hspace*{\bibindent}5. “Erra and Ishum” (Stephanie Dalley, \emph{Myths from
+  Mesopotamia} [Oxford: Oxford University Press, 1991], 282–315).
   
   \hangindent\bibindent Dalley, Stephanie. \emph{Myths from Mesopotamia.}
   Oxford: Oxford University Press, 1991.
@@ -2180,8 +2206,9 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. “Erra and Ishum” (Benjamin Foster, \emph{Before the Muses: An Anthology
-  of Akkadian Literature} [Bethesda, MD: CDL, 1993], 1:771–805).
+  \hspace*{\bibindent}5. “Erra and Ishum” (Benjamin Foster, \emph{Before the
+  Muses: An Anthology of Akkadian Literature} [Bethesda, MD: CDL, 1993],
+  1:771–805).
   
   \hangindent\bibindent Foster, Benjamin. \emph{Before the Muses: An Anthology of
   Akkadian Literature.} Vol.~1. Bethesda, MD: CDL, 1993.
@@ -2230,11 +2257,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  34. “The Doomed Prince” (Miriam Lichtheim, \emph{Ancient Egyptian
-  Literature} [Berkeley: University of California Press, 1976],
+  \hspace*{\bibindent}34. “The Doomed Prince” (Miriam Lichtheim, \emph{Ancient
+  Egyptian Literature} [Berkeley: University of California Press, 1976],
   2:200–203).\footnote{Should be “200–3”?}
   
-  36. “The Doomed Prince” (\emph{AEL} 2:200–203).\footnote{Should be “200–3”?}
+  \hspace*{\bibindent}36. “The Doomed Prince” (\emph{AEL}
+  2:200–203).\footnote{Should be “200–3”?}
   
   \hangindent \bibindent Lichtheim, Miriam. \emph{Ancient Egyptian
   Literature.} Vol~2. Berkeley: University of California Press, 1976.
@@ -2271,13 +2299,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  12. “The Disappearance of the Sun God,” §3 (A I 11–17) (Harry A. Hoffner
-  Jr., \emph{Hittite Myths} [ed. Gary M. Beckman; WAW 2;\footnote{Editor,
-  series, and number should be outside of parentheses?} Atlanta: Scholars
-  Press, 1990], 26).
+  \hspace*{\bibindent}12. “The Disappearance of the Sun God,” §3 (A I 11–17)
+  (Harry A. Hoffner Jr., \emph{Hittite Myths} [ed. Gary M. Beckman;
+  WAW~2;\footnote{Editor, series, and number should be outside of
+  parentheses?} Atlanta: Scholars Press, 1990], 26).
   
   \hangindent\bibindent Hoffner, Harry A., Jr. \emph{Hittite Myths.} Edited by
-  Gary M. Beckman. WAW 2. Atlanta: Scholars Press, 1990.
+  Gary M. Beckman. WAW~2. Atlanta: Scholars Press, 1990.
 
   \refbiblist{WAW}{Writings from the Ancient World}
 \end{refimp}
@@ -2319,14 +2347,15 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  32. Ashur Inscription, obv.\ lines 10–17 (Albert Kirk Grayson,
-  \emph{Assyrian Rulers of the Early First Millennium BC [1114–859 BC],} RIMA
-  2 [Toronto: University of Toronto Press, 1991], 143–44).
+  \hspace*{\bibindent}32. Ashur Inscription, obv.\ lines 10–17 (Albert Kirk
+  Grayson, \emph{Assyrian Rulers of the Early First Millennium BC [1114–859
+  BC],} RIMA~2 [Toronto: University of Toronto Press, 1991], 143–44).
 
-  34. Ashur Inscription, obv.\ lines 10–17 (RIMA 2:143–44).
+  \hspace*{\bibindent}34. Ashur Inscription, obv.\ lines 10–17 (RIMA
+  2:143–44).
 
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian Rulers of the
-  Early First Millennium BC (1114–859 BC).} RIMA 2. Toronto: University of
+  Early First Millennium BC (1114–859 BC).} RIMA~2. Toronto: University of
   Toronto Press, 1991.
 
   \refbiblist{RIMA}{The Royal Inscriptions of Mesopotamia, Assyrian Periods}
@@ -2365,16 +2394,17 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  33. Esarhaddon Chronicle, lines 3–4 (Albert Kirk Grayson, \emph{Assyrian and
-  Babylonian Chronicles,} TCS [Locust Valley, NY: Augustin, 1975], 125).
+  \hspace*{\bibindent}33. Esarhaddon Chronicle, lines 3–4 (Albert Kirk
+  Grayson, \emph{Assyrian and Babylonian Chronicles,} TCS [Locust Valley, NY:
+  Augustin, 1975], 125).
 
-  33. Esarhaddon Chronicle, lines 3–4 (\emph{ABC,} 125).
+  \hspace*{\bibindent}33. Esarhaddon Chronicle, lines 3–4 (\emph{ABC,} 125).
 
   \hangindent\bibindent Grayson, Albert Kirk. \emph{Assyrian and Babylonian
   Chronicles.} TCS. Locust Valley, NY: Augustin, 1975.
 
   \refbiblist{\emph{ABC}}{\emph{Assyrian and Babylonian Chronicles.} Albert K.
-  Grayson. TCS 5. Locust Valley, NY: Augustin, 1975}
+  Grayson. TCS~5. Locust Valley, NY: Augustin, 1975}
 
   \refbiblist{TCS}{Texts from Cuneiform Sources}
 \end{refimp}
@@ -2404,9 +2434,9 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  45. ARM 1.3.
+  \hspace*{\bibindent}45. ARM 1.3.
 
-  \hangindent\bibindent Dossin, Georges. \emph{Lettres.} ARM 1. 1946. Repr.,
+  \hangindent\bibindent Dossin, Georges. \emph{Lettres.} ARM~1. 1946. Repr.,
   Paris: Geuthner, 1967.
 
   \refbiblist{ARM}{Archives royales de Mari}
@@ -2436,10 +2466,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  45. ARMT 1.3.
+  \hspace*{\bibindent}45. ARMT 1.3.
 
   \hangindent\bibindent Georges Dossin,\footnote{Should be “Dossin,
-  Georges.”?} \emph{Correspondance de Šamši-Addu et de ses fils.} ARMT 1.
+  Georges.”?} \emph{Correspondance de Šamši-Addu et de ses fils.} ARMT~1.
   Paris: Imprimerei nationale, 1950.
 
   \refbiblist{ARMT}{Archives royales de Mari, transcrite et traduite}
@@ -2476,10 +2506,10 @@ Than the Author}
 \begin{refimp}
   (Josephus, \emph{Ant.} 2.233–235)
 
-  1. Josephus, \emph{Ant.}\ 2.233–235.
+  \hspace*{\bibindent}1. Josephus, \emph{Ant.}\ 2.233–235.
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+  et al. 10~vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
@@ -2513,7 +2543,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  4. Tacitus, \emph{Ann.}\ 15.18–19
+  \hspace*{\bibindent}4. Tacitus, \emph{Ann.}\ 15.18–19
 
   \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
   Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
@@ -2556,10 +2586,10 @@ Than the Author}
 \begin{refimp}
   (Josephus, \emph{Ant.}\ 2.233–235 [Thackeray, LCL])
 
-  5. Josephus, \emph{Ant.}\ 2.233–235 (Thackeray, LCL).
+  \hspace*{\bibindent}5. Josephus, \emph{Ant.}\ 2.233–235 (Thackeray, LCL).
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+  et al. 10~vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
@@ -2596,7 +2626,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  6. Tacitus, \emph{Ann.}\ 15.18–19 (Jackson, LCL).
+  \hspace*{\bibindent}6. Tacitus, \emph{Ann.}\ 15.18–19 (Jackson, LCL).
 
   \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
   Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
@@ -2641,9 +2671,9 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  14. Flavius Josephus, \emph{The Jewish Antiquities, Books 1–19,} trans.\
-  Henry St.\ J. Thackeray et al., LCL (Cambridge: Harvard University Press,
-  1930–1965).
+  \hspace*{\bibindent}14. Flavius Josephus, \emph{The Jewish Antiquities,
+  Books 1–19,} trans.\ Henry St.\ J. Thackeray et al., LCL (Cambridge: Harvard
+  University Press, 1930–1965).
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St.\ J. Thackeray
   et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
@@ -2674,7 +2704,7 @@ Than the Author}
 \begin{refimp}
   (P.Cair.Zen.\ 59003)
 
-  22. P.Cair.Zen.\ 59003.
+  \hspace*{\bibindent}22. P.Cair.Zen.\ 59003.
 \end{refimp}
 
 \medskip
@@ -2710,10 +2740,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  22. P.Cair.Zen.\ 59003 (Arthur S. Hunt and Campbell C. Edgar, \emph{Select
-  Papyri,} LCL [Cambridge: Harvard University Press, 1932], 1:96).
+  \hspace*{\bibindent}22. P.Cair.Zen.\ 59003 (Arthur S. Hunt and Campbell C.
+  Edgar, \emph{Select Papyri,} LCL [Cambridge: Harvard University Press,
+  1932], 1:96).
 
-  22. P.Cair.Zen. 59003 (Hunt and Edgar §31).
+  \hspace*{\bibindent}22. P.Cair.Zen. 59003 (Hunt and Edgar §31).
 
   \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
@@ -2745,7 +2776,7 @@ Than the Author}
 \begin{refimp}
   (\emph{PGM} III. 1–164)
 
-  22. \emph{PGM} III. 1–164.
+  \hspace*{\bibindent}22. \emph{PGM} III. 1–164.
 
   \refbiblist{\emph{PGM}}{\emph{Papyri Graecae Magicae: Die griechischen
     Zauberpapyri.} Edited by Karl Preisendanz. 2nd ed. Stuttgart: Teubner,
@@ -2786,7 +2817,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  22. \emph{PGM} III. 1–164 (Betz).
+  \hspace*{\bibindent}22. \emph{PGM} III. 1–164 (Betz).
 
   \hangindent\bibindent Betz, Hans Dieter. \emph{The Greek Magical Papyri in
   Translation, Including the Demotic Spells.} 2nd ed. Chicago: University of
@@ -2814,7 +2845,7 @@ Than the Author}
 \begin{refimp}
   (Heraclitus, \emph{Epistle 1,} 10)
 
-  34. Heraclitus, \emph{Epistle 1,} 10.
+  \hspace*{\bibindent}34. Heraclitus, \emph{Epistle 1,} 10.
 \end{refimp}
 
 \begin{lstlisting}
@@ -2856,17 +2887,19 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  36. Heraclitus, \emph{Epistle 1,} 10 (Worley).
+  \hspace*{\bibindent}36. Heraclitus, \emph{Epistle 1,} 10 (Worley).
 
   \hangindent\bibindent Heraclitus. \emph{Epistle 1.} Translated by David
   Worley. Page 187 in \emph{The Cynic Epistles: A Study Edition.} Edited by
-  Abraham J. Malherbe. SBS 12. Atlanta: Scholars Press, 1977.
+  Abraham J. Malherbe. SBS~12. Atlanta: Scholars Press, 1977.
 
   \hangindent\bibindent Malherbe, Abraham J., ed. \emph{The Cynic Epistles: A
-  Study Edition.} SBS 12. Atlanta: Scholars Press, 1977.
+  Study Edition.} SBS~12. Atlanta: Scholars Press, 1977.
 
   \refbiblist{SBS}{Stuttgarter Bibelstudien}
 \end{refimp}
+
+\break
 
 \subsubsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
 
@@ -2905,7 +2938,8 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  14. \emph{The Clementine Homilies} 1.3 (\emph{ANF} 8:223).
+  \hspace*{\bibindent}14. \emph{The Clementine Homilies} 1.3 (\emph{ANF}
+  8:223).
 
   \hangindent\bibindent \emph{The Ante-Nicene Fathers.} Edited by Alexander
   Roberts and James Donaldson. 1885–1887. 10 vols.\footnote{Should be “10
@@ -2956,11 +2990,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  44. Augustine, \emph{Letters of St.\ Augustin} 28.3.5
+  \hspace*{\bibindent}44. Augustine, \emph{Letters of St.\ Augustin} 28.3.5
   (\emph{NPNF\textsuperscript{1}} 1:252).
   
   \hangindent\bibindent Augustine. \emph{The Letters of St.\ Augustin.} In
-  vol.~1 of \emph{The Nicene and Post-Nicene Fathers,} Series 1. Edited by
+  vol.~1 of \emph{The Nicene and Post-Nicene Fathers,} Series~1. Edited by
   Philip Schaff. 1886–1889. 14 vols.\footnote{Should be “14 vols.\
   1886–1889.”?} Repr., Peabody, MA: Hendrickson, 1994.
 
@@ -3011,7 +3045,8 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  6. Gregory of Nazianzus, \emph{Orationes theologicae} 4 (PG 36:12c).
+  \hspace*{\bibindent}6. Gregory of Nazianzus, \emph{Orationes theologicae} 4
+  (PG 36:12c).
 
   \hangindent\bibindent Patrologia Latina. Edited by J.-P. Migne. 217 vols.
   Paris, 1844–1864.
@@ -3049,7 +3084,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  3. See the discussion of \gr{ἐκρατοῦντο} in Str-B 2:271.
+  \hspace*{\bibindent}3. See the discussion of \gr{ἐκρατοῦντο} in Str-B 2:271.
 
   \hangindent\bibindent Strack, Hermann L., and Paul Billerbeck.
   \emph{Kommentar zum Neuen Testament aus Talmud und Midrasch.} 6 vols.
@@ -3098,10 +3133,12 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  76. Graham Anderson, “The \emph{pepaideumenos} in Action: Sophists and Their
-  Outlook in the Early Empire,” \emph{ANRW} 33.1:80–208.
+  \hspace*{\bibindent}76. Graham Anderson, “The \emph{pepaideumenos} in
+  Action: Sophists and Their Outlook in the Early Empire,” \emph{ANRW}
+  33.1:80–208.
 
-  79. Anderson, “\emph{Pepaideumenos,}” \emph{ANRW} 33.1:86.
+  \hspace*{\bibindent}79. Anderson, “\emph{Pepaideumenos,}” \emph{ANRW}
+  33.1:86.
 
   \hangindent\bibindent Anderson, Graham. “The \emph{pepaideumenos} in Action:
   Sophists and Their Outlook in the Early Empire.” \emph{ANRW} 33.1:80–208.
@@ -3141,11 +3178,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  8. Morna Hooker, \emph{The Gospel according to Saint Mark,} BNTC 2 (Peabody,
-  MA: Hendrickson, 1991), 223.
+  \hspace*{\bibindent}8. Morna Hooker, \emph{The Gospel according to Saint
+  Mark,} BNTC~2 (Peabody, MA: Hendrickson, 1991), 223.
 
   \hangindent\bibindent Hooker, Morna. \emph{The Gospel according to Saint
-  Mark.} BNTC 2. Peabody, MA: Hendrickson, 1991.
+  Mark.} BNTC~2. Peabody, MA: Hendrickson, 1991.
 
   \refbiblist{BNTC}{Black’s New Testament Commentaries}
 \end{refimp}
@@ -3173,13 +3210,13 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  3. David L. Petersen, “Ezekiel,” in \emph{The HarperCollins Study Bible
-  Fully Revised and Updated: New Revised Standard Version, with the
-  Apocryphal\slash Deuterocanonical Books,} ed.\ Harold W. Attridge et al.
-  (San Francisco: HarperSanFrancisco, 2006), 1096.\footnote{Should be
-  “1096–167.”?}
+  \hspace*{\bibindent}3. David L. Petersen, “Ezekiel,” in \emph{The
+  HarperCollins Study Bible Fully Revised and Updated: New Revised Standard
+  Version, with the Apocryphal\slash Deuterocanonical Books,} ed.\ Harold W.
+  Attridge et al. (San Francisco: HarperSanFrancisco, 2006),
+  1096.\footnote{Should be “1096–167.”?}
 
-  5. Petersen, “Ezekiel,” 1096.
+  \hspace*{\bibindent}5. Petersen, “Ezekiel,” 1096.
 
   \hangindent\bibindent Petersen, David L. “Ezekiel.” Pages
   1096–1167\footnote{Should be “1096–167”} in \emph{The HarperCollins Study
@@ -3210,11 +3247,11 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  5. Jack G. Partain, “Numbers,” in \emph{Mercer Commentary on the Bible,}
-  ed.\ Watson E. Mills et al. (Macon, GA: Mercer University Press, 1995),
-  175–79.
+  \hspace*{\bibindent}5. Jack G. Partain, “Numbers,” in \emph{Mercer
+  Commentary on the Bible,} ed.\ Watson E. Mills et al. (Macon, GA: Mercer
+  University Press, 1995), 175–79.
 
-  8. Partain, “Numbers,” 175.
+  \hspace*{\bibindent}8. Partain, “Numbers,” 175.
 
   \hangindent\bibindent Partain, Jack G. “Numbers.” Pages 175–79 in
   \emph{Mercer Commentary on the Bible.} Edited by Watson E. Mills et al.
@@ -3247,10 +3284,10 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  4. Mitchell Dahood, \emph{Psalms,} 3 vols., AB 16–17A (Garden City,
-  N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970), 3:127.
+  \hspace*{\bibindent}4. Mitchell Dahood, \emph{Psalms,} 3 vols., AB 16–17A
+  (Garden City, N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970), 3:127.
 
-  7. Dahood, \emph{Psalms,} 2:121.
+  \hspace*{\bibindent}7. Dahood, \emph{Psalms,} 2:121.
 
   \hangindent\bibindent Dahood, Mitchell. \emph{Psalms.} 3 vols. AB 16–17A.
   Garden City, N.Y.:\footnote{Should be “NY:”?} Doubleday, 1965–1970.
@@ -3302,21 +3339,21 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  78. Mitchell Dahood, \emph{Psalms I: 1–50,} AB 16 (Garden City, NY:
-  Doubleday, 1965), 44.
+  \hspace*{\bibindent}78. Mitchell Dahood, \emph{Psalms I: 1–50,} AB 16
+  (Garden City, NY: Doubleday, 1965), 44.
 
-  79. Dahood, \emph{Psalms I: 1–50,} 78.
+  \hspace*{\bibindent}79. Dahood, \emph{Psalms I: 1–50,} 78.
 
-  82. Mitchell Dahood, \emph{Psalms II: 51–100,} AB 17 (Garden City, NY:
-  Doubleday, 1968), 347.
+  \hspace*{\bibindent}82. Mitchell Dahood, \emph{Psalms II: 51–100,} AB 17
+  (Garden City, NY: Doubleday, 1968), 347.
 
-  86. Dahood, \emph{Psalms II: 51–100,} 351.
+  \hspace*{\bibindent}86. Dahood, \emph{Psalms II: 51–100,} 351.
 
   \hangindent\bibindent Dahood, Mitchell. \emph{Psalms I: 1–50.} Vol.~1 of
-  \emph{Psalms.} AB 16. Garden City, NY: Doubleday, 1965.
+  \emph{Psalms.} AB~16. Garden City, NY: Doubleday, 1965.
 
   \hangindent\bibindent\bibnamedash \emph{Psalms II: 51–100.} Vol.~2 of
-  \emph{Psalms.} AB 17. Garden City, N.Y.:\footnote{Should be “NY:”?}
+  \emph{Psalms.} AB~17. Garden City, N.Y.:\footnote{Should be “NY:”?}
   Doubleday, 1968.
 
   \refbiblist{AB}{Anchor Bible}
@@ -3360,7 +3397,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  1. Patrick D. Miller, \emph{NIB} 6:577.
+  \hspace*{\bibindent}1. Patrick D. Miller, \emph{NIB} 6:577.
 
   \hangindent\bibindent Miller, Patrick D. “The Book of Jeremiah:
   Introduction, Commentary, and Reflections.” Pages 553–926 in
@@ -3400,13 +3437,14 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  33. James L. Crenshaw, “Theodicy in the Book of the Twelve,” \emph{Society
-  of Biblical Literature 2001 Seminar Papers,} SBLSPS\footnote{Should be
-  “SBLSP”?} 40 (Atlanta: Society of Biblical Literature, 2001), 1–18.
+  \hspace*{\bibindent}33. James L. Crenshaw, “Theodicy in the Book of the
+  Twelve,” \emph{Society of Biblical Literature 2001 Seminar Papers,}
+  SBLSPS\footnote{Should be “SBLSP”?}~40 (Atlanta: Society of Biblical
+  Literature, 2001), 1–18.
   
   \hangindent\bibindent Crenshaw, James L. “Theodicy in the Book of the
   Twelve.” Pages 1–18 in \emph{Society of Biblical Literature 2001 Seminar
-  Papers.} SBLSPS\textsuperscript{\emph{a}} 40. Atlanta: Society of Biblical
+  Papers.} SBLSPS\textsuperscript{\emph{a}}~40. Atlanta: Society of Biblical
   Literature, 2001.
 
   \refbiblist{SBLSP}{Society of Biblical Literature Seminar Papers}
@@ -3438,11 +3476,11 @@ necessary to indicate the medium in the citation.
 \end{biboutput}
 
 \begin{refimp}
-  2. Gernot Wilhelm, ed., “Der Vertrag Šuppiluliumas I. von Ḫatti mit
-  Šattiwazza von Mitrani (CTH 51.I),” released 24 February 2013,
+  \hspace*{\bibindent}2. Gernot Wilhelm, ed., “Der Vertrag Šuppiluliumas I.
+  von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I),” released 24 February 2013,
   doi:hethiter.net/: CTH 51.I (INTR 2013-02-24).
 
-  4. Wilhelm, “Der Vertrag Šuppiluliumas I.”
+  \hspace*{\bibindent}4. Wilhelm, “Der Vertrag Šuppiluliumas I.”
 
   \hangindent\bibindent Gernot Wilhelm, ed. “Der Vertrag Šuppiluliumas I. von
   Ḫatti mit Šattiwazza von Mitrani (CTH 51.I).”\footnote{Should this include
@@ -3467,8 +3505,8 @@ necessary to indicate the medium in the citation.
 \end{biboutput}
 
 \begin{refimp}
-  37. Cobb Institute of Archaeology. “The Figurines of Maresha, the Persian
-  Era,” DigMaster,
+  \hspace*{\bibindent}37. Cobb Institute of Archaeology. “The Figurines of
+  Maresha, the Persian Era,” DigMaster,
   \nolinkurl{http://www.cobb.msstate.edu/dignew/Maresha/index.html}.
 
   \hangindent\bibindent Cobb Institute of Archaeology. “The Figurines of
@@ -3492,7 +3530,8 @@ necessary to indicate the medium in the citation.
 \end{biboutput}
 
 \begin{refimp}
-  10. “The One Hundred Most Important Cuneiform Objects,” cdli:wiki,
+  \hspace*{\bibindent}10. “The One Hundred Most Important Cuneiform Objects,”
+  cdli:wiki,
   \nolinkurl{http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects}.
 
   \hangindent\bibindent “The One Hundred Most Important Cuneiform Objects.”
@@ -3585,6 +3624,8 @@ necessary to indicate the medium in the citation.
     \emph{A Greek Grammar of the New Testament and Other Early Christian
   Literature.} Chicago: University of Chicago Press, 1961}
 \end{refimp}
+
+\break
 
 \subsection{\emph{HALOT,} \emph{TLOT}}
 
