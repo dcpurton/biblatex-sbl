@@ -148,7 +148,7 @@
 
 \newtoggle{fullbibrefs}
 
-\DeclareBibliographyOption{fullbibrefs}[false]{%
+\DeclareBibliographyOption{fullbibrefs}[true]{%
   \ifstrequal{#1}{true}
     {\toggletrue{fullbibrefs}}
     {\togglefalse{fullbibrefs}}}
@@ -181,12 +181,13 @@
 % ------------------------------------------------------------------
 
 % footnote style
+\let\orig@makefntext\@makefntext
 \DeclareBibliographyOption{sblfootnotes}[true]{%
   \ifstrequal{#1}{true}
     {\renewcommand\@makefntext[1]{% 
        \parindent 1em% 
        \@thefnmark.~##1}}
-    {}}
+    {\let\@makefntext\orig@makefntext}}
 
 \protected\def\blx@imc@printreleasedate{}
 \blx@regimcs{\printreleasedate}
@@ -210,7 +211,7 @@
   maxcitenames=3,
   citepages=sbl,
   fullbibrefs=false,
-  sblfootnotes=true
+  sblfootnotes
 }
 
 \urlstyle{same}
