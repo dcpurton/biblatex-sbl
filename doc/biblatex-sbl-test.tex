@@ -2,6 +2,7 @@
 
 \PassOptionsToPackage{obeyspaces}{url}
 
+\usepackage{microtype}
 \usepackage{fontspec}
 \usepackage{xparse}
 \usepackage{xcolor}
@@ -12,9 +13,12 @@
 \usepackage[style=sbl,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
-\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
-\setromanfont[Ligatures=TeX]{Linux Libertine O}
-\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\setromanfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}[
+  BoldItalicFont={* Bold},
+  BoldItalicFeatures={FakeSlant=0.2}
+]
 
 \newcommand{\gr}[1]{{\greekfont #1}}
 
@@ -42,6 +46,10 @@
 \setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
 
 \setlength{\parskip}{1ex plus 0.5ex minus 0.25ex}
+
+\makeatletter
+\patchcmd{\lst@Init}{\par\penalty -50\relax}{\relax}
+\makeatother
 
 \hyphenation{nash-ville}
 
@@ -445,8 +453,6 @@
   Robertson Smith. Edinburgh: Black, 1885. Translation of \emph{Prolegomena
   zur Geschichte Israels.} 2nd ed. Berlin: Reimer, 1883.
 \end{refimp}
-
-\break
 
 \subsubsection{A Book with One Editor}
 
@@ -1640,10 +1646,10 @@ Than the Author}
   \emph{NIDNTT} 3:511–21.
 
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
-  of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
+  of New Testament Theology.} 4 vols. Grand Rapids: Zondervan, 1975–1985.
 
   \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
-  Testament Theology.} Edited by Colin Brown. 4~vols. Grand Rapids: Zondervan,
+  Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids: Zondervan,
   1975-1985}
 \end{refimp}
 
@@ -1686,7 +1692,7 @@ Than the Author}
 
   \hangindent\bibindent Kittel, Gerhard, and Gerhard Friedrich, eds.
   \emph{Theological Dictionary of the New Testament.} Translated by Geoffrey
-  W. Bromiley. 10~vols. Grand Rapids: Eerdmans, 1964–1976.
+  W. Bromiley. 10 vols. Grand Rapids: Eerdmans, 1964–1976.
 
   \refbiblist{\emph{TDNT}}{\emph{Theological Dictionary of the New Testament.}
     Edited by Gerhard Kittel and Gerhard Friedrich. Translated by Geoffrey W.
@@ -1729,11 +1735,11 @@ Than the Author}
   \emph{TLNT} 1:223–24.
 
   \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
-  Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
+  Testament.} Translated and edited by James D. Ernest. 3 vols. Peabody, MA:
   Hendrickson, 1994.
 
   \refbiblist{\emph{TLNT}}{\emph{Theological Lexicon of the New Testament.}
-    Ceslas Spicq. Translated and edited by James D. Ernest. 3~vols. Peabody,
+    Ceslas Spicq. Translated and edited by James D. Ernest. 3 vols. Peabody,
   MA: Hendrickson, 1994}
 \end{refimp}
 
@@ -1775,11 +1781,11 @@ Than the Author}
   147. Spicq, \emph{TLNT} 1:95.
 
   \hangindent\bibindent Spicq, Ceslas. \emph{Theological Lexicon of the New
-  Testament.} Translated and edited by James D. Ernest. 3~vols. Peabody, MA:
+  Testament.} Translated and edited by James D. Ernest. 3 vols. Peabody, MA:
   Hendrickson, 1994.
 
   \refbiblist{\emph{TLNT}}{\emph{Theological Lexicon of the New Testament.}
-    Ceslas Spicq. Translated and edited by James D. Ernest. 3~vols. Peabody,
+    Ceslas Spicq. Translated and edited by James D. Ernest. 3 vols. Peabody,
   MA: Hendrickson, 1994}
 \end{refimp}
 
@@ -1857,7 +1863,7 @@ Than the Author}
   \hspace*{\bibindent}29. Dahn, \emph{NIDNTT} 3:511.
 
   \hangindent\bibindent Brown, Colin, ed. \emph{New International Dictionary
-  of New Testament Theology.} 4~vols. Grand Rapids: Zondervan, 1975–1985.
+  of New Testament Theology.} 4 vols. Grand Rapids: Zondervan, 1975–1985.
 
   \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
   Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids:
@@ -2047,7 +2053,7 @@ Than the Author}
 
 \subsubsection{Texts from the Ancient Near East}
 
-\paragraph{Citing \emph{COS}}
+\paragraph{Citing \textsl{COS}}
 
 \begin{lstlisting}
 @mvcollection{COS,
@@ -2268,7 +2274,7 @@ Than the Author}
   Literature.} Vol~2. Berkeley: University of California Press, 1976.
 
   \refbiblist{\emph{AEL}}{\emph{Ancient Egyptian Literature.} Miriam
-  Lichtheim. 3~vols. Berkeley: University of California Press, 1971–1980}
+  Lichtheim. 3 vols. Berkeley: University of California Press, 1971–1980}
 \end{refimp}
 
 \medskip
@@ -2509,7 +2515,7 @@ Than the Author}
   \hspace*{\bibindent}1. Josephus, \emph{Ant.}\ 2.233–235.
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10~vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
@@ -2589,7 +2595,7 @@ Than the Author}
   \hspace*{\bibindent}5. Josephus, \emph{Ant.}\ 2.233–235 (Thackeray, LCL).
 
   \hangindent\bibindent \emph{Josephus.} Translated by Henry St. J. Thackeray
-  et al. 10~vols. LCL. Cambridge: Harvard University Press, 1926–1965.
+  et al. 10 vols. LCL. Cambridge: Harvard University Press, 1926–1965.
 
   \refbiblist{LCL}{Loeb Classical Library}
 \end{refimp}
@@ -2898,8 +2904,6 @@ Than the Author}
 
   \refbiblist{SBS}{Stuttgarter Bibelstudien}
 \end{refimp}
-
-\break
 
 \subsubsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
 
@@ -3410,7 +3414,7 @@ Than the Author}
   Introduction, Commentary, and Reflections.” \emph{NIB} 6:553–926.
 
   \refbiblist{\emph{NIB}}{\emph{The New Interpreter’s Bible.} Edited by
-  Leander E. Keck. 12~vols. Nashville: Abingdon, 1994–2004}
+  Leander E. Keck. 12 vols. Nashville: Abingdon, 1994–2004}
 \end{refimp}
 
 \subsubsection{SBL Seminar Papers}
@@ -3625,9 +3629,7 @@ necessary to indicate the medium in the citation.
   Literature.} Chicago: University of Chicago Press, 1961}
 \end{refimp}
 
-\break
-
-\subsection{\emph{HALOT,} \emph{TLOT}}
+\subsection{\emph{HALOT, TLOT}}
 
 \begin{lstlisting}
 @mvlexicon{HALOT,
@@ -3684,7 +3686,7 @@ necessary to indicate the medium in the citation.
 \begin{refimp}
   \refbiblist{\emph{TLOT}}{\emph{Theological Lexicon of the Old Testament.}
     Edited by Ernst Jenni, with assistance from Claus Westermann. Translated
-  by Mark E. Biddle. 3~vols. Peabody, MA: Hendrickson, 1997}
+  by Mark E. Biddle. 3 vols. Peabody, MA: Hendrickson, 1997}
 \end{refimp}
 
 \subsection{\emph{SBLHS}}
