@@ -249,13 +249,7 @@
     {\usebibmacro{ancienttext+volume+pages}%
      \usebibmacro{classic:translator+series}%
      \global\booltrue{suppresspostnote}}
-    {\ifboolexpr{
-       test {\iffieldequalstr{entrysubtype}{churchfather}}
-       or
-       test {\iffieldequalstr{entrysubtype}{patrologia}}
-     }
-        {\setunit{\addspace}}
-        {}%
+    {\setunit{\addspace}%
      \printfield{altpostnote}%
      \setunit{\addspace}%
      \printtext[parens]{%
