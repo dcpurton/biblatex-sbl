@@ -9,12 +9,15 @@
 \newtoggle{usingibid}
 \newtoggle{relatedseen}
 
-\newbibmacro*{cite}{%
+\newbibmacro*{citeclone}{%
   \addincludeentry{\thefield{entrykey}}%
   \iffieldundef{clone}
     {}
     {\nocite{\thefield{clone}}%
-     \addskipentry{\thefield{clone}}}%
+     \addskipentry{\thefield{clone}}}}
+
+\newbibmacro*{cite}{%
+  \usebibmacro{citeclone}%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
   \boolfalse{volumewithpages}%
@@ -190,7 +193,8 @@
 
 \DeclareCiteCommand{\citeseries}
   {}
-  {\usebibmacro{shortseries}}
+  {\usebibmacro{citeclone}%
+   \usebibmacro{shortseries}}
   {}
   {}
 
