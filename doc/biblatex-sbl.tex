@@ -1,5 +1,5 @@
-\documentclass{ltxdockit}[2011/03/25]
-
+\documentclass{ltxdockit}[2011/03/25] 
+\usepackage{microtype}
 \usepackage{xcolor}
 \usepackage{btxdockit}
 \usepackage{fontspec}
@@ -11,9 +11,12 @@
 
 \hypersetup{colorlinks,citecolor=spot}
 
-\setmonofont[Scale=MatchLowercase]{DejaVu Sans Mono}
-\setromanfont[Ligatures=TeX]{Linux Libertine O}
-\setsansfont[Ligatures=TeX]{Linux Biolinum O}
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\setromanfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}[
+  BoldItalicFont={* Bold},
+  BoldItalicFeatures={FakeSlant=0.2}
+]
 
 \newcommand*{\biblatexsbl}{\sty{biblatex-sbl}\xspace}
 \newcommand*{\biblatexsblhome}{https://github.com/dcpurton/biblatex-sbl/}
@@ -96,7 +99,8 @@
 \ExplSyntaxOff
 
 \lstset{%
-  basicstyle=\displayverbfont\normalsize
+  basicstyle=\displayverbfont\normalsize,
+  keywordstyle=\bfseries
 }
 
 \makeatletter
@@ -196,14 +200,7 @@ options, reference the \biblatex manual.
 
 \begin{ltxsyntax}
 
-\cmditem{autocite}{key}
-\cmditem{autocite}[postnote]{key}
-\cmditem{autocite}[prenote][]{key}
-\cmditem{autocite}[prenote][postnote]{key}
-\cmditem{autocite}(altpostnote|postnote){key}
-\cmditem{autocite}<altpostnote|>{key}
 \cmditem{autocite}[prenote](altpostnote|postnote){key}
-\cmditem{autocite}[prenote]<altpostnote|>{key}
 
 \cmd{autocite} inserts a citation as a footnote. It works as in the standard
 \biblatex styles, except that that \bibfield{postnote} argument can be divided
@@ -215,14 +212,14 @@ of the \cite{SBLHS}. e.g.,
   \samplecite{1}[See][1.3|8:223]{clementinehomilies}
 \end{snugshade}
 
-\cmditem{parencite}{key}
-\cmditem{parencite}[postnote]{key}
-\cmditem{parencite}[prenote][]{key}
-\cmditem{parencite}[prenote][postnote]{key}
-\cmditem{parencite}(altpostnote|postnote){key}
-\cmditem{parencite}<altpostnote|>{key}
+To use only \bibfield{altpostnote} you must still include the pipe character.
+e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[III. 1-164|]{PGM:betz}
+\end{snugshade}
+
 \cmditem{parencite}[prenote](altpostnote|postnote){key}
-\cmditem{parencite}[prenote]<altpostnote|>{key}
 
 \cmd{parencite} works in the same way as \cmd{autocite} except that the
 citation is placed inside parentheses instead of in a footnote. This is most
@@ -391,13 +388,6 @@ entry types.
 This option controls the style of footnotes.
 
 \begin{valuelist}
-\item[false] Footnotes are printed with a superscript and hanging indent (or
-  whatever other default has been set up by your style):
-
-  \begin{snugshade}
-    \hangindent\bibindent\textsuperscript{1}\cite{talbert:1992}.
-  \end{snugshade}
-
 \item[true] Footnotes are printed with a with a normal number followed by a
   period and the first line indented:
 
@@ -406,11 +396,95 @@ This option controls the style of footnotes.
     \samplecite*{1}{talbert:1992}
     \citereset
   \end{snugshade}
+
+\item[false] Footnotes are printed with a superscript (or whatever other
+  default has been set up by your style):
+
+  \begin{snugshade}
+    \hspace*{\bibindent}\llap{\textsuperscript{1}}\cite{talbert:1992}.
+  \end{snugshade}
 \end{valuelist}
 
 \end{optionlist}
 
 \section{Database Guide}
+
+\subsection{Entry Types}
+
+This section gives an overview of the entry types supported by \biblatexsbl.
+Many work in the same way as \biblatex. Some standard entry types have custom
+usage, and some are unique to \biblatexsbl. These are documented more fully.
+
+\begin{typelist}
+
+\typeitem{article}
+
+An article in a journal or magazine. Also use this type for review articles
+\parencite[§6.3.4]{SBLHS} and electronic journal articles
+\parencite[§6.3.10]{SBLHS}.
+
+\typeitem{book}
+
+A single volume book with one or more authors.
+
+\typeitem{mvbook}
+
+A multivolume \bibtype{book}.
+
+\typeitem{inbook}
+
+A part of a book which forms a self-contained unit with its own title.
+
+\typeitem{bookinbook}
+
+This type is similar to \bibtype{inbook} but intended for works originally
+published as a stand-alone book. The main difference is that the title is
+printed in italics instead of in quotation marks. See §6.4.4 in
+\sty{biblatex-sbl-test.pdf} for an example.
+
+\typeitem{suppbook}
+
+Supplemental material in a \bibtype{book}. Use this for an introduction,
+preface or foreword written by someone other than the author
+\parencite[§6.2.14]{SBLHS}.
+
+\typeitem{classictext}
+
+This type is a custom type for \biblatexsbl. It is used for a number of the
+special examples in \cite[§§6.4.2–6]{SBLHS}.
+
+Unless \opt{options = \{skipbib=false\}} is set explicitly, a
+\bibtype{classictext} entry will not appear in the bibliography. The
+\bibfield{sblxref} field is used to refer to the entry which should appear in
+the bibliography instead of the \bibtype{classictext} entry.
+
+If present, the \bibfield{translator} and \bibfield{series} are printed in
+parentheses following the \bibfield{postnote}. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[15.18-19]{tacitus:ann:jackson}
+  \samplebib{tacitus}
+\end{snugshade}
+    
+The \bibtype{classictext} supports the \bibfield{entrysubtype =
+\{churchfather\}} entry sub type. Entries using this sub type print the entry
+pointed to by \bibfield{sblxref} within parentheses following the
+\bibfield{altpostnote}. The \bibfield{postnote} field applies the entry in
+\bibfield{sblxref}. \bibfield{altpostnote} is always separated from the title
+by a space.
+
+If the entry contains \opt{options = \{skipbib=false\}}, then the bibliography
+entry will be like \bibtype{incollection} except that the \bibfield{title} is
+set in italics instead of within quotation marks.
+
+\begin{snugshade}
+  \samplecite{1}[28.3.5|252]{augustine:letters}
+  \samplebib{augustine:letters}
+\end{snugshade}
+
+
+
+\end{typelist}
 
 \printbiblist[heading=biblistintoc]{abbreviations}
 
