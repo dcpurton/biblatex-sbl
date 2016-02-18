@@ -245,10 +245,7 @@
   \usebibmacro{author}%
   \newunit
   \usebibmacro{shorttitle}%
-  \iffieldundef{altpostnote}
-    {\usebibmacro{ancienttext+volume+pages}%
-     \usebibmacro{classic:translator+series}%
-     \global\booltrue{suppresspostnote}}
+  \iffieldequalstr{entrysubtype}{churchfather}
     {\setunit{\addspace}%
      \printfield{altpostnote}%
      \setunit{\addspace}%
@@ -256,6 +253,9 @@
        \printtext{\ancienttextcite{\thefield{sblxref}}}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}%
+     \global\booltrue{suppresspostnote}}
+    {\usebibmacro{ancienttext+volume+pages}%
+     \usebibmacro{classic:translator+series}%
      \global\booltrue{suppresspostnote}}}
 
 \DeclareBibliographyDriver{cite:article}{%
