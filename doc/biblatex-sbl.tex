@@ -3,6 +3,7 @@
 \usepackage{xcolor}
 \usepackage{btxdockit}
 \usepackage{fontspec}
+\usepackage{realscripts}
 \usepackage{xparse}
 \usepackage{framed}
 
@@ -140,8 +141,9 @@ Society of Biblical Literature (\cite{SBL}). The style conforms to the second
 edition of the \cite{SBLHS}.
 
 The style supports all examples given in the handbook (see
-\sty{biblatex-sbl-test.pdf}). Short form citations and a list of abbreviations
-containing series, journals, and shorthands are handled automatically.
+\sty{biblatex-sbl-test.pdf}). Shorthand citations and a list of abbreviations
+containing journals, series, and shorthands are handled automatically.
+Repeated authors in the bibliography are replaced by a horizontal line.
 \emph{Ibidem} is supported, but not enabled by default. Only note style
 citations, not Author-Date citations are supported. Primary sources can be
 cited in parentheses. \biblatexsbl is compatible with \biblatex's support for
@@ -219,6 +221,11 @@ e.g.,
   \samplecite{1}[III. 1-164|]{PGM:betz}
 \end{snugshade}
 
+\cmditem{cite}[prenote](altpostnote|postnote){key}
+
+\cmd{cite} works in the same way as \cmd{autocite} except that the citation is
+placed directly into the text instead of in a footnote.
+
 \cmditem{parencite}[prenote](altpostnote|postnote){key}
 
 \cmd{parencite} works in the same way as \cmd{autocite} except that the
@@ -229,11 +236,11 @@ useful for citing primary sources. e.g.,
   \sampleparencite[2.233-235]{josephus:ant}
 \end{snugshade}
 
-\cmditem{seriescite}{key}
 \cmditem{journalcite}{key}
+\cmditem{seriescite}{key}
 \cmditem{shorthandcite}{key}
 
-\cmd{seriescite}, \cmd{journalcite}, and \cmd{shorthandcite} inserts the
+\cmd{journalcite}, \cmd{seriescite},and \cmd{shorthandcite} inserts the
 respective abbreviation into the text and also adds it to the list of
 abbreviations. The abbreviation is hyperlinked to the list of abbreviations if
 the \sty{hyperref} package is loaded.
@@ -244,7 +251,7 @@ so can safely be used anywhere within a database entry.
 \cmditem{printbiblist}
 
 This command prints a bibliography list. In \biblatexsbl all abbreviations
-(series, journals, and shorthands) can be printed using the following command:
+(journals, series, and shorthands) can be printed using the following command:
 
 \begin{quote}
   \verb+\printbiblist[...]{abbreviations}+
@@ -417,6 +424,69 @@ usage, and some are unique to \biblatexsbl. These are documented more fully.
 
 \begin{typelist}
 
+\typeitem{ancienttext}
+
+This is a custom type for \biblatexsbl. It is used for the special examples in
+\cite[§6.4.1, §6.4.3 and §6.4.8]{SBLHS}.
+
+Unless \opt{options = \{skipbib=false\}} is set explicitly, a
+\bibtype{ancienttext} entry will not appear in the bibliography. (Although,
+see \opt{ANRW} \bibfield{entrysubtype} below for an exception.) The
+\bibfield{sblxref} field is used to refer to the entry which should appear in
+the bibliography instead of the \bibtype{ancienttext} entry.
+
+The entry pointed to by \bibfield{sblxref} along with the \bibfield{postnote}
+is printed in parentheses after the \bibfield{altpostnote}, \bibfield{editor},
+and \bibfield{translator} fields they are present. \bibfield{translator} and
+\bibfield{editor} fields are omitted for subsequent citations. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[319]{suppiluliumas}
+  \samplecite*{2}[319]{suppiluliumas}
+  \samplebib{ANET}
+\end{snugshade}
+
+If the entry contains \opt{options = \{skipbib=false\}}, then the bibliography
+entry will be like \bibtype{book}. Any shorthand is also printed in the same
+way as a \bibtype{book} shorthand.
+
+The following values for the \bibfield{entrysubtype} field are supported:
+
+\begin{valuelist}
+
+\item[ANRW]
+
+The \opt{ANRW} \bibfield{entrysubtype} is particularly for citing \cite{ANRW}
+as outlined in §6.4.8 of the \cite{SBLHS}. In this case, the entry \emph{will}
+appear in the bibliography. See \sty{biblatex-sbl-test.pdf} for full details
+of the required database entry.
+
+\item[chronicle]
+
+Formats the \bibfield{title} using an upright shape font without quotation
+marks. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[lines 3--4|125]{esarhaddonchronicle}
+\end{snugshade}
+
+\item[COS]
+
+Suppresses parentheses around \emph{COS} and the \bibfield{postnote} for
+subsequent citations. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}{greathymnaten}
+  \samplecite*{2}{greathymnaten}
+\end{snugshade}
+
+\item[inscription]
+
+  Similarly to \opt{chronicle}, this formats the \bibfield{title} using an
+  upright shape font without quotation marks.
+
+\end{valuelist}
+
 \typeitem{article}
 
 An article in a journal or magazine. Also use this type for review articles
@@ -429,11 +499,25 @@ A single volume book with one or more authors.
 
 \typeitem{mvbook}
 
-A multivolume \bibtype{book}.
+A multivolume \bibtype{book}. \biblatexsbl treats this as an alias for
+\bibtype{book}.
+
+There is one \bibfield{entrysubtype} supported:
+
+\begin{valuelist}
+
+\item[RIMA]
+
+The citation for \citeseries{RIMA} \parencite[97]{SBLHS} is treated like a
+series with a number when cited in full, but as a shorthand with a volume when
+cited in short form. See \sty{biblatex-sbl-test.pdf} for full details.
+
+\end{valuelist}
 
 \typeitem{inbook}
 
 A part of a book which forms a self-contained unit with its own title.
+\biblatexsbl treats this as an alias for \bibtype{incollection}.
 
 \typeitem{bookinbook}
 
@@ -450,8 +534,8 @@ preface or foreword written by someone other than the author
 
 \typeitem{classictext}
 
-This type is a custom type for \biblatexsbl. It is used for a number of the
-special examples in \cite[§§6.4.2–6]{SBLHS}.
+This type is a custom type for \biblatexsbl. It is used for the special
+examples in \cite[§6.4.2 and §§6.4.4–6]{SBLHS}.
 
 Unless \opt{options = \{skipbib=false\}} is set explicitly, a
 \bibtype{classictext} entry will not appear in the bibliography. The
@@ -466,25 +550,101 @@ parentheses following the \bibfield{postnote}. e.g.,
   \samplebib{tacitus}
 \end{snugshade}
     
-The \bibtype{classictext} supports the \bibfield{entrysubtype =
-\{churchfather\}} entry sub type. Entries using this sub type print the entry
-pointed to by \bibfield{sblxref} within parentheses following the
-\bibfield{altpostnote}. The \bibfield{postnote} field applies the entry in
-\bibfield{sblxref}. \bibfield{altpostnote} is always separated from the title
-by a space.
-
 If the entry contains \opt{options = \{skipbib=false\}}, then the bibliography
 entry will be like \bibtype{incollection} except that the \bibfield{title} is
 set in italics instead of within quotation marks.
+
+The following values for the \bibfield{entrysubtype} field are supported:
+
+\begin{valuelist}
+
+\item[churchfather]
+
+Entries using the \opt{churchfather} \bibfield{entrysubtype} print the entry
+pointed to by \bibfield{sblxref} within parentheses following the
+\bibfield{altpostnote}. The \bibfield{postnote} field applies to the entry in
+\bibfield{sblxref}. \bibfield{altpostnote} is always separated from the title
+by a space.
 
 \begin{snugshade}
   \samplecite{1}[28.3.5|252]{augustine:letters}
   \samplebib{augustine:letters}
 \end{snugshade}
 
+\end{valuelist}
 
+\typeitem{collection}
+
+A single-volume collection with multiple, self-contained contributions by
+distinct authors which have their own title. The work as a whole has no
+overall author but it will usually have an editor. \biblatexsbl treats this as
+an alias for \bibtype{book}.
+
+\typeitem{mvcollection}
+
+A multi-volume \bibtype{collection}. \biblatexsbl treats this as an alias for
+\bibtype{mvbook}.
+
+\typeitem{incollection}
+
+A contribution to a collection which forms a self-contained unit with a
+distinct author and title.
+
+\typeitem{commentary}
+
+A single volume commentary on a book (or part of a book) of the Bible by one
+or more authors. This entry type is similar to \bibtype{book}, except that any
+\bibfield{volume} and \bibfield{maintitle} is only printed in the
+bibliography, not the citation.
+
+\typeitem{mvcommentary}
+
+A multi-volume commentary on a single book of the Bible by one or more authors
+or a multi-volume commentary on the whole Bible by multiple authors.
+\biblatexsbl treats this as an alias to \bibtype{mvbook}.
+
+\typeitem{incommentary}
+
+A contribution to a commentary which forms a self-contained unit with a
+distinct author and title. This is typically a commentary on a book of the
+Bible appearing in a single or multi-volume commentary on the entire Bible.
+
+If an entry contains an \bibfield{sblxref} field, then the bibliography entry
+is printed in short form as described above under \opt{fullbibrefs}. Otherwise
+this entry is treated as an alias for \bibtype{incollection}.
+
+\typeitem{lexicon}
+
+\typeitem{mvlexicon}
+
+\typeitem{inlexicon}
+
+\typeitem{manual}
+
+Technical or other documentation, not necessarily in printed form. \biblatexsbl
+treats this as an alias for \bibtype{book}.
+
+\typeitem{misc}
+
+\typeitem{online}
+
+\typeitem{reference}
+
+\typeitem{mvreference}
+
+\typeitem{inreference}
+
+\typeitem{seminarpaper}
+
+\typeitem{thesis}
+
+\typeitem{unpublished}
 
 \end{typelist}
+
+\subsection{Entry Options}
+
+\subsection{Reprints}
 
 \printbiblist[heading=biblistintoc]{abbreviations}
 
