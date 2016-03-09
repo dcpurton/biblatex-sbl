@@ -242,7 +242,8 @@
        \printtext{\ancienttextcite{\thefield{sblxref}}}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}}%
-  \global\booltrue{suppresspostnote}}
+  \global\booltrue{suppresspostnote}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:classictext}{%
   \usebibmacro{usesblxref}%
@@ -260,7 +261,8 @@
      \global\booltrue{suppresspostnote}}
     {\usebibmacro{ancienttext+volume+pages}%
      \usebibmacro{classic:translator+series}%
-     \global\booltrue{suppresspostnote}}}
+     \global\booltrue{suppresspostnote}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:article}{%
   \iftoggle{blx@nolongcite}
@@ -277,7 +279,8 @@
      \newunit
      \usebibmacro{releasedate}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:book}{%
   \iftoggle{blx@nolongcite}
@@ -305,7 +308,8 @@
      \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
-  \usebibmacro{volume+part+nomaintitle}}
+  \usebibmacro{volume+part+nomaintitle}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:suppbook}{%
   \iftoggle{blx@nolongcite}
@@ -339,7 +343,8 @@
      \newunit
      \usebibmacro{pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:commentary}{%
   \iftoggle{blx@nolongcite}
@@ -358,7 +363,8 @@
      \usebibmacro{shortseries+number}%
      \usebibmacro{parens+publisher+location+date}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:incommentary}{%
   \iftoggle{blx@nolongcite}
@@ -376,7 +382,8 @@
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}%
+     \usebibmacro{finentry}}}
 
 \DeclareBibliographyDriver{cite:incollection}{%
   \iftoggle{blx@nolongcite}
@@ -413,7 +420,8 @@
      \newunit
      \usebibmacro{volume+part+pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:inlexicon}{%
   \iftoggle{blx@nolongcite}
@@ -430,7 +438,8 @@
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:inreference}{%
   \iftoggle{blx@nolongcite}
@@ -452,7 +461,8 @@
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:review}{%
   \iftoggle{blx@nolongcite}
@@ -472,7 +482,8 @@
      \usebibmacro{shortjournal+issuetitle}%
      \usebibmacro{pages}%
      \renewcommand*{\newunitpunct}{\addperiod\space}%
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:seminarpaper}{%
   \iftoggle{blx@nolongcite}
@@ -502,7 +513,8 @@
      \newunit
      \usebibmacro{volume+part+pages}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:thesis}{%
   \iftoggle{blx@nolongcite}
@@ -521,7 +533,8 @@
        \setunit{\addcomma\addspace}%
        \usebibmacro{institution+location+date}}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:misc}{%
   \iftoggle{blx@nolongcite}
@@ -561,6 +574,7 @@
        {\usebibmacro{shortjournal+issuetitle}%
         \usebibmacro{pages}}%
      \newunit
-     \usebibmacro{doi+eprint+url}}}
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
 
 \endinput
