@@ -215,12 +215,21 @@
 % ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{cite:set}{%
-  \booltrue{bbx@inset}%
-  \entryset{}{}%
-  \newunit\newblock
-  \usebibmacro{setpageref}%
-  \finentry
-  \global\boolfalse{suppresspostnote}}
+  \ifciteseen
+    {%
+     \printnames{labelname}%
+     \newunit%
+     \printtext[bibhyperlink]{%
+       \iffieldundef{shorttitle}
+         {\printfield[citetitle]{title}}
+         {\printfield[citetitle]{shorttitle}}}}
+    {\booltrue{bbx@inset}%
+     \bibhypertarget{\strfield{entrykey}}{}%
+     \entryset{}{}%
+     \newunit\newblock
+     \usebibmacro{setpageref}%
+     \finentry
+     \global\boolfalse{suppresspostnote}}}
 
 \DeclareBibliographyDriver{cite:ancienttext}{%
   \usebibmacro{author}%
