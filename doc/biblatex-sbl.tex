@@ -12,6 +12,8 @@
 
 \hypersetup{colorlinks,citecolor=spot}
 
+\hyphenation{Prei-sen-daz}
+
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 \setromanfont{Linux Libertine O}
 \setsansfont{Linux Biolinum O}[
@@ -495,7 +497,7 @@ An article in a journal or magazine. Also use this type for review articles
 
 \typeitem{book}
 
-A single volume book with one or more authors.
+A single-volume book with one or more authors.
 
 \typeitem{mvbook}
 
@@ -592,7 +594,7 @@ distinct author and title.
 
 \typeitem{commentary}
 
-A single volume commentary on a book (or part of a book) of the Bible by one
+A single-volume commentary on a book (or part of a book) of the Bible by one
 or more authors. This entry type is similar to \bibtype{book}, except that any
 \bibfield{volume} and \bibfield{maintitle} is only printed in the
 bibliography, not the citation.
@@ -610,14 +612,36 @@ distinct author and title. This is typically a commentary on a book of the
 Bible appearing in a single or multi-volume commentary on the entire Bible.
 
 If an entry contains an \bibfield{sblxref} field, then the bibliography entry
-is printed in short form as described above under \opt{fullbibrefs}. Otherwise
-this entry is treated as an alias for \bibtype{incollection}.
+is printed in either short or long form as described above under
+\opt{fullbibrefs}. Otherwise this entry is treated as an alias for
+\bibtype{incollection}.
 
 \typeitem{lexicon}
 
+A single-volume lexicon or theological dictionary. \biblatexsbl treats this as
+an alias for \bibtype{book}.
+
 \typeitem{mvlexicon}
 
+A multi-volume lexicon or theological dictionary. \biblatex treats this as an
+alias for \bibtype{mvbook}.
+
 \typeitem{inlexicon}
+
+An article in a lexicon or theological dictionary. This is a custom type for
+\biblatexsbl. The required \bibfield{sblxref} must contain the entry name of a
+\bibtype{lexicon} or \bibtype{mvlexicon}. The \bibtype{inlexicon} entry does
+not appear in the bibliography. Instead the lexicon pointed to by
+\bibfield{sblxref} appears in the bibliography.
+
+Subsequent citations do not include the article title, only the name of the
+lexicon. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[511]{dahn+liefeld:see+vision+eye}
+  \samplecite{1}[511]{dahn+liefeld:see+vision+eye}
+  \samplebib{NIDNTT}
+\end{snugshade}
 
 \typeitem{manual}
 
@@ -626,19 +650,88 @@ treats this as an alias for \bibtype{book}.
 
 \typeitem{misc}
 
+A fallback type for entries which do not fit into any other category. Use the
+\bibfield{howpublished} field to supply publishing information in free format,
+if applicable.
+
+This type is also set up to be able to insert an item into the list of
+abbreviations. So it is permissible to include just \bibfield{journaltitle}
+and \bibfield{shortjournal} or \bibfield{series} and \bibfield{shortseries},
+or \bibfield{shorthand} and relevant fields. In this case ensure that
+\bibfield{options = \{skipbib\}} is set.
+
 \typeitem{online}
+
+An online resource without a print counterpart. \biblatexsbl treats this as an
+alias for \bibtype{article}.
+
+\typeitem{proceedings}
+
+A single-volume conference proceedings. This type is not fully supported.
+\biblatexsbl treats this as an alias for \bibtype{collection}.
+
+\typeitem{mvproceedings}
+
+A multi-volume \bibtype{proceedings} entry. This type is not fully supported.
+\biblatexsbl treats this as an alias for \bibtype{mvcollection}.
+
+\typeitem{inproceedings}
+
+An article in a conference proceedings. This type is not fully supported.
+\biblatexsbl treats this as an alias for \bibtype{incollection}.
 
 \typeitem{reference}
 
+A single-volume encyclopaedia or dictionary. \biblatexsbl treats this as an
+alias for \bibtype{book}.
+
 \typeitem{mvreference}
+
+A multi-volume \bibtype{reference}. \biblatexsbl treats this as an alias for
+\bibtype{@mvbook}.
 
 \typeitem{inreference}
 
+An article in an encyclopaedia or dictionary. The required \bibfield{sblxref}
+field must contain the entry name of a \bibtype{reference} or
+\bibtype{mvreference}.
+
+The bibliography entry is printed in either short or long form as described
+above under \opt{fullbibrefs}.
+
+\typeitem{review}
+
+A book review in a journal. This is similar to the \bibtype{article} entry
+type. Use the \bibfield{revdauthor}\slash\bibfield{revdeditor} and
+\bibfield{revdtitle} fields to specify the author\slash editor and title of
+the book being reviewed.
+
+Note that review articles are treated like articles and should use the
+\bibtype{article} entry type.
+
 \typeitem{seminarpaper}
+
+An \citeseries{SBL} seminar paper. This is a custom entry type for
+\biblatexsbl. See §6.4.11 of \sty{biblatex-sbl-test} for an example.
+
+\typeitem{set}
+
+An entry set. This entry type is special. See the \biblatex manual for
+details.
 
 \typeitem{thesis}
 
+A unpublishes thesis written for an educational institution to satisfy the
+requirements for a degree. Use the \bibfield{type} ﬁeld to specify the type of
+thesis and the \bibfield{institution} to specify the educational institution.
+
 \typeitem{unpublished}
+
+A work with an author and a title which has not been formally published, such
+as a manuscript or the script of a talk. Use the fields howpublished and note
+to supply additional information in free format, if applicable.
+
+See §6.3.8 of \sty{biblatex-sbl-test} for an example.
 
 \end{typelist}
 
