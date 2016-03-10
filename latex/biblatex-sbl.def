@@ -396,6 +396,12 @@
 \DeclareBibliographyAlias{manual}{book}
 \DeclareBibliographyAlias{cite:unpublished}{cite:misc}
 \DeclareBibliographyAlias{unpublished}{misc}
+\DeclareBibliographyAlias{proceedings}{collection}
+\DeclareBibliographyAlias{mvproceedings}{mvcollection}
+\DeclareBibliographyAlias{inproceedings}{incollection}
+\DeclareBibliographyAlias{cite:proceedings}{cite:collection}
+\DeclareBibliographyAlias{cite:mvproceedings}{cite:mvcollection}
+\DeclareBibliographyAlias{cite:inproceedings}{cite:incollection}
 
 \DeclareLabeldate{%
   \field{releasedate}
