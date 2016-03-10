@@ -214,6 +214,14 @@
 % CITE DRIVERS
 % ------------------------------------------------------------------
 
+\DeclareBibliographyDriver{cite:set}{%
+  \booltrue{bbx@inset}%
+  \entryset{}{}%
+  \newunit\newblock
+  \usebibmacro{setpageref}%
+  \finentry
+  \global\boolfalse{suppresspostnote}}
+
 \DeclareBibliographyDriver{cite:ancienttext}{%
   \usebibmacro{author}%
   \newunit
