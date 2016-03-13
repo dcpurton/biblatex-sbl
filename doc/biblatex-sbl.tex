@@ -532,7 +532,8 @@ printed in italics instead of in quotation marks. See §6.4.4 in
 
 Supplemental material in a \bibtype{book}. Use this for an introduction,
 preface or foreword written by someone other than the author
-\parencite[§6.2.14]{SBLHS}.
+\parencite[§6.2.14]{SBLHS}. The \bibfield{type} field is used to specify the
+type of supplementary material. See §6.2.14 of \sty{biblatex-sbl-test.pdf}.
 
 \typeitem{classictext}
 
@@ -639,7 +640,7 @@ lexicon. e.g.,
 
 \begin{snugshade}
   \samplecite{1}[511]{dahn+liefeld:see+vision+eye}
-  \samplecite{1}[511]{dahn+liefeld:see+vision+eye}
+  \samplecite{2}[511]{dahn+liefeld:see+vision+eye}
   \samplebib{NIDNTT}
 \end{snugshade}
 
@@ -743,79 +744,187 @@ manual. There are also a number of custom entry fields supported by
 
 \begin{fieldlist}
 
-\fielditem{bookeditor}{name}
+\listitem{bookeditor}{name}
 
-\fielditem{booktranslator}{name}
+The editor(s) of the \bibfield{booktitle}.
 
-\fielditem{maineditor}{name}
+\listitem{booktranslator}{name}
 
-\fielditem{maintranslator}{name}
+The translator(s) of the \bibfield{booktitle}.
+
+\listitem{maineditor}{name}
+
+The editor(s) of the \bibfield{maintitle}.
+
+\listitem{maintranslator}{name}
+
+The translator(s) of the \bibfield{maintitle}.
 
 \fielditem{releasedate}{date}
 
+The date a text edition published online with no print counterpart is
+released. See §6.4.13 of \sty{biblatex-sbl-test.pdf}.
+
 \fielditem{releaseday}{datepart}
+
+This field holds the day component of the \bibfield{releasedate} field.
 
 \fielditem{releasemonth}{datepart}
 
+This field holds the month component of the \bibfield{releasedate} field.
+
 \fielditem{releaseyear}{datepart}
 
-\fielditem{revdauthor}{name}
+This field holds the year component of the \bibfield{releasedate} field.
 
-\fielditem{revdeditor}{name}
+\listitem{revdauthor}{name}
+
+The author(s) of the \bibfield{revdtitle}.
+
+\listitem{revdeditor}{name}
+
+The editor(s) of the \bibfield{revdtitle}.
 
 \fielditem{revdshorttitle}{literal}
 
+The title of a book being review in an abridged form. This field is used in
+subsequent citations of \bibtype{review} entry types.
+
 \fielditem{revdsubtitle}{literal}
+
+The subtitle of a book being reviewed.
 
 \fielditem{revdtitle}{literal}
 
+The title of a book being reviewed.
+
 \fielditem{revdtitleaddon}{literal}
 
-\fielditem{revdtranslator}{name}
+An annex to the \bibfield{revdtitle}, to be printed in a different font.
 
-\fielditem{sblxref}{literal}
+\listitem{revdtranslator}{name}
+
+The translator(s) of the \bibfield{revdtitle}.
+
+\fielditem{sblxref}{entry key}
+
+This is a special cross-reference field. Unlike \bibfield{crossref} and
+\bibfield{xref}, the parent entry will \emph{always} appear in the bibliography
+and (if applicable) the list of abbreviations regardless of the value of
+\opt{mincrossrefs}. Neither does the child entry inherit any fields from the
+parent.
+
+It is used when what appears in the citation is radically different to what
+appears in the bibliography.
+
+It's appearance in the bibliography and list of abbreviations can be
+controlled using the entry options \opt{skipbib}, \opt{skipbiblist},
+\opt{skipbiblistshorthand}, and \opt{skipbiblistseries}. See below for details
+of these options.
 
 \fielditem{seriesseries}{literal}
 
+This field is used when a \bibfield{series} is begun anew to distinguish
+between the old and new series. See \cite[§6.2.24]{SBLHS}.
+
 \fielditem{shortbooktitle}{literal}
+
+The \bibfield{booktitle} in abridged form.
 
 \fielditem{shortmaintitle}{literal}
 
-\fielditem{withauthor}{name}
+The \bibfield{maintitle} in abridged form.
+
+\listitem{withauthor}{name}
+
+The author(s) who assist the \bibfield{author}. See \bibfield{witheditortype},
+below, for an example.
 
 \fielditem{withauthortype}{literal}
 
-\fielditem{witheditor}{name}
+The type of \bibfield{withauthor}. This field will affect the string used to
+introduce the author(s) who assist the author. If unspecified, the
+bibliography string \sty{with} is used.
+
+\listitem{witheditor}{name}
+
+The editor(s) who assist the \bibfield{editor}.
 
 \fielditem{witheditortype}{literal}
 
-\fielditem{withtranslator}{name}
+The type of \bibfield{witheditor}. This field will affect the string used to
+introduce the editor(s) who assist the editor. If unspecified, the
+bibliography string \sty{with} is used.
+
+\begin{snugshade}
+  \samplecite{1}[1:24]{TLOT}
+  \samplebib{TLOT}
+  \samplebiblist{TLOT}
+\end{snugshade}
+
+\listitem{withtranslator}{name}
+
+The translator(s) who assist the \bibfield{translator}.
 
 \fielditem{withtranslatortype}{literal}
 
-\fielditem{withbookauthor}{name}
+The type of \bibfield{withtranslator}. This field will affect the string used
+to introduce the translator(s) who assist the translator. If unspecified, the
+bibliography string \sty{with} is used.
+
+\listitem{withbookauthor}{name}
+
+The author(s) who assist the \bibfield{bookauthor}.
 
 \fielditem{withbookauthortype}{literal}
 
-\fielditem{withbookeditor}{name}
+This field is analogous to the \bibfield{withauthortype}, but for the
+\bibfield{bookauthor}.
+
+\listitem{withbookeditor}{name}
+
+The editor(s) who assist the \bibfield{bookeditor}.
 
 \fielditem{withbookeditortype}{literal}
 
-\fielditem{withbooktranslator}{name}
+This field is analogous to the \bibfield{witheditortype}, but for the
+\bibfield{bookeditor}.
+
+\listitem{withbooktranslator}{name}
+
+The translator(s) who assist the \bibfield{booktranslator}.
 
 \fielditem{withbooktranslatortype}{literal}
 
-\fielditem{withmainauthor}{name}
+This field is analogous to the \bibfield{withtranslatortype}, but for the
+\bibfield{booktranslator}.
+
+\listitem{withmainauthor}{name}
+
+The author(s) who assist the \bibfield{mainauthor}.
 
 \fielditem{withmainauthortype}{literal}
 
-\fielditem{withmaineditor}{name}
+This field is analogous to the \bibfield{withauthortype}, but for the
+\bibfield{mainauthor}.
+
+\listitem{withmaineditor}{name}
+
+The editor(s) who assist the \bibfield{maineditor}.
 
 \fielditem{withmaineditortype}{literal}
 
-\fielditem{withmaintranslator}{name}
+This field is analogous to the \bibfield{witheditortype}, but for the
+\bibfield{maineditor}.
+
+\listitem{withmaintranslator}{name}
+
+The translator(s) who assist the \bibfield{maintranslator}.
 
 \fielditem{withmaintranslatortype}{literal}
+
+This field is analogous to the \bibfield{withtranslatortype}, but for the
+\bibfield{maintranslator}.
 
 \end{fieldlist}
 
