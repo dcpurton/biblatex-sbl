@@ -215,8 +215,7 @@
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
-  date=comp,
-  releasedate=comp,
+  alldates=comp,
   dateabbrev=false,
   autocite=footnote,
   url,
