@@ -62,7 +62,7 @@
 
 \newbibmacro*{cite:ibid}{%
   \global\toggletrue{usingibid}%
-  \bibstring[\mkibid]{ibidem}%
+  \printtext[bibhyperlink]{\bibstring[\mkibid]{ibidem}}%
   \ifloccit
     {\global\booltrue{suppresspostnote}}
     {}}
