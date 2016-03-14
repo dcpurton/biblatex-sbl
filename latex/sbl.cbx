@@ -26,6 +26,9 @@
     {\global\toggletrue{relatedseen}}
     {\global\togglefalse{relatedseen}}%
   \ifciteseen{}{\iffieldundef{pages}{}{\booltrue{suppresspostnote}}}%
+  \iffieldundef{shorthand}
+    {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+    {}%
   \printtext{%
     \ifboolexpr{%
         test {\ifciteibid}
@@ -224,7 +227,6 @@
          {\printfield[citetitle]{title}}
          {\printfield[citetitle]{shorttitle}}}}
     {\booltrue{bbx@inset}%
-     \bibhypertarget{\strfield{entrykey}}{}%
      \entryset{}{}%
      \newunit\newblock
      \usebibmacro{setpageref}%
@@ -266,7 +268,7 @@
   \usebibmacro{usesblxref}%
   \usebibmacro{author}%
   \newunit
-  \usebibmacro{shorttitle}%
+  \usebibmacro{shorttitlenohyperlink}%
   \iffieldequalstr{entrysubtype}{churchfather}
     {\setunit{\addspace}%
      \printfield{altpostnote}%

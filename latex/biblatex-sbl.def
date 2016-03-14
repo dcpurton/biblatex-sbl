@@ -762,6 +762,18 @@
     {\iffieldundef{shorttitle}
        {\iffieldundef{title}
           {}
+          {\printtext[bibhyperlink]{%
+             \printtext[title]{\printfield[titlecase]{title}}}}}
+       {\printtext[bibhyperlink]{%
+          \printtext[title]{\printfield[titlecase]{shorttitle}}}}%
+     \newunit}}
+
+\newbibmacro*{shorttitlenohyperlink}{%
+  \iftoggle{blx@shortciteauthor}
+    {}
+    {\iffieldundef{shorttitle}
+       {\iffieldundef{title}
+          {}
           {\printtext[title]{\printfield[titlecase]{title}}}}
        {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
      \newunit}}
@@ -864,8 +876,10 @@
   \iffieldundef{revdshorttitle}
      {\iffieldundef{revdtitle}
         {}
-        {\printtext[revdtitle]{\printfield[titlecase]{revdtitle}}}}
-     {\printtext[revdtitle]{\printfield[titlecase]{revdshorttitle}}}%
+        {\printtext[bibhyperlink]{%
+           \printtext[revdtitle]{\printfield[titlecase]{revdtitle}}}}}
+     {\printtext[bibhyperlink]{%
+        \printtext[revdtitle]{\printfield[titlecase]{revdshorttitle}}}}%
    \newunit}
 
 \newbibmacro*{revdtitle}{%
@@ -1656,6 +1670,9 @@
   \boolfalse{usevolpostnotedelim}%
   \booltrue{volumewithpages}%
   \global\togglefalse{usingibid}%
+  \iffieldundef{shorthand}
+    {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+    {}%
   \printtext{%
     \iffieldundef{shorthand}
       {\usedriver{}{cite:\thefield{entrytype}}}
