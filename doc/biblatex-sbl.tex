@@ -932,6 +932,106 @@ This field is analogous to the \bibfield{withtranslatortype}, but for the
 
 \subsection{Reprints}
 
+\biblatexsbl supports three different ways of doing reprints with varying
+complexity.
+
+If only the original publisher, location, and/or year are required, then use
+the fields \bibfield{origpublisher}, \bibfield{origlocation}, and
+\bibfield{origdate}. e.g.,
+
+\begin{quote}
+\begin{lstlisting}{}
+@book{vanseters:1997,
+    author = {Van Seters, John},
+    title = {In Search of History: Histeriography in the Ancient
+               World and the Origins of Biblical History},
+    origlocation = {New Haven},
+    origpublisher = {Yale University Press},
+    origdate = {1983},
+    location = {Winona Lake, IN},
+    publisher = {Eisenbrauns},
+    date = {1997}
+}
+\end{lstlisting}
+\begin{snugshade}
+  \samplecite{1}[90]{vanseters:1997}
+  \samplebib{vanseters:1997}
+\end{snugshade}
+\end{quote}
+
+When extra information is required, use a related entry with
+\bibfield{relatedtype = \{reprint\}}. A custom string can be specified instead
+of “Repr.” using the optional \bibfield{relatedstring} field. In this case no
+punctuation is inserted after the \bibfield{relatedstring}. You could think of
+the default being \bibfield{relatedstring = \{\textbackslash
+bibstring\{reprint\},\}}. e.g.,
+
+\begin{quote}
+\begin{lstlisting}{}
+@mvbook{sasson:2000,
+    editor = {Sasson, Jack M.},
+    title = {Civilizations of the Ancient Near East},
+    volumes = {4},
+    location = {New York},
+    publisher = {Scribner's Sons},
+    year = {1995},
+    related = {sasson:repr},
+    relatedtype = {reprint}
+}
+@mvbook{sasson:repr,
+    volumes = {4~vols.\ in 2},
+    location = {Peabody, MA},
+    publisher = {Hendrickson},
+    date = {2000}
+}
+\end{lstlisting}
+\begin{snugshade}
+  \samplecite{1}[1:40]{sasson:2000}
+  \samplebib{sasson:2000}
+\end{snugshade}
+\end{quote}
+
+A full reprint history also uses the \bibfield{related} field, but with some
+other \bibfield{relatedtype} apart from \bibfield{relatedtype = \{reprint\}}.
+e.g.,
+
+\begin{quote}
+\begin{lstlisting}{}
+@book{wellhausen:1883,
+    author = {Wellhausen, Julius},
+    title = {Prolegomena zur Geschichte Israels},
+    edition = {2},
+    location = {Berlin},
+    publisher = {Reimer},
+    date = {1883}
+}
+@book{wellhausen:1885,
+    author = {Wellhausen, Julius},
+    title = {Prolegomena to the History of Israel},
+    translator = {Black, J. Sutherland and Enzies, A.},
+    preface = {Smith, W. Robertson},
+    location = {Edinburgh},
+    publisher = {Black},
+    related = {wellhausen:1883},
+    relatedtype = {translationof},
+    date = {1885}
+}
+@book{wellhausen:1957,
+    author = {Wellhausen, Julius},
+    title = {Prolegomena to the History of Ancient Israel},
+    location = {New York},
+    publisher = {Meridian Books},
+    related = {wellhausen:1885},
+    relatedtype = {reprintof},
+    date = {1957}
+}
+\end{lstlisting}
+\begin{snugshade}
+  \samplecite{1}[20]{wellhausen:1957}
+  \samplebib{wellhausen:1957}
+\end{snugshade}
+\end{quote}
+
 \printbiblist[heading=biblistintoc]{abbreviations}
 
 \printbibliography[heading=bibintoc]
