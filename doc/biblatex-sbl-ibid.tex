@@ -1,0 +1,202 @@
+\documentclass{article}
+
+\usepackage{microtype}
+\usepackage{fontspec}
+\usepackage{xparse}
+\usepackage{xcolor}
+\usepackage{parskip}
+\usepackage{titlesec}
+\usepackage{hyperref}
+\usepackage[style=sbl,ibidtracker,pagetracker,backend=biber]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+\setromanfont{Linux Libertine O}
+\setsansfont{Linux Biolinum O}[
+  BoldItalicFont={* Bold},
+  BoldItalicFeatures={FakeSlant=0.2}
+]
+
+\titleformat{\paragraph}
+{\normalfont\sf\normalsize\bfseries}{\theparagraph}{1em}{}
+\titleformat{\subparagraph}
+{\normalfont\sf\small\scshape}{\thesubparagraph}{1em}{}
+\titlespacing*{\paragraph}{0pt}{2ex plus 1ex minus 0.2ex}{0.5ex}
+\titlespacing*{\subparagraph}{0pt}{1ex plus 0.2ex}{0em}
+
+\titleclass{\subsubparagraph}{straight}[\subparagraph]
+\titleformat{\subsubparagraph}{\normalfont\small\tt}{}{1em}{}
+\titlespacing*{\subsubparagraph}{0pt}{0pt}{0pt}
+
+\setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
+
+\setlength{\parskip}{1ex plus 0.5ex minus 0.25ex}
+
+\definecolor{biblatex-colour}{rgb}{0.25,0.25,0.65}
+\definecolor{reference-colour}{rgb}{0,0.6,0.15}
+
+\ExplSyntaxOn
+\NewDocumentCommand \samplemacro { m }
+  {
+    \subsubparagraph*{#1}
+  }
+\NewDocumentCommand \sblrefsamplecite { s m m m o o m }
+  {
+    \IfNoValueTF { #5 }
+      {
+        \IfNoValueT { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}{#7}
+          }
+      }
+      {
+        \IfNoValueTF { #6 }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5]\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}[#5]{#7}
+          }
+          {
+            \IfBooleanF { #1 }
+              {
+                \samplemacro{\textbackslash #2[#5][#6]\{#7\}}
+              }
+            \color{biblatex-colour}
+            \hspace*{\bibindent}#4\csuse{#3}[#5][#6]{#7}
+          }
+      }
+  }
+\NewDocumentCommand \samplecite { s m o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      {
+        \sblrefsamplecite{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \sampleparencite { s o o m }
+  {
+    \rmfamily
+    \IfBooleanTF { #1 }
+      {
+        \sblrefsamplecite*{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      {
+        \sblrefsamplecite{parencite}{parencite}{}[#2][#3]{#4}\par
+      }
+      \color{black}
+  }
+\NewDocumentCommand \samplebib { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbibliography}
+      }
+    \color{biblatex-colour}
+    \rmfamily\hangindent\bibindent\bibentrycite{#2}.\par
+    \color{black}
+  }
+\NewDocumentCommand \samplebiblist { s m }
+  {
+    \IfBooleanF { #1 }
+      {
+        \samplemacro{\textbackslash printbiblist\{abbreviations\}}
+      }
+    \color{biblatex-colour}
+    \biblistcite{#2}
+    \color{black}
+  }
+\NewDocumentCommand \refbiblist { m m }
+  {
+    \color{reference-colour}
+    \strut\rmfamily\hangindent 6em\rlap{#1}\hskip 6em #2\par
+    \color{black}
+  }
+\ExplSyntaxOff
+
+\newenvironment{biboutput}{%
+  \subparagraph{Biblatex Output}
+}{\color{black}}
+
+\newenvironment{refimp}{%
+  \subparagraph{Reference Implementation}
+  \color{reference-colour}
+  \rm
+}{\par\color{black}}
+
+\begin{document}
+
+\title{Biblatex-SBL \emph{ibidem} Test File}
+\author{David Purton}
+\maketitle
+
+This file tests the behaviour of the various options related to using
+\emph{ibidem} in Biblatex-SBL.
+
+\section*{Basic \emph{ibidem} tracking}
+
+Turn on \emph{ibidem} using the \texttt{ibidtracker} option. By default
+ibid.\@ is used across page breaks and \emph{ibidem} is taking to mean ‘same
+author + same title’.
+
+\boolfalse{pagetracker}
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,backend=biber]\{biblatex\}}
+  \samplecite{1}[127]{talbert:1992}
+  \samplecite{2}[22]{talbert:1992}
+  \samplecite{3}[22]{talbert:1992}
+  \samplecite{4}[237]{robinson+koester:1971}
+  \samplecite{5}[22]{talbert:1992}
+  \samplemacro{\textbackslash clearpage}
+  \clearpage
+  \samplecite{6}[22]{talbert:1992}
+\end{biboutput}
+
+\section*{Tracking \emph{ibidem} across pages}
+
+Set the \texttt{pagetracker} option to \texttt{true} to ensure that the first
+citation on a page is never ibid. 
+
+\booltrue{pagetracker}
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,pagetracker,backend=biber]\{biblatex\}}
+  \samplecite{7}[53]{scott+etal:1993}
+  \samplecite{8}[42]{scott+etal:1993}
+  \samplemacro{\textbackslash clearpage}
+  \clearpage
+  \samplecite{9}[42]{scott+etal:1993}
+\end{biboutput}
+
+\section*{\emph{Ibidem} meaning ‘same author + same title + same page’}
+
+Turn on the \texttt{ibidpage} option to indicate that \emph{ibidmen} should
+mean ‘same author + same title + same page’.
+
+\makeatletter
+\let\blx@imc@ifloccit\blx@ifloccit@global
+\let\blx@loccittracker\blx@loccittracker@global
+\let\blx@loccitreset\blx@loccitreset@global
+\makeatother
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,ibidpage,backend=biber]\{biblatex\}}
+  \samplecite{10}[28]{egger:1996}
+  \samplecite{11}[28]{egger:1996}
+  \samplecite{12}[291]{egger:1996}
+\end{biboutput}
+
+\end{document}
