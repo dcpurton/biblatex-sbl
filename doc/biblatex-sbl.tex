@@ -303,22 +303,19 @@ the first time an entry is cited.
   If \bibfield{postnote} is not a page range, then it is printed in
   parentheses after \bibfield{pages}. e.g.,
 
-  \citereset
-
   \begin{snugshade}
-    \samplecite{1}[a note]{leyerle:1993}
-    \samplecite{2}[a note]{leyerle:1993}
+    \samplecite{1}[a note]{irvine:2014}
+    \samplecite{2}[a note]{irvine:2014}
   \end{snugshade}
 
 \item[permit] The \bibfield{postnote} is printed in parentheses after the
   \bibfield{pages} field. e.g.,
 
-  \citereset
   \makeatletter\cbx@opt@citepages@permit\makeatother
 
   \begin{snugshade}
-    \samplecite{1}[159]{leyerle:1993}
-    \samplecite{2}[159]{leyerle:1993}
+    \samplecite{1}[245]{wildberger:1965}
+    \samplecite{2}[245]{wildberger:1965}
   \end{snugshade}
 
   If \bibfield{postnote} is not a page range, then \bibfield{pages} is printed
@@ -326,32 +323,30 @@ the first time an entry is cited.
   parentheses. e.g.,
 
   \begin{snugshade}
-    \samplecite{3}[a note]{leyerle:1993}
+    \samplecite{3}[a note]{wildberger:1965}
   \end{snugshade}
 
 \item[omit] The \bibfield{pages} field is not printed unless
   \bibfield{postnote} is empty or not a page range. e.g.,
 
-  \citereset
   \makeatletter\cbx@opt@citepages@omit\makeatother
 
   \begin{snugshade}
-    \samplecite{1}[159]{leyerle:1993}
-    \samplecite{2}[159]{leyerle:1993}
-    \samplecite{3}{leyerle:1993}
-    \samplecite{4}[a note]{leyerle:1993}
+    \samplecite{1}[5]{freedman:1977}
+    \samplecite{2}[5]{freedman:1977}
+    \samplecite{3}{freedman:1977}
+    \samplecite{4}[a note]{freedman:1977}
   \end{snugshade}
 
 \item[separate] The \bibfield{postnote} is printed in parentheses after the
   \bibfield{pages} field preceeded by the bibliography string \sty{thiscite}.
   e.g.,
 
-  \citereset
   \makeatletter\cbx@opt@citepages@separate\makeatother
 
   \begin{snugshade}
-    \samplecite{1}[159]{leyerle:1993}
-    \samplecite{2}[159]{leyerle:1993}
+    \samplecite{1}[1]{petersen:1988}
+    \samplecite{2}[1]{petersen:1988}
   \end{snugshade}
 
   If \bibfield{postnote} is not a page range, then \sty{firstcite} is not
@@ -392,6 +387,15 @@ entry types.
   \end{snugshade}
 \end{valuelist}
 
+\boolitem[false]{ibidpage}
+
+The scholarly abbreviation \emph{ibidem} is sometimes taken to mean both ‘same
+author + same title’ and ‘same author + same title + same page’ in traditional
+citation schemes. By default, this is not the case with this style because it
+may lead to ambiguous citations. If you you prefer the wider interpretation of
+\emph{ibidem}, set the package option \opt{ibidpage=true} or simply
+\opt{ibidpage} in the preamble. The default setting is \opt{ibidpage=false}.
+
 \optitem[comp]{releasedate}{\opt{year}, \opt{short}, \opt{long}, \opt{terse,
 \opt{comp}, \opt{iso8601}}}
 
@@ -407,16 +411,14 @@ This option controls the style of footnotes.
   period and the first line indented:
 
   \begin{snugshade}
-    \citereset
     \samplecite*{1}{talbert:1992}
-    \citereset
   \end{snugshade}
 
 \item[false] Footnotes are printed with a superscript (or whatever other
   default has been set up by your style):
 
   \begin{snugshade}
-    \hspace*{\bibindent}\llap{\textsuperscript{1}}\cite{talbert:1992}.
+    \hspace*{\bibindent}\llap{\textsuperscript{1}}\cite{robinson+koester:1971}.
   \end{snugshade}
 \end{valuelist}
 
