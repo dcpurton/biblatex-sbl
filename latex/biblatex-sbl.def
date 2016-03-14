@@ -216,6 +216,7 @@
   citetracker,
   punctfont,
   alldates=comp,
+  releasedate=comp,
   dateabbrev=false,
   autocite=footnote,
   url,
