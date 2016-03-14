@@ -930,6 +930,77 @@ This field is analogous to the \bibfield{withtranslatortype}, but for the
 
 \subsection{Entry Options}
 
+\biblatexsbl supports many of the entry options outlined in the \biblatex
+manual. There are also a number of custom entry options supported by
+\biblatexsbl. These are documented below.
+
+\begin{optionlist}
+
+\optitem[false]{firstcitenoshorthand}{\opt{true}, \opt{false}}
+
+This option controls the first citation of entries with a \bibfield{shorthand}
+field. The possible choices are:
+
+\begin{valuelist}
+\item[true] Do not use the \bibfield{shorthand} the first time and entry is
+  cited. The entry is cited in full as it would be if no \bibfield{shorthand}
+  was present.
+\item[false] Always use the \bibfield{shorthand} when citing the entry.
+\end{valuelist}
+
+\optitem[false]{nolongcite}{\opt{true}, \opt{false}}
+
+This option controls the format of the first citation. The possible choices
+are:
+
+\begin{valuelist}
+\item[true] Always use the short subsequent citation format, even the first
+  time an entry is cited. In effect this sets \cmd{citeseen} to true for the
+  first citation.
+\item[false] Use a full citation the first time and entry is cited and a short
+  citation for subsequent citations.
+\end{valuelist}
+
+\optitem[false]{shortciteauthor}{\opt{true}, \opt{false}}
+
+This option controls the format of subsequent citations. The possible choices
+are:
+
+\begin{valuelist}
+\item[true] Suppress the \bibfield{shorttitle} or \bibfield{title} in
+  subsequent citations, so only the author(s) or editor(s) are printed.
+\item[false] Include the \bibfield{shorttitle} or \bibfield{title} in
+  subsequent citations.
+\end{valuelist}
+
+\optitem[false]{skipbiblistshorthand}{\opt{true}, \opt{false}}
+
+This option controls what appears in the list of abbreviations for database
+entries containing both a \bibfield{shorthand} and a \bibfield{shortseries}.
+For entries not containing a \bibfield{shortseries} just use the option
+\opt{skipbiblist}. The possible options are:
+
+\begin{valuelist}
+\item[true] Do not include the \bibfield{shorthand} in the list of
+  abbreviations.
+\item[false] Include the \bibfield{shorthand} in the list of abbreviations.
+\end{valuelist}
+
+\optitem[false]{skipbiblistshortseries}{\opt{true}, \opt{false}}
+
+This option controls what appears in the list of abbreviations for database
+entries containing both a \bibfield{shorthand} and a \bibfield{shortseries}.
+For entries not containing a \bibfield{shorthand} just use the option
+\opt{skipbiblist}. The possible options are:
+
+\begin{valuelist}
+\item[true] Do not include the \bibfield{shortseries} in the list of
+  abbreviations.
+\item[false] Include the \bibfield{shortseries} in the list of abbreviations.
+\end{valuelist}
+
+\end{optionlist}
+
 \subsection{Reprints}
 
 \biblatexsbl supports three different ways of doing reprints with varying
@@ -963,8 +1034,8 @@ When extra information is required, use a related entry with
 \bibfield{relatedtype = \{reprint\}}. A custom string can be specified instead
 of “Repr.” using the optional \bibfield{relatedstring} field. In this case no
 punctuation is inserted after the \bibfield{relatedstring}. You could think of
-the default being \bibfield{relatedstring = \{\textbackslash
-bibstring\{reprint\},\}}. e.g.,
+the default being \bibfield{relatedstring = \{\cmd{bibstring}\{reprint\},\}}.
+e.g.,
 
 \begin{quote}
 \begin{lstlisting}{}
