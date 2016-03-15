@@ -1880,3 +1880,17 @@
 
 \def\blx@entryset#1{\cbx@entryset{#1}}
 \def\blx@entryset@i#1{\cbx@entryset@i{#1}}
+
+% ------------------------------------------------------------------
+% INDEXING MACROS
+% ------------------------------------------------------------------
+
+\renewbibmacro*{bibindex}{%
+  \ifbibindex
+    {\indexnames{labelname}}
+    {}}
+
+\renewbibmacro*{citeindex}{%
+  \ifciteindex
+    {\indexnames{labelname}}
+    {}}

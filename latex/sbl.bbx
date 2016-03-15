@@ -24,16 +24,17 @@
   \global\togglefalse{relatedseen}}%
 
 \DeclareBibliographyDriver{classictext}{%
-  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \DeclareFieldFormat[classictext]{title}{\mkbibemph{##1}}%
   \usedriver{}{incollection}%
   \usebibmacro{finentry}%
 }
 
 \DeclareBibliographyDriver{ancienttext}{%
-  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \iffieldequalstr{entrysubtype}{ANRW}
-    {\usebibmacro{author/editor+others/translator+others}%
+    {\usebibmacro{bibindex}%
+     \usebibmacro{author/editor+others/translator+others}%
      \newunit
      \usebibmacro{title}%
      \newunit
@@ -61,6 +62,7 @@
 
 \DeclareBibliographyDriver{article}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -81,6 +83,7 @@
 
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \iftoggle{blx@abbrevcite}
     {\usebibmacro{title}%
      \newunit
@@ -115,6 +118,7 @@
 
 \DeclareBibliographyDriver{suppbook}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \printfield{type}%
@@ -143,7 +147,7 @@
 }
 
 \DeclareBibliographyDriver{incommentary}{%
-  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \iffieldundef{volume}
     {\usedriver{}{incollection}}
     {\iftoggle{fullbibrefs}
@@ -154,6 +158,7 @@
 
 \DeclareBibliographyDriver{incommentary:short}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -173,6 +178,7 @@
 
 \DeclareBibliographyDriver{incollection}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -212,12 +218,12 @@
 }
 
 \DeclareBibliographyDriver{inlexicon}{%
-  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{finentry}%
 }
 
 \DeclareBibliographyDriver{inreference}{%
-  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \iftoggle{fullbibrefs}
      {\usedriver{}{incollection}}
      {\usedriver{}{inreference:short}}%
@@ -226,6 +232,7 @@
 
 \DeclareBibliographyDriver{inreference:short}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -245,6 +252,7 @@
 
 \DeclareBibliographyDriver{review}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -269,6 +277,7 @@
 
 \DeclareBibliographyDriver{seminarpaper}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -304,6 +313,7 @@
 
 \DeclareBibliographyDriver{thesis}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{title}%
@@ -323,6 +333,7 @@
 
 \DeclareBibliographyDriver{misc}{%
   \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%

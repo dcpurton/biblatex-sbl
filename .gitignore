@@ -8,3 +8,6 @@
 *.toc
 *.out
 *.swp
+*.idx
+*.ilg
+*.ind

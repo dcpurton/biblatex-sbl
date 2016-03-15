@@ -10,7 +10,10 @@
 \usepackage{titlesec}
 \usepackage{listings}
 \usepackage{hyperref}
-\usepackage[style=sbl,backend=biber]{biblatex}
+\usepackage{makeidx}
+\makeindex
+\usepackage[totoc]{idxlayout}
+\usepackage[style=sbl,indexing,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
@@ -441,16 +444,16 @@
 \begin{refimp}
   \hspace*{\bibindent}3. Julius Wellhausen, \emph{Prolegomena to the History
   of Ancient Israel} (New York: Meridian Books, 1957), 296; repr. of
-  \emph{Prolegomena to the History of Israel,} trans.\@ J. Sutherland Black and
-  A. Enzies, with preface by W. Robertson Smith (Edinburgh: Black, 1885);
+  \emph{Prolegomena to the History of Israel,} trans.\@ J.~Sutherland Black and
+  A.~Enzies, with preface by W.~Robertson Smith (Edinburgh: Black, 1885);
   trans.\@ of \emph{Prolegomena zur Geschichte Israels,} 2nd~ed. (Berlin:
   Reimer, 1883).
 
   \hangindent\bibindent Julius Wellhausen,\footnote{Should be “Wellhausen,
   Julius.”?} \emph{Prolegomena to the History of Ancient Israel.} New York:
   Meridian Books, 1957. Reprint of \emph{Prolegomena to the History of
-  Israel.} Translated by J. Sutherland Black and A. Enzies, with preface by W.
-  Robertson Smith. Edinburgh: Black, 1885. Translation of \emph{Prolegomena
+  Israel.} Translated by J.~Sutherland Black and A.~Enzies, with preface by
+  W.~Robertson Smith. Edinburgh: Black, 1885. Translation of \emph{Prolegomena
   zur Geschichte Israels.} 2nd~ed. Berlin: Reimer, 1883.
 \end{refimp}
 
@@ -1593,7 +1596,7 @@ Than the Author}
   \samplecite{33}{stendahl:1962}
   \samplecite{36}[419]{stendahl:1962}
   \samplebib{stendahl:1962}
-  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
+  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs]\{biblatex\} \\
   \textbackslash printbibliography}
   \toggletrue{fullbibrefs}
   \samplebib*{stendahl:1962}
@@ -2252,7 +2255,7 @@ Than the Author}
 @ancienttext{doomedprince,
   title = {The Doomed Prince},
   pages = {200-203},
-  sblxref = {lichtheim:1976},
+  sblxref = {lichtheim:1976}
 }
 \end{lstlisting}
 
@@ -2295,7 +2298,7 @@ Than the Author}
 
 @ancienttext{disappearanceofsungod,
   title = {The Disappearance of the Sun God},
-  sblxref = {hoffner:1990},
+  sblxref = {hoffner:1990}
 }
 \end{lstlisting}
 
@@ -3395,7 +3398,7 @@ Than the Author}
 \begin{biboutput}
   \samplecite{1}[577]{miller:2001}
   \samplebib{miller:2001}
-  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs=true]\{biblatex\} \\
+  \samplemacro{\textbackslash usepackage[style=sbl,fullbibrefs]\{biblatex\} \\
   \textbackslash printbibliography}
   \toggletrue{fullbibrefs}
   \samplebib*{miller:2001}
@@ -3582,7 +3585,7 @@ necessary to indicate the medium in the citation.
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
-  options = {skipbib=true},
+  options = {skipbib}
 }
 
 @lexicon{BDB,
@@ -3592,7 +3595,7 @@ necessary to indicate the medium in the citation.
   date = {1906},
   shorthand = {BDB},
   sblxref = {BDB:abbrev},
-  options = {skipbiblist=true}
+  options = {skipbiblist}
 }
 \end{lstlisting}
 
@@ -3719,10 +3722,14 @@ necessary to indicate the medium in the citation.
 
 \clearpage
 
-\printbiblist{abbreviations}
+\printbiblist[heading=biblistintoc]{abbreviations}
 
 \clearpage
 
-\printbibliography
+\printbibliography[heading=bibintoc]
+
+\clearpage
+
+\printindex
 
 \end{document}
