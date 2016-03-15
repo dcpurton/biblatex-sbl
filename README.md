@@ -24,10 +24,12 @@ To test in place:
 * You should be able to then run:
 
     ```
-    xelatex biblatex-sbl-test
+    lualatex biblatex-sbl-test
     biber biblatex-sbl-test
-    xelatex biblatex-sbl-test
-    xelatex biblatex-sbl-test
+    lualatex biblatex-sbl-test
+    lualatex biblatex-sbl-test
+    makeindex biblatex-sbl-test
+    lualatex biblatex-sbl-test
     ```
 
 * `biblatex-sbl-test.pdf` contains all examples in the 2nd edition of the SBL Handbook of Style.
@@ -48,7 +50,8 @@ kpsewhich -var-value=TEXMFHOME
 
 The following packages are required:
 
-* biblatex (at least version 3.0)
+* biblatex (version 3.0–3.2)
+    - **Note:** biblatex 3.3 introduced incompatibilities (and bugs). More recent versions of biblatex will be supported in future versions.
 * xparse
 
 ## Licence
