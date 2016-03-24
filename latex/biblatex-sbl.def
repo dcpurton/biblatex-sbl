@@ -205,12 +205,14 @@
        \@thefnmark.~##1}}
     {\let\@makefntext\orig@makefntext}}
 
-\protected\def\blx@imc@printreleasedate{}
-\blx@regimcs{\printreleasedate}
-\DeclareBibliographyOption{releasedate}{%
-  \ifcsdef{mkbibrange#1}
-    {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
-    {\blx@err@invopt{releasedate=#1}{}}}
+\ifdim \biblatex@version < 3.4pt
+  \protected\def\blx@imc@printreleasedate{}
+  \blx@regimcs{\printreleasedate}
+  \DeclareBibliographyOption{releasedate}{%
+    \ifcsdef{mkbibrange#1}
+      {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
+      {\blx@err@invopt{releasedate=#1}{}}}
+\fi
 
 \DeclareBibliographyOption{ibidpage}[true]{%
   \ifstrequal{#1}{true}
@@ -354,15 +356,27 @@
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
 
-\DeclareNameAlias{withauthor}{first-last}
-\DeclareNameAlias{witheditor}{first-last}
-\DeclareNameAlias{withtranslator}{first-last}
-\DeclareNameAlias{withbookauthor}{first-last}
-\DeclareNameAlias{withbookeditor}{first-last}
-\DeclareNameAlias{withbooktranslator}{first-last}
-\DeclareNameAlias{withmainauthor}{first-last}
-\DeclareNameAlias{withmaineditor}{first-last}
-\DeclareNameAlias{withmaintranslator}{first-last}
+\ifdim \biblatex@version < 3.3pt
+  \DeclareNameAlias{withauthor}{first-last}
+  \DeclareNameAlias{witheditor}{first-last}
+  \DeclareNameAlias{withtranslator}{first-last}
+  \DeclareNameAlias{withbookauthor}{first-last}
+  \DeclareNameAlias{withbookeditor}{first-last}
+  \DeclareNameAlias{withbooktranslator}{first-last}
+  \DeclareNameAlias{withmainauthor}{first-last}
+  \DeclareNameAlias{withmaineditor}{first-last}
+  \DeclareNameAlias{withmaintranslator}{first-last}
+\else
+  \DeclareNameAlias{withauthor}{given-family}
+  \DeclareNameAlias{witheditor}{given-family}
+  \DeclareNameAlias{withtranslator}{given-family}
+  \DeclareNameAlias{withbookauthor}{given-family}
+  \DeclareNameAlias{withbookeditor}{given-family}
+  \DeclareNameAlias{withbooktranslator}{given-family}
+  \DeclareNameAlias{withmainauthor}{given-family}
+  \DeclareNameAlias{withmaineditor}{given-family}
+  \DeclareNameAlias{withmaintranslator}{given-family}
+\fi
 
 \DeclareFieldFormat{relatedstring:reprint}{#1\printunit{\addcomma\space}}
 
@@ -418,25 +432,47 @@
 
 \providecommand*{\mkibid}[1]{#1}
 
-\renewbibmacro*{name:last-first}[4]{%
-  \ifuseprefix
-    {\usebibmacro{name:delim}{#3#1}%
-     \usebibmacro{name:hook}{#3#1}%
-     \ifblank{#3}{}{%
-       \ifcapital
-         {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
-         {\mkbibnameprefix{#3}\isdot}%
-       \ifpunctmark{'}{}{\bibnamedelimc}}%
-     \mkbibnamelast{#1}\isdot
-     \ifblank{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
-     \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
-    {\usebibmacro{name:delim}{#1}%
-     \usebibmacro{name:hook}{#1}%
-     \mkbibnamelast{#1}\isdot
-     \ifblank{#2#3}{}{\revsdnamepunct}%
-     \ifblank{#2}{}{\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
-     \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-     \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{\addcomma\addspace#4}\isdot}}}
+\ifdim \biblatex@version < 3.3pt
+  \renewbibmacro*{name:last-first}[4]{%
+    \ifuseprefix
+      {\usebibmacro{name:delim}{#3#1}%
+       \usebibmacro{name:hook}{#3#1}%
+       \ifblank{#3}{}{%
+         \ifcapital
+           {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+           {\mkbibnameprefix{#3}\isdot}%
+         \ifpunctmark{'}{}{\bibnamedelimc}}%
+       \mkbibnamelast{#1}\isdot
+       \ifblank{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
+       \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
+      {\usebibmacro{name:delim}{#1}%
+       \usebibmacro{name:hook}{#1}%
+       \mkbibnamelast{#1}\isdot
+       \ifblank{#2#3}{}{\revsdnamepunct}%
+       \ifblank{#2}{}{\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
+       \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+       \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{\addcomma\addspace#4}\isdot}}}
+\else
+  \renewbibmacro*{name:family-given}[4]{%
+    \ifuseprefix
+      {\usebibmacro{name:delim}{#3#1}%
+       \usebibmacro{name:hook}{#3#1}%
+       \ifcontentempty{#3}{}{%
+         \ifcapital
+           {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+           {\mkbibnameprefix{#3}\isdot}%
+         \ifprefchar{}{\bibnamedelimc}}%
+       \mkbibnamefamily{#1}\isdot
+       \ifcontentempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+      {\usebibmacro{name:delim}{#1}%
+       \usebibmacro{name:hook}{#1}%
+       \mkbibnamefamily{#1}\isdot
+       \ifcontentempty{#2#3}{}{\revsdnamepunct}%
+       \ifcontentempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifcontentempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}}%
+       \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}
+\fi
 
 
 % ------------------------------------------------------------------

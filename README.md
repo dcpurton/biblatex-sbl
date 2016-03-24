@@ -50,8 +50,8 @@ kpsewhich -var-value=TEXMFHOME
 
 The following packages are required:
 
-* biblatex (version 3.0–3.2)
-    - **Note:** biblatex 3.3 introduced incompatibilities (and bugs). More recent versions of biblatex will be supported in future versions.
+* biblatex (version 3.0 or higher)
+    - **Note:** `biber` 2.4 (which is used with `biblatex` 3.3) contains a bug which causes it to fail processing entries with both a `shorthand` and a `shortseries`.
 * xparse
 
 ## Licence
