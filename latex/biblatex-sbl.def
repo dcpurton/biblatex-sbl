@@ -35,12 +35,21 @@
 \renewbibmacro*{postnote}{}
 \newbibmacro*{pages}{}
 
-\DeclareBibliographyOption{citepages}[permit]{%
-  \ifcsdef{cbx@opt@citepages@#1}
-    {\csuse{cbx@opt@citepages@#1}}
-    {\PackageError{biblatex}
-       {Invalid option 'citepages=#1'}
-       {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
+\ifdim \biblatex@version < 3.25pt
+  \DeclareBibliographyOption{citepages}[permit]{%
+    \ifcsdef{cbx@opt@citepages@#1}
+      {\csuse{cbx@opt@citepages@#1}}
+      {\PackageError{biblatex}
+         {Invalid option 'citepages=#1'}
+         {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
+\else
+  \DeclareBibliographyOption[string]{citepages}[permit]{%
+    \ifcsdef{cbx@opt@citepages@#1}
+      {\csuse{cbx@opt@citepages@#1}}
+      {\PackageError{biblatex}
+         {Invalid option 'citepages=#1'}
+         {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
+\fi
 
 \providebibmacro*{postnote}{}
 \providebibmacro*{pages}{}
@@ -205,13 +214,22 @@
        \@thefnmark.~##1}}
     {\let\@makefntext\orig@makefntext}}
 
-\ifdim \biblatex@version < 3.35pt
+\ifdim \biblatex@version < 3.25pt
   \protected\def\blx@imc@printreleasedate{}
   \blx@regimcs{\printreleasedate}
   \DeclareBibliographyOption{releasedate}{%
     \ifcsdef{mkbibrange#1}
       {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
       {\blx@err@invopt{releasedate=#1}{}}}
+\else
+  \ifdim \biblatex@version < 3.35pt
+    \protected\def\blx@imc@printreleasedate{}
+    \blx@regimcs{\printreleasedate}
+    \DeclareBibliographyOption[string]{releasedate}{%
+      \ifcsdef{mkbibrange#1}
+        {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
+        {\blx@err@invopt{releasedate=#1}{}}}
+  \fi
 \fi
 
 \DeclareBibliographyOption{ibidpage}[true]{%
