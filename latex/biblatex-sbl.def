@@ -5,7 +5,7 @@
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
 \ifdim \biblatex@version < 3.0pt
-  \PackageError{sbl-biblatex}{BibLaTeX v3.0 or greater is required}
+  \PackageError{biblatex-sbl}{BibLaTeX v3.0 or greater is required}
 \fi
 
 % Require xparse
