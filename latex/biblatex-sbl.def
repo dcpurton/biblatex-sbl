@@ -4,7 +4,7 @@
 % BibLaTeX version 3.0 or greater required
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
-\ifdim \biblatex@version < 3.0pt
+\ifdim \biblatex@version < 2.95pt
   \PackageError{biblatex-sbl}{BibLaTeX v3.0 or greater is required}
 \fi
 
@@ -205,7 +205,7 @@
        \@thefnmark.~##1}}
     {\let\@makefntext\orig@makefntext}}
 
-\ifdim \biblatex@version < 3.4pt
+\ifdim \biblatex@version < 3.35pt
   \protected\def\blx@imc@printreleasedate{}
   \blx@regimcs{\printreleasedate}
   \DeclareBibliographyOption{releasedate}{%
@@ -356,7 +356,7 @@
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
 
-\ifdim \biblatex@version < 3.3pt
+\ifdim \biblatex@version < 3.25pt
   \DeclareNameAlias{withauthor}{first-last}
   \DeclareNameAlias{witheditor}{first-last}
   \DeclareNameAlias{withtranslator}{first-last}
@@ -432,7 +432,7 @@
 
 \providecommand*{\mkibid}[1]{#1}
 
-\ifdim \biblatex@version < 3.3pt
+\ifdim \biblatex@version < 3.25pt
   \renewbibmacro*{name:last-first}[4]{%
     \ifuseprefix
       {\usebibmacro{name:delim}{#3#1}%
@@ -453,25 +453,58 @@
        \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
        \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{\addcomma\addspace#4}\isdot}}}
 \else
-  \renewbibmacro*{name:family-given}[4]{%
-    \ifuseprefix
-      {\usebibmacro{name:delim}{#3#1}%
-       \usebibmacro{name:hook}{#3#1}%
-       \ifcontentempty{#3}{}{%
-         \ifcapital
-           {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
-           {\mkbibnameprefix{#3}\isdot}%
-         \ifprefchar{}{\bibnamedelimc}}%
-       \mkbibnamefamily{#1}\isdot
-       \ifcontentempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-       \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
-      {\usebibmacro{name:delim}{#1}%
-       \usebibmacro{name:hook}{#1}%
-       \mkbibnamefamily{#1}\isdot
-       \ifcontentempty{#2#3}{}{\revsdnamepunct}%
-       \ifcontentempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-       \ifcontentempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}}%
-       \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}
+  \ifdim \biblatex@version < 3.45pt
+    \renewbibmacro*{name:given-family}[4]{%
+      \usebibmacro{name:delim}{#2#3#1}%
+      \usebibmacro{name:hook}{#2#3#1}%
+      \ifempty{#2}{}{\mkbibnamegiven{#2}\isdot\bibnamedelimd}%
+      \ifempty{#3}{}{%
+        \mkbibnameprefix{#3}\isdot
+        \ifprefchar
+          {}
+          {\ifuseprefix{\bibnamedelimc}{\bibnamedelimd}}}%
+      \mkbibnamefamily{#1}\isdot
+      \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+    \renewbibmacro*{name:family-given}[4]{%
+      \ifuseprefix
+        {\usebibmacro{name:delim}{#3#1}%
+         \usebibmacro{name:hook}{#3#1}%
+         \ifempty{#3}{}{%
+           \ifcapital
+             {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+             {\mkbibnameprefix{#3}\isdot}%
+           \ifprefchar{}{\bibnamedelimc}}%
+         \mkbibnamefamily{#1}\isdot
+         \ifempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+        {\usebibmacro{name:delim}{#1}%
+         \usebibmacro{name:hook}{#1}%
+         \mkbibnamefamily{#1}\isdot
+         \expandafter\expandafter\expandafter\ifempty\expandafter\expandafter\expandafter{\expandafter\expandafter#2#3}{}{\revsdnamepunct}%
+         \ifempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+         \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}}
+  \else
+    \renewbibmacro*{name:family-given}[4]{%
+      \ifuseprefix
+        {\usebibmacro{name:delim}{#3#1}%
+         \usebibmacro{name:hook}{#3#1}%
+         \ifcontentempty{#3}{}{%
+           \ifcapital
+             {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+             {\mkbibnameprefix{#3}\isdot}%
+           \ifprefchar{}{\bibnamedelimc}}%
+         \mkbibnamefamily{#1}\isdot
+         \ifcontentempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+        {\usebibmacro{name:delim}{#1}%
+         \usebibmacro{name:hook}{#1}%
+         \mkbibnamefamily{#1}\isdot
+         \ifcontentempty{#2#3}{}{\revsdnamepunct}%
+         \ifcontentempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifcontentempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}}%
+         \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}
+  \fi
 \fi
 
 
