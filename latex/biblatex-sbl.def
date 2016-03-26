@@ -471,7 +471,7 @@
        \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
        \ifblank{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnameaffix{#4}\isdot}}}
 \else
-  \ifdim \biblatex@version < 3.45pt
+  \ifdim \biblatex@version < 3.35pt
     \renewbibmacro*{name:given-family}[4]{%
       \usebibmacro{name:delim}{#2#3#1}%
       \usebibmacro{name:hook}{#2#3#1}%
