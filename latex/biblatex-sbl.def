@@ -462,14 +462,14 @@
          \ifpunctmark{'}{}{\bibnamedelimc}}%
        \mkbibnamelast{#1}\isdot
        \ifblank{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
-       \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
+       \ifblank{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
       {\usebibmacro{name:delim}{#1}%
        \usebibmacro{name:hook}{#1}%
        \mkbibnamelast{#1}\isdot
        \ifblank{#2#3}{}{\revsdnamepunct}%
        \ifblank{#2}{}{\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
        \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-       \ifblank{#4}{}{\bibnamedelimd\mkbibnameaffix{\addcomma\addspace#4}\isdot}}}
+       \ifblank{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnameaffix{#4}\isdot}}}
 \else
   \ifdim \biblatex@version < 3.45pt
     \renewbibmacro*{name:given-family}[4]{%
@@ -494,34 +494,39 @@
            \ifprefchar{}{\bibnamedelimc}}%
          \mkbibnamefamily{#1}\isdot
          \ifempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+         \ifempty{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
         {\usebibmacro{name:delim}{#1}%
          \usebibmacro{name:hook}{#1}%
          \mkbibnamefamily{#1}\isdot
          \expandafter\expandafter\expandafter\ifempty\expandafter\expandafter\expandafter{\expandafter\expandafter#2#3}{}{\revsdnamepunct}%
          \ifempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
          \ifempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-         \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}}
+         \ifempty{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
   \else
     \renewbibmacro*{name:family-given}[4]{%
       \ifuseprefix
         {\usebibmacro{name:delim}{#3#1}%
          \usebibmacro{name:hook}{#3#1}%
-         \ifcontentempty{#3}{}{%
+         \ifdefvoid{#3}{}{%
            \ifcapital
              {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
              {\mkbibnameprefix{#3}\isdot}%
            \ifprefchar{}{\bibnamedelimc}}%
          \mkbibnamefamily{#1}\isdot
-         \ifcontentempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+         \ifdefvoid{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
         {\usebibmacro{name:delim}{#1}%
          \usebibmacro{name:hook}{#1}%
          \mkbibnamefamily{#1}\isdot
-         \ifcontentempty{#2#3}{}{\revsdnamepunct}%
-         \ifcontentempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifcontentempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}}%
-         \ifcontentempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{\addcomma\addspace#4}\isdot}}
+         \ifboolexpe{%
+           test {\ifdefvoid{#2}}
+           and
+           test {\ifdefvoid{#3}}}
+           {}
+           {\revsdnamepunct}%
+         \ifdefvoid{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+         \ifdefvoid{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+         \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
   \fi
 \fi
 
