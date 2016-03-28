@@ -1711,7 +1711,7 @@
                {}}}
          {\ifnamesequal{author}{savedauthor}
             {\clearname{author}}
-            {}}
+            {}}%
        \renewbibmacro*{related:init}{%
          \ifnameundef{savedauthor}
            {}
@@ -1719,7 +1719,7 @@
          \ifnameundef{savededitor}
            {}
            {\restorename{editor}{\abx@namesavededitor}}}%
-       \DeclareNameAlias{sortname}{default}}
+       \DeclareNameAlias{sortname}{default}}%
       {\ifbibliography
          {\thefield{entrytype}}
          {cite:\thefield{entrytype}}}%
