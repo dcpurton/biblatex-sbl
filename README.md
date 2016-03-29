@@ -40,6 +40,8 @@ Put the contents of the `latex` directory into `$TEXMFHOME/tex/latex/biblatex-sb
 
 Put the contents of the `doc` directory into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 
+Put `doc/biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
+
 You can find `$TEXMFHOME` by running:
 
 ```        
