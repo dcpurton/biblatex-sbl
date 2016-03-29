@@ -11,7 +11,7 @@ See `doc/biblatex-sbl.pdf` for style documentation and `doc/biblatex-sbl-test.pd
 
 ## Testing
 
-The main test files are `doc/biblatex-sbl-test.tex` and `doc/biblatex-sbl.bib`
+The main test files are `doc/biblatex-sbl-test.tex`, `doc/biblatex-sbl-ibid.tex`, and `doc/biblatex-sbl.bib`
 
 To test in place:
 
@@ -36,11 +36,11 @@ To test in place:
 
 ## Installing
 
-Put the contents of the `latex` directory into `$TEXMFHOME/tex/latex/biblatex-sbl/`
+Copy `latex/*` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 
-Put the contents of the `doc` directory into `$TEXMFHOME/doc/latex/biblatex-sbl/`
+Copy `doc/*.pdf` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 
-Put `doc/biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
+Copy `doc/biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
 
