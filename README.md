@@ -1,4 +1,4 @@
-# biblatex-sbl — SBL style files for BibLaTeX
+# biblatex-sbl — SBL style files for biblatex
 
 This package provide biblatex support for citations in the format specified by the second edition of the Society of Biblical Literature (SBL) Handbook of Style.
 
@@ -17,11 +17,11 @@ All example notes and bibliography entries from the handbook are supported.
 * Copy `*.pdf` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 * Copy `biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
 
-  You can find `$TEXMFHOME` by running:
+You can find `$TEXMFHOME` by running:
 
-  ```        
-  kpsewhich -var-value=TEXMFHOME
-  ```
+```        
+kpsewhich -var-value=TEXMFHOME
+```
 
 ## Requirements
 
