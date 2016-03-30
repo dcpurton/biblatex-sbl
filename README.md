@@ -1,60 +1,35 @@
-# biblatex-sbl
-Society of Biblical Literature, 2nd Edition (SBL) style files for Biblatex
+# biblatex-sbl — SBL style files for BibLaTeX
 
-## State
+This package provide biblatex support for citations in the format specified by the second edition of the Society of Biblical Literature (SBL) Handbook of Style.
 
-Most types of notes and bibliographies are supported. However, the style should not be considered production ready.
+All example notes and bibliography entries from the handbook are supported.
 
 ## Documentation
 
-See `doc/biblatex-sbl.pdf` for style documentation and `doc/biblatex-sbl-test.pdf` for example entries from the 2nd edition of the SBL Handbook of Style.
+* `biblatex-sbl.pdf`: Style usage and documentation summary.
+* `biblatex-sbl.bib`: Database entries for all example citations in the handbook.
+* `biblatex-sbl-test.pdf`: Example usage for all example citations in the handbook.
+* `biblatex-sbl-ibid.pdf`: Example usage of *ibidem* settings.
 
-## Testing
+## Manual Installation
 
-The main test files are `doc/biblatex-sbl-test.tex`, `doc/biblatex-sbl-ibid.tex`, and `doc/biblatex-sbl.bib`
+* Copy `biblatex-sbl.def`, `sbl.cbx`, `sbl.bbx`, `sbl.dbx`, and `*.lbx` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
+* Copy `*.pdf` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
+* Copy `biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
 
-To test in place:
+  You can find `$TEXMFHOME` by running:
 
-* Add the path to the style files to your search path:
-
-    ```
-    export TEXINPUTS="../latex/:"     # (under UNIX)
-    ```
-
-* You should be able to then run:
-
-    ```
-    lualatex biblatex-sbl-test
-    biber biblatex-sbl-test
-    lualatex biblatex-sbl-test
-    lualatex biblatex-sbl-test
-    makeindex biblatex-sbl-test
-    lualatex biblatex-sbl-test
-    ```
-
-* `biblatex-sbl-test.pdf` contains all examples in the 2nd edition of the SBL Handbook of Style.
-
-## Installing
-
-Copy `latex/*` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
-
-Copy `doc/*.pdf` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
-
-Copy `doc/biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
-
-You can find `$TEXMFHOME` by running:
-
-```        
-kpsewhich -var-value=TEXMFHOME
-```
+  ```        
+  kpsewhich -var-value=TEXMFHOME
+  ```
 
 ## Requirements
 
 The following packages are required:
 
-* biblatex (version 3.0 or higher)
+* `biblatex` (version 3.0 or higher) with the `biber` backend
     - **Note:** `biber` 2.4 (which is used with `biblatex` 3.3) contains a bug which causes it to fail processing entries with both a `shorthand` and a `shortseries`.
-* xparse
+* `xparse`
 
 ## Licence
 
