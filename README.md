@@ -1,6 +1,6 @@
 # biblatex-sbl — SBL style files for biblatex
 
-This package provide biblatex support for citations in the format specified by the second edition of the Society of Biblical Literature (SBL) Handbook of Style.
+This package provides biblatex support for citations in the format specified by the second edition of the Society of Biblical Literature (SBL) Handbook of Style.
 
 All example notes and bibliography entries from the handbook are supported.
 
