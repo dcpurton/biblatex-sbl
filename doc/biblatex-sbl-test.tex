@@ -16,6 +16,9 @@
 \usepackage[style=sbl,indexing,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
+\DeclareBibliographyCategory{ignore}
+\addtocategory{ignore}{pritchard:1969}
+
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 \setromanfont{Linux Libertine O}
 \setsansfont{Linux Biolinum O}[
@@ -32,7 +35,7 @@
 
 \renewcommand{\bibfont}{\rm}
 
-\renewcommand*{\bibnamedash}{%
+\newcommand*{\refbibnamedash}{%
   \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}.\space}
 
 \titleformat{\paragraph}
@@ -801,8 +804,9 @@ Than the Author}
   Texts Relating to the Old Testament,} 3rd~ed. (Princeton: Princeton
   University Press, 1969), xxi.
 
-  Pritchard, James B., ed. \emph{Ancient Near Eastern Texts Relating to the
-  Old Testament.} 3rd~ed. Princeton: Princeton University Press, 1969.
+  \hangindent\bibindent Pritchard, James B., ed. \emph{Ancient Near Eastern
+  Texts Relating to the Old Testament.} 3rd~ed. Princeton: Princeton
+  University Press, 1969.
 \end{refimp}
 
 \begin{lstlisting}
@@ -3363,7 +3367,7 @@ Than the Author}
   \hangindent\bibindent Dahood, Mitchell. \emph{Psalms I: 1–50.} Vol.~1 of
   \emph{Psalms.} AB~16. Garden City, NY: Doubleday, 1965.
 
-  \hangindent\bibindent\bibnamedash \emph{Psalms II: 51–100.} Vol.~2 of
+  \hangindent\bibindent\refbibnamedash \emph{Psalms II: 51–100.} Vol.~2 of
   \emph{Psalms.} AB~17. Garden City, N.Y.:\footnote{Should be “NY:”?}
   Doubleday, 1968.
 
@@ -3727,7 +3731,7 @@ necessary to indicate the medium in the citation.
 
 \clearpage
 
-\printbibliography[heading=bibintoc]
+\printbibliography[heading=bibintoc,notcategory=ignore]
 
 \clearpage
 
