@@ -209,9 +209,16 @@
 \let\orig@makefntext\@makefntext
 \DeclareBibliographyOption{sblfootnotes}[true]{%
   \ifstrequal{#1}{true}
-    {\renewcommand\@makefntext[1]{% 
-       \parindent 1em% 
-       \@thefnmark.~##1}}
+    {\@ifpackageloaded{footmisc}
+       {\renewcommand\@makefntext[1]{%
+          \parindent\footnotemargin%
+          \@thefnmark.\@\space
+          \footnotelayout
+          ##1}}
+       {\renewcommand\@makefntext[1]{%
+          \parindent 1em%
+          \@thefnmark.\@\space
+          ##1}}}
     {\let\@makefntext\orig@makefntext}}
 
 \ifdim \biblatex@version < 3.25pt
