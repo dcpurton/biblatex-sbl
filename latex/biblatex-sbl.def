@@ -1304,8 +1304,6 @@
   }
     {\ifciteseen{%
        \printnames[labelname]{translator}%
-       \setunit{\addcomma\space}%
-       \usebibmacro{translatorstrg}%
      }{%
        \renewcommand{\namedashpunct}{\addcomma\space}%
        \usebibmacro{dashcheck}
