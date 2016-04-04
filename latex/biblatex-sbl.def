@@ -168,6 +168,29 @@
 
 
 % ------------------------------------------------------------------
+% IDEM MACROS
+% ------------------------------------------------------------------
+
+% only use idem within footnote
+\let\cbx@ifmpfncheck\blx@ifmpfncheck
+\patchcmd{\cbx@ifmpfncheck}{\tw@}{\@ne}{}{}
+\let\cbx@ifciteidem@constrict\blx@ifciteidem@constrict
+\patchcmd{\cbx@ifciteidem@constrict}{\blx@ifmpfncheck}{\cbx@ifmpfncheck}{}{}
+
+\def\blx@opt@idemtracker@constrict{%
+  \let\blx@imc@ifciteidem\cbx@ifciteidem@constrict
+  \let\blx@idemtracker\blx@idemtracker@constrict
+  \let\blx@idemreset\blx@idemreset@context
+  \booltrue{citetracker}}
+
+\newbibmacro*{ifidemused}{%
+  \ifciteidem
+    {\bibstring[\mkibid]{idem\thefield{gender}}%
+     \@firstoftwo}
+    {\@secondoftwo}}
+
+
+% ------------------------------------------------------------------
 % COMMENTARY OPTIONS
 % ------------------------------------------------------------------
 
@@ -1246,15 +1269,19 @@
     not test {\ifnameundef{author}}
   }
     {\ifciteseen{%
-       \printnames[labelname]{author}%
+       \usebibmacro{ifidemused}
+         {}
+         {\printnames[labelname]{author}}%
      }{%
        \iffieldundef{authortype}
          {\renewcommand*{\namedashpunct}{\adddot\space}}
          {\renewcommand*{\namedashpunct}{\addcomma\space}}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
-         {\printnames{author}%
-          \usebibmacro{savehash}}%
+         {\usebibmacro{ifidemused}
+            {}
+            {\printnames{author}%
+             \usebibmacro{savehash}}}%
        \iffieldundef{authortype}
          {}
          {\setunit{\addcomma\space}%
@@ -1282,13 +1309,17 @@
     not test {\ifnameundef{editor}}
   }
     {\ifciteseen{%
-       \printnames[labelname]{editor}%
+       \usebibmacro{ifidemused}
+         {}
+         {\printnames[labelname]{editor}}%
      }{%
        \renewcommand*{\namedashpunct}{\addcomma\space}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
-         {\printnames{editor}%
-          \usebibmacro{savehash}}%
+         {\usebibmacro{ifidemused}
+            {}
+            {\printnames{editor}%
+             \usebibmacro{savehash}}}%
        \setunit{\addcomma\space}%
        \usebibmacro{editor+othersstrg}%
        \usebibmacro{withname}{editor}%
@@ -1303,13 +1334,17 @@
     not test {\ifnameundef{translator}}
   }
     {\ifciteseen{%
-       \printnames[labelname]{translator}%
+       \usebibmacro{ifidemused}
+         {}
+         {\printnames[labelname]{translator}}%
      }{%
        \renewcommand{\namedashpunct}{\addcomma\space}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
-         {\printnames{translator}%
-          \usebibmacro{savehash}}%
+         {\usebibmacro{ifidemused}
+            {}
+            {\printnames{translator}%
+             \usebibmacro{savehash}}}%
        \setunit{\addcomma\space}%
        \usebibmacro{translator+othersstrg}%
        \usebibmacro{withname}{translator}%
