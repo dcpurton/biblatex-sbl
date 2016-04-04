@@ -1542,7 +1542,7 @@
   \newunit}
 
 \newbibmacro*{parens+publisher+location+date}{%
-  \setunit{\space}
+  \setunit{\space}%
   \printtext[parens]{%
     \usebibmacro{publisher+location+date}%
     \iffieldequalstr{relatedtype}{reprint}
