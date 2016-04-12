@@ -68,7 +68,7 @@
          {\iffieldpages{postnote}
             {}
             {\setunit{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}
+             \printtext[parens]{\printfield{postnote}}}}}}%
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
@@ -92,7 +92,7 @@
        }
          {}
          {\setunit{\addspace}%
-          \printtext[parens]{\printfield{postnote}}}}}
+          \printtext[parens]{\printfield{postnote}}}}}%
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
@@ -119,7 +119,7 @@
             {\printfield{postnote}}
             {\printfield{pages}%
              \setunit*{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}
+             \printtext[parens]{\printfield{postnote}}}}}}%
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
@@ -149,7 +149,7 @@
               {\bibstring{thiscite}%
                \setunit{\addspace}}
               {}%
-            \printfield{postnote}}}}}
+            \printfield{postnote}}}}}%
   \renewbibmacro*{postnote}{%
     \iffieldundef{postnote}
       {\printfield{pages}}
