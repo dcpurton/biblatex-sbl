@@ -138,15 +138,23 @@
        {}
        {\usebibmacro{setpostnotedelim}}}%
   \ifbool{suppresspostnote}{}{%
-    \ifbool{usevolpostnotedelim}
-      {\setunit{\volpostnotedelim}}
-      {\setunit{\postnotedelim}}%
-    \usebibmacro{postnote}}%
+    \ifboolexpr{%
+      not test {\iffieldundef{postnote}}
+      or
+      not test {\iffieldundef{pages}}
+    }
+      {\ifbool{usevolpostnotedelim}
+         {\setunit{\volpostnotedelim}}
+         {\setunit{\postnotedelim}}%
+       \usebibmacro{postnote}}
+      {}}%
   \iftoggle{relatedseen}
     {}
-    {\setunit{\addsemicolon\space}%
-     \usebibmacro{related:init}%
-     \usebibmacro{related}}}
+    {\iffieldundef{related}
+       {}
+       {\setunit{\addsemicolon\space}%
+        \usebibmacro{related:init}%
+        \usebibmacro{related}}}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}

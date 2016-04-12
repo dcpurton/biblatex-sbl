@@ -1846,14 +1846,20 @@
   \usebibmacro{volume}%
   \setunit{\addperiod}%
   \printfield{part}%
-  \ifbool{usevolpostnotedelim}
-    {\setunit{\volpostnotedelim}}
-    {\setunit{\postnotedelim}}%
-  \ifciteseen
-    {\usebibmacro{postnote}}
-    {\iffieldundef{pages}
+  \ifboolexpr{%
+    not test {\iffieldundef{postnote}}
+    or
+    not test {\iffieldundef{pages}}
+  }
+    {\ifbool{usevolpostnotedelim}
+       {\setunit{\volpostnotedelim}}
+       {\setunit{\postnotedelim}}
+     \ifciteseen
        {\usebibmacro{postnote}}
-       {\usebibmacro{pages}}}}
+       {\iffieldundef{pages}
+          {\usebibmacro{postnote}}
+          {\usebibmacro{pages}}}}
+    {}}
 
 \newbibmacro*{classic:translator+series}{%
   \ifboolexpr{
