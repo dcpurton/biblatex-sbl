@@ -8,7 +8,7 @@
 \usepackage{titlesec}
 \usepackage{hyperref}
 \usepackage{makeidx}
-\usepackage[style=sbl,indexing,ibidtracker,pagetracker,backend=biber]{biblatex}
+\usepackage[style=sbl,indexing,ibidtracker=constrict,pagetracker,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \makeindex
@@ -141,23 +141,24 @@
 
 \begin{document}
 
-\title{Biblatex-SBL \emph{ibidem} Test File}
+\title{Biblatex-SBL \emph{ibidem} and \emph{idem} Test File}
 \author{David Purton}
 \maketitle
 
 This file tests the behaviour of the various options related to using
-\emph{ibidem} in Biblatex-SBL.
+\emph{ibidem} and \emph{idem} in Biblatex-SBL.
 
 \section*{Basic \emph{ibidem} tracking}
 
 Turn on \emph{ibidem} using the \texttt{ibidtracker} option. By default
 ibid.\@ is used across page breaks and \emph{ibidem} is taking to mean ‘same
-author + same title’.
+author + same title’. See \texttt{biblatex-sbl.pdf} for a description of the
+options \texttt{ibidtracker} can take.
 
 \boolfalse{pagetracker}
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,backend=biber]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,backend=biber]\{biblatex\}}
   \samplecite{1}[127]{talbert:1992}
   \samplecite{2}[22]{talbert:1992}
   \samplecite{3}[22]{talbert:1992}
@@ -176,7 +177,7 @@ citation on a page is never ibid.
 \booltrue{pagetracker}
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,pagetracker,backend=biber]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,pagetracker,backend=biber]\{biblatex\}}
   \samplecite{7}[53]{scott+etal:1993}
   \samplecite{8}[42]{scott+etal:1993}
   \samplemacro{\textbackslash clearpage}
@@ -196,11 +197,33 @@ mean ‘same author + same title + same page’.
 \makeatother
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker,ibidpage,backend=biber]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,ibidpage,backend=biber]\{biblatex\}}
   \samplecite{10}[28]{egger:1996}
   \samplecite{11}[28]{egger:1996}
   \samplecite{12}[291]{egger:1996}
 \end{biboutput}
+
+\section*{\emph{Idem} tracking}
+
+Turn on \emph{idem} using the \texttt{idemtracker} option. See
+\texttt{biblatex-sbl.pdf} for a description of the options
+\texttt{idemtracker} can take.
+
+\begin{biboutput}
+  \samplemacro{\textbackslash usepackage[style=sbl,idemtracker=constrict,backend=biber]\{biblatex\}}
+  \makeatletter\blx@opt@idemtracker@constrict\makeatother
+  \samplemacro{\textbackslash autocites[35]\{vanseters:1997\}\{vanseters:1995\}}
+  \color{biblatex-colour}
+  \hspace*{\bibindent}13.~\cites[35]{vanseters:1997}{vanseters:1995}.
+  \color{black}
+  \samplemacro{\textbackslash
+  autocites[35]\{vanseters:1997\}[222]\{vanseters:1995\}}
+  \makeatletter\blx@idemreset\makeatother
+  \color{biblatex-colour}
+  \hspace*{\bibindent}14.~\cites[35]{vanseters:1997}[222]{vanseters:1995}.
+  \color{black}
+\end{biboutput}
+
 
 \printbibliography
 
