@@ -279,15 +279,6 @@ custom ones outlined below.
 
 \begin{optionlist}
 
-\optitem[false]{ibidtracker}{\opt{true}, \opt{false}}
-
-This option controls the \emph{ibidem} tracker. The possible choices are:
-
-\begin{valuelist}
-\item[true] Enable the tracker: \emph{ibid.}\ will be used.
-\item[false] Disable the tracker: \emph{ibid.}\ will not be used.
-\end{valuelist}
-
 \optitem[sbl]{citepages}{\opt{sbl}, \opt{permit}, \opt{omit}, \opt{separate}}
 
 Use this option to fine-tune the formatting of the \bibfield{pages} field
@@ -390,14 +381,74 @@ entry types.
   \end{snugshade}
 \end{valuelist}
 
+\optitem[false]{ibidtracker}{\opt{true}, \opt{false}, \opt{context},
+\opt{strict}, \opt{constrict}}
+
+This option controls the \emph{ibidem} tracker. The possible choices are:
+
+\begin{valuelist}
+\item[true] Enable the tracker in global mode.
+  not tracked separately between text body and footnotes.
+\item[false] Disable the tracker: \emph{ibid.}\ will not be used.
+\item[context] Enable the tracker in context-sensitive mode. In this mode,
+  citations in footnotes and in the body text are tracked separately.
+\item[strict] Enable the tracker in strict mode. In this mode, potentially
+  ambiguous references are suppressed. A reference is considered ambiguous if
+  either the current citation (the one including the \emph{ibidem}) or the
+  previous citation (the one the \emph{ibidem} refers to) consists of a list
+  of references.
+\item[constrict] This mode combines the features of \opt{context} and
+  \opt{strict}. It also keeps track of footnote numbers and detects
+  potentially ambiguous references in footnotes in a stricter way than the
+  \opt{strict} option. In addition to the conditions imposed by the
+  \opt{strict} option, a reference in a footnote will only be considered as
+  unambiguous if the current citation and the previous citation are given in
+  the same footnote or in immediately consecutive footnotes.
+\end{valuelist}
+
 \boolitem[false]{ibidpage}
 
 The scholarly abbreviation \emph{ibidem} is sometimes taken to mean both ‘same
 author + same title’ and ‘same author + same title + same page’ in traditional
 citation schemes. By default, this is not the case with this style because it
-may lead to ambiguous citations. If you you prefer the wider interpretation of
+may lead to ambiguous citations. If you prefer the wider interpretation of
 \emph{ibidem}, set the package option \opt{ibidpage=true} or simply
 \opt{ibidpage} in the preamble. The default setting is \opt{ibidpage=false}.
+
+\optitem[false]{idemtracker}{\opt{true}, \opt{false}, \opt{context},
+\opt{strict}, \opt{constrict}}
+
+This option controls the \emph{idem} tracker. The possible choices are:
+
+\begin{valuelist}
+\item[true] Enable the tracker in global mode.
+\item[false] Disable the tracker: \emph{idem} will not be used.
+\item[context] Enable the tracker in context-sensitive mode. In this mode,
+  citations in footnotes and in the body text are tracked separately.
+\item[strict] This is an alias for \opt{true}, provided only for consistency
+  with the other trackers. Since \emph{idem} replacements do not get ambiguous
+  in the same way as \emph{ibidem}, the strict tracking mode does not apply to
+  them.
+\item[constrict] This mode is similar to \opt{context} with one additional
+  condition: a reference in a footnote will only be considered as unambiguous
+  if the current citation and the previous citation are given in the same
+  footnote.
+\end{valuelist}
+
+\optitem[false]{pagetracker}{\opt{true}, \opt{false}}
+
+This option controls whether \emph{ibidem} and \emph{idem} are used across
+page breaks or not.
+
+\begin{valuelist}
+\item[true] Enable the tracker in automatic mode. This is like \opt{spread} if
+  LaTeX is in twoside mode, and like \opt{page} otherwise.
+\item[false] Disable the tracker.
+\item[page] Enable the tracker in page mode. In this mode, tracking works on a
+  per-page basis.
+\item[spread] Enable the tracker in spread mode. In this mode, tracking works
+  on a per-spread (double page) basis.
+\end{valuelist}
 
 \optitem[comp]{releasedate}{\opt{year}, \opt{short}, \opt{long}, \opt{terse,
 \opt{comp}, \opt{iso8601}}}
@@ -679,18 +730,18 @@ alias for \bibtype{article}.
 
 \typeitem{proceedings}
 
-A single-volume conference proceedings. This type is not fully supported.
-\biblatexsbl treats this as an alias for \bibtype{collection}.
+A single-volume conference proceedings. In \biblatexsbl this as an alias for
+\bibtype{collection}.
 
 \typeitem{mvproceedings}
 
-A multi-volume \bibtype{proceedings} entry. This type is not fully supported.
-\biblatexsbl treats this as an alias for \bibtype{mvcollection}.
+A multi-volume \bibtype{proceedings} entry. In \biblatexsbl this as an alias
+for \bibtype{mvcollection}.
 
 \typeitem{inproceedings}
 
-An article in a conference proceedings. This type is not fully supported.
-\biblatexsbl treats this as an alias for \bibtype{incollection}.
+An article in a conference proceedings. In \biblatexsbl this as an alias for
+\bibtype{incollection}.
 
 \typeitem{reference}
 
