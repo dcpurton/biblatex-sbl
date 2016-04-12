@@ -733,6 +733,10 @@
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
     \map{
+      \step[fieldsource=revdtitle, match=\regexp{(.*?):}, final]
+      \step[fieldset=revdshorttitle, fieldvalue={$1}]
+    }
+    \map{
       \pertype{inlexicon}
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
