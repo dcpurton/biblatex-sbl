@@ -527,7 +527,8 @@
   \usebibmacro{revdtitle}%
   \newunit
   \ifciteseen
-    {\printtext[parens]{\usebibmacro{revdauthor/revdeditor}}}
+    {\setunit{\addspace}%
+     \printtext[parens]{\usebibmacro{revdauthor/revdeditor}}}
     {\usebibmacro{revdauthor/revdeditor}%
      \newunit
      \usebibmacro{shortjournal+issuetitle}%
