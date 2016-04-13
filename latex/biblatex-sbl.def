@@ -1,11 +1,11 @@
 \RequireBibliographyStyle{standard}
 \RequireBiber[3]
 
-% BibLaTeX version 3.0 or greater required
+% BibLaTeX version 3.1 or greater required
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
-\ifdim \biblatex@version < 2.95pt
-  \PackageError{biblatex-sbl}{BibLaTeX v3.0 or greater is required}
+\ifdim \biblatex@version < 3.05pt
+  \PackageError{biblatex-sbl}{BibLaTeX v3.1 or greater is required}
 \fi
 
 % Require xparse
@@ -662,6 +662,14 @@
   \usebibmacro{finentry}%
 }
 
+\DeclareBiblistFilter{abbreviations}{
+  \filteror{
+    \filter[type=field,filter=shorthand]
+    \filter[type=field,filter=shortjournal]
+    \filter[type=field,filter=shortseries]
+  }
+}
+
 \defbibcheck{abbreviations}{%
   \blx@setoptions@entry
   \iftoggle{blx@skipbiblist}{\skipentry}{}%
@@ -673,12 +681,12 @@
           {\iffieldundef{clone}{\skipentry}{}}}}
     {}%
   \iftoggle{blx@skipbiblistshorthand}
-   {\iffieldundef{shorthand}
-      {}
-      {\iffieldundef{shortseries}
-         {\skipentry}
-         {\iffieldundef{clone}{}{\skipentry}}}}
-   {}%
+    {\iffieldundef{shorthand}
+       {}
+       {\iffieldundef{shortseries}
+          {\skipentry}
+          {\iffieldundef{clone}{}{\skipentry}}}}
+    {}%
   \iftoggle{blx@skipentry}
     {}
     {\iffieldundef{shortseries}
@@ -699,15 +707,6 @@
          {\skipentry}
          {\savefieldcs{shorthand}{\strfield{shorthand}\strfield{title}}}%   
        }%
-     \ifboolexpr{
-       test {\iffieldundef{shorthand}}
-       and
-       test {\iffieldundef{shortjournal}}
-       and
-       test {\iffieldundef{shortseries}}
-     }
-       {\skipentry}
-       {}%
     }%
 }
 

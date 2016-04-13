@@ -9,7 +9,7 @@ All example notes and bibliography entries from the handbook are supported.
 * `biblatex-sbl.pdf`: Style usage and documentation summary.
 * `biblatex-sbl.bib`: Database entries for all example citations in the handbook.
 * `biblatex-sbl-test.pdf`: Example usage for all example citations in the handbook.
-* `biblatex-sbl-ibid.pdf`: Example usage of *ibidem* settings.
+* `biblatex-sbl-ibid.pdf`: Example usage of *ibidem* and *idem* settings.
 
 ## Manual Installation
 
@@ -27,7 +27,7 @@ kpsewhich -var-value=TEXMFHOME
 
 The following packages are required:
 
-* `biblatex` (version 3.0 or higher) with the `biber` backend
+* `biblatex` (version 3.1 or higher) with the `biber` backend
     - **Note:** `biber` 2.4 (which is used with `biblatex` 3.3) contains a bug which causes it to fail processing entries with both a `shorthand` and a `shortseries`.
 * `xparse`
 
