@@ -1,0 +1,291 @@
+\documentclass[letterpaper,12pt,oneside,openany]{book}
+
+\usepackage[headheight=14.5pt,margin=1in]{geometry}
+\usepackage{times}
+\usepackage{setspace}
+\usepackage{titlesec}
+\usepackage{titletoc}
+\usepackage{fancyhdr}
+\usepackage{quoting}
+\usepackage[ragged,bottom]{footmisc}
+\usepackage[style=sbl,backend=biber]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\makeatletter
+\defbibheading{biblistintoc}[\biblistname]{%
+  \clearpage
+  \thispagestyle{plain}
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}%
+  \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt}
+
+\setcounter{secnumdepth}{0}
+\titleformat
+  {\chapter}
+  [block]
+  {\singlespacing\centering}
+  {\MakeUppercase{\chaptertitlename} \thechapter:}
+  {.5em}
+  {\MakeUppercase}
+\titleformat
+  {\section}
+  [block]
+  {\singlespacing\centering}
+  {\thesection}
+  {.5em}
+  {\MakeUppercase}
+\titleformat
+  {\subsection}
+  [block]
+  {\singlespacing\centering\bfseries}
+  {\thesubsection}
+  {.5em}
+  {}
+\titleformat
+  {\subsubsection}
+  [block]
+  {\singlespacing\centering}
+  {\thesubsubsection}
+  {.5em}
+  {}
+\titleformat
+  {\paragraph}
+  [hang]
+  {\singlespacing\bfseries\itshape}
+  {\theparagraph}
+  {.5em}
+  {}
+\titleformat
+  {\subparagraph}
+  [hang]
+  {\singlespacing}
+  {\thesubparagraph}
+  {.5em}
+  {}
+\titlespacing*{\chapter}{0pt}{29pt}{29pt}
+\titlespacing*{\section}{0pt}{29pt}{29pt}
+\titlespacing*{\subsection}{0pt}{29pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{29pt}{0pt}
+\titlespacing*{\paragraph}{0pt}{29pt}{0pt}
+\titlespacing*{\subparagraph}{0pt}{29pt}{0pt}
+\assignpagestyle{\chapter}{plain}
+\def\firstsection{%
+  \clearpage
+  \vspace*{0pt}
+  \thispagestyle{plain}
+  \section}
+\setcounter{tocdepth}{3}
+\renewcommand\tableofcontents{%
+    \if@twocolumn
+      \@restonecoltrue\onecolumn
+    \else
+      \@restonecolfalse
+    \fi
+    \section*{\contentsname
+        \@mkboth{%
+           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \@starttoc{toc}%
+    \if@restonecol\twocolumn\fi
+    \thispagestyle{plain}
+    }
+\titlecontents{chapter}
+  [0pt]
+  {\singlespacing}
+  {\MakeUppercase{\chaptertitlename~\thecontentslabel}: \MakeUppercase}
+  {\MakeUppercase}
+  {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
+\titlecontents{section}
+  [0pt]
+  {\singlespacing}
+  {\MakeUppercase{\chaptertitlename~\thecontentslabel}: \MakeUppercase}
+  {\MakeUppercase}
+  {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
+\titlecontents{subsection}
+  [1em]
+  {\singlespacing}
+  {\thecontentslabel~}
+  {}
+  {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
+\titlecontents{subsubsection}
+  [1em]
+  {\singlespacing}
+  {\thecontentslabel~}
+  {}
+  {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
+
+\setstretch{2}
+\raggedright
+\setlength{\parindent}{0.5in}
+\frenchspacing
+
+\renewcommand\appendix{\par
+  \setcounter{chapter}{0}%
+  \setcounter{section}{0}%
+  \gdef\@chapapp{\appendixname}%
+  \titlecontents{chapter}
+    [0pt]
+    {\singlespacing}
+    {\MakeUppercase{\appendixname~\thecontentslabel}: \MakeUppercase}
+    {\MakeUppercase}
+    {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}}
+
+\renewcommand\footnoterule{\kern-3pt \hrule width 2in \kern 2.6pt\vskip -8pt}
+\setlength{\footnotemargin}{0.5in}
+\setlength{\footnotesep}{18pt}
+
+\quotingsetup{leftmargin=0.5in,rightmargin=0in,vskip=0pt}
+\renewcommand*{\quotingfont}{\singlespacing}
+
+\setlength{\bibitemsep}{14.5pt}
+
+\renewcommand{\maketitle}{%
+  \newgeometry{margin=2in}%
+  \thispagestyle{empty}%
+  \singlespacing
+  \begin{center}
+    \MakeUppercase{\@institution}
+
+    \vfill
+
+    \setstretch{2}
+    \MakeUppercase{\@title}
+
+    \vfill
+    
+    \singlespacing
+    \MakeUppercase{Submitted to \@professor \protect\\
+      in Partial Fulfilment of \protect\\\relax
+    \@course}
+
+    \vfill
+
+    \MakeUppercase{By \protect\\\relax
+      \@author \protect\\\relax
+    \@date}
+  \end{center}
+  \restoregeometry
+}
+
+\def\author#1{\gdef\@author{#1}}
+\def\@author{[Your name]}
+\def\title#1{\gdef\@title{#1}}
+\def\@title{Title of Paper}
+\def\institution#1{\gdef\@institution{#1}}
+\def\@institution{[Name of Institution]}
+\def\professor#1{\gdef\@professor{#1}}
+\def\@professor{[Name of Professor]}
+\def\course#1{\gdef\@course{#1}}
+\def\@course{[Course Number and Title]}
+
+\makeatother
+  
+\begin{document}
+
+\institution{[Name of Institution]}
+\title{Title of Paper}
+\professor{[Name of Professor]}
+\course{[Course Number and Title]}
+\author{[Your Name]}
+\date{[Month, Day, Year]}
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\printbiblist[heading=biblistintoc,title=List of Abbreviations]{abbreviations}
+
+\mainmatter
+
+\firstsection[Primary Heading Long Titles Are Single-Spaced on Susequent Lines]{Primary Heading \break
+  Long Titles Are Single-Spaced on Subsequent Lines}
+
+The top margin is two inches for the first page only. There are two blank
+lines between the title and the text (or subheading if there is one). The
+left, right, top, and bottom margins are one inch. The first pages of chapters
+are formatted like the primary heading.
+
+Indent the first line of subsequent paragraphs. All main text should be set in
+a standard 12-point font such as Times-New-Roman.
+
+\subsection{First-Level Subheading}
+
+Keep two blank lines between the text of the preceding section and a
+subheading, regardless of the level. A first level subheading is centered,
+bold, and capitalized headline style.
+
+\subsubsection{Second-Level Subheading}
+
+There are two blank lines between the text of the preceding section and the
+subheading. A second-level subheading is centered and capitalized headline
+style.
+
+\paragraph{Third-Level Subheading}
+
+A third level subheading is on the left margin, in bold, italics, and
+capitalized headline style. A heading should never be the last text on a page.
+If necessary, add extra blank space at the end of the page and begin the
+following page with a heading.
+
+\subparagraph{Fourth-Level Subheading}
+
+A fourth-level subheading is on the left margin, capitalized headline style.
+
+The page numbers for the noninitial pages of the paper (or chapter) are
+located at the top right corner. The text of the body of the paper is
+double-spaced except for blocked quotations.
+\begin{quoting}
+  This is a blocked quotation. It should consist of five or more lines of text
+  and be indented one-half inch. Block quotations should be single-spaced. No
+  quotation marks are used at the beginning or the end of the quote. Double
+  quotation marks within the original matter are retained. The blocked quote
+  is set off by a regular double space before and after the quote. Note that
+  regular spacing resumes after the end of the quotation.\footnote{The first
+  line of a footnote is indented one-half inch. A 10-point font is acceptable.
+  Footnotes, unlike the main text of the paper, should be single-spaced.}
+\end{quoting}
+After a block quotation, return to double-spaced text justified to the left
+margin until you finish the paragraph.
+
+Footnotes at the bottom of the page are separated by a two-inch
+rule.\footnote{There should be a blank line between each note and a blank en
+space between the number and the first word of the note.} Maintain subsequent
+numbering in notes. Make sure a footnote and the text to which it refers are
+on the same page. When a word processor such as Microsoft Word does not
+accomplish this automatically, adjust the line spacing to ``exactly'' on the
+``paragraph'' window.
+
+\appendix
+
+\chapter{Appendix Title}
+
+There should be two blank lines between the title and the text.
+
+Each appendix should have a number and a title, unless there is only one
+appendix, in which case the appendix does not need a number. Every appendix
+requires a heading, so if you are including a preexisting document you will
+need to type a heading (i.e., the appendix number and title) on that document
+so that it conforms to your numbered appendixes.
+
+An appendix is formatted like the first page of a chapter, using a two-inch
+top margin. Locate page numbers at the bottom center of the first page of each
+appendix and at the top right corner of subsequent pages. If the appendix is
+already numbered, put those page numbers in square brackets. Page numbering
+for the appendixes is consecutive with the rest of the paper.
+
+Margins for the appendixes should be the same as the rest of the paper. You
+may need to reduce the content of the appendix to fit the margins.
+
+\nocite{NIDNTT}
+\nocite{dahood:1965-1970}
+\nocite{freedman:1980}
+\nocite{freedman:1977}
+
+\printbibliography[heading=bibintoc]
+
+\end{document}

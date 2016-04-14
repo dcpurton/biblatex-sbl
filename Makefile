@@ -13,7 +13,9 @@ DOCFILES = doc/biblatex-sbl.pdf \
 	   doc/biblatex-sbl-ibid.pdf \
 	   doc/biblatex-sbl-ibid.tex \
 	   doc/biblatex-sbl-test.pdf \
-	   doc/biblatex-sbl-test.tex
+	   doc/biblatex-sbl-test.tex \
+	   doc/sbl-paper.pdf \
+	   doc/sbl-paper.tex
 TEXFILES = latex/biblatex-sbl.def \
 	   latex/sbl.bbx \
 	   latex/sbl.cbx \
