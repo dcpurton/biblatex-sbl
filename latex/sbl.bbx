@@ -26,6 +26,7 @@
 \DeclareBibliographyDriver{classictext}{%
   \usebibmacro{begentry}%
   \DeclareFieldFormat[classictext]{title}{\mkbibemph{##1}}%
+  \clearfield{related}%
   \usedriver{}{incollection}%
   \usebibmacro{finentry}%
 }
@@ -38,17 +39,17 @@
      \newunit
      \usebibmacro{title}%
      \newunit
-     \entrydata{\thefield{sblxref}}{%
+     \entrydata{\thefield{xref}}{%
        \printtext[title]{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}
      \setunit{\addspace}%
      \usebibmacro{volume+part+pages}%
      \newunit
-     \entrydata{\thefield{sblxref}}{\printfield{titleaddon}}%
+     \entrydata{\thefield{xref}}{\printfield{titleaddon}}%
      \clearfield{pages}%
      \setunit{\addcomma\addspace}%
      \usebibmacro{volume+part+pages}%
      \newunit
-     \entrydata{\thefield{sblxref}}{\usebibmacro{bymaineditor+others}}%
+     \entrydata{\thefield{xref}}{\usebibmacro{bymaineditor+others}}%
      \usebibmacro{publisher+location+date}%
      \newunit
      \iftoggle{relatedseen}
@@ -163,7 +164,7 @@
   \newunit
   \usebibmacro{title}%
   \newunit
-  \usebibmacro{sblxrefshortmaintitle}%
+  \usebibmacro{xrefshortmaintitle}%
   \newunit
   \usebibmacro{volume+pages}%
   \newunit
@@ -237,7 +238,7 @@
   \newunit
   \usebibmacro{title}%
   \newunit
-  \usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
+  \usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
   \newunit
   \usebibmacro{volume+pages}%
   \newunit

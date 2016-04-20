@@ -1,11 +1,11 @@
 \RequireBibliographyStyle{standard}
 \RequireBiber[3]
 
-% BibLaTeX version 3.1 or greater required
+% BibLaTeX version 3.4 or greater required
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
-\ifdim \biblatex@version < 3.05pt
-  \PackageError{biblatex-sbl}{BibLaTeX v3.1 or greater is required}
+\ifdim \biblatex@version < 3.35pt
+  \PackageError{biblatex-sbl}{BibLaTeX v3.4 or greater is required}
 \fi
 
 % Require xparse
@@ -35,21 +35,12 @@
 \renewbibmacro*{postnote}{}
 \newbibmacro*{pages}{}
 
-\ifdim \biblatex@version < 3.25pt
-  \DeclareBibliographyOption{citepages}[permit]{%
-    \ifcsdef{cbx@opt@citepages@#1}
-      {\csuse{cbx@opt@citepages@#1}}
-      {\PackageError{biblatex}
-         {Invalid option 'citepages=#1'}
-         {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
-\else
-  \DeclareBibliographyOption[string]{citepages}[permit]{%
-    \ifcsdef{cbx@opt@citepages@#1}
-      {\csuse{cbx@opt@citepages@#1}}
-      {\PackageError{biblatex}
-         {Invalid option 'citepages=#1'}
-         {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
-\fi
+\DeclareBibliographyOption[string]{citepages}[permit]{%
+  \ifcsdef{cbx@opt@citepages@#1}
+    {\csuse{cbx@opt@citepages@#1}}
+    {\PackageError{biblatex}
+       {Invalid option 'citepages=#1'}
+       {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
 
 \providebibmacro*{postnote}{}
 \providebibmacro*{pages}{}
@@ -244,24 +235,6 @@
           ##1}}}
     {\let\@makefntext\orig@makefntext}}
 
-\ifdim \biblatex@version < 3.25pt
-  \protected\def\blx@imc@printreleasedate{}
-  \blx@regimcs{\printreleasedate}
-  \DeclareBibliographyOption{releasedate}{%
-    \ifcsdef{mkbibrange#1}
-      {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
-      {\blx@err@invopt{releasedate=#1}{}}}
-\else
-  \ifdim \biblatex@version < 3.35pt
-    \protected\def\blx@imc@printreleasedate{}
-    \blx@regimcs{\printreleasedate}
-    \DeclareBibliographyOption[string]{releasedate}{%
-      \ifcsdef{mkbibrange#1}
-        {\protected\def\blx@imc@printreleasedate{\csuse{mkbibrange#1}{release}}}
-        {\blx@err@invopt{releasedate=#1}{}}}
-  \fi
-\fi
-
 \DeclareBibliographyOption{ibidpage}[true]{%
   \ifstrequal{#1}{true}
     {\ExecuteBibliographyOptions{loccittracker=true}}
@@ -276,6 +249,7 @@
   autocite=footnote,
   url,
   related,
+  minxrefs=1,
   isbn=false,
   ibidtracker=false,
   ibidpage=false,
@@ -404,27 +378,15 @@
 \DeclareFieldFormat{cptype}{\ifbibstring{#1}{\bibcpstring{#1}}{#1}}
 \DeclareFieldFormat{quote}{\mkbibquote{#1}}
 
-\ifdim \biblatex@version < 3.25pt
-  \DeclareNameAlias{withauthor}{first-last}
-  \DeclareNameAlias{witheditor}{first-last}
-  \DeclareNameAlias{withtranslator}{first-last}
-  \DeclareNameAlias{withbookauthor}{first-last}
-  \DeclareNameAlias{withbookeditor}{first-last}
-  \DeclareNameAlias{withbooktranslator}{first-last}
-  \DeclareNameAlias{withmainauthor}{first-last}
-  \DeclareNameAlias{withmaineditor}{first-last}
-  \DeclareNameAlias{withmaintranslator}{first-last}
-\else
-  \DeclareNameAlias{withauthor}{given-family}
-  \DeclareNameAlias{witheditor}{given-family}
-  \DeclareNameAlias{withtranslator}{given-family}
-  \DeclareNameAlias{withbookauthor}{given-family}
-  \DeclareNameAlias{withbookeditor}{given-family}
-  \DeclareNameAlias{withbooktranslator}{given-family}
-  \DeclareNameAlias{withmainauthor}{given-family}
-  \DeclareNameAlias{withmaineditor}{given-family}
-  \DeclareNameAlias{withmaintranslator}{given-family}
-\fi
+\DeclareNameAlias{withauthor}{given-family}
+\DeclareNameAlias{witheditor}{given-family}
+\DeclareNameAlias{withtranslator}{given-family}
+\DeclareNameAlias{withbookauthor}{given-family}
+\DeclareNameAlias{withbookeditor}{given-family}
+\DeclareNameAlias{withbooktranslator}{given-family}
+\DeclareNameAlias{withmainauthor}{given-family}
+\DeclareNameAlias{withmaineditor}{given-family}
+\DeclareNameAlias{withmaintranslator}{given-family}
 
 \DeclareFieldFormat{relatedstring:reprint}{#1\printunit{\addcomma\space}}
 
@@ -480,85 +442,30 @@
 
 \providecommand*{\mkibid}[1]{#1}
 
-\ifdim \biblatex@version < 3.25pt
-  \renewbibmacro*{name:last-first}[4]{%
-    \ifuseprefix
-      {\usebibmacro{name:delim}{#3#1}%
-       \usebibmacro{name:hook}{#3#1}%
-       \ifblank{#3}{}{%
-         \ifcapital
-           {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
-           {\mkbibnameprefix{#3}\isdot}%
-         \ifpunctmark{'}{}{\bibnamedelimc}}%
-       \mkbibnamelast{#1}\isdot
-       \ifblank{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
-       \ifblank{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnameaffix{#4}\isdot}}
-      {\usebibmacro{name:delim}{#1}%
-       \usebibmacro{name:hook}{#1}%
-       \mkbibnamelast{#1}\isdot
-       \ifblank{#2#3}{}{\revsdnamepunct}%
-       \ifblank{#2}{}{\bibnamedelimd\mkbibnamefirst{#2}\isdot}%
-       \ifblank{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-       \ifblank{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnameaffix{#4}\isdot}}}
-\else
-  \ifdim \biblatex@version < 3.35pt
-    \renewbibmacro*{name:given-family}[4]{%
-      \usebibmacro{name:delim}{#2#3#1}%
-      \usebibmacro{name:hook}{#2#3#1}%
-      \ifempty{#2}{}{\mkbibnamegiven{#2}\isdot\bibnamedelimd}%
-      \ifempty{#3}{}{%
-        \mkbibnameprefix{#3}\isdot
-        \ifprefchar
-          {}
-          {\ifuseprefix{\bibnamedelimc}{\bibnamedelimd}}}%
-      \mkbibnamefamily{#1}\isdot
-      \ifempty{#4}{}{\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
-    \renewbibmacro*{name:family-given}[4]{%
-      \ifuseprefix
-        {\usebibmacro{name:delim}{#3#1}%
-         \usebibmacro{name:hook}{#3#1}%
-         \ifempty{#3}{}{%
-           \ifcapital
-             {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
-             {\mkbibnameprefix{#3}\isdot}%
-           \ifprefchar{}{\bibnamedelimc}}%
-         \mkbibnamefamily{#1}\isdot
-         \ifempty{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifempty{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
-        {\usebibmacro{name:delim}{#1}%
-         \usebibmacro{name:hook}{#1}%
-         \mkbibnamefamily{#1}\isdot
-         \expandafter\expandafter\expandafter\ifempty\expandafter\expandafter\expandafter{\expandafter\expandafter#2#3}{}{\revsdnamepunct}%
-         \ifempty{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifempty{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-         \ifempty{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
-  \else
-    \renewbibmacro*{name:family-given}[4]{%
-      \ifuseprefix
-        {\usebibmacro{name:delim}{#3#1}%
-         \usebibmacro{name:hook}{#3#1}%
-         \ifdefvoid{#3}{}{%
-           \ifcapital
-             {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
-             {\mkbibnameprefix{#3}\isdot}%
-           \ifprefchar{}{\bibnamedelimc}}%
-         \mkbibnamefamily{#1}\isdot
-         \ifdefvoid{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
-        {\usebibmacro{name:delim}{#1}%
-         \usebibmacro{name:hook}{#1}%
-         \mkbibnamefamily{#1}\isdot
-         \ifboolexpe{%
-           test {\ifdefvoid{#2}}
-           and
-           test {\ifdefvoid{#3}}}
-           {}
-           {\revsdnamepunct}%
-         \ifdefvoid{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
-         \ifdefvoid{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
-         \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
-  \fi
-\fi
+\renewbibmacro*{name:family-given}[4]{%
+  \ifuseprefix
+    {\usebibmacro{name:delim}{#3#1}%
+     \usebibmacro{name:hook}{#3#1}%
+     \ifdefvoid{#3}{}{%
+       \ifcapital
+         {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+         {\mkbibnameprefix{#3}\isdot}%
+       \ifprefchar{}{\bibnamedelimc}}%
+     \mkbibnamefamily{#1}\isdot
+     \ifdefvoid{#2}{}{\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+     \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}
+    {\usebibmacro{name:delim}{#1}%
+     \usebibmacro{name:hook}{#1}%
+     \mkbibnamefamily{#1}\isdot
+     \ifboolexpe{%
+       test {\ifdefvoid{#2}}
+       and
+       test {\ifdefvoid{#3}}}
+       {}
+       {\revsdnamepunct}%
+     \ifdefvoid{#2}{}{\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+     \ifdefvoid{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+     \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
 
 
 % ------------------------------------------------------------------
@@ -608,18 +515,16 @@
 \defbibenvironment{abbreviations}
   {\list
      {\printfield[shorthandwidth]{shortjournal}%
-      \iffieldundef{clone}
-        {\printfield[shorthandwidth]{shortseries}}
-        {}%
+      \iffieldsequal{shorthand}{shorttitle}
+        {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+        {\printfield[shorthandwidth]{shorthand}}%
       \ifboolexpr{
-        test {\iffieldundef{clone}}
+        not test {\iffieldundef{shorthand}}
         and
         not test {\iffieldundef{shortseries}}
       }
         {}
-        {\iffieldsequal{shorthand}{shorttitle}
-           {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-           {\printfield[shorthandwidth]{shorthand}}}}
+        {\printfield[shorthandwidth]{shortseries}}}%
      {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
       \setmaxlength{\abbrevwidth}{\shortserieswidth}%
       \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
@@ -638,28 +543,27 @@
   \citereset
   \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
-  \iffieldundef{shorthand}{}{%
-    \ifboolexpr{
-      test {\iffieldundef{clone}}
-      and
-      not test {\iffieldundef{shortseries}}
-    }
-      {}
-      {\bibhypertarget{\strfield{shorthand}}{}%
-       \iffieldsequal{shorthand}{shorttitle}
-         {\toggletrue{blx@abbrevcite}}
-         {}%
-         \usebibmacro{bibentrycite}}}%
+  \iffieldundef{shorthand}
+    {}
+    {\bibhypertarget{\strfield{shorthand}}{}%
+     \iffieldsequal{shorthand}{shorttitle}
+       {\toggletrue{blx@abbrevcite}}
+       {}%
+     \usebibmacro{bibentrycite}}%
   \iffieldundef{shortjournal}
     {}
     {\bibhypertarget{\strfield{shortjournal}}{}%
      \printfield{journaltitle}}%
   \iffieldundef{shortseries}
     {}
-    {\iffieldundef{clone}
+    {\ifboolexpr{
+       not test {\iffieldundef{shorthand}}
+       and
+       not test {\iffieldundef{shortseries}}
+     }
+       {}
        {\bibhypertarget{\strfield{shortseries}}{}%
-        \printfield{series}}
-       {}}%
+        \printfield{series}}}
   \usebibmacro{finentry}%
 }
 
@@ -674,41 +578,29 @@
 \defbibcheck{abbreviations}{%
   \blx@setoptions@entry
   \iftoggle{blx@skipbiblist}{\skipentry}{}%
-  \iftoggle{blx@skipbiblistseries}
-    {\iffieldundef{shortseries}
-       {}
-       {\iffieldundef{shorthand}
-          {\skipentry}
-          {\iffieldundef{clone}{\skipentry}{}}}}
-    {}%
-  \iftoggle{blx@skipbiblistshorthand}
-    {\iffieldundef{shorthand}
-       {}
-       {\iffieldundef{shortseries}
-          {\skipentry}
-          {\iffieldundef{clone}{}{\skipentry}}}}
-    {}%
-  \iftoggle{blx@skipentry}
+  \ifboolexpr{
+    test {\iftoggle{blx@skipbiblistseries}}
+    and
+    not test {\iffieldundef{shortseries}}
+  }
+    {\skipentry}
+    {\ifcsdef{sbl\strfield{shortseries}=\strfield{series}}
+       {\skipentry}
+       {\savefieldcs{series}{sbl\strfield{shortseries}=\strfield{series}}}}%
+  \ifboolexpr{
+    test {\iftoggle{blx@skipbiblistshorthand}}
+    and
+    not test {\iffieldundef{shorthand}}
+  }
+    {\skipentry}
+    {\ifcsdef{sbl\strfield{shorthand}=\strfield{title}}
+       {\skipentry}
+       {\savefieldcs{shorthand}{sbl\strfield{shorthand}=\strfield{title}}}}%
+  \iffieldundef{shortjournal}
     {}
-    {\iffieldundef{shortseries}
-       {}
-       {\ifcsdef{\strfield{series}\strfield{clone}}
-         {\skipentry}
-         {\savefieldcs{series}{\strfield{series}\strfield{clone}}}%   
-       }%
-     \iffieldundef{shortjournal}
-       {}
-       {\ifcsdef{\strfield{journaltitle}}
-         {\skipentry}
-         {\savefieldcs{journaltitle}{\strfield{journaltitle}}}%   
-       }%
-     \iffieldundef{shorthand}
-       {}
-       {\ifcsdef{\strfield{shorthand}\strfield{title}}
-         {\skipentry}
-         {\savefieldcs{shorthand}{\strfield{shorthand}\strfield{title}}}%   
-       }%
-    }%
+    {\ifcsdef{sbl\strfield{shortjournal}=\strfield{journaltitle}}
+       {\skipentry}
+       {\savefieldcs{journaltitle}{sbl\strfield{shortjournal}=\strfield{journaltitle}}}}%
 }
 
 \DeclareSortingScheme{abbreviations}{%
@@ -750,14 +642,16 @@
       \step[fieldset=options, fieldvalue={skipbib=true}]
     }
     \map[overwrite]{
-      \step[fieldsource=shorthand, final]
       \step[fieldsource=shortseries, final]
-      \step[fieldsource=shorthand, match=\regexp{(.*)}]
-      \step[fieldset=shorthand, null]
-      \step[entryclone={shortseries-}]
-      \step[fieldset=shorthand, fieldvalue={$1}]
+      \step[fieldsource=shorthand, final]
       \step[fieldsource=entrykey, match=\regexp{(.*)}]
-      \step[fieldset=clone, fieldvalue={shortseries-$1}]
+      \step[fieldset=xref, fieldvalue=series-$1]
+      \step[entrynew=series-$1, entrynewtype=misc]
+      \step[fieldsource=shortseries]
+      \step[fieldset=shorthand, origfieldval, entrytarget=series-$1]
+      \step[fieldsource=series]
+      \step[fieldset=note, origfieldval, entrytarget=series-$1]
+      \step[fieldset=options, fieldvalue=skipbib, entrytarget=series-$1]
     }
   }
 }
@@ -797,9 +691,6 @@
   \noinherit{endyear}
 }
 
-\DeclareDataInheritance{*}{*}{%
-  \noinherit{sblxref}
-}
 
 % ------------------------------------------------------------------
 % LANGUAGE
@@ -1030,19 +921,19 @@
         \newunit}%
      \printfield{revdtitleaddon}}}
 
-\newbibmacro*{sblxrefshortbooktitle+sblxrefshortmaintitle}{%
-  \iffieldundef{sblxref}
+\newbibmacro*{xrefshortbooktitle+xrefshortmaintitle}{%
+  \iffieldundef{xref}
     {\usebibmacro{shortbooktitle+shortmaintitle}}
-    {\entrydata{\thefield{sblxref}}{%
+    {\entrydata{\thefield{xref}}{%
        \iffieldundef{shorttitle}
          {\usebibmacro{shorttitle}}
          {\printtext[shorttitle]{%
             \bibhyperlink{\strfield{shorthand}}{\thefield{shorttitle}}}}}}}
 
-\newbibmacro*{sblxrefshortmaintitle}{%
-  \iffieldundef{sblxref}
+\newbibmacro*{xrefshortmaintitle}{%
+  \iffieldundef{xref}
     {\usebibmacro{shortmaintitle}}
-    {\entrydata{\thefield{sblxref}}{%
+    {\entrydata{\thefield{xref}}{%
        \iffieldundef{shorttitle}
          {\usebibmacro{shorttitle}}
          {\printtext[shorttitle]{%
@@ -1717,11 +1608,6 @@
 
 \newbibmacro*{releasedate}{\printreleasedate}
 
-\newbibmacro*{usesblxref}{%
-  \iffieldundef{sblxref}
-    {}
-    {\nocite{\thefield{sblxref}}}}
-
 
 % ------------------------------------------------------------------
 % RELATED MACROS
@@ -1783,6 +1669,91 @@
          {\thefield{entrytype}}
          {cite:\thefield{entrytype}}}}}
 
+\newbibmacro*{related:ancienttext}[1]{%
+  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+  \entrydata{#1}{%
+    %\addincludeentry{\thefield{entrykey}}%
+    \booltrue{suppresspostnote}%
+    \boolfalse{usevolpostnotedelim}%
+    \booltrue{volumewithpages}%
+    \global\togglefalse{usingibid}%
+    \iffieldundef{shorthand}
+      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+      {}%
+    \printtext{%
+      \iffieldundef{shorthand}
+        {\usedriver{}{cite:\thefield{entrytype}}}
+        {\global\booltrue{usingshortcite}%
+         \usebibmacro{cite:shorthand}%
+         \setunit{\addspace}%
+         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+
+\newbibmacro*{related:ancienttextfirstfull}[1]{%
+  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+  \entrydata{#1}{%
+    %\addincludeentry{\thefield{entrykey}}%
+    \booltrue{suppresspostnote}%
+    \boolfalse{usevolpostnotedelim}%
+    \booltrue{volumewithpages}%
+    \global\togglefalse{usingibid}%
+    \iffieldundef{shorthand}
+      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+      {}%
+    \printtext{%
+      \ifboolexpr{
+        not test {\ifciteseen}
+        or
+        test {\iffieldundef{shorthand}}
+      }
+        {\usedriver{}{cite:\thefield{entrytype}}}
+        {\global\booltrue{usingshortcite}%
+         \usebibmacro{cite:shorthand}%
+         \setunit{\addspace}%
+         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+
+\newbibmacro*{related:ancienttextshortauthor}[1]{%
+  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+  \entrydata{#1}{%
+    %\addincludeentry{\thefield{entrykey}}%
+    \global\booltrue{usingshortcite}%
+    \clearfield{title}%
+    \clearfield{shorttitle}%
+    \booltrue{suppresspostnote}%
+    \boolfalse{usevolpostnotedelim}%
+    \booltrue{volumewithpages}%
+    \global\togglefalse{usingibid}%
+    \iffieldundef{shorthand}
+      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+      {}%
+    \printtext{%
+      \iffieldundef{shorthand}
+        {\usedriver{}{cite:\thefield{entrytype}}}
+        {\global\booltrue{usingshortcite}%
+         \usebibmacro{cite:shorthand}%
+         \setunit{\addspace}%
+         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+
+\newbibmacro*{related:ancienttextalwaysshortauthor}[1]{%
+  \let\ifciteseen\@firstoftwo
+  \entrydata{#1}{%
+    %\addincludeentry{\thefield{entrykey}}%
+    \global\booltrue{usingshortcite}%
+    \clearfield{title}%
+    \clearfield{shorttitle}%
+    \booltrue{suppresspostnote}%
+    \boolfalse{usevolpostnotedelim}%
+    \booltrue{volumewithpages}%
+    \global\togglefalse{usingibid}%
+    \iffieldundef{shorthand}
+      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+      {}%
+    \printtext{%
+      \iffieldundef{shorthand}
+        {\usedriver{}{cite:\thefield{entrytype}}}
+        {\global\booltrue{usingshortcite}%
+         \usebibmacro{cite:shorthand}%
+         \setunit{\addspace}%
+         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
 
 % ------------------------------------------------------------------
 % ANCIENT AND CLASSIC TEXT MACROS
@@ -1790,44 +1761,7 @@
 
 \newbool{usingshortcite}
 \newbool{volumewithpages}
-
-\newbibmacro*{ancienttextcite}{%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
-  \global\boolfalse{usingshortcite}%
-  \ifboolexpr{%
-    test {\iftoggle{blx@shortciteauthor}}
-    and
-    test {\ifciteseen}
-  }
-    {\global\booltrue{usingshortcite}}
-    {}%
-  \addincludeentry{\thefield{entrykey}}%
-  \iffieldundef{clone}
-    {}
-    {\nocite{\thefield{clone}}%
-     \addskipentry{\thefield{clone}}}%
-  \booltrue{suppresspostnote}%
-  \boolfalse{usevolpostnotedelim}%
-  \booltrue{volumewithpages}%
-  \global\togglefalse{usingibid}%
-  \iffieldundef{shorthand}
-    {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-    {}%
-  \printtext{%
-    \iffieldundef{shorthand}
-      {\usedriver{}{cite:\thefield{entrytype}}}
-      {\ifboolexpr{
-         not test {\ifciteseen}
-         and
-         test {\iftoggle{blx@firstcitenoshorthand}}
-       }
-         {\usedriver{}{cite:\thefield{entrytype}}}
-         {\global\booltrue{usingshortcite}%
-          \usebibmacro{cite:shorthand}%
-          \setunit{\addspace}%
-          \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+\newbool{relatedciteseen}
 
 \newbibmacro*{ancienttext+volume+nomaintitle}{%
   \iffieldundef{maintitle}

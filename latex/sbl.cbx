@@ -9,15 +9,14 @@
 \newtoggle{usingibid}
 \newtoggle{relatedseen}
 
-\newbibmacro*{citeclone}{%
-  \addincludeentry{\thefield{entrykey}}%
-  \iffieldundef{clone}
-    {}
-    {\nocite{\thefield{clone}}%
-     \addskipentry{\thefield{clone}}}}
+%\newbibmacro*{citeclone}{%
+%  \addincludeentry{\thefield{entrykey}}%
+%  \iffieldundef{clone}
+%    {}
+%    {\nocite{\thefield{clone}}%
+%     \addskipentry{\thefield{clone}}}}
 
 \newbibmacro*{cite}{%
-  \usebibmacro{citeclone}%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
   \boolfalse{volumewithpages}%
@@ -76,24 +75,25 @@
 
 \newbibmacro*{cite:shorthand}{%
   \usebibmacro{citeindex}%
-  \usebibmacro{usesblxref}%
   \global\toggletrue{relatedseen}%
   \usebibmacro{shorthand}%
   \iffieldequalstr{entrysubtype}{RIMA}
     {\restorefield{volume}{\abx@field@number}}
     {}%
   \ifentrytype{ancienttext}
-    {\iffieldundef{sblxref}
+    {\iffieldundef{xref}
       {}
       {\usebibmacro{setaltpostnotedelim}%
        \setunit{\postnotedelim}%
        \printfield{altpostnote}%
        \setunit{\addspace}%
        \printtext[parens]{%
-         \printtext{\ancienttextcite{\thefield{sblxref}}}%
+         \usebibmacro{related:init}%
+         \usebibmacro{related}%
          \newunit
          \usebibmacro{ancienttext+volume+pages}}%
-         \global\booltrue{suppresspostnote}}}
+         \global\booltrue{suppresspostnote}%
+         \global\toggletrue{relatedseen}}}
     {}}
 
 \newbibmacro*{bibentrycite}{%
@@ -115,18 +115,16 @@
   \sloppy
   \hangindent 6em\rlap
       {\printfield[shorthandwidth]{shortjournal}%
-       \iffieldundef{clone}
-         {\printfield[shorthandwidth]{shortseries}}
-         {}%
+       \iffieldsequal{shorthand}{shorttitle}
+         {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+         {\printfield[shorthandwidth]{shorthand}}%
        \ifboolexpr{
-         test {\iffieldundef{clone}}
+         not test {\iffieldundef{shorthand}}
          and
          not test {\iffieldundef{shortseries}}
        }
-         {}
-         {\iffieldsequal{shorthand}{shorttitle}
-            {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-            {\printfield[shorthandwidth]{shorthand}}}}%
+         {\printfield[shorthandwidth]{shortseries}}
+         {}}%
   \renewcommand*{\bibhypertarget}[2]{##2}%
   \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
 }
@@ -168,12 +166,6 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand{\ancienttextcite}
-  {}
-  {\usebibmacro{ancienttextcite}}
-  {}
-  {\usebibmacro{cite:postnote}}
-
 \DeclareCiteCommand{\bibentrycite}
   {}
   {\usebibmacro{bibentrycite}}
@@ -206,7 +198,7 @@
 
 \DeclareCiteCommand{\citeseries}
   {}
-  {\usebibmacro{citeclone}%
+  {%\usebibmacro{citeclone}%
    \usebibmacro{shortseries}}
   {}
   {}
@@ -265,21 +257,23 @@
          }}
   }
     {\newunit
-     \printtext{\ancienttextcite{\thefield{sblxref}}}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}%
      \newunit
      \usebibmacro{ancienttext+volume+pages}}
     {\setunit{\addspace}%
      \printtext[parens]{%
-       \printtext{\ancienttextcite{\thefield{sblxref}}}%
+       \usebibmacro{related:init}%
+       \usebibmacro{related}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}}%
   \global\booltrue{suppresspostnote}%
+  \global\toggletrue{relatedseen}
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:classictext}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{shorttitlenohyperlink}%
@@ -288,10 +282,12 @@
      \printfield{altpostnote}%
      \setunit{\addspace}%
      \printtext[parens]{%
-       \printtext{\ancienttextcite{\thefield{sblxref}}}%
+       \usebibmacro{related:init}%
+       \usebibmacro{related}%
        \newunit
        \usebibmacro{ancienttext+volume+pages}}%
-     \global\booltrue{suppresspostnote}}
+     \global\booltrue{suppresspostnote}%
+     \global\toggletrue{relatedseen}}
     {\usebibmacro{ancienttext+volume+pages}%
      \usebibmacro{classic:translator+series}%
      \global\booltrue{suppresspostnote}}%
@@ -303,7 +299,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -323,7 +318,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -354,7 +348,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \ifciteseen
@@ -391,7 +384,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -415,13 +407,12 @@
     {}%
   \iffieldundef{volume}
     {\usedriver{}{cite:incollection}}
-    {\usebibmacro{usesblxref}%
-     \iffieldundef{sblxref}{}{\addskipentry{\thefield{sblxref}}}%
+    {\iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
      \cbx@opt@citepages@omit
      \global\booltrue{suppresspostnote}%
      \usebibmacro{author/translator+others}%
      \newunit
-     \usebibmacro{sblxrefshortmaintitle}%
+     \usebibmacro{xrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
@@ -434,7 +425,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -474,14 +464,13 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
   \ifciteseen
-    {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
+    {\usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
      \usebibmacro{volume}}
     {\usebibmacro{title}%
-     \usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
+     \usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
@@ -494,8 +483,7 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
-  \iffieldundef{sblxref}{}{\addskipentry{\thefield{sblxref}}}%
+  \iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -506,7 +494,7 @@
        {\newunit
         \global\booltrue{usevolpostnotedelim}%
         \printfield{volume}}}
-    {\usebibmacro{sblxrefshortbooktitle+sblxrefshortmaintitle}%
+    {\usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
@@ -519,7 +507,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -543,7 +530,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -576,7 +562,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{title}%
@@ -598,7 +583,6 @@
   \iftoggle{blx@nolongcite}
     {\let\ifciteseen\@firstoftwo}
     {}%
-  \usebibmacro{usesblxref}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
