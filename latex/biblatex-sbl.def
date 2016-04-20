@@ -623,9 +623,10 @@
      {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
       \setmaxlength{\abbrevwidth}{\shortserieswidth}%
       \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
+      \addtolength{\abbrevwidth}{\biblabelsep}%
       \setlength{\labelwidth}{\abbrevwidth}%
       \setlength{\leftmargin}{\labelwidth}%
-      \setlength{\labelsep}{\biblabelsep}%
+      \setlength{\labelsep}{0pt}%
       \addtolength{\leftmargin}{\labelsep}%
       \setlength{\itemsep}{\bibitemsep}%
       \setlength{\parsep}{\bibparsep}%
