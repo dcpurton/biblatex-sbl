@@ -224,9 +224,11 @@
 
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{begentry}%
-  \iftoggle{fullbibrefs}
-     {\usedriver{}{incollection}}
-     {\usedriver{}{inreference:short}}%
+  \iffieldundef{volume}
+    {\usedriver{}{incollection}}
+    {\iftoggle{fullbibrefs}
+       {\usedriver{}{incollection}}
+       {\usedriver{}{inreference:short}}}%
   \usebibmacro{finentry}%
 }
 
