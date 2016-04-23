@@ -8,7 +8,6 @@
   seminarpaper}
 
 \DeclareDatamodelFields[type=field, datatype=literal]{
-  clone,
   seriesseries,
   revdtitle,
   revdshorttitle,
