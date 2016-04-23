@@ -5,9 +5,11 @@ TDSDIR = biblatex-sbl.tds
 TDSBIBDIR = $(TDSDIR)/bibtex/bib/biblatex-sbl
 TDSDOCDIR = $(TDSDIR)/doc/latex/biblatex-sbl
 TDSTEXDIR = $(TDSDIR)/tex/latex/biblatex-sbl
+TDSSTYDIR = $(TDSDIR)/tex/latex/sbl-paper
 
 README   = README.md
 BIBFILES = doc/biblatex-sbl.bib
+STYFILES = doc/sbl-paper.sty
 DOCFILES = doc/biblatex-sbl.pdf \
 	   doc/biblatex-sbl.tex \
 	   doc/biblatex-sbl-ibid.pdf \
@@ -35,6 +37,7 @@ $(CTANZIP): $(TDSZIP)
 	mkdir -p $(CTANDIR)
 	cp $(README) $(CTANDIR)
 	cp $(BIBFILES) $(CTANDIR)
+	cp $(STYFILES) $(CTANDIR)
 	cp $(DOCFILES) $(CTANDIR)
 	cp $(TEXFILES) $(CTANDIR)
 	zip -r $(CTANZIP) $(TDSZIP) $(CTANDIR)
@@ -45,7 +48,9 @@ $(TDSZIP):
 	mkdir -p $(TDSBIBDIR)
 	mkdir -p $(TDSDOCDIR)
 	mkdir -p $(TDSTEXDIR)
+	mkdir -p $(TDSSTYDIR)
 	cp $(BIBFILES) $(TDSBIBDIR)
+	cp $(STYFILES) $(TDSSTYDIR)
 	cp $(README) $(DOCFILES) $(TDSDOCDIR)
 	cp $(TEXFILES) $(TDSTEXDIR)
 	cd $(TDSDIR) && zip -r $(TDSZIP) *

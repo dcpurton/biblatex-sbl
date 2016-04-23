@@ -10,12 +10,14 @@ All example notes and bibliography entries from the handbook are supported.
 * `biblatex-sbl.bib`: Database entries for all example citations in the handbook.
 * `biblatex-sbl-test.pdf`: Example usage for all example citations in the handbook.
 * `biblatex-sbl-ibid.pdf`: Example usage of *ibidem* and *idem* settings.
-* `sbl-paper.tex`: An example paper matching the Student Supplement to the SBLHS.
+* `sbl-paper.sty`: A style file for papers matching the Student Supplement to the SBLHS.
+* `sbl-paper.tex`: An example paper using `sbl-paper.sty`.
 
 ## Manual Installation
 
 * Copy `biblatex-sbl.def`, `sbl.cbx`, `sbl.bbx`, `sbl.dbx`, and `*.lbx` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 * Copy `*.pdf` and `sbl-paper.tex` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
+* Copy `sbl-paper.sty` into `$TEXMFHOME/tex/latex/sbl-paper/`
 * Copy `biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
