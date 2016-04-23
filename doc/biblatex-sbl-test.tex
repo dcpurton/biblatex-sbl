@@ -1574,6 +1574,8 @@ Than the Author}
 
 \subsubsection{An Article in an Encyclopaedia or a Dictionary}
 
+\paragraph{An Article in a Multivolume Encyclopaedia or Dictionary}
+
 \begin{lstlisting}
 @mvreference{IDB,
   editor = {Buttrick, George A.},
@@ -1620,6 +1622,36 @@ Than the Author}
   \refbiblist{\emph{IDB}}{\emph{The Interpreter's Dictionary of the Bible.}
   Edited by George A. Buttrick. 4 vols. New York: Abingdon, 1962}
 \end{refimp}
+
+\paragraph{An Article in a Single-Volume Encyclopaedia or Dictionary}
+
+\begin{lstlisting}
+@reference{DOTP,
+  editor = {Alexander, T. Desmond and Baker, David W.},
+  title = {Dictionary of the Old Testament: Pentateuch},
+  shorttitle = {DOTP},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity},
+  date = {2003},
+  shorthand = {DOTP}
+}
+
+@inreference{olson:2003,
+  author = {Olson, Dennis T.},
+  title = {Numbers, Book of},
+  shorttitle = {Numbers},
+  pages = {611-618},
+  crossref = {DOTP},
+  sblxref = {DOTP}
+}
+\end{lstlisting}  
+
+\begin{biboutput}
+  \samplecite{33}{olson:2003}
+  \samplecite{36}[612]{olson:2003}
+  \samplebib{olson:2003}
+  \samplebiblist{DOTP}
+\end{biboutput}
 
 \subsubsection{An Article in a Lexicon or Theological Dictionary}
 
