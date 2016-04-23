@@ -37,10 +37,10 @@
 \setotherlanguage[variant=ancient]{greek}
 \setotherlanguage{hebrew}
 
-\renewenvironment{hebrew}{%
+\renewenvironment{hebrew}[1][]{%
   \par
   \raggedleft
-  \begin{otherlanguage}{hebrew}}%
+  \begin{otherlanguage}[#1]{hebrew}}%
   {\end{otherlanguage}\par}
 
 % Set up fonts
