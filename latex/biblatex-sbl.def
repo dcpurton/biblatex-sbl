@@ -515,16 +515,11 @@
 \defbibenvironment{abbreviations}
   {\list
      {\printfield[shorthandwidth]{shortjournal}%
-      \iffieldsequal{shorthand}{shorttitle}
-        {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-        {\printfield[shorthandwidth]{shorthand}}%
-      \ifboolexpr{
-        not test {\iffieldundef{shorthand}}
-        and
-        not test {\iffieldundef{shortseries}}
-      }
-        {}
-        {\printfield[shorthandwidth]{shortseries}}}%
+      \iffieldundef{shorthand}
+        {\printfield[shorthandwidth]{shortseries}}
+        {\iffieldsequal{shorthand}{shorttitle}
+           {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+           {\printfield[shorthandwidth]{shorthand}}}}
      {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
       \setmaxlength{\abbrevwidth}{\shortserieswidth}%
       \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
@@ -543,29 +538,22 @@
   \citereset
   \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
-  \iffieldundef{shorthand}
+  \iffieldundef{shortjournal}
     {}
+    {\bibhypertarget{\strfield{shortjournal}}{}%
+     \printfield{journaltitle}}%
+  \iffieldundef{shorthand}
+    {\iffieldundef{shortseries}
+       {}
+       {\bibhypertarget{\strfield{shortseries}}{}%
+        \printfield{series}}
+       }
     {\bibhypertarget{\strfield{shorthand}}{}%
      \iffieldsequal{shorthand}{shorttitle}
        {\toggletrue{blx@abbrevcite}}
        {}%
      \usebibmacro{bibentrycite}}%
-  \iffieldundef{shortjournal}
-    {}
-    {\bibhypertarget{\strfield{shortjournal}}{}%
-     \printfield{journaltitle}}%
-  \iffieldundef{shortseries}
-    {}
-    {\ifboolexpr{
-       not test {\iffieldundef{shorthand}}
-       and
-       not test {\iffieldundef{shortseries}}
-     }
-       {}
-       {\bibhypertarget{\strfield{shortseries}}{}%
-        \printfield{series}}}
-  \usebibmacro{finentry}%
-}
+  \usebibmacro{finentry}}
 
 \DeclareBiblistFilter{abbreviations}{
   \filteror{
@@ -578,30 +566,27 @@
 \defbibcheck{abbreviations}{%
   \blx@setoptions@entry
   \iftoggle{blx@skipbiblist}{\skipentry}{}%
-  \ifboolexpr{
-    test {\iftoggle{blx@skipbiblistseries}}
-    and
-    not test {\iffieldundef{shortseries}}
-  }
-    {\skipentry}
-    {\ifcsdef{sbl\strfield{shortseries}=\strfield{series}}
-       {\skipentry}
-       {\savefieldcs{series}{sbl\strfield{shortseries}=\strfield{series}}}}%
-  \ifboolexpr{
-    test {\iftoggle{blx@skipbiblistshorthand}}
-    and
-    not test {\iffieldundef{shorthand}}
-  }
-    {\skipentry}
-    {\ifcsdef{sbl\strfield{shorthand}=\strfield{title}}
-       {\skipentry}
-       {\savefieldcs{shorthand}{sbl\strfield{shorthand}=\strfield{title}}}}%
-  \iffieldundef{shortjournal}
+  \iffieldundef{shorthand}
+    {\iffieldundef{shortseries}
+       {}
+       {\iftoggle{blx@skipbiblistseries}{\skipentry}{}}}
+    {\iftoggle{blx@skipbiblistshorthand}{\skipentry}{}}%
+  \iftoggle{blx@skipentry}
     {}
-    {\ifcsdef{sbl\strfield{shortjournal}=\strfield{journaltitle}}
-       {\skipentry}
-       {\savefieldcs{journaltitle}{sbl\strfield{shortjournal}=\strfield{journaltitle}}}}%
-}
+    {\iffieldundef{shortjournal}
+       {}
+       {\ifcsdef{sbl\strfield{shortjournal}=\strfield{journaltitle}}
+          {\skipentry}
+          {\savefieldcs{journaltitle}{sbl\strfield{shortjournal}=\strfield{journaltitle}}}}%
+     \iffieldundef{shorthand}
+       {\iffieldundef{shortseries}
+          {}
+          {\ifcsdef{sbl\strfield{shortseries}=\strfield{series}}
+             {\skipentry}
+             {\savefieldcs{series}{sbl\strfield{shortseries}=\strfield{series}}}}}
+       {\ifcsdef{sbl\strfield{shorthand}=\strfield{title}}
+          {\skipentry}
+          {\savefieldcs{shorthand}{sbl\strfield{shorthand}=\strfield{title}}}}}}
 
 \DeclareSortingScheme{abbreviations}{%
   \sort{%
@@ -648,10 +633,12 @@
       \step[fieldset=xref, fieldvalue=series-$1]
       \step[entrynew=series-$1, entrynewtype=misc]
       \step[fieldsource=shortseries]
-      \step[fieldset=shorthand, origfieldval, entrytarget=series-$1]
+      \step[fieldset=shortseries, origfieldval, entrytarget=series-$1]
       \step[fieldsource=series]
-      \step[fieldset=note, origfieldval, entrytarget=series-$1]
-      \step[fieldset=options, fieldvalue=skipbib, entrytarget=series-$1]
+      \step[fieldset=series, origfieldval, entrytarget=series-$1]
+      \step[fieldsource=options]
+      \step[fieldset=options, origfieldval, entrytarget=series-$1]
+      \step[fieldset=options, fieldvalue={,skipbib}, entrytarget=series-$1, append]
     }
   }
 }
