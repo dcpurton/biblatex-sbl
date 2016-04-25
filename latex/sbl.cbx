@@ -114,17 +114,12 @@
 \newbibmacro*{biblistcite}{%
   \sloppy
   \hangindent 6em\rlap
-      {\printfield[shorthandwidth]{shortjournal}%
-       \iffieldsequal{shorthand}{shorttitle}
-         {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-         {\printfield[shorthandwidth]{shorthand}}%
-       \ifboolexpr{
-         not test {\iffieldundef{shorthand}}
-         and
-         not test {\iffieldundef{shortseries}}
-       }
-         {\printfield[shorthandwidth]{shortseries}}
-         {}}%
+    {\printfield[shorthandwidth]{shortjournal}%
+     \iffieldundef{shorthand}
+       {\printfield[shorthandwidth]{shortseries}}
+       {\iffieldsequal{shorthand}{shorttitle}
+          {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+          {\printfield[shorthandwidth]{shorthand}}}}%
   \renewcommand*{\bibhypertarget}[2]{##2}%
   \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
 }

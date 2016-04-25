@@ -53,6 +53,7 @@
      \usebibmacro{publisher+location+date}%
      \newunit}
     {\DeclareFieldFormat[ancienttext]{title}{\mkbibemph{##1}}%
+     \clearfield{related}%
      \usedriver{}{book}}%
   \usebibmacro{finentry}%
 }

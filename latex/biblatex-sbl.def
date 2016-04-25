@@ -1659,7 +1659,6 @@
 \newbibmacro*{related:ancienttext}[1]{%
   \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
   \entrydata{#1}{%
-    %\addincludeentry{\thefield{entrykey}}%
     \booltrue{suppresspostnote}%
     \boolfalse{usevolpostnotedelim}%
     \booltrue{volumewithpages}%
@@ -1678,7 +1677,6 @@
 \newbibmacro*{related:ancienttextfirstfull}[1]{%
   \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
   \entrydata{#1}{%
-    %\addincludeentry{\thefield{entrykey}}%
     \booltrue{suppresspostnote}%
     \boolfalse{usevolpostnotedelim}%
     \booltrue{volumewithpages}%
@@ -1701,10 +1699,11 @@
 \newbibmacro*{related:ancienttextshortauthor}[1]{%
   \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
   \entrydata{#1}{%
-    %\addincludeentry{\thefield{entrykey}}%
-    \global\booltrue{usingshortcite}%
-    \clearfield{title}%
-    \clearfield{shorttitle}%
+    \ifciteseen
+      {\global\booltrue{usingshortcite}%
+       \clearfield{title}%
+       \clearfield{shorttitle}}
+      {\global\boolfalse{usingshortcite}}%
     \booltrue{suppresspostnote}%
     \boolfalse{usevolpostnotedelim}%
     \booltrue{volumewithpages}%
@@ -1723,7 +1722,6 @@
 \newbibmacro*{related:ancienttextalwaysshortauthor}[1]{%
   \let\ifciteseen\@firstoftwo
   \entrydata{#1}{%
-    %\addincludeentry{\thefield{entrykey}}%
     \global\booltrue{usingshortcite}%
     \clearfield{title}%
     \clearfield{shorttitle}%
