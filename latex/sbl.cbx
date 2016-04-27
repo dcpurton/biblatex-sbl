@@ -9,17 +9,9 @@
 \newtoggle{usingibid}
 \newtoggle{relatedseen}
 
-%\newbibmacro*{citeclone}{%
-%  \addincludeentry{\thefield{entrykey}}%
-%  \iffieldundef{clone}
-%    {}
-%    {\nocite{\thefield{clone}}%
-%     \addskipentry{\thefield{clone}}}}
-
 \newbibmacro*{cite}{%
   \boolfalse{suppresspostnote}%
   \boolfalse{usevolpostnotedelim}%
-  \boolfalse{volumewithpages}%
   \global\togglefalse{usingibid}%
   \ifciteseen
     {\global\toggletrue{relatedseen}}
@@ -34,15 +26,9 @@
         and
         not test {\iffirstonpage}}
       {\usebibmacro{cite:ibid}}
-      {\iffieldundef{shorthand}
-         {\usedriver{}{cite:\thefield{entrytype}}}
-         {\ifboolexpr{
-            not test {\ifciteseen}
-            and
-            test {\iftoggle{blx@firstcitenoshorthand}}
-          }
-            {\usedriver{}{cite:\thefield{entrytype}}}
-            {\usebibmacro{cite:shorthand}}}}}}
+      {\usebibmacro{ifuseshorthand}
+         {\usebibmacro{cite:shorthand}}
+         {\usedriver{}{cite:\thefield{entrytype}}}}}}
 
 % redefine default loccit tracker so that citations with no postnote also match
 \def\blx@loccit@tracker#1{%
@@ -80,20 +66,21 @@
   \iffieldequalstr{entrysubtype}{RIMA}
     {\restorefield{volume}{\abx@field@number}}
     {}%
-  \ifentrytype{ancienttext}
-    {\iffieldundef{xref}
-      {}
-      {\usebibmacro{setaltpostnotedelim}%
-       \setunit{\postnotedelim}%
-       \printfield{altpostnote}%
-       \setunit{\addspace}%
-       \printtext[parens]{%
-         \usebibmacro{related:init}%
-         \usebibmacro{related}%
-         \newunit
-         \usebibmacro{ancienttext+volume+pages}}%
-         \global\booltrue{suppresspostnote}%
-         \global\toggletrue{relatedseen}}}
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    and
+    not test {\iffieldundef{related}}
+  }
+    {\usebibmacro{setaltpostnotedelim}%
+     \setunit{\postnotedelim}%
+     \printfield{altpostnote}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \usebibmacro{related:init}%
+       \usebibmacro{related}%
+       \newunit
+       \usebibmacro{ancienttext+volume+pages}}%
+       \global\booltrue{suppresspostnote}} 
     {}}
 
 \newbibmacro*{bibentrycite}{%
@@ -210,6 +197,7 @@
   {}
   {}
 
+
 % ------------------------------------------------------------------
 % CITE DRIVERS
 % ------------------------------------------------------------------
@@ -291,9 +279,9 @@
 \DeclareBibliographyDriver{cite:article}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firtoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -310,9 +298,9 @@
 \DeclareBibliographyDriver{cite:book}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -340,9 +328,9 @@
 \DeclareBibliographyDriver{cite:suppbook}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \ifciteseen
@@ -376,9 +364,9 @@
 \DeclareBibliographyDriver{cite:commentary}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -397,9 +385,9 @@
 \DeclareBibliographyDriver{cite:incommentary}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \iffieldundef{volume}
     {\usedriver{}{cite:incollection}}
     {\iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
@@ -417,9 +405,9 @@
 \DeclareBibliographyDriver{cite:incollection}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -456,9 +444,9 @@
 \DeclareBibliographyDriver{cite:inlexicon}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/translator+others}%
   \newunit
   \ifciteseen
@@ -475,9 +463,9 @@
 \DeclareBibliographyDriver{cite:inreference}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
   \usebibmacro{author/translator+others}%
   \newunit
@@ -499,9 +487,9 @@
 \DeclareBibliographyDriver{cite:review}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -522,9 +510,9 @@
 \DeclareBibliographyDriver{cite:seminarpaper}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
@@ -554,9 +542,9 @@
 \DeclareBibliographyDriver{cite:thesis}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{title}%
@@ -575,9 +563,9 @@
 \DeclareBibliographyDriver{cite:misc}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%

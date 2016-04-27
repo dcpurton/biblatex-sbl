@@ -199,20 +199,44 @@
 
 \newtoggle{blx@skipbiblistseries}
 \newtoggle{blx@skipbiblistshorthand}
-\newtoggle{blx@firstcitenoshorthand}
-\newtoggle{blx@shortciteauthor}
-\newtoggle{blx@nolongcite}
+\newtoggle{blx@usefullcite}
+\newtoggle{blx@usevolume}
+\newtoggle{blx@useshorttitle}
 
+\DeclareTypeOption{skipbiblistseries}[true]{%
+  \settoggle{blx@skipbiblistseries}{#1}}
 \DeclareEntryOption{skipbiblistseries}[true]{%
   \settoggle{blx@skipbiblistseries}{#1}}
+
+\DeclareTypeOption{skipbiblistshorthand}[true]{%
+  \settoggle{blx@skipbiblistshorthand}{#1}}
 \DeclareEntryOption{skipbiblistshorthand}[true]{%
   \settoggle{blx@skipbiblistshorthand}{#1}}
-\DeclareEntryOption{firstcitenoshorthand}[true]{%
-  \settoggle{blx@firstcitenoshorthand}{#1}}
-\DeclareEntryOption{shortciteauthor}[true]{%
-  \settoggle{blx@shortciteauthor}{#1}}
-\DeclareEntryOption{nolongcite}[true]{%
-  \settoggle{blx@nolongcite}{#1}}
+
+\DeclareBibliographyOption{useshorttitle}[true]{%
+  \settoggle{blx@useshorttitle}{#1}}
+\DeclareTypeOption{useshorttitle}[true]{%
+  \settoggle{blx@useshorttitle}{#1}}
+\DeclareEntryOption{useshorttitle}[true]{%
+  \settoggle{blx@useshorttitle}{#1}}
+
+\DeclareBibliographyOption{usefullcite}[true]{%
+  \settoggle{blx@usefullcite}{#1}}
+\DeclareTypeOption{usefullcite}[true]{%
+  \settoggle{blx@usefullcite}{#1}}
+\DeclareEntryOption{usefullcite}[true]{%
+  \settoggle{blx@usefullcite}{#1}}
+
+\DeclareBibliographyOption{usevolume}[true]{%
+  \settoggle{blx@usevolume}{#1}}
+\DeclareTypeOption{usevolume}[true]{%
+  \settoggle{blx@usevolume}{#1}}
+\DeclareEntryOption{usevolume}[true]{%
+  \settoggle{blx@usevolume}{#1}}
+
+\def\blx@shorthand{}
+\DeclareEntryOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
 
 
 % ------------------------------------------------------------------
@@ -257,7 +281,10 @@
   maxcitenames=3,
   citepages=sbl,
   fullbibrefs=false,
-  sblfootnotes
+  sblfootnotes,
+  usefullcite,
+  useshorttitle,
+  usevolume
 }
 
 \urlstyle{same}
@@ -767,8 +794,7 @@
 % ------------------------------------------------------------------
 
 \newbibmacro*{shorttitle}{%
-  \iftoggle{blx@shortciteauthor}
-    {}
+  \iftoggle{blx@useshorttitle}
     {\iffieldundef{shorttitle}
        {\iffieldundef{title}
           {}
@@ -776,17 +802,18 @@
              \printtext[title]{\printfield[titlecase]{title}}}}}
        {\printtext[bibhyperlink]{%
           \printtext[title]{\printfield[titlecase]{shorttitle}}}}%
-     \newunit}}
+     \newunit}
+    {}}
 
 \newbibmacro*{shorttitlenohyperlink}{%
-  \iftoggle{blx@shortciteauthor}
-    {}
+  \iftoggle{blx@useshorttitle}
     {\iffieldundef{shorttitle}
        {\iffieldundef{title}
           {}
           {\printtext[title]{\printfield[titlecase]{title}}}}
        {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
-     \newunit}}
+     \newunit}
+    {}}
 
 \newbibmacro*{shortbooktitle}{%
   \iffieldundef{shortbooktitle}
@@ -1519,10 +1546,10 @@
     {}
     {\iffieldundef{part}
       {\iffieldundef{maintitle}
-        {\ifbool{volumewithpages}
-           {}
+        {\iftoggle{blx@usevolume}
            {\printfield[vol]{volume}%
-            \newunit}}
+            \newunit}
+           {}}
         {\printfield[volumeof]{volume}%
          \setunit{\addspace}}}
       {}}}%
@@ -1551,12 +1578,12 @@
 \newbibmacro*{volume+part+nomaintitle}{%
   \iffieldundef{volume}
     {}
-    {\ifbool{volumewithpages}
+    {\iftoggle{blx@usevolume}
+       {}
        {\printfield{volume}%
         \setunit{\addperiod}%
         \printfield{part}%
-        \global\booltrue{usevolpostnotedelim}}
-       {}}}
+        \global\booltrue{usevolpostnotedelim}}}}
 
 \renewbibmacro*{url+urldate}{%
   \iffieldundef{urlyear}
@@ -1658,94 +1685,114 @@
 
 \newbibmacro*{related:ancienttext}[1]{%
   \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-  \entrydata{#1}{%
-    \booltrue{suppresspostnote}%
-    \boolfalse{usevolpostnotedelim}%
-    \booltrue{volumewithpages}%
-    \global\togglefalse{usingibid}%
-    \iffieldundef{shorthand}
-      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-      {}%
-    \printtext{%
-      \iffieldundef{shorthand}
-        {\usedriver{}{cite:\thefield{entrytype}}}
-        {\global\booltrue{usingshortcite}%
-         \usebibmacro{cite:shorthand}%
-         \setunit{\addspace}%
-         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+  \entrydata*{#1}{%
+    \usebibmacro{ifuseshorthand}
+      {\usebibmacro{cite:shorthand}%
+       \setunit{\addspace}%
+       \usebibmacro{ancienttext+volume+nomaintitle}}
+      {\usedriver{}{cite:\thefield{entrytype}}}}%
+}
 
-\newbibmacro*{related:ancienttextfirstfull}[1]{%
-  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-  \entrydata{#1}{%
-    \booltrue{suppresspostnote}%
-    \boolfalse{usevolpostnotedelim}%
-    \booltrue{volumewithpages}%
-    \global\togglefalse{usingibid}%
-    \iffieldundef{shorthand}
-      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-      {}%
-    \printtext{%
-      \ifboolexpr{
-        not test {\ifciteseen}
-        or
-        test {\iffieldundef{shorthand}}
-      }
-        {\usedriver{}{cite:\thefield{entrytype}}}
-        {\global\booltrue{usingshortcite}%
-         \usebibmacro{cite:shorthand}%
-         \setunit{\addspace}%
-         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+\newbibmacro*{ifuseshorthand}{%
+  \iffieldundef{shorthand}
+    {\@secondoftwo}
+    {\ifcsstring{blx@shorthand}{false}
+       {\@secondoftwo}
+       {\ifciteseen
+          {\@firstoftwo}
+          {\ifcsstring{blx@shorthand}{short}
+             {\@secondoftwo}
+             {\@firstoftwo}}}}}
 
-\newbibmacro*{related:ancienttextshortauthor}[1]{%
-  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-  \entrydata{#1}{%
-    \ifciteseen
-      {\global\booltrue{usingshortcite}%
-       \clearfield{title}%
-       \clearfield{shorttitle}}
-      {\global\boolfalse{usingshortcite}}%
-    \booltrue{suppresspostnote}%
-    \boolfalse{usevolpostnotedelim}%
-    \booltrue{volumewithpages}%
-    \global\togglefalse{usingibid}%
-    \iffieldundef{shorthand}
-      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-      {}%
-    \printtext{%
-      \iffieldundef{shorthand}
-        {\usedriver{}{cite:\thefield{entrytype}}}
-        {\global\booltrue{usingshortcite}%
-         \usebibmacro{cite:shorthand}%
-         \setunit{\addspace}%
-         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+%\newbibmacro*{related:ancienttext}[1]{%
+%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+%  \entrydata{#1}{%
+%    \booltrue{suppresspostnote}%
+%    \boolfalse{usevolpostnotedelim}%
+%    \booltrue{volumewithpages}%
+%    \global\togglefalse{usingibid}%
+%    \iffieldundef{shorthand}
+%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+%      {}%
+%    \printtext{%
+%      \iffieldundef{shorthand}
+%        {\usedriver{}{cite:\thefield{entrytype}}}
+%        {\global\booltrue{usingshortcite}%
+%         \usebibmacro{cite:shorthand}%
+%         \setunit{\addspace}%
+%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
 
-\newbibmacro*{related:ancienttextalwaysshortauthor}[1]{%
-  \let\ifciteseen\@firstoftwo
-  \entrydata{#1}{%
-    \global\booltrue{usingshortcite}%
-    \clearfield{title}%
-    \clearfield{shorttitle}%
-    \booltrue{suppresspostnote}%
-    \boolfalse{usevolpostnotedelim}%
-    \booltrue{volumewithpages}%
-    \global\togglefalse{usingibid}%
-    \iffieldundef{shorthand}
-      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-      {}%
-    \printtext{%
-      \iffieldundef{shorthand}
-        {\usedriver{}{cite:\thefield{entrytype}}}
-        {\global\booltrue{usingshortcite}%
-         \usebibmacro{cite:shorthand}%
-         \setunit{\addspace}%
-         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+%\newbibmacro*{related:ancienttextfirstfull}[1]{%
+%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+%  \entrydata{#1}{%
+%    \booltrue{suppresspostnote}%
+%    \boolfalse{usevolpostnotedelim}%
+%    \booltrue{volumewithpages}%
+%    \global\togglefalse{usingibid}%
+%    \iffieldundef{shorthand}
+%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+%      {}%
+%    \printtext{%
+%      \ifboolexpr{
+%        not test {\ifciteseen}
+%        or
+%        test {\iffieldundef{shorthand}}
+%      }
+%        {\usedriver{}{cite:\thefield{entrytype}}}
+%        {\global\booltrue{usingshortcite}%
+%         \usebibmacro{cite:shorthand}%
+%         \setunit{\addspace}%
+%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+%
+%\newbibmacro*{related:ancienttextshortauthor}[1]{%
+%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
+%  \entrydata{#1}{%
+%    \ifciteseen
+%      {\global\booltrue{usingshortcite}%
+%       \clearfield{title}%
+%       \clearfield{shorttitle}}
+%      {\global\boolfalse{usingshortcite}}%
+%    \booltrue{suppresspostnote}%
+%    \boolfalse{usevolpostnotedelim}%
+%    \booltrue{volumewithpages}%
+%    \global\togglefalse{usingibid}%
+%    \iffieldundef{shorthand}
+%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+%      {}%
+%    \printtext{%
+%      \iffieldundef{shorthand}
+%        {\usedriver{}{cite:\thefield{entrytype}}}
+%        {\global\booltrue{usingshortcite}%
+%         \usebibmacro{cite:shorthand}%
+%         \setunit{\addspace}%
+%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
+%
+%\newbibmacro*{related:ancienttextalwaysshortauthor}[1]{%
+%  \let\ifciteseen\@firstoftwo
+%  \entrydata{#1}{%
+%    \global\booltrue{usingshortcite}%
+%    \clearfield{title}%
+%    \clearfield{shorttitle}%
+%    \booltrue{suppresspostnote}%
+%    \boolfalse{usevolpostnotedelim}%
+%    \booltrue{volumewithpages}%
+%    \global\togglefalse{usingibid}%
+%    \iffieldundef{shorthand}
+%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
+%      {}%
+%    \printtext{%
+%      \iffieldundef{shorthand}
+%        {\usedriver{}{cite:\thefield{entrytype}}}
+%        {\global\booltrue{usingshortcite}%
+%         \usebibmacro{cite:shorthand}%
+%         \setunit{\addspace}%
+%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
 
 % ------------------------------------------------------------------
 % ANCIENT AND CLASSIC TEXT MACROS
 % ------------------------------------------------------------------
 
 \newbool{usingshortcite}
-\newbool{volumewithpages}
 \newbool{relatedciteseen}
 
 \newbibmacro*{ancienttext+volume+nomaintitle}{%
@@ -1764,8 +1811,13 @@
     {}}
 
 \newbibmacro*{ancienttext+volume+pages}{%
-  \ifbool{usingshortcite}
-    {\usebibmacro{setpostnotedelim}}{}%
+  \ifboolexpr{
+    not test {\iftoggle{blx@useshorttitle}}
+    and
+    test {\ifciteseen}
+  }
+    {\usebibmacro{setpostnotedelim}}
+    {}%
   \usebibmacro{volume}%
   \setunit{\addperiod}%
   \printfield{part}%
