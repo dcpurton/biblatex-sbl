@@ -604,7 +604,9 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\usebibmacro{byauthor}%
+    {\printfield{note}%
+     \newunit
+     \usebibmacro{byauthor}%
      \newunit
      \usebibmacro{byeditor+others}%
      \newunit
@@ -613,24 +615,36 @@
      \usebibmacro{shortseries+number}%
      \newunit
      \iffieldundef{journaltitle}
-       {\ifboolexpr{
-          not test {\iffieldundef{note}}
-          or
-          not test {\iffieldundef{publisher}}
-          or
-          not test {\iffieldundef{location}}
-          or
-          not test {\iffieldundef{date}}
-        }
-          {\setunit{\addspace}%
-           \printtext[parens]{%
-           \printfield{note}%
-           \newunit
-           \renewcommand*{\newunitpunct}{\addsemicolon\space}%
-           \usebibmacro{publisher+location+date}}}
-          {}}
+       {\setunit{\addspace}%
+        \printtext[parens]{%
+        \usebibmacro{publisher+location+date}}}
        {\usebibmacro{shortjournal+issuetitle}%
         \usebibmacro{pages}}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{cite:conferencepaper}{%
+  \usebibmacro{citeindex}%
+  \usebibmacro{begentry}%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
+  \usebibmacro{usesblxref}%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \usebibmacro{eventtitle}%
+       \newunit
+       \printfield{note}%
+       \newunit
+       \printfield{organization}%
+       \newunit
+       \usebibmacro{venue+eventdate}}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
