@@ -169,7 +169,7 @@
     @thesis,@mvreference,@inreference,@mvlexicon,@inlexicon,@unpublished,%
     @commentary,@inbook,@incommentary,@mvcommentary,@seminarpaper,@lexicon,%
     @reference,@mvcollection,@bookinbook,@ancienttext,@classictext,@online,%
-    @manual%
+    @manual,@conferencepaper%
   },
   emph={%
     author,title,location,publisher,date,shorttitle,translator,edition,preface,%
@@ -181,7 +181,7 @@
     note,releasedate,volumes,shortmaintitle,options,eprintclass,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
-    withtranslator,withtranslatortype%
+    withtranslator,withtranslatortype,eventtitle,venue,eventdate%
   },
   sensitive=false,
   breaklines=true,
@@ -1920,18 +1920,18 @@ Than the Author}
 
 \begin{lstlisting}
 @misc{SBL,
-  series = {Society of Biblical Literature},
-  shortseries = {SBL},
+  note = {Society of Biblical Literature},
+  shorthand = {SBL},
   options = {skipbib}
 }
 
-@unpublished{niditch:1994,
+@conferencepaper{niditch:1994,
   author = {Niditch, Susan},
   title = {Oral Culture and Written Documents},
   shorttitle = {Oral Culture},
-  note = {\autocap{p}aper presented at the Annual Meeting of the New England Region of the \citeseries{SBL}},
-  location = {Worcester, MA},
-  date = {1994-03-25}
+  eventtitle = {the Annual Meeting of the New England Region of the \citeshorthand{SBL}},
+  venue = {Worcester, MA},
+  eventdate = {1994-03-25}
 }
 \end{lstlisting}
 
@@ -1950,7 +1950,7 @@ Than the Author}
   \hspace*{\bibindent}35. Niditch, “Oral Culture,” 14.
 
   \hangindent\bibindent Niditch, Susan. “Oral Culture and Written Documents.”
-  Paper presented at the Annual Meeting of the New England Region of the SBL
+  Paper presented at the Annual Meeting of the New England Region of the SBL.
   Worcester, MA, 25 March 1994.
 
   \refbiblist{SBL}{Society of Biblical Literature}

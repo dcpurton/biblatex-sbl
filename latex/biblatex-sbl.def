@@ -300,7 +300,7 @@
 \NewBibliographyString{with}
 \NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
-\NewBibliographyString{presentedpaper}
+\NewBibliographyString{paperpresented}
 \NewBibliographyString{released}
 
 \DeclareLanguageMapping{english}{sbl-american}
@@ -417,8 +417,8 @@
 
 \DeclareFieldFormat{relatedstring:reprint}{#1\printunit{\addcomma\space}}
 
-\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{title}{\mkbibquote{#1}}
-\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper]{shorttitle}{\mkbibquote{#1}}
+\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{shorttitle}{\mkbibquote{#1}}
 \DeclareFieldFormat{howpublished}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
@@ -1449,6 +1449,25 @@
      \printtext{/}}%
   \printfield{number}%
   \newunit}
+
+\newbibmacro*{eventtitle}{%
+  \iffieldundef{eventtitle}
+    {}
+    {\ifbibliography
+       {}
+       {\midsentence}%
+     \bibstring{paperpresented}%
+     \setunit{\addspace}%
+     \printfield{eventtitle}}}
+
+\newbibmacro*{venue+eventdate}{%
+  \iffieldundef{venue}
+    {\printlist{location}}
+    {\printfield{venue}}%
+  \setunit{\addcomma\space}%
+  \iffieldundef{eventyear}
+    {\printdate}
+    {\printeventdate}}
 
 \newbibmacro*{parens+publisher+location+date}{%
   \setunit{\space}%

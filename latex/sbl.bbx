@@ -337,6 +337,8 @@
   \newunit
   \usebibmacro{title}%
   \newunit
+  \printfield{note}%
+  \newunit
   \usebibmacro{byauthor}%
   \newunit
   \usebibmacro{byeditor+others}%
@@ -346,11 +348,37 @@
   \usebibmacro{shortseries+number}%
   \newunit
   \iffieldundef{journaltitle}
-    {\printfield{note}%
-     \newunit
-     \usebibmacro{publisher+location+date}}
+    {\usebibmacro{publisher+location+date}}
     {\usebibmacro{shortjournal+issuetitle}%
      \printfield[plainpages]{pages}}%
+  \newunit
+  \usebibmacro{doi+eprint+url}%
+  \newunit
+  \iftoggle{relatedseen}
+    {}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}%
+  \usebibmacro{finentry}%
+}
+
+\DeclareBibliographyDriver{conferencepaper}{%
+  \usebibmacro{citeindex}%
+  \usebibmacro{begentry}%
+  \iftoggle{blx@nolongcite}
+    {\let\ifciteseen\@firstoftwo}
+    {}%
+  \usebibmacro{usesblxref}%
+  \usebibmacro{author}%
+  \newunit
+  \usebibmacro{title}%
+  \newunit
+  \usebibmacro{eventtitle}%
+  \newunit
+  \printfield{note}%
+  \newunit
+  \printfield{organization}%
+  \newunit
+  \usebibmacro{venue+eventdate}%
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
