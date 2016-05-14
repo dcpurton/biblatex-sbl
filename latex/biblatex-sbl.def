@@ -427,7 +427,9 @@
     test {\iffieldequalstr{entrysubtype}{chronicle}}
   }
     {#1}
-    {\mkbibquote{#1}}}
+    {\iffieldequalstr{entrysubtype}{churchfather}
+       {\mkbibemph{#1}}
+       {\mkbibquote{#1}}}}
 
 \DeclareBibliographyAlias{cite:mvbook}{cite:book}
 \DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
@@ -652,6 +654,8 @@
       \pertype{ancienttext}
       \pertype{classictext}
       \step[fieldset=options, fieldvalue={skipbib=true}]
+      \step[fieldsource=related, final]
+      \step[fieldset=relatedtype, fieldvalue=ancienttext]
     }
     \map[overwrite]{
       \step[fieldsource=shortseries, final]
@@ -1565,7 +1569,11 @@
     {}
     {\iffieldundef{part}
       {\iffieldundef{maintitle}
-        {\iftoggle{blx@usevolume}
+        {\ifboolexpr{
+           test {\iftoggle{blx@usevolume}}
+           or
+           test {\ifbibliography}
+         }
            {\printfield[vol]{volume}%
             \newunit}
            {}}

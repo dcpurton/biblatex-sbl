@@ -660,8 +660,8 @@
 @ancienttext{suppiluliumas,
   title = {Suppiluliumas and the Egyptian Queen},
   translator = {Goetz, Albrecht},
-  xref = {ANET},
-  related = {ANET}
+  related = {ANET},
+  relatedoptions = {skipbib=false}
 }
 
 @book{dalley:1991,
@@ -675,8 +675,8 @@
 @ancienttext{erraandishum,
   title = {Erra and Ishum},
   pages = {282-315},
-  xref = {dalley:1991},
-  related = {dalley:1991}
+  related = {dalley:1991},
+  relatedoptions = {skipbib=false}
 }
 
 @book{foster:1993,
@@ -692,8 +692,8 @@
 @ancienttext{erraandishum:foster,
   title = {Erra and Ishum},
   pages = {771-805},
-  xref = {foster:1993},
-  related = {foster:1993}
+  related = {foster:1993},
+  relatedoptions = {usevolume=false}
 }
 
 @mvbook{AEL,
@@ -742,9 +742,8 @@
 
 @ancienttext{disappearanceofsungod,
   title = {The Disappearance of the Sun God},
-  xref = {hoffner:1990},
   related = {hoffner:1990},
-  relatedtype = {ancienttext}
+  relatedoptions = {skipbib=false}
 }
 
 @mvbook{RIMA,
@@ -765,9 +764,7 @@
   entrysubtype = {inscription},
   title = {Ashur Inscription},
   pages = {143-144},
-  xref = {RIMA},
   related = {RIMA},
-  relatedtype = {ancienttext},
   relatedoptions = {skipbiblistshorthand,shorthand=short}
 }
 
@@ -788,7 +785,6 @@
   entrysubtype = {chronicle},
   title = {Esarhaddon Chronicle},
   related = {ABC},
-  relatedtype = {ancienttext},
   relatedoptions = {shorthand=short}
 }
 
@@ -911,7 +907,6 @@
   shorthand = {P.Cair.Zen.},
   options = {skipbib,useeditor=false},
   related = {hunt+edgar:1932},
-  relatedtype = {ancienttext},
   relatedoptions = {useshorttitle=false}
 }
 
@@ -947,7 +942,6 @@
   shorthand = {PGM},
   options = {skipbib},
   related = {betz:1996},
-  relatedtype = {ancienttext},
   relatedoptions = {usefullcite=false,useshorttitle=false}
 }
 
@@ -982,32 +976,33 @@
   xref = {heraclitus:epistle1:worley:1977}
 }
 
-@mvcollection{ANF:Roberts+Donaldson,
+@mvcollection{ANF,
   title = {The Ante-Nicene Fathers},
+  shorttitle = {ANF},
   editor = {Roberts, Alexander and Donaldson, James},
   origdate = {1885/1887},
   volumes = {10},
   location = {Peabody, MA},
   publisher = {Hendrickson},
   date = {1994},
-  options = {useeditor=false},
-  sortkey = {Ante-Nicene Fathers}
+  shorthand = {ANF},
+  options = {useeditor=false,skipbiblist},
+  sortkey = {Ante-Nicene Fathers},
+  xref = {ANF:abbreviation}
 }
 
-@mvcollection{ANF,
+@mvcollection{ANF:abbreviation,
   title = {The Ante-Nicene Fathers},
   shorttitle = {ANF},
   shorthand = {ANF},
-  options = {skipbib},
-  xref = {ANF:Roberts+Donaldson}
+  options = {skipbib}
 }
 
-@classictext{clementinehomilies,
+@ancienttext{clementinehomilies,
   entrysubtype = {churchfather},
   title = {The Clementine Homilies},
-  xref = {ANF},
   related = {ANF},
-  relatedtype = {ancienttext}
+  relatedoptions = {useeditor=false,skipbiblist}
 }
 
 @mvcollection{NPNF1:Schaff,
@@ -1068,10 +1063,9 @@
   entrysubtype = {churchfather},
   author = {{Gregory of Nazianzus}},
   title = {Orationes theologicae},
-  xref = {PG},
   volume = {36},
   related = {PG},
-  relatedtype = {ancienttext}
+  relatedoptions = {useeditor=false}
 }
 
 @mvbook{Str-B,
@@ -1106,9 +1100,8 @@
   location = {New York},
   publisher = {de Gruyter},
   date = {1989},
-  xref = {ANRW},
   related = {ANRW},
-  relatedtype = {ancienttext}
+  relatedoptions = {skipbib}
 }
 
 @commentary{hooker:1991,

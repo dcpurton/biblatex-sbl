@@ -38,17 +38,18 @@
      \newunit
      \usebibmacro{title}%
      \newunit
-     \entrydata{\thefield{xref}}{%
-       \printtext[title]{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}
+     \entrydata{\thefield{related}}{%
+       \printtext[title]{%
+         \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}%
      \setunit{\addspace}%
      \usebibmacro{volume+part+pages}%
      \newunit
-     \entrydata{\thefield{xref}}{\printfield{titleaddon}}%
+     \entrydata{\thefield{related}}{\printfield{titleaddon}}%
      \clearfield{pages}%
      \setunit{\addcomma\addspace}%
      \usebibmacro{volume+part+pages}%
      \newunit
-     \entrydata{\thefield{xref}}{\usebibmacro{bymaineditor+others}}%
+     \entrydata{\thefield{related}}{\usebibmacro{bymaineditor+others}}%
      \usebibmacro{publisher+location+date}%
      \newunit}
     {\DeclareFieldFormat[ancienttext]{title}{\mkbibemph{##1}}%
