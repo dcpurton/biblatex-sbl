@@ -639,11 +639,10 @@
   title = {The Great Hymn to the Aten},
   shorttitle = {Great Hymn to the Aten},
   translator = {Lichtheim, Miriam},
-  volume = {1},
   part = {26},
   pages = {44-46},
   related = {hallo:1997},
-  relatedoptions = {skipbiblist}
+  relatedoptions = {skipbiblist,usevolume=false}
 }
 
 @collection{ANET,
@@ -829,7 +828,8 @@
 @classictext{josephus:ant,
   author = {Josephus},
   title = {Ant\adddot},
-  xref = {josephus}
+  xref = {josephus},
+  options = {skipbib}
 }
 
 @mvbook{tacitus,
@@ -846,7 +846,7 @@
 
 @classictext{tacitus:ann,
   author = {Tacitus},
-  title = {Ann.},
+  title = {Ann\adddot},
   xref = {tacitus}
 }
 
@@ -879,7 +879,7 @@
   publisher = {Harvard University Press},
   date = {1930/1965},
   xref = {josephus},
-  options = {skipbib}
+  options = {indexing=false}
 }
 
 @ancienttext{p.cair.zen.,
@@ -966,7 +966,8 @@
   title = {Epistle 1},
   translator = {Worley, David},
   pages = {187},
-  crossref = {malherbe:1977}
+  crossref = {malherbe:1977},
+  options = {indexing=false}
 }
 
 @classictext{heraclitus:epistle1:worley,
@@ -998,26 +999,29 @@
   options = {skipbib}
 }
 
-@ancienttext{clementinehomilies,
+@classictext{clementinehomilies,
   entrysubtype = {churchfather},
   title = {The Clementine Homilies},
   related = {ANF},
   relatedoptions = {useeditor=false,skipbiblist}
 }
 
-@mvcollection{NPNF1:Schaff,
+@mvcollection{NPNF1,
   title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
+  shorttitle = {NPNF\textsuperscript{1}},
   editor = {Schaff, Philip},
   origdate = {1886/1889},
   volumes = {14},
   location = {Peabody, MA},
   publisher = {Hendrickson},
   date = {1994},
-  options = {useeditor=false},
-  sortkey = {Nicene and Post-Nicene Fathers, Series 1}
+  shorthand = {NPNF\textsuperscript{1}},
+  options = {useeditor=false,skipbiblist},
+  sortkey = {Nicene and Post-Nicene Fathers, Series 1},
+  xref = {NPNF1:abbreviation}
 }
 
-@mvcollection{NPNF1,
+@mvcollection{NPNF1:abbreviation,
   title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
   shorttitle = {NPNF\textsuperscript{1}},
   shorthand = {NPNF\textsuperscript{1}},
@@ -1030,11 +1034,9 @@
   title = {The Letters of St.\@ Augustin},
   shorttitle = {Letters of St.\@ Augustin},
   volume = {1},
-  crossref = {NPNF1:Schaff},
-  xref = {NPNF1},
-  options = {nolongcite,skipbib=false},
+  crossref = {NPNF1},
   related = {NPNF1},
-  relatedtype = {ancienttext}
+  relatedoptions = {useeditor=false,skipbiblist,skipbib}
 }
 
 @mvcollection{PL,
@@ -1101,7 +1103,8 @@
   publisher = {de Gruyter},
   date = {1989},
   related = {ANRW},
-  relatedoptions = {skipbib}
+  relatedoptions = {skipbib},
+  options = {indexing=cite}
 }
 
 @commentary{hooker:1991,

@@ -60,7 +60,6 @@
     {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
 
 \newbibmacro*{cite:shorthand}{%
-  \usebibmacro{citeindex}%
   \global\toggletrue{relatedseen}%
   \usebibmacro{shorthand}%
   \iffieldequalstr{entrysubtype}{RIMA}
@@ -78,9 +77,7 @@
      \printtext[parens]{%
        \usebibmacro{related:init}%
        \usebibmacro{related}%
-       \newunit
-       \usebibmacro{ancienttext+volume+pages}}%
-       \global\booltrue{suppresspostnote}} 
+       \usebibmacro{volume+part+postnote}}} 
     {}}
 
 \newbibmacro*{bibentrycite}{%
@@ -180,8 +177,7 @@
 
 \DeclareCiteCommand{\citeseries}
   {}
-  {%\usebibmacro{citeclone}%
-   \usebibmacro{shortseries}}
+  {\usebibmacro{shortseries}}
   {}
   {}
 
@@ -242,21 +238,21 @@
     {\newunit
      \usebibmacro{related:init}%
      \usebibmacro{related}%
-     \newunit
-     \usebibmacro{ancienttext+volume+pages}}
+     \usebibmacro{volume+part+postnote}}
     {\setunit{\addspace}%
      \printtext[parens]{%
        \usebibmacro{related:init}%
        \usebibmacro{related}%
-       \newunit
-       \usebibmacro{ancienttext+volume+pages}}}%
-  \global\booltrue{suppresspostnote}%
+       \usebibmacro{volume+part+postnote}}}%
   \global\toggletrue{relatedseen}
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:classictext}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{shorttitlenohyperlink}%
@@ -267,13 +263,10 @@
      \printtext[parens]{%
        \usebibmacro{related:init}%
        \usebibmacro{related}%
-       \newunit
-       \usebibmacro{ancienttext+volume+pages}}%
-     \global\booltrue{suppresspostnote}%
+       \usebibmacro{volume+part+postnote}}%
      \global\toggletrue{relatedseen}}
-    {\usebibmacro{ancienttext+volume+pages}%
-     \usebibmacro{classic:translator+series}%
-     \global\booltrue{suppresspostnote}}%
+    {\usebibmacro{volume+part+postnote}%
+     \usebibmacro{classic:translator+series}}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:article}{%

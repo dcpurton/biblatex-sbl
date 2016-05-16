@@ -287,6 +287,15 @@
   usevolume
 }
 
+\ExecuteBibliographyOptions[classictext,ancienttext]{%
+  indexing=false,
+  skipbib
+}
+
+\ExecuteBibliographyOptions[inlexicon]{%
+  skipbib
+}
+
 \urlstyle{same}
 \def\UrlBreaks{\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
  \do\)\do\,\do\?\do\'\do+\do\=\do\#}%
@@ -564,6 +573,7 @@
   {\item}
 
 \DeclareBibliographyDriver{abbreviations}{%
+  \usebibmacro{begentry}%
   \citereset
   \def\abx@str{abx@lstr}%
   \renewcommand*{\finentrypunct}{}%
@@ -643,17 +653,12 @@
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
     }
     \map{
-      \pertype{inlexicon}
-      \step[fieldset=options, fieldvalue={skipbib=true}]
-    }
-    \map{
       \step[fieldsource=entrysubtype, match=\regexp{ANRW}, final]
       \step[fieldset=options, fieldvalue={skipbib=false}]
     }
     \map{
       \pertype{ancienttext}
       \pertype{classictext}
-      \step[fieldset=options, fieldvalue={skipbib=true}]
       \step[fieldsource=related, final]
       \step[fieldset=relatedtype, fieldvalue=ancienttext]
     }
@@ -1711,14 +1716,24 @@
          {cite:\thefield{entrytype}}}}}
 
 \newbibmacro*{related:ancienttext}[1]{%
+  \global\togglefalse{blx@testpostnotedelim}%
+  \togglefalse{blx@citeindex}%
   \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
   \entrydata*{#1}{%
     \usebibmacro{ifuseshorthand}
       {\usebibmacro{cite:shorthand}%
-       \setunit{\addspace}%
-       \usebibmacro{ancienttext+volume+nomaintitle}}
-      {\usedriver{}{cite:\thefield{entrytype}}}}%
-}
+       \usebibmacro{volume}%
+       \setunit{\addperiod}%
+       \printfield{part}%
+       \global\toggletrue{blx@testpostnotedelim}}
+      {\usedriver{}{cite:\thefield{entrytype}}%
+       \ifboolexpr{
+         test {\ifciteseen}
+         and
+         not togl {blx@useshorttitle}
+       }
+         {\global\toggletrue{blx@testpostnotedelim}}
+         {}}}}
 
 \newbibmacro*{ifuseshorthand}{%
   \iffieldundef{shorthand}
@@ -1731,137 +1746,25 @@
              {\@secondoftwo}
              {\@firstoftwo}}}}}
 
-%\newbibmacro*{related:ancienttext}[1]{%
-%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-%  \entrydata{#1}{%
-%    \booltrue{suppresspostnote}%
-%    \boolfalse{usevolpostnotedelim}%
-%    \booltrue{volumewithpages}%
-%    \global\togglefalse{usingibid}%
-%    \iffieldundef{shorthand}
-%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-%      {}%
-%    \printtext{%
-%      \iffieldundef{shorthand}
-%        {\usedriver{}{cite:\thefield{entrytype}}}
-%        {\global\booltrue{usingshortcite}%
-%         \usebibmacro{cite:shorthand}%
-%         \setunit{\addspace}%
-%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
-
-%\newbibmacro*{related:ancienttextfirstfull}[1]{%
-%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-%  \entrydata{#1}{%
-%    \booltrue{suppresspostnote}%
-%    \boolfalse{usevolpostnotedelim}%
-%    \booltrue{volumewithpages}%
-%    \global\togglefalse{usingibid}%
-%    \iffieldundef{shorthand}
-%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-%      {}%
-%    \printtext{%
-%      \ifboolexpr{
-%        not test {\ifciteseen}
-%        or
-%        test {\iffieldundef{shorthand}}
-%      }
-%        {\usedriver{}{cite:\thefield{entrytype}}}
-%        {\global\booltrue{usingshortcite}%
-%         \usebibmacro{cite:shorthand}%
-%         \setunit{\addspace}%
-%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
-%
-%\newbibmacro*{related:ancienttextshortauthor}[1]{%
-%  \ifciteseen{\let\ifciteseen\@firstoftwo}{}%
-%  \entrydata{#1}{%
-%    \ifciteseen
-%      {\global\booltrue{usingshortcite}%
-%       \clearfield{title}%
-%       \clearfield{shorttitle}}
-%      {\global\boolfalse{usingshortcite}}%
-%    \booltrue{suppresspostnote}%
-%    \boolfalse{usevolpostnotedelim}%
-%    \booltrue{volumewithpages}%
-%    \global\togglefalse{usingibid}%
-%    \iffieldundef{shorthand}
-%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-%      {}%
-%    \printtext{%
-%      \iffieldundef{shorthand}
-%        {\usedriver{}{cite:\thefield{entrytype}}}
-%        {\global\booltrue{usingshortcite}%
-%         \usebibmacro{cite:shorthand}%
-%         \setunit{\addspace}%
-%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
-%
-%\newbibmacro*{related:ancienttextalwaysshortauthor}[1]{%
-%  \let\ifciteseen\@firstoftwo
-%  \entrydata{#1}{%
-%    \global\booltrue{usingshortcite}%
-%    \clearfield{title}%
-%    \clearfield{shorttitle}%
-%    \booltrue{suppresspostnote}%
-%    \boolfalse{usevolpostnotedelim}%
-%    \booltrue{volumewithpages}%
-%    \global\togglefalse{usingibid}%
-%    \iffieldundef{shorthand}
-%      {\ifciteseen{}{\bibhypertarget{\strfield{entrykey}}{}}}
-%      {}%
-%    \printtext{%
-%      \iffieldundef{shorthand}
-%        {\usedriver{}{cite:\thefield{entrytype}}}
-%        {\global\booltrue{usingshortcite}%
-%         \usebibmacro{cite:shorthand}%
-%         \setunit{\addspace}%
-%         \usebibmacro{ancienttext+volume+nomaintitle}}}}}
 
 % ------------------------------------------------------------------
 % ANCIENT AND CLASSIC TEXT MACROS
 % ------------------------------------------------------------------
 
-\newbool{usingshortcite}
-\newbool{relatedciteseen}
+\newtoggle{blx@testpostnotedelim}
 
-\newbibmacro*{ancienttext+volume+nomaintitle}{%
-  \iffieldundef{maintitle}
-    {\ifbool{usingshortcite}
-       {\usebibmacro{setpostnotedelim}}{}%
-     \usebibmacro{volume}%
-     \setunit{\addperiod}%
-     \printfield{part}%
-     \ifbool{usevolpostnotedelim}
-       {\setunit{\volpostnotedelim}}
-       {\setunit{\postnotedelim}}%
-     \ifciteseen
-       {}
-       {\usebibmacro{pages}}}
-    {}}
-
-\newbibmacro*{ancienttext+volume+pages}{%
-  \ifboolexpr{
-    not test {\iftoggle{blx@useshorttitle}}
-    and
-    test {\ifciteseen}
-  }
-    {\usebibmacro{setpostnotedelim}}
-    {}%
+\newbibmacro*{volume+part+postnote}{%
   \usebibmacro{volume}%
-  \setunit{\addperiod}%
-  \printfield{part}%
-  \ifboolexpr{%
-    not test {\iffieldundef{postnote}}
-    or
-    not test {\iffieldundef{pages}}
-  }
-    {\ifbool{usevolpostnotedelim}
-       {\setunit{\volpostnotedelim}}
-       {\setunit{\postnotedelim}}
-     \ifciteseen
-       {\usebibmacro{postnote}}
-       {\iffieldundef{pages}
-          {\usebibmacro{postnote}}
-          {\usebibmacro{pages}}}}
-    {}}
+  \iffieldundef{part}
+    {}
+    {\setunit{\addperiod}%
+     \printfield{part}}%
+  \iftoggle{blx@testpostnotedelim}{\usebibmacro{setpostnotedelim}}{}%
+  \ifbool{usevolpostnotedelim}
+    {\setunit{\volpostnotedelim}}
+    {\setunit{\postnotedelim}}%
+  \usebibmacro{postnote}%
+  \global\booltrue{suppresspostnote}}
 
 \newbibmacro*{classic:translator+series}{%
   \ifboolexpr{
