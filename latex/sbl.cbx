@@ -587,10 +587,9 @@
 \DeclareBibliographyDriver{cite:conferencepaper}{%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
-  \iftoggle{blx@nolongcite}
-    {\let\ifciteseen\@firstoftwo}
-    {}%
-  \usebibmacro{usesblxref}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author}%
   \newunit
   \usebibmacro{title}%

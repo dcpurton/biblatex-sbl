@@ -4,8 +4,8 @@
 % BibLaTeX version 3.4 or greater required
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
-\ifdim \biblatex@version < 3.35pt
-  \PackageError{biblatex-sbl}{BibLaTeX v3.4 or greater is required}
+\ifdim \biblatex@version < 3.45pt
+  \PackageError{biblatex-sbl}{BibLaTeX v3.5 or greater is required}
 \fi
 
 % Require xparse
@@ -536,6 +536,7 @@
       {}}%
   \expandafter\g@addto@macro\expandafter\blx@includeentries\expandafter{\X}}
 
+
 % ------------------------------------------------------------------
 % LIST OF ABBREVIATIONS
 % ------------------------------------------------------------------
@@ -614,18 +615,18 @@
     {}
     {\iffieldundef{shortjournal}
        {}
-       {\ifcsdef{sbl\strfield{shortjournal}=\strfield{journaltitle}}
+       {\ifcsdef{sbl\therefsection\strfield{shortjournal}=\strfield{journaltitle}}
           {\skipentry}
-          {\savefieldcs{journaltitle}{sbl\strfield{shortjournal}=\strfield{journaltitle}}}}%
+          {\savefieldcs{journaltitle}{sbl\therefsection\strfield{shortjournal}=\strfield{journaltitle}}}}%
      \iffieldundef{shorthand}
        {\iffieldundef{shortseries}
           {}
-          {\ifcsdef{sbl\strfield{shortseries}=\strfield{series}}
+          {\ifcsdef{sbl\therefsection\strfield{shortseries}=\strfield{series}}
              {\skipentry}
-             {\savefieldcs{series}{sbl\strfield{shortseries}=\strfield{series}}}}}
-       {\ifcsdef{sbl\strfield{shorthand}=\strfield{title}}
+             {\savefieldcs{series}{sbl\therefsection\strfield{shortseries}=\strfield{series}}}}}
+       {\ifcsdef{sbl\therefsection\strfield{shorthand}=\strfield{title}}
           {\skipentry}
-          {\savefieldcs{shorthand}{sbl\strfield{shorthand}=\strfield{title}}}}}}
+          {\savefieldcs{shorthand}{sbl\therefsection\strfield{shorthand}=\strfield{title}}}}}}
 
 \DeclareSortingScheme{abbreviations}{%
   \sort{%
@@ -656,11 +657,14 @@
       \step[fieldsource=entrysubtype, match=\regexp{ANRW}, final]
       \step[fieldset=options, fieldvalue={skipbib=false}]
     }
-    \map{
+    \map[overwrite]{
       \pertype{ancienttext}
       \pertype{classictext}
       \step[fieldsource=related, final]
       \step[fieldset=relatedtype, fieldvalue=ancienttext]
+      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
+      \step[fieldset=relatedoptions, fieldvalue={skipbib=false,skipbiblist=false,}]
+      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
     }
     \map[overwrite]{
       \step[fieldsource=shortseries, final]
@@ -672,9 +676,7 @@
       \step[fieldset=shortseries, origfieldval, entrytarget=series-$1]
       \step[fieldsource=series]
       \step[fieldset=series, origfieldval, entrytarget=series-$1]
-      \step[fieldsource=options]
-      \step[fieldset=options, origfieldval, entrytarget=series-$1]
-      \step[fieldset=options, fieldvalue={,skipbib}, entrytarget=series-$1, append]
+      \step[fieldset=options, fieldvalue={skipbib}, entrytarget=series-$1]
     }
   }
 }

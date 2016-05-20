@@ -642,7 +642,7 @@
   part = {26},
   pages = {44-46},
   related = {hallo:1997},
-  relatedoptions = {skipbiblist,usevolume=false}
+  relatedoptions = {usevolume=false,skipbiblist}
 }
 
 @collection{ANET,
@@ -659,8 +659,7 @@
 @ancienttext{suppiluliumas,
   title = {Suppiluliumas and the Egyptian Queen},
   translator = {Goetz, Albrecht},
-  related = {ANET},
-  relatedoptions = {skipbib=false}
+  related = {ANET}
 }
 
 @book{dalley:1991,
@@ -674,8 +673,7 @@
 @ancienttext{erraandishum,
   title = {Erra and Ishum},
   pages = {282-315},
-  related = {dalley:1991},
-  relatedoptions = {skipbib=false}
+  related = {dalley:1991}
 }
 
 @book{foster:1993,
@@ -724,7 +722,7 @@
   title = {The Doomed Prince},
   pages = {200-203},
   related = {lichtheim:1976},
-  relatedoptions = {shorthand=short,skipbiblist,usevolume=false}
+  relatedoptions = {shorthand=short,usevolume=false,skipbiblist}
 }
 
 @book{hoffner:1990,
@@ -741,8 +739,7 @@
 
 @ancienttext{disappearanceofsungod,
   title = {The Disappearance of the Sun God},
-  related = {hoffner:1990},
-  relatedoptions = {skipbib=false}
+  related = {hoffner:1990}
 }
 
 @mvbook{RIMA,
@@ -879,7 +876,7 @@
   publisher = {Harvard University Press},
   date = {1930/1965},
   xref = {josephus},
-  options = {indexing=false}
+  options = {indexing=false,skipbib}
 }
 
 @ancienttext{p.cair.zen.,
@@ -940,7 +937,6 @@
   publisher = {Teubner},
   date = {1973/1974},
   shorthand = {PGM},
-  options = {skipbib},
   related = {betz:1996},
   relatedoptions = {usefullcite=false,useshorttitle=false}
 }
@@ -978,8 +974,7 @@
 }
 
 @mvcollection{ANF,
-  title = {The Ante-Nicene Fathers},
-  shorttitle = {ANF},
+  crossref = {ANF:abbreviation},
   editor = {Roberts, Alexander and Donaldson, James},
   origdate = {1885/1887},
   volumes = {10},
@@ -1007,8 +1002,7 @@
 }
 
 @mvcollection{NPNF1,
-  title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
-  shorttitle = {NPNF\textsuperscript{1}},
+  crossref = {NPNF1:abbreviation},
   editor = {Schaff, Philip},
   origdate = {1886/1889},
   volumes = {14},
@@ -1036,7 +1030,8 @@
   volume = {1},
   crossref = {NPNF1},
   related = {NPNF1},
-  relatedoptions = {useeditor=false,skipbiblist,skipbib}
+  relatedoptions = {useeditor=false,skipbiblist,skipbib},
+  options = {skipbib=false}
 }
 
 @mvcollection{PL,
@@ -1104,7 +1099,7 @@
   date = {1989},
   related = {ANRW},
   relatedoptions = {skipbib},
-  options = {indexing=cite}
+  options = {indexing=cite,skipbib=false}
 }
 
 @commentary{hooker:1991,
@@ -1248,7 +1243,7 @@
   shorthand = {BDAG}
 }
 
-@lexicon{BDB:abbrev,
+@lexicon{BDB:abbreviation,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
@@ -1256,12 +1251,12 @@
 }
 
 @lexicon{BDB,
-  crossref = {BDB:abbrev},
+  crossref = {BDB:abbreviation},
   location = {Oxford},
   publisher = {Oxford University Press},
   date = {1906},
   shorthand = {BDB},
-  xref = {BDB:abbrev},
+  xref = {BDB:abbreviation},
   options = {skipbiblist}
 }
 

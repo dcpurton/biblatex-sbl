@@ -13,7 +13,7 @@
 \usepackage{makeidx}
 \makeindex
 \usepackage[totoc]{idxlayout}
-\usepackage[style=sbl,indexing,backend=biber]{biblatex}
+\usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \DeclareBibliographyCategory{ignore}
@@ -32,6 +32,8 @@
 
 \newfontfamily\greekfont[Script=Greek,Contextuals=Alternate,Ligatures=Required,
   Scale=MatchLowercase]{SBL BibLit}
+
+\renewcommand*{\indexname}{Index of Modern Authors}
 
 \renewcommand{\bibfont}{\rm}
 
@@ -2985,8 +2987,8 @@ Than the Author}
 
 \begin{biboutput}
   \samplecite{14}[1.3|8:223]{clementinehomilies}
-  \samplebib{ANF:Roberts+Donaldson}
-  \samplebiblist{ANF}
+  \samplebib{ANF}
+  \samplebiblist{ANF:abbreviation}
 \end{biboutput}
 
 \begin{refimp}
@@ -3038,7 +3040,7 @@ Than the Author}
 \begin{biboutput}
   \samplecite{44}[28.3.5|252]{augustine:letters}
   \samplebib{augustine:letters}
-  \samplebiblist{NPNF1}
+  \samplebiblist{NPNF1:abbreviation}
 \end{biboutput}
 
 \begin{refimp}
@@ -3645,7 +3647,7 @@ necessary to indicate the medium in the citation.
 \begin{biboutput}
   \samplecite{2}[432]{BDB}
   \samplebib{BDB}
-  \samplebiblist{BDB:abbrev}
+  \samplebiblist{BDB:abbreviation}
 \end{biboutput}
 
 \begin{refimp}
