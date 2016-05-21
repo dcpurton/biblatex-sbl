@@ -9,10 +9,10 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{listings}
-\usepackage{hyperref}
-\usepackage{makeidx}
-\makeindex
+\usepackage{index}
+\newindex{default}{idx}{ind}{Index of Authors}
 \usepackage[totoc]{idxlayout}
+\usepackage{hyperref}
 \usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
@@ -32,8 +32,6 @@
 
 \newfontfamily\greekfont[Script=Greek,Contextuals=Alternate,Ligatures=Required,
   Scale=MatchLowercase]{SBL BibLit}
-
-\renewcommand*{\indexname}{Index of Modern Authors}
 
 \renewcommand{\bibfont}{\rm}
 
