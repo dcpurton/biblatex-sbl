@@ -75,6 +75,7 @@
     {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
 
 \newbibmacro*{cite:shorthand}{%
+  \togglefalse{blx@citeindex}%
   \usebibmacro{usesblxref}%
   \global\toggletrue{relatedseen}%
   \usebibmacro{shorthand}%
@@ -244,6 +245,7 @@
 
 \DeclareBibliographyDriver{cite:ancienttext}{%
   \usebibmacro{citeindex}%
+  \togglefalse{blx@citeindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
   \newunit
@@ -277,6 +279,7 @@
 
 \DeclareBibliographyDriver{cite:classictext}{%
   \usebibmacro{citeindex}%
+  \togglefalse{blx@citeindex}%
   \usebibmacro{begentry}%
   \usebibmacro{usesblxref}%
   \usebibmacro{author}%
