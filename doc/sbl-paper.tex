@@ -2,10 +2,30 @@
 
 %% Pass ibid and idem options to biblatex
 %\PassOptionsToPackage{pagetracker,ibidtracker=context,ibidpage,idemtracker=constrict}{biblatex}
+%% Turn on indexing for citations
+\PassOptionsToPackage{indexing=cite}{biblatex}
+
+%% Required for imakeidx, but must be loaded before bidi
+\usepackage{multicol}
 
 \usepackage{sbl-paper}
 
+%% Add your bib resource here
 \addbibresource{biblatex-sbl.bib}
+
+%% Include separate indices for subjects, authors, and Scripture references
+\usepackage[original]{imakeidx}
+\makeindex[title=Subject Index,intoc]
+\makeindex[name=authors,title=Author Index,intoc]
+\makeindex[name=scriptures,title=Scripture Reference Index,intoc,options=-s sbl-paper-bibleref.ist]
+
+%% Redefine index format so biblatex inserts names into the right index
+\DeclareIndexNameFormat{default}{%
+  \usebibmacro{index:name}{\index[authors]}{#1}{#3}{#5}{#7}%
+}
+
+%% Index Bible references in a scripture index
+\renewcommand{\biblerefindex}{\index[scriptures]}
 
 %% Set default language to German
 %\setdefaultlanguage{german}
@@ -13,10 +33,12 @@
 %% Set quotation style to British English
 %\setquotestyle[british]{english}
 
+%% Set default font
 \setromanfont{Linux Libertine O}
 
 \begin{document}
 
+\index{title page}
 \institution{[Name of Institution]}
 \title{Title of Paper}
 \professor{[Name of Professor]}
@@ -28,19 +50,17 @@
 \frontmatter
 
 \tableofcontents
+\index{contents}
 
 \printbiblist[heading=biblistintoc]{abbreviations}
+\index{abbreviations!list of}
 
 \mainmatter
-
-\nocite{NIDNTT}
-\nocite{dahood:1965-1970}
-\nocite{freedman:1980}
-\nocite{freedman:1977}
 
 \firstsection[Primary Heading]{Primary Heading \break
   Long Titles Are Single-Spaced on Subsequent Lines}
 
+\index{margins}%
 The top margin is two inches for the first page only. There are two blank
 lines between the title and the text (or subheading if there is one). The
 left, right, top, and bottom margins are one inch. The first pages of chapters
@@ -77,6 +97,7 @@ located at the top right corner. The text of the body of the paper is
 double-spaced except for blocked
 quotations.
 \begin{quoting}
+  \index{quotations!block}%
   This is a blocked quotation. It should consist of five or more lines of text
   and be indented one-half inch. Block quotations should be single-spaced. No
   quotation marks are used at the beginning or the end of the quote. Double
@@ -89,34 +110,49 @@ quotations.
 After a block quotation, return to double-spaced text justified to the left
 margin until you finish the paragraph.
 
+\index{footnotes}%
 Footnotes at the bottom of the page are separated by a two-inch
 rule.\footnote{There should be a blank line between each note and a blank en
 space between the number and the first word of the note.} Maintain subsequent
 numbering in notes. Make sure a footnote and the text to which it refers are
 on the same page.
 
+\section{Citations}
+
+\index{citations}%
+Citations should be referenced using \verb+\autocite+ or \verb+\autocites+ for
+citations in footnotes and \verb+\parencite+ or \verb+\parencites+ for
+citations in parentheses. For example, here is a dictionary with a shorthand:
+\parencite{NIDNTT}. Here's a commentary,\autocite{dahood:1965-1970} and here's
+the same article referenced in two different
+publications.\autocites{freedman:1977,freedman:1980}
+
 \section{Greek and Hebrew}
 
-Paragraph Greek:
+\index{Greek!paragraph}Paragraph Greek:
 \begin{quoting}
   \begin{greek}
     Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
-    \textenglish{(John 1:1)}
+    \textenglish{(\pibibleverse{John 1:1})}
   \end{greek}
 \end{quoting}
-Paragraph Hebrew:
+\index{Hebrew!paragraph}Paragraph Hebrew:
 \begin{quoting}
   \begin{hebrew}
-    בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ. \textenglish{(Genesis 1:1)}
+    בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ.
+    \textenglish{(\pibibleverse{Genesis 1:1})}
   \end{hebrew}
 \end{quoting}
-Inline Greek (\textgreek{Ἐν ἀρχῇ}), transliterated Greek (\emph{En archē}), Hebrew (\texthebrew{בראשית}), and
-transliterated Hebrew (\emph{bərēʾšı̂t}).
+\index{Greek!inline}Inline Greek (\textgreek{Ἐν ἀρχῇ}),
+\index{Greek!transliterated}transliterated Greek (\emph{En archē}),
+\index{Hebrew!inline}Hebrew (\texthebrew{בראשית}), and
+\index{Hebrew!transliterated}transliterated Hebrew (\emph{bərēʾšı̂t}).
 
 \appendix
 
 \chapter{Appendix Title}
 
+\index{appendices}%
 There should be two blank lines between the title and the text.
 
 Each appendix should have a number and a title, unless there is only one
@@ -137,5 +173,14 @@ may need to reduce the content of the appendix to fit the margins.
 \backmatter
 
 \printbibliography[heading=bibintoc]
+\index{bibliography}
+
+\singlespacing
+
+\printindex
+
+\printindex[scriptures]
+
+\printindex[authors]
 
 \end{document}
