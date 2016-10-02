@@ -19,6 +19,7 @@
 % Load required packages
 
 \RequirePackage{fontspec}
+\RequirePackage{ragged2e}
 \RequirePackage{polyglossia}
 \RequirePackage{csquotes}
 \RequirePackage[headheight=14.5pt,margin=1in]{geometry}
@@ -42,6 +43,9 @@
   \raggedleft
   \begin{otherlanguage}[#1]{hebrew}}%
   {\end{otherlanguage}\par}
+
+\@Latintrue % work around for bidi bug; see http://tex.stackexchange.com/questions/312874/polyglossia-or-bidi-bug-d-gets-inverted-to-d
+
 
 % Set up fonts
 
@@ -311,5 +315,160 @@
 \def\@professor{[Name of Professor]}
 \def\course#1{\gdef\@course{#1}}
 \def\@course{[Course Number and Title]}
+
+
+% Set up Bible references
+
+\RequirePackage{bibleref-parse}
+
+\braltabbrvname
+\renewcommand*{\BRperiod}{}
+\renewcommand*{\BRchsep}{;\space}
+\renewcommand*{\BRvsep}{,\space}
+
+\def\br@Ecclesiastes{Eccl\BRperiod}
+\def\br@SongofSongs{Song\BRperiod}
+
+\def\br@Titus{Titus}
+\def\br@Philemon{Phlm\BRperiod}
+
+\csdef{bri@Gen}{\BRbookof Genesis}
+\csdef{bri@Exod}{\BRbookof Exodus}
+\csdef{bri@Lev}{\BRbookof Levitcus}
+\csdef{bri@Num}{\BRbookof Numbers}
+\csdef{bri@Deut}{\BRbookof Deuteronomy}
+\csdef{bri@Josh}{\BRbookof Joshua}
+\csdef{bri@Judg}{\BRbookof Judges}
+\csdef{bri@Ruth}{\BRbookof Ruth}
+\csdef{bri@1Sam}{\BRbooknumberstyle{1}\BRbookof Samuel}
+\csdef{bri@2Sam}{\BRbooknumberstyle{2}\BRbookof Samuel}
+\csdef{bri@1Kgs}{\BRbooknumberstyle{1}\BRbookof Kings}
+\csdef{bri@2Kgs}{\BRbooknumberstyle{2}\BRbookof Kings}
+\csdef{bri@1Chr}{\BRbooknumberstyle{1}\BRbookof Chronicles}
+\csdef{bri@2Chr}{\BRbooknumberstyle{2}\BRbookof Chronicles}
+\csdef{bri@Ezra}{\BRbookof Ezra}
+\csdef{bri@Neh}{\BRbookof Nehemiah}
+\csdef{bri@Esth}{\BRbookof Esther}
+\csdef{bri@Job}{\BRbookof Job}
+\csdef{bri@Ps}{\BRbookof Psalms}
+\csdef{bri@Prov}{\BRbookof Proverbs}
+\csdef{bri@Eccl}{\BRbookof Ecclesiastes}
+\csdef{bri@Song}{\BRbookof Song of Songs}
+\csdef{bri@Isa}{\BRbookof Isaiah}
+\csdef{bri@Jer}{\BRbookof Jeremiah}
+\csdef{bri@Lam}{\BRbookof Lamentations}
+\csdef{bri@Ezek}{\BRbookof Ezekiel}
+\csdef{bri@Dan}{\BRbookof Daniel}
+\csdef{bri@Hos}{\BRbookof Hosea}
+\csdef{bri@Joel}{\BRbookof Joel}
+\csdef{bri@Amos}{\BRbookof Amos}
+\csdef{bri@Obad}{\BRbookof Obadiah}
+\csdef{bri@Jonah}{\BRbookof Jonah}
+\csdef{bri@Mic}{\BRbookof Micah}
+\csdef{bri@Nah}{\BRbookof Nahum}
+\csdef{bri@Hab}{\BRbookof Habakkuk}
+\csdef{bri@Zeph}{\BRbookof Zephaniah}
+\csdef{bri@Hag}{\BRbookof Haggai}
+\csdef{bri@Zech}{\BRbookof Zechariah}
+\csdef{bri@Mal}{\BRbookof Malachi}
+
+\csdef{bri@Matt}{\BRbookof Matthew}
+\csdef{bri@Mark}{\BRbookof Mark}
+\csdef{bri@Luke}{\BRbookof Luke}
+\csdef{bri@John}{\BRbookof John}
+\csdef{bri@Acts}{\BRbookof Acts}
+\csdef{bri@Rom}{\BRbookof Romans}
+\csdef{bri@1Cor}{\BRbooknumberstyle{1}\BRbookof Corinthians}
+\csdef{bri@2Cor}{\BRbooknumberstyle{2}\BRbookof Corinthians}
+\csdef{bri@Gal}{\BRbookof Galatians}
+\csdef{bri@Eph}{\BRbookof Ephesians}
+\csdef{bri@Phil}{\BRbookof Philippians}
+\csdef{bri@Col}{\BRbookof Colossians}
+\csdef{bri@1Thess}{\BRbooknumberstyle{1}\BRbookof Thessalonians}
+\csdef{bri@2Thess}{\BRbooknumberstyle{2}\BRbookof Thessalonians}
+\csdef{bri@1Tim}{\BRbooknumberstyle{1}\BRbookof Timothy}
+\csdef{bri@2Tim}{\BRbooknumberstyle{2}\BRbookof Timothy}
+\csdef{bri@Titus}{\BRbookof Titus}
+\csdef{bri@Phlm}{\BRbookof Philemon}
+\csdef{bri@Heb}{\BRbookof Hebrews}
+\csdef{bri@Jas}{\BRbookof James}
+\csdef{bri@1Pet}{\BRbooknumberstyle{1}\BRbookof Peter}
+\csdef{bri@2Pet}{\BRbooknumberstyle{2}\BRbookof Peter}
+\csdef{bri@1John}{\BRbooknumberstyle{1}\BRbookof John}
+\csdef{bri@2John}{\BRbooknumberstyle{2}\BRbookof John}
+\csdef{bri@3John}{\BRbooknumberstyle{3}\BRbookof John}
+\csdef{bri@Jude}{\BRbookof Jude}
+\csdef{bri@Rev}{\BRbookof Revelation}
+
+\csdef{br@oldtestament}{Old Testament}
+\csdef{br@newtestament}{New Testament}
+
+\biblerefmap{Gen}{01@\br@oldtestament !01}
+\biblerefmap{Exod}{01@\br@oldtestament !02}
+\biblerefmap{Lev}{01@\br@oldtestament !03}
+\biblerefmap{Num}{01@\br@oldtestament !04}
+\biblerefmap{Deut}{01@\br@oldtestament !05}
+\biblerefmap{Josh}{01@\br@oldtestament !06}
+\biblerefmap{Judg}{01@\br@oldtestament !07}
+\biblerefmap{Ruth}{01@\br@oldtestament !08}
+\biblerefmap{Sam1}{01@\br@oldtestament !09}
+\biblerefmap{Sam2}{01@\br@oldtestament !10}
+\biblerefmap{Kgs1}{01@\br@oldtestament !11}
+\biblerefmap{Kgs2}{01@\br@oldtestament !12}
+\biblerefmap{Chr1}{01@\br@oldtestament !13}
+\biblerefmap{Chr2}{01@\br@oldtestament !14}
+\biblerefmap{Ezra}{01@\br@oldtestament !15}
+\biblerefmap{Neh}{01@\br@oldtestament !16}
+\biblerefmap{Esth}{01@\br@oldtestament !17}
+\biblerefmap{Job}{01@\br@oldtestament !18}
+\biblerefmap{Ps}{01@\br@oldtestament !19}
+\biblerefmap{Prov}{01@\br@oldtestament !20}
+\biblerefmap{Eccl}{01@\br@oldtestament !21}
+\biblerefmap{Song}{01@\br@oldtestament !22}
+\biblerefmap{Isa}{01@\br@oldtestament !23}
+\biblerefmap{Jer}{01@\br@oldtestament !24}
+\biblerefmap{Lam}{01@\br@oldtestament !25}
+\biblerefmap{Ezek}{01@\br@oldtestament !26}
+\biblerefmap{Dan}{01@\br@oldtestament !27}
+\biblerefmap{Hos}{01@\br@oldtestament !28}
+\biblerefmap{Joel}{01@\br@oldtestament !29}
+\biblerefmap{Amos}{01@\br@oldtestament !30}
+\biblerefmap{Obad}{01@\br@oldtestament !31}
+\biblerefmap{Jonah}{01@\br@oldtestament !32}
+\biblerefmap{Mic}{01@\br@oldtestament !33}
+\biblerefmap{Nah}{01@\br@oldtestament !34}
+\biblerefmap{Hab}{01@\br@oldtestament !35}
+\biblerefmap{Zeph}{01@\br@oldtestament !36}
+\biblerefmap{Hag}{01@\br@oldtestament !37}
+\biblerefmap{Zech}{01@\br@oldtestament !38}
+\biblerefmap{Mal}{01@\br@oldtestament !39}
+
+\biblerefmap{Matt}{02@\br@newtestament !01}
+\biblerefmap{Mark}{02@\br@newtestament !02}
+\biblerefmap{Luke}{02@\br@newtestament !03}
+\biblerefmap{John}{02@\br@newtestament !04}
+\biblerefmap{Acts}{02@\br@newtestament !05}
+\biblerefmap{Rom}{02@\br@newtestament !06}
+\biblerefmap{Cor1}{02@\br@newtestament !07}
+\biblerefmap{Cor2}{02@\br@newtestament !08}
+\biblerefmap{Gal}{02@\br@newtestament !09}
+\biblerefmap{Eph}{02@\br@newtestament !10}
+\biblerefmap{Phil}{02@\br@newtestament !11}
+\biblerefmap{Col}{02@\br@newtestament !12}
+\biblerefmap{Thess1}{02@\br@newtestament !13}
+\biblerefmap{Thess2}{02@\br@newtestament !14}
+\biblerefmap{Tim1}{02@\br@newtestament !15}
+\biblerefmap{Tim2}{02@\br@newtestament !16}
+\biblerefmap{Titus}{02@\br@newtestament !17}
+\biblerefmap{Phlm}{02@\br@newtestament !18}
+\biblerefmap{Heb}{02@\br@newtestament !19}
+\biblerefmap{Jas}{02@\br@newtestament !20}
+\biblerefmap{Pet1}{02@\br@newtestament !21}
+\biblerefmap{Pet2}{02@\br@newtestament !22}
+\biblerefmap{John1}{02@\br@newtestament !23}
+\biblerefmap{John2}{02@\br@newtestament !24}
+\biblerefmap{John3}{02@\br@newtestament !25}
+\biblerefmap{Jude}{02@\br@newtestament !26}
+\biblerefmap{Rev}{02@\br@newtestament !27}
 
 \endinput

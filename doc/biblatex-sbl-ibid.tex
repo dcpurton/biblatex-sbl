@@ -6,12 +6,12 @@
 \usepackage{xcolor}
 \usepackage{parskip}
 \usepackage{titlesec}
+\usepackage{index}
+\newindex{default}{idx}{ind}{Index of Authors}
+\usepackage{idxlayout}
 \usepackage{hyperref}
-\usepackage{makeidx}
-\usepackage[style=sbl,indexing,ibidtracker=constrict,pagetracker,backend=biber]{biblatex}
+\usepackage[style=sbl,indexing=cite,ibidtracker=constrict,pagetracker,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
-
-\makeindex
 
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
 \setromanfont{Linux Libertine O}

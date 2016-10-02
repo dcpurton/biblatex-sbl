@@ -60,6 +60,7 @@
     {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
 
 \newbibmacro*{cite:shorthand}{%
+  \togglefalse{blx@citeindex}%
   \global\toggletrue{relatedseen}%
   \usebibmacro{shorthand}%
   \iffieldequalstr{entrysubtype}{RIMA}
@@ -216,6 +217,7 @@
 
 \DeclareBibliographyDriver{cite:ancienttext}{%
   \usebibmacro{citeindex}%
+  \togglefalse{blx@citeindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author}%
   \newunit
@@ -249,6 +251,7 @@
 
 \DeclareBibliographyDriver{cite:classictext}{%
   \usebibmacro{citeindex}%
+  \togglefalse{blx@citeindex}%
   \usebibmacro{begentry}%
   \iftoggle{blx@usefullcite}
     {}

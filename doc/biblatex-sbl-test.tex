@@ -9,9 +9,8 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{listings}
-\usepackage{index}
-\newindex{default}{idx}{ind}{Index of Authors}
-\usepackage[totoc]{idxlayout}
+\usepackage[original]{imakeidx}
+\makeindex[title=Author Index,intoc]
 \usepackage{hyperref}
 \usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
@@ -181,7 +180,7 @@
     note,releasedate,volumes,shortmaintitle,options,eprintclass,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
-    withtranslator,withtranslatortype,eventtitle,venue,eventdate%
+    withtranslator,withtranslatortype,eventtitle,venue,eventdate,shortauthor%
   },
   sensitive=false,
   breaklines=true,
@@ -2705,6 +2704,7 @@ Than the Author}
 
 @book{josephus:ant1-19,
   author = {Josephus, Flavius},
+  shortauthor = {Josephus},
   title = {The Jewish Antiquities, Books 1--19},
   shorttitle = {Ant\adddot},
   translator =  {Thackery, Henry St.\@ J. and others},
@@ -3548,7 +3548,8 @@ necessary to indicate the medium in the citation.
   author = {{Cobb Institute of Archaeology}},
   title = {The Figurines of Maresha, the Persian Era},
   eprint = {http://www.cobb.msstate.edu/dignew/Maresha/index.html},
-  eprinttype = {DigMaster}
+  eprinttype = {DigMaster},
+  options = {indexing=false}
 }
 \end{lstlisting}
 

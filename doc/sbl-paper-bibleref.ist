@@ -1,0 +1,26 @@
+preamble
+"\\begin{theindex}
+\\renewcommand\\item{\\bigskip\\par\\normalfont\\bfseries}
+\\renewcommand\\subitem{\\medskip\\par\\normalfont\\itshape}
+\\newcommand\\firstsubitem{\\medskip\\par\\nobreak\\hangindent 1in\\normalfont\\itshape}
+\\renewcommand\\subsubitem{\\par\\hangindent 1in\\normalfont\\hspace*{0.25in}}
+\\newcommand\\firstsubsubitem{\\par\\nobreak\\hangindent 1in\\normalfont\\hspace*{0.25in}}\n"
+
+item_01
+"\n    \\firstsubitem"
+
+item_x1
+"\n    \\firstsubitem"
+
+item_2
+"\n      \\subsubitem\\raggedright\\strut\\rlap{"
+
+item_12
+"\n      \\firstsubsubitem\\raggedright\\strut\\rlap{"
+
+item_x2
+"\n      \\firstsubsubitem\\raggedright\\strut\\rlap{"
+
+delim_0 "\\normalfont , "
+delim_1 "\\normalfont , "
+delim_2 "}\\normalfont\\hspace*{0.75in}%"
