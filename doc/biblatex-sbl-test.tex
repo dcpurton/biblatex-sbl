@@ -176,8 +176,8 @@
     shortjournal,volume,pages,type,booktitle,bookauthor,origlocation,%
     origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
-    revdauthor,revdtitle,revdeditor,institution,type,shorthand,sblxref,%
-    note,releasedate,volumes,shortmaintitle,options,eprintclass,%
+    revdauthor,revdtitle,revdeditor,institution,type,shorthand,xref,%
+    note,releasedate,volumes,shortmaintitle,options,eprintclass,relatedoptions,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
     withtranslator,withtranslatortype,eventtitle,venue,eventdate,shortauthor%
@@ -1594,7 +1594,7 @@ Than the Author}
   volume = {1},
   pages = {418-432},
   crossref = {IDB},
-  sblxref = {IDB}
+  xref = {IDB}
 }
 \end{lstlisting}  
 
@@ -1619,7 +1619,7 @@ Than the Author}
   Stendahl, Krister. “Biblical Theology, Contemporary.” \emph{IDB} 1:418–32.
 
   \refbiblist{\emph{IDB}}{\emph{The Interpreter's Dictionary of the Bible.}
-  Edited by George A. Buttrick. 4 vols. New York: Abingdon, 1962}
+  Edited by George A. Buttrick. 4~vols. New York: Abingdon, 1962}
 \end{refimp}
 
 \paragraph{An Article in a Single-Volume Encyclopaedia or Dictionary}
@@ -1641,7 +1641,7 @@ Than the Author}
   shorttitle = {Numbers},
   pages = {611-618},
   crossref = {DOTP},
-  sblxref = {DOTP}
+  xref = {DOTP}
 }
 \end{lstlisting}  
 
@@ -1671,7 +1671,7 @@ Than the Author}
   title = {See, Vision, Eye},
   volume = {3},
   pages = {511-521},
-  sblxref = {NIDNTT}
+  xref = {NIDNTT}
 }
 \end{lstlisting}
 
@@ -1713,7 +1713,7 @@ Than the Author}
   title = {\textgreek{διακονέω, διακονία, κτλ}},
   volume = {2},
   pages = {81-93},
-  sblxref = {TDNT}
+  xref = {TDNT}
 }
 \end{lstlisting}
   
@@ -1760,7 +1760,7 @@ Than the Author}
   title = {\textgreek{ἀτακτέω, ἄτακτος, ἀτάκτως}},
   volume = {1},
   pages = {223-224},
-  sblxref = {TLNT}
+  xref = {TLNT}
 }
 \end{lstlisting}
 
@@ -1804,7 +1804,7 @@ Than the Author}
   title = {\textgreek{ἀμοιβή}},
   volume = {1},
   pages = {95-96},
-  sblxref = {TLNT}
+  xref = {TLNT}
 }
 \end{lstlisting}
 
@@ -1849,7 +1849,7 @@ Than the Author}
   title = {\textgreek{διακονέω}},
   volume = {2},
   pages = {81-87},
-  sblxref = {TDNT}
+  xref = {TDNT}
 }
 \end{lstlisting}
 
@@ -1891,7 +1891,7 @@ Than the Author}
   title = {\textgreek{ὁράω}},
   volume = {3},
   pages = {511-518},
-  sblxref = {NIDNTT}
+  xref = {NIDNTT}
 }
 \end{lstlisting}
 
@@ -2123,7 +2123,7 @@ Than the Author}
   publisher = {Brill},
   date = {1997},
   shorthand = {COS},
-  sblxref = {COS},
+  xref = {COS},
   options = {skipbiblist}
 }
 
@@ -2135,7 +2135,8 @@ Than the Author}
   volume = {1},
   part = {26},
   pages = {44-46},
-  sblxref = {hallo:1997}
+  related = {hallo:1997},
+  relatedoptions = {usevolume=false,skipbiblist}
 }
 \end{lstlisting}
 
@@ -2177,7 +2178,7 @@ Than the Author}
 @ancienttext{suppiluliumas,
   title = {Suppiluliumas and the Egyptian Queen},
   translator = {Goetz, Albrecht},
-  sblxref = {ANET},
+  related = {ANET},
 }
 \end{lstlisting}
 
@@ -2214,7 +2215,7 @@ Than the Author}
 @ancienttext{erraandishum,
   title = {Erra and Ishum},
   pages = {282-315},
-  sblxref = {dalley:1991},
+  related = {dalley:1991},
 }
 \end{lstlisting}
 
@@ -2247,7 +2248,8 @@ Than the Author}
 @ancienttext{erraandishum:foster,
   title = {Erra and Ishum},
   pages = {771-805},
-  sblxref = {foster:1993},
+  related = {foster:1993},
+  relatedoptions = {usevolume=false}
 }
 \end{lstlisting}
 
@@ -2289,14 +2291,15 @@ Than the Author}
   publisher = {University of California Press},
   date = {1976},
   shorthand = {AEL},
-  sblxref = {AEL},
-  options = {skipbiblist,firstcitenoshorthand}
+  ref = {AEL},
+  options = {skipbiblist}
 }
 
 @ancienttext{doomedprince,
   title = {The Doomed Prince},
   pages = {200-203},
-  sblxref = {lichtheim:1976}
+  related = {lichtheim:1976},
+  relatedoptions = {shorthand=short,usevolume=false,skipbiblist}
 }
 \end{lstlisting}
 
@@ -2339,7 +2342,7 @@ Than the Author}
 
 @ancienttext{disappearanceofsungod,
   title = {The Disappearance of the Sun God},
-  sblxref = {hoffner:1990}
+  related = {hoffner:1990}
 }
 \end{lstlisting}
 
@@ -2375,14 +2378,15 @@ Than the Author}
   publisher = {University of Toronto Press},
   date = {1991},
   shorthand = {RIMA},
-  options = {skipbiblistshorthand,firstcitenoshorthand}
+  options = {skipbiblistshorthand}
 }
 
 @ancienttext{ashurinscription,
   entrysubtype = {inscription},
   title = {Ashur Inscription},
   pages = {143-144},
-  sblxref = {RIMA}
+  related = {RIMA},
+  relatedoptions = {skipbiblistshorthand,shorthand=short}
 }
 \end{lstlisting}
 
@@ -2425,14 +2429,14 @@ Than the Author}
   location = {Locust Valley, NY},
   publisher = {Augustin},
   date = {1975},
-  shorthand = {ABC},
-  options = {firstcitenoshorthand}
+  shorthand = {ABC}
 }
 
 @ancienttext{esarhaddonchronicle,
   entrysubtype = {chronicle},
   title = {Esarhaddon Chronicle},
-  sblxref = {ABC}
+  related = {ABC},
+  relatedoptions = {shorthand=short}
 }
 \end{lstlisting}
 
@@ -2543,7 +2547,8 @@ Than the Author}
 @classictext{josephus:ant,
   author = {Josephus},
   title = {Ant\adddot},
-  sblxref = {josephus}
+  xref = {josephus},
+  options = {skipbib}
 }
 \end{lstlisting}
 
@@ -2584,7 +2589,7 @@ Than the Author}
 @classictext{tacitus:ann,
   author = {Tacitus},
   title = {Ann\adddot},
-  sblxref = {tacitus}
+  xref = {tacitus}
 }
 \end{lstlisting}
 
@@ -2624,7 +2629,7 @@ Than the Author}
   translator = {Thackery},
   series = {Loeb Classical Library},
   shortseries = {LCL},
-  sblxref = {josephus}
+  xref = {josephus}
 }
 \end{lstlisting}
 
@@ -2668,7 +2673,7 @@ Than the Author}
   translator = {Jackson},
   series = {Loeb Classical Library},
   shortseries = {LCL},
-  sblxref = {tacitus}
+  xref = {tacitus}
 }
 \end{lstlisting}
 
@@ -2713,7 +2718,7 @@ Than the Author}
   location = {Cambridge},
   publisher = {Harvard University Press},
   date = {1930/1965},
-  sblxref = {josephus},
+  xref = {josephus},
   options = {skipbib}
 }
 \end{lstlisting}
@@ -2771,8 +2776,7 @@ Than the Author}
   shortseries = {LCL},
   location = {Cambridge},
   publisher = {Harvard University Press},
-  date = {1932},
-  options = {shortciteauthor}
+  date = {1932}
 }
 
 @ancienttext{p.cair.zen.:hunt+edgar,
@@ -2780,8 +2784,9 @@ Than the Author}
   title = {Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du Caire},
   location = {Cairo},
   shorthand = {P.Cair.Zen.},
-  sblxref = {hunt+edgar:1932},
-  options = {skipbib,useeditor=false}
+  options = {skipbib,useeditor=false},
+  related = {hunt+edgar:1932},
+  relatedoptions = {useshorttitle=false}
 }
 \end{lstlisting}
 
@@ -2846,8 +2851,7 @@ Than the Author}
   edition = {2},
   location = {Chicago},
   publisher = {University of Chicago Press},
-  date = {1996},
-  options = {nolongcite,shortciteauthor}
+  date = {1996}
 }
 
 @ancienttext{PGM:betz,
@@ -2859,8 +2863,8 @@ Than the Author}
   publisher = {Teubner},
   date = {1973/1974},
   shorthand = {PGM},
-  sblxref = {betz:1996},
-  options = {skipbib}
+  related = {betz:1996},
+  relatedoptions = {usefullcite=false,useshorttitle=false}
 }
 \end{lstlisting}
 
@@ -2926,7 +2930,7 @@ Than the Author}
   author = {Heraclitus},
   title = {Epistle 1},
   translator = {Worley},
-  sblxref = {heraclitus:epistle1:worley:1977}
+  xref = {heraclitus:epistle1:worley:1977}
 }
 \end{lstlisting}
 
@@ -2956,30 +2960,32 @@ Than the Author}
 \subsubsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
 
 \begin{lstlisting}
-@mvcollection{ANF:Roberts+Donaldson,
-  title = {The Ante-Nicene Fathers},
+@mvcollection{ANF,
+  crossref = {ANF:abbreviation},
   editor = {Roberts, Alexander and Donaldson, James},
   origdate = {1885/1887},
   volumes = {10},
   location = {Peabody, MA},
   publisher = {Hendrickson},
   date = {1994},
-  options = {useeditor=false},
-  sortkey = {Ante-Nicene Fathers}
+  shorthand = {ANF},
+  options = {useeditor=false,skipbiblist},
+  sortkey = {Ante-Nicene Fathers},
+  xref = {ANF:abbreviation}
 }
 
-@mvcollection{ANF,
+@mvcollection{ANF:abbreviation,
   title = {The Ante-Nicene Fathers},
   shorttitle = {ANF},
   shorthand = {ANF},
-  options = {skipbib},
-  sblxref = {ANF:Roberts+Donaldson}
-} 
+  options = {skipbib}
+}
 
 @classictext{clementinehomilies,
   entrysubtype = {churchfather},
   title = {The Clementine Homilies},
-  sblxref = {ANF}
+  related = {ANF},
+  relatedoptions = {useeditor=false,skipbiblist}
 }
 \end{lstlisting}
 
@@ -3004,19 +3010,21 @@ Than the Author}
 \medskip
 
 \begin{lstlisting}
-@mvcollection{NPNF1:Schaff,
-  title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
+@mvcollection{NPNF1,
+  crossref = {NPNF1:abbreviation},
   editor = {Schaff, Philip},
   origdate = {1886/1889},
   volumes = {14},
   location = {Peabody, MA},
   publisher = {Hendrickson},
   date = {1994},
-  options = {useeditor=false},
-  sortkey = {Nicene and Post-Nicene Fathers, Series 1}
+  shorthand = {NPNF\textsuperscript{1}},
+  options = {useeditor=false,skipbiblist},
+  sortkey = {Nicene and Post-Nicene Fathers, Series 1},
+  xref = {NPNF1:abbreviation}
 }
 
-@mvcollection{NPNF1,
+@mvcollection{NPNF1:abbreviation,
   title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
   shorttitle = {NPNF\textsuperscript{1}},
   shorthand = {NPNF\textsuperscript{1}},
@@ -3029,9 +3037,10 @@ Than the Author}
   title = {The Letters of St.\@ Augustin},
   shorttitle = {Letters of St.\@ Augustin},
   volume = {1},
-  crossref = {NPNF1:Schaff},
-  sblxref = {NPNF1},
-  options = {nolongcite,skipbib=false}
+  crossref = {NPNF1},
+  related = {NPNF1},
+  relatedoptions = {useeditor=false,skipbiblist,skipbib},
+  options = {skipbib=false}
 }
 \end{lstlisting}
 
@@ -3083,8 +3092,9 @@ Than the Author}
   entrysubtype = {churchfather},
   author = {{Gregory of Nazianzus}},
   title = {Orationes theologicae},
-  sblxref = {PG},
-  volume = {36}
+  volume = {36},
+  related = {PG},
+  relatedoptions = {useeditor=false}
 }
 \end{lstlisting}
 
@@ -3173,7 +3183,9 @@ Than the Author}
   location = {New York},
   publisher = {de Gruyter},
   date = {1989},
-  sblxref = {ANRW}
+  related = {ANRW},
+  relatedoptions = {skipbib},
+  options = {skipbib=false}
 }
 \end{lstlisting}
 
@@ -3434,7 +3446,7 @@ Than the Author}
   volume = {6},
   date = {2001},
   crossref = {NIB},
-  sblxref = {NIB}
+  xref = {NIB}
 }
 \end{lstlisting}
 
@@ -3625,7 +3637,7 @@ necessary to indicate the medium in the citation.
 \medskip
 
 \begin{lstlisting}
-@lexicon{BDB:abbrev,
+@lexicon{BDB:abbreviation,
   author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
   title = {A Hebrew and English Lexicon of the Old Testament},
   shorthand = {BDB},
@@ -3633,12 +3645,12 @@ necessary to indicate the medium in the citation.
 }
 
 @lexicon{BDB,
-  crossref = {BDB:abbrev},
+  crossref = {BDB:abbreviation},
   location = {Oxford},
   publisher = {Oxford University Press},
   date = {1906},
   shorthand = {BDB},
-  sblxref = {BDB:abbrev},
+  xref = {BDB:abbreviation},
   options = {skipbiblist}
 }
 \end{lstlisting}
