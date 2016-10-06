@@ -1,9 +1,8 @@
 \documentclass{ltxdockit}[2011/03/25] 
 \usepackage{microtype}
 \usepackage{xcolor}
-\usepackage{makeidx}
-\makeindex
-\usepackage[totoc]{idxlayout}
+\usepackage[original]{imakeidx}
+\makeindex[title=Author Index,intoc]
 \usepackage{btxdockit}
 \usepackage{fontspec}
 \usepackage{realscripts}
@@ -12,8 +11,6 @@
 
 \usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
 \addbibresource{biblatex-sbl.bib}
-
-\renewcommand{\indexname}{Index of Authors}
 
 \hypersetup{colorlinks,citecolor=spot}
 
@@ -162,9 +159,10 @@ documentation. Bugs and feature requests can be submitted at
 
 \section{Requirements}
 
-\biblatexsbl requires at least version 3.0 of \biblatex and the \sty{xparse}
+\biblatexsbl requires at least version 3.5 of \biblatex and the \sty{xparse}
 package. \sty{biber} must be used. \sty{bibtex} is not supported. For
-localization \sty{babel} and \sty{csquotes} are recommended.
+localization \sty{babel}\slash\sty{polyglossia} and \sty{csquotes} are
+recommended.
 
 \section{Usage}
 
@@ -186,9 +184,9 @@ defaults of the \cite{SBLHS}.
 \subsection{Localization}
 
 By default \biblatexsbl uses American style punctuation and quotation marks.
-You can choose a different style by including the \sty{babel} and
-\sty{csquotes} packages in your document preamble.
-e.g.,
+You can choose a different style by including the
+\sty{babel}\slash\sty{polyglossia} and \sty{csquotes} packages in your
+document preamble. e.g.,
 
 \begin{quote}
 \begin{lstlisting}[style=latex]{}
@@ -456,8 +454,8 @@ page breaks or not.
 \optitem[comp]{releasedate}{\opt{year}, \opt{short}, \opt{long}, \opt{terse,
 \opt{comp}, \opt{iso8601}}}
 
-Similar to the \opt{date} option (see the \biblatex manual) but controls the
-format of the \bibfield{releasedate}.
+Similar to the \opt{date} option (for details see the \biblatex manual) but
+controls the format of the \bibfield{releasedate}.
 
 \boolitem[true]{sblfootnotes}
 
@@ -497,16 +495,17 @@ usage, and some are unique to \biblatexsbl. These are documented more fully.
 This is a custom type for \biblatexsbl. It is used for the special examples in
 \cite[§6.4.1, §6.4.3 and §6.4.8]{SBLHS}.
 
-Unless \opt{options = \{skipbib=false\}} is set explicitly, a
+Unless \opt{options = \{skipbib=false\}} is set explicitly, an
 \bibtype{ancienttext} entry will not appear in the bibliography. (Although,
 see \opt{ANRW} \bibfield{entrysubtype} below for an exception.) The
-\bibfield{sblxref} field is used to refer to the entry which should appear in
-the bibliography instead of the \bibtype{ancienttext} entry.
+\bibfield{related} field is used to refer to the entry which should appear in
+the bibliography instead of the \bibtype{ancienttext} entry. Options can be
+set on the related entry using the \bibfield{relatedoptions} field.
 
-The entry pointed to by \bibfield{sblxref} along with the \bibfield{postnote}
+The entry pointed to by \bibfield{related} along with the \bibfield{postnote}
 is printed in parentheses after the \bibfield{altpostnote}, \bibfield{editor},
-and \bibfield{translator} fields they are present. \bibfield{translator} and
-\bibfield{editor} fields are omitted for subsequent citations. e.g.,
+and \bibfield{translator} fields if they are present. \bibfield{translator}
+and \bibfield{editor} fields are omitted for subsequent citations. e.g.,
 
 \begin{snugshade}
   \samplecite{1}[319]{suppiluliumas}
@@ -608,8 +607,8 @@ examples in \cite[§6.4.2 and §§6.4.4–6]{SBLHS}.
 
 Unless \opt{options = \{skipbib=false\}} is set explicitly, a
 \bibtype{classictext} entry will not appear in the bibliography. The
-\bibfield{sblxref} field is used to refer to the entry which should appear in
-the bibliography instead of the \bibtype{classictext} entry.
+\bibfield{xref} field is used to refer to the entry which should appear in the
+bibliography instead of the \bibtype{classictext} entry.
 
 If present, the \bibfield{translator} and \bibfield{series} are printed in
 parentheses following the \bibfield{postnote}. e.g.,
@@ -630,10 +629,11 @@ The following values for the \bibfield{entrysubtype} field are supported:
 \item[churchfather]
 
 Entries using the \opt{churchfather} \bibfield{entrysubtype} print the entry
-pointed to by \bibfield{sblxref} within parentheses following the
+pointed to by \bibfield{related} within parentheses following the
 \bibfield{altpostnote}. The \bibfield{postnote} field applies to the entry in
-\bibfield{sblxref}. \bibfield{altpostnote} is always separated from the title
-by a space.
+\bibfield{related}. \bibfield{relatedoptions} can be used to control some
+aspects of the formatting for the related entry. \bibfield{altpostnote} is
+always separated from the title by a space.
 
 \begin{snugshade}
   \samplecite{1}[28.3.5|252]{augustine:letters}
@@ -678,8 +678,8 @@ A contribution to a commentary which forms a self-contained unit with a
 distinct author and title. This is typically a commentary on a book of the
 Bible appearing in a single or multi-volume commentary on the entire Bible.
 
-If an entry contains an \bibfield{sblxref} field, then the bibliography entry
-is printed in either short or long form as described above under
+If an entry contains an \bibfield{xref} field, then the bibliography entry is
+printed in either short or long form as described above under
 \opt{fullbibrefs}. Otherwise this entry is treated as an alias for
 \bibtype{incollection}.
 
@@ -702,10 +702,10 @@ alias for \bibtype{mvbook}.
 \typeitem{inlexicon}
 
 An article in a lexicon or theological dictionary. This is a custom type for
-\biblatexsbl. The required \bibfield{sblxref} must contain the entry name of a
-\bibtype{lexicon} or \bibtype{mvlexicon}. The \bibtype{inlexicon} entry does
-not appear in the bibliography. Instead the lexicon pointed to by
-\bibfield{sblxref} appears in the bibliography.
+\biblatexsbl. The required \bibfield{xref} field must contain the entry name
+of a \bibtype{lexicon} or \bibtype{mvlexicon}. The \bibtype{inlexicon} entry
+does not appear in the bibliography. Instead the lexicon pointed to by
+\bibfield{xref} appears in the bibliography.
 
 Subsequent citations do not include the article title, only the name of the
 lexicon. e.g.,
@@ -765,7 +765,7 @@ A multi-volume \bibtype{reference}. \biblatexsbl treats this as an alias for
 
 \typeitem{inreference}
 
-An article in an encyclopaedia or dictionary. The required \bibfield{sblxref}
+An article in an encyclopaedia or dictionary. The required \bibfield{xref}
 field must contain the entry name of a \bibtype{reference} or
 \bibtype{mvreference}.
 
@@ -877,22 +877,6 @@ An annex to the \bibfield{revdtitle}, to be printed in a different font.
 \listitem{revdtranslator}{name}
 
 The translator(s) of the \bibfield{revdtitle}.
-
-\fielditem{sblxref}{entry key}
-
-This is a special cross-reference field. Unlike \bibfield{crossref} and
-\bibfield{xref}, the parent entry will \emph{always} appear in the bibliography
-and (if applicable) the list of abbreviations regardless of the value of
-\opt{mincrossrefs}. Neither does the child entry inherit any fields from the
-parent.
-
-It is used when what appears in the citation is radically different to what
-appears in the bibliography.
-
-It's appearance in the bibliography and list of abbreviations can be
-controlled using the entry options \opt{skipbib}, \opt{skipbiblist},
-\opt{skipbiblistshorthand}, and \opt{skipbiblistseries}. See below for details
-of these options.
 
 \fielditem{seriesseries}{literal}
 
@@ -1008,43 +992,6 @@ manual. There are also a number of custom entry options supported by
 
 \begin{optionlist}
 
-\optitem[false]{firstcitenoshorthand}{\opt{true}, \opt{false}}
-
-This option controls the first citation of entries with a \bibfield{shorthand}
-field. The possible choices are:
-
-\begin{valuelist}
-\item[true] Do not use the \bibfield{shorthand} the first time and entry is
-  cited. The entry is cited in full as it would be if no \bibfield{shorthand}
-  was present.
-\item[false] Always use the \bibfield{shorthand} when citing the entry.
-\end{valuelist}
-
-\optitem[false]{nolongcite}{\opt{true}, \opt{false}}
-
-This option controls the format of the first citation. The possible choices
-are:
-
-\begin{valuelist}
-\item[true] Always use the short subsequent citation format, even the first
-  time an entry is cited. In effect this sets \cmd{citeseen} to true for the
-  first citation.
-\item[false] Use a full citation the first time and entry is cited and a short
-  citation for subsequent citations.
-\end{valuelist}
-
-\optitem[false]{shortciteauthor}{\opt{true}, \opt{false}}
-
-This option controls the format of subsequent citations. The possible choices
-are:
-
-\begin{valuelist}
-\item[true] Suppress the \bibfield{shorttitle} or \bibfield{title} in
-  subsequent citations, so only the author(s) or editor(s) are printed.
-\item[false] Include the \bibfield{shorttitle} or \bibfield{title} in
-  subsequent citations.
-\end{valuelist}
-
 \optitem[false]{skipbiblistshorthand}{\opt{true}, \opt{false}}
 
 This option controls what appears in the list of abbreviations for database
@@ -1069,6 +1016,51 @@ For entries not containing a \bibfield{shorthand} just use the option
 \item[true] Do not include the \bibfield{shortseries} in the list of
   abbreviations.
 \item[false] Include the \bibfield{shortseries} in the list of abbreviations.
+\end{valuelist}
+
+\optitem[true]{shorthand}{\opt{true}, \opt{false}, \opt{short}}
+
+This option controls when and whether the \bibfield{shorthand} field is used
+as a citation.
+
+\begin{valuelist}
+\item[true] Always use the \bibfield{shorthand} when citing the entry.
+\item[false] Never use the \bibfield{shorthand} when citing the entry.
+\item[short] Print the full citation the first time the entry is cited. Use
+  the \bibfield{shorthand} on subsequent citations.
+\end{valuelist}
+
+\optitem[true]{usefullcite}{\opt{true}, \opt{false}}
+
+This options controls the format of first citations. The possible choices are:
+
+\begin{valuelist}
+\item[true] Use a full citation the first time the entry is cited.
+\item[false] Use the short citation form the first time the entry is cited.
+\end{valuelist}
+
+\optitem[true]{useshorttitle}{\opt{true}, \opt{false}}
+
+This option controls the format of subsequent citations. The possible choices
+are:
+
+\begin{valuelist}
+\item[true] Include the \bibfield{shorttitle} or \bibfield{title} in
+  subsequent citations.
+\item[false] Suppress the \bibfield{shorttitle} or \bibfield{title} in
+  subsequent citations, so only the author(s) or editor(s) are printed.
+\end{valuelist}
+
+\optitem[true]{usevolume}{\opt{true}, \opt{false}}
+
+This option controls whether the \bibfield{volume} is printed as part of the
+citation text or as part of the \bibfield{postnote}.
+
+\begin{valuelist}
+\item[true] Print the \bibfield{volume} as part of the main citation
+  information. e.g., “Vol.~1.”
+\item[false] Print the \bibfield{volume} field as part of the
+  \bibfield{postnote}. e.g., “1:”
 \end{valuelist}
 
 \end{optionlist}
