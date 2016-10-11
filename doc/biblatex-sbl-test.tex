@@ -9,10 +9,10 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{listings}
-\usepackage[original]{imakeidx}
+\usepackage{imakeidx}
 \makeindex[title=Author Index,intoc]
-\usepackage{hyperref}
 \usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
+\usepackage{hyperref}
 \addbibresource{biblatex-sbl.bib}
 
 \DeclareBibliographyCategory{ignore}
@@ -3778,10 +3778,12 @@ necessary to indicate the medium in the citation.
 
 \clearpage
 
+\phantomsection
 \printbiblist[heading=biblistintoc]{abbreviations}
 
 \clearpage
 
+\phantomsection
 \printbibliography[heading=bibintoc,notcategory=ignore]
 
 \clearpage
