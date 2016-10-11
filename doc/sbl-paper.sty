@@ -13,11 +13,12 @@
 %The Current Maintainer of this work is David Purton.
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{sbl-paper}
-  [2016/04/23 Society of Bibilical Literature Paper Style]
+  [2016/10/10 Society of Bibilical Literature Paper Style]
 
 
 % Load required packages
 
+\RequirePackage{textcase}
 \RequirePackage{fontspec}
 \RequirePackage{ragged2e}
 \RequirePackage{polyglossia}
@@ -29,7 +30,34 @@
 \RequirePackage{quoting}
 \RequirePackage{fancyhdr}
 \RequirePackage[bottom]{footmisc}
-\RequirePackage[style=sbl,backend=biber]{biblatex}
+\RequirePackage{bibleref-parse}
+\RequirePackage[style=sbl,indexing=cite,backend=biber]{biblatex}
+\RequirePackage{imakeidx}
+\RequirePackage{hyperref}
+
+
+% work around bidi redefining theindex
+\let\imakeidxtheindex\theindex
+\let\imakeidxendtheindex\endtheindex
+\AtBeginDocument{%
+  \let\theindex\imakeidxtheindex
+  \let\endtheindex\imakeidxendtheindex
+}
+
+% patch index commands so contents is in all caps
+\patchcmd{\imki@putindexsplit}
+{\addcontentsline{toc}{\imki@toclevel}{\imki@title}}
+{\addcontentsline{toc}{\imki@toclevel}{\MakeTextUppercase{\imki@title}}}
+{}{}
+\patchcmd{\imki@putindexunique}
+{\addcontentsline{toc}{\imki@toclevel}{\imki@title}}
+{\addcontentsline{toc}{\imki@toclevel}{\MakeTextUppercase{\imki@title}}}
+{}{}
+\ifimki@splitindex
+  \let\imki@putindex\imki@putindexunique
+\else
+  \let\imki@putindex\imki@putindexsplit
+\fi
 
 
 % Set up Languages
@@ -100,48 +128,52 @@
     \clearpage
     \thispagestyle{plain}%
     \firstsection*{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{biblist}[\biblistname]{%
     \clearpage
     \thispagestyle{plain}%
-    \section*{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \firstsection*{#1}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{bibintoc}[\bibname]{%
     \clearpage
     \thispagestyle{plain}%
+    \phantomsection
     \firstsection*{#1}%
-    \addcontentsline{toc}{section}{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \addcontentsline{toc}{section}{\MakeTextUppercase{#1}}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{biblistintoc}[\biblistname]{%
     \clearpage
     \thispagestyle{plain}%
+    \phantomsection
     \section*{#1}%
-    \addcontentsline{toc}{section}{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \addcontentsline{toc}{section}{\MakeTextUppercase{#1}}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
 
 \or % book/report
   \defbibheading{bibliography}[\bibname]{%
     \clearpage
     \thispagestyle{plain}%
     \chapter*{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{biblist}[\biblistname]{%
     \clearpage
     \thispagestyle{plain}%
-    \section*{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \firstsection*{#1}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{bibintoc}[\bibname]{%
     \clearpage
     \thispagestyle{plain}%
+    \phantomsection
     \chapter*{#1}%
-    \addcontentsline{toc}{chapter}{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \addcontentsline{toc}{chapter}{\MakeTextUppercase{#1}}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
   \defbibheading{biblistintoc}[\biblistname]{%
     \clearpage
     \thispagestyle{plain}%
+    \phantomsection
     \section*{#1}%
-    \addcontentsline{toc}{chapter}{#1}%
-    \markboth{\MakeUppercase{#1}}{\MakeUppercase{#1}}}
+    \addcontentsline{toc}{chapter}{\MakeTextUppercase{#1}}%
+    \markboth{\MakeTextUppercase{#1}}{\MakeTextUppercase{#1}}}
 
 \fi
 
@@ -153,16 +185,16 @@
   {\chapter}
   [block]
   {\singlespacing\centering}
-  {\MakeUppercase{\chaptertitlename} \thechapter:}
+  {\MakeTextUppercase{\chaptertitlename} \thechapter:}
   {.5em}
-  {\MakeUppercase}
+  {\MakeTextUppercase}
 \titleformat
   {\section}
   [block]
   {\singlespacing\centering}
   {\thesection}
   {.5em}
-  {\MakeUppercase}
+  {\MakeTextUppercase}
 \titleformat
   {\subsection}
   [block]
@@ -200,7 +232,7 @@
 \assignpagestyle{\chapter}{plain}
 \def\firstsection{%
   \clearpage
-  \vspace*{0pt}
+  \null
   \thispagestyle{plain}
   \section}
 \setcounter{tocdepth}{3}
@@ -212,7 +244,7 @@
     \fi
     \section*{\contentsname
         \@mkboth{%
-           \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+           \MakeTextUppercase\contentsname}{\MakeTextUppercase\contentsname}}%
     \@starttoc{toc}%
     \if@restonecol\twocolumn\fi
     \thispagestyle{plain}
@@ -220,14 +252,14 @@
 \titlecontents{chapter}
   [0pt]
   {\singlespacing}
-  {\MakeUppercase{\chaptertitlename~\thecontentslabel}: \MakeUppercase}
-  {\MakeUppercase}
+  {\MakeTextUppercase{\chaptertitlename~\thecontentslabel}: }
+  {}
   {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
 \titlecontents{section}
   [0pt]
   {\singlespacing}
-  {\MakeUppercase{\chaptertitlename~\thecontentslabel}: \MakeUppercase}
-  {\MakeUppercase}
+  {\MakeTextUppercase{\chaptertitlename~\thecontentslabel}: }
+  {}
   {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
 \titlecontents{subsection}
   [1em]
@@ -251,14 +283,14 @@
       {\section}
       [block]
       {\singlespacing\centering}
-      {\MakeUppercase{\chaptertitlename} \thesection:}
+      {\MakeTextUppercase{\chaptertitlename} \thesection:}
       {.5em}
-      {\MakeUppercase}
+      {\MakeTextUppercase}
     \titlecontents{section}
       [0pt]
       {\singlespacing}
-      {\MakeUppercase{\appendixname~\thecontentslabel}: \MakeUppercase}
-      {\MakeUppercase}
+      {\MakeTextUppercase{\appendixname~\thecontentslabel}: }
+      {}
       {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
 
   \or % book/report
@@ -268,41 +300,83 @@
     \titlecontents{chapter}
       [0pt]
       {\singlespacing}
-      {\MakeUppercase{\appendixname~\thecontentslabel}: \MakeUppercase}
-      {\MakeUppercase}
+      {\MakeTextUppercase{\appendixname~\thecontentslabel}: }
+      {}
       {\hspace{.5em}\titlerule*[.5pc]{.}\contentspage}
 
   \fi}
 
 
+% make sure chapter and section commands uppercase with hyperref
+
+\pdfstringdefDisableCommands{%
+  \let\MakeTextUppercase\relax}
+
+\def\@chapter[#1]#2{\ifnum \c@secnumdepth >\m@ne
+  \if@mainmatter
+    \refstepcounter{chapter}%
+    \typeout{\@chapapp\space\thechapter.}%
+    \addcontentsline{toc}{chapter}%
+      {\protect\numberline{\thechapter}\MakeTextUppercase{#1}}%
+  \else
+    \addcontentsline{toc}{chapter}{\MakeTextUppercase{#1}}%
+  \fi
+  \else
+    \addcontentsline{toc}{chapter}{\MakeTextUppercase{#1}}%
+  \fi
+  \chaptermark{#1}%
+  \addtocontents{lof}{\protect\addvspace{10\p@}}%
+  \addtocontents{lot}{\protect\addvspace{10\p@}}%
+  \if@twocolumn
+    \@topnewpage[\@makechapterhead{#2}]%
+  \else
+    \@makechapterhead{#2}%
+    \@afterheading
+  \fi}
+
+\def\ttl@addcontentsline#1#2{%
+  \expandafter\ifx\csname l@#1\endcsname\l@section
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi
+  {%
+    \addcontentsline{toc}{#1}{\ifttl@toclabel\ttl@a\fi\MakeTextUppercase{#2}}%
+  }{%
+    \addcontentsline{toc}{#1}{\ifttl@toclabel\ttl@a\fi#2}%
+  }\nobreak}
+
+
 % Set up title page
 
 \renewcommand{\maketitle}{%
+  \hypersetup{pageanchor=false}%
   \newgeometry{margin=2in}%
   \thispagestyle{empty}%
   \singlespacing
   \begin{center}
-    \MakeUppercase{\@institution}
+    \MakeTextUppercase{\@institution}
 
     \vfill
 
     \doublespacing
-    \MakeUppercase{\@title}
+    \MakeTextUppercase{\@title}
 
     \vfill
     
     \singlespacing
-    \MakeUppercase{Submitted to \@professor \protect\\
+    \MakeTextUppercase{Submitted to \@professor \protect\\
       in Partial Fulfilment of \protect\\\relax
     \@course}
 
     \vfill
 
-    \MakeUppercase{By \protect\\\relax
+    \MakeTextUppercase{By \protect\\\relax
       \@author \protect\\\relax
     \@date}
   \end{center}
   \restoregeometry
+  \hypersetup{pageanchor=true}%
 }
 
 \def\author#1{\gdef\@author{#1}}
@@ -318,8 +392,6 @@
 
 
 % Set up Bible references
-
-\RequirePackage{bibleref-parse}
 
 \braltabbrvname
 \renewcommand*{\BRperiod}{}

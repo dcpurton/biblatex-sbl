@@ -2,30 +2,28 @@
 
 %% Pass ibid and idem options to biblatex
 %\PassOptionsToPackage{pagetracker,ibidtracker=context,ibidpage,idemtracker=constrict}{biblatex}
-%% Turn on indexing for citations
-\PassOptionsToPackage{indexing=cite}{biblatex}
-
-%% Required for imakeidx, but must be loaded before bidi
-\usepackage{multicol}
 
 \usepackage{sbl-paper}
 
 %% Add your bib resource here
 \addbibresource{biblatex-sbl.bib}
 
+%% Index setup
 %% Include separate indices for subjects, authors, and Scripture references
-\usepackage[original]{imakeidx}
 \makeindex[title=Subject Index,intoc]
-\makeindex[name=authors,title=Author Index,intoc]
-\makeindex[name=scriptures,title=Scripture Reference Index,intoc,options=-s sbl-paper-bibleref.ist]
-
-%% Redefine index format so biblatex inserts names into the right index
-\DeclareIndexNameFormat{default}{%
-  \usebibmacro{index:name}{\index[authors]}{#1}{#3}{#5}{#7}%
-}
-
+\makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,options=-s sbl-paper-bibleref.ist]
+\makeindex[name=\jobname-aut,title=Author Index,intoc]
 %% Index Bible references in a scripture index
-\renewcommand{\biblerefindex}{\index[scriptures]}
+\renewcommand{\biblerefindex}{\index[\jobname-scr]}
+%% Redefine index format so biblatex inserts names into an author index
+\DeclareIndexNameFormat{default}{%
+  \nameparts{#1}%
+  \usebibmacro{index:name}
+    {\index[\jobname-aut]}
+    {\namepartfamily}
+    {\namepartgiven}
+    {\namepartprefix}
+    {\namepartsuffix}}
 
 %% Set default language to German
 %\setdefaultlanguage{german}
@@ -35,6 +33,10 @@
 
 %% Set default font
 \setromanfont{Linux Libertine O}
+
+%% Disable hyperlinks
+%\hypersetup{draft=true}
+
 
 \begin{document}
 
@@ -149,7 +151,7 @@ publications.\autocites{freedman:1977,freedman:1980}
 
 \chapter{Appendix Title}
 
-\index{appendices}%
+\index{appendixes}%
 There should be two blank lines between the title and the text.
 
 Each appendix should have a number and a title, unless there is only one
@@ -175,8 +177,8 @@ may need to reduce the content of the appendix to fit the margins.
 
 \printindex
 
-\printindex[scriptures]
+\printindex[\jobname-scr]
 
-\printindex[authors]
+\printindex[\jobname-aut]
 
 \end{document}
