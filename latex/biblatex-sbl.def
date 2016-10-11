@@ -1,7 +1,7 @@
 \RequireBibliographyStyle{standard}
 \RequireBiber[3]
 
-% BibLaTeX version 3.4 or greater required
+% BibLaTeX version 3.5 or greater required
 \newdimen \biblatex@version
 \biblatex@version = \abx@version pt
 \ifdim \biblatex@version < 3.45pt
@@ -15,7 +15,7 @@
 % VERSION STRINGS
 % ------------------------------------------------------------------
 
-\def\sbl@abx@date{2016//}
+\def\sbl@abx@date{2016/10/11}
 \def\sbl@abx@version{0.7}
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style}
