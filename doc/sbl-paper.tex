@@ -8,7 +8,7 @@
 %% Add your bib resource here
 \addbibresource{biblatex-sbl.bib}
 
-%% Index setup
+%% Index set up (optional)
 %% Include separate indices for subjects, authors, and Scripture references
 \makeindex[title=Subject Index,intoc]
 \makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,options=-s sbl-paper-bibleref.ist]
@@ -25,14 +25,30 @@
     {\namepartprefix}
     {\namepartsuffix}}
 
-%% Set default language to German
-%\setdefaultlanguage{german}
+%% Set default language to German (or similarly to an other language)
+%\ifxetexorluatex
+% \setdefaultlanguage{german}
+%\else
+%  \usepackage[german]{babel}
+%\fi
 
 %% Set quotation style to British English
 %\setquotestyle[british]{english}
 
-%% Set default font
-\setromanfont{Linux Libertine O}
+%% Set default fonts
+\ifxetexorluatex
+  \setromanfont{Linux Libertine O}
+%  \newfontfamily\greekfont{Linux Libertine O}[Script=Greek]
+%  \newfontfamily\hebrewfont{Linux Libertine O}[Script=Hebrew,Scale=1.2]
+
+%%  Use SBL BibLit font for Greek and Hebrew
+  \newfontfamily\greekfont{SBL BibLit}%
+    [Script=Greek,Contextuals=Alternate,Ligatures=Required]
+  \newfontfamily\hebrewfont{SBL BibLit}%
+    [Script=Hebrew,Contextuals=Alternate,Ligatures=Required,Scale=1.2]
+\else
+  \usepackage{libertineRoman}
+\fi
 
 %% Disable hyperlinks
 %\hypersetup{draft=true}
@@ -126,26 +142,29 @@ citations in parentheses. For example, here is a dictionary with a shorthand:
 the same article referenced in two different
 publications.\autocites{freedman:1977,freedman:1980}
 
-\section{Greek and Hebrew}
+%% Use xelatex or lualatex if you need Greek or Hebrew
+\ifxetexorluatex
+  \section{Greek and Hebrew}
 
-\index{Greek!paragraph}Paragraph Greek:
-\begin{quoting}
-  \begin{greek}
-    Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
-    \textenglish{(\pibibleverse{John 1:1})}
-  \end{greek}
-\end{quoting}
-\index{Hebrew!paragraph}Paragraph Hebrew:
-\begin{quoting}
-  \begin{hebrew}
-    בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ.
-    \textenglish{(\pibibleverse{Genesis 1:1})}
-  \end{hebrew}
-\end{quoting}
-\index{Greek!inline}Inline Greek (\textgreek{Ἐν ἀρχῇ}),
-\index{Greek!transliterated}transliterated Greek (\emph{En archē}),
-\index{Hebrew!inline}Hebrew (\texthebrew{בראשית}), and
-\index{Hebrew!transliterated}transliterated Hebrew (\emph{bərēʾšı̂t}).
+  \index{Greek!paragraph}Paragraph Greek:
+  \begin{quoting}
+    \begin{greek}
+      Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
+      \textenglish{(\pibibleverse{John 1:1})}
+    \end{greek}
+  \end{quoting}
+  \index{Hebrew!paragraph}Paragraph Hebrew:
+  \begin{quoting}
+    \begin{hebrew}
+      בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ.
+      \textenglish{(\pibibleverse{Genesis 1:1})}
+    \end{hebrew}
+  \end{quoting}
+  \index{Greek!inline}Inline Greek (\textgreek{Ἐν ἀρχῇ}),
+  \index{Greek!transliterated}transliterated Greek (\emph{En archē}),
+  \index{Hebrew!inline}Hebrew (\texthebrew{בראשית}), and
+  \index{Hebrew!transliterated}transliterated Hebrew (\emph{bərēʾšı̂t}).
+\fi
 
 \appendix
 

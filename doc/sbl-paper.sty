@@ -16,14 +16,37 @@
   [2016/10/11 Society of Bibilical Literature Paper Style]
 
 
+% xetex/luatex engine test set up
+
+\RequirePackage{ifxetex}
+\RequirePackage{ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+
 % Load required packages
 
-\RequirePackage{textcase}
-\RequirePackage{fontspec}
-\RequirePackage{ragged2e}
-\RequirePackage{polyglossia}
+\ifxetexorluatex
+  \RequirePackage{fontspec}
+  \RequirePackage{polyglossia}
+\else
+  \RequirePackage[T1]{fontenc}
+  \RequirePackage[utf8]{inputenc}
+  \RequirePackage[base]{babel}
+\fi
+
 \RequirePackage{csquotes}
+\RequirePackage{ragged2e}
 \RequirePackage[headheight=14.5pt,margin=1in]{geometry}
+\RequirePackage{textcase}
 \RequirePackage{setspace}
 \RequirePackage{titlesec}
 \RequirePackage{titletoc}
@@ -37,12 +60,15 @@
 
 
 % work around bidi redefining theindex
-\let\imakeidxtheindex\theindex
-\let\imakeidxendtheindex\endtheindex
-\AtBeginDocument{%
-  \let\theindex\imakeidxtheindex
-  \let\endtheindex\imakeidxendtheindex
-}
+\ifxetex
+  \let\imakeidxtheindex\theindex
+  \let\imakeidxendtheindex\endtheindex
+  \AtBeginDocument{%
+    \let\theindex\imakeidxtheindex
+    \let\endtheindex\imakeidxendtheindex
+  }
+\fi
+
 
 % patch index commands so contents is in all caps
 \patchcmd{\imki@putindexsplit}
@@ -60,29 +86,35 @@
 \fi
 
 
-% Set up Languages
+% Set up languages
 
-\setdefaultlanguage[variant=american]{english}
-\setotherlanguage[variant=ancient]{greek}
-\setotherlanguage{hebrew}
+\ifxetexorluatex
+  \setdefaultlanguage[variant=american]{english}
+  \setotherlanguage[variant=ancient]{greek}
+  \setotherlanguage{hebrew}
 
-\renewenvironment{hebrew}[1][]{%
-  \par
-  \raggedleft
-  \begin{otherlanguage}[#1]{hebrew}}%
-  {\end{otherlanguage}\par}
+  \ifxetex
+    \renewenvironment{hebrew}[1][]{%
+      \par
+      \raggedleft % add to right align paragraphs
+      \begin{otherlanguage}[#1]{hebrew}}%
+      {\end{otherlanguage}\par}
 
-\@Latintrue % work around for bidi bug; see http://tex.stackexchange.com/questions/312874/polyglossia-or-bidi-bug-d-gets-inverted-to-d
-
-
-% Set up fonts
-
-\newfontfamily\greekfont
-  [Script=Greek,Contextuals=Alternate,Ligatures=Required]
-  {SBL BibLit}
-\newfontfamily\hebrewfont
-  [Script=Hebrew,Contextuals=Alternate,Ligatures=Required,Scale=1.2]
-  {SBL BibLit}
+    % work around for bidi bug;
+    % see http://tex.stackexchange.com/questions/312874/polyglossia-or-bidi-bug-d-gets-inverted-to-d
+    \@Latintrue 
+  \else % luatex
+    \let\luatexpardir\pardir % luabidi needs this
+    \let\luatextextdir\textdir % luabidi needs this
+    % text direction gets stuffed up without these workarounds
+    \let\luatextextgreek\textgreek
+    \let\luatextextenglish\textenglish
+    \AtBeginDocument{%
+      \renewcommand{\textgreek}[1]{\bgroup\luatextextgreek{#1}\egroup}
+      \renewcommand{\textenglish}[1]{\bgroup\setLTR\luatextextenglish{#1}\egroup}
+    }
+  \fi
+\fi
 
 
 % Set up document spacing
