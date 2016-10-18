@@ -11,14 +11,14 @@ All example notes and bibliography entries from the handbook are supported.
 * `biblatex-sbl-test.pdf`: Example usage for all example citations in the handbook.
 * `biblatex-sbl-ibid.pdf`: Example usage of *ibidem* and *idem* settings.
 * `sbl-paper.sty`: A style file for papers matching the Student Supplement to the SBLHS.
-* `sbl-paper-bibleref.ist`: An index style file for printing a Scripture Reference Index (used with `sbl-paper.sty`).
 * `sbl-paper.tex`: An example paper using `sbl-paper.sty`.
+* `sbl-paper-bibleref.ist`: An index style file for printing a Scripture Reference Index (used with `sbl-paper.tex`).
 
 ## Manual Installation
 
 * Copy `sbl-paper.sty`, `biblatex-sbl.def`, `sbl.cbx`, `sbl.bbx`, `sbl.dbx`, and `*.lbx` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
 * Copy `*.pdf`, `biblatex-sbl.bib`, and `sbl-paper.tex` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
-* Copy `sbl-paper-bibleref.ist` into `$TEXMFHOME/makeindex/sbl-paper/`
+* Copy `sbl-paper-bibleref.ist` into `$TEXMFHOME/makeindex/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
 
