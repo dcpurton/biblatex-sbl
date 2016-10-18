@@ -16,11 +16,9 @@ All example notes and bibliography entries from the handbook are supported.
 
 ## Manual Installation
 
-* Copy `biblatex-sbl.def`, `sbl.cbx`, `sbl.bbx`, `sbl.dbx`, and `*.lbx` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
-* Copy `*.pdf` and `sbl-paper.tex` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
-* Copy `sbl-paper.sty` into `$TEXMFHOME/tex/latex/sbl-paper/`
+* Copy `sbl-paper.sty`, `biblatex-sbl.def`, `sbl.cbx`, `sbl.bbx`, `sbl.dbx`, and `*.lbx` into `$TEXMFHOME/tex/latex/biblatex-sbl/`
+* Copy `*.pdf`, `biblatex-sbl.bib`, and `sbl-paper.tex` into `$TEXMFHOME/doc/latex/biblatex-sbl/`
 * Copy `sbl-paper-bibleref.ist` into `$TEXMFHOME/makeindex/sbl-paper/`
-* Copy `biblatex-sbl.bib` into `$TEXMFHOME/bibtex/bib/biblatex-sbl/`
 
 You can find `$TEXMFHOME` by running:
 
