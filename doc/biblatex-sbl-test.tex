@@ -110,11 +110,12 @@
       {
         \sblrefsamplecite{autocite}{cite}{#2.~}[#3][#4]{#5}.\par
       }
-      \color{black}
+    \color{black}
   }
 \NewDocumentCommand \sampleparencite { s o o m }
   {
     \rmfamily
+    {\setlength{\bibindent}{0pt}%
     \IfBooleanTF { #1 }
       {
         \sblrefsamplecite*{parencite}{parencite}{}[#2][#3]{#4}\par
@@ -122,7 +123,8 @@
       {
         \sblrefsamplecite{parencite}{parencite}{}[#2][#3]{#4}\par
       }
-      \color{black}
+    }
+    \color{black}
   }
 \NewDocumentCommand \samplebib { s m }
   {
@@ -1690,7 +1692,7 @@ Than the Author}
 
   \refbiblist{\emph{NIDNTT}}{\emph{New International Dictionary of New
   Testament Theology.} Edited by Colin Brown. 4 vols. Grand Rapids: Zondervan,
-  1975-1985}
+  1975–1985}
 \end{refimp}
 
 \medskip
@@ -1994,7 +1996,7 @@ Than the Author}
 \begin{lstlisting}
 @article{springer:2014,
   author = {Springer, Carl P. E.},
-  title = {Of Roosers and \mkbibemph{Repetitio}: Ambrose's \mkbibemph{Aeterne rerum conditor}},
+  title = {Of Roosters and \mkbibemph{Repetitio}: Ambrose's \mkbibemph{Aeterne rerum conditor}},
   journaltitle = {Vigiliae Christianae},
   shortjournal = {VC},
   volume = {68},
@@ -2347,7 +2349,9 @@ Than the Author}
 \end{lstlisting}
 
 \begin{biboutput}
-  \samplecite{12}[§3 (A I 11--17)|26]{disappearanceofsungod}
+  \samplemacro{\textbackslash autocite[§3 \textbackslash{}mkbibparens\{A I
+  11--17\}|26]\{disappearanceofsungod\}}
+  \samplecite*{12}[§3 \mkbibparens{A I 11--17}|26]{disappearanceofsungod}
   \samplebib{hoffner:1990}
   \samplebiblist{hoffner:1990}
 \end{biboutput}
@@ -2370,7 +2374,7 @@ Than the Author}
 @mvbook{RIMA,
   entrysubtype = {RIMA},
   author = {Grayson, Albert Kirk},
-  title = {Assyrian Rulers of the Early First Millennium BC \mkibparens{1114--859 BC}},
+  title = {Assyrian Rulers of the Early First Millennium BC \mkbibparens{1114--859 BC}},
   series = {The Royal Inscriptions of Mesopotamia, Assyrian Periods},
   shortseries = {RIMA},
   number = {2},
@@ -2535,7 +2539,7 @@ Than the Author}
 \begin{lstlisting}
 @mvbook{josephus,
   title = {Josephus},
-  translator = {Thackery, Henry St.\@ J. and others},
+  translator = {Thackeray, Henry St.\@ J. and others},
   volumes = {10},
   series = {Loeb Classical Library},
   shortseries = {LCL},
@@ -2600,7 +2604,7 @@ Than the Author}
 \end{biboutput}
 
 \begin{refimp}
-  \hspace*{\bibindent}4. Tacitus, \emph{Ann.}\ 15.18–19
+  \hspace*{\bibindent}4. Tacitus, \emph{Ann.}\ 15.18–19.
 
   \hangindent\bibindent Tacitus. \emph{The Histories and The Annals.}
   Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
@@ -2614,7 +2618,7 @@ Than the Author}
 \begin{lstlisting}
 @mvbook{josephus,
   title = {Josephus},
-  translator = {Thackery, Henry St.\@ J. and others},
+  translator = {Thackeray, Henry St.\@ J. and others},
   volumes = {10},
   series = {Loeb Classical Library},
   shortseries = {LCL},
@@ -2626,7 +2630,7 @@ Than the Author}
 @classictext{josephus:ant:thackery,
   author = {Josephus},
   title = {Ant\adddot},
-  translator = {Thackery},
+  translator = {Thackeray},
   series = {Loeb Classical Library},
   shortseries = {LCL},
   xref = {josephus}
@@ -2698,7 +2702,7 @@ Than the Author}
 \begin{lstlisting}
 @mvbook{josephus,
   title = {Josephus},
-  translator = {Thackery, Henry St.\@ J. and others},
+  translator = {Thackeray, Henry St.\@ J. and others},
   volumes = {10},
   series = {Loeb Classical Library},
   shortseries = {LCL},
@@ -2712,7 +2716,7 @@ Than the Author}
   shortauthor = {Josephus},
   title = {The Jewish Antiquities, Books 1--19},
   shorttitle = {Ant\adddot},
-  translator =  {Thackery, Henry St.\@ J. and others},
+  translator =  {Thackeray, Henry St.\@ J. and others},
   series = {Loeb Classical Library},
   shortseries = {LCL},
   location = {Cambridge},
@@ -2937,7 +2941,7 @@ Than the Author}
 \begin{biboutput}
   \samplecite{36}[10]{heraclitus:epistle1:worley}
   \samplebib{heraclitus:epistle1:worley:1977}
-  If \texttt{malherbe:1977} is referenced more than \texttt{microssrefs} times
+  If \texttt{malherbe:1977} is referenced \texttt{microssrefs} times or more
   then:\par
   \samplebib{heraclitus:epistle1:worley:1977}
   \samplebib*{malherbe:1977}
@@ -3139,7 +3143,7 @@ Than the Author}
 
 \begin{biboutput}
   \samplemacro{\textbackslash autocite[See the discussion of \textbackslash
-  gr\{ἐκρατοῦντο\} in][2:271]\{Str-B\}}
+  textgreek\{ἐκρατοῦντο\} in][2:271]\{Str-B\}}
   \samplecite*{3}[See the discussion of \textgreek{ἐκρατοῦντο} in][2:271]{Str-B}
   \samplebib{Str-B}
   \samplebiblist{Str-B}
@@ -3259,8 +3263,7 @@ Than the Author}
   author = {Petersen, David L.},
   title = {Ezekiel},
   pages = {1096-1167},
-  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New
-  Revised Standard Version, with the Apocryphal/Deuterocanonical Books},
+  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard Version, with the Apocryphal/Deuterocanonical Books},
   editor = {Attridge, Harold W. and others},
   location = {San Francisco},
   publisher = {HarperSanFrancisco},
@@ -3748,7 +3751,7 @@ necessary to indicate the medium in the citation.
 \begin{refimp}
   \refbiblist{\emph{TLOT}}{\emph{Theological Lexicon of the Old Testament.}
     Edited by Ernst Jenni, with assistance from Claus Westermann. Translated
-  by Mark E. Biddle. 3 vols. Peabody, MA: Hendrickson, 1997}
+  by Mark E. Biddle. 3~vols. Peabody, MA: Hendrickson, 1997}
 \end{refimp}
 
 \subsection{\emph{SBLHS}}
