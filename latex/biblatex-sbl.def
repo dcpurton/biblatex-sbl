@@ -469,6 +469,8 @@
 \DeclareBibliographyAlias{cite:proceedings}{cite:collection}
 \DeclareBibliographyAlias{cite:mvproceedings}{cite:mvcollection}
 \DeclareBibliographyAlias{cite:inproceedings}{cite:incollection}
+\DeclareBibliographyAlias{bookinbook}{incollection}
+\DeclareBibliographyAlias{cite:bookinbook}{cite:incollection}
 
 \DeclareLabeldate{%
   \field{releasedate}
