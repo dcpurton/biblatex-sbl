@@ -110,8 +110,7 @@
 }
 
 \makeatletter
-\def\ltd@printarg@iv(#1|#2){[\prm{#1}|\prm{#2}]\ltd@parseargs}
-\def\ltd@printarg@v<#1|>{[\prm{#1}|]\ltd@parseargs}
+\def\ltd@printarg@v<(#1)#2>{[(\prm{#1})\prm{#2}]\ltd@parseargs}
 
 \titlepage{%
   title={\biblatexsbl},
@@ -208,32 +207,31 @@ options, reference the \biblatex manual.
 
 \begin{ltxsyntax}
 
-\cmditem{autocite}[prenote](altpostnote|postnote){key}
+\cmditem{autocite}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{autocite} inserts a citation as a footnote. If used in a footnote, the
 citation is placed in parentheses. It works as in the standard \biblatex
 styles, except that that \bibfield{postnote} argument can be divided into two
-using the pipe (\sty{|}) character. This creates an \bibfield{altpostnote}
-field which is used in some of the examples from §6.4 of the \cite{SBLHS}.
+using parentheses. This creates an \bibfield{altpostnote} field which is used
+in some of the examples from §6.4 of the \cite{SBLHS}. e.g.,
+
+\begin{snugshade}
+  \samplecite{1}[See][(1.3)8:223]{clementinehomilies}
+\end{snugshade}
+
+To use only \bibfield{altpostnote} surround the whole argument in parentheses.
 e.g.,
 
 \begin{snugshade}
-  \samplecite{1}[See][1.3|8:223]{clementinehomilies}
+  \samplecite{1}[(III. 1-164)]{PGM:betz}
 \end{snugshade}
 
-To use only \bibfield{altpostnote} you must still include the pipe character.
-e.g.,
-
-\begin{snugshade}
-  \samplecite{1}[III. 1-164|]{PGM:betz}
-\end{snugshade}
-
-\cmditem{cite}[prenote](altpostnote|postnote){key}
+\cmditem{cite}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{cite} works in the same way as \cmd{autocite} except that the citation is
 placed directly into the text instead of in a footnote.
 
-\cmditem{parencite}[prenote](altpostnote|postnote){key}
+\cmditem{parencite}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{parencite} works in the same way as \cmd{autocite} except that the
 citation is placed inside parentheses instead of in a footnote. This is most
@@ -535,7 +533,7 @@ Formats the \bibfield{title} using an upright shape font without quotation
 marks. e.g.,
 
 \begin{snugshade}
-  \samplecite{1}[lines 3--4|125]{esarhaddonchronicle}
+  \samplecite{1}[(lines 3--4)125]{esarhaddonchronicle}
 \end{snugshade}
 
 \item[COS]
@@ -637,7 +635,7 @@ aspects of the formatting for the related entry. \bibfield{altpostnote} is
 always separated from the title by a space.
 
 \begin{snugshade}
-  \samplecite{1}[28.3.5|252]{augustine:letters}
+  \samplecite{1}[(28.3.5)252]{augustine:letters}
   \samplebib{augustine:letters}
 \end{snugshade}
 

@@ -1786,18 +1786,13 @@
 % ------------------------------------------------------------------
 
 \ExplSyntaxOn
-\cs_generate_variant:Nn \__xparse_split_argument:nnn { nno }
-\cs_new_eq:NN \eSplitArgument  \__xparse_split_argument:nno
-\DeclareDocumentCommand \splitpostnote
-{ > { \eSplitArgument { 1 } { | } } m }
-{ \savepostnotes #1 }
-\DeclareDocumentCommand{\savepostnotes}{mm}{%
-  \IfNoValueTF{#2}
-    {\gdef\postnotelast{#1}}
-    {\tl_if_empty:nF {#1}
-       {\gdef\postnotefirst{#1}}%
-     \tl_if_empty:nF {#2}
-       {\gdef\postnotelast{#2}}}}
+\DeclareDocumentCommand{\savepostnotes}{d() u{++}}{
+  \IfValueT {#1} { \gdef\postnotefirst{#1} }
+  \tl_if_empty:nF {#2} { \gdef\postnotelast{#2} }
+}
+\cs_new:Npn \_biblatexsbl_splitpostnote:n #1 { \savepostnotes #1++ }
+\cs_generate_variant:Nn \_biblatexsbl_splitpostnote:n { o }
+\cs_new_eq:NN \splitpostnote  \_biblatexsbl_splitpostnote:o
 \ExplSyntaxOff
 
 \def\setuppostnotes{%
