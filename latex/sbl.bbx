@@ -188,7 +188,10 @@
   \printfield[pagesin]{pages}%
   \iffieldundef{booktitle}
     {}
-    {\usebibmacro{booktitle}%
+    {\iffieldundef{pages}
+       {\usebibmacro{in}}
+       {}%
+     \usebibmacro{booktitle}%
      \newunit
      \usebibmacro{bybookauthor}%
      \newunit

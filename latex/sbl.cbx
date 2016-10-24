@@ -413,10 +413,10 @@
        {\newunit
         \usebibmacro{byeditor+others}}
        {}%
-     \usebibmacro{in}%
      \iffieldundef{booktitle}
        {}
-       {\usebibmacro{booktitle}%
+       {\usebibmacro{in}%
+        \usebibmacro{booktitle}%
         \setunit*{\newunitpunct}%
         \usebibmacro{bybookauthor}%
         \setunit*{\newunitpunct}%

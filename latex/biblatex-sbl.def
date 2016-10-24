@@ -1587,14 +1587,17 @@
            {}}
         {\printfield[volumeof]{volume}%
          \setunit{\addspace}}}
-      {}}}%
+      {\iffieldundef{maintitle}
+         {}
+         {\usebibmacro{in}}}}}%
 
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
     {}
     {\setunit{\addspace}%
      \printfield{volume}%
-     \setunit{\volpostnotedelim}}
+     \setunit{\volpostnotedelim}%
+     \global\booltrue{usevolpostnotedelim}}
   \usebibmacro{pages}}
 
 \newbibmacro*{volume+part+pages}{%
@@ -1607,7 +1610,8 @@
     {\printfield{volume}%
      \setunit{\addperiod}%
      \printfield{part}%
-     \setunit{\volpostnotedelim}}
+     \setunit{\volpostnotedelim}%
+     \global\booltrue{usevolpostnotedelim}}
   \usebibmacro{pages}}
 
 \newbibmacro*{volume+part+nomaintitle}{%
