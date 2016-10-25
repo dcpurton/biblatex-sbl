@@ -438,6 +438,18 @@
     {\iffieldequalstr{entrysubtype}{churchfather}
        {\mkbibemph{#1}}
        {\mkbibquote{#1}}}}
+\DeclareFieldFormat[ancienttext]{shorttitle}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{inscription}}
+    or
+    test {\iffieldequalstr{entrysubtype}{chronicle}}
+  }
+    {#1}
+    {\iffieldequalstr{entrysubtype}{churchfather}
+       {\mkbibemph{#1}}
+       {\mkbibquote{#1}}}}
+\DeclareFieldFormat[mvseries]{title}{#1}
+\DeclareFieldFormat[mvseries]{shorttitle}{#1}
 
 \DeclareBibliographyAlias{cite:mvbook}{cite:book}
 \DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
@@ -471,6 +483,8 @@
 \DeclareBibliographyAlias{cite:inproceedings}{cite:incollection}
 \DeclareBibliographyAlias{bookinbook}{incollection}
 \DeclareBibliographyAlias{cite:bookinbook}{cite:incollection}
+\DeclareBibliographyAlias{mvseries}{mvcollection}
+\DeclareBibliographyAlias{cite:mvseries}{cite:mvcollection}
 
 \DeclareLabeldate{%
   \field{releasedate}
