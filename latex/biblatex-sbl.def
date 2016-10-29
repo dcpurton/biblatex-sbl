@@ -673,6 +673,12 @@
       \step[fieldset=options, fieldvalue={skipbib=false}]
     }
     \map[overwrite]{
+      \pertype{series}
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={useauthor=false,useeditor=false,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    \map[overwrite]{
       \pertype{ancienttext}
       \pertype{classictext}
       \step[fieldsource=related, final]
