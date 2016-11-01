@@ -92,6 +92,12 @@
      \newunit
      \usebibmacro{byauthor}}%
   \newunit
+  \printfield[pagesin]{pages}%
+  \iffieldundef{booktitle}
+    {}
+    {\iffieldundef{pages}
+       {\usebibmacro{in}}
+       {}}%
   \usebibmacro{volume+part}%
   \usebibmacro{maintitle}%
   \newunit
