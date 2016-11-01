@@ -412,7 +412,8 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\ifentrytype{bookinbook}
+    {\newunit
+     \ifentrytype{bookinbook}
        {\newunit
         \usebibmacro{byeditor+others}}
        {}%
