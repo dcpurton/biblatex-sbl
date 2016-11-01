@@ -419,7 +419,8 @@
        {}%
      \iffieldundef{booktitle}
        {}
-       {\usebibmacro{in}%
+       {\newunit
+        \usebibmacro{in}%
         \usebibmacro{booktitle}%
         \setunit*{\newunitpunct}%
         \usebibmacro{bybookauthor}%
