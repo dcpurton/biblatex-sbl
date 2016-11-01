@@ -385,6 +385,7 @@
 \DeclareFieldFormat{shortbooktitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortmaintitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
+\DeclareFieldFormat{journalsubtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{seriesseries}{#1}
 
 \DeclareFieldFormat{pages}{\mkcomprange{#1}}
@@ -596,7 +597,11 @@
   \iffieldundef{shortjournal}
     {}
     {\bibhypertarget{\strfield{shortjournal}}{}%
-     \printfield{journaltitle}}%
+     \printfield{journaltitle}%
+     \iffieldundef{journalsubtitle}
+       {}
+       {\setunit{\subtitlepunct}%
+        \printfield{journalsubtitle}}}%
   \iffieldundef{shorthand}
     {\iffieldundef{shortseries}
        {}
@@ -665,8 +670,17 @@
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
     \map{
+      \step[fieldsource=journaltitle, match=\regexp{(.*?):}, final]
+      \step[fieldset=shortjournal, fieldvalue={$1}]
+    }
+    \map{
       \step[fieldsource=revdtitle, match=\regexp{(.*?):}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
+    }
+    \map{
+      \step[fieldsource=journalsubtitle, final]
+      \step[fieldsource=journaltitle, final]
+      \step[fieldset=shortjournal, origfieldval]
     }
     \map{
       \step[fieldsource=entrysubtype, match=\regexp{ANRW}, final]
