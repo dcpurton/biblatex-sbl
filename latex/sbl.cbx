@@ -283,7 +283,8 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\usebibmacro{shortjournal+issuetitle}%
+    {\newunit
+     \usebibmacro{shortjournal+issuetitle}%
      \usebibmacro{pages}%
      \newunit
      \usebibmacro{releasedate}%
