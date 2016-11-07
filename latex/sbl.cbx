@@ -337,7 +337,9 @@
     {\printfield{type}%
      \setunit{\addspace}%
      \usebibmacro{to}%
-     \usebibmacro{booktitle}%
+     \iffieldundef{booktitle}
+       {\usebibmacro{title}}
+       {\usebibmacro{booktitle}}%
      \setunit*{\newunitpunct}%
      \usebibmacro{bybookauthor}%
      \setunit*{\newunitpunct}%
@@ -348,9 +350,9 @@
      \newunit
      \usebibmacro{bymaineditor+others}%
      \newunit
-     \printfield{volumes}%
-     \newunit
      \printfield{edition}%
+     \newunit
+     \printfield{volumes}%
      \newunit
      \usebibmacro{shortseries+number}%
      \usebibmacro{parens+publisher+location+date}%

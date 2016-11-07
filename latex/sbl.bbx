@@ -128,11 +128,18 @@
   \printfield{type}%
   \setunit{\addspace}%
   \usebibmacro{to}%
-  \usebibmacro{booktitle+maintitle}%
+  \iffieldundef{booktitle}
+    {\usebibmacro{title}}
+    {\usebibmacro{booktitle}}%
   \setunit{\addcomma\addspace}%
   \usebibmacro{bybookauthor}%
   \newunit
-  \usebibmacro{byeditor+others}%
+  \usebibmacro{bybookeditor+others}%
+  \setunit*{\newunitpunct}%
+  \usebibmacro{volumeof}%
+  \usebibmacro{maintitle}%
+  \newunit
+  \usebibmacro{bymaineditor+others}%
   \newunit
   \printfield{edition}%
   \newunit
