@@ -576,7 +576,8 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\printfield{note}%
+    {\newunit
+     \printfield{note}%
      \newunit
      \usebibmacro{byauthor}%
      \newunit
