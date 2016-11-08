@@ -499,6 +499,8 @@
 \DeclareBibliographyAlias{cite:series}{cite:mvcollection}
 \DeclareBibliographyAlias{cite:booklet}{cite:book}
 \DeclareBibliographyAlias{booklet}{book}
+\DeclareBibliographyAlias{cite:suppcollection}{cite:suppbook}
+\DeclareBibliographyAlias{suppcollection}{suppbook}
 
 \DeclareLabeldate{%
   \field{releasedate}
