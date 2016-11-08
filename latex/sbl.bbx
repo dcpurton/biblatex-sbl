@@ -92,7 +92,7 @@
      \newunit
      \usebibmacro{byauthor}}%
   \newunit
-  \printfield[pagesin]{pages}%
+  \usebibmacro{pagesin}%
   \iffieldundef{booktitle}
     {}
     {\iffieldundef{pages}
@@ -198,7 +198,7 @@
      \usebibmacro{byeditor+others}}
     {}%
   \newunit
-  \printfield[pagesin]{pages}%
+  \usebibmacro{pagesin}%
   \iffieldundef{booktitle}
     {}
     {\iffieldundef{pages}
@@ -298,7 +298,7 @@
   \newunit
   \usebibmacro{title}%
   \newunit
-  \printfield[pagesin]{pages}%
+  \usebibmacro{pagesin}%
   \iffieldundef{booktitle}
     {}
     {\usebibmacro{booktitle}%

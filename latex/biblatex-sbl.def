@@ -389,6 +389,7 @@
 \DeclareFieldFormat{seriesseries}{#1}
 
 \DeclareFieldFormat{pages}{\mkcomprange{#1}}
+\DeclareFieldFormat{pagepages}{\mkcomprange[\mkpageprefix]{#1}}
 \DeclareFieldFormat{pagesin}{\mkcomprange[\mkpageprefix]{#1} \usebibmacro{in}}
 \DeclareFieldFormat{volume}{#1}
 \DeclareFieldFormat{vol}{\bibsstring{volume}~#1}
@@ -1654,6 +1655,15 @@
       {\iffieldundef{maintitle}
          {}
          {\usebibmacro{in}}}}}%
+
+\newbibmacro*{pagesin}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{maintitle}}
+  }
+    {\printfield[pagepages]{pages}}
+    {\printfield[pagesin]{pages}}}
 
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
