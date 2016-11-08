@@ -1056,7 +1056,9 @@
   }
     {}
     {\iffieldundef{volume}
-      {\setunit{\addcomma\space}%
+       {\iffieldundef{journaltitle}
+          {\newunit}
+          {\setunit{\addcomma\space}}%
         \iffieldundef{issue}
           {\usebibmacro{date}}
           {\printfield{issue}%
