@@ -497,6 +497,8 @@
 \DeclareBibliographyAlias{cite:bookinbook}{cite:incollection}
 \DeclareBibliographyAlias{series}{mvcollection}
 \DeclareBibliographyAlias{cite:series}{cite:mvcollection}
+\DeclareBibliographyAlias{cite:booklet}{cite:book}
+\DeclareBibliographyAlias{booklet}{book}
 
 \DeclareLabeldate{%
   \field{releasedate}
