@@ -1339,7 +1339,7 @@
   \usebibmacro{byeditorx}%
   \usebibmacro{bytranslator+others}}
 
-\newbibmacro*{byeditorx}{%
+\renewbibmacro*{byeditorx}{%
   \ifnameundef{editora}
     {}
     {\usebibmacro{bytypestrg}{editora}{editor}%
