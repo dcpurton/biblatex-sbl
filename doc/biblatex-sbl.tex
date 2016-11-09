@@ -450,11 +450,11 @@ page breaks or not.
   on a per-spread (double page) basis.
 \end{valuelist}
 
-\optitem[comp]{releasedate}{\opt{year}, \opt{short}, \opt{long}, \opt{terse,
+\optitem[comp]{eprintdate}{\opt{year}, \opt{short}, \opt{long}, \opt{terse,
 \opt{comp}, \opt{iso8601}}}
 
 Similar to the \opt{date} option (for details see the \biblatex manual) but
-controls the format of the \bibfield{releasedate}.
+controls the format of the \bibfield{eprintdate}.
 
 \boolitem[true]{sblfootnotes}
 
@@ -830,6 +830,24 @@ The editor(s) of the \bibfield{booktitle}.
 
 The translator(s) of the \bibfield{booktitle}.
 
+\fielditem{eprintdate}{date}
+
+The date a text edition published online with no print counterpart or an
+article in an online database is released. See §6.4.1 and §6.4.13 of
+\sty{biblatex-sbl-test.pdf}.
+
+\fielditem{eprintday}{datepart}
+
+This field holds the day component of the \bibfield{eprintdate} field.
+
+\fielditem{eprintmonth}{datepart}
+
+This field holds the month component of the \bibfield{eprintdate} field.
+
+\fielditem{eprintyear}{datepart}
+
+This field holds the year component of the \bibfield{eprintdate} field.
+
 \listitem{maineditor}{name}
 
 The editor(s) of the \bibfield{maintitle}.
@@ -837,23 +855,6 @@ The editor(s) of the \bibfield{maintitle}.
 \listitem{maintranslator}{name}
 
 The translator(s) of the \bibfield{maintitle}.
-
-\fielditem{releasedate}{date}
-
-The date a text edition published online with no print counterpart is
-released. See §6.4.13 of \sty{biblatex-sbl-test.pdf}.
-
-\fielditem{releaseday}{datepart}
-
-This field holds the day component of the \bibfield{releasedate} field.
-
-\fielditem{releasemonth}{datepart}
-
-This field holds the month component of the \bibfield{releasedate} field.
-
-\fielditem{releaseyear}{datepart}
-
-This field holds the year component of the \bibfield{releasedate} field.
 
 \listitem{revdauthor}{name}
 

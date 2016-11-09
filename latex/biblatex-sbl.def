@@ -280,7 +280,7 @@
   citetracker,
   punctfont,
   alldates=comp,
-  releasedate=comp,
+  eprintdate=comp,
   dateabbrev=false,
   autocite=footnote,
   url,
@@ -351,6 +351,8 @@
     {eprint}
     {\thefield{eprinttype}}%
   \newunitpunct
+  \usebibmacro{eprintdate}%
+  \newunitpunct
   \ifhyperref
     {\url{#1}}
     {\nolinkurl{#1}}%
@@ -358,6 +360,8 @@
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
 \DeclareFieldFormat{eprint:arxiv}{%
+  \usebibmacro{eprintdate}%
+  \newunitpunct
   arXiv\addcolon\space
   \ifhyperref
     {\href{http://arxiv.org/\abx@arxivpath/#1}{%
@@ -370,6 +374,8 @@
        {}
        {\addspace\mkbibbrackets{\thefield{eprintclass}}}}}
 \DeclareFieldFormat{eprint:hethiter}{%
+  \usebibmacro{eprintdate}%
+  \newunitpunct
   \printtext{doi}\addcolon
   \ifhyperref
     {\href{http://hethiter.net/:\%20#1}{%
@@ -411,7 +417,7 @@
 \DeclareFieldFormat{no}{\bibsstring{number}~#1}
 \DeclareFieldFormat{url}{\url{#1}}
 \DeclareFieldFormat{urldate}{}
-\DeclareFieldFormat{releasedate}{\bibstring{released}\space#1}
+\DeclareFieldFormat{eprintdate}{\bibstring{released}\space#1}
 
 \DeclareFieldFormat{editortype}{\ifcapital{\MakeCapital{#1}}{#1}}
 \DeclareFieldFormat{withauthortype}{#1}
@@ -515,7 +521,7 @@
 \DeclareBibliographyAlias{suppcollection}{suppbook}
 
 \DeclareLabeldate{%
-  \field{releasedate}
+  \field{eprintdate}
 }
 
 \renewcommand*{\newunitpunct}{\addcomma\space}
@@ -1703,7 +1709,7 @@
      \setunit{\addperiod}%
      \printfield{part}%
      \setunit{\volpostnotedelim}%
-     \global\booltrue{usevolpostnotedelim}}
+     \global\booltrue{usevolpostnotedelim}}%
   \usebibmacro{pages}}
 
 \newbibmacro*{volume+part+nomaintitle}{%
@@ -1746,7 +1752,20 @@
 
 \newbibmacro*{origdate}{\printorigdate}
 
-\newbibmacro*{releasedate}{\printreleasedate}
+\newbibmacro*{eprintdate}{\printeprintdate}
+
+\renewbibmacro*{doi+eprint+url}{%
+  \iftoggle{bbx:eprint}
+    {\usebibmacro{eprint}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}}
 
 \newbibmacro*{ebook}{%
   \iffieldequalstr{eprinttype}{ebook}

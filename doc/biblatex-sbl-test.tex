@@ -179,7 +179,7 @@
     origpublisher,origdate,pubstate,origlanguage,maintitle,maineditor,part,%
     bookeditor,seriesseries,maintranslator,eprint,eprinttype,doi,url,%
     revdauthor,revdtitle,revdeditor,institution,type,shorthand,xref,%
-    note,releasedate,volumes,shortmaintitle,options,eprintclass,relatedoptions,%
+    note,eprintdate,volumes,shortmaintitle,options,eprintclass,relatedoptions,%
     editortype,crossref,editora,editorb,editorc,editoratype,editorbtyle,%
     editorctype,entrysubtype,sortkey,titleaddon,witheditor,witheditortype,%
     withtranslator,withtranslatortype,eventtitle,venue,eventdate,shortauthor%
@@ -3530,7 +3530,7 @@ necessary to indicate the medium in the citation.
   editor = {Wilhelm, Gernot},
   title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani \mkbibparens{CTH 51.I}},
   shorttitle = {Der Vertrag Šuppiluliumas I},
-  releasedate = {2013-02-24},
+  eprintdate = {2013-02-24},
   eprint = {CTH 51.I},
   eprintclass = {INTR 2013-02-24},
   eprinttype = {hethiter}
@@ -3581,6 +3581,38 @@ necessary to indicate the medium in the citation.
   \hangindent\bibindent Cobb Institute of Archaeology. “The Figurines of
   Maresha, the Persian Era.” DigMaster.
   \nolinkurl{http://www.cobb.msstate.edu/dignew/Maresha/index.html}.
+\end{refimp}
+
+\begin{lstlisting}
+@online{caraher:2013,
+  editor = {Caraher, William R.},
+  title = {Pyla-Koutsopetria Archaeological Project: \mkbibparens{Overview}},
+  eprint = {http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2},
+  eprinttype = {Open Context},
+  doi = {10.6078/M7B56GNS},
+  eprintdate = {2013-11-05}
+}
+\end{lstlisting}
+
+\begin{biboutput}
+  \samplecite{15}{caraher:2013}
+  \samplecite{17}{caraher:2013}
+  \samplebib{caraher:2013}
+\end{biboutput}
+
+\begin{refimp}
+  \hspace*{\bibindent}15. William R. Caraher, ed., “Pyla-Koutsopetria
+  Archaeological Project: (Overview),” Open Context, released 5 November 2013,
+  \nolinkurl{http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2},
+  \nolinkurl{doi:10.6078/M7B56GNS}.
+
+  \hspace*{\bibindent}17. Caraher, “Pyla-Koutsopetria Archaeological Project.”
+
+  \hangindent\bibindent William R. Caraher, ed.\footnote{Should be “Caraher,
+  William R., ed.?”} “Pyla-Koutsopetria Archaeological Project: (Overview).”
+  Open Context. Released 5 November 2013.
+  \nolinkurl{http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2}.
+  \nolinkurl{doi:10.6078/M7B56GNS}.\sloppy
 \end{refimp}
 
 \subsubsection{Websites and Blogs}

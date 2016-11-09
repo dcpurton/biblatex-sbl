@@ -44,10 +44,10 @@
   withmaintranslator}
 
 \DeclareDatamodelFields[type=field, datatype=date]{
-  releasedate}
+  eprintdate}
 
 \DeclareDatamodelFields[type=field, datatype=datepart]{
-  releaseday,
-  releasemonth,
-  releaseyear}
+  eprintday,
+  eprintmonth,
+  eprintyear}
 
