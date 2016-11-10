@@ -577,6 +577,8 @@
        \setunit{\addcomma\addspace}%
        \usebibmacro{institution+location+date}}%
      \newunit
+     \usebibmacro{pages}%
+     \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
 
@@ -605,9 +607,10 @@
      \iffieldundef{journaltitle}
        {\setunit{\addspace}%
         \printtext[parens]{%
-        \usebibmacro{publisher+location+date}}}
-       {\usebibmacro{shortjournal+issuetitle}%
-        \usebibmacro{pages}}%
+        \usebibmacro{publisher+location+date}}
+        \newunit}
+       {\usebibmacro{shortjournal+issuetitle}}%
+     \usebibmacro{pages}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
