@@ -464,6 +464,7 @@
     {\usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
      \usebibmacro{volume}}
     {\usebibmacro{title}%
+     \newunit
      \usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
      \newunit
      \usebibmacro{ebook}%
@@ -534,7 +535,8 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\usebibmacro{booktitle}%
+    {\newunit
+     \usebibmacro{booktitle}%
      \newunit
      \usebibmacro{bybookeditor+others}%
      \newunit
