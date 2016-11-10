@@ -519,6 +519,8 @@
 \DeclareBibliographyAlias{booklet}{book}
 \DeclareBibliographyAlias{cite:suppcollection}{cite:suppbook}
 \DeclareBibliographyAlias{suppcollection}{suppbook}
+\DeclareBibliographyAlias{cite:report}{cite:book}
+\DeclareBibliographyAlias{report}{book}
 
 \DeclareLabeldate{%
   \field{eprintdate}
