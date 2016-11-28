@@ -1555,22 +1555,21 @@
   \usebibmacro{withothers}}
 
 \newbibmacro*{bymaintranslator+others}{%
-  \ifnameundef{translator}
-    {}
+  \ifnameundef{maintranslator}
     {\usebibmacro{bytranslator+othersstrg}%
      \setunit{\addspace}%
      \printnames[bytranslator]{translator}%
      \clearname{translator}%
      \usebibmacro{withname}{translator}%
      \newunit}%
-  \ifnameundef{maintranslator}
-    {}
-    {\usebibmacro{bytranslator+othersstrg}%
-     \setunit{\addspace}%
-     \printnames[bytranslator]{maintranslator}%
-     \clearname{maintranslator}%
-     \usebibmacro{withname}{maintranslator}%
-     \newunit}%
+    {\ifnameundef{maintranslator}
+       {}
+       {\usebibmacro{bytranslator+othersstrg}%
+        \setunit{\addspace}%
+        \printnames[bytranslator]{maintranslator}%
+        \clearname{maintranslator}%
+        \usebibmacro{withname}{maintranslator}%
+        \newunit}}%
   \usebibmacro{withothers}}
 
 \newbibmacro*{revdauthor}{%
