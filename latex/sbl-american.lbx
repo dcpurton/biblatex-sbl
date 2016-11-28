@@ -2,19 +2,24 @@
 
 \InheritBibliographyStrings{sbl-english}
 
-\InheritBibliographyExtras{american}
-
 \DeclareBibliographyExtras{%
   \DeclarePunctuationPairs{colon}{*}%
   \uspunctuation
+  \restorecommand\mkdaterangecomp
+  \restorecommand\mkdaterangecompextra
+  \restorecommand\mkdaterangeterse
+  \restorecommand\mkdaterangeterseextra
   \protected\def\mkbibdatelong#1#2#3{%
     \iffieldundef{#3}
       {}
-      {\stripzeros{\thefield{#3}}%
+      {\thefield{#3}%
        \iffieldundef{#2}{}{\nobreakspace}}%
     \iffieldundef{#2}
       {}
       {\mkbibmonth{\thefield{#2}}%
        \iffieldundef{#1}{}{\space}}%
-    \iffieldbibstring{#1}{\bibstring{\thefield{#1}}}{\stripzeros{\thefield{#1}}}}%
+    \iffieldbibstring{#1}
+      {\bibstring{\thefield{#1}}}
+      {\dateeraprintpre{#1}\stripzeros{\thefield{#1}}}}%
+
 }

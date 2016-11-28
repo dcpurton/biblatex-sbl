@@ -214,6 +214,7 @@
 \newtoggle{blx@usefullcite}
 \newtoggle{blx@usevolume}
 \newtoggle{blx@useshorttitle}
+\newtoggle{blx@accessdate}
 
 \DeclareTypeOption{skipbiblistseries}[true]{%
   \settoggle{blx@skipbiblistseries}{#1}}
@@ -249,6 +250,9 @@
 \def\blx@shorthand{}
 \DeclareEntryOption[string]{shorthand}[true]{%
   \def\blx@shorthand{#1}}
+
+\DeclareBibliographyOption{accessdate}[true]{%
+  \settoggle{blx@accessdate}{#1}}
 
 
 % ------------------------------------------------------------------
@@ -296,7 +300,8 @@
   sblfootnotes,
   usefullcite,
   useshorttitle,
-  usevolume
+  usevolume,
+  accessdate=false
 }
 
 \ExecuteBibliographyOptions[classictext,ancienttext]{%
@@ -315,12 +320,14 @@
   \do\ {\Url@space}\do\%{\Url@percent}\do\^^M{\Url@space}%
   \Url@force@Tilde}% package option may force faked text-ascii-tilde
 
+\NewBibliographyString{by}
 \NewBibliographyString{to}
 \NewBibliographyString{of}
 \NewBibliographyString{with}
 \NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
 \NewBibliographyString{paperpresented}
+\NewBibliographyString{patentfiled}
 \NewBibliographyString{released}
 
 \DeclareLanguageMapping{english}{sbl-american}
@@ -405,10 +412,14 @@
 \DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
 \DeclareFieldFormat{journalsubtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{seriesseries}{#1}
-
+\DeclareFieldFormat{isbn}{ISBN\addcolon\space #1}
+\DeclareFieldFormat{isrn}{ISRN\addcolon\space #1}
+\DeclareFieldFormat{issn}{ISSN\addcolon\space #1}
 \DeclareFieldFormat{pages}{\mkcomprange{#1}}
 \DeclareFieldFormat{pagepages}{\mkcomprange[\mkpageprefix]{#1}}
 \DeclareFieldFormat{pagesin}{\mkcomprange[\mkpageprefix]{#1} \usebibmacro{in}}
+\DeclareFieldFormat{chapter}{\bibsstring{chapter}~#1}
+\DeclareFieldFormat{chapterin}{\bibsstring{chapter}~#1 \usebibmacro{in}}
 \DeclareFieldFormat{volume}{#1}
 \DeclareFieldFormat{vol}{\bibsstring{volume}~#1}
 \DeclareFieldFormat{volumeof}{\bibsstring{volume}~#1 \bibstring{of}}
@@ -416,7 +427,7 @@
 \DeclareFieldFormat{partof}{\bibstring{part}~#1 \bibstring{of}}
 \DeclareFieldFormat{no}{\bibsstring{number}~#1}
 \DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat{urldate}{}
+\DeclareFieldFormat{urldate}{\bibstring{urlseen}\space#1}
 \DeclareFieldFormat{eprintdate}{\bibstring{released}\space#1}
 
 \DeclareFieldFormat{editortype}{\ifcapital{\MakeCapital{#1}}{#1}}
@@ -447,7 +458,11 @@
 
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{shorttitle}{\mkbibquote{#1}}
+\DeclareFieldFormat[suppperiodical]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[periodical,suppperiodical]{issuetitle}{\mkbibquote{#1}}
+\DeclareFieldFormat[periodical,suppperiodical]{shortissuetitle}{\mkbibquote{#1}}
 \DeclareFieldFormat{howpublished}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
+\DeclareFieldFormat[patent]{title}{#1}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inscription}}
@@ -470,9 +485,6 @@
        {\mkbibquote{#1}}}}
 \DeclareFieldFormat[series]{title}{#1}
 \DeclareFieldFormat[series]{shorttitle}{#1}
-\DeclareFieldFormat[suppbook]{title}{\mkbibemph{#1}}
-\DeclareFieldFormat[suppbook]{subtitle}{\mkbibemph{#1}}
-\DeclareFieldFormat[suppbook]{shorttitle}{\mkbibemph{#1}}
 \DeclareFieldFormat[suppbook]
 {type}{%
   \ifbibstring{#1}%
@@ -521,6 +533,8 @@
 \DeclareBibliographyAlias{suppcollection}{suppbook}
 \DeclareBibliographyAlias{cite:report}{cite:book}
 \DeclareBibliographyAlias{report}{book}
+\DeclareBibliographyAlias{cite:suppperiodical}{cite:article}
+\DeclareBibliographyAlias{suppperiodical}{article}
 
 \DeclareLabeldate{%
   \field{eprintdate}
@@ -713,6 +727,21 @@
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
     }
     \map{
+      \pertype{periodical}
+      \step[fieldsource=title, final]
+      \step[fieldset=journaltitle, origfieldval]
+    }
+    \map{
+      \pertype{periodical}
+      \step[fieldsource=subtitle, final]
+      \step[fieldset=journalsubtitle, origfieldval]
+    }
+    \map{
+      \pertype{periodical}
+      \step[fieldsource=shorttitle, final]
+      \step[fieldset=shortjournal, origfieldval]
+    }
+    \map{
       \step[fieldsource=journalsubtitle, final]
       \step[fieldsource=journaltitle, final]
       \step[fieldset=shortjournal, origfieldval]
@@ -764,6 +793,12 @@
   \inherit{shorttitle}{shortmaintitle}
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
+  \inherit{withauthor}{withmainauthor}
+  \inherit{witheditor}{withmaineditor}
+  \inherit{withtranslator}{withmaintranslator}
+  \inherit{withauthortype}{withmainauthortype}
+  \inherit{witheditortype}{withmaineditortype}
+  \inherit{withtranslatortype}{withmaintranslatortype}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
@@ -780,6 +815,12 @@
   \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
+  \inherit{withauthor}{withbookauthor}
+  \inherit{witheditor}{withbookeditor}
+  \inherit{withtranslator}{withbooktranslator}
+  \inherit{withauthortype}{withbookauthortype}
+  \inherit{witheditortype}{withbookeditortype}
+  \inherit{withtranslatortype}{withbooktranslatortype}
   \noinherit{sorttitle}
   \noinherit{indextitle}
   \noinherit{indexsorttitle}
@@ -803,9 +844,18 @@
 \renewcommand*{\lbx@sfromlang}{%
   \iffieldundef{origlanguage}
     {\unspace}
-    {\ifbibstring{from\thefield{origlanguage}}
+    {\ifbibxstring{from\abx@field@origlanguage}
        {\bibsstring{from\thefield{origlanguage}}}
        {from \printfield{origlanguage}}}}
+
+\newbibmacro*{language}{%
+  \iflistundef{language}
+    {}
+    {\setunit{\addspace}%
+     \printtext[brackets]{%
+       \usebibmacro{in}%
+       \printlist{language}}}}
+
 
 % ------------------------------------------------------------------
 % SET UP DELIMITER MACROS
@@ -879,10 +929,16 @@
     {\iffieldundef{shorttitle}
        {\iffieldundef{title}
           {}
+          {\ifbool{bbx@inset}
+             {\printtext{\bibhyperlink{\strfield{setkey}}
+                {\printtext[title]{\printfield[titlecase]{title}}}}}
+             {\printtext[bibhyperlink]{%
+                \printtext[title]{\printfield[titlecase]{title}}}}}}
+       {\ifbool{bbx@inset}
+          {\printtext{\bibhyperlink{\strfield{setkey}}
+             {\printtext[title]{\printfield[titlecase]{shorttitle}}}}}
           {\printtext[bibhyperlink]{%
-             \printtext[title]{\printfield[titlecase]{title}}}}}
-       {\printtext[bibhyperlink]{%
-          \printtext[title]{\printfield[titlecase]{shorttitle}}}}%
+             \printtext[title]{\printfield[titlecase]{shorttitle}}}}}%
      \newunit}
     {}}
 
@@ -914,13 +970,7 @@
 
 \renewbibmacro*{title}{%
   \ifciteseen
-    {\ifboolexpr{
-       test {\ifnameundef{author}}
-       and
-       not test {\ifnameundef{editor}}
-     }
-       {}
-       {\usebibmacro{shorttitle}}}
+    {\usebibmacro{shorttitle}}
     {\ifboolexpr{
        test {\iffieldundef{title}}
        and
@@ -932,7 +982,8 @@
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{subtitle}}%
         \newunit}%
-     \printfield{titleaddon}}}
+     \printfield{titleaddon}%
+     \usebibmacro{language}}}
 
 \renewbibmacro*{booktitle}{%
   \ifciteseen
@@ -981,13 +1032,13 @@
      \clearfield{bootitleaddon}%
      \newunit}}
 
-\newbibmacro*{shortbooktitle+shortmaintitle}{%
-  \iffieldundef{booktitle}
-    {\iffieldundef{maintitle}
+\newbibmacro*{shortmaintitle+shortbooktitle}{%
+  \iffieldundef{maintitle}
+    {\iffieldundef{booktitle}
       {}
-      {\usebibmacro{shortmaintitle}
+      {\usebibmacro{shortbooktitle}
        \newunit}}
-    {\usebibmacro{shortbooktitle}%
+    {\usebibmacro{shortmaintitle}%
      \newunit}}
 
 \newbibmacro*{revdshorttitle}{%
@@ -1016,9 +1067,9 @@
         \newunit}%
      \printfield{revdtitleaddon}}}
 
-\newbibmacro*{xrefshortbooktitle+xrefshortmaintitle}{%
+\newbibmacro*{xrefshortmaintitle+xrefshortbooktitle}{%
   \iffieldundef{xref}
-    {\usebibmacro{shortbooktitle+shortmaintitle}}
+    {\usebibmacro{shortmaintitle+shortbooktitle}}
     {\entrydata{\thefield{xref}}{%
        \iffieldundef{shorttitle}
          {\usebibmacro{shorttitle}}
@@ -1102,6 +1153,33 @@
   \setunit{\addcomma\space}%
   \printfield{eid}}
 
+\newbibmacro{inissuetitle}{%
+  \iffieldundef{issuetitle}
+    {}
+    {\usebibmacro{in}%
+     \printtext[issuetitle]{%
+       \printfield[titlecase]{issuetitle}%
+         \setunit*{\subtitlepunct}%
+         \printfield[titlecase]{issuesubtitle}}}}
+
+\newbibmacro*{shortissuetitle}{%
+  \iffieldundef{shortissuetitle}
+    {\iffieldundef{issuetitle}
+       {}
+       {\printtext[issuetitle]{\printfield[titlecase]{issuetitle}}}}
+    {\printtext[issuetitle]{\printfield[titlecase]{shortissuetitle}}}%
+  \newunit}
+
+\newbibmacro{issuetitle}{%
+  \iffieldundef{issuetitle}
+    {}
+    {\ifciteseen
+       {\usebibmacro{shortissuetitle}}
+       {\printtext[issuetitle]{%
+        \printfield[titlecase]{issuetitle}%
+          \setunit*{\subtitlepunct}%
+          \printfield[titlecase]{issuesubtitle}}}}}
+
 \newbibmacro*{volume+part}{%
   \iffieldundef{volume}
     {}
@@ -1124,7 +1202,7 @@
     test {\iffieldundef{pages}}
   }
     {\bibstring{in}%
-     \setunit{\space}}
+     \setunit{\addspace}}
     {}%
   \usebibmacro{volume+part}}
 
@@ -1143,7 +1221,7 @@
           {\ifbibxstring{\thefield{with#1type}}
              {\bibstring{\thefield{with#1type}}}
              {\printtext[with#1type]{\thefield{with#1type}}}}}%
-     \setunit{\space}%
+     \setunit{\addspace}%
      \printnames{with#1}%
      \clearname{with#1}}}
 
@@ -1268,6 +1346,9 @@
        \iffieldundef{authortype}
          {\renewcommand*{\namedashpunct}{\adddot\space}}
          {\renewcommand*{\namedashpunct}{\addcomma\space}}%
+       \ifnameundef{holder}
+         {}
+         {\renewcommand*{\namedashpunct}{\addspace}}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
          {\usebibmacro{ifidemused}
@@ -1280,6 +1361,15 @@
           \usebibmacro{authorstrg}}%
        \usebibmacro{withname}{author}}}
     {\global\undef\bbx@lasthash}}
+
+\newbibmacro*{author+holder}{%
+  \usebibmacro{author}%
+  \ifciteseen
+    {}
+    {\ifnameundef{holder}
+       {}
+       {\setunit{\addspace}%
+        \printtext[parens]{\printnames{holder}}}}}
 
 \renewbibmacro*{bybookauthor}{%
   \ifboolexpr{
@@ -1553,6 +1643,23 @@
   \printfield{number}%
   \newunit}
 
+\renewbibmacro*{event+venue+date}{%
+  \printfield{eventtitle}%
+  \newunit
+  \printfield{eventtitleaddon}%
+  \ifboolexpr{
+    test {\iffieldundef{venue}}
+    and
+    test {\iffieldundef{eventyear}}
+  }
+    {}
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \printfield{venue}%
+       \setunit*{\addcomma\space}%
+       \printeventdate}}%
+  \newunit}
+
 \newbibmacro*{eventtitle}{%
   \iffieldundef{eventtitle}
     {}
@@ -1573,7 +1680,7 @@
     {\printeventdate}}
 
 \newbibmacro*{parens+publisher+location+date}{%
-  \setunit{\space}%
+  \setunit{\addspace}%
   \printtext[parens]{%
     \usebibmacro{publisher+location+date}%
     \iffieldequalstr{relatedtype}{reprint}
@@ -1586,8 +1693,12 @@
 
 \newcounter{currentpublisher}
 \newcounter{currentlocation}
+\newcounter{currentorganization}
+\newcounter{currentinstitution}
 \newcounter{publishertotal}
 \newcounter{locationtotal}
+\newcounter{organizationtotal}
+\newcounter{institutiontotal}
 
 \DeclareListFormat{publisher}{%
   \setcounter{publishertotal}{\value{listtotal}}%
@@ -1596,6 +1707,22 @@
   \ifnumequal{\value{currentpublisher}}{\value{listtotal}}
     {\setcounter{currentpublisher}{0}}
     {\addtocounter{currentpublisher}{1}}}
+
+\DeclareListFormat{organization}{%
+  \setcounter{organizationtotal}{\value{listtotal}}%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{currentorganization}}{\value{listtotal}}
+    {\setcounter{currentorganization}{0}}
+    {\addtocounter{currentorganization}{1}}}
+
+\DeclareListFormat{institution}{%
+  \setcounter{institutiontotal}{\value{listtotal}}%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{currentinstitution}}{\value{listtotal}}
+    {\setcounter{currentinstitution}{0}}
+    {\addtocounter{currentinstitution}{1}}}
 
 \DeclareListFormat{location}{%
   \setcounter{locationtotal}{\value{listtotal}}%
@@ -1610,6 +1737,14 @@
     {}
     {\printlist[][\value{currentlocation}-\value{currentlocation}]{location}%
      \setunit*{\addcolon\space}}%
+  \ifnumequal{\value{currentorganization}}{0}
+    {}
+    {\printlist[][\value{currentorganization}-\value{currentorganization}]{organization}%
+     \setunit*{\addcomma\space}}%
+  \ifnumequal{\value{currentinstitution}}{0}
+    {}
+    {\printlist[][\value{currentinstitution}-\value{currentinstitution}]{institution}%
+     \setunit*{\addcomma\space}}%
   \ifnumequal{\value{currentpublisher}}{0}
     {}
     {\printlist[][\value{currentpublisher}-\value{currentpublisher}]{publisher}}%
@@ -1617,11 +1752,19 @@
   \ifboolexpr{
     test {\ifnumgreater{\value{locationtotal}}{1}}
     and
+    test {\ifnumgreater{\value{currentlocation}}{\value{organizationtotal}}}
+    and
+    test {\ifnumgreater{\value{currentlocation}}{\value{institutiontotal}}}
+    and
     test {\ifnumgreater{\value{currentlocation}}{\value{publishertotal}}}
   }
     {\setcounter{currentlocation}{0}}
     {}%
   \ifboolexpr{
+    test {\ifnumgreater{\value{currentorganization}}{0}}
+    or
+    test {\ifnumgreater{\value{currentinstitution}}{0}}
+    or
     test {\ifnumgreater{\value{currentpublisher}}{0}}
     or
     test {\ifnumgreater{\value{currentlocation}}{0}}
@@ -1630,9 +1773,19 @@
     {}}
 
 \newbibmacro*{init:location+publisher}{%
+  \setcounter{locationtotal}{0}%
+  \setcounter{organizationtotal}{0}%
+  \setcounter{institutiontotal}{0}%
+  \setcounter{publishertotal}{0}%
   \iflistundef{location}
     {\setcounter{currentlocation}{0}}
     {\setcounter{currentlocation}{1}}%
+  \iflistundef{organization}
+    {\setcounter{currentorganization}{0}}
+    {\setcounter{currentorganization}{1}}%
+  \iflistundef{institution}
+    {\setcounter{currentinstitution}{0}}
+    {\setcounter{currentinstitution}{1}}%
   \iflistundef{publisher}
     {\setcounter{currentpublisher}{0}}
     {\setcounter{currentpublisher}{1}}}
@@ -1641,7 +1794,19 @@
   \usebibmacro{reprint}%
   \usebibmacro{init:location+publisher}%
   \usebibmacro{loop:location+publisher}%
-  \setunit{\addcomma\space}%
+  \iffieldundef{howpublished}
+    {}
+    {\ifboolexpr{
+       test {\iflistundef{organization}}
+       and
+       test {\iflistundef{institution}}
+       and
+       test {\iflistundef{publisher}}
+     }
+       {\setunit*{\addcolon\space}}
+       {\setunit*{\addcomma\space}}%
+     \printfield{howpublished}}%
+  \setunit*{\addcomma\space}%
   \usebibmacro{date}%
   \newunit}
 
@@ -1665,7 +1830,14 @@
 
 \newbibmacro*{volumeof}{%
   \iffieldundef{volume}
-    {}
+    {\ifboolexpr{
+       test {\iffieldundef{booktitle}}
+       and
+       test {\iffieldundef{maintitle}}
+     }
+       {\printfield{chapter}}
+       {\printfield[chapterin]{chapter}%
+        \setunit*{\addspace}}}
     {\iffieldundef{part}
       {\iffieldundef{maintitle}
         {\ifboolexpr{
@@ -1673,14 +1845,20 @@
            or
            test {\ifbibliography}
          }
-           {\printfield[vol]{volume}%
+           {\printfield{chapter}%
+            \setunit*{\addcomma\space}%
+            \printfield[vol]{volume}%
             \newunit}
            {}}
-        {\printfield[volumeof]{volume}%
+        {\printfield[chapterin]{chapter}%
+         \setunit*{\addspace}%
+         \printfield[volumeof]{volume}%
          \setunit{\addspace}}}
-      {\iffieldundef{maintitle}
+      {\printfield{chapter}%
+       \iffieldundef{maintitle}
          {}
-         {\usebibmacro{in}}}}}%
+         {\setunit*{\addspace}%
+          \usebibmacro{in}}}}}%
 
 \newbibmacro*{pagesin}{%
   \ifboolexpr{
@@ -1688,8 +1866,15 @@
     and
     test {\iffieldundef{maintitle}}
   }
-    {\printfield[pagepages]{pages}}
-    {\printfield[pagesin]{pages}}}
+    {\printfield{chapter}%
+     \setunit*{\addcomma\space}%
+     \printfield[pagepages]{pages}}
+    {\iffieldundef{pages}
+       {\printfield{chapter}%
+        \setunit*{\addspace}}
+       {\printfield{chapter}%
+        \setunit*{\addcomma\space}%
+        \printfield[pagesin]{pages}}}}
 
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
@@ -1725,9 +1910,11 @@
         \global\booltrue{usevolpostnotedelim}}}}
 
 \renewbibmacro*{url+urldate}{%
-  \iffieldundef{urlyear}
-    {}
-    {\printurldate}%
+  \iftoggle{blx@accessdate}
+    {\iffieldundef{urlyear}
+       {}
+       {\printurldate}}
+    {}%
   \newunit
   \printfield{url}}
 
@@ -1756,6 +1943,15 @@
 
 \newbibmacro*{eprintdate}{\printeprintdate}
 
+\newbibmacro*{patentdate}{%
+  \iffieldundef{year}
+    {}
+    {\bibstring{patentfiled}%
+     \setunit{\addspace}%
+     \printdate
+     \setunit{\addcomma\addspace}}%
+  \printfield{pubstate}}
+
 \renewbibmacro*{doi+eprint+url}{%
   \iftoggle{bbx:eprint}
     {\usebibmacro{eprint}}
@@ -1775,6 +1971,21 @@
      \clearfield{eprint}}
     {}}
 
+\newbibmacro*{isbn}{%
+  \iftoggle{bbx:isbn}
+    {\printfield{isbn}}
+    {}}
+
+\newbibmacro*{isrn}{%
+  \iftoggle{bbx:isbn}
+    {\printfield{isrn}}
+    {}}
+
+\newbibmacro*{issn}{%
+  \iftoggle{bbx:isbn}
+    {\printfield{issn}}
+    {}}
+
 % ------------------------------------------------------------------
 % RELATED MACROS
 % ------------------------------------------------------------------
@@ -1784,7 +1995,7 @@
 \csundef{abx@ffd@*@related:origpubas}
 \csundef{abx@ffd@*@relatedstring:reprintfrom}
 \csundef{abx@macro@related:multivolume}
-\csundef{abx@macro@related:bytranslator}
+%\csundef{abx@macro@related:bytranslator}
 \csundef{abx@macro@related:origpubas}
 \csundef{abx@macro@related:origpubin}
 \csundef{abx@macro@related:reprintfrom}
@@ -1967,7 +2178,7 @@
 % ENTRY SET MACROS
 % ------------------------------------------------------------------
 
-\def\cbx@entryset#1{%
+\def\blx@entryset#1{%
   \blx@ifdata{#1}
     {\begingroup
      \blx@imc@clearlist{pageref}%
@@ -1975,13 +2186,15 @@
      \blx@setoptions@type\abx@field@entrytype
      \def\abx@field@entrysetcount{1}%
      \blx@entryset@precode
-     \blx@driver{cite:\blx@imc@thefield{entrytype}}%
+     \ifbibliography
+       {\blx@driver{\blx@imc@thefield{entrytype}}}
+       {\blx@driver{cite:\blx@imc@thefield{entrytype}}}%
      \blx@entryset@postcode
      \endgroup}
     {}%
-  \let\do\cbx@entryset@i}
+  \let\do\blx@entryset@i}
 
-\def\cbx@entryset@i#1{%
+\def\blx@entryset@i#1{%
   \blx@ifdata{#1}
     {\begingroup
      \blx@resetdata
@@ -1994,50 +2207,15 @@
      \blx@beglangbib
      \blx@begunit
      \blx@entryset@precode
-     \blx@driver{cite:\blx@imc@thefield{entrytype}}
+     \ifbibliography
+       {\blx@driver{\blx@imc@thefield{entrytype}}}
+       {\blx@driver{cite:\blx@imc@thefield{entrytype}}}%
      \blx@entryset@postcode
      \blx@endunit
      \blx@endlangbib
      \endgroup}
     {\blx@nounit}}
 
-\def\bbx@entryset#1{%
-  \blx@ifdata{#1}
-    {\begingroup
-     \blx@imc@clearlist{pageref}%
-     \blx@getdata{#1}%
-     \blx@setoptions@type\abx@field@entrytype
-     \def\abx@field@entrysetcount{1}%
-     \blx@entryset@precode
-     \blx@driver{\blx@imc@thefield{entrytype}}%
-     \blx@entryset@postcode
-     \endgroup}
-    {}%
-  \let\do\bbx@entryset@i}
-
-\def\bbx@entryset@i#1{%
-  \blx@ifdata{#1}
-    {\begingroup
-     \blx@resetdata
-     \blx@getdata{#1}%
-     \blx@entrysetcount
-     \blx@setoptions@type\abx@field@entrytype
-     \blx@setoptions@entry
-     \addtocounter{instcount}\@ne
-     \blx@execute
-     \blx@beglangbib
-     \blx@begunit
-     \blx@entryset@precode
-     \blx@driver{\blx@imc@thefield{entrytype}}
-     \blx@entryset@postcode
-     \blx@endunit
-     \blx@endlangbib
-     \endgroup}
-    {\blx@nounit}}
-
-
-\def\blx@entryset#1{\cbx@entryset{#1}}
-\def\blx@entryset@i#1{\cbx@entryset@i{#1}}
 
 % ------------------------------------------------------------------
 % INDEXING MACROS

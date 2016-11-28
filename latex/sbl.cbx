@@ -79,7 +79,10 @@
        \usebibmacro{related:init}%
        \usebibmacro{related}%
        \usebibmacro{volume+part+postnote}}} 
-    {}}
+    {\ifciteseen
+       {}
+       {\newunit
+        \printfield{pages}}}}
 
 \newbibmacro*{bibentrycite}{%
   \citereset
@@ -200,20 +203,16 @@
 % ------------------------------------------------------------------
 
 \DeclareBibliographyDriver{cite:set}{%
+  \booltrue{bbx@inset}%
   \ifciteseen
-    {%
-     \printnames{labelname}%
-     \newunit%
-     \printtext[bibhyperlink]{%
-       \iffieldundef{shorttitle}
-         {\printfield[citetitle]{title}}
-         {\printfield[citetitle]{shorttitle}}}}
-    {\booltrue{bbx@inset}%
-     \entryset{}{}%
-     \newunit\newblock
-     \usebibmacro{setpageref}%
-     \finentry
-     \global\boolfalse{suppresspostnote}}}
+    {\let\abx@field@setkey\abx@field@entrykey
+     \let\ifciteseen\@firstoftwo}
+    {}%
+  \entryset{}{}%
+  \newunit\newblock
+  \printfield{postnote}%
+  \finentry
+  \global\booltrue{suppresspostnote}}
 
 \DeclareBibliographyDriver{cite:ancienttext}{%
   \usebibmacro{citeindex}%
@@ -284,8 +283,22 @@
   \ifciteseen
     {}
     {\newunit
+     \usebibmacro{issuetitle}%
+     \newunit
+     \usebibmacro{byeditor+others}%
+     \newunit
+     \printfield{version}%
+     \newunit
+     \printlist{organization}%
+     \newunit
+     \printfield{note}%
+     \newunit
      \usebibmacro{shortjournal+issuetitle}%
      \usebibmacro{pages}%
+     \newunit
+     \printfield{addendum}%
+     \newunit
+     \usebibmacro{issn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -307,18 +320,40 @@
      \usebibmacro{volumeof}%
      \usebibmacro{maintitle}%
      \newunit
+     \usebibmacro{event+venue+date}%
+     \newunit
      \usebibmacro{bymaineditor+others}%
      \newunit
      \printfield{volumes}%
      \newunit
      \printfield{edition}%
      \newunit
-     \usebibmacro{shortseries+number}%
-     \usebibmacro{parens+publisher+location+date}%
+     \ifentrytype{report}
+       {\printfield{type}%
+        \clearfield{type}%
+        \setunit*{\addspace}%
+        \printfield{number}}
+       {\usebibmacro{shortseries+number}}%
+     \newunit
+     \printfield{type}%
+     \newunit
+     \printfield{version}%
+     \newunit
+     \printfield{note}%
+     \iflistundef{institution}
+       {\usebibmacro{parens+publisher+location+date}}
+       {\setunit{\addspace}%
+        \printtext[parens]{\usebibmacro{institution+location+date}}}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{volume+part+pages}%
+     \newunit
+     \usebibmacro{isbn}%
+     \newunit
+     \usebibmacro{isrn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{volume+part+nomaintitle}%
@@ -333,13 +368,22 @@
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \ifciteseen
-    {\printfield{type}}
-    {\printfield{type}%
-     \setunit{\addspace}%
-     \usebibmacro{to}%
-     \iffieldundef{booktitle}
+    {\iffieldundef{type}
        {\usebibmacro{title}}
-       {\usebibmacro{booktitle}}%
+       {\printfield{type}}}
+    {\iffieldundef{type}
+       {\usebibmacro{title}%
+        \newunit}
+       {\printfield{type}%
+        \usebibmacro{language}%
+        \setunit{\addspace}%
+        \usebibmacro{to}}%
+     \iffieldundef{chapter}%
+       {\iffieldundef{type}{\usebibmacro{in}}{}}
+       {\printfield[chapterin]{chapter}%
+        \clearfield{chapter}%
+        \setunit*{\addspace}}%
+     \usebibmacro{booktitle}%
      \setunit*{\newunitpunct}%
      \usebibmacro{bybookauthor}%
      \setunit*{\newunitpunct}%
@@ -355,11 +399,17 @@
      \printfield{volumes}%
      \newunit
      \usebibmacro{shortseries+number}%
+     \newunit
+     \printfield{note}%
      \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{pages}%
+     \newunit
+     \usebibmacro{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -398,11 +448,17 @@
      \global\booltrue{suppresspostnote}%
      \usebibmacro{author/translator+others}%
      \newunit
+     \printfield{note}%
+     \newunit
      \usebibmacro{xrefshortmaintitle}%
+     \newunit
+     \usebibmacro{volume+pages}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
-     \usebibmacro{volume+pages}%
+     \printfield{addendum}%
+     \newunit
+     \usebibmacro{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}%
      \usebibmacro{finentry}}}
@@ -426,8 +482,12 @@
      \iffieldundef{booktitle}
        {}
        {\newunit
+        \printfield{chapter}%
+        \setunit*{\addspace}%
         \usebibmacro{in}%
         \usebibmacro{booktitle}%
+        \setunit*{\newunitpunct}%
+        \usebibmacro{event+venue+date}%
         \setunit*{\newunitpunct}%
         \usebibmacro{bybookauthor}%
         \setunit*{\newunitpunct}%
@@ -435,6 +495,10 @@
         \setunit*{\newunitpunct}}%
      \usebibmacro{volumeof}%
      \usebibmacro{maintitle}%
+     \iffieldundef{booktitle}
+       {\newunit
+        \usebibmacro{event+venue+date}}
+       {}%
      \newunit
      \usebibmacro{bymaineditor+others}%
      \newunit
@@ -443,11 +507,17 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
+     \newunit
+     \printfield{note}%
      \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{volume+part+pages}%
+     \newunit
+     \usebibmacro{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -461,15 +531,21 @@
   \usebibmacro{author/translator+others}%
   \newunit
   \ifciteseen
-    {\usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
+    {\usebibmacro{xrefshortmaintitle+xrefshortbooktitle}%
      \usebibmacro{volume}}
     {\usebibmacro{title}%
      \newunit
-     \usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
+     \printfield{note}%
+     \newunit
+     \usebibmacro{xrefshortmaintitle+xrefshortbooktitle}%
+     \newunit
+     \usebibmacro{volume+pages}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
-     \usebibmacro{volume+pages}%
+     \printfield{addendum}%
+     \newunit
+     \printfield{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -492,11 +568,17 @@
         \global\booltrue{usevolpostnotedelim}%
         \printfield{volume}}}
     {\newunit
-     \usebibmacro{xrefshortbooktitle+xrefshortmaintitle}%
+     \printfield{note}%
+     \newunit
+     \usebibmacro{xrefshortmaintitle+xrefshortbooktitle}%
+     \newunit
+     \usebibmacro{volume+pages}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
-     \usebibmacro{volume+pages}%
+     \printfield{addendum}%
+     \newunit
+     \usebibmacro{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -550,11 +632,17 @@
      \printfield{edition}%
      \newunit
      \usebibmacro{shortseries+number}%
+     \newunit
+     \printfield{note}%
      \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{volume+part+pages}%
+     \newunit
+     \usebibmacro{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -570,14 +658,24 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\setunit{\addspace}%
+    {\newunit
+     \printfield{chapter}%
+     \newunit
+     \printfield{note}%
+     \setunit{\addspace}%
      \printtext[parens]{%
        \renewcommand*{\newunitpunct}{\addsemicolon\space}%
        \printfield{type}%
        \setunit{\addcomma\addspace}%
        \usebibmacro{institution+location+date}}%
      \newunit
+     \usebibmacro{ebook}%
+     \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{pages}%
+     \newunit
+     \printfield{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -594,23 +692,31 @@
   \ifciteseen
     {}
     {\newunit
-     \printfield{note}%
-     \newunit
      \usebibmacro{byauthor}%
      \newunit
      \usebibmacro{byeditor+others}%
      \newunit
-     \printfield{howpublished}%
-     \newunit
      \usebibmacro{shortseries+number}%
+     \newunit
+     \printfield{type}%
+     \newunit
+     \printfield{version}%
+     \newunit
+     \printfield{note}%
      \newunit
      \iffieldundef{journaltitle}
        {\setunit{\addspace}%
         \printtext[parens]{%
-        \usebibmacro{publisher+location+date}}
-        \newunit}
+          \usebibmacro{publisher+location+date}}}
        {\usebibmacro{shortjournal+issuetitle}}%
+     \newunit
+     \usebibmacro{ebook}%
+     \newunit
+     \printfield{addendum}%
+     \newunit
      \usebibmacro{pages}%
+     \newunit
+     \printfield{isbn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
@@ -626,15 +732,77 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\setunit{\addspace}%
+    {\newunit
+     \printfield{note}%
+     \setunit{\addspace}%
      \printtext[parens]{%
        \usebibmacro{eventtitle}%
-       \newunit
-       \printfield{note}%
        \newunit
        \printfield{organization}%
        \newunit
        \usebibmacro{venue+eventdate}}%
+     \newunit
+     \printfield{addendum}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{cite:periodical}{%
+  \usebibmacro{citeindex}%
+  \usebibmacro{begentry}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firtoftwo}%
+  \usebibmacro{editor+others}%
+  \newunit
+  \ifciteseen
+    {\usebibmacro{shorttitle}}
+    {\usebibmacro{issuetitle}%
+     \usebibmacro{language}%
+     \clearfield{language}%
+     \newunit
+     \usebibmacro{byeditorx}%
+     \newunit
+     \printfield{note}%
+     \newunit
+     \usebibmacro{shortjournal+issuetitle}%
+     \usebibmacro{pages}%
+     \newunit
+     \printfield{addendum}%
+     \newunit
+     \usebibmacro{issn}%
+     \newunit
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{cite:patent}{%
+  \usebibmacro{citeindex}%
+  \usebibmacro{begentry}%
+  \iftoggle{blx@usefullcite}
+    {}
+    {\let\ifciteseen\@firtoftwo}%
+  \usebibmacro{author+holder}%
+  \newunit
+  \usebibmacro{title}%
+  \ifciteseen
+    {}
+    {\newunit
+     \printfield{note}%
+     \setunit{\addspace}%
+     \printtext[parens]{%
+       \printfield{type}%
+       \setunit*{\addspace}%
+       \printfield{number}%
+       \iflistundef{location}
+         {}
+         {\setunit*{\addspace}%
+          \printtext[parens]{\printlist{location}}}%
+       \newunit
+       \printfield{version}%
+       \newunit
+       \usebibmacro{patentdate}%
+       \newunit
+       \printfield{addendum}}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}
