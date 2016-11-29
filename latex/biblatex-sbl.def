@@ -1342,9 +1342,12 @@
        \usebibmacro{ifidemused}
          {}
          {\printnames[labelname]{author}}%
-     }{%
+     }{\renewcommand*{\namedashpunct}{\adddot\space}%
        \iffieldundef{authortype}
-         {\renewcommand*{\namedashpunct}{\adddot\space}}
+         {}
+         {\renewcommand*{\namedashpunct}{\addcomma\space}}%
+       \ifnameundef{withauthor}
+         {}
          {\renewcommand*{\namedashpunct}{\addcomma\space}}%
        \ifnameundef{holder}
          {}
@@ -1394,8 +1397,7 @@
        \usebibmacro{ifidemused}
          {}
          {\printnames[labelname]{editor}}%
-     }{%
-       \renewcommand*{\namedashpunct}{\addcomma\space}%
+     }{\renewcommand*{\namedashpunct}{\addcomma\space}%
        \usebibmacro{dashcheck}
          {\bibnamedash}
          {\usebibmacro{ifidemused}
