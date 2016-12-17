@@ -1910,14 +1910,12 @@
         \printfield{part}%
         \global\booltrue{usevolpostnotedelim}}}}
 
-\renewbibmacro*{url+urldate}{%
+\newbibmacro*{urldate}{%
   \iftoggle{blx@accessdate}
     {\iffieldundef{urlyear}
        {}
        {\printurldate}}
-    {}%
-  \newunit
-  \printfield{url}}
+    {}}
 
 \newbibmacro*{reprint}{%
   \ifboolexpr{
@@ -1958,12 +1956,14 @@
     {\usebibmacro{eprint}}
     {}%
   \newunit\newblock
+  \usebibmacro{urldate}%
+  \newunit
   \iftoggle{bbx:doi}
     {\printfield{doi}}
     {}%
-  \newunit\newblock
+  \newunit
   \iftoggle{bbx:url}
-    {\usebibmacro{url+urldate}}
+    {\printfield{url}}
     {}}
 
 \newbibmacro*{ebook}{%
