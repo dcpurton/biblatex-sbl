@@ -2555,8 +2555,7 @@ Than the Author}
 @classictext{josephus:ant,
   author = {Josephus},
   title = {Ant\adddot},
-  xref = {josephus},
-  options = {skipbib}
+  xref = {josephus}
 }
 \end{lstlisting}
 
@@ -2926,28 +2925,21 @@ Than the Author}
   date = {1977}
 }
 
-@bookinbook{heraclitus:epistle1:worley:1977,
+@classictext{heraclitus:epistle1:worley,
   author = {Heraclitus},
   title = {Epistle 1},
   translator = {Worley, David},
   pages = {187},
   crossref = {malherbe:1977}
 }
-
-@classictext{heraclitus:epistle1:worley,
-  author = {Heraclitus},
-  title = {Epistle 1},
-  translator = {Worley},
-  xref = {heraclitus:epistle1:worley:1977}
-}
 \end{lstlisting}
 
 \begin{biboutput}
   \samplecite{36}[10]{heraclitus:epistle1:worley}
-  \samplebib{heraclitus:epistle1:worley:1977}
+  \samplebib{heraclitus:epistle1:worley}
   If \texttt{malherbe:1977} is referenced \texttt{microssrefs} times or more
   then:\par
-  \samplebib{heraclitus:epistle1:worley:1977}
+  \samplebib{heraclitus:epistle1:worley}
   \samplebib*{malherbe:1977}
   \samplebiblist{malherbe:1977}
 \end{biboutput}

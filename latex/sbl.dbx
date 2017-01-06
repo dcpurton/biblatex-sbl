@@ -30,6 +30,7 @@
 \DeclareDatamodelFields[type=list, datatype=name]{
   bookeditor,
   booktranslator,
+  mainauthor,
   maineditor,
   maintranslator,
   revdauthor,

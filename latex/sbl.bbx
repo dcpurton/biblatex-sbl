@@ -18,7 +18,8 @@
 }
 
 \AtEveryBibitem{%
-  \global\togglefalse{relatedseen}}%
+  \global\togglefalse{relatedseen}%
+  \global\togglefalse{inentrytype}}%
 
 \DeclareBibliographyDriver{set}{%
   \booltrue{bbx@inset}%
@@ -45,14 +46,22 @@
        \printtext[title]{%
          \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}%
      \setunit{\addspace}%
-     \usebibmacro{volume+part+pages}%
+     \printfield{volume}%
+     \setunit*{\addperiod}%
+     \printfield{part}%
+     \setunit{\volpostnotedelim}%
+     \usebibmacro{pages}%
      \newunit
      \entrydata{\thefield{related}}{\printfield{titleaddon}}%
-     \clearfield{pages}%
      \setunit{\addcomma\addspace}%
-     \usebibmacro{volume+part+pages}%
+     \printfield{volume}%
+     \setunit*{\addperiod}%
+     \printfield{part}%
      \newunit
-     \entrydata{\thefield{related}}{\usebibmacro{bymaineditor+others}}%
+     \entrydata{\thefield{related}}
+       {\usebibmacro{bymaineditor+others}%
+        \newunit
+        \usebibmacro{bymaintranslator+others}}%
      \usebibmacro{publisher+location+date}%
      \newunit}
     {\DeclareFieldFormat[ancienttext]{title}{\mkbibemph{##1}}%
@@ -68,9 +77,9 @@
   \newunit
   \usebibmacro{title}%
   \newunit
-  \usebibmacro{inissuetitle}%
+  \usebibmacro{bytranslator+others}%
   \newunit
-  \usebibmacro{byeditor+others}%
+  \usebibmacro{inissuetitle}%
   \newunit
   \printfield{version}%
   \newunit
@@ -78,7 +87,7 @@
   \newunit
   \printfield{note}%
   \newunit
-  \usebibmacro{shortjournal+issuetitle}%
+  \usebibmacro{shortjournal+issue}%
   \usebibmacro{pages}%
   \newunit
   \printfield{addendum}%
@@ -95,6 +104,7 @@
 }
 
 \DeclareBibliographyDriver{book}{%
+  \clearfield{booktitle}%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \iftoggle{blx@abbrevcite}
@@ -103,22 +113,17 @@
      \printnames[default]{author}}
     {\usebibmacro{author/editor+others/translator+others}%
      \newunit
-     \usebibmacro{title}%
-     \newunit
-     \usebibmacro{byauthor}}%
+     \usebibmacro{title}}%
   \newunit
-  \usebibmacro{pagesin}%
-  \iffieldundef{booktitle}
-    {}
-    {\iffieldundef{pages}
-       {\iffieldundef{maintitle}{}{\usebibmacro{in}}}
-       {}}%
-  \usebibmacro{volume+part}%
+  \usebibmacro{byauthor/byeditor+others/bytranslator+others}%
+  \newunit
+  \usebibmacro{chapter+pagesin}%
+  \usebibmacro{volume+partof}%
   \usebibmacro{maintitle}%
   \newunit
   \usebibmacro{event+venue+date}%
   \newunit
-  \usebibmacro{bymaineditor+others}%
+  \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}%
   \newunit
   \printfield{edition}%
   \newunit
@@ -168,21 +173,17 @@
      \usebibmacro{language}%
      \setunit{\addspace}%
      \usebibmacro{to}}%
-  \iffieldundef{chapter}
-    {\iffieldundef{type}{\usebibmacro{in}}{}}
-    {\printfield[chapterin]{chapter}%
-     \clearfield{chapter}%
-     \setunit*{\addspace}}%
-  \usebibmacro{booktitle}%
-  \setunit{\addcomma\addspace}%
-  \usebibmacro{bybookauthor}%
-  \newunit
-  \usebibmacro{bybookeditor+others}%
-  \setunit*{\newunitpunct}%
-  \usebibmacro{volumeof}%
+  \usebibmacro{chapter+pagesin}%
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+     \newunit}%
+  \usebibmacro{volume+partof}%
   \usebibmacro{maintitle}%
   \newunit
-  \usebibmacro{bymaineditor+others}%
+  \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}%
   \newunit
   \printfield{edition}%
   \newunit
@@ -247,38 +248,36 @@
 }
 
 \DeclareBibliographyDriver{incollection}{%
+  \toggletrue{inentrytype}%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
-  \ifentrytype{bookinbook}
-    {\newunit
-     \usebibmacro{byeditor+others}}
-    {}%
   \newunit
-  \usebibmacro{pagesin}%
+  \ifentrytype{classictext}
+    {\usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{bytranslator+others}}
+    {\usebibmacro{byauthor/byeditor+others/bytranslator+others}}%
+  \newunit
+  \usebibmacro{chapter+pagesin}%
   \iffieldundef{booktitle}
     {}
-    {\iffieldundef{pages}
-       {\usebibmacro{in}}
-       {}%
-     \usebibmacro{booktitle}%
+    {\usebibmacro{booktitle}%
      \newunit
      \usebibmacro{event+venue+date}%
      \newunit
-     \usebibmacro{bybookauthor}%
+     \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+     \newunit}%
+  \usebibmacro{volume+partof}%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
      \newunit
-     \usebibmacro{bybookeditor+others}%
-     \newunit}
-  \usebibmacro{involume+part}%
-  \usebibmacro{maintitle}%
-  \iffieldundef{booktitle}
-    {\newunit
-     \usebibmacro{event+venue+date}}
-    {}%
-  \newunit
-  \usebibmacro{bymaineditor+others}%
+     \usebibmacro{event+venue+date}%
+     \newunit
+     \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}}%
   \newunit
   \printfield{edition}%
   \newunit
@@ -360,7 +359,7 @@
   \setunit{\addcomma\addspace}%
   \usebibmacro{revdauthor/revdeditor}%
   \newunit
-  \usebibmacro{shortjournal+issuetitle}%
+  \usebibmacro{shortjournal+issue}%
   \printfield[plainpages]{pages}%
   \newunit
   \usebibmacro{doi+eprint+url}%
@@ -386,10 +385,10 @@
      \newunit
      \usebibmacro{bybookeditor+others}%
      \newunit}
-  \usebibmacro{involume+part}%
+  \usebibmacro{volume+partof}%
   \usebibmacro{maintitle}%
   \newunit
-  \usebibmacro{bymaineditor+others}%
+  \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}%
   \newunit
   \printfield{edition}%
   \newunit
@@ -452,12 +451,7 @@
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \usebibmacro{title}%
-  \newunit
-  \usebibmacro{byauthor}%
-  \newunit
-  \usebibmacro{byeditor+others}%
-  \newunit
-  \usebibmacro{shortseries+number}%
+  \usebibmacro{byauthor/byeditor+others/bytranslator+others}%
   \newunit
   \printfield{type}%
   \newunit
@@ -465,16 +459,11 @@
   \newunit
   \printfield{note}%
   \newunit
-  \iffieldundef{journaltitle}
-    {\usebibmacro{publisher+location+date}}
-    {\usebibmacro{shortjournal+issuetitle}%
-     \printfield[plainpages]{pages}}%
+  \usebibmacro{publisher+location+date}%
   \newunit
   \usebibmacro{ebook}%
   \newunit
   \printfield{addendum}%
-  \newunit
-  \printfield{isbn}%
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
@@ -518,13 +507,10 @@
   \newunit
   \usebibmacro{issuetitle}%
   \usebibmacro{language}%
-  \clearfield{language}%
-  \newunit
-  \usebibmacro{byeditorx}%
   \newunit
   \printfield{note}%
   \newunit
-  \usebibmacro{shortjournal+issuetitle}%
+  \usebibmacro{shortjournal+issue}%
   \usebibmacro{pages}%
   \newunit
   \printfield{addendum}%

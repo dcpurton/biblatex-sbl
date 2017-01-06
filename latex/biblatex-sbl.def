@@ -169,7 +169,6 @@
                  {}%
                \printfield{postnote}}}}}}}
 
-
 % ------------------------------------------------------------------
 % IDEM MACROS
 % ------------------------------------------------------------------
@@ -192,7 +191,6 @@
      \@firstoftwo}
     {\@secondoftwo}}
 
-
 % ------------------------------------------------------------------
 % COMMENTARY OPTIONS
 % ------------------------------------------------------------------
@@ -204,7 +202,6 @@
     {\toggletrue{fullbibrefs}}
     {\togglefalse{fullbibrefs}}}
 
-
 % ------------------------------------------------------------------
 % ENTRY OPTIONS
 % ------------------------------------------------------------------
@@ -213,6 +210,7 @@
 \newtoggle{blx@skipbiblistshorthand}
 \newtoggle{blx@usefullcite}
 \newtoggle{blx@usevolume}
+\newtoggle{blx@useseries}
 \newtoggle{blx@useshorttitle}
 \newtoggle{blx@accessdate}
 
@@ -247,13 +245,19 @@
 \DeclareEntryOption{usevolume}[true]{%
   \settoggle{blx@usevolume}{#1}}
 
+\DeclareBibliographyOption{useseries}[true]{%
+  \settoggle{blx@useseries}{#1}}
+\DeclareTypeOption{useseries}[true]{%
+  \settoggle{blx@useseries}{#1}}
+\DeclareEntryOption{useseries}[true]{%
+  \settoggle{blx@useseries}{#1}}
+
 \def\blx@shorthand{}
 \DeclareEntryOption[string]{shorthand}[true]{%
   \def\blx@shorthand{#1}}
 
 \DeclareBibliographyOption{accessdate}[true]{%
   \settoggle{blx@accessdate}{#1}}
-
 
 % ------------------------------------------------------------------
 % STYLE OPTIONS
@@ -301,6 +305,7 @@
   usefullcite,
   useshorttitle,
   usevolume,
+  useseries,
   accessdate=false
 }
 
@@ -459,8 +464,9 @@
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{shorttitle}{\mkbibquote{#1}}
 \DeclareFieldFormat[suppperiodical]{title}{\mkbibquote{#1}}
-\DeclareFieldFormat[periodical,suppperiodical]{issuetitle}{\mkbibquote{#1}}
-\DeclareFieldFormat[periodical,suppperiodical]{shortissuetitle}{\mkbibquote{#1}}
+\DeclareFieldFormat{issuetitle}{\mkbibquote{#1}}
+\DeclareFieldFormat{issuesubtitle}{\mkbibquote{#1}}
+\DeclareFieldFormat{shortissuetitle}{\mkbibquote{#1}}
 \DeclareFieldFormat{howpublished}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 \DeclareFieldFormat[patent]{title}{#1}
 \DeclareFieldFormat[ancienttext]{title}{%
@@ -570,7 +576,6 @@
      \ifdefvoid{#3}{}{\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
      \ifdefvoid{#4}{}{\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
 
-
 % ------------------------------------------------------------------
 % BIBLIOGRAPHY
 % ------------------------------------------------------------------
@@ -600,7 +605,6 @@
       {\noexpand\togglefalse{blx@skipentry}}
       {}}%
   \expandafter\g@addto@macro\expandafter\blx@includeentries\expandafter{\X}}
-
 
 % ------------------------------------------------------------------
 % LIST OF ABBREVIATIONS
@@ -827,7 +831,6 @@
   \noinherit{endyear}
 }
 
-
 % ------------------------------------------------------------------
 % LANGUAGE
 % ------------------------------------------------------------------
@@ -855,7 +858,6 @@
      \printtext[brackets]{%
        \usebibmacro{in}%
        \printlist{language}}}}
-
 
 % ------------------------------------------------------------------
 % SET UP DELIMITER MACROS
@@ -948,8 +950,7 @@
        {\iffieldundef{title}
           {}
           {\printtext[title]{\printfield[titlecase]{title}}}}
-       {\printtext[title]{\printfield[titlecase]{shorttitle}}}%
-     \newunit}
+       {\printtext[title]{\printfield[titlecase]{shorttitle}}}}
     {}}
 
 \newbibmacro*{shortbooktitle}{%
@@ -971,51 +972,39 @@
 \renewbibmacro*{title}{%
   \ifciteseen
     {\usebibmacro{shorttitle}}
-    {\ifboolexpr{
-       test {\iffieldundef{title}}
-       and
-       test {\iffieldundef{subtitle}}
-     }
+    {\iffieldundef{title}
        {}
        {\printtext[title]{%
           \printfield[titlecase]{title}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{subtitle}}%
-        \newunit}%
-     \printfield{titleaddon}%
-     \usebibmacro{language}}}
+        \newunit
+        \printfield{titleaddon}%
+        \usebibmacro{language}}}}
 
 \renewbibmacro*{booktitle}{%
   \ifciteseen
     {\usebibmacro{shortbooktitle}}
-    {\ifboolexpr{
-       test {\iffieldundef{booktitle}}
-       and
-       test {\iffieldundef{booksubtitle}}
-     }
+    {\iffieldundef{booktitle}
        {}
        {\printtext[booktitle]{%
           \printfield[titlecase]{booktitle}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{booksubtitle}}%
-        \newunit}%
-     \printfield{booktitleaddon}}}
+        \newunit
+        \printfield{booktitleaddon}}}}
 
 \renewbibmacro*{maintitle}{%
   \ifciteseen
     {\usebibmacro{shortmaintitle}}
-    {\ifboolexpr{
-       test {\iffieldundef{maintitle}}
-       and
-       test {\iffieldundef{mainsubtitle}}
-     }
+    {\iffieldundef{maintitle}
        {}
        {\printtext[maintitle]{%
           \printfield[titlecase]{maintitle}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{mainsubtitle}}%
-        \newunit}%
-     \printfield{maintitleaddon}}}
+        \newunit
+        \printfield{maintitleaddon}}}}
 
 \newbibmacro*{booktitle+maintitle}{%
   \iffieldundef{booktitle}
@@ -1091,13 +1080,25 @@
     {\printtext[shortjournal]{%
        \bibhyperlink{\strfield{shortjournal}}{\thefield{shortjournal}}}}}
 
-\newbibmacro*{shortjournal+issuetitle}{%
+\newbibmacro*{shortjournal+issue}{%
   \usebibmacro{shortjournal}%
-  \iffieldundef{series}
-    {}
+  \setunit{\addspace}%
+  \usebibmacro{series+volume+number+eid}%
+  \ifboolexpr{
+    not test {\ifnameundef{editor}}
+    or
+    not test {\ifnameundef{editora}}
+    or
+    not test {\ifnameundef{editorb}}
+    or
+    not test {\ifnameundef{editorc}}
+    or
+    not test {\iffieldundef{series}}
+  }
     {\newunit
-     \printfield{series}}%
-  \usebibmacro{volume+number+eid}%
+     \usebibmacro{byeditor+others}%
+     \newunit}
+    {\setunit{\addspace}}%
   \usebibmacro{issue+date}%
   \ifboolexpr{
     test {
@@ -1145,8 +1146,12 @@
              \usebibmacro{date}}}%
         \setunit{\addcolon\space}}}}
 
-\renewbibmacro*{volume+number+eid}{%
-  \setunit*{\addspace}%
+\newbibmacro*{series+volume+number+eid}{%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \newunit}%
   \printfield{volume}%
   \setunit*{\addperiod}%
   \printfield{number}%
@@ -1180,31 +1185,31 @@
           \setunit*{\subtitlepunct}%
           \printfield[titlecase]{issuesubtitle}}}}}
 
-\newbibmacro*{volume+part}{%
-  \iffieldundef{volume}
-    {}
-    {\iffieldundef{part}
-       {\usebibmacro{volumeof}}
-       {\printfield[vol]{volume}%
-        \setunit{\addcomma\addspace}%
-        \iffieldundef{maintitle}
-          {\printfield[pt]{part}%
-           \newunit}
-          {\printfield[partof]{part}
-           \setunit{\addspace}}}}}
+%\newbibmacro*{volume+part}{%
+%  \iffieldundef{volume}
+%    {}
+%    {\iffieldundef{part}
+%       {\usebibmacro{volumeof}}
+%       {\printfield[vol]{volume}%
+%        \setunit{\addcomma\addspace}%
+%        \iffieldundef{maintitle}
+%          {\printfield[pt]{part}%
+%           \newunit}
+%          {\printfield[partof]{part}
+%           \setunit{\addspace}}}}}
 
-\newbibmacro*{involume+part}{%
-  \ifboolexpr{
-    test {\iffieldundef{booktitle}}
-    and
-    not test {\iffieldundef{volume}}
-    and
-    test {\iffieldundef{pages}}
-  }
-    {\bibstring{in}%
-     \setunit{\addspace}}
-    {}%
-  \usebibmacro{volume+part}}
+%\newbibmacro*{involume+part}{%
+%  \ifboolexpr{
+%    test {\iffieldundef{booktitle}}
+%    and
+%    not test {\iffieldundef{volume}}
+%    and
+%    test {\iffieldundef{pages}}
+%  }
+%    {\bibstring{in}%
+%     \setunit{\addspace}}
+%    {}%
+%  \usebibmacro{volume+part}}
 
 % ------------------------------------------------------------------
 % NAME MACROS
@@ -1374,19 +1379,6 @@
        {\setunit{\addspace}%
         \printtext[parens]{\printnames{holder}}}}}
 
-\renewbibmacro*{bybookauthor}{%
-  \ifboolexpr{
-    test {\ifnameundef{bookauthor}}
-    or
-    test {\ifnamesequal{author}{bookauthor}}
-  }
-    {}
-    {\usebibmacro{bytypestrg}{author}{author}%
-     \setunit{\addspace}%
-     \printnames[byauthor]{bookauthor}%
-     \usebibmacro{withname}{author}}%
-}
-     
 \renewbibmacro*{editor+others}{%
   \ifboolexpr{
     test \ifuseeditor
@@ -1436,15 +1428,64 @@
      \clearname{translator}}
     {}}
 
+\renewbibmacro*{byauthor}{%
+  \ifboolexpr{
+    test {\ifuseauthor}
+    or
+    test {\iffieldundef{title}}
+    or
+    test {\ifnameundef{author}}
+  }
+    {}
+    {\setunit{\addcomma\space}%
+     \usebibmacro{bytypestrg}{author}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{author}%
+     \usebibmacro{withname}{author}}}%
+
+\renewbibmacro*{bybookauthor}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    or
+    test {\ifnameundef{bookauthor}}
+    or
+    test {\ifnamesequal{author}{bookauthor}}
+  }
+    {}
+    {\setunit{\addcomma\space}%
+     \usebibmacro{bytypestrg}{author}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{bookauthor}%
+     \usebibmacro{withname}{bookauthor}}%
+}
+
+\newbibmacro*{bymainauthor}{%
+  \ifboolexpr{
+    test {\iffieldundef{maintitle}}
+    or
+    test {\ifnameundef{mainauthor}}
+    or
+    test {\ifnamesequal{author}{mainauthor}}
+    or
+    test {\ifnamesequal{bookauthor}{mainauthor}}
+  }
+    {}
+    {\setunit{\addcomma\space}%
+     \usebibmacro{bytypestrg}{author}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{mainauthor}%
+     \usebibmacro{withname}{mainauthor}}%
+}
+     
 \renewbibmacro*{byeditor}{%
   \ifnameundef{editor}
     {}
     {\usebibmacro{bytypestrg}{editor}{editor}%
      \setunit{\addspace}%
      \printnames[byeditor]{editor}%
+     \clearname{editor}%
      \usebibmacro{withname}{editor}%
-     \newunit}%
-  \usebibmacro{byeditorx}}
+     \newunit}}
   
 \renewbibmacro*{byeditor+others}{%
   \ifnameundef{editor}
@@ -1455,8 +1496,7 @@
      \clearname{editor}%
      \usebibmacro{withname}{editor}%
      \newunit}%
-  \usebibmacro{byeditorx}%
-  \usebibmacro{bytranslator+others}}
+  \usebibmacro{byeditorx}}
 
 \renewbibmacro*{byeditorx}{%
   \ifnameundef{editora}
@@ -1487,6 +1527,7 @@
     {\bibstring{bytranslator}%
      \setunit{\addspace}%
      \printnames[bytranslator]{translator}%
+     \clearname{translator}%
      \usebibmacro{withname}{translator}}}
 
 \renewbibmacro*{bytranslator+others}{%
@@ -1500,79 +1541,180 @@
      \newunit}%
   \usebibmacro{withothers}}
 
-\newbibmacro*{bybookeditor+others}{%
+\newbibmacro*{byeditor/bytranslator}{%
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{bookeditor}}
+      and
+      not test {\ifnameundef{maineditor}}
+    )
+    or
+    (
+      not test {\ifnameundef{maineditor}}
+      and
+      test {\iffieldundef{booktitle}}
+    )
+  }
+    {\usebibmacro{byeditor}}
+    {}
+  \newunit
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{booktranslator}}
+      and
+      not test {\ifnameundef{maintranslator}}
+    )
+    or
+    (
+      not test {\ifnameundef{maintranslator}}
+      and
+      test {\iffieldundef{booktitle}}
+    )
+  }
+    {\usebibmacro{bytranslator}}
+    {}}
+
+\newbibmacro*{byauthor/byeditor+others/bytranslator+others}{%
+  \iffieldundef{title}
+    {}
+    {\usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{ifbooktitleormaintitle}
+       {\usebibmacro{byeditor/bytranslator}}
+       {\usebibmacro{byeditor+others}%
+        \newunit
+        \usebibmacro{bytranslator+others}}}}
+
+\newbibmacro*{bybookeditor}{%
   \ifnameundef{bookeditor}
-    {\ifnameundef{editor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{editor}%
-        \clearname{editor}%
-        \usebibmacro{withname}{editor}%
-        \newunit}}
+    {}
     {\usebibmacro{byeditor+othersstrg}%
      \setunit{\addspace}%
      \printnames[byeditor]{bookeditor}%
      \clearname{bookeditor}%
-     \usebibmacro{withname}{bookeditor}%
-     \newunit}%
-  \usebibmacro{byeditorx}%
-  \usebibmacro{bybooktranslator+others}}
+     \usebibmacro{withname}{bookeditor}}}
+
+\newbibmacro*{bybookeditor+others}{%
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{maineditor}}
+      and
+      test {\ifnameundef{bookeditor}}
+    )
+    or
+    (
+      test {\iffieldundef{maintitle}}
+      and
+      test {\ifnameundef{bookeditor}}
+    )
+  }
+    {\usebibmacro{byeditor}}
+    {\usebibmacro{bybookeditor}}%
+  \newunit
+  \usebibmacro{byeditorx}}
+
+\newbibmacro*{bybooktranslator}{%
+  \ifnameundef{booktranslator}
+    {}
+    {\usebibmacro{bytranslator+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[bytranslator]{booktranslator}%
+     \clearname{booktranslator}%
+     \usebibmacro{withname}{booktranslator}}}
+
+\newbibmacro*{bybooktranslator+others}{%
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{maintranslator}}
+      and
+      test {\ifnameundef{booktranslator}}
+    )
+    or
+    (
+      test {\iffieldundef{maintitle}}
+      and
+      test {\ifnameundef{booktranslator}}
+    )
+  }
+    {\usebibmacro{bytranslator}}
+    {\usebibmacro{bybooktranslator}}%
+  \newunit
+  \usebibmacro{withothers}}
+
+\newbibmacro*{bybookeditor/bybooktranslator}{%
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{maineditor}}
+      and
+      test {\ifnameundef{bookeditor}}
+    )
+    or
+    (
+      test {\iffieldundef{maintitle}}
+      and
+      test {\ifnameundef{bookeditor}}
+    )
+  }
+    {\usebibmacro{byeditor}}
+    {\usebibmacro{bybookeditor}}%
+  \newunit
+  \ifboolexpr{
+    (
+      not test {\ifnameundef{maintranslator}}
+      and
+      test {\ifnameundef{booktranslator}}
+    )
+    or
+    (
+      test {\iffieldundef{maintitle}}
+      and
+      test {\ifnameundef{booktranslator}}
+    )
+  }
+    {\usebibmacro{bytranslator}}
+    {\usebibmacro{bybooktranslator}}}
+
+\newbibmacro*{bybookauthor/bybookeditor+others/bybooktranslator+others}{%
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{bybookauthor}%
+     \newunit
+     \iffieldundef{maintitle}
+       {\usebibmacro{bybookeditor+others}%
+        \newunit
+        \usebibmacro{bybooktranslator+others}}
+       {\usebibmacro{bybookeditor/bybooktranslator}}}}
 
 \newbibmacro*{bymaineditor+others}{%
   \ifnameundef{maineditor}
-    {\ifnameundef{editor}
-       {}
-       {\usebibmacro{byeditor+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[byeditor]{editor}%
-        \clearname{editor}%
-        \usebibmacro{withname}{editor}%
-        \newunit}}
+    {\usebibmacro{byeditor+others}}
     {\usebibmacro{byeditor+othersstrg}%
      \setunit{\addspace}%
      \printnames[byeditor]{maineditor}%
      \clearname{maineditor}%
      \usebibmacro{withname}{maineditor}%
-     \newunit}%
-  \usebibmacro{byeditorx}%
-  \usebibmacro{bymaintranslator+others}}
-
-\newbibmacro*{bybooktranslator+others}{%
-  \ifnameundef{booktranslator}
-    {\ifnameundef{translator}
-       {}
-       {\usebibmacro{bytranslator+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[bytranslator]{translator}%
-        \clearname{translator}%
-        \usebibmacro{withname}{translator}%
-        \newunit}}
-    {\usebibmacro{bytranslator+othersstrg}%
-     \setunit{\addspace}%
-     \printnames[bytranslator]{booktranslator}%
-     \clearname{booktranslator}%
-     \usebibmacro{withname}{booktranslator}%
-     \newunit}%
-  \usebibmacro{withothers}}
+     \newunit
+     \usebibmacro{byeditorx}}}
 
 \newbibmacro*{bymaintranslator+others}{%
   \ifnameundef{maintranslator}
+    {\usebibmacro{bytranslator+others}}
     {\usebibmacro{bytranslator+othersstrg}%
      \setunit{\addspace}%
-     \printnames[bytranslator]{translator}%
-     \clearname{translator}%
-     \usebibmacro{withname}{translator}%
-     \newunit}%
-    {\ifnameundef{maintranslator}
-       {}
-       {\usebibmacro{bytranslator+othersstrg}%
-        \setunit{\addspace}%
-        \printnames[bytranslator]{maintranslator}%
-        \clearname{maintranslator}%
-        \usebibmacro{withname}{maintranslator}%
-        \newunit}}%
-  \usebibmacro{withothers}}
+     \printnames[bytranslator]{maintranslator}%
+     \clearname{maintranslator}%
+     \usebibmacro{withname}{maintranslator}%
+     \newunit
+     \usebibmacro{withothers}}}
+
+\newbibmacro*{bymainauthor/bymaineditor+others/bymaintranslator+others}{%
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{bymainauthor}%
+     \newunit
+     \usebibmacro{bymaineditor+others}%
+     \newunit
+     \usebibmacro{bymaintranslator+others}}}
 
 \newbibmacro*{revdauthor}{%
   \ifboolexpr{
@@ -1627,6 +1769,10 @@
     {\setunit{\addcomma\space}%
      \usebibmacro{revdtitle}}}
 
+% ------------------------------------------------------------------
+% SERIES MACROS
+% ------------------------------------------------------------------
+
 \newbibmacro*{shortseries}{%
   \iffieldundef{shortseries}
     {\printfield{series}}
@@ -1644,10 +1790,16 @@
   \printfield{number}%
   \newunit}
 
+% ------------------------------------------------------------------
+% EVENT MACROS
+% ------------------------------------------------------------------
+
 \renewbibmacro*{event+venue+date}{%
-  \printfield{eventtitle}%
-  \newunit
-  \printfield{eventtitleaddon}%
+  \iffieldundef{eventtitle}
+    {}
+    {\printfield{eventtitle}%
+     \newunit
+     \printfield{eventtitleaddon}}%
   \ifboolexpr{
     test {\iffieldundef{venue}}
     and
@@ -1659,7 +1811,10 @@
        \printfield{venue}%
        \setunit*{\addcomma\space}%
        \printeventdate}}%
-  \newunit}
+  \newunit
+  \clearfield{eventtitle}%
+  \clearfield{venue}%
+  \clearfield{eventyear}}
 
 \newbibmacro*{eventtitle}{%
   \iffieldundef{eventtitle}
@@ -1679,6 +1834,10 @@
   \iffieldundef{eventyear}
     {\printdate}
     {\printeventdate}}
+
+% ------------------------------------------------------------------
+% PUBLISHER MACROS
+% ------------------------------------------------------------------
 
 \newbibmacro*{parens+publisher+location+date}{%
   \setunit{\addspace}%
@@ -1821,6 +1980,10 @@
   \usebibmacro{origdate}%
   \newunit}
 
+% ------------------------------------------------------------------
+% CHAPTER, PAGES, VOLUME, PART MACROS
+% ------------------------------------------------------------------
+
 \newbibmacro*{volume}{%
   \iffieldundef{volume}
     {}
@@ -1829,53 +1992,182 @@
      \printfield{volume}%
      \newunit}}
 
-\newbibmacro*{volumeof}{%
-  \iffieldundef{volume}
-    {\ifboolexpr{
-       test {\iffieldundef{booktitle}}
-       and
-       test {\iffieldundef{maintitle}}
-     }
-       {\printfield{chapter}}
+\newbibmacro*{ifbooktitleormaintitle}[2]{%
+  \ifboolexpr{
+    not test {\iffieldundef{booktitle}}
+    or
+    not test {\iffieldundef{maintitle}}
+  }
+    {#1}
+    {#2}}
+
+\newbibmacro*{ifneedstitlein}[2]{%
+  \iftoggle{inentrytype}
+    {#1}
+    {\usebibmacro{ifbooktitleormaintitle}% only if booktitle or maintitle
+       {\ifboolexpr{
+          (
+            not test {\usebibmacro{ifusevolumeandpart}}
+            or
+            (
+              test {\iffieldundef{volume}}
+              and
+              test {\iffieldundef{part}}
+            )
+            or
+            not test {\iffieldundef{booktitle}}
+          )
+          and
+          test {\iffieldundef{type}}
+        }
+          {#1}
+          {#2}}
+       {#2}}}
+
+\newbibmacro{pagesin}{%
+  \usebibmacro{ifbooktitleormaintitle}
+    {\iffieldundef{pages}
+       {}
+       {\printfield[pagesin]{pages}%
+        \setunit*{\addspace}}}
+    {\printfield[pagepages]{pages}%
+     \newunit}}
+
+\newbibmacro*{chapterin}{%
+  \ifboolexpr{
+    test {\usebibmacro{ifbooktitleormaintitle}}
+    or
+    not test {\iffieldundef{volume}}
+    or
+    not test {\iffieldundef{part}}
+  }
+    {\iffieldundef{chapter}
+       {\usebibmacro{ifneedstitlein}
+          {\usebibmacro{in}}
+          {}}%
        {\printfield[chapterin]{chapter}%
         \setunit*{\addspace}}}
-    {\iffieldundef{part}
-      {\iffieldundef{maintitle}
-        {\ifboolexpr{
-           test {\iftoggle{blx@usevolume}}
-           or
-           test {\ifbibliography}
-         }
-           {\printfield{chapter}%
-            \setunit*{\addcomma\space}%
-            \printfield[vol]{volume}%
-            \newunit}
-           {}}
-        {\printfield[chapterin]{chapter}%
-         \setunit*{\addspace}%
-         \printfield[volumeof]{volume}%
-         \setunit{\addspace}}}
-      {\printfield{chapter}%
-       \iffieldundef{maintitle}
-         {}
-         {\setunit*{\addspace}%
-          \usebibmacro{in}}}}}%
-
-\newbibmacro*{pagesin}{%
-  \ifboolexpr{
-    test {\iffieldundef{booktitle}}
-    and
-    test {\iffieldundef{maintitle}}
-  }
     {\printfield{chapter}%
-     \setunit*{\addcomma\space}%
-     \printfield[pagepages]{pages}}
-    {\iffieldundef{pages}
-       {\printfield{chapter}%
-        \setunit*{\addspace}}
+     \setunit*{\addcomma\space}}}
+
+\newbibmacro*{chapter+pagesin}{%
+  \iffieldundef{pages}
+    {\usebibmacro{chapterin}}
+    {\ifbibliography
        {\printfield{chapter}%
         \setunit*{\addcomma\space}%
-        \printfield[pagesin]{pages}}}}
+        \usebibmacro{ifbooktitleormaintitle}
+          {\printfield[pagesin]{pages}%
+           \setunit*{\addspace}}
+          {\printfield[pagepages]{pages}%
+           \newunit}}
+       {\usebibmacro{chapterin}}}}
+
+\newbibmacro*{ifusevolumeandpart}[2]{%
+  \ifboolexpr{
+    test {\ifbibliography}% always if in bibliography
+    or
+    not test {\iffieldundef{chapter}}% always if chapter is defined
+    or
+    (% always if volume defined, part not defined, and usevolume=true
+      not test {\iffieldundef{volume}}
+      and
+      test {\iffieldundef{part}}
+      and
+      togl {blx@usevolume}% 
+    )
+    or
+    (% always if part defined and volume not defined
+      not test {\iffieldundef{part}}
+      and
+      test {\iffieldundef{volume}}
+    )
+    or
+    (% always if neither volume nor part are defined
+      test {\iffieldundef{volume}}
+      and
+      test {\iffieldundef{part}}
+    )
+    %or
+    %(% always if usevolume=false and (postnote not page and pages undefined)
+    %  not togl {blx@usevolume}
+    %  and
+    %  (
+    %    not test {\iffieldpages{postnote}}
+    %    and
+    %    test {\iffieldundef{pages}}
+    %  )
+    %)
+  }
+    {#1}
+    {#2}}
+
+\newbibmacro*{volume+partof}{%
+  \usebibmacro{ifusevolumeandpart}
+    {\iffieldundef{part}
+       {\iffieldundef{maintitle}
+          {\printfield[vol]{volume}%
+           \newunit}
+          {\iffieldundef{volume}
+             {}
+             {\printfield[volumeof]{volume}%
+              \setunit*{\addspace}}}}
+       {\printfield[vol]{volume}%
+        \setunit*{\addcomma\space}%
+        \iffieldundef{maintitle}
+          {\printfield[pt]{part}%
+           \newunit}
+          {\printfield[partof]{part}
+           \setunit*{\addspace}}}}
+    {}}
+
+%\newbibmacro*{volumeof}{%
+%  \iffieldundef{volume}
+%    {\ifboolexpr{
+%       test {\iffieldundef{booktitle}}
+%       and
+%       test {\iffieldundef{maintitle}}
+%     }
+%       {\printfield{chapter}}
+%       {\printfield[chapterin]{chapter}%
+%        \setunit*{\addspace}}}
+%    {\iffieldundef{part}
+%      {\iffieldundef{maintitle}
+%        {\ifboolexpr{
+%           test {\iftoggle{blx@usevolume}}
+%           or
+%           test {\ifbibliography}
+%         }
+%           {\printfield{chapter}%
+%            \setunit*{\addcomma\space}%
+%            \printfield[vol]{volume}%
+%            \newunit}
+%           {}}
+%        {\printfield[chapterin]{chapter}%
+%         \setunit*{\addspace}%
+%         \printfield[volumeof]{volume}%
+%         \setunit{\addspace}}}
+%      {\printfield{chapter}%
+%       \iffieldundef{maintitle}
+%         {}
+%         {\setunit*{\addspace}%
+%          \usebibmacro{in}}}}}%
+
+%\newbibmacro*{pagesin}{%
+%  \ifboolexpr{
+%    test {\iffieldundef{booktitle}}
+%    and
+%    test {\iffieldundef{maintitle}}
+%  }
+%    {\printfield{chapter}%
+%     \setunit*{\addcomma\space}%
+%     \printfield[pagepages]{pages}}
+%    {\iffieldundef{pages}
+%       {\printfield{chapter}%
+%        \setunit*{\addspace}}
+%       {\printfield{chapter}%
+%        \setunit*{\addcomma\space}%
+%        \printfield[pagesin]{pages}}}}
 
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
@@ -1887,20 +2179,16 @@
   \usebibmacro{pages}}
 
 \newbibmacro*{volume+part+pages}{%
-  \ifboolexpr{
-    test {\iffieldundef{volume}}
-    or
-    test {\iffieldundef{part}}
-  }
+  \usebibmacro{ifusevolumeandpart}
     {}
     {\printfield{volume}%
-     \setunit{\addperiod}%
+     \setunit*{\addperiod}%
      \printfield{part}%
      \setunit{\volpostnotedelim}%
      \global\booltrue{usevolpostnotedelim}}%
   \usebibmacro{pages}}
 
-\newbibmacro*{volume+part+nomaintitle}{%
+\newbibmacro*{volume+part}{%
   \iffieldundef{volume}
     {}
     {\iftoggle{blx@usevolume}
@@ -1910,7 +2198,7 @@
         \printfield{part}%
         \global\booltrue{usevolpostnotedelim}}}}
 
-\newbibmacro*{urldate}{%
+\renewbibmacro*{urldate}{%
   \iftoggle{blx@accessdate}
     {\iffieldundef{urlyear}
        {}
@@ -1932,6 +2220,10 @@
      \bibstring{reprint}%
      \setunit{\addcomma\addspace}}
     {}}
+
+% ------------------------------------------------------------------
+% DATE MACROS
+% ------------------------------------------------------------------
 
 \renewbibmacro*{date}{%
   \printdate
@@ -2078,7 +2370,6 @@
              {\@secondoftwo}
              {\@firstoftwo}}}}}
 
-
 % ------------------------------------------------------------------
 % ANCIENT AND CLASSIC TEXT MACROS
 % ------------------------------------------------------------------
@@ -2099,18 +2390,15 @@
   \global\booltrue{suppresspostnote}}
 
 \newbibmacro*{classic:translator+series}{%
-  \ifboolexpr{
-    not test {\ifnameundef{translator}}
-    or
-    not test {\iffieldundef{series}}
-  }
+  \ifnameundef{translator}
+    {}
     {\setunit{\addspace}%
      \printtext[parens]{%
        \printnames[labelname]{translator}%
-       \newunit
-       \usebibmacro{shortseries+number}}}
-    {}}
-
+       \iftoggle{blx@useseries}
+         {\newunit
+          \usebibmacro{shortseries}}
+         {}}}}
 
 % ------------------------------------------------------------------
 % ALTERNATE POSTNOTE MACROS
@@ -2216,7 +2504,6 @@
      \blx@endlangbib
      \endgroup}
     {\blx@nounit}}
-
 
 % ------------------------------------------------------------------
 % INDEXING MACROS
