@@ -199,6 +199,46 @@ document preamble. e.g.,
 Currently \opt{english} (including variants such as \opt{british},
 \opt{australian}, etc.), \opt{spanish}, and \opt{german} are supported.
 
+For Greek and especially Hebrew, you are probably better off with
+\sty{polyglossia} and \sty{xelatex} or \sty{lualatex}. e.g.,
+
+\begin{quote}
+\begin{lstlisting}[style=latex]{}
+\usepackage{fontspec}
+\usepackage{polyglossia}
+\usepackage[style=australian]{csquotes}
+\setdefaultlanguage[variant=australian]{english}
+\setotherlanguage[variant=ancient]{greek}
+\setotherlanguage{hebrew}
+\ifxetex
+  \renewenvironment{hebrew}[1][]{%
+    \par
+    \raggedleft % add to right align paragraphs
+    \begin{otherlanguage}[#1]{hebrew}}%
+    {\end{otherlanguage}\par}
+\else % luatex
+  \let\luatexpardir\pardir % luabidi needs this
+  \let\luatextextdir\textdir % luabidi needs this
+  % text direction gets stuffed up without these workarounds
+  \let\luatextextgreek\textgreek
+  \let\luatextextenglish\textenglish
+  \AtBeginDocument{%
+    \renewcommand{\textgreek}[1]{%
+      \bgroup\luatextextgreek{#1}\egroup}
+    \renewcommand{\textenglish}[1]{%
+      \bgroup\setLTR\luatextextenglish{#1}\egroup}}
+\fi
+% set up fonts
+\newfontfamily\greekfont{SBL BibLit}%
+  [Script=Greek,Contextuals=Alternate]
+\newfontfamily\hebrewfont{SBL BibLit}%
+  [Script=Hebrew,Contextuals=Alternate,Scale=1.2]
+\usepackage[style=sbl,backend=biber]{biblatex}
+% update language mapping (biblatex can't do it using polyglossia)
+\DeclareLanguageMapping{english}{sbl-english}
+\end{lstlisting}
+\end{quote}
+
 \subsection{Commands}
 
 The standard commands for \biblatexsbl generally follow those defined by
