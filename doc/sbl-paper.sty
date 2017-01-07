@@ -92,17 +92,12 @@
   \setdefaultlanguage[variant=american]{english}
   \setotherlanguage[variant=ancient]{greek}
   \setotherlanguage{hebrew}
-
   \ifxetex
     \renewenvironment{hebrew}[1][]{%
       \par
       \raggedleft % add to right align paragraphs
       \begin{otherlanguage}[#1]{hebrew}}%
       {\end{otherlanguage}\par}
-
-    % work around for bidi bug;
-    % see http://tex.stackexchange.com/questions/312874/polyglossia-or-bidi-bug-d-gets-inverted-to-d
-    \@Latintrue 
   \else % luatex
     \let\luatexpardir\pardir % luabidi needs this
     \let\luatextextdir\textdir % luabidi needs this
