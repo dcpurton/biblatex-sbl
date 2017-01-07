@@ -5,10 +5,14 @@
 \DeclareBibliographyExtras{%
   \DeclarePunctuationPairs{colon}{*}%
   \uspunctuation
-  \restorecommand\mkdaterangecomp
-  \restorecommand\mkdaterangecompextra
-  \restorecommand\mkdaterangeterse
-  \restorecommand\mkdaterangeterseextra
+  \protected\def\mkdaterangecomp{%
+    \mkdaterangetrunc{long}}%
+  \protected\def\mkdaterangeterse{%
+    \mkdaterangetrunc{short}}%
+  \protected\def\mkdaterangecompextra{%
+    \mkdaterangetruncextra{long}}%
+  \protected\def\mkdaterangeterseextra{%
+    \mkdaterangetruncextra{short}}%
   \protected\def\mkbibdatelong#1#2#3{%
     \iffieldundef{#3}
       {}
@@ -21,5 +25,4 @@
     \iffieldbibstring{#1}
       {\bibstring{\thefield{#1}}}
       {\dateeraprintpre{#1}\stripzeros{\thefield{#1}}}}%
-
 }
