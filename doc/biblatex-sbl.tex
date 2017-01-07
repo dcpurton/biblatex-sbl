@@ -245,7 +245,7 @@ useful for citing primary sources. e.g.,
 \cmditem{seriescite}{key}
 \cmditem{shorthandcite}{key}
 
-\cmd{journalcite}, \cmd{seriescite},and \cmd{shorthandcite} inserts the
+\cmd{journalcite}, \cmd{seriescite}, and \cmd{shorthandcite} inserts the
 respective abbreviation into the text and also adds it to the list of
 abbreviations. The abbreviation is hyperlinked to the list of abbreviations if
 the \sty{hyperref} package is loaded.
@@ -279,6 +279,12 @@ custom ones outlined below.
 
 \begin{optionlist}
 
+\optitem[false]{accessdate}{\opt{true}, \opt{false}}
+
+The \cite{SBLHS} discourages the use of access
+dates.\autocite[See][§6.1.6, 84]{SBLHS} If they are required this option can be
+passed to \biblatex.
+
 \optitem[sbl]{citepages}{\opt{sbl}, \opt{permit}, \opt{omit}, \opt{separate}}
 
 Use this option to fine-tune the formatting of the \bibfield{pages} field
@@ -301,6 +307,10 @@ the first time an entry is cited.
     \samplecite{1}[a note]{irvine:2014}
     \samplecite{2}[a note]{irvine:2014}
   \end{snugshade}
+
+  The one exception to this is the \bibtype{incommentary} entry type which
+  always sets \opt{citepages} to \opt{omit} (see below) when \bibfield{volume}
+  is defined.\autocite[See][§1.3.3.2]{SBLHS:studentsupp}
 
 \item[permit] The \bibfield{postnote} is printed in parentheses after the
   \bibfield{pages} field. e.g.,
@@ -357,11 +367,11 @@ the first time an entry is cited.
 \boolitem[false]{fullbibrefs}
 
 The \emph{Student Supplement for the} \cite{SBLHS} permits two styles for the
-bibliography entry for Bible dictionaries and encyclopaedias, and multivolume
+bibliography entry for Bible dictionaries, encyclopaedias, and multivolume
 commentaries for the entire Bible by multiple
 authors.\autocite[4–5]{SBLHS:studentsupp}
 
-This option applies to \bibfield{@inreference} and \bibfield{@incommentary}
+This option applies to \bibtype{inreference} and \bibtype{incommentary}
 entry types.
 
 \begin{valuelist}
@@ -483,9 +493,9 @@ the \sty{footmisc} package provided \sty{footmisc} is loaded before \biblatex.
 
 \subsection{Entry Types}
 
-This section gives an overview of the entry types supported by \biblatexsbl.
-Many work in the same way as \biblatex. Some standard entry types have custom
-usage, and some are unique to \biblatexsbl. These are documented more fully.
+All standard entry types of \biblatex{} are supported by \biblatexsbl. This
+section gives an overview of entry types that are most relevant, unique to, or
+treated in a custom way by \biblatexsbl{}.
 
 \begin{typelist}
 
@@ -494,7 +504,7 @@ usage, and some are unique to \biblatexsbl. These are documented more fully.
 This is a custom type for \biblatexsbl. It is used for the special examples in
 \cite[§6.4.1, §6.4.3 and §6.4.8]{SBLHS}.
 
-Unless \opt{options = \{skipbib=false\}} is set explicitly, an
+Unless \bibfield{options = \{skipbib=false\}} is set explicitly, an
 \bibtype{ancienttext} entry will not appear in the bibliography. (Although,
 see \opt{ANRW} \bibfield{entrysubtype} below for an exception.) The
 \bibfield{related} field is used to refer to the entry which should appear in
@@ -512,9 +522,9 @@ and \bibfield{editor} fields are omitted for subsequent citations. e.g.,
   \samplebib{ANET}
 \end{snugshade}
 
-If the entry contains \opt{options = \{skipbib=false\}}, then the bibliography
-entry will be like \bibtype{book}. Any shorthand is also printed in the same
-way as a \bibtype{book} shorthand.
+If the entry contains \bibfield{options = \{skipbib=false\}}, then the
+bibliography entry will be like \bibtype{book}. Any shorthand is also
+printed in the same way as a \bibtype{book} shorthand.
 
 The following values for the \bibfield{entrysubtype} field are supported:
 
@@ -548,8 +558,8 @@ subsequent citations. e.g.,
 
 \item[inscription]
 
-  Similarly to \opt{chronicle}, this formats the \bibfield{title} using an
-  upright shape font without quotation marks.
+  Similarly to \bibfield{entrysubtype = \{chronicle\}}, this formats the
+  \bibfield{title} using an upright shape font without quotation marks.
 
 \end{valuelist}
 
@@ -561,12 +571,22 @@ An article in a journal or magazine. Also use this type for review articles
 
 \typeitem{book}
 
-A single-volume book with one or more authors.
+A single-volume book with one or more authors where the authors share credit
+for the work as a whole.
+
+\typeitem{inbook}
+
+A part of a book which forms a self-contained unit with its own title.
+
+\typeitem{bookinbook}
+
+This type is similar to \bibtype{inbook} but intended for works originally
+published as a stand-alone book. The main difference is that the title is
+printed in italics instead of in quotation marks.
 
 \typeitem{mvbook}
 
-A multivolume \bibtype{book}. \biblatexsbl treats this as an alias for
-\bibtype{book}.
+A multivolume \bibtype{book}.
 
 There is one \bibfield{entrysubtype} supported:
 
@@ -580,31 +600,24 @@ cited in short form. See \sty{biblatex-sbl-test.pdf} for full details.
 
 \end{valuelist}
 
-\typeitem{inbook}
-
-A part of a book which forms a self-contained unit with its own title.
-\biblatexsbl treats this as an alias for \bibtype{incollection}.
-
-\typeitem{bookinbook}
-
-This type is similar to \bibtype{inbook} but intended for works originally
-published as a stand-alone book. The main difference is that the title is
-printed in italics instead of in quotation marks. See §6.4.4 in
-\sty{biblatex-sbl-test.pdf} for an example.
-
 \typeitem{suppbook}
 
 Supplemental material in a \bibtype{book}. Use this for an introduction,
 preface or foreword written by someone other than the author
 \parencite[§6.2.14]{SBLHS}. The \bibfield{type} field is used to specify the
-type of supplementary material. See §6.2.14 of \sty{biblatex-sbl-test.pdf}.
+type of supplementary material. See §6.2.14 of \sty{biblatex-sbl-test.pdf}. If
+no \bibfield{type} is given, then this behaves like an \bibtype{inbook}.
+
+\typeitem{booklet}
+
+A book-like work without a formal publisher or sponsoring institution.
 
 \typeitem{classictext}
 
 This type is a custom type for \biblatexsbl. It is used for the special
 examples in \cite[§6.4.2 and §§6.4.4–6]{SBLHS}.
 
-Unless \opt{options = \{skipbib=false\}} is set explicitly, a
+Unless \bibfield{options = \{skipbib=false\}} is set explicitly, a
 \bibtype{classictext} entry will not appear in the bibliography. The
 \bibfield{xref} field is used to refer to the entry which should appear in the
 bibliography instead of the \bibtype{classictext} entry.
@@ -616,10 +629,13 @@ parentheses following the \bibfield{postnote}. e.g.,
   \samplecite{1}[15.18-19]{tacitus:ann:jackson}
   \samplebib{tacitus}
 \end{snugshade}
-    
-If the entry contains \opt{options = \{skipbib=false\}}, then the bibliography
-entry will be like \bibtype{incollection} except that the \bibfield{title} is
-set in italics instead of within quotation marks.
+
+The \bibfield{series} can be suppressed by setting \bibfield{options =
+\{useseries=false\}}.
+
+If the entry contains \bibfield{options = \{skipbib=false\}}, then the
+bibliography entry will be like \bibtype{incollection} except that the
+\bibfield{title} is set in italics instead of within quotation marks.
 
 The following values for the \bibfield{entrysubtype} field are supported:
 
@@ -645,13 +661,11 @@ always separated from the title by a space.
 
 A single-volume collection with multiple, self-contained contributions by
 distinct authors which have their own title. The work as a whole has no
-overall author but it will usually have an editor. \biblatexsbl treats this as
-an alias for \bibtype{book}.
+overall author but it will usually have an editor.
 
 \typeitem{mvcollection}
 
-A multi-volume \bibtype{collection}. \biblatexsbl treats this as an alias for
-\bibtype{mvbook}.
+A multi-volume \bibtype{collection}.
 
 \typeitem{incollection}
 
@@ -668,8 +682,8 @@ bibliography, not the citation.
 \typeitem{mvcommentary}
 
 A multi-volume commentary on a single book of the Bible by one or more authors
-or a multi-volume commentary on the whole Bible by multiple authors.
-\biblatexsbl treats this as an alias to \bibtype{mvbook}.
+or a multi-volume commentary on the whole Bible by multiple authors. Unlike
+\bibtype{commentary}, this behaves exactly the same as a \bibtype{mvbook}.
 
 \typeitem{incommentary}
 
@@ -679,24 +693,24 @@ Bible appearing in a single or multi-volume commentary on the entire Bible.
 
 If an entry contains an \bibfield{xref} field, then the bibliography entry is
 printed in either short or long form as described above under
-\opt{fullbibrefs}. Otherwise this entry is treated as an alias for
-\bibtype{incollection}.
+\opt{fullbibrefs}.
 
 \typeitem{conferencepaper}
 
 An unpublished paper presented at a professional society. Use the
-\bibfield{eventtitle}, \bibfield{venue}, and \bibfield{eventdate} fields to
-specify relevant detail for the conference.
+\bibfield{eventtitle}, \bibfield{venue}, and \bibfield{date} fields to
+specify detail for the conference. See §6.3.8 of \sty{biblatex-sbl-test.pdf}
+for and example.
 
 \typeitem{lexicon}
 
-A single-volume lexicon or theological dictionary. \biblatexsbl treats this as
-an alias for \bibtype{book}.
+A single-volume lexicon or theological dictionary. This is similar to a
+\bibtype{book}.
 
 \typeitem{mvlexicon}
 
-A multi-volume lexicon or theological dictionary. \biblatex treats this as an
-alias for \bibtype{mvbook}.
+A multi-volume lexicon or theological dictionary. This is similar to a
+\bibtype{mvbook}.
 
 \typeitem{inlexicon}
 
@@ -706,8 +720,8 @@ of a \bibtype{lexicon} or \bibtype{mvlexicon}. The \bibtype{inlexicon} entry
 does not appear in the bibliography. Instead the lexicon pointed to by
 \bibfield{xref} appears in the bibliography.
 
-Subsequent citations do not include the article title, only the name of the
-lexicon. e.g.,
+Subsequent citations do not include the \bibfield{title}, only the name of the
+lexicon (specified by the \bibfield{xref} entry. e.g.,
 
 \begin{snugshade}
   \samplecite{1}[511]{dahn+liefeld:see+vision+eye}
@@ -715,52 +729,36 @@ lexicon. e.g.,
   \samplebib{NIDNTT}
 \end{snugshade}
 
-\typeitem{manual}
-
-Technical or other documentation, not necessarily in printed form. \biblatexsbl
-treats this as an alias for \bibtype{book}.
-
 \typeitem{misc}
 
 A fallback type for entries which do not fit into any other category. Use the
 \bibfield{howpublished} field to supply publishing information in free format,
 if applicable.
 
-This type is also set up to be able to insert an item into the list of
-abbreviations. So it is permissible to include just \bibfield{journaltitle}
-and \bibfield{shortjournal} or \bibfield{series} and \bibfield{shortseries},
-or \bibfield{shorthand} and relevant fields. In this case ensure that
-\bibfield{options = \{skipbib\}} is set.
-
 \typeitem{online}
 
-An online resource without a print counterpart. \biblatexsbl treats this as an
-alias for \bibtype{article}.
+An online resource without a print counterpart. This is similar to an
+\bibtype{article}.
 
-\typeitem{proceedings}
+\typeitem{periodical}
 
-A single-volume conference proceedings. In \biblatexsbl this as an alias for
-\bibtype{collection}.
+A complete issue of a periodical, such as a special issue of a journal. The
+title of the periodical is given in the \bibfield{title} field. If the issue
+has its own title in addition to the main title of the periodical, it goes in
+the \bibfield{issuetitle} field.
 
-\typeitem{mvproceedings}
-
-A multi-volume \bibtype{proceedings} entry. In \biblatexsbl this as an alias
-for \bibtype{mvcollection}.
-
-\typeitem{inproceedings}
-
-An article in a conference proceedings. In \biblatexsbl this as an alias for
-\bibtype{incollection}.
+This type could also be used to insert a journal into the list of
+abbreviations. In this case, just use \bibfield{title}, \bibfield{shorttitle},
+and set \bibfield{options = \{skipbib\}}.
 
 \typeitem{reference}
 
-A single-volume encyclopaedia or dictionary. \biblatexsbl treats this as an
-alias for \bibtype{book}.
+A single-volume encyclopaedia or dictionary. This is similar to a
+\bibtype{book}.
 
 \typeitem{mvreference}
 
-A multi-volume \bibtype{reference}. \biblatexsbl treats this as an alias for
-\bibtype{mvbook}.
+A multi-volume \bibtype{reference}. This is similar to a \bibtype{mvbook}.
 
 \typeitem{inreference}
 
@@ -773,44 +771,39 @@ above under \opt{fullbibrefs}.
 
 \typeitem{review}
 
-A book review in a journal. This is similar to the \bibtype{article} entry
-type. Use the \bibfield{revdauthor}\slash\bibfield{revdeditor} and
-\bibfield{revdtitle} fields to specify the author\slash editor and title of
-the book being reviewed.
+A book review in a journal. This is similar to an \bibtype{article}. Use the
+\bibfield{revdauthor}\slash\bibfield{revdeditor} and \bibfield{revdtitle}
+fields to specify the author\slash editor and title of the book being
+reviewed.
 
 Note that review articles are treated like articles and should use the
 \bibtype{article} entry type.
 
 \typeitem{seminarpaper}
 
-An \citeshorthand{SBL} seminar paper. This is a custom entry type for
-\biblatexsbl. See §6.4.11 of \sty{biblatex-sbl-test} for an example.
+An \citeshorthand{SBL} seminar paper. This is similar to an
+\bibtype{incollection} except that \emph{in} is suppressed byfore the
+\bibfield{booktitle}\slash\bibfield{maintitle}. See §6.4.11 of
+\sty{biblatex-sbl-test} for an example.
 
 \typeitem{series}
 
-A multi-volume series. \biblatexsbl treats this as an alias for
-\bibtype{mvbook} except that an upright shaped font is used for the
-\bibfield{title} field and the \bibfield{option} field is set to
-\bibfield{\{useauthor=false,} \bibfield{useditor=false\}} by default.
+A multi-volume series. This is similar to a \bibtype{mvbook} except that an
+upright shaped font is used for the \bibfield{title} field and the
+\bibfield{option} field is set to \bibfield{\{useauthor=false,}
+\bibfield{useditor=false\}} by default.
 
-\typeitem{set}
-
-An entry set. This entry type is special. See the \biblatex manual for
-details.
-
-\typeitem{thesis}
-
-A unpublishes thesis written for an educational institution to satisfy the
-requirements for a degree. Use the \bibfield{type} ﬁeld to specify the type of
-thesis and the \bibfield{institution} to specify the educational institution.
+This type could also be used to place a series in the list of abbreviations.
+In this case, just use \bibfield{series}, \bibfield{shortseries}, and set
+\bibfield{options = \{skipbib\}}.
 
 \end{typelist}
 
 \subsection{Entry Fields}
 
-\biblatexsbl supports many of the entry fields outlined in the \biblatex
-manual. There are also a number of custom entry fields supported by
-\biblatexsbl. These are documented below.
+\biblatexsbl supports all entry fields from the \biblatex manual except for
+\bibfield{pagetotal}. There are also a number of custom entry fields supported
+by \biblatexsbl. These are documented below.
 
 \begin{fieldlist}
 
@@ -872,10 +865,6 @@ The title of a book being reviewed.
 \fielditem{revdtitleaddon}{literal}
 
 An annex to the \bibfield{revdtitle}, to be printed in a different font.
-
-\listitem{revdtranslator}{name}
-
-The translator(s) of the \bibfield{revdtitle}.
 
 \fielditem{seriesseries}{literal}
 
@@ -1036,6 +1025,25 @@ This options controls the format of first citations. The possible choices are:
 \begin{valuelist}
 \item[true] Use a full citation the first time the entry is cited.
 \item[false] Use the short citation form the first time the entry is cited.
+\end{valuelist}
+
+\optitem[true]{useseries}{\opt{true}, \opt{false}}
+
+This option controls whether the \bibfield{series} is printed in parentheses
+following a \bibtype{classictext} citation. This does not affect other entry
+types.
+
+\begin{valuelist}
+\item[true] Print the \bibfield{series}.
+  \begin{snugshade}
+    \samplecite{1}[2.233-235]{josephus:ant:thackery}
+    \samplebib{josephus}
+  \end{snugshade}
+\item[false] Suppress printing the \bibfield{series}.
+  \begin{snugshade}
+    \samplecite{2}[10]{heraclitus:epistle1:worley}
+    \samplebib{heraclitus:epistle1:worley}
+  \end{snugshade}
 \end{valuelist}
 
 \optitem[true]{useshorttitle}{\opt{true}, \opt{false}}
