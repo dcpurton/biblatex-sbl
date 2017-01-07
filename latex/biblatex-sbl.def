@@ -1797,16 +1797,26 @@
 % ------------------------------------------------------------------
 
 \newbibmacro*{parens+publisher+location+date}{%
-  \setunit{\addspace}%
-  \printtext[parens]{%
-    \usebibmacro{publisher+location+date}%
-    \iffieldequalstr{relatedtype}{reprint}
-      {\renewcommand*{\newunitpunct}{\addsemicolon\space}%
-       \newunit
-       \usebibmacro{related:init}%
-       \usebibmacro{related}%
-       \global\toggletrue{relatedseen}}
-      {}}}
+  \ifboolexpr{
+    test {\iflistundef{publisher}}
+    and
+    test {\iflistundef{location}}
+    and
+    test {\iffieldundef{howpublished}}
+    and
+    test {\iffieldundef{year}}
+  }
+    {}
+    {\setunit{\addspace}%
+     \printtext[parens]{%
+       \usebibmacro{publisher+location+date}%
+       \iffieldequalstr{relatedtype}{reprint}
+         {\renewcommand*{\newunitpunct}{\addsemicolon\space}%
+          \newunit
+          \usebibmacro{related:init}%
+          \usebibmacro{related}%
+          \global\toggletrue{relatedseen}}
+         {}}}}
 
 \newcounter{currentpublisher}
 \newcounter{currentlocation}
