@@ -417,6 +417,10 @@
 \DeclareFieldFormat{shortjournal}{\mkbibemph{#1}}
 \DeclareFieldFormat{journalsubtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{seriesseries}{#1}
+\DeclareFieldFormat[article,periodical,review]{series}{% series of a journal
+  \ifinteger{#1}
+    {\mkbibordseries{#1}~\bibstring{jourser}}
+    {\ifbibstring{#1}{\bibstring{#1}}{#1}}}
 \DeclareFieldFormat{isbn}{ISBN\addcolon\space #1}
 \DeclareFieldFormat{isrn}{ISRN\addcolon\space #1}
 \DeclareFieldFormat{issn}{ISSN\addcolon\space #1}
@@ -517,6 +521,8 @@
 \DeclareBibliographyAlias{commentary}{book}
 \DeclareBibliographyAlias{mvcommentary}{book}
 \DeclareBibliographyAlias{cite:mvcommentary}{cite:mvbook}
+\DeclareBibliographyAlias{seminarpaper}{incollection}
+\DeclareBibliographyAlias{cite:seminarpaper}{cite:incollection}
 \DeclareBibliographyAlias{cite:online}{cite:article}
 \DeclareBibliographyAlias{online}{article}
 \DeclareBibliographyAlias{cite:manual}{cite:book}
@@ -1043,11 +1049,7 @@
 \newbibmacro*{revdtitle}{%
   \ifciteseen
     {\usebibmacro{revdshorttitle}}
-    {\ifboolexpr{
-       test {\iffieldundef{revdtitle}}
-       and
-       test {\iffieldundef{revdsubtitle}}
-     }
+    {\iffieldundef{revdtitle}
        {}
        {\printtext[revdtitle]{%
           \printfield[titlecase]{revdtitle}%
@@ -1184,32 +1186,6 @@
         \printfield[titlecase]{issuetitle}%
           \setunit*{\subtitlepunct}%
           \printfield[titlecase]{issuesubtitle}}}}}
-
-%\newbibmacro*{volume+part}{%
-%  \iffieldundef{volume}
-%    {}
-%    {\iffieldundef{part}
-%       {\usebibmacro{volumeof}}
-%       {\printfield[vol]{volume}%
-%        \setunit{\addcomma\addspace}%
-%        \iffieldundef{maintitle}
-%          {\printfield[pt]{part}%
-%           \newunit}
-%          {\printfield[partof]{part}
-%           \setunit{\addspace}}}}}
-
-%\newbibmacro*{involume+part}{%
-%  \ifboolexpr{
-%    test {\iffieldundef{booktitle}}
-%    and
-%    not test {\iffieldundef{volume}}
-%    and
-%    test {\iffieldundef{pages}}
-%  }
-%    {\bibstring{in}%
-%     \setunit{\addspace}}
-%    {}%
-%  \usebibmacro{volume+part}}
 
 % ------------------------------------------------------------------
 % NAME MACROS
@@ -1717,48 +1693,27 @@
      \usebibmacro{bymaintranslator+others}}}
 
 \newbibmacro*{revdauthor}{%
-  \ifboolexpr{
-    test \ifuseauthor
-    and
-    not test {\ifnameundef{revdauthor}}
-  }
+  \ifnameundef{revdauthor}
+    {}
     {\bibstring{byauthor}%
      \setunit{\addspace}%
-     \ifciteseen{%
-       \printnames[labelname]{revdauthor}%
-     }{%
-       \printnames{revdauthor}%
-       \iffieldundef{authortype}
-         {}
-         {\setunit{\addcomma\space}%
-          \usebibmacro{authorstrg}}}}
-    {}}
+     \ifciteseen
+       {\printnames[labelname]{revdauthor}}
+       {\printnames{revdauthor}}}}
 
 \newbibmacro*{revdeditor}{%
-  \ifboolexpr{
-    test \ifuseeditor
-    and
-    not test {\ifnameundef{revdeditor}}
-  }
+  \ifnameundef{revdeditor}
+    {}
     {\bibsstring{byeditor}%
      \setunit{\addspace}%
-     \ifciteseen{%
-       \printnames[labelname]{revdeditor}%
-     }{%
-       \printnames{revdeditor}%
-     }%
-     \clearname{revdeditor}}
-    {}}
+     \ifciteseen
+       {\printnames[labelname]{revdeditor}}
+       {\printnames{revdeditor}}}}
 
 \newbibmacro*{revdauthor/revdeditor}{%
-  \ifboolexpr{
-    test \ifuseauthor
-    and
-    not test {\ifnameundef{revdauthor}}
-  }
-    {\usebibmacro{revdauthor}}
-    {\usebibmacro{revdeditor}}}
-
+  \usebibmacro{revdauthor}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{revdeditor}}
 
 \newbibmacro*{revdauthor/revdeditor+revdtitle}{%
   \biblstring{reviewof}%
@@ -1824,7 +1779,9 @@
        {\midsentence}%
      \bibstring{paperpresented}%
      \setunit{\addspace}%
-     \printfield{eventtitle}}}
+     \printfield{eventtitle}%
+     \newunit
+     \printfield{eventtitleaddon}}}
 
 \newbibmacro*{venue+eventdate}{%
   \iffieldundef{venue}
@@ -2002,27 +1959,15 @@
     {#2}}
 
 \newbibmacro*{ifneedstitlein}[2]{%
-  \iftoggle{inentrytype}
-    {#1}
-    {\usebibmacro{ifbooktitleormaintitle}% only if booktitle or maintitle
-       {\ifboolexpr{
-          (
-            not test {\usebibmacro{ifusevolumeandpart}}
-            or
-            (
-              test {\iffieldundef{volume}}
-              and
-              test {\iffieldundef{part}}
-            )
-            or
-            not test {\iffieldundef{booktitle}}
-          )
-          and
-          test {\iffieldundef{type}}
-        }
-          {#1}
-          {#2}}
-       {#2}}}
+  \usebibmacro{ifbooktitleormaintitle}
+    {\ifboolexpr{
+       togl {inentrytype}
+       or
+       not test {\usebibmacro{ifusevolumeandpart}}
+    }
+      {#1}
+      {#2}}
+    {#2}}
 
 \newbibmacro{pagesin}{%
   \usebibmacro{ifbooktitleormaintitle}
@@ -2121,59 +2066,13 @@
            \setunit*{\addspace}}}}
     {}}
 
-%\newbibmacro*{volumeof}{%
-%  \iffieldundef{volume}
-%    {\ifboolexpr{
-%       test {\iffieldundef{booktitle}}
-%       and
-%       test {\iffieldundef{maintitle}}
-%     }
-%       {\printfield{chapter}}
-%       {\printfield[chapterin]{chapter}%
-%        \setunit*{\addspace}}}
-%    {\iffieldundef{part}
-%      {\iffieldundef{maintitle}
-%        {\ifboolexpr{
-%           test {\iftoggle{blx@usevolume}}
-%           or
-%           test {\ifbibliography}
-%         }
-%           {\printfield{chapter}%
-%            \setunit*{\addcomma\space}%
-%            \printfield[vol]{volume}%
-%            \newunit}
-%           {}}
-%        {\printfield[chapterin]{chapter}%
-%         \setunit*{\addspace}%
-%         \printfield[volumeof]{volume}%
-%         \setunit{\addspace}}}
-%      {\printfield{chapter}%
-%       \iffieldundef{maintitle}
-%         {}
-%         {\setunit*{\addspace}%
-%          \usebibmacro{in}}}}}%
-
-%\newbibmacro*{pagesin}{%
-%  \ifboolexpr{
-%    test {\iffieldundef{booktitle}}
-%    and
-%    test {\iffieldundef{maintitle}}
-%  }
-%    {\printfield{chapter}%
-%     \setunit*{\addcomma\space}%
-%     \printfield[pagepages]{pages}}
-%    {\iffieldundef{pages}
-%       {\printfield{chapter}%
-%        \setunit*{\addspace}}
-%       {\printfield{chapter}%
-%        \setunit*{\addcomma\space}%
-%        \printfield[pagesin]{pages}}}}
-
 \newbibmacro*{volume+pages}{%
   \iffieldundef{volume}
     {}
     {\setunit{\addspace}%
      \printfield{volume}%
+     \setunit*{\addperiod}%
+     \printfield{part}%
      \setunit{\volpostnotedelim}%
      \global\booltrue{usevolpostnotedelim}}
   \usebibmacro{pages}}

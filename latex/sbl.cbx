@@ -286,6 +286,8 @@
   \ifciteseen
     {}
     {\newunit
+     \usebibmacro{byauthor}%
+     \newunit
      \usebibmacro{bytranslator+others}%
      \newunit
      \usebibmacro{inissuetitle}%
@@ -376,7 +378,8 @@
        {\usebibmacro{title}}
        {\printfield{type}}}
     {\iffieldundef{type}
-       {\usebibmacro{title}%
+       {\toggletrue{inentrytype}%
+        \usebibmacro{title}%
         \newunit}
        {\printfield{type}%
         \usebibmacro{language}%
@@ -424,46 +427,62 @@
   \usebibmacro{title}%
   \ifciteseen
     {}
-    {\printfield{edition}%
+    {\usebibmacro{byauthor/byeditor+others/bytranslator+others}%
+     \newunit
+     \printfield{edition}%
      \newunit
      \printfield{volumes}%
      \newunit
      \usebibmacro{shortseries+number}%
-     \usebibmacro{parens+publisher+location+date}%
-     \newunit
-     \usebibmacro{doi+eprint+url}}%
-  \usebibmacro{finentry}}
-
-\DeclareBibliographyDriver{cite:incommentary}{%
-  \usebibmacro{citeindex}%
-  \usebibmacro{begentry}%
-  \iftoggle{blx@usefullcite}
-    {}
-    {\let\ifciteseen\@firstoftwo}%
-  \iffieldundef{volume}
-    {\usedriver{}{cite:incollection}}
-    {\iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
-     \cbx@opt@citepages@omit
-     \global\booltrue{suppresspostnote}%
-     \usebibmacro{author/translator+others}%
      \newunit
      \printfield{note}%
-     \newunit
-     \usebibmacro{xrefshortmaintitle}%
-     \newunit
-     \usebibmacro{volume+pages}%
+     \usebibmacro{parens+publisher+location+date}%
      \newunit
      \usebibmacro{ebook}%
      \newunit
      \printfield{addendum}%
      \newunit
+     \usebibmacro{pages}%
+     \newunit
      \usebibmacro{isbn}%
      \newunit
-     \usebibmacro{doi+eprint+url}%
+     \usebibmacro{doi+eprint+url}}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{cite:incommentary}{%
+  \iffieldundef{volume}
+    {\usedriver{}{cite:incollection}}
+    {\usebibmacro{citeindex}%
+     \usebibmacro{begentry}%
+     \iftoggle{blx@usefullcite}
+       {}
+       {\let\ifciteseen\@firstoftwo}%
+     \iffieldundef{xref}{}{\addskipentry{\thefield{xref}}}%
+     \cbx@opt@citepages@omit
+     \usebibmacro{author/translator+others}%
+     \newunit
+     \ifciteseen
+       {\usebibmacro{xrefshortmaintitle}%
+        \iffieldundef{volume}
+          {}
+          {\setunit{\addspace}%
+           \printfield{volume}%
+           \setunit*{\addperiod}%
+           \printfield{part}%
+           \global\booltrue{usevolpostnotedelim}}}
+       {\printfield{note}%
+        \newunit
+        \usebibmacro{xrefshortmaintitle}%
+        \newunit
+        \usebibmacro{volume+pages}%
+        \newunit
+        \printfield{addendum}}%
      \usebibmacro{finentry}}}
 
 \DeclareBibliographyDriver{cite:incollection}{%
-  \toggletrue{inentrytype}%
+  \ifentrytype{seminarpaper}
+    {}
+    {\toggletrue{inentrytype}}%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
   \iftoggle{blx@usefullcite}
@@ -524,7 +543,13 @@
   \newunit
   \ifciteseen
     {\usebibmacro{xrefshortmaintitle+xrefshortbooktitle}%
-     \usebibmacro{volume}}
+     \iffieldundef{volume}
+       {}
+       {\setunit{\addspace}%
+        \printfield{volume}%
+        \setunit*{\addperiod}%
+        \printfield{part}%
+        \global\booltrue{usevolpostnotedelim}}}
     {\usebibmacro{title}%
      \newunit
      \printfield{note}%
@@ -533,13 +558,7 @@
      \newunit
      \usebibmacro{volume+pages}%
      \newunit
-     \usebibmacro{ebook}%
-     \newunit
-     \printfield{addendum}%
-     \newunit
-     \printfield{isbn}%
-     \newunit
-     \usebibmacro{doi+eprint+url}}%
+     \printfield{addendum}}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:inreference}{%
@@ -558,7 +577,9 @@
        {}
        {\newunit
         \global\booltrue{usevolpostnotedelim}%
-        \printfield{volume}}}
+        \printfield{volume}%
+        \setunit*{\addperiod}%
+        \printfield{part}}}
     {\newunit
      \printfield{note}%
      \newunit
@@ -577,8 +598,16 @@
     {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author/translator+others}%
   \newunit
-  \usebibmacro{title}%
-  \newunit
+  \iffieldundef{title}
+    {}
+    {\usebibmacro{title}%
+     \newunit
+     \ifciteseen
+       {}
+       {\usebibmacro{byauthor}%
+        \newunit
+        \usebibmacro{bytranslator+others}%
+        \newunit}}%
   \usebibmacro{revdtitle}%
   \newunit
   \ifciteseen
@@ -586,49 +615,20 @@
      \printtext[parens]{\usebibmacro{revdauthor/revdeditor}}}
     {\usebibmacro{revdauthor/revdeditor}%
      \newunit
-     \usebibmacro{shortjournal+issue}%
-     \usebibmacro{pages}%
-     \renewcommand*{\newunitpunct}{\addperiod\space}%
-     \usebibmacro{doi+eprint+url}}%
-  \usebibmacro{finentry}}
-
-\DeclareBibliographyDriver{cite:seminarpaper}{%
-  \usebibmacro{citeindex}%
-  \usebibmacro{begentry}%
-  \iftoggle{blx@usefullcite}
-    {}
-    {\let\ifciteseen\@firstoftwo}%
-  \usebibmacro{author/editor+others/translator+others}%
-  \newunit
-  \usebibmacro{title}%
-  \ifciteseen
-    {}
-    {\newunit
-     \usebibmacro{booktitle}%
+     \usebibmacro{inissuetitle}%
      \newunit
-     \usebibmacro{bybookeditor}%
+     \printfield{version}%
      \newunit
-     \usebibmacro{volume+partof}%
-     \usebibmacro{maintitle}%
-     \newunit
-     \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}%
-     \newunit
-     \printfield{edition}%
-     \newunit
-     \printfield{volumes}%
-     \newunit
-     \usebibmacro{shortseries+number}%
+     \printlist{organization}%
      \newunit
      \printfield{note}%
-     \usebibmacro{parens+publisher+location+date}%
      \newunit
-     \usebibmacro{ebook}%
+     \usebibmacro{shortjournal+issue}%
+     \usebibmacro{pages}%
      \newunit
      \printfield{addendum}%
      \newunit
-     \usebibmacro{volume+part+pages}%
-     \newunit
-     \usebibmacro{isbn}%
+     \usebibmacro{issn}%
      \newunit
      \usebibmacro{doi+eprint+url}}%
   \usebibmacro{finentry}}

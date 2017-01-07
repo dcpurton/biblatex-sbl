@@ -167,7 +167,8 @@
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \iffieldundef{type}
-    {\usebibmacro{title}%
+    {\toggletrue{inentrytype}%
+     \usebibmacro{title}%
      \newunit}
     {\printfield{type}%
      \usebibmacro{language}%
@@ -210,6 +211,7 @@
 }
 
 \DeclareBibliographyDriver{incommentary}{%
+  \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \iffieldundef{volume}
     {\usedriver{}{incollection}}
@@ -222,9 +224,13 @@
 \DeclareBibliographyDriver{incommentary:short}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author/editor+others/translator+others}%
+  \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
+  \newunit
+  \usebibmacro{byauthor}%
+  \newunit
+  \usebibmacro{bytranslator+others}%
   \newunit
   \printfield{note}%
   \newunit
@@ -309,6 +315,7 @@
 }
 
 \DeclareBibliographyDriver{inreference}{%
+  \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \iffieldundef{volume}
     {\usedriver{}{incollection}}
@@ -324,6 +331,10 @@
   \usebibmacro{author/translator+others}%
   \newunit
   \usebibmacro{title}%
+  \newunit
+  \usebibmacro{byauthor}%
+  \newunit
+  \usebibmacro{bytranslator+others}%
   \newunit
   \printfield{note}%
   \newunit
@@ -351,60 +362,32 @@
   \usebibmacro{begentry}%
   \usebibmacro{author/translator+others}%
   \newunit
-  \usebibmacro{title}%
   \iffieldundef{title}
     {\newunit}
-    {\setunit{\addcomma\addspace}}%
+    {\usebibmacro{title}%
+     \newunit
+     \usebibmacro{byauthor}%
+     \newunit
+     \usebibmacro{bytranslator+others}%
+     \setunit{\addcomma\addspace}}%
   \usebibmacro{revdtitle}%
   \setunit{\addcomma\addspace}%
   \usebibmacro{revdauthor/revdeditor}%
   \newunit
-  \usebibmacro{shortjournal+issue}%
-  \printfield[plainpages]{pages}%
+  \usebibmacro{inissuetitle}%
   \newunit
-  \usebibmacro{doi+eprint+url}%
+  \printfield{version}%
   \newunit
-  \iftoggle{relatedseen}
-    {}
-    {\usebibmacro{related:init}%
-     \usebibmacro{related}}%
-  \usebibmacro{finentry}%
-}
-
-\DeclareBibliographyDriver{seminarpaper}{%
-  \usebibmacro{bibindex}%
-  \usebibmacro{begentry}%
-  \usebibmacro{author/editor+others/translator+others}%
-  \newunit
-  \usebibmacro{title}%
-  \newunit
-  \usebibmacro{pagesin}%
-  \iffieldundef{booktitle}
-    {}
-    {\usebibmacro{booktitle}%
-     \newunit
-     \usebibmacro{bybookeditor+others}%
-     \newunit}
-  \usebibmacro{volume+partof}%
-  \usebibmacro{maintitle}%
-  \newunit
-  \usebibmacro{bymainauthor/bymaineditor+others/bymaintranslator+others}%
-  \newunit
-  \printfield{edition}%
-  \newunit
-  \printfield{volumes}%
-  \newunit
-  \usebibmacro{shortseries+number}%
+  \printlist{organization}%
   \newunit
   \printfield{note}%
   \newunit
-  \usebibmacro{publisher+location+date}%
-  \newunit
-  \usebibmacro{ebook}%
+  \usebibmacro{shortjournal+issue}%
+  \usebibmacro{pages}%
   \newunit
   \printfield{addendum}%
   \newunit
-  \usebibmacro{isbn}%
+  \usebibmacro{issn}%
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
