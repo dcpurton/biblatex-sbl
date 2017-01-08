@@ -851,9 +851,20 @@ by \biblatexsbl. These are documented below.
 
 The editor(s) of the \bibfield{booktitle}.
 
+The behaviour of \bibfield{editor}, \bibfield{bookeditor}, and
+\bibfield{maineditor} is as follows (when \bibfield{editor} is not used as
+the overall editor): \bibfield{editor} applies to \bibfield{maintitle} (if
+set) unless \bibfield{maineditor} is set. In this case, \bibfield{editor}
+applies to \bibfield{booktitle} (if set) unless \bibfield{bookeditor} is
+set. In this case, \bibfield{editor} applies to \bibfield{title}.
+
 \listitem{booktranslator}{name}
 
 The translator(s) of the \bibfield{booktitle}.
+
+The behaviour of \bibfield{translator}, \bibfield{booktranslator}, and
+\bibfield{maintranslator} is the same as for \bibfield{editor},
+\bibfield{bookeditor}, and \bibfield{maineditor}.
 
 \fielditem{eprintdate}{date}
 
