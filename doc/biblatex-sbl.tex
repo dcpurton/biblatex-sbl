@@ -842,8 +842,9 @@ In this case, just use \bibfield{series}, \bibfield{shortseries}, and set
 \subsection{Entry Fields}
 
 \biblatexsbl supports all entry fields from the \biblatex manual except for
-\bibfield{pagetotal}. There are also a number of custom entry fields supported
-by \biblatexsbl. These are documented below.
+\bibfield{pagetotal}. There are also a number of custom entry fields and
+specially handled fields supported by \biblatexsbl. These are documented
+below.
 
 \begin{fieldlist}
 
@@ -926,9 +927,39 @@ between the old and new series. See \cite[§6.2.24]{SBLHS}.
 
 The \bibfield{booktitle} in abridged form.
 
+\fielditem{shorthand}{literal}
+
+A special short form printed instead of the usual citation. Sometimes the
+\bibfield{shorthand} is short for the authors and should be printed in an
+upright font shape. Other times it is short for the \bibfield{title} and
+should be printed in italics. This behaviour is controlled using the
+\bibfield{shorttitle} field. If the \bibfield{shorttitle} is the same as the
+\bibfield{shorthand} then the \bibfield{shorthand} is assumed to be short for
+the \bibfield{title} and printed in italics, otherwise it is printed in an
+upright font. The \bibfield{shorthand} is automatically inserted into the list
+of abbreviations.
+
+\fielditem{shortjournal}{literal}
+
+The \bibfield{journaltitle} in abridged form. This is always printed instead
+of the \bibfield{journaltitle}. The \bibfield{shortjournal} and
+\bibfield{journaltitle} is then automatically inserted into the list of
+abbreviations.
+
 \fielditem{shortmaintitle}{literal}
 
 The \bibfield{maintitle} in abridged form.
+
+\fielditem{shortseries}{literal}
+
+The \bibfield{series} in abridged form. This is always printed instead of the
+\bibfield{series}. The \bibfield{shortseries} and \bibfield{series} is then
+automatically inserted into the list of abbreviations.
+
+\fielditem{shorttitle}{literal}
+
+The \bibfield{title} in abridged form. This is printed instead of the full
+title on subsequent citations.
 
 \listitem{withauthor}{name}
 
