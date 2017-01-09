@@ -96,7 +96,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -154,7 +158,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -203,7 +211,11 @@
   \usebibmacro{isbn}%
   \newunit
   \usebibmacro{doi+eprint+url}%
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -246,7 +258,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -302,7 +318,11 @@
   \usebibmacro{isbn}%
   \newunit
   \usebibmacro{doi+eprint+url}%
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -350,7 +370,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -391,7 +415,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -421,7 +449,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -450,7 +482,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -476,7 +512,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -502,7 +542,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%
@@ -534,7 +578,11 @@
   \newunit
   \usebibmacro{doi+eprint+url}%
   \newunit
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+  }
     {}
     {\usebibmacro{related:init}%
      \usebibmacro{related}}%

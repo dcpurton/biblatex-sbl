@@ -132,13 +132,17 @@
          {\setunit{\postnotedelim}}%
        \usebibmacro{postnote}}
       {}}%
-  \iftoggle{relatedseen}
+  \ifboolexpr{
+    togl {relatedseen}
+    or
+    not togl {bbx:related}
+    or
+    test {\iffieldundef{related}}
+  }
     {}
-    {\iffieldundef{related}
-       {}
-       {\setunit{\addsemicolon\space}%
-        \usebibmacro{related:init}%
-        \usebibmacro{related}}}}
+    {\setunit{\addsemicolon\space}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}
