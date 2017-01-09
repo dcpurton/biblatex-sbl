@@ -2168,9 +2168,11 @@
     {}}
 
 \newbibmacro*{ebook}{%
-  \iffieldequalstr{eprinttype}{ebook}
-    {\usebibmacro{eprint}%
-     \clearfield{eprint}}
+  \iftoggle{bbx:eprint}
+    {\iffieldequalstr{eprinttype}{ebook}
+       {\usebibmacro{eprint}%
+        \clearfield{eprint}}
+       {}}
     {}}
 
 \newbibmacro*{isbn}{%
