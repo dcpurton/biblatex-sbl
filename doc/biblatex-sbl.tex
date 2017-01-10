@@ -939,6 +939,10 @@ the \bibfield{title} and printed in italics, otherwise it is printed in an
 upright font. The \bibfield{shorthand} is automatically inserted into the list
 of abbreviations.
 
+The separator between the \bibfield{shorthand} and \bibfield{postnote} depends
+on the content of the \bibfield{postnote}. If the \bibfield{postnote} contains
+a ‘.’, ‘:’, or ‘§’, then the separator is a space, otherwise it is a comma.
+
 \fielditem{shortjournal}{literal}
 
 The \bibfield{journaltitle} in abridged form. This is always printed instead
