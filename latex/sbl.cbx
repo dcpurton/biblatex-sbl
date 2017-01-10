@@ -29,8 +29,21 @@
         and
         not test {\iffirstonpage}}
       {\usebibmacro{cite:ibid}}
-      {\usebibmacro{ifuseshorthand}
-         {\usebibmacro{cite:shorthand}}
+      {\ifboolexpr{
+         not test {\iffieldundef{shorthand}}
+         and
+         not test {\ifcsstring{blx@shorthand}{false}}
+       }
+         {\ifboolexpr{
+            test {\ifcsstring{blx@shorthand}{short}}
+            and
+            not test {\ifciteseen}
+          }
+            {\usedriver{}{cite:\thefield{entrytype}}%
+             \iftoggle{blx@shorthandintro}
+               {\usebibmacro{shorthandintro}}
+               {}}
+            {\usebibmacro{cite:shorthand}}}
          {\usedriver{}{cite:\thefield{entrytype}}}}}}
 
 % redefine default loccit tracker so that citations with no postnote also match
@@ -55,12 +68,6 @@
   \ifloccit
     {\global\booltrue{suppresspostnote}}
     {}}
-
-\newbibmacro{shorthand}{%
-  \iffieldsequal{shorthand}{shorttitle}
-    {\printtext{\mkbibemph{\printtext{%
-       \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
-    {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
 
 \newbibmacro*{cite:shorthand}{%
   \togglefalse{blx@citeindex}%

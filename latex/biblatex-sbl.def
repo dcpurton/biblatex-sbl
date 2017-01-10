@@ -212,6 +212,7 @@
 \newtoggle{blx@usevolume}
 \newtoggle{blx@useseries}
 \newtoggle{blx@useshorttitle}
+\newtoggle{blx@shorthandintro}
 \newtoggle{blx@accessdate}
 
 \DeclareTypeOption{skipbiblistseries}[true]{%
@@ -253,11 +254,25 @@
   \settoggle{blx@useseries}{#1}}
 
 \def\blx@shorthand{}
+\DeclareBibliographyOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
+\DeclareTypeOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
 \DeclareEntryOption[string]{shorthand}[true]{%
   \def\blx@shorthand{#1}}
 
 \DeclareBibliographyOption{accessdate}[true]{%
   \settoggle{blx@accessdate}{#1}}
+\DeclareTypeOption{accessdate}[true]{%
+  \settoggle{blx@accessdate}{#1}}
+\DeclareEntryOption{accessdate}[true]{%
+  \settoggle{blx@accessdate}{#1}}
+
+\DeclareBibliographyOption{shorthandintro}[true]{%
+  \settoggle{blx@shorthandintro}{#1}%
+  \ifstrequal{#1}{true}
+    {\ExecuteBibliographyOptions{shorthand=short}}
+    {}}
 
 % ------------------------------------------------------------------
 % STYLE OPTIONS
@@ -306,7 +321,9 @@
   useshorttitle,
   usevolume,
   useseries,
-  accessdate=false
+  accessdate=false,
+  shorthandintro=false,
+  shorthand=true
 }
 
 \ExecuteBibliographyOptions[classictext,ancienttext]{%
@@ -927,6 +944,27 @@
 \newbibmacro*{of}{%
   \printtext{\bibstring{of}}%
   \setunit{\addspace}}
+
+% ------------------------------------------------------------------
+% SHORTHAND MACROS
+% ------------------------------------------------------------------
+
+\newbibmacro{shorthand}{%
+  \iffieldsequal{shorthand}{shorttitle}
+    {\printtext{\mkbibemph{\printtext{%
+       \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
+    {\printtext{\bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}
+
+\renewbibmacro*{shorthandintro}{%
+  \iffieldundef{shorthandintro}
+    {\iffieldundef{shorthand}
+       {}
+       {\setunit{\addspace}%
+        \printtext[parens]{%
+          \bibstring{citedas}\space
+          \usebibmacro{shorthand}}}}
+    {\setunit{\addspace}%
+     \printtext[parens]{\printfield{shorthandintro}}}}
 
 % ------------------------------------------------------------------
 % TITLE MACROS
@@ -2043,16 +2081,6 @@
       and
       test {\iffieldundef{part}}
     )
-    %or
-    %(% always if usevolume=false and (postnote not page and pages undefined)
-    %  not togl {blx@usevolume}
-    %  and
-    %  (
-    %    not test {\iffieldpages{postnote}}
-    %    and
-    %    test {\iffieldundef{pages}}
-    %  )
-    %)
   }
     {#1}
     {#2}}
