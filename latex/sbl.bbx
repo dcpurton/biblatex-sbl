@@ -170,13 +170,12 @@
 }
 
 \DeclareBibliographyDriver{suppbook}{%
-  \toggletrue{inentrytype}%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \iffieldundef{type}
-    {%
+    {\toggletrue{inentrytype}%
      \usebibmacro{title}%
      \setunit{\addspace}%
      \usebibmacro{in}}
@@ -186,6 +185,7 @@
      \usebibmacro{to}}%
   \usebibmacro{booktitle}%
   \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+  \clearfield{booktitle}%
   \newunit
   \usebibmacro{chapter+pagesin}%
   \usebibmacro{volume+partof}%
