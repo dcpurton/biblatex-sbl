@@ -512,13 +512,25 @@
        {\mkbibquote{#1}}}}
 \DeclareFieldFormat[series]{title}{#1}
 \DeclareFieldFormat[series]{shorttitle}{#1}
-\DeclareFieldFormat[suppbook]
+\DeclareFieldFormat[suppbook,suppcollection]
 {type}{%
   \ifbibstring{#1}%
   {\bibstring{#1}}%
   {\ifcapital%
     {\MakeCapital{#1\isdot}}%
     {#1\isdot}}}
+\DeclareFieldFormat[suppbook,suppcollection]{title}{%
+  \iffieldundef{type}
+    {#1}
+    {\mkbibemph{#1}}}
+\DeclareFieldFormat[suppbook,suppcollection]{subtitle}{%
+  \iffieldundef{type}
+    {#1}
+    {\mkbibemph{#1}}}
+\DeclareFieldFormat[suppbook,suppcollection]{shorttitle}{%
+  \iffieldundef{type}
+    {#1}
+    {\mkbibemph{#1}}}
 
 \DeclareBibliographyAlias{cite:mvbook}{cite:book}
 \DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
@@ -752,6 +764,27 @@
     \map{
       \step[fieldsource=revdtitle, match=\regexp{(.*?):}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
+    }
+    \map{
+      \pertype{suppbook}
+      \pertype{suppcollection}
+      \step[fieldsource=type, final]
+      \step[fieldsource=title, final]
+      \step[fieldset=booktitle, origfieldval]
+    }
+    \map{
+      \pertype{suppbook}
+      \pertype{suppcollection}
+      \step[fieldsource=type, final]
+      \step[fieldsource=subtitle, final]
+      \step[fieldset=subbooktitle, origfieldval]
+    }
+    \map{
+      \pertype{suppbook}
+      \pertype{suppcollection}
+      \step[fieldsource=type, final]
+      \step[fieldsource=titleaddon, final]
+      \step[fieldset=booktitleaddon, origfieldval]
     }
     \map{
       \pertype{periodical}
@@ -2049,7 +2082,13 @@
     {\ifbibliography
        {\printfield{chapter}%
         \setunit*{\addcomma\space}%
-        \usebibmacro{ifbooktitleormaintitle}
+        \ifboolexpr{
+          test {\usebibmacro{ifbooktitleormaintitle}}
+          or
+          not test {\iffieldundef{volume}}
+          or
+          not test {\iffieldundef{part}}
+        }
           {\printfield[pagesin]{pages}%
            \setunit*{\addspace}}
           {\printfield[pagepages]{pages}%

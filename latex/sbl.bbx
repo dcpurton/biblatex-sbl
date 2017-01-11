@@ -170,25 +170,24 @@
 }
 
 \DeclareBibliographyDriver{suppbook}{%
+  \toggletrue{inentrytype}%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \newunit
   \iffieldundef{type}
-    {\toggletrue{inentrytype}%
+    {%
      \usebibmacro{title}%
-     \newunit}
+     \setunit{\addspace}%
+     \usebibmacro{in}}
     {\printfield{type}%
      \usebibmacro{language}%
      \setunit{\addspace}%
      \usebibmacro{to}}%
+  \usebibmacro{booktitle}%
+  \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+  \newunit
   \usebibmacro{chapter+pagesin}%
-  \iffieldundef{booktitle}
-    {}
-    {\usebibmacro{booktitle}%
-     \newunit
-     \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
-     \newunit}%
   \usebibmacro{volume+partof}%
   \usebibmacro{maintitle}%
   \newunit

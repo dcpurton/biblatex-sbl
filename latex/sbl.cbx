@@ -377,6 +377,7 @@
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{cite:suppbook}{%
+  \toggletrue{inentrytype}%
   \usebibmacro{citeindex}%
   \usebibmacro{begentry}%
   \iftoggle{blx@usefullcite}
@@ -389,19 +390,18 @@
        {\usebibmacro{title}}
        {\printfield{type}}}
     {\iffieldundef{type}
-       {\toggletrue{inentrytype}%
-        \usebibmacro{title}%
-        \newunit}
+       {\usebibmacro{title}%
+        \setunit{\addspace}%
+        \usebibmacro{in}}
        {\printfield{type}%
         \usebibmacro{language}%
         \setunit{\addspace}%
         \usebibmacro{to}}%
-     \usebibmacro{chapter+pagesin}%
-     \iffieldundef{booktitle}
-       {}
-       {\usebibmacro{booktitle}%
-        \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
-        \newunit}%
+     \usebibmacro{booktitle}%
+     \usebibmacro{bybookauthor/bybookeditor+others/bybooktranslator+others}%
+     \newunit
+     \printfield{chapter}%
+     \newunit
      \usebibmacro{volume+partof}%
      \usebibmacro{maintitle}%
      \newunit
