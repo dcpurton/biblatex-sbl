@@ -10,7 +10,7 @@
 \usepackage{xparse}
 \usepackage{framed}
 
-\usepackage[style=sbl,indexing=cite,backend=biber]{biblatex}
+\usepackage[style=sbl,indexing=cite]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \hypersetup{colorlinks,citecolor=spot}
@@ -526,6 +526,24 @@ the \sty{footmisc} package provided \sty{footmisc} is loaded before \biblatex.
     \hspace*{\bibindent}\llap{\textsuperscript{1}}\cite{robinson+koester:1971}.
   \end{snugshade}
 \end{valuelist}
+
+\optitem[true]{shorthand}{\opt{true}, \opt{false}, \opt{short}, \opt{intro}}
+
+This option controls when and whether the \bibfield{shorthand} field is used
+as a citation. This can also be used as a type option or entry option.
+\bibtype{ancienttext} and \bibtype{classictext} entry types ignore this
+option.
+
+\begin{valuelist}
+\item[true] Always use the \bibfield{shorthand} when citing the entry.
+\item[false] Never use the \bibfield{shorthand} when citing the entry.
+\item[short] Print the full citation the first time the entry is cited. Use
+  the \bibfield{shorthand} on subsequent citations.
+\item[intro] Print the full citation the first time the entry is cited
+  followed by (henceforth cited as \bibfield{shorthand}). Use the
+  \bibfield{shorthand} on subsequent citations.
+\end{valuelist}
+
 
 \end{optionlist}
 
@@ -1058,7 +1076,7 @@ This field is analogous to the \bibfield{withtranslatortype}, but for the
 
 \end{fieldlist}
 
-\subsection{Entry Options}
+\subsection{Type and Entry Options}
 
 \biblatexsbl supports many of the entry options outlined in the \biblatex
 manual. There are also a number of custom entry options supported by
@@ -1090,18 +1108,6 @@ For entries not containing a \bibfield{shorthand} just use the option
 \item[true] Do not include the \bibfield{shortseries} in the list of
   abbreviations.
 \item[false] Include the \bibfield{shortseries} in the list of abbreviations.
-\end{valuelist}
-
-\optitem[true]{shorthand}{\opt{true}, \opt{false}, \opt{short}}
-
-This option controls when and whether the \bibfield{shorthand} field is used
-as a citation.
-
-\begin{valuelist}
-\item[true] Always use the \bibfield{shorthand} when citing the entry.
-\item[false] Never use the \bibfield{shorthand} when citing the entry.
-\item[short] Print the full citation the first time the entry is cited. Use
-  the \bibfield{shorthand} on subsequent citations.
 \end{valuelist}
 
 \optitem[true]{usefullcite}{\opt{true}, \opt{false}}

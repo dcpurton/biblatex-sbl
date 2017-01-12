@@ -212,8 +212,8 @@
 \newtoggle{blx@usevolume}
 \newtoggle{blx@useseries}
 \newtoggle{blx@useshorttitle}
-\newtoggle{blx@shorthandintro}
 \newtoggle{blx@accessdate}
+\def\blx@shorthand{}
 
 \DeclareTypeOption{skipbiblistseries}[true]{%
   \settoggle{blx@skipbiblistseries}{#1}}
@@ -253,14 +253,6 @@
 \DeclareEntryOption{useseries}[true]{%
   \settoggle{blx@useseries}{#1}}
 
-\def\blx@shorthand{}
-\DeclareBibliographyOption[string]{shorthand}[true]{%
-  \def\blx@shorthand{#1}}
-\DeclareTypeOption[string]{shorthand}[true]{%
-  \def\blx@shorthand{#1}}
-\DeclareEntryOption[string]{shorthand}[true]{%
-  \def\blx@shorthand{#1}}
-
 \DeclareBibliographyOption{accessdate}[true]{%
   \settoggle{blx@accessdate}{#1}}
 \DeclareTypeOption{accessdate}[true]{%
@@ -268,11 +260,12 @@
 \DeclareEntryOption{accessdate}[true]{%
   \settoggle{blx@accessdate}{#1}}
 
-\DeclareBibliographyOption{shorthandintro}[true]{%
-  \settoggle{blx@shorthandintro}{#1}%
-  \ifstrequal{#1}{true}
-    {\ExecuteBibliographyOptions{shorthand=short}}
-    {}}
+\DeclareBibliographyOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
+\DeclareTypeOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
+\DeclareEntryOption[string]{shorthand}[true]{%
+  \def\blx@shorthand{#1}}
 
 % ------------------------------------------------------------------
 % STYLE OPTIONS
@@ -322,7 +315,6 @@
   usevolume,
   useseries,
   accessdate=false,
-  shorthandintro=false,
   shorthand=true
 }
 
@@ -919,6 +911,18 @@
 % SET UP DELIMITER MACROS
 % ------------------------------------------------------------------
 
+\newbibmacro*{ifneedsetpostnotedelim}[2]{%
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    or
+    test {\ifentrytype{classictext}}
+  }
+    {\def\blx@shorthand{true}}
+    {}%
+  \usebibmacro{ifuseshorthand} 
+    {#1}
+    {#2}}
+
 \ExplSyntaxOn
 \cs_new_protected:Nn \sbl_ifinstringt:nnn {
    \tl_if_in:nnT {#2}{#1}{#3}}
@@ -982,7 +986,42 @@
 % SHORTHAND MACROS
 % ------------------------------------------------------------------
 
-\newbibmacro{shorthand}{%
+\newbibmacro*{ifuseshorthand}[2]{%
+  \ifboolexpr{
+    not test {\iffieldundef{shorthand}}
+    and
+    (
+      test {\ifcsstring{blx@shorthand}{true}}
+      or
+      (
+        test {\ifcsstring{blx@shorthand}{short}}
+        and
+        test {\ifciteseen}
+      )
+      or
+      (
+        test {\ifcsstring{blx@shorthand}{intro}}
+        and
+        test {\ifciteseen}
+      )
+    )
+  }
+    {#1}
+    {#2}}
+
+\newbibmacro*{ifciteuseshorthand}[2]{%
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    or
+    test {\ifentrytype{classictext}}
+  }
+    {\def\blx@shorthand{true}}
+    {}%
+  \usebibmacro{ifuseshorthand}
+    {#1}
+    {#2}}
+  
+\newbibmacro*{shorthand}{%
   \iffieldsequal{shorthand}{shorttitle}
     {\printtext{\mkbibemph{\printtext{%
        \bibhyperlink{\strfield{shorthand}}{\thefield{shorthand}}}}}}
@@ -2336,17 +2375,6 @@
        }
          {\global\toggletrue{blx@testpostnotedelim}}
          {}}}}
-
-\newbibmacro*{ifuseshorthand}{%
-  \iffieldundef{shorthand}
-    {\@secondoftwo}
-    {\ifcsstring{blx@shorthand}{false}
-       {\@secondoftwo}
-       {\ifciteseen
-          {\@firstoftwo}
-          {\ifcsstring{blx@shorthand}{short}
-             {\@secondoftwo}
-             {\@firstoftwo}}}}}
 
 % ------------------------------------------------------------------
 % ANCIENT AND CLASSIC TEXT MACROS
