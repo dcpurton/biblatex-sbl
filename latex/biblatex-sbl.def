@@ -836,9 +836,11 @@
 % DATA INHERITANCE
 % ------------------------------------------------------------------
 
-\DeclareDataInheritance{mvbook,mvcollection,mvreference,mvlexicon,mvcommentary}
-    {book,inbook,collection,incollection,reference,inreference,bookinbook,
-     lexicon,commentary,inlexicon,incommentary,classictext}{%
+\DeclareDataInheritance{mvbook,mvcollection,mvreference,mvlexicon,mvcommentary,
+                        mvproceedings}
+    {book,inbook,bookinbook,suppbook,collection,incollection,suppcollection,
+     reference,inreference,lexicon,inlexicon,commentary,incommentary,proceedings,
+     inproceedings,classictext}{%
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
@@ -857,9 +859,9 @@
   \noinherit{endyear}
 }
 
-\DeclareDataInheritance{book,collection,reference,lexicon,commentary}
-    {inbook,incollection,inreference, inlexicon,incommentary,
-     bookinbook,classictext}{%
+\DeclareDataInheritance{book,collection,reference,lexicon,commentary,proceedings}
+    {inbook,bookinbook,suppbook,incollection,suppcollection,inreference,inlexicon,
+     incommentary,inproceedings,classictext}{%
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
