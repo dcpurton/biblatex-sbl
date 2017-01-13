@@ -879,6 +879,10 @@
   \noinherit{endyear}
 }
 
+\DeclareDataInheritance{periodical}{article,suppperiodical}{%
+  \inherit{shorttitle}{shortjournal}
+}
+
 % ------------------------------------------------------------------
 % LANGUAGE
 % ------------------------------------------------------------------
