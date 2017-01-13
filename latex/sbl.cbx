@@ -9,6 +9,7 @@
 \newtoggle{usingibid}
 \newtoggle{relatedseen}
 \newtoggle{inentrytype}
+\newtoggle{cbx:involcite}
 
 \newbibmacro*{cite}{%
   \boolfalse{suppresspostnote}%
@@ -112,6 +113,20 @@
   \renewcommand*{\bibhypertarget}[2]{##2}%
   \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
 }
+
+\renewrobustcmd*{\volcitecmd}{%
+  \AtNextCite{%
+    \toggletrue{cbx:involcite}%
+    \DeclareFieldAlias{postnote}{volcitenote}}%
+  \begingroup\let\blx@citeargs\blx@volciteargs}
+
+\renewrobustcmd*{\multivolcitecmd}{%
+  \AtNextCite{%
+    \toggletrue{cbx:involcite}%
+    \DeclareFieldAlias{postnote}{volcitenote}}%
+  \def\blx@hook@mcite@before{%
+    \global\undef\blx@hook@mcite@before
+    \let\blx@citeargs\blx@volmciteargs}}
 
 \newbibmacro*{cite:postnote}{%
   \iffieldundef{shorthand}

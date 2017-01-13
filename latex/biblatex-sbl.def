@@ -931,6 +931,9 @@
 \ExplSyntaxOff
 
 \newbibmacro*{setpostnotedelim}{%
+  \iftoggle{cbx:involcite}
+    {\renewcommand*{\postnotedelim}{\addspace}}
+    {}%
   \iffieldundef{postnote}
     {}
     {\IfInStringT{.}{\abx@field@postnote}
@@ -2420,16 +2423,31 @@
 \cs_new_eq:NN \splitpostnote  \_biblatexsbl_splitpostnote:o
 \ExplSyntaxOff
 
+\newrobustcmd*{\volsplitpostnote}[2]{%
+  \gdef\volvol{#1}%
+  \gdef\abx@field@volpostnote{#2}%
+  \iffieldundef{volpostnote}
+    {}
+    {\splitpostnote{\abx@field@volpostnote}}}
+
 \def\setuppostnotes{%
   \global\undef\postnotefirst
   \global\undef\postnotelast
-  \splitpostnote{\abx@field@postnote}}
+  \iftoggle{cbx:involcite}
+    {\expandafter\volsplitpostnote\abx@field@postnote}%
+    {\splitpostnote{\abx@field@postnote}}}
 
 \renewbibmacro*{prenote}{%
   \iffieldundef{postnote}
     {}
     {\setuppostnotes
-     \restorefield{postnote}{\postnotelast}%
+     \iftoggle{cbx:involcite}
+       {\ifdefined\postnotelast
+          \def\abx@field@postnote{{\volvol}{\postnotelast}}%
+        \else
+          \def\abx@field@postnote{{\volvol}{}}%
+        \fi}
+       {\restorefield{postnote}{\postnotelast}}%
      \restorefield{altpostnote}{\postnotefirst}}%
   \iffieldundef{prenote}
     {}
