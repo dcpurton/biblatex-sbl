@@ -201,6 +201,22 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\def\blx@shorthand{false}%
+   \let\ifciteseen\@secondoftwo
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\def\blx@shorthand{false}%
+   \let\ifciteseen\@secondoftwo
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand{\citeseries}
   {}
   {\usebibmacro{shortseries}}
