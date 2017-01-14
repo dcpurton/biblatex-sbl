@@ -30,17 +30,19 @@ TEXFILES = doc/sbl-paper.sty \
 TDSZIP   = biblatex-sbl.tds.zip
 CTANZIP  = biblatex-sbl.zip
 
-all: $(CTANZIP)
+ctanzip: $(CTANZIP)
 
-$(CTANZIP): $(TDSZIP)
+tdszip: $(TDSZIP)
+
+$(CTANZIP):
 	rm -rf $(CTANZIP) $(CTANDIR)
 	mkdir -p $(CTANDIR)
 	cp $(README) $(CTANDIR)
 	cp $(ISTFILES) $(CTANDIR)
 	cp $(DOCFILES) $(CTANDIR)
 	cp $(TEXFILES) $(CTANDIR)
-	zip -r $(CTANZIP) $(TDSZIP) $(CTANDIR)
-	rm -rf $(TDSZIP) $(TDSDIR) $(CTANDIR)
+	zip -r $(CTANZIP) $(CTANDIR)
+	rm -rf $(CTANDIR)
 
 $(TDSZIP):
 	rm -rf $(TDSZIP) $(TDSDIR)
@@ -52,6 +54,7 @@ $(TDSZIP):
 	cp $(TEXFILES) $(TDSTEXDIR)
 	cd $(TDSDIR) && zip -r $(TDSZIP) *
 	mv $(TDSDIR)/$(TDSZIP) .
+	rm -rf $(TDSDIR)
 
 clean:
 	rm -rf $(TDSZIP) $(CTANZIP) $(CTANDIR) $(TDSDIR)
