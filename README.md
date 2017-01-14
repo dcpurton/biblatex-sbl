@@ -36,7 +36,7 @@ The following packages are required:
 ## Licence
 
 ```
-Copyright 2015-2016 David Purton
+Copyright 2015-2017 David Purton
 
 This work may be distributed and/or modified under the
 conditions of the LaTeX Project Public License, either version 1.3
