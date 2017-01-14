@@ -837,7 +837,7 @@
 % ------------------------------------------------------------------
 
 \DeclareDataInheritance{mvbook,mvcollection,mvreference,mvlexicon,mvcommentary,
-                        mvproceedings}
+                        mvproceedings,series}
     {book,inbook,bookinbook,suppbook,collection,incollection,suppcollection,
      reference,inreference,lexicon,inlexicon,commentary,incommentary,proceedings,
      inproceedings,classictext}{%
