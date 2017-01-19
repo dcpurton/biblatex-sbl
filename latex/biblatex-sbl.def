@@ -284,6 +284,10 @@
     {\ExecuteBibliographyOptions{loccittracker=true}}
     {\ExecuteBibliographyOptions{loccittracker=false}}}
 
+\newtoggle{blx@dashed}
+\DeclareBibliographyOption{dashed}[true]{%
+  \settoggle{blx@dashed}{#1}}
+
 \ExecuteBibliographyOptions{%
   citetracker,
   punctfont,
@@ -310,6 +314,7 @@
   useseries,
   accessdate=false,
   shorthand=true,
+  dashed=true,
   language=american
 }
 
@@ -2478,6 +2483,7 @@
        or
        test {\iffieldequalstr{entrysetcount}{1}}
     )
+    and togl {blx@dashed}
   }
     {#1}
     {#2}}
