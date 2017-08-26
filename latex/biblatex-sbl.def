@@ -888,22 +888,6 @@
 % ------------------------------------------------------------------
 % LANGUAGE
 % ------------------------------------------------------------------
-%   - use literals for origlanguage if no translation found
-% ------------------------------------------------------------------
-
-\renewcommand*{\lbx@lfromlang}{%
-  \iffieldundef{origlanguage}
-    {\unspace}
-    {\ifbibxstring{from\abx@field@origlanguage}
-      {\biblstring{from\thefield{origlanguage}}}
-      {from \printfield{origlanguage}}}}
-
-\renewcommand*{\lbx@sfromlang}{%
-  \iffieldundef{origlanguage}
-    {\unspace}
-    {\ifbibxstring{from\abx@field@origlanguage}
-       {\bibsstring{from\thefield{origlanguage}}}
-       {from \printfield{origlanguage}}}}
 
 \newbibmacro*{language}{%
   \iflistundef{language}
