@@ -728,7 +728,7 @@
           {\skipentry}
           {\savefieldcs{shorthand}{sbl\therefsection\strfield{shorthand}=\strfield{title}}}}}}
 
-\DeclareSortingScheme{abbreviations}{%
+\DeclareSortingTemplate{abbreviations}{%
   \sort{%
     \field{shorthand}%
     \field{shortjournal}%
