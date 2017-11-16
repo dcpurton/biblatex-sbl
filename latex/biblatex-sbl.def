@@ -1,12 +1,12 @@
 \RequireBibliographyStyle{standard}
 \RequireBiber[3]
 
-% BibLaTeX version 3.5 or greater required
-\newdimen \biblatex@version
-\biblatex@version = \abx@version pt
-\ifdim \biblatex@version < 3.45pt
-  \PackageError{biblatex-sbl}{BibLaTeX v3.5 or greater is required}
-\fi
+% BibLaTeX version 2017/11/05 v3.8a or greater required
+\@ifpackagelater{biblatex}{2017/11/05}
+  {}
+  {\PackageError{biblatex-sbl}
+     {BibLaTeX v3.8a or greater is required}
+     {You need to update your TeX distribution to use biblatex-sbl.}}
 
 % Require xparse
 \RequirePackage{xparse}
