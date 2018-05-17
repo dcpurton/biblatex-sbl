@@ -315,7 +315,8 @@
   usevolume,
   useseries,
   accessdate=false,
-  shorthand=true
+  shorthand=true,
+  language=american
 }
 
 \ExecuteBibliographyOptions[classictext,ancienttext]{%
@@ -344,11 +345,7 @@
 \NewBibliographyString{patentfiled}
 \NewBibliographyString{released}
 
-\DeclareLanguageMapping{english}{sbl-american}
-\DeclareLanguageMapping{american}{sbl-american}
-\DeclareLanguageMapping{british}{sbl-british}
-\DeclareLanguageMapping{german}{sbl-german}
-\DeclareLanguageMapping{spanish}{sbl-spanish}
+\DeclareLanguageMappingSuffix{-sbl}
 
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\namedashpunct}{\adddot\space}
