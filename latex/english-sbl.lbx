@@ -1,4 +1,4 @@
-\ProvidesFile{sbl-english.lbx}[\sbl@abx@lbxid]
+\ProvidesFile{english-sbl.lbx}[\sbl@abx@lbxid]
 
 \DeclareBibliographyStrings{%
   inherit          = {english},
@@ -27,6 +27,8 @@
   beforechrist     = {{BC}{BC}}
 }
 
+\InheritBibliographyExtras{english}
+
 \DeclareBibliographyExtras{%
-  \def\finalandcomma{\addcomma}%
+  \DeclarePunctuationPairs{colon}{*}%
 }
