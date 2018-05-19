@@ -351,6 +351,7 @@
 \newcommand*{\namedashpunct}{\adddot\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
 \renewcommand*{\relateddelim}{\addsemicolon\space}
+\renewcommand*{\begrelateddelim}{\addsemicolon\space}
 
 \setcounter{mincompwidth}{10}
 

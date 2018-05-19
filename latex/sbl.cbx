@@ -76,11 +76,11 @@
     {\usebibmacro{setaltpostnotedelim}%
      \setunit{\postnotedelim}%
      \printfield{altpostnote}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \usebibmacro{related:init}%
-       \usebibmacro{related}%
-       \usebibmacro{volume+part+postnote}}} 
+     \DeclareFieldFormat{related}{\mkbibparens{##1}}%
+     \renewcommand*{\begrelateddelim}{\addspace}%
+     \renewbibmacro*{endrelatedloop}{\usebibmacro{volume+part+postnote}}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}}%
     {\ifciteseen
        {}
        {\newunit
@@ -98,6 +98,8 @@
   \DeclareNameAlias{editor}{sortname}%
   \DeclareNameAlias{translator}{sortname}%
   \renewcommand*{\newunitpunct}{\addperiod\space}%
+  \renewcommand*{\relateddelim}{\addperiod\space}
+  \renewcommand*{\begrelateddelim}{\addperiod\space}
   \sloppy
   \printtext{\usedriver{}{\thefield{entrytype}}}}
 
@@ -155,8 +157,7 @@
     test {\iffieldundef{related}}
   }
     {}
-    {\setunit{\addsemicolon\space}%
-     \usebibmacro{related:init}%
+    {\usebibmacro{related:init}%
      \usebibmacro{related}}}
 
 \DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
@@ -359,15 +360,15 @@
             test {\iffieldequalstr{entrysubtype}{COS}}
          }}
   }
-    {\newunit
+    {\renewcommand*{\begrelateddelim}{\newunitpunct}%
      \usebibmacro{related:init}%
      \usebibmacro{related}%
      \usebibmacro{volume+part+postnote}}
-    {\setunit{\addspace}%
-     \printtext[parens]{%
-       \usebibmacro{related:init}%
-       \usebibmacro{related}%
-       \usebibmacro{volume+part+postnote}}}%
+    {\DeclareFieldFormat{related}{\mkbibparens{##1}}%
+     \renewcommand*{\begrelateddelim}{\addspace}%
+     \renewbibmacro*{endrelatedloop}{\usebibmacro{volume+part+postnote}}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}}%
   \global\toggletrue{relatedseen}
   \usebibmacro{finentry}}
 
@@ -384,11 +385,11 @@
   \iffieldequalstr{entrysubtype}{churchfather}
     {\setunit{\addspace}%
      \printfield{altpostnote}%
-     \setunit{\addspace}%
-     \printtext[parens]{%
-       \usebibmacro{related:init}%
-       \usebibmacro{related}%
-       \usebibmacro{volume+part+postnote}}%
+     \DeclareFieldFormat{related}{\mkbibparens{##1}}%
+     \renewcommand*{\begrelateddelim}{\addspace}%
+     \renewbibmacro*{endrelatedloop}{\usebibmacro{volume+part+postnote}}%
+     \usebibmacro{related:init}%
+     \usebibmacro{related}%
      \global\toggletrue{relatedseen}}
     {\usebibmacro{volume+part+postnote}%
      \usebibmacro{classic:translator+series}}%
