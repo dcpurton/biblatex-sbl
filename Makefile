@@ -22,11 +22,11 @@ TEXFILES = doc/sbl-paper.sty \
 	   latex/sbl.bbx \
 	   latex/sbl.cbx \
 	   latex/sbl.dbx \
-	   latex/sbl-american.lbx \
-	   latex/sbl-british.lbx \
-	   latex/sbl-english.lbx \
-	   latex/sbl-german.lbx \
-	   latex/sbl-spanish.lbx
+	   latex/american-sbl.lbx \
+	   latex/british-sbl.lbx \
+	   latex/english-sbl.lbx \
+	   latex/german-sbl.lbx \
+	   latex/spanish-sbl.lbx
 TDSZIP   = biblatex-sbl.tds.zip
 CTANZIP  = biblatex-sbl.zip
 
