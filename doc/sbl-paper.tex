@@ -1,12 +1,26 @@
 \documentclass[letterpaper,12pt,oneside,openany]{book}
 
-%% Pass ibid and idem options to biblatex
-%\PassOptionsToPackage{pagetracker,ibidtracker=context,ibidpage,idemtracker=constrict}{biblatex}
-
 \usepackage{sbl-paper}
 
 %% Add your bib resource here
 \addbibresource{biblatex-sbl.bib}
+
+
+%% Language and font set up
+%% Note: Polyglossia is *not* well supported
+\ifxetexorluatex
+  \usepackage[nil,bidi=default]{babel}
+  \babelprovide[import=en-US,main]{american}
+  \babelprovide[import=he]{hebrew}
+  \babelprovide[import=el]{polutonikogreek}
+  \babelfont[american]{rm}[Ligatures=TeX]{Linux Libertine O}
+  \babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate,Scale=1.2]{SBL BibLit}
+  \babelfont[polutonikogreek]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
+\else
+  \usepackage[polutonikogreek,american]{babel}
+  \usepackage{libertineRoman}
+\fi
+
 
 %% Index set up (optional)
 %% Include separate indices for subjects, authors, and Scripture references
@@ -25,30 +39,6 @@
     {\namepartprefix}
     {\namepartsuffix}}
 
-%% Set default language to German (or similarly to an other language)
-%\ifxetexorluatex
-% \setdefaultlanguage{german}
-%\else
-%  \usepackage[german]{babel}
-%\fi
-
-%% Set quotation style to British English
-%\setquotestyle[british]{english}
-
-%% Set default fonts
-\ifxetexorluatex
-  \setromanfont{Linux Libertine O}
-%  \newfontfamily\greekfont{Linux Libertine O}[Script=Greek]
-%  \newfontfamily\hebrewfont{Linux Libertine O}[Script=Hebrew,Scale=1.2]
-
-%%  Use SBL BibLit font for Greek and Hebrew
-  \newfontfamily\greekfont{SBL BibLit}%
-    [Script=Greek,Contextuals=Alternate,Ligatures=Required]
-  \newfontfamily\hebrewfont{SBL BibLit}%
-    [Script=Hebrew,Contextuals=Alternate,Ligatures=Required,Scale=1.2]
-\else
-  \usepackage{libertineRoman}
-\fi
 
 %% Disable hyperlinks
 %\hypersetup{draft=true}
@@ -111,7 +101,7 @@ The page numbers for the noninitial pages of the paper (or chapter) are
 located at the top right corner. The text of the body of the paper is
 double-spaced except for blocked
 quotations.
-\begin{quoting}
+\begin{quote}
   \index{quotations!block}%
   This is a blocked quotation. It should consist of five or more lines of text
   and be indented one-half inch. Block quotations should be single-spaced. No
@@ -121,7 +111,7 @@ quotations.
   regular spacing resumes after the end of the quotation.\footnote{The first
   line of a footnote is indented one-half inch. A 10-point font is acceptable.
   Footnotes, unlike the main text of the paper, should be single-spaced.}
-\end{quoting}
+\end{quote}
 After a block quotation, return to double-spaced text justified to the left
 margin until you finish the paragraph.
 
@@ -142,28 +132,37 @@ citations in parentheses. For example, here is a dictionary with a shorthand:
 the same article referenced in two different
 publications.\autocites{freedman:1977,freedman:1980}
 
-%% Use xelatex or lualatex if you need Greek or Hebrew
-\ifxetexorluatex
-  \section{Greek and Hebrew}
+%% Use xelatex or lualatex if you need Hebrew
+\section{Greek
+  \ifxetexorluatex
+    and Hebrew%
+  \fi}
 
-  \index{Greek!paragraph}Paragraph Greek:
-  \begin{quoting}
-    \begin{greek}
-      Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
-      \textenglish{(\pibibleverse{John 1:1})}
-    \end{greek}
-  \end{quoting}
+\index{Greek!paragraph}Paragraph Greek:
+\begin{quote}
+  \selectlanguage{polutonikogreek}
+  Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος.
+  \foreignlanguage{american}{(\pibibleverse{John 1:1})}
+\end{quote}
+\ifxetexorluatex
   \index{Hebrew!paragraph}Paragraph Hebrew:
-  \begin{quoting}
-    \begin{hebrew}
-      בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ.
-      \textenglish{(\pibibleverse{Genesis 1:1})}
-    \end{hebrew}
-  \end{quoting}
-  \index{Greek!inline}Inline Greek (\textgreek{Ἐν ἀρχῇ}),
+  \begin{quote}
+    \selectlanguage{hebrew}
+    \ifxetex
+      \raggedleft
+    \fi
+    בְּרֵאשִׁית בָּרָא אֱלֹהִים אֵת הַשָּׁמַיִם וְאֵת הָאָרֶץ.
+    \foreignlanguage{american}{(\pibibleverse{Genesis 1:1})}
+  \end{quote}
+\fi
+\ifxetexorluatex
+  \index{Greek!inline}Inline Greek (\foreignlanguage{greek}{Ἐν ἀρχῇ}),
   \index{Greek!transliterated}transliterated Greek (\emph{En archē}),
-  \index{Hebrew!inline}Hebrew (\texthebrew{בראשית}), and
+  \index{Hebrew!inline}Hebrew (\foreignlanguage{hebrew}{בראשית}), and
   \index{Hebrew!transliterated}transliterated Hebrew (\emph{bərēʾšı̂t}).
+\else
+  \index{Greek!inline}Inline Greek (\foreignlanguage{greek}{Ἐν ἀρχῇ}) and
+  \index{Greek!transliterated}transliterated Greek (\emph{En archē}).
 \fi
 
 \appendix
