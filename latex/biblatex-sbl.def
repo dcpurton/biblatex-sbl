@@ -1,11 +1,11 @@
 \RequireBibliographyStyle{standard}
 \RequireBiber[3]
 
-% BibLaTeX version 2017/11/05 v3.8a or greater required
-\@ifpackagelater{biblatex}{2017/11/05}
+% BibLaTeX version 2018/03/04 v3.11 or greater required
+\@ifpackagelater{biblatex}{2018/03/04}
   {}
   {\PackageError{biblatex-sbl}
-     {BibLaTeX v3.8a or greater is required}
+     {BibLaTeX v3.11 or greater is required}
      {You need to update your TeX distribution to use biblatex-sbl.}}
 
 % Require xparse
