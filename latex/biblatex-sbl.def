@@ -741,7 +741,7 @@
 %   - copy titles to shorttitles if they are empty
 % ------------------------------------------------------------------
 
-\DeclareSourcemap{
+\DeclareStyleSourcemap{
   \maps{
     \map{
       \step[fieldsource=title, match=\regexp{(.*?):}, final]
