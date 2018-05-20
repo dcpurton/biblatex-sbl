@@ -30,7 +30,7 @@ kpsewhich -var-value=TEXMFHOME
 
 The following packages are required:
 
-* `biblatex` (version 3.8a or higher) with the `biber` backend
+* `biblatex` (version 3.11 or higher) with the `biber` backend
 * `xparse`
 
 ## Licence
