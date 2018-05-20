@@ -347,6 +347,27 @@
 
 \DeclareLanguageMappingSuffix{-sbl}
 
+% Ensure right colon punctuation when reset
+\protected\def\blx@resetpunct{%
+  \DeclareCapitalPunctuation{.!?}%
+  \DeclarePunctuationPairs{dot}{}%
+  \DeclarePunctuationPairs{comma}{*!?}%
+  \DeclarePunctuationPairs{semicolon}{*!?}%
+  \DeclarePunctuationPairs{colon}{*}%
+  \DeclarePunctuationPairs{period}{}%
+  \DeclarePunctuationPairs{exclam}{*}%
+  \DeclarePunctuationPairs{question}{*}%
+  \DeclareQuotePunctuation{}%
+  \def\abx@dot{\ifdim\lastkern>\z@\unkern\fi.\spacefactor\blx@sf@dot}%
+  \def\abx@comma{\ifdim\lastkern>\z@\unkern\fi\abx@puncthook{,}}%
+  \def\abx@semicolon{\abx@puncthook{;}}%
+  \def\abx@colon{\abx@puncthook{:}}%
+  \def\abx@period{\ifdim\lastkern>\z@\unkern\fi\abx@puncthook{.}}%
+  \def\abx@exclam{\abx@puncthook{!}}%
+  \def\abx@question{\abx@puncthook{?}}%
+  \global\let\abx@puncthook\@firstofone
+  \global\let\blx@postpunct\@empty}
+
 \renewcommand*{\subtitlepunct}{\addcolon\space}
 \newcommand*{\namedashpunct}{\adddot\space}
 \newcommand*{\lexiconfinalnamedelim}{\addcomma\space}
