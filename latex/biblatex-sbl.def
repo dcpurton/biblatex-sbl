@@ -15,8 +15,8 @@
 % VERSION STRINGS
 % ------------------------------------------------------------------
 
-\def\sbl@abx@date{2017/11/16}
-\def\sbl@abx@version{0.8.2}
+\def\sbl@abx@date{2018/05/20}
+\def\sbl@abx@version{0.9}
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization}
