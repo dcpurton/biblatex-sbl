@@ -173,20 +173,12 @@
 % IDEM MACROS
 % ------------------------------------------------------------------
 
-% only use idem within footnote
-\let\cbx@ifmpfncheck\blx@ifmpfncheck
-\patchcmd{\cbx@ifmpfncheck}{\tw@}{\@ne}{}{}
-\let\cbx@ifciteidem@constrict\blx@ifciteidem@constrict
-\patchcmd{\cbx@ifciteidem@constrict}{\blx@ifmpfncheck}{\cbx@ifmpfncheck}{}{}
-
-\def\blx@opt@idemtracker@constrict{%
-  \let\blx@imc@ifciteidem\cbx@ifciteidem@constrict
-  \let\blx@idemtracker\blx@idemtracker@constrict
-  \let\blx@idemreset\blx@idemreset@context
-  \booltrue{citetracker}}
-
 \newbibmacro*{ifidemused}{%
-  \ifciteidem
+  \ifboolexpr{
+    test {\ifciteidem}
+    and
+    not test {\iffirstonpage}
+  }
     {\bibstring[\mkibid]{idem\thefield{gender}}%
      \@firstoftwo}
     {\@secondoftwo}}
@@ -303,7 +295,9 @@
   related,
   minxrefs=1,
   isbn=false,
-  ibidtracker=false,
+  pagetracker,
+  idemtracker=constrict,
+  ibidtracker=constrict,
   ibidpage=false,
   maxbibnames=99,
   maxcitenames=3,
