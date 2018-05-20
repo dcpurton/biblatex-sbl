@@ -23,7 +23,6 @@ TEXFILES = doc/sbl-paper.sty \
 	   latex/sbl.cbx \
 	   latex/sbl.dbx \
 	   latex/american-sbl.lbx \
-	   latex/british-sbl.lbx \
 	   latex/english-sbl.lbx \
 	   latex/german-sbl.lbx \
 	   latex/spanish-sbl.lbx
