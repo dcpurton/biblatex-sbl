@@ -9,6 +9,7 @@
 \usepackage{realscripts}
 \usepackage{xparse}
 \usepackage{framed}
+\usepackage{enumitem}
 
 \usepackage[style=sbl,indexing=cite,idemtracker=false,ibidtracker=false]{biblatex}
 \addbibresource{biblatex-sbl.bib}
@@ -419,7 +420,7 @@ entry types.
   \end{snugshade}
 \end{valuelist}
 
-\optitem[false]{ibidtracker}{\opt{true}, \opt{false}, \opt{context},
+\optitem[constrict]{ibidtracker}{\opt{true}, \opt{false}, \opt{context},
 \opt{strict}, \opt{constrict}}
 
 This option controls the \emph{ibidem} tracker. The possible choices are:
@@ -453,7 +454,7 @@ may lead to ambiguous citations. If you prefer the wider interpretation of
 \emph{ibidem}, set the package option \opt{ibidpage=true} or simply
 \opt{ibidpage} in the preamble. The default setting is \opt{ibidpage=false}.
 
-\optitem[false]{idemtracker}{\opt{true}, \opt{false}, \opt{context},
+\optitem[constrict]{idemtracker}{\opt{true}, \opt{false}, \opt{context},
 \opt{strict}, \opt{constrict}}
 
 This option controls the \emph{idem} tracker. The possible choices are:
@@ -473,7 +474,7 @@ This option controls the \emph{idem} tracker. The possible choices are:
   footnote.
 \end{valuelist}
 
-\optitem[false]{pagetracker}{\opt{true}, \opt{false}}
+\optitem[true]{pagetracker}{\opt{true}, \opt{false}}
 
 This option controls whether \emph{ibidem} and \emph{idem} are used across
 page breaks or not.
@@ -1247,6 +1248,23 @@ e.g.,
   \samplebib{wellhausen:1957}
 \end{snugshade}
 \end{quote}
+
+\section{Important Changes}
+
+\subsection*{0.9\quad 2018-05-20}
+
+\begin{itemize}[itemsep=0pt]
+  \item Support and require \biblatex 3.11.
+  \item Use ibid and idem by default.
+  \item \sty{polyglossia} is no longer supported. You should use \sty{babel}
+    instead.
+\end{itemize}
+
+\subsection*{0.8.2\quad 2017-11-16}
+
+\begin{itemize}[itemsep=0pt]
+  \item Support and require \biblatex 3.8a
+\end{itemize}
 
 \printbiblist[heading=biblistintoc]{abbreviations}
 
