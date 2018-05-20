@@ -148,10 +148,11 @@ The style supports all examples given in the handbook (see
 \sty{biblatex-sbl-test.pdf}). Shorthand citations and a list of abbreviations
 containing journals, series, and shorthands are handled automatically.
 Repeated authors in the bibliography are replaced by a horizontal line.
-\emph{Ibidem} is supported, but not enabled by default, as is indexing of
-names. Only note style citations, not Author-Date citations are supported.
-Primary sources can be cited in parentheses. \biblatexsbl is compatible with
-\biblatex's support for \sty{hyperref}.
+\emph{Ibidem} and \emph{idem} is enabled by default. Indexing of names is
+supported, but not enabled by default. Only note style citations, not
+Author-Date citations are supported. Primary sources can be cited in
+parentheses. \biblatexsbl is compatible with \biblatex's support for
+\sty{hyperref}.
 
 For anything not covered in this manual, please see the \biblatex
 documentation. Bugs and feature requests can be submitted at
@@ -162,9 +163,9 @@ output carefully checked when you use it.
 
 \section{Requirements}
 
-\biblatexsbl requires at least version 3.5 of \biblatex and the \sty{xparse}
+\biblatexsbl requires at least version 3.11 of \biblatex and the \sty{xparse}
 package. \sty{biber} must be used. \sty{bibtex} is not supported. For
-localization \sty{babel}\slash\sty{polyglossia} and \sty{csquotes} are
+localization \sty{babel} (not \sty{polyglossia}) and \sty{csquotes} are
 recommended.
 
 \section{Usage}
@@ -175,7 +176,7 @@ defaults of the \cite{SBLHS}.
 \begin{quote}
 \begin{lstlisting}[style=latex]{}
 \documentclass{article}
-\usepackage[style=sbl,backend=biber]{biblatex}
+\usepackage[style=sbl]{biblatex}
 \addbibresource{<bibfile.bib>}
 \begin{document}
 \printbiblist{abbreviations}
@@ -188,57 +189,35 @@ defaults of the \cite{SBLHS}.
 
 By default \biblatexsbl uses American style punctuation and quotation marks.
 You can choose a different style by including the
-\sty{babel}\slash\sty{polyglossia} and \sty{csquotes} packages in your
-document preamble. e.g.,
+\sty{babel} and \sty{csquotes} packages in your
+document preamble. \sty{polyglossia} is not well supported by \biblatex and
+its use is discouraged.
 
 \begin{quote}
 \begin{lstlisting}[style=latex]{}
-\usepackage[german]{babel}
+\usepackage[ngerman]{babel}
 \usepackage{csquotes}
-\usepackage[style=sbl,backend=biber]{biblatex}
+\usepackage[style=sbl]{biblatex}
 \end{lstlisting}
 \end{quote}
 
 Currently \opt{english} (including variants such as \opt{british},
 \opt{australian}, etc.), \opt{spanish}, and \opt{german} are supported.
 
-For Greek and especially Hebrew, you are probably better off with
-\sty{polyglossia} and \sty{xelatex} or \sty{lualatex}. e.g.,
+For Greek and especially Hebrew, the set up is more complicated and you should
+use \sty{xelatex} or \sty{lualatex}. See \sty{sbl-paper.pdf} for example Greek
+and Hebrew usage with \sty{babel}.
 
 \begin{quote}
 \begin{lstlisting}[style=latex]{}
-\usepackage{fontspec}
-\usepackage{polyglossia}
-\usepackage[style=australian]{csquotes}
-\setdefaultlanguage[variant=australian]{english}
-\setotherlanguage[variant=ancient]{greek}
-\setotherlanguage{hebrew}
-\ifxetex
-  \renewenvironment{hebrew}[1][]{%
-    \par
-    \raggedleft % add to right align paragraphs
-    \begin{otherlanguage}[#1]{hebrew}}%
-    {\end{otherlanguage}\par}
-\else % luatex
-  \let\luatexpardir\pardir % luabidi needs this
-  \let\luatextextdir\textdir % luabidi needs this
-  % text direction gets stuffed up without these workarounds
-  \let\luatextextgreek\textgreek
-  \let\luatextextenglish\textenglish
-  \AtBeginDocument{%
-    \renewcommand{\textgreek}[1]{%
-      \bgroup\luatextextgreek{#1}\egroup}
-    \renewcommand{\textenglish}[1]{%
-      \bgroup\setLTR\luatextextenglish{#1}\egroup}}
-\fi
-% set up fonts
-\newfontfamily\greekfont{SBL BibLit}%
-  [Script=Greek,Contextuals=Alternate]
-\newfontfamily\hebrewfont{SBL BibLit}%
-  [Script=Hebrew,Contextuals=Alternate,Scale=1.2]
-\usepackage[style=sbl,backend=biber]{biblatex}
-% update language mapping (biblatex can't do it using polyglossia)
-\DeclareLanguageMapping{english}{sbl-english}
+\usepackage[nil,bidi=default]{babel}
+\usepackage{csquotes}
+\babelprovide[import=en-US,main]{american}
+\babelprovide[import=he]{hebrew}
+\babelprovide[import=el]{polutonikogreek}
+\babelfont[american]{rm}[Ligatures=TeX]{Linux Libertine O}
+\babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate,Scale=1.2]{SBL BibLit}
+\babelfont[polutonikogreek]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
 \end{lstlisting}
 \end{quote}
 
