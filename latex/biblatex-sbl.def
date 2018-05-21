@@ -699,8 +699,7 @@
     {\iffieldundef{shortseries}
        {}
        {\bibhypertarget{\strfield{shortseries}}{}%
-        \printfield{series}}
-       }
+        \printfield{series}}}
     {\bibhypertarget{\strfield{shorthand}}{}%
      \iffieldsequal{shorthand}{shorttitle}
        {\toggletrue{blx@abbrevcite}}
