@@ -217,8 +217,10 @@ and Hebrew usage with \sty{babel}.
 \babelprovide[import=he]{hebrew}
 \babelprovide[import=el]{polutonikogreek}
 \babelfont[american]{rm}[Ligatures=TeX]{Linux Libertine O}
-\babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate,Scale=1.2]{SBL BibLit}
-\babelfont[polutonikogreek]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
+\babelfont[hebrew]{rm}%
+  [Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
+\babelfont[polutonikogreek]{rm}%
+  [Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
 \end{lstlisting}
 \end{quote}
 
@@ -287,7 +289,7 @@ This command prints a bibliography list. In \biblatexsbl all abbreviations
 
 See the \biblatex manual for an explanation of available optional arguments.
 
-\cmditem{printbiblioraphy}
+\cmditem{printbibliography}
 
 Inserts the bibliography. See the \biblatex manual for an explanation of
 available optional arguments.
