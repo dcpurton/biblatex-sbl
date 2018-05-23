@@ -108,7 +108,7 @@ ctancheck:
 	@echo "\tSummary: Society of Biblical Literature (SBL) style files for BibLaTeX"
 	@echo "\tCTAN directory: /macros/latex/contrib/biblatex-contrib/biblatex-sbl"
 	@echo "\tType of Upload: Update (with announcement)"
-	@echo "\tLicense type: license type: LaTeX Public Project License (version 1.3)"
+	@echo "\tLicense type: LaTeX Public Project License (version 1.3)"
 	@echo "\nOther Checks:"
 	@echo "\tsbl-paper.sty date: $(SBL-PAPER-DATE)"
 	@echo "\tsbl-paper.sty last change: $(SBL-PAPER-DATE-CHECK)"
