@@ -24,9 +24,10 @@
 
 %% Index set up (optional)
 %% Include separate indices for subjects, authors, and Scripture references
-\makeindex[title=Subject Index,intoc]
-\makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,options=-s sbl-paper-bibleref.ist]
-\makeindex[name=\jobname-aut,title=Author Index,intoc]
+\makeindex[title=Subject Index,intoc,options=-q]
+\makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,options=-s
+sbl-paper-bibleref.ist -q]
+\makeindex[name=\jobname-aut,title=Author Index,intoc,options=-q]
 %% Index Bible references in a scripture index
 \renewcommand{\biblerefindex}{\index[\jobname-scr]}
 %% Redefine index format so biblatex inserts names into an author index
