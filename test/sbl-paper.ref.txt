@@ -1,0 +1,221 @@
+[NAME OF INSTITUTION]
+
+TITLE OF PAPER
+
+SUBMITTED TO [NAME OF PROFESSOR]
+IN PARTIAL FULFILMENT OF
+[COURSE NUMBER AND TITLE]
+
+BY
+[YOUR NAME]
+[MONTH, DAY, YEAR]
+
+CONTENTS
+
+LIST OF ABBREVIATIONS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+ii
+
+PRIMARY HEADING . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+1
+
+First-Level Subheading
+
+1
+
+Second-Level Subheading
+
+1
+
+CITATIONS . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+2
+
+GREEK AND HEBREW . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+3
+
+APPENDIX 1: APPENDIX TITLE . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+4
+
+BIBLIOGRAPHY . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+5
+
+SUBJECT INDEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+6
+
+SCRIPTURE REFERENCE INDEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+7
+
+AUTHOR INDEX . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+
+8
+
+i
+
+LIST OF ABBREVIATIONS
+
+AB
+
+Anchor Bible
+
+JBL
+
+Journal of Biblical Literature
+
+NIDNTT
+
+New International Dictionary of New Testament Theology. Edited by Colin Brown.
+4 vols. Grand Rapids: Zondervan, 1975–1985
+
+ii
+
+PRIMARY HEADING
+LONG TITLES ARE SINGLE-SPACED ON SUBSEQUENT LINES
+
+The top margin is two inches for the first page only. There are two blank lines between the title
+and the text (or subheading if there is one). The left, right, top, and bottom margins are one inch.
+The first pages of chapters are formatted like the primary heading.
+Indent the first line of subsequent paragraphs. All main text should be set in a standard
+12-point font such as Times-New-Roman.
+
+First-Level Subheading
+Keep two blank lines between the text of the preceding section and a subheading, regardless of
+the level. A first level subheading is centered, bold, and capitalized headline style.
+
+Second-Level Subheading
+There are two blank lines between the text of the preceding section and the subheading. A
+second-level subheading is centered and capitalized headline style.
+
+Third-Level Subheading
+A third level subheading is on the left margin, in bold, italics, and capitalized headline style. A
+heading should never be the last text on a page. If necessary, add extra blank space at the end of
+the page and begin the following page with a heading.
+
+1
+
+2
+Fourth-Level Subheading
+A fourth-level subheading is on the left margin, capitalized headline style.
+The page numbers for the noninitial pages of the paper (or chapter) are located at the top
+right corner. The text of the body of the paper is double-spaced except for blocked quotations.
+This is a blocked quotation. It should consist of five or more lines of text and be indented
+one-half inch. Block quotations should be single-spaced. No quotation marks are used at
+the beginning or the end of the quote. Double quotation marks within the original
+matter are retained. The blocked quote is set off by a regular double space before and
+after the quote. Note that regular spacing resumes after the end of the quotation.1
+After a block quotation, return to double-spaced text justified to the left margin until you finish
+the paragraph.
+Footnotes at the bottom of the page are separated by a two-inch rule.2 Maintain
+subsequent numbering in notes. Make sure a footnote and the text to which it refers are on the
+same page.
+
+CITATIONS
+
+Citations should be referenced using \autocite or \autocites for citations in footnotes and
+\parencite or \parencites for citations in parentheses. For example, here is a dictionary
+with a shorthand: (NIDNTT). Here’s a commentary,3 and here’s the same article referenced in
+two different publications.4
+
+1. The first line of a footnote is indented one-half inch. A 10-point font is acceptable. Footnotes, unlike the
+main text of the paper, should be single-spaced.
+2. There should be a blank line between each note and a blank en space between the number and the first
+word of the note.
+3. Mitchell Dahood, Psalms, 3 vols., AB 16–17A (Garden City, NY: Doubleday, 1965–1970).
+4. David Noel Freedman, “Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry,” JBL 96 (1977): 5–26;
+idem, “Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry,” in Pottery, Poetry, and Prophecy: Studies in Early
+Hebrew Poetry (Winona Lake, IN: Eisenbrauns, 1980), 1–22.
+
+3
+GREEK AND HEBREW
+
+Paragraph Greek:
+Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος. (John 1:1)
+Paragraph Hebrew:
+(Gen 1:1) .‫שַּמ ִים ְוֵאת ָהָא ֶרץ‬
+ׁ ָ ‫ְבּ ֵראִשׁית ָבּ ָרא ֱאֹלִהים ֵאת ַה‬
+Inline Greek (Ἐν ἀρχῇ), transliterated Greek (En archē), Hebrew (‫)בראשית‬, and transliterated
+Hebrew (bərēʾšı̂t ).
+
+APPENDIX 1: APPENDIX TITLE
+
+There should be two blank lines between the title and the text.
+Each appendix should have a number and a title, unless there is only one appendix, in
+which case the appendix does not need a number. Every appendix requires a heading, so if you
+are including a preexisting document you will need to type a heading (i.e., the appendix number
+and title) on that document so that it conforms to your numbered appendixes.
+An appendix is formatted like the first page of a chapter, using a two-inch top margin.
+Locate page numbers at the bottom center of the first page of each appendix and at the top right
+corner of subsequent pages. If the appendix is already numbered, put those page numbers in
+square brackets. Page numbering for the appendixes is consecutive with the rest of the paper.
+Margins for the appendixes should be the same as the rest of the paper. You may need to
+reduce the content of the appendix to fit the margins.
+
+4
+
+BIBLIOGRAPHY
+
+Brown, Colin, ed. New International Dictionary of New Testament Theology. 4 vols. Grand Rapids:
+Zondervan, 1975–1985.
+Dahood, Mitchell. Psalms. 3 vols. AB 16–17A. Garden City, NY: Doubleday, 1965–1970.
+Freedman, David Noel. “Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry.” JBL 96
+(1977): 5–26.
+. “Pottery, Poetry, and Prophecy: An Essay on Biblical Poetry.” Pages 1–22 in Pottery,
+Poetry, and Prophecy: Studies in Early Hebrew Poetry. Winona Lake, IN: Eisenbrauns, 1980.
+
+5
+
+SUBJECT INDEX
+
+appendixes, 4
+
+Hebrew
+inline, 3
+paragraph, 3
+transliterated, 3
+
+citations, 2
+footnotes, 2
+Greek
+inline, 3
+paragraph, 3
+transliterated, 3
+
+margins, 1
+quotations
+block, 2
+
+6
+
+SCRIPTURE REFERENCE INDEX
+
+Old Testament
+
+New Testament
+
+Genesis
+1:1
+
+John
+1:1
+
+3
+
+7
+
+3
+
+AUTHOR INDEX
+
+Dahood, Mitchell, 2
+
+Freedman, David Noel, 2
+
+8
+
+

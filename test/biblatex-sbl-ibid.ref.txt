@@ -1,0 +1,127 @@
+Biblatex-SBL ibidem and idem Test File
+David Purton
+This file tests the behaviour of the various options related to using ibidem and idem in
+Biblatex-SBL.
+
+Default ibidem tracking
+By default ibid. is not used across page breaks and ibidem is taken to mean ‘same author
++ same title’. See biblatex-sbl.pdf for a description of the options ibidtracker can
+take.
+Biblatex Output
+\usepackage[style=sbl]{biblatex}
+\autocite[127]{talbert:1992}
+
+1. Charles H. Talbert, Reading John: A Literary and Theological Commentary on the
+Fourth Gospel and the Johannine Epistles (New York: Crossroad, 1992), 127.
+\autocite[22]{talbert:1992}
+
+2. ibid., 22.
+\autocite[22]{talbert:1992}
+
+3. ibid., 22.
+\autocite[237]{robinson+koester:1971}
+
+4. James M. Robinson and Helmut Koester, Trajectories through Early Christianity
+(Philadelphia: Fortress, 1971), 237.
+\autocite[22]{talbert:1992}
+
+5. Talbert, Reading John, 22.
+\clearpage
+
+1
+
+\autocite[22]{talbert:1992}
+
+6. Talbert, Reading John, 22.
+
+Not tracking ibidem across pages
+Set the pagetracker option to false to allow that the first citation on a page to be
+ibid.
+Biblatex Output
+\usepackage[style=sbl,pagetracker=false]{biblatex}
+\autocite[53]{scott+etal:1993}
+
+7. Bernard Brandon Scott et al., Reading New Testament Greek (Peabody, MA:
+Hendrickson, 1993), 53.
+\autocite[42]{scott+etal:1993}
+
+8. ibid., 42.
+\clearpage
+
+2
+
+\autocite[42]{scott+etal:1993}
+
+9. ibid., 42.
+
+Ibidem meaning ‘same author + same title + same page’
+Turn on the ibidpage option to indicate that ibidem should mean ‘same author + same
+title + same page’.
+Biblatex Output
+\usepackage[style=sbl,ibidpage]{biblatex}
+\autocite[28]{egger:1996}
+
+10. Wilhelm Egger, How to Read the New Testament: An Introduction to Linguistic
+and Historical-Critical Methodology, trans. Peter Heinegg (Peabody, MA: Hendrickson,
+1996), 28.
+\autocite[28]{egger:1996}
+
+11. ibid.
+\autocite[291]{egger:1996}
+
+12. ibid., 291.
+
+Default idem tracking
+By default idem is used. Idem tracking is controlled using the idemtracker option. See
+biblatex-sbl.pdf for a description of the options idemtracker can take.
+Biblatex Output
+\usepackage[style=sbl]{biblatex}
+\autocites[35]{vanseters:1997}{vanseters:1995}
+
+13. John Van Seters, In Search of History: Histeriography in the Ancient World
+and the Origins of Biblical History (New Haven: Yale University Press, 1983; repr.,
+Winona Lake, IN: Eisenbrauns, 1997), 35; idem, “The Theology of the Yahwist: A
+Preliminary Sketch,” in “Wer ist wie du, Herr, unter den Göttern?”: Studien zur Theologie
+und Religionsgeschichte Israels für Otto Kaiser zum 70. Geburtstag, ed. Ingo Kottsieper
+et al. (Göttingen: Vandenhoeck & Ruprecht, 1995), 219–28.
+\autocites[35]{vanseters:1997}[222]{vanseters:1995}
+
+14. Van Seters, In Search of History, 35; idem, “Theology of the Yahwist,” 222.
+
+References
+Egger, Wilhelm. How to Read the New Testament: An Introduction to Linguistic and
+Historical-Critical Methodology. Translated by Peter Heinegg. Peabody, MA: Hendrickson, 1996.
+Robinson, James M., and Helmut Koester. Trajectories through Early Christianity.
+Philadelphia: Fortress, 1971.
+3
+
+Scott, Bernard Brandon, Margaret Dean, Kristen Sparks, and Frances LaZar. Reading
+New Testament Greek. Peabody, MA: Hendrickson, 1993.
+Talbert, Charles H. Reading John: A Literary and Theological Commentary on the Fourth
+Gospel and the Johannine Epistles. New York: Crossroad, 1992.
+Van Seters, John. In Search of History: Histeriography in the Ancient World and the
+Origins of Biblical History. New Haven: Yale University Press, 1983. Repr., Winona
+Lake, IN: Eisenbrauns, 1997.
+. “The Theology of the Yahwist: A Preliminary Sketch.” Pages 219–28 in “Wer
+ist wie du, Herr, unter den Göttern?”: Studien zur Theologie und Religionsgeschichte
+Israels für Otto Kaiser zum 70. Geburtstag. Edited by Ingo Kottsieper et al. Göttingen:
+Vandenhoeck & Ruprecht, 1995.
+
+4
+
+Author Index
+Egger, Wilhelm, 3
+
+Scott, Bernard Brandon, 2, 3
+
+Koester, Helmut, 1
+
+Talbert, Charles H., 1, 2
+
+Robinson, James M., 1
+
+Van Seters, John, 3
+
+5
+
+
