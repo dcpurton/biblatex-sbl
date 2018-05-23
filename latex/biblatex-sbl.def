@@ -15,12 +15,32 @@
 % VERSION STRINGS
 % ------------------------------------------------------------------
 
-\def\sbl@abx@date{2018/05/20}
-\def\sbl@abx@version{0.9}
+\def\sbl@abx@date{2018//}
+\def\sbl@abx@version{0.9+}
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
-\def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization}
+\def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
 \def\sbl@abx@defid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl definitions and macros (DCP)}
+
+\def\printsblversion{\sbl@abx@version\space
+                     \expandafter\xprintsbldateiso\sbl@abx@date\relax}
+\def\printsbldate{\expandafter\xprintsbldateau\sbl@abx@date\relax}
+\def\xprintsbldateiso#1/#2/#3\relax{%
+  #1-%
+  \ifblank{#2}
+    {\kern 1pt-}
+    {#2-#3}}
+\def\xprintsbldateau#1/#2/#3\relax{%
+  \ifblank{#2}
+    {}
+    {\ifblank{#3}
+       {}
+       {\ifcase#3 \or
+        1\or 2\or 3\or 4\or 5\or 6\or 7\or 8\or 9\else#3\fi\space}%
+     \ifcase#2 \or
+     January\or February\or March\or April\or May\or June\or July\or
+     August\or September\or October\or November\or December\fi\space}%
+  #1}
 
 \ProvidesFile{biblatex-sbl.def}[\sbl@abx@defid]
 

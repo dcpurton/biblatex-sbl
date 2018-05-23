@@ -1,9 +1,9 @@
 % imakeidx needs to be loaded before hyperref
 \RequirePackage{scrlfile}\AfterPackage{textcomp}{\RequirePackage{imakeidx}}
-\documentclass{ltxdockit}[2011/03/25]
+\documentclass[a4paper]{ltxdockit}[2011/03/25]
 \usepackage{microtype}
 \usepackage{xcolor}
-\makeindex[title=Author Index,intoc]
+\makeindex[title=Author Index,intoc,options=-q]
 \usepackage{btxdockit}
 \usepackage{fontspec}
 \usepackage{realscripts}
@@ -112,6 +112,7 @@
 
 \makeatletter
 \def\ltd@printarg@v<(#1)#2>{[(\prm{#1})\prm{#2}]\ltd@parseargs}
+\makeatother
 
 \titlepage{%
   title={\biblatexsbl},
@@ -119,9 +120,8 @@
   url={\biblatexsblhome},
   author={David Purton},
   email={dcpurton@marshwiggle.net},
-  revision={\sbl@abx@version},
-  date={\today}}
-\makeatother
+  revision={\printsblversion},
+  date={\printsbldate}}
 
 \hypersetup{%
   pdftitle={biblatex-sbl},
@@ -146,12 +146,12 @@ Society of Biblical Literature (\citeshorthand{SBL}). The style conforms to
 the second edition of the \cite{SBLHS}.
 
 The style supports all examples given in the handbook (see
-\sty{biblatex-sbl-test.pdf}). Shorthand citations and a list of abbreviations
-containing journals, series, and shorthands are handled automatically.
-Repeated authors in the bibliography are replaced by a horizontal line.
-\emph{Ibidem} and \emph{idem} is enabled by default. Indexing of names is
-supported, but not enabled by default. Only note style citations, not
-Author-Date citations are supported. Primary sources can be cited in
+\sty{biblatex-sbl-examples.pdf}). Shorthand citations and a list of
+abbreviations containing journals, series, and shorthands are handled
+automatically. Repeated authors in the bibliography are replaced by a
+horizontal line. \emph{Ibidem} and \emph{idem} is enabled by default. Indexing
+of names is supported, but not enabled by default. Only note style citations,
+not Author-Date citations are supported. Primary sources can be cited in
 parentheses. \biblatexsbl is compatible with \biblatex's support for
 \sty{hyperref}.
 
@@ -321,8 +321,6 @@ the first time an entry is cited.
 
   \begin{snugshade}
     \samplecite{1}[159]{leyerle:1993}
-    \samplecite{2}[159]{leyerle:1993}
-    \samplecite{3}{leyerle:1993}
   \end{snugshade}
 
   If \bibfield{postnote} is not a page range, then it is printed in
@@ -330,7 +328,6 @@ the first time an entry is cited.
 
   \begin{snugshade}
     \samplecite{1}[a note]{irvine:2014}
-    \samplecite{2}[a note]{irvine:2014}
   \end{snugshade}
 
   The one exception to this is the \bibtype{incommentary} entry type which
@@ -344,27 +341,16 @@ the first time an entry is cited.
 
   \begin{snugshade}
     \samplecite{1}[245]{wildberger:1965}
-    \samplecite{2}[245]{wildberger:1965}
-  \end{snugshade}
-
-  If \bibfield{postnote} is not a page range, then \bibfield{pages} is printed
-  for subsequent citations, and the \bibfield{postnote} is printed in
-  parentheses. e.g.,
-
-  \begin{snugshade}
-    \samplecite{3}[a note]{wildberger:1965}
   \end{snugshade}
 
 \item[omit] The \bibfield{pages} field is not printed unless
-  \bibfield{postnote} is empty or not a page range. e.g.,
+  \bibfield{postnote} is empty or not a page range (in which case behaviour
+  matches \opt{citepages=sbl}). e.g.,
 
   \makeatletter\cbx@opt@citepages@omit\makeatother
 
   \begin{snugshade}
     \samplecite{1}[5]{freedman:1977}
-    \samplecite{2}[5]{freedman:1977}
-    \samplecite{3}{freedman:1977}
-    \samplecite{4}[a note]{freedman:1977}
   \end{snugshade}
 
 \item[separate] The \bibfield{postnote} is printed in parentheses after the
@@ -375,15 +361,10 @@ the first time an entry is cited.
 
   \begin{snugshade}
     \samplecite{1}[1]{petersen:1988}
-    \samplecite{2}[1]{petersen:1988}
   \end{snugshade}
 
   If \bibfield{postnote} is not a page range, then \sty{firstcite} is not
-  used. e.g.,
-
-  \begin{snugshade}
-    \samplecite{3}[a note]{leyerle:1993}
-  \end{snugshade}
+  used and the behaviour matches \opt{citepages=sbl}.
 
   \makeatletter\cbx@opt@citepages@sbl\makeatother
 
@@ -584,8 +565,8 @@ The following values for the \bibfield{entrysubtype} field are supported:
 
 The \opt{ANRW} \bibfield{entrysubtype} is particularly for citing \cite{ANRW}
 as outlined in §6.4.8 of the \cite{SBLHS}. In this case, the entry \emph{will}
-appear in the bibliography. See \sty{biblatex-sbl-test.pdf} for full details
-of the required database entry.
+appear in the bibliography. See \sty{biblatex-sbl-examples.pdf} for full
+details of the required database entry.
 
 \item[chronicle]
 
@@ -602,8 +583,8 @@ Suppresses parentheses around \emph{COS} and the \bibfield{postnote} for
 subsequent citations. e.g.,
 
 \begin{snugshade}
-  \samplecite{1}{greathymnaten}
-  \samplecite*{2}{greathymnaten}
+  \samplecite{1}[44]{greathymnaten}
+  \samplecite*{2}[44]{greathymnaten}
 \end{snugshade}
 
 \item[inscription]
@@ -646,7 +627,7 @@ There is one \bibfield{entrysubtype} supported:
 
 The citation for \citeseries{RIMA} \parencite[97]{SBLHS} is treated like a
 series with a number when cited in full, but as a shorthand with a volume when
-cited in short form. See \sty{biblatex-sbl-test.pdf} for full details.
+cited in short form. See \sty{biblatex-sbl-examples.pdf} for full details.
 
 \end{valuelist}
 
@@ -655,8 +636,9 @@ cited in short form. See \sty{biblatex-sbl-test.pdf} for full details.
 Supplemental material in a \bibtype{book}. Use this for an introduction,
 preface or foreword written by someone other than the author
 \parencite[§6.2.14]{SBLHS}. The \bibfield{type} field is used to specify the
-type of supplementary material. See §6.2.14 of \sty{biblatex-sbl-test.pdf}. If
-no \bibfield{type} is given, then this behaves like an \bibtype{inbook}.
+type of supplementary material. See §6.2.14 of
+\sty{biblatex-sbl-examples.pdf}. If no \bibfield{type} is given, then this
+behaves like an \bibtype{inbook}.
 
 \typeitem{booklet}
 
@@ -749,8 +731,8 @@ printed in either short or long form as described above under
 
 An unpublished paper presented at a professional society. Use the
 \bibfield{eventtitle}, \bibfield{venue}, and \bibfield{date} fields to
-specify detail for the conference. See §6.3.8 of \sty{biblatex-sbl-test.pdf}
-for and example.
+specify detail for the conference. See §6.3.8 of
+\sty{biblatex-sbl-examples.pdf} for and example.
 
 \typeitem{lexicon}
 
@@ -834,7 +816,7 @@ Note that review articles are treated like articles and should use the
 An \citeshorthand{SBL} seminar paper. This is similar to an
 \bibtype{incollection} except that \emph{in} is suppressed byfore the
 \bibfield{booktitle}\slash\bibfield{maintitle}. See §6.4.11 of
-\sty{biblatex-sbl-test} for an example.
+\sty{biblatex-sbl-examples.pdf} for an example.
 
 \typeitem{series}
 
@@ -881,7 +863,7 @@ The behaviour of \bibfield{translator}, \bibfield{booktranslator}, and
 
 The date a text edition published online with no print counterpart or an
 article in an online database is released. See §6.4.1 and §6.4.13 of
-\sty{biblatex-sbl-test.pdf}.
+\sty{biblatex-sbl-examples.pdf}.
 
 \fielditem{eprintday}{datepart}
 
