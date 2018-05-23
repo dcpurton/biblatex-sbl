@@ -391,7 +391,8 @@
      \usebibmacro{related:init}%
      \usebibmacro{related}%
      \global\toggletrue{relatedseen}}
-    {\usebibmacro{volume+part+postnote}%
+    {\clearfield{pages}%
+     \usebibmacro{volume+part+postnote}%
      \usebibmacro{classic:translator+series}}%
   \usebibmacro{finentry}}
 

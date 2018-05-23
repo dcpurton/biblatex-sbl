@@ -2422,7 +2422,13 @@
   \ifbool{usevolpostnotedelim}
     {\setunit{\volpostnotedelim}}
     {\setunit{\postnotedelim}}%
-  \usebibmacro{postnote}%
+  \ifboolexpr{
+    test {\ifciteseen}
+    or
+    test {\iffieldundef{pages}}
+  }
+    {\printfield{postnote}}
+    {\usebibmacro{pages}}%
   \global\booltrue{suppresspostnote}}
 
 \newbibmacro*{classic:translator+series}{%
