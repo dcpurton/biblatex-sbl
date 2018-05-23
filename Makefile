@@ -13,8 +13,8 @@ DOCFILES = doc/biblatex-sbl.bib \
 	   doc/biblatex-sbl.tex \
 	   doc/biblatex-sbl-ibid.pdf \
 	   doc/biblatex-sbl-ibid.tex \
-	   doc/biblatex-sbl-test.pdf \
-	   doc/biblatex-sbl-test.tex \
+	   doc/biblatex-sbl-examples.pdf \
+	   doc/biblatex-sbl-examples.tex \
 	   doc/sbl-paper.pdf \
 	   doc/sbl-paper.tex
 TEXFILES = doc/sbl-paper.sty \
