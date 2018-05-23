@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 
 \usepackage{microtype}
 \usepackage{fontspec}
@@ -7,7 +7,7 @@
 \usepackage{parskip}
 \usepackage{titlesec}
 \usepackage{imakeidx}
-\makeindex[title=Author Index,intoc]
+\makeindex[title=Author Index,intoc,options=-q]
 \usepackage{hyperref}
 \usepackage[style=sbl,indexing=cite]{biblatex}
 \addbibresource{biblatex-sbl.bib}
@@ -138,10 +138,12 @@
   \rm
 }{\par\color{black}}
 
-\begin{document}
-
 \title{Biblatex-SBL \emph{ibidem} and \emph{idem} Test File}
 \author{David Purton}
+\date{}
+
+\begin{document}
+
 \maketitle
 
 This file tests the behaviour of the various options related to using
