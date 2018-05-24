@@ -13,28 +13,11 @@
 %The Current Maintainer of this work is David Purton.
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{sbl-paper}
-  [2018/05/23 Society of Bibilical Literature Paper Style (DCP)]
-
-
-% xetex/luatex engine test set up
-
-\RequirePackage{ifxetex}
-\RequirePackage{ifluatex}
-\newif\ifxetexorluatex
-\ifxetex
-  \xetexorluatextrue
-\else
-  \ifluatex
-    \xetexorluatextrue
-  \else
-    \xetexorluatexfalse
-  \fi
-\fi
+  [2018/05/24 Society of Bibilical Literature Paper Style (DCP)]
 
 
 % Load required packages
 
-\RequirePackage{csquotes}
 \RequirePackage[headheight=14.5pt,margin=1in]{geometry}
 \RequirePackage{textcase}
 \RequirePackage{setspace}

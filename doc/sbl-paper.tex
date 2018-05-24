@@ -5,6 +5,20 @@
 %% Add your bib resource here
 \addbibresource{biblatex-sbl.bib}
 
+%% convenience xetex/luatex engine test set up
+\usepackage{ifxetex}
+\usepackage{ifluatex}
+\newif\ifxetexorluatex
+\ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
 
 %% Language and font set up
 %% Note: Polyglossia is *not* well supported
@@ -14,12 +28,13 @@
   \babelprovide[import=he]{hebrew}
   \babelprovide[import=el]{polutonikogreek}
   \babelfont[american]{rm}[Ligatures=TeX]{Linux Libertine O}
-  \babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate,Scale=1.2]{SBL BibLit}
+  \babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
   \babelfont[polutonikogreek]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
 \else
   \usepackage[polutonikogreek,american]{babel}
   \usepackage{libertineRoman}
 \fi
+\usepackage{csquotes}
 
 
 %% Index set up (optional)
