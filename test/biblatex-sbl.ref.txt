@@ -3,7 +3,8 @@ SBL Style Using biblatex
 David Purton
 dcpurton@marshwiggle.net
 
-Version 0.9+ 2018-2018
+Version 0.10 2018-05-24
+24 May 2018
 
 Contents
 1 Introduction
@@ -1088,6 +1089,13 @@ Smith. Edinburgh: Black, 1885. Translation of Prolegomena zur Geschichte
 Israels. 2nd ed. Berlin: Reimer, 1883.
 
 5 Important Changes
+0.10
+
+2018-05-24
+
+• Add dashed option.
+• Fix list of abbreviations regression from v0.9.
+
 0.9
 
 2018-05-20
@@ -1095,19 +1103,19 @@ Israels. 2nd ed. Berlin: Reimer, 1883.
 • Use ibid and idem by default.
 •
 
-0.8.2
-
 polyglossia
 
 is no longer supported. You should use babel instead.
+
+20
+
+0.8.2
 
 2017-11-16
 
 • Support and require biblatex 3.8a
 
-20
-
-Abbreviations
+Abbreviations
 ABC
 
 Assyrian and Babylonian Chronicles. Albert Kirk Grayson. TCS 5. Locust Valley,
