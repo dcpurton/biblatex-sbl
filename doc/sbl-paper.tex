@@ -1,11 +1,7 @@
 \documentclass[letterpaper,12pt]{article}
 
-\usepackage{sbl-paper}
-
-%% Add your bib resource here
-\addbibresource{biblatex-sbl.bib}
-
-%% convenience xetex/luatex engine test set up
+% ---------------------------------------------------------------------
+% Convenience xetex/luatex engine test set up
 \usepackage{ifxetex}
 \usepackage{ifluatex}
 \newif\ifxetexorluatex
@@ -18,34 +14,59 @@
     \xetexorluatexfalse
   \fi
 \fi
+% ---------------------------------------------------------------------
 
 
-%% Language and font set up
-%% Note: Polyglossia is *not* well supported
+% ---------------------------------------------------------------------
+% Language and font set up
+% Note: Polyglossia is *not* well supported
 \ifxetexorluatex
   \usepackage[nil,bidi=default]{babel}
   \babelprovide[import=en-US,main]{american}
   \babelprovide[import=he]{hebrew}
   \babelprovide[import=el]{polutonikogreek}
   \babelfont[american]{rm}[Ligatures=TeX]{Linux Libertine O}
-  \babelfont[hebrew]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
-  \babelfont[polutonikogreek]{rm}[Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
+  \babelfont[hebrew]{rm}%
+    [Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
+  \babelfont[polutonikogreek]{rm}%
+    [Ligatures=TeX,Contextuals=Alternate]{SBL BibLit}
 \else
   \usepackage[polutonikogreek,american]{babel}
   \usepackage{libertineRoman}
 \fi
 \usepackage{csquotes}
+% ---------------------------------------------------------------------
 
 
-%% Index set up (optional)
-%% Include separate indices for subjects, authors, and Scripture references
+% ---------------------------------------------------------------------
+% Load main style
+% Pass indexing=cite to biblatex (if you want author indexing)
+\PassOptionsToPackage{indexing=cite}{biblatex}
+\usepackage{sbl-paper}
+
+% Add your bib resource here
+\addbibresource{biblatex-sbl.bib}
+% ---------------------------------------------------------------------
+
+
+% ---------------------------------------------------------------------
+% Index set up (optional)
+% Include separate indices for subjects, authors, and Scripture
+% references
+
+% Set up subject index
 \makeindex[title=Subject Index,intoc,options=-q]
-\makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,options=-s
-sbl-paper-bibleref.ist -q]
-\makeindex[name=\jobname-aut,title=Author Index,intoc,options=-q]
-%% Index Bible references in a scripture index
+
+% Set up Scripture reference index
+\makeindex[name=\jobname-scr,title=Scripture Reference Index,intoc,
+           options=-s sbl-paper-bibleref.ist -q]
+% Index Bible references in a scripture index
 \renewcommand{\biblerefindex}{\index[\jobname-scr]}
-%% Redefine index format so biblatex inserts names into an author index
+
+% Set up Author index
+\makeindex[name=\jobname-aut,title=Author Index,intoc,options=-q]
+% Redefine index format so biblatex inserts names into a separate
+% author index rather than the main index
 \DeclareIndexNameFormat{default}{%
   \nameparts{#1}%
   \usebibmacro{index:name}
@@ -54,10 +75,7 @@ sbl-paper-bibleref.ist -q]
     {\namepartgiven}
     {\namepartprefix}
     {\namepartsuffix}}
-
-
-%% Disable hyperlinks
-%\hypersetup{draft=true}
+% ---------------------------------------------------------------------
 
 
 \begin{document}
@@ -149,11 +167,8 @@ citations in parentheses. For example, here is a dictionary with a shorthand:
 the same article referenced in two different
 publications.\autocites{freedman:1977,freedman:1980}
 
-%% Use xelatex or lualatex if you need Hebrew
-\section{Greek
-  \ifxetexorluatex
-    and Hebrew%
-  \fi}
+% Use xelatex or lualatex if you need Hebrew
+\section{Greek\ifxetexorluatex{} and Hebrew\fi}
 
 \index{Greek!paragraph}Paragraph Greek:
 \begin{quote}
