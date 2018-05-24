@@ -1,4 +1,4 @@
-\documentclass[letterpaper,12pt,oneside,openany]{book}
+\documentclass[letterpaper,12pt]{article}
 
 \usepackage{sbl-paper}
 
@@ -55,13 +55,14 @@ sbl-paper-bibleref.ist -q]
 \date{[Month, Day, Year]}
 \maketitle
 
-\frontmatter
+\pagenumbering{roman}
 
 \tableofcontents
 
 \printbiblist[heading=biblistintoc]{abbreviations}
 
-\mainmatter
+\clearpage
+\pagenumbering{arabic}
 
 \firstsection[Primary Heading]{Primary Heading \break
   Long Titles Are Single-Spaced on Subsequent Lines}
@@ -168,7 +169,7 @@ publications.\autocites{freedman:1977,freedman:1980}
 
 \appendix
 
-\chapter{Appendix Title}
+\firstsection{Appendix Title}
 
 \index{appendixes}%
 There should be two blank lines between the title and the text.
@@ -187,8 +188,6 @@ for the appendixes is consecutive with the rest of the paper.
 
 Margins for the appendixes should be the same as the rest of the paper. You
 may need to reduce the content of the appendix to fit the margins.
-
-\backmatter
 
 \printbibliography[heading=bibintoc]
 
