@@ -3,8 +3,8 @@ SBL Style Using biblatex
 David Purton
 dcpurton@marshwiggle.net
 
-Version 0.10 2018-05-24
-24 May 2018
+Version 0.11 2018-06-08
+8 June 2018
 
 Contents
 1 Introduction
@@ -1089,6 +1089,12 @@ Smith. Edinburgh: Black, 1885. Translation of Prolegomena zur Geschichte
 Israels. 2nd ed. Berlin: Reimer, 1883.
 
 5 Important Changes
+0.11
+
+2018-06-08
+
+• Add abbreviations from related entries to the list of abbreviations.
+
 0.10
 
 2018-05-24
@@ -1096,7 +1102,9 @@ Israels. 2nd ed. Berlin: Reimer, 1883.
 • Add dashed option.
 • Fix list of abbreviations regression from v0.9.
 
-0.9
+20
+
+0.9
 
 2018-05-20
 • Support and require biblatex 3.11.
@@ -1105,11 +1113,9 @@ Israels. 2nd ed. Berlin: Reimer, 1883.
 
 polyglossia
 
+0.8.2
+
 is no longer supported. You should use babel instead.
-
-20
-
-0.8.2
 
 2017-11-16
 
@@ -1188,7 +1194,9 @@ SBLHS
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press,
 2014
 
-SBS
+21
+
+SBS
 
 Stuttgarter Bibelstudien
 
@@ -1206,9 +1214,7 @@ TZ
 
 Theologische Zeitschrift
 
-21
-
-References
+References
 The Ante-Nicene Fathers. Edited by Alexander Roberts and James Donaldson. 10 vols. 1885–
 1887. Repr., Peabody, MA: Hendrickson, 1994.
 Augustine. The Letters of St. Augustin. In vol. 1 of The Nicene and Post-Nicene Fathers, Series 1.
@@ -1235,16 +1241,16 @@ Josephus. Translated by Henry St. J. Thackeray et al. 10 vols. LCL. Cambridge: H
 University Press, 1926–1965.
 Leyerle, Blake. “John Chrysostom on the Gaze.” JECS 1 (1993): 159–74.
 Petersen, David L. “Hebrew Bible Textbooks: A Review Article.” CRBR 1 (1988): 1–18.
-Pritchard, James B., ed. Ancient Near Eastern Texts Relating to the Old Testament. 3rd ed.
+
+22
+
+Pritchard, James B., ed. Ancient Near Eastern Texts Relating to the Old Testament. 3rd ed.
 Princeton: Princeton University Press, 1969.
 Robinson, James M., and Helmut Koester. Trajectories through Early Christianity. Philadelphia: Fortress, 1971.
 Sasson, Jack M., ed. Civilizations of the Ancient Near East. 4 vols. New York: Scribner’s Sons,
 1995. Repr., 4 vols. in 2. Peabody, MA: Hendrickson, 2000.
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press, 2014.
-
-22
-
-Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
+Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
 Student Supplement for the SBL Handbook of Style, Second Edition, compiled by Melanie
 Greer Nogalski, James D. Nogalski, Sophia G. Steibel, and Danny M. West. Edited by
 Joel M. LeMon and Brennan W. Breed. Atlanta, GA: SBL Press, February 2015. https:

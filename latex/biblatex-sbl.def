@@ -15,8 +15,8 @@
 % VERSION STRINGS
 % ------------------------------------------------------------------
 
-\def\sbl@abx@date{2018/05/24}
-\def\sbl@abx@version{0.10}
+\def\sbl@abx@date{2018/06/08}
+\def\sbl@abx@version{0.11}
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
@@ -844,6 +844,14 @@
       \step[fieldsource=options, match=\regexp{(.*)}]
       \step[fieldset=options, fieldvalue={useauthor=false,useeditor=false,}]
       \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    \map[overwrite]{
+      \pernottype{ancienttext}
+      \pernottype{classictext}
+      \step[fieldsource=related, final]
+      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
+      \step[fieldset=relatedoptions, fieldvalue={skipbib,skipbiblist=false,}]
+      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
     }
     \map[overwrite]{
       \pertype{ancienttext}
