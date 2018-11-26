@@ -4,7 +4,7 @@
 \usepackage{fontspec}
 \usepackage{xparse}
 \usepackage{xcolor}
-\usepackage{parskip}
+\usepackage{parskip}[=v1]
 \usepackage{titlesec}
 \usepackage{imakeidx}
 \makeindex[title=Author Index,intoc,options=-q]
@@ -20,14 +20,14 @@
 ]
 
 \titleformat{\paragraph}
-{\normalfont\sf\normalsize\bfseries}{\theparagraph}{1em}{}
+{\normalfont\sffamily\normalsize\bfseries}{\theparagraph}{1em}{}
 \titleformat{\subparagraph}
-{\normalfont\sf\small\scshape}{\thesubparagraph}{1em}{}
+{\normalfont\sffamily\small\scshape}{\thesubparagraph}{1em}{}
 \titlespacing*{\paragraph}{0pt}{2ex plus 1ex minus 0.2ex}{0.5ex}
 \titlespacing*{\subparagraph}{0pt}{1ex plus 0.2ex}{0em}
 
 \titleclass{\subsubparagraph}{straight}[\subparagraph]
-\titleformat{\subsubparagraph}{\normalfont\small\tt}{}{1em}{}
+\titleformat{\subsubparagraph}{\normalfont\ttfamily\small}{}{1em}{}
 \titlespacing*{\subsubparagraph}{0pt}{0pt}{0pt}
 
 \setcounter{secnumdepth}{4} % how many sectioning levels to assign numbers to
