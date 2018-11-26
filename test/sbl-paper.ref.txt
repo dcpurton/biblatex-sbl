@@ -137,8 +137,7 @@ GREEK AND HEBREW
 Paragraph Greek:
 Ἐν ἀρχῇ ἦν ὁ λόγος, καὶ ὁ λόγος ἦν πρὸς τὸν θεόν, καὶ θεὸς ἦν ὁ λόγος. (John 1:1)
 Paragraph Hebrew:
-(Gen 1:1) .‫שַּמ ִים ְוֵאת ָהָא ֶרץ‬
-ׁ ָ ‫ְבּ ֵראִשׁית ָבּ ָרא ֱאֹלִהים ֵאת ַה‬
+(Gen 1:1) .‫ְבּ ֵראִשׁית ָבּ ָרא ֱאֹלִהים ֵאת ַהָשַׁמ ִים ְוֵאת ָהָא ֶרץ‬
 Inline Greek (Ἐν ἀρχῇ), transliterated Greek (En archē), Hebrew (‫)בראשית‬, and transliterated
 Hebrew (bərēʾšı̂t ).
 
