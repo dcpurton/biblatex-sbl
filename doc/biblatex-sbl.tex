@@ -233,12 +233,15 @@ options, reference the \biblatex manual.
 \begin{ltxsyntax}
 
 \cmditem{autocite}[prenote]<(altpostnote)postnote>{key}
+\cmditem{autocite*}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{autocite} inserts a citation as a footnote. If used in a footnote, the
-citation is placed in parentheses. It works as in the standard \biblatex
-styles, except that that \bibfield{postnote} argument can be divided into two
-using parentheses. This creates an \bibfield{altpostnote} field which is used
-in some of the examples from §6.4 of the \cite{SBLHS}. e.g.,
+citation is placed in parentheses. The starred variant suppresses the author,
+editor, or translator (provided the entry options are set to use them). It
+works as in the standard \biblatex styles, except that that
+\bibfield{postnote} argument can be divided into two using parentheses. This
+creates an \bibfield{altpostnote} field which is used in some of the examples
+from §6.4 of the \cite{SBLHS}. e.g.,
 
 \begin{snugshade}
   \samplecite{1}[See][(1.3)8:223]{clementinehomilies}
@@ -252,15 +255,21 @@ e.g.,
 \end{snugshade}
 
 \cmditem{cite}[prenote]<(altpostnote)postnote>{key}
+\cmditem{cite*}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{cite} works in the same way as \cmd{autocite} except that the citation is
-placed directly into the text instead of in a footnote.
+placed directly into the text instead of in a footnote. The starred variant
+suppresses the author, editor, or translator (provided the entry options are
+set to use them).
 
 \cmditem{parencite}[prenote]<(altpostnote)postnote>{key}
+\cmditem{parencite*}[prenote]<(altpostnote)postnote>{key}
 
 \cmd{parencite} works in the same way as \cmd{autocite} except that the
-citation is placed inside parentheses instead of in a footnote. This is most
-useful for citing primary sources. e.g.,
+citation is placed inside parentheses instead of in a footnote. The starred
+variant suppresses the author, editor, or translator (provided the entry
+options are set to use them). This is most useful for citing primary sources.
+e.g.,
 
 \begin{snugshade}
   \sampleparencite[2.233-235]{josephus:ant}
@@ -1242,10 +1251,11 @@ e.g.,
 
 \section{Important Changes}
 
-\subsection*{0.11\quad 2018-06-08}
+\subsection*{0.11\quad 2018-12-13}
 
 \begin{itemize}
   \item Add abbreviations from related entries to the list of abbreviations.
+  \item Add starred variants for citation commands.
 \end{itemize}
 
 \subsection*{0.10\quad 2018-05-24}

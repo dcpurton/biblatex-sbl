@@ -86,6 +86,29 @@
        {\newunit
         \printfield{pages}}}}
 
+\newbibmacro*{cite:suppresslabelname}{%
+  \renewbibmacro*{author}{}%
+  \renewbibmacro*{author+holder}{}%
+  \renewbibmacro*{editor}{%
+    \ifboolexpr{
+      test \ifuseeditor
+      and
+      not test {\ifnameundef{editor}}
+    }
+      {\clearname{editor}}
+      {}}%
+  \renewbibmacro*{editor+others}{\usebibmacro{editor}}%
+  \renewbibmacro*{translator}{%
+    \ifboolexpr{
+      test \ifusetranslator
+      and
+      not test {\ifnameundef{translator}}
+    }
+      {\clearname{translator}}
+      {}}%
+  \renewbibmacro*{translator+others}{\usebibmacro{translator}}%
+}
+
 \newbibmacro*{bibentrycite}{%
   \citereset
   \global\togglefalse{relatedseen}%
@@ -166,9 +189,23 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand{\cite}
   {\usebibmacro{prenote}}
   {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\cite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
@@ -190,15 +227,36 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand*{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand*{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand{\footcitetext}[\mkbibfootnotetext]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\footcitetext}[\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
@@ -210,10 +268,28 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand*{\fullcite}
+  {\usebibmacro{prenote}}
+  {\def\blx@shorthand{false}%
+   \let\ifciteseen\@secondoftwo
+   \usebibmacro{cite:suppresslabelname}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\def\blx@shorthand{false}%
    \let\ifciteseen\@secondoftwo
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\footfullcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\def\blx@shorthand{false}%
+   \let\ifciteseen\@secondoftwo
+   \usebibmacro{cite:suppresslabelname}%
    \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
