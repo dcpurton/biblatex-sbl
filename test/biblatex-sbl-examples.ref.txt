@@ -3044,8 +3044,8 @@ eprinttype = {cdli:wiki}
 Biblatex Output
 \autocite{100cuneiform}
 
-10. “The One Hundred Most Important Cuneiform Objects,” cdli:wiki, http://cdli.ox
-.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
+10. “The One Hundred Most Important Cuneiform Objects,” cdli:wiki, http://cdli
+.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
 \printbibliography
 
 “The One Hundred Most Important Cuneiform Objects.” cdli:wiki. http://cdli.ox.ac.uk/
