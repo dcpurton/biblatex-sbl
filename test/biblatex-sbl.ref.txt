@@ -709,6 +709,9 @@ eprintyear
 field (datepart)
 This field holds the year component of the eprintdate field.
 
+mainauthor list (name)
+
+The author(s) of the maintitle.
 maineditor list (name)
 
 The editor(s) of the maintitle.
@@ -720,14 +723,15 @@ The translator(s) of the maintitle.
 revdauthor list (name)
 
 The author(s) of the revdtitle.
-revdeditor
+
+13
+
+revdeditor
 
 list (name)
 The editor(s) of the revdtitle.
 
-13
-
-revdshorttitle
+revdshorttitle
 
 field (literal)
 The title of a book being review in an abridged form. This field is used in subsequent
