@@ -1,14 +1,14 @@
 Biblatex-SBL ibidem and idem Test File
 David Purton
 This file tests the behaviour of the various options related to using ibidem and idem in
-Biblatex-SBL.
+Biblatex-SBL. By default neither ibidem nor idem are used.1
 
-Default ibidem tracking
-By default ibid. is not used across page breaks and ibidem is taken to mean ‘same author
-+ same title’. See biblatex-sbl.pdf for a description of the options ibidtracker can
-take.
+Using ibidem and idem tracking
+By default ibid. is not used across page breaks and ibidem is taken to mean ‘same
+author + same title + same page’.2 See biblatex-sbl.pdf for a description of the
+options ibidtracker can take.
 Biblatex Output
-\usepackage[style=sbl]{biblatex}
+\usepackage[style=sbl,ibidtracker=constrict]{biblatex}
 \autocite[127]{talbert:1992}
 
 1. Charles H. Talbert, Reading John: A Literary and Theological Commentary on the
@@ -18,7 +18,7 @@ Fourth Gospel and the Johannine Epistles (New York: Crossroad, 1992), 127.
 2. ibid., 22.
 \autocite[22]{talbert:1992}
 
-3. ibid., 22.
+3. ibid.
 \autocite[237]{robinson+koester:1971}
 
 4. James M. Robinson and Helmut Koester, Trajectories through Early Christianity
@@ -27,6 +27,9 @@ Fourth Gospel and the Johannine Epistles (New York: Crossroad, 1992), 127.
 
 5. Talbert, Reading John, 22.
 \clearpage
+
+1. See https://sblhs2.com/2018/02/01/cms-update-ibid/.
+2. See https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/.
 
 1
 
@@ -38,7 +41,7 @@ Not tracking ibidem across pages
 Set the pagetracker option to false to allow that the first citation on a page to be
 ibid.
 Biblatex Output
-\usepackage[style=sbl,pagetracker=false]{biblatex}
+\usepackage[style=sbl,ibidtracker=constrict,pagetracker=false]{biblatex}
 \autocite[53]{scott+etal:1993}
 
 7. Bernard Brandon Scott et al., Reading New Testament Greek (Peabody, MA:
@@ -52,13 +55,13 @@ Hendrickson, 1993), 53.
 
 \autocite[42]{scott+etal:1993}
 
-9. ibid., 42.
+9. ibid.
 
-Ibidem meaning ‘same author + same title + same page’
-Turn on the ibidpage option to indicate that ibidem should mean ‘same author + same
-title + same page’.
+Ibidem meaning ‘same author + same title’
+Turn off the ibidpage option to indicate that ibidem should mean ‘same author + same
+title’.
 Biblatex Output
-\usepackage[style=sbl,ibidpage]{biblatex}
+\usepackage[style=sbl,ibidtracker=constrict,ibidpage=false]{biblatex}
 \autocite[28]{egger:1996}
 
 10. Wilhelm Egger, How to Read the New Testament: An Introduction to Linguistic
@@ -66,16 +69,16 @@ and Historical-Critical Methodology, trans. Peter Heinegg (Peabody, MA: Hendrick
 1996), 28.
 \autocite[28]{egger:1996}
 
-11. ibid.
+11. ibid., 28.
 \autocite[291]{egger:1996}
 
 12. ibid., 291.
 
 Default idem tracking
-By default idem is used. Idem tracking is controlled using the idemtracker option. See
-biblatex-sbl.pdf for a description of the options idemtracker can take.
+By default idem is not used. Idem tracking is controlled using the idemtracker option.
+See biblatex-sbl.pdf for a description of the options idemtracker can take.
 Biblatex Output
-\usepackage[style=sbl]{biblatex}
+\usepackage[style=sbl,idemtracker=constrict]{biblatex}
 \autocites[35]{vanseters:1997}{vanseters:1995}
 
 13. John Van Seters, In Search of History: Histeriography in the Ancient World
@@ -87,15 +90,18 @@ et al. (Göttingen: Vandenhoeck & Ruprecht, 1995), 219–28.
 \autocites[35]{vanseters:1997}[222]{vanseters:1995}
 
 14. Van Seters, In Search of History, 35; idem, “Theology of the Yahwist,” 222.
+\autocite[35]{vanseters:1997}
 
-References
+15. Van Seters, In Search of History, 35.
+
+3
+
+References
 Egger, Wilhelm. How to Read the New Testament: An Introduction to Linguistic and
 Historical-Critical Methodology. Translated by Peter Heinegg. Peabody, MA: Hendrickson, 1996.
 Robinson, James M., and Helmut Koester. Trajectories through Early Christianity.
 Philadelphia: Fortress, 1971.
-3
-
-Scott, Bernard Brandon, Margaret Dean, Kristen Sparks, and Frances LaZar. Reading
+Scott, Bernard Brandon, Margaret Dean, Kristen Sparks, and Frances LaZar. Reading
 New Testament Greek. Peabody, MA: Hendrickson, 1993.
 Talbert, Charles H. Reading John: A Literary and Theological Commentary on the Fourth
 Gospel and the Johannine Epistles. New York: Crossroad, 1992.

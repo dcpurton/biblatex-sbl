@@ -9,7 +9,7 @@
 \usepackage{imakeidx}
 \makeindex[title=Author Index,intoc,options=-q]
 \usepackage{hyperref}
-\usepackage[style=sbl,indexing=cite]{biblatex}
+\usepackage[style=sbl,indexing=cite,ibidtracker=constrict,idemtracker=constrict]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
@@ -147,16 +147,20 @@
 \maketitle
 
 This file tests the behaviour of the various options related to using
-\emph{ibidem} and \emph{idem} in Biblatex-SBL.
+\emph{ibidem} and \emph{idem} in Biblatex-SBL. By default neither
+\emph{ibidem} nor \emph{idem} are used.\footnote{See
+\url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.}
 
-\section*{Default \emph{ibidem} tracking}
+\section*{Using \emph{ibidem} and \emph{idem} tracking}
 
 By default ibid.\@ is not used across page breaks and \emph{ibidem} is taken
-to mean ‘same author + same title’. See \texttt{biblatex-sbl.pdf} for a
-description of the options \texttt{ibidtracker} can take.
+to mean ‘same author + same title + same page’.\footnote{See
+\url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}.} See
+\texttt{biblatex-sbl.pdf} for a description of the options
+\texttt{ibidtracker} can take.
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict]\{biblatex\}}
   \samplecite{1}[127]{talbert:1992}
   \samplecite{2}[22]{talbert:1992}
   \samplecite{3}[22]{talbert:1992}
@@ -169,15 +173,13 @@ description of the options \texttt{ibidtracker} can take.
 
 \section*{Not tracking \emph{ibidem} across pages}
 
-\boolfalse{pagetracker}
-
 Set the \texttt{pagetracker} option to \texttt{false} to allow that the first
 citation on a page to be ibid. 
 
 \boolfalse{pagetracker}
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,pagetracker=false]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,pagetracker=false]\{biblatex\}}
   \samplecite{7}[53]{scott+etal:1993}
   \samplecite{8}[42]{scott+etal:1993}
   \samplemacro{\textbackslash clearpage}
@@ -185,19 +187,17 @@ citation on a page to be ibid.
   \samplecite{9}[42]{scott+etal:1993}
 \end{biboutput}
 
-\section*{\emph{Ibidem} meaning ‘same author + same title + same page’}
+\section*{\emph{Ibidem} meaning ‘same author + same title’}
 
-Turn on the \texttt{ibidpage} option to indicate that \emph{ibidem} should
-mean ‘same author + same title + same page’.
+Turn off the \texttt{ibidpage} option to indicate that \emph{ibidem} should
+mean ‘same author + same title’.
 
 \makeatletter
-\let\blx@imc@ifloccit\blx@ifloccit@global
-\let\blx@loccittracker\blx@loccittracker@global
-\let\blx@loccitreset\blx@loccitreset@global
+\blx@opt@loccittracker@false
 \makeatother
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,ibidpage]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict,ibidpage=false]\{biblatex\}}
   \samplecite{10}[28]{egger:1996}
   \samplecite{11}[28]{egger:1996}
   \samplecite{12}[291]{egger:1996}
@@ -205,23 +205,24 @@ mean ‘same author + same title + same page’.
 
 \section*{Default \emph{idem} tracking}
 
-By default \emph{idem} is used. \emph{Idem} tracking is controlled using the
-\texttt{idemtracker} option. See \texttt{biblatex-sbl.pdf} for a description
-of the options \texttt{idemtracker} can take.
+By default \emph{idem} is not used. \emph{Idem} tracking is controlled using
+the \texttt{idemtracker} option. See \texttt{biblatex-sbl.pdf} for a
+description of the options \texttt{idemtracker} can take.
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl]\{biblatex\}}
-  \makeatletter\blx@opt@idemtracker@constrict\makeatother
+  \samplemacro{\textbackslash usepackage[style=sbl,idemtracker=constrict]\{biblatex\}}
   \samplemacro{\textbackslash autocites[35]\{vanseters:1997\}\{vanseters:1995\}}
   \color{biblatex-colour}
   \hspace*{\bibindent}13.~\cites[35]{vanseters:1997}{vanseters:1995}.
   \color{black}
+  \makeatletter\blx@idemreset\makeatother
   \samplemacro{\textbackslash
   autocites[35]\{vanseters:1997\}[222]\{vanseters:1995\}}
-  \makeatletter\blx@idemreset\makeatother
   \color{biblatex-colour}
   \hspace*{\bibindent}14.~\cites[35]{vanseters:1997}[222]{vanseters:1995}.
   \color{black}
+  \makeatletter\blx@idemreset\makeatother
+  \samplecite{15}[35]{vanseters:1997}
 \end{biboutput}
 
 \printbibliography

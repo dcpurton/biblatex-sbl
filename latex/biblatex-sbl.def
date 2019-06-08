@@ -193,6 +193,10 @@
 % IDEM MACROS
 % ------------------------------------------------------------------
 
+\let\blx@ifidemmpfncheck\blx@ifmpfncheck
+\patchcmd{\blx@ifidemmpfncheck}{\tw@}{\@ne}{}{}
+\patchcmd{\blx@ifciteidem@constrict}{\blx@ifmpfncheck}{\blx@ifidemmpfncheck}{}{}
+
 \newbibmacro*{ifidemused}{%
   \ifboolexpr{
     test {\ifciteidem}
