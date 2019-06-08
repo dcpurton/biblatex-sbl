@@ -322,7 +322,7 @@
   pagetracker,
   idemtracker=false,
   ibidtracker=false,
-  ibidpage=false,
+  ibidpage=true,
   maxbibnames=99,
   maxcitenames=3,
   citepages=sbl,
