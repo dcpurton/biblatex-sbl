@@ -401,6 +401,7 @@
 \NewBibliographyString{paperpresented}
 \NewBibliographyString{patentfiled}
 \NewBibliographyString{released}
+\NewBibliographyString{article}
 
 \DeclareLanguageMappingSuffix{-sbl}
 
@@ -442,6 +443,7 @@
   \ifinteger{#1}
     {\mkbibordedition{#1}~\bibsstring{edition}}
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+\DeclareFieldFormat{eid}{\bibsstring{article}~#1}
 \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
 \DeclareFieldFormat{eprint}{%
   \iffieldundef{eprinttype}
@@ -491,7 +493,10 @@
 \DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
 \DeclareFieldFormat{part}{#1}
 \DeclareFieldFormat{pt}{\bibstring{part}~#1}
-\DeclareFieldFormat{postnote}{\mkcomprange{#1}}
+\DeclareFieldFormat{postnote}{%
+  \iffieldundef{eid}
+    {\mkcomprange{#1}}
+    {\mkpageprefix[pagination][\mkcomprange]{#1}}}
 \DeclareFieldFormat{multipostnote}{#1}
 \DeclareFieldFormat{byauthor}{\bibstring{byauthor} #1}
 \DeclareFieldFormat{revdtitle}{\biblstring{reviewof} \mkbibemph{#1}}
@@ -1271,7 +1276,7 @@
 \newbibmacro*{shortjournal+issue}{%
   \usebibmacro{shortjournal}%
   \setunit{\addspace}%
-  \usebibmacro{series+volume+number+eid}%
+  \usebibmacro{series+volume+number}%
   \ifboolexpr{
     not test {\ifnameundef{editor}}
     or
@@ -1300,7 +1305,8 @@
     test {\iffieldundef{date}}
   }
     {\usebibmacro{setpagesdelim}}
-    {}}
+    {}%
+  \usebibmacro{eid}}
 
 \renewbibmacro*{issue+date}{%
   \ifboolexpr{
@@ -1334,7 +1340,7 @@
              \usebibmacro{date}}}%
         \setunit{\addcolon\space}}}}
 
-\newbibmacro*{series+volume+number+eid}{%
+\newbibmacro*{series+volume+number}{%
   \iffieldundef{series}
     {}
     {\newunit
@@ -1342,9 +1348,7 @@
      \newunit}%
   \printfield{volume}%
   \setunit*{\addperiod}%
-  \printfield{number}%
-  \setunit{\addcomma\space}%
-  \printfield{eid}}
+  \printfield{number}}
 
 \newbibmacro{inissuetitle}{%
   \iffieldundef{issuetitle}
@@ -1363,7 +1367,7 @@
     {\printtext[issuetitle]{\printfield[titlecase]{shortissuetitle}}}%
   \newunit}
 
-\newbibmacro{issuetitle}{%
+\newbibmacro*{issuetitle}{%
   \iffieldundef{issuetitle}
     {}
     {\ifciteseen
@@ -1372,6 +1376,10 @@
         \printfield[titlecase]{issuetitle}%
           \setunit*{\subtitlepunct}%
           \printfield[titlecase]{issuesubtitle}}}}}
+
+\newbibmacro*{eid}{%
+  \printfield{eid}%
+  \setunit*{\addcomma\space}}
 
 % ------------------------------------------------------------------
 % NAME MACROS
