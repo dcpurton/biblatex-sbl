@@ -553,9 +553,9 @@
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[incommentary,inreference,inlexicon,online,review,seminarpaper,conferencepaper]{shorttitle}{\mkbibquote{#1}}
 \DeclareFieldFormat[suppperiodical]{title}{\mkbibquote{#1}}
-\DeclareFieldFormat{issuetitle}{\mkbibquote{#1}}
-\DeclareFieldFormat{issuesubtitle}{\mkbibquote{#1}}
-\DeclareFieldFormat{shortissuetitle}{\mkbibquote{#1}}
+\DeclareFieldFormat{issuetitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{issuesubtitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{shortissuetitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{howpublished}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 \DeclareFieldFormat[patent]{title}{#1}
 \DeclareFieldFormat[ancienttext]{title}{%
