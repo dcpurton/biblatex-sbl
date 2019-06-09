@@ -1,12 +1,15 @@
 Biblatex-SBL ibidem and idem Test File
 David Purton
 This file tests the behaviour of the various options related to using ibidem and idem in
-Biblatex-SBL. By default neither ibidem nor idem are used.1
+Biblatex-SBL. By default neither ibidem nor idem are used.1 When referencing multiple
+works by the same author within a footnote, subsequent references use only the family
+name of the author.2 This corresponds to the biblatex option idemtracker=sbl.
 
-Using ibidem and idem tracking
+Using ibidem
 By default ibid. is not used across page breaks and ibidem is taken to mean ‘same
-author + same title + same page’.2 See biblatex-sbl.pdf for a description of the
-options ibidtracker can take.
+author + same title + same page’.3 See biblatex-sbl.pdf for a description of the
+options ibidtracker can take. It is recommended to use ibidtracker=constrict for
+SBL compliance.
 Biblatex Output
 \usepackage[style=sbl,ibidtracker=constrict]{biblatex}
 \autocite[127]{talbert:1992}
@@ -29,7 +32,8 @@ Fourth Gospel and the Johannine Epistles (New York: Crossroad, 1992), 127.
 \clearpage
 
 1. See https://sblhs2.com/2018/02/01/cms-update-ibid/.
-2. See https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/.
+2. See https://sblhs2.com/2016/10/11/placement-citations-traditional/.
+3. See https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/.
 
 1
 
@@ -37,9 +41,8 @@ Fourth Gospel and the Johannine Epistles (New York: Crossroad, 1992), 127.
 
 6. Talbert, Reading John, 22.
 
-Not tracking ibidem across pages
-Set the pagetracker option to false to allow that the first citation on a page to be
-ibid.
+Using ibidem across pages
+Set the pagetracker option to false to allow the first citation on a page to be ibid.
 Biblatex Output
 \usepackage[style=sbl,ibidtracker=constrict,pagetracker=false]{biblatex}
 \autocite[53]{scott+etal:1993}
@@ -74,11 +77,13 @@ and Historical-Critical Methodology, trans. Peter Heinegg (Peabody, MA: Hendrick
 
 12. ibid., 291.
 
-Default idem tracking
-By default idem is not used. Idem tracking is controlled using the idemtracker option.
-See biblatex-sbl.pdf for a description of the options idemtracker can take.
+Using idem
+By default idem is not used. Rather only the family name of the author is given
+for subsequent references when works by the same author are cited within a single
+footnote. Idem tracking is controlled using the idemtracker option. See biblatexsbl.pdf for a description of the options idemtracker can take. To comply with SBL
+style, idemtracker=citation should be used.4
 Biblatex Output
-\usepackage[style=sbl,idemtracker=constrict]{biblatex}
+\usepackage[style=sbl,idemtracker=citation]{biblatex}
 \autocites[35]{vanseters:1997}{vanseters:1995}
 
 13. John Van Seters, In Search of History: Histeriography in the Ancient World
@@ -93,6 +98,7 @@ et al. (Göttingen: Vandenhoeck & Ruprecht, 1995), 219–28.
 \autocite[35]{vanseters:1997}
 
 15. Van Seters, In Search of History, 35.
+4. See https://sblhs2.com/2017/01/10/idem/.
 
 3
 

@@ -9,7 +9,7 @@
 \usepackage{imakeidx}
 \makeindex[title=Author Index,intoc,options=-q]
 \usepackage{hyperref}
-\usepackage[style=sbl,indexing=cite,ibidtracker=constrict,idemtracker=constrict]{biblatex}
+\usepackage[style=sbl,indexing=cite,ibidtracker=constrict,idemtracker=citation]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
@@ -149,15 +149,20 @@
 This file tests the behaviour of the various options related to using
 \emph{ibidem} and \emph{idem} in Biblatex-SBL. By default neither
 \emph{ibidem} nor \emph{idem} are used.\footnote{See
-\url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.}
+\url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.} When referencing
+multiple works by the same author within a footnote, subsequent references use
+only the family name of the author.\footnote{See
+\url{https://sblhs2.com/2016/10/11/placement-citations-traditional/}.} This
+corresponds to the \verb|biblatex| option \verb|idemtracker=sbl|.
 
-\section*{Using \emph{ibidem} and \emph{idem} tracking}
+\section*{Using \emph{ibidem}}
 
 By default ibid.\@ is not used across page breaks and \emph{ibidem} is taken
 to mean ‘same author + same title + same page’.\footnote{See
 \url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}.} See
 \texttt{biblatex-sbl.pdf} for a description of the options
-\texttt{ibidtracker} can take.
+\texttt{ibidtracker} can take. It is recommended to use
+\verb|ibidtracker=constrict| for SBL compliance.
 
 \begin{biboutput}
   \samplemacro{\textbackslash usepackage[style=sbl,ibidtracker=constrict]\{biblatex\}}
@@ -171,9 +176,9 @@ to mean ‘same author + same title + same page’.\footnote{See
   \samplecite{6}[22]{talbert:1992}
 \end{biboutput}
 
-\section*{Not tracking \emph{ibidem} across pages}
+\section*{Using \emph{ibidem} across pages}
 
-Set the \texttt{pagetracker} option to \texttt{false} to allow that the first
+Set the \texttt{pagetracker} option to \texttt{false} to allow the first
 citation on a page to be ibid. 
 
 \boolfalse{pagetracker}
@@ -203,25 +208,27 @@ mean ‘same author + same title’.
   \samplecite{12}[291]{egger:1996}
 \end{biboutput}
 
-\section*{Default \emph{idem} tracking}
+\section*{Using \emph{idem}}
 
-By default \emph{idem} is not used. \emph{Idem} tracking is controlled using
+By default \emph{idem} is not used. Rather only the family name of the author
+is given for subsequent references when works by the same author are cited
+within a single footnote. \emph{Idem} tracking is controlled using
 the \texttt{idemtracker} option. See \texttt{biblatex-sbl.pdf} for a
-description of the options \texttt{idemtracker} can take.
+description of the options \texttt{idemtracker} can take. To comply with SBL
+style, \verb|idemtracker=citation| should be used.\footnote{See
+\url{https://sblhs2.com/2017/01/10/idem/}.}
 
 \begin{biboutput}
-  \samplemacro{\textbackslash usepackage[style=sbl,idemtracker=constrict]\{biblatex\}}
+  \samplemacro{\textbackslash usepackage[style=sbl,idemtracker=citation]\{biblatex\}}
   \samplemacro{\textbackslash autocites[35]\{vanseters:1997\}\{vanseters:1995\}}
   \color{biblatex-colour}
   \hspace*{\bibindent}13.~\cites[35]{vanseters:1997}{vanseters:1995}.
   \color{black}
-  \makeatletter\blx@idemreset\makeatother
   \samplemacro{\textbackslash
   autocites[35]\{vanseters:1997\}[222]\{vanseters:1995\}}
   \color{biblatex-colour}
   \hspace*{\bibindent}14.~\cites[35]{vanseters:1997}[222]{vanseters:1995}.
   \color{black}
-  \makeatletter\blx@idemreset\makeatother
   \samplecite{15}[35]{vanseters:1997}
 \end{biboutput}
 

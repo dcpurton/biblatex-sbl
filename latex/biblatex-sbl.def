@@ -193,9 +193,30 @@
 % IDEM MACROS
 % ------------------------------------------------------------------
 
-\let\blx@ifidemmpfncheck\blx@ifmpfncheck
-\patchcmd{\blx@ifidemmpfncheck}{\tw@}{\@ne}{}{}
-\patchcmd{\blx@ifciteidem@constrict}{\blx@ifmpfncheck}{\blx@ifidemmpfncheck}{}{}
+\def\blx@opt@idemtracker@citation{%
+  \let\blx@imc@ifciteidem\blx@ifciteidem@citation
+  \let\blx@idemtracker\blx@idemtracker@global
+  \let\blx@idemreset\blx@idemreset@global
+  \booltrue{citetracker}}
+
+\def\blx@opt@idemtracker@sbl{%
+  \let\blx@imc@ifciteidem\blx@ifciteidem@sbl
+  \let\blx@idemtracker\blx@idemtracker@global
+  \let\blx@idemreset\blx@idemreset@global
+  \booltrue{citetracker}}
+
+\def\blx@ifciteidem@citation{%
+  \ifbool{citetracker}
+    {\iffirstcitekey
+       {\@secondoftwo}
+       {\blx@imc@iffieldequals{fullhash}\blx@lasthash@text}}
+    {\@secondoftwo}}
+
+\def\blx@ifciteidem@sbl{%
+  \blx@ifciteidem@citation}
+
+\def\ifciteidemsbl{%
+  \ifdefequal{\blx@imc@ifciteidem}{\blx@ifciteidem@sbl}}
 
 \newbibmacro*{ifidemused}{%
   \ifboolexpr{
@@ -203,7 +224,9 @@
     and
     not test {\iffirstonpage}
   }
-    {\bibstring[\mkibid]{idem\thefield{gender}}%
+    {\ifciteidemsbl
+       {\printnames{labelname}}
+       {\bibstring[\mkibid]{idem\thefield{gender}}}%
      \@firstoftwo}
     {\@secondoftwo}}
 
@@ -324,7 +347,7 @@
   minxrefs=1,
   isbn=false,
   pagetracker,
-  idemtracker=false,
+  idemtracker=sbl,
   ibidtracker=false,
   ibidpage=true,
   maxbibnames=99,
