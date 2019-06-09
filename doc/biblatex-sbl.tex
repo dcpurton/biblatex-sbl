@@ -143,15 +143,16 @@
 \biblatexsbl provides support to \biblatex and LaTeX for citations,
 bibliography, and a list of abbreviations in the style recommended by the
 Society of Biblical Literature (\citeshorthand{SBL}). The style conforms to
-the second edition of the \cite{SBLHS}.
+the second edition of the \cite{SBLHS} and includes updates from the \emph{SBL
+Handbook of Style Blog}.\autocite{sblhs2.com}.
 
-The style supports all examples given in the handbook (see
-\sty{biblatex-sbl-examples.pdf}). Shorthand citations and a list of
-abbreviations containing journals, series, and shorthands are handled
-automatically. Repeated authors in the bibliography are replaced by a
-horizontal line. \emph{Ibidem} and \emph{idem} is enabled by default. Indexing
-of names is supported, but not enabled by default. Only note style citations,
-not Author-Date citations are supported. Primary sources can be cited in
+The style supports all examples given in the handbook and any relevant updates
+given on the Blog (see \sty{biblatex-sbl-examples.pdf}). Shorthand citations
+and a list of abbreviations containing journals, series, and shorthands are
+handled automatically. Repeated authors in the bibliography are replaced by a
+horizontal line. \emph{Ibidem}, \emph{idem} and indexing of names are
+supported, but not enabled by default. Only note style citations,
+not Author-Date citations, are supported. Primary sources can be cited in
 parentheses. \biblatexsbl is compatible with \biblatex's support for
 \sty{hyperref}.
 
@@ -211,7 +212,7 @@ and Hebrew usage with \sty{babel}.
 
 \begin{quote}
 \begin{lstlisting}[style=latex]{}
-\usepackage[nil,bidi=default]{babel}
+\usepackage[nil,bidi=default]{babel}% consider bidi=basic for lualatex
 \usepackage{csquotes}
 \babelprovide[import=en-US,main]{american}
 \babelprovide[import=he]{hebrew}
@@ -419,7 +420,7 @@ entry types.
   \end{snugshade}
 \end{valuelist}
 
-\optitem[constrict]{ibidtracker}{\opt{true}, \opt{false}, \opt{context},
+\optitem[false]{ibidtracker}{\opt{true}, \opt{false}, \opt{context},
 \opt{strict}, \opt{constrict}}
 
 This option controls the \emph{ibidem} tracker. The possible choices are:
@@ -444,17 +445,19 @@ This option controls the \emph{ibidem} tracker. The possible choices are:
   the same footnote or in immediately consecutive footnotes.
 \end{valuelist}
 
-\boolitem[false]{ibidpage}
+\boolitem[true]{ibidpage}
 
 The scholarly abbreviation \emph{ibidem} is sometimes taken to mean both ‘same
 author + same title’ and ‘same author + same title + same page’ in traditional
-citation schemes. By default, this is not the case with this style because it
-may lead to ambiguous citations. If you prefer the wider interpretation of
-\emph{ibidem}, set the package option \opt{ibidpage=true} or simply
-\opt{ibidpage} in the preamble. The default setting is \opt{ibidpage=false}.
+citation schemes. In line with SBL recommendations, this style uses the
+latter.\footnote{See
+\url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}.} If
+you prefer the narrower interpretation of \emph{ibidem}, set the package
+option \opt{ibidpage=false} in the preamble. The default setting is
+\opt{ibidpage=true}.
 
-\optitem[constrict]{idemtracker}{\opt{true}, \opt{false}, \opt{context},
-\opt{strict}, \opt{constrict}}
+\optitem[sbl]{idemtracker}{\opt{true}, \opt{false}, \opt{context},
+\opt{strict}, \opt{constrict}, \opt{citation}, \opt{sbl}}
 
 This option controls the \emph{idem} tracker. The possible choices are:
 
@@ -470,7 +473,12 @@ This option controls the \emph{idem} tracker. The possible choices are:
 \item[constrict] This mode is similar to \opt{context} with one additional
   condition: a reference in a footnote will only be considered as unambiguous
   if the current citation and the previous citation are given in the same
-  footnote.
+  footnote or in immediately consecutive footnotes.
+\item[citation] This option only allows \emph{idem} within a citation or
+  footnote. This is the preferred option if you intend to use \emph{idem}.
+\item[sbl] This option is similar to \opt{citation}, but does not actually
+  use \emph{idem}. Rather, it uses the author family name in subsequent
+  citations. This is the default option to comply with SBL style. 
 \end{valuelist}
 
 \optitem[true]{pagetracker}{\opt{true}, \opt{false}}
@@ -1255,6 +1263,14 @@ e.g.,
 
 \section{Important Changes}
 
+\subsection*{0.12\quad yyyy-mm-dd}
+
+\begin{itemize}
+  \item Ibid.\@ and idem are no longer used by default.
+  \item Only the author family name is printed for subsequent citations of a
+    different work by the same author within a footnote or citation.
+\end{itemize}
+
 \subsection*{0.11\quad 2018-12-13}
 
 \begin{itemize}
@@ -1273,7 +1289,7 @@ e.g.,
 
 \begin{itemize}[itemsep=0pt]
   \item Support and require \biblatex 3.11.
-  \item Use ibid and idem by default.
+  \item Use ibid.\@ and idem by default.
   \item \sty{polyglossia} is no longer supported. You should use \sty{babel}
     instead.
 \end{itemize}
