@@ -581,4 +581,14 @@
 \biblerefmap{Rev}{02@\br@newtestament !27}
 \biblerefmap{Revelation}{02@\br@newtestament !27}
 
+
+% Style Options
+
+\DeclareOption{jblstyle}{%
+  \renewcommand\@makefntext[1]{%
+    \parindent\footnotemargin\normalsize\@thefnmark.\@\space\footnotelayout #1}
+  \renewcommand{\footnotelayout}{\raggedright\normalsize\doublespacing}}
+
+\ProcessOptions\relax
+
 \endinput
