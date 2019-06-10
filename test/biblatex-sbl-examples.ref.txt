@@ -2584,7 +2584,7 @@ title = {Patrologia Latina},
 editor = {Migne, J.-P.},
 volumes = {217},
 location = {Paris},
-date = {1844/1864},
+date = {1844/1855},
 shorthand = {PL}
 }
 @series{PG,
@@ -2614,7 +2614,7 @@ Biblatex Output
 \printbibliography
 
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855.
 \printbiblist{abbreviations}
 
 PG
@@ -2623,7 +2623,7 @@ Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886
 
 PL
 
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855
 
 6.4.7
 
@@ -3354,7 +3354,7 @@ Caire. Edited by C. C. Edgar. Cairo
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886
 Papyri Graecae Magicae: Die griechischen Zauberpapyri. Edited by Karl
 Preisendaz. 2nd ed. Stuttgart: Teubner, 1973–1974
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855
 Resources for Biblical Study
 The Royal Inscriptions of Mesopotamia, Assyrian Periods
 Society of Biblical Literature
@@ -3507,7 +3507,7 @@ IL: InterVarsity, 2003.
 Partain, Jack G. “Numbers.” Pages 175–79 in Mercer Commentary on the Bible. Edited
 by Watson E. Mills et al. Macon, GA: Mercer University Press, 1995.
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855.
 Pelikan, Jaroslav. “The Things That You’re Liable to Read in the Bible,” review of The
 Anchor Bible Dictionary, ed. David Noel Freedman. New York Times Review of Books,
 20 December 1992, 3.

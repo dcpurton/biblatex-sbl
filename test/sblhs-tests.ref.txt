@@ -1833,7 +1833,7 @@ Biblatex Output
 \printbibliography
 
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855.
 \printbiblist{abbreviations}
 
 PG
@@ -1842,13 +1842,13 @@ Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886
 
 PL
 
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855
 
 Reference Implementation
 
 6. Gregory of Nazianzus, Orationes theologicae 4 (PG 36:12c).
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.20
 PG
 
 Patrologia Graeca. Edited by Jacques-Paul Migne. 162 vols. Paris, 1857–1886
@@ -1856,6 +1856,8 @@ Patrologia Graeca. Edited by Jacques-Paul Migne. 162 vols. Paris, 1857–1886
 PL
 
 Patrologia Latina. Edited by Jacques-Paul Migne. 217 vols. Paris, 1844–1864
+
+21
 
 6.4.7
 
@@ -1883,11 +1885,13 @@ Strack, Hermann L., and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmu
 Beck, 1922–1961.
 Str-B
 
-Strack, Hermann Leberecht20 and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und
+Strack, Hermann Leberecht22 and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und
 Midrasch. 6 vols. Munich: Beck, 1922–1961
 
 19. Should be “14 vols. 1886–1889.”?
-20. Should be “Strack, Hermann L.,”?
+20. Should be “1844–1855”?
+21. Should be “1844–1855”?
+22. Should be “Strack, Hermann L.,”?
 
 6.4.8
 
@@ -1972,9 +1976,9 @@ HarperSanFrancisco, 2006.
 
 3. David L. Petersen, “Ezekiel,” in The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard
 Version, with the Apocryphal/Deuterocanonical Books, ed. Harold W. Attridge et al. (San Francisco: HarperSanFrancisco,
-2006), 1096.21
+2006), 1096.23
 5. Petersen, “Ezekiel,” 1096.
-Petersen, David L. “Ezekiel.” Pages 1096–116722 in The HarperCollins Study Bible Fully Revised and Updated, New Revised
+Petersen, David L. “Ezekiel.” Pages 1096–116724 in The HarperCollins Study Bible Fully Revised and Updated, New Revised
 Standard Version, with the Apocryphal/Deuterocanonical Books. Edited by Harold W. Attridge et al. San Francisco:
 HarperSanFrancisco, 2006.
 6.4.9.2 Single-Volume Commentaries on the Entire Bible
@@ -2020,9 +2024,9 @@ Anchor Bible
 
 Reference Implementation
 
-4. Mitchell Dahood, Psalms, 3 vols., AB 16–17A (Garden City, N.Y.:23 Doubleday, 1965–1970), 3:127.
+4. Mitchell Dahood, Psalms, 3 vols., AB 16–17A (Garden City, N.Y.:25 Doubleday, 1965–1970), 3:127.
 7. Dahood, Psalms, 2:121.
-Dahood, Mitchell. Psalms. 3 vols. AB 16–17A. Garden City, N.Y.:24 Doubleday, 1965–1970.
+Dahood, Mitchell. Psalms. 3 vols. AB 16–17A. Garden City, N.Y.:26 Doubleday, 1965–1970.
 AB
 
 Anchor Bible
@@ -2034,10 +2038,10 @@ Biblatex Output
 \autocite[78]{dahood:1965}
 
 79. Dahood, Psalms I: 1–50, 78.
-21. Should be “1096–167.”?
-22. Should be “1096–167”?
-23. Should be “NY:”?
-24. Should be “NY:”?
+23. Should be “1096–167.”?
+24. Should be “1096–167”?
+25. Should be “NY:”?
+26. Should be “NY:”?
 
 \autocite[374]{dahood:1968}
 
@@ -2059,7 +2063,7 @@ Reference Implementation
 82. Mitchell Dahood, Psalms II: 51–100, AB 17 (Garden City, NY: Doubleday, 1968), 347.
 86. Dahood, Psalms II: 51–100, 351.
 Dahood, Mitchell. Psalms I: 1–50. Vol. 1 of Psalms. AB 16. Garden City, NY: Doubleday, 1965.
-. Psalms II: 51–100. Vol. 2 of Psalms. AB 17. Garden City, N.Y.:25 Doubleday, 1968.
+. Psalms II: 51–100. Vol. 2 of Psalms. AB 17. Garden City, N.Y.:27 Doubleday, 1968.
 AB
 
 Anchor Bible
@@ -2089,7 +2093,7 @@ Reference Implementation
 1. Patrick D. Miller, NIB 6:577.
 Miller, Patrick D. “The Book of Jeremiah: Introduction, Commentary, and Reflections.” Pages 553–926 in Introduction to
 Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter of Jeremiah, Lamentations, Ezekiel. Vol. 6 of New Interpreter’s
-Bible. Edited by Leander E. Keck.26 Nashville: Abingdon, 2001.
+Bible. Edited by Leander E. Keck.28 Nashville: Abingdon, 2001.
 Miller, Patrick D. “The Book of Jeremiah: Introduction, Commentary, and Reflections.” NIB 6:553–926.
 NIB
 6.4.11
@@ -2112,15 +2116,15 @@ SBLSP
 
 Society of Biblical Literature Seminar Papers
 
-25. Should be “NY:”?
-26. Should include “12 vols.”?
+27. Should be “NY:”?
+28. Should include “12 vols.”?
 
 Reference Implementation
 
 33. James L. Crenshaw, “Theodicy in the Book of the Twelve,” Society of Biblical Literature 2001 Seminar Papers,
-SBLSPS27 40 (Atlanta: Society of Biblical Literature, 2001), 1–18.
+SBLSPS29 40 (Atlanta: Society of Biblical Literature, 2001), 1–18.
 Crenshaw, James L. “Theodicy in the Book of the Twelve.” Pages 1–18 in Society of Biblical Literature 2001 Seminar Papers.
-SBLSPS28 40. Atlanta: Society of Biblical Literature, 2001.
+SBLSPS30 40. Atlanta: Society of Biblical Literature, 2001.
 SBLSP
 6.4.12
 
@@ -2150,7 +2154,7 @@ Reference Implementation
 2. Gernot Wilhelm, ed., “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I),” released 24
 February 2013, doi:hethiter.net/: CTH 51.I (INTR 2013-02-24).
 4. Wilhelm, “Der Vertrag Šuppiluliumas I.”
-Gernot Wilhelm, ed. “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I).”29 doi:hethiter.net/:
+Gernot Wilhelm, ed. “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I).”31 doi:hethiter.net/:
 CTH 51.I (INTR 2013-02-24).
 6.4.14
 
@@ -2179,9 +2183,9 @@ Biblatex Output
 \autocite{caraher:2013}
 
 17. Caraher, “Pyla-Koutsopetria Archaeological Project.”
-27. Should be “SBLSP”?
-28. Should be “SBLSP”?
-29. Should this include “Released 24 February 2013.”?
+29. Should be “SBLSP”?
+30. Should be “SBLSP”?
+31. Should this include “Released 24 February 2013.”?
 
 \printbibliography
 
@@ -2192,7 +2196,7 @@ Reference Implementation
 15. William R. Caraher, ed., “Pyla-Koutsopetria Archaeological Project: (Overview),” Open Context, released 5
 November 2013, http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2, doi:10.6078/M7B56GNS.
 17. Caraher, “Pyla-Koutsopetria Archaeological Project.”
-William R. Caraher, ed.30 “Pyla-Koutsopetria Archaeological Project: (Overview).” Open Context. Released 5 November
+William R. Caraher, ed.32 “Pyla-Koutsopetria Archaeological Project: (Overview).” Open Context. Released 5 November
 2013. http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2. doi:10.6078/M7B56GNS.
 6.4.15
 
@@ -2249,7 +2253,7 @@ Biblatex Output
 \autocite[432]{BDB}
 
 2. BDB, 432.
-30. Should be “Caraher, William R., ed.”?
+32. Should be “Caraher, William R., ed.”?
 
 \printbibliography
 
@@ -2443,7 +2447,7 @@ Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du Cair
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886
 Papyri Graecae Magicae: Die griechischen Zauberpapyri. Edited by Karl Preisendaz. 2nd ed. Stuttgart:
 Teubner, 1973–1974
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855
 Resources for Biblical Study
 The Royal Inscriptions of Mesopotamia, Assyrian Periods
 Society of Biblical Literature
@@ -2568,7 +2572,7 @@ T. Desmond Alexander and David W. Baker. Downers Grove, IL: InterVarsity, 2003.
 Partain, Jack G. “Numbers.” Pages 175–79 in Mercer Commentary on the Bible. Edited by Watson E. Mills et al. Macon, GA:
 Mercer University Press, 1995.
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1855.
 Pelikan, Jaroslav. “The Things That You’re Liable to Read in the Bible,” review of The Anchor Bible Dictionary, ed.
 David Noel Freedman. New York Times Review of Books, 20 December 1992, 3.
 Petersen, David L. “Ezekiel.” Pages 1096–167 in The HarperCollins Study Bible Fully Revised and Updated: New Revised
