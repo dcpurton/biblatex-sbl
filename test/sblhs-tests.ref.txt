@@ -632,8 +632,8 @@ Kindle edition, ch. 3, “Introducing David.”
 21. Wright, David, King of Israel, ch. 5, “Evidence from Qumran.”
 \printbibliography
 
-Wright, Jacob L. David, King of Israel, and Caleb in Biblical Memory. Cambridge: Cambridge University Press, 2014. Kindle
-edition.
+Wright, Jacob L. David, King of Israel, and Caleb in Biblical Memory. Cambridge: Cambridge University Press, 2014.
+Kindle edition.
 Reference Implementation
 
 3. Jacob L. Wright, David, King of Israel, and Caleb in Biblical Memory (Cambridge: Cambridge University Press, 2014),
