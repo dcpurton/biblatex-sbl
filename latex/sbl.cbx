@@ -294,6 +294,31 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\newrobustcmd*{\Citefullauthor}{%
+  \@ifstar{\bibsentence\citefullauthor*}{\bibsentence\citefullauthor}}
+
+\DeclareCiteCommand{\citefullauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \printnames[given-family]{labelname}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\citefullauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \printnames[given-family][1-1]{labelname}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 \DeclareCiteCommand{\citeseries}
   {}
   {\usebibmacro{shortseries}}

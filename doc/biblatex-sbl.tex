@@ -276,6 +276,24 @@ e.g.,
   \sampleparencite[2.233-235]{josephus:ant}
 \end{snugshade}
 
+\cmditem{citefullauthor}[prenote][postnote]{key}
+\cmditem{citefullauthor*}[prenote][postnote]{key}
+\cmditem{Citefullauthor}[prenote][postnote]{key}
+\cmditem{Citefullauthor*}[prenote][postnote]{key}
+
+These commands print the full names of the authors. Strictly speaking, it
+prints the \bibfield{labelname} list in the format of a first citation, which
+may be the \bibfield{author}, the \bibfield{editor}, or the
+\bibfield{translator}. \cmd{Citefullauthor} is similar to \cmd{citefullauthor}
+but capitalizes the name prefix of the first name in the citation if the
+\opt{useprefix} option is enabled, provided that there is a name prefix. The
+starred variants effectively force \opt{maxcitenames} to 1 for just this
+command on so only print the first name in the \bibfield{labelname} list
+(potentially followed by the “et al” string if there are more names). This
+allows more natural textual flow when referring to a paper in the singular
+when otherwise \cmd{citefullauthor} would generate a (naturally plural) list
+of names.
+
 \cmditem{citejournal}{key}
 \cmditem{citeseries}{key}
 \cmditem{citeshorthand}{key}
