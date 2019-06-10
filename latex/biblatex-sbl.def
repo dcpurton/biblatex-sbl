@@ -84,6 +84,9 @@
             {\setunit{\addspace}%
              \printtext[parens]{\printfield{postnote}}}}}}%
   \renewbibmacro*{postnote}{%
+    \iftoggle{blx@unit}
+      {}
+      {\newunit}%
     \iffieldundef{postnote}
       {\printfield{pages}}
       {\iffieldpages{postnote}
@@ -111,6 +114,9 @@
          {\setunit{\addspace}%
           \printtext[parens]{\printfield{postnote}}}}}%
   \renewbibmacro*{postnote}{%
+    \iftoggle{blx@unit}
+      {}
+      {\newunit}%
     \iffieldundef{postnote}
       {\printfield{pages}}
       {\iffieldpages{postnote}
@@ -141,6 +147,9 @@
              \setunit*{\addspace}%
              \printtext[parens]{\printfield{postnote}}}}}}%
   \renewbibmacro*{postnote}{%
+    \iftoggle{blx@unit}
+      {}
+      {\newunit}%
     \iffieldundef{postnote}
       {\printfield{pages}}
       {\iffieldpages{postnote}
@@ -174,6 +183,9 @@
               {}%
             \printfield{postnote}}}}}%
   \renewbibmacro*{postnote}{%
+    \iftoggle{blx@unit}
+      {}
+      {\newunit}%
     \iffieldundef{postnote}
       {\printfield{pages}}
       {\iffieldpages{postnote}
