@@ -21,7 +21,11 @@
 % Language and font set up
 % Note: Polyglossia is *not* well supported
 \ifxetexorluatex
-  \usepackage[nil,bidi=default]{babel}
+  \ifluatex
+    \usepackage[nil,bidi=basic]{babel}
+  \else
+    \usepackage[nil,bidi=default]{babel}
+  \fi
   \babelprovide[import=en-US,main]{american}
   \babelprovide[import=he]{hebrew}
   \babelprovide[import=el]{polutonikogreek}
