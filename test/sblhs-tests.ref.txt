@@ -501,7 +501,7 @@ Biblatex Output
 
 24. Steve Mason, “Josephus on Canon and Scriptures,” in Hebrew Bible/Old Testament: The History of Its Interpretation,
 ed. Magne Sæbø (Göttingen: Vandenhoeck & Ruprecht, 1996), 1.1:217–35.
-5. Should be “Harrison, James R.,”
+5. Should be “Harrison, James R.,”?
 
 \autocite[224]{mason:1996}
 
@@ -2035,7 +2035,7 @@ Biblatex Output
 
 79. Dahood, Psalms I: 1–50, 78.
 21. Should be “1096–167.”?
-22. Should be “1096–167”
+22. Should be “1096–167”?
 23. Should be “NY:”?
 24. Should be “NY:”?
 
@@ -2249,7 +2249,7 @@ Biblatex Output
 \autocite[432]{BDB}
 
 2. BDB, 432.
-30. Should be “Caraher, William R., ed.?”
+30. Should be “Caraher, William R., ed.”?
 
 \printbibliography
 
