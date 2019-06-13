@@ -2571,6 +2571,8 @@ Oates, John F., William H. Willis, Roger S. Bagnall, and Klass A. Worp, eds. Che
 Ostraca, and Tablets. 5th ed. BASPSup 9. Oakville, CT: American Society of Papyrologists, 2001.
 Olson, Dennis T. “Numbers, Book of.” Pages 611–18 in Dictionary of the Old Testament: Pentateuch. Edited by
 T. Desmond Alexander and David W. Baker. Downers Grove, IL: InterVarsity, 2003.
+“The One Hundred Most Important Cuneiform Objects.” cdli:wiki.
+http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
 Partain, Jack G. “Numbers.” Pages 175–79 in Mercer Commentary on the Bible. Edited by Watson E. Mills et al. Macon, GA:
 Mercer University Press, 1995.
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
@@ -2596,10 +2598,10 @@ Hendrickson, 1993.
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press, 2014.
 Spicq, Ceslas. Theological Lexicon of the New Testament. Translated and edited by James D. Ernest. 3 vols. Peabody, MA:
 Hendrickson, 1994.
-Springer, Carl P. E. “Of Roosters and Repetitio: Ambrose’s Aeterne rerum conditor.” VC 68 (2014): 155–77.
-doi:10.1163/15700720-12341158.
 
-Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
+Springer, Carl P. E. “Of Roosters and Repetitio: Ambrose’s Aeterne rerum conditor.” VC 68 (2014): 155–77.
+doi:10.1163/15700720-12341158.
+Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
 Strack, Hermann L., and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und Midrasch. 6 vols. Munich:
 Beck, 1922–1961.
 Tacitus. The Histories and The Annals. Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge:
@@ -2610,8 +2612,6 @@ Teeple, Howard M. Review of Introduction to the New Testament, by André Robert 
 368–70.
 Temporini, Hildegard, and Wolfgang Haase, eds. Aufstieg und Niedergang der römischen Welt: Geschichte und Kultur Roms
 im Spiegel der neueren Forschung. Part 2, Principat. Berlin: de Gruyter, 1972–.
-“The One Hundred Most Important Cuneiform Objects.” cdli:wiki.
-http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
 Tigay, Jeffrey H., ed. Empirical Models for Biblical Criticism. Philadelphia: University of Pennsylvania Press, 1985.
 Truehart, Charles. “Welcome to the Next Church.” Atlantic Monthly 278 (August 1996): 37–58.
 http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm.
