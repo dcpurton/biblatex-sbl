@@ -688,11 +688,13 @@
        {\usebibmacro{xrefshortmaintitle}%
         \iffieldundef{volume}
           {}
-          {\setunit{\addspace}%
-           \printfield{volume}%
-           \setunit*{\addperiod}%
-           \printfield{part}%
-           \global\booltrue{usevolpostnotedelim}}}
+          {\iffieldpages{postnote}
+             {\setunit{\addspace}%
+              \printfield{volume}%
+              \setunit*{\addperiod}%
+              \printfield{part}%
+              \global\booltrue{usevolpostnotedelim}}
+             {}}}
        {\printfield{note}%
         \newunit
         \usebibmacro{xrefshortmaintitle}%
@@ -768,11 +770,13 @@
     {\usebibmacro{xrefshortmaintitle+xrefshortbooktitle}%
      \iffieldundef{volume}
        {}
-       {\setunit{\addspace}%
-        \printfield{volume}%
-        \setunit*{\addperiod}%
-        \printfield{part}%
-        \global\booltrue{usevolpostnotedelim}}}
+       {\iffieldpages{postnote}
+          {\setunit{\addspace}%
+           \printfield{volume}%
+           \setunit*{\addperiod}%
+           \printfield{part}%
+           \global\booltrue{usevolpostnotedelim}}
+          {}}}
     {\usebibmacro{title}%
      \newunit
      \printfield{note}%
@@ -798,11 +802,13 @@
     {\newunit
      \iffieldundef{volume}
        {}
-       {\newunit
-        \global\booltrue{usevolpostnotedelim}%
-        \printfield{volume}%
-        \setunit*{\addperiod}%
-        \printfield{part}}}
+       {\iffieldpages{postnote}
+          {\newunit
+           \global\booltrue{usevolpostnotedelim}%
+           \printfield{volume}%
+           \setunit*{\addperiod}%
+           \printfield{part}}
+          {}}}
     {\newunit
      \printfield{note}%
      \newunit

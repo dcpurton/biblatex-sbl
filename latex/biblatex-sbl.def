@@ -52,7 +52,12 @@
 
 \NumCheckSetup{\def\mkbibparens#1{#1}}
 
-\renewbibmacro*{postnote}{}
+\renewbibmacro*{postnote}{%
+  \iftoggle{blx@unit}
+    {}
+    {\newunit}%
+  \printfield{postnote}}
+
 \newbibmacro*{pages}{}
 
 \DeclareBibliographyOption[string]{citepages}[permit]{%
@@ -62,7 +67,6 @@
        {Invalid option 'citepages=#1'}
        {Valid values are 'sbl', 'permit', 'omit', 'separate'.}}}
 
-\providebibmacro*{postnote}{}
 \providebibmacro*{pages}{}
 
 \def\cbx@opt@citepages@sbl{%
@@ -82,20 +86,7 @@
          {\iffieldpages{postnote}
             {}
             {\setunit{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}%
-  \renewbibmacro*{postnote}{%
-    \iftoggle{blx@unit}
-      {}
-      {\newunit}%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\iffieldpages{postnote}
-         {\printfield{postnote}}
-         {\iffieldundef{pages}
-            {\printfield{postnote}}
-            {\printfield{pages}%
-             \setunit{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}}
+            \printtext[parens]{\printfield{postnote}}}}}}}
 
 \def\cbx@opt@citepages@permit{%
   \renewbibmacro*{pages}{%
@@ -112,21 +103,7 @@
        }
          {}
          {\setunit{\addspace}%
-          \printtext[parens]{\printfield{postnote}}}}}%
-  \renewbibmacro*{postnote}{%
-    \iftoggle{blx@unit}
-      {}
-      {\newunit}%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\iffieldpages{postnote}
-         {\printfield{postnote}}
-         {\iffieldundef{pages}
-            {\newunit
-             \printfield{postnote}}
-            {\printfield{pages}%
-             \setunit*{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}}
+         \printtext[parens]{\printfield{postnote}}}}}}
 
 \def\cbx@opt@citepages@omit{%
   \renewbibmacro*{pages}{%
@@ -143,20 +120,6 @@
          {\printfield{pages}}
          {\iffieldpages{postnote}
             {\printfield{postnote}}
-            {\printfield{pages}%
-             \setunit*{\addspace}%
-             \printtext[parens]{\printfield{postnote}}}}}}%
-  \renewbibmacro*{postnote}{%
-    \iftoggle{blx@unit}
-      {}
-      {\newunit}%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\iffieldpages{postnote}
-         {\printfield{postnote}}
-         {\iffieldundef{pages}
-            {\newunit
-             \printfield{postnote}}
             {\printfield{pages}%
              \setunit*{\addspace}%
              \printtext[parens]{\printfield{postnote}}}}}}}
