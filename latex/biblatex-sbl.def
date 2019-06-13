@@ -848,6 +848,11 @@
       \step[fieldsource=revdtitle, match=\regexp{(.*?):}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
     }
+    \map[overwrite=true]{
+      \step[notfield=sorttitle, final]
+      \step[fieldsource=title, match=\regexp{^(A|An|The)\s+(.+)}, final]
+      \step[fieldset=sorttitle, fieldvalue={$2}]
+    }
     \map{
       \pertype{suppbook}
       \pertype{suppcollection}

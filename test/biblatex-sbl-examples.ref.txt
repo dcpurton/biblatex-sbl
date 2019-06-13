@@ -107,8 +107,8 @@ Other Than the Author . . . . . . . . . . . . . . . . . . . . . .
 44
 45
 46
+46
 47
-48
 49
 51
 52
@@ -2497,7 +2497,6 @@ publisher = {Hendrickson},
 date = {1994},
 shorthand = {ANF},
 options = {useeditor=false,skipbiblist},
-sortkey = {Ante-Nicene Fathers},
 xref = {ANF:abbreviation}
 }
 @mvcollection{ANF:abbreviation,
@@ -2537,13 +2536,12 @@ publisher = {Hendrickson},
 date = {1994},
 shorthand = {NPNF\textsuperscript{1}},
 options = {useeditor=false,skipbiblist},
-sortkey = {Nicene and Post-Nicene Fathers, Series 1},
 xref = {NPNF1:abbreviation}
+}
 
 44
 
-}
-@mvcollection{NPNF1:abbreviation,
+@mvcollection{NPNF1:abbreviation,
 title = {The Nicene and Post-Nicene Fathers, \mkbibemph{Series~1}},
 shorttitle = {NPNF\textsuperscript{1}},
 shorthand = {NPNF\textsuperscript{1}},
@@ -2595,11 +2593,11 @@ location = {Paris},
 date = {1857/1886},
 shorthand = {PG}
 }
+@classictext{gregory:orationestheologicae,
 
 45
 
-@classictext{gregory:orationestheologicae,
-entrysubtype = {churchfather},
+entrysubtype = {churchfather},
 author = {{Gregory of Nazianzus}},
 title = {Orationes theologicae},
 volume = {36},
@@ -2651,11 +2649,9 @@ und Midrasch. 6 vols. Munich: Beck, 1922–1961.
 
 Str-B
 
+6.4.8
+
 Strack, Hermann L., and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und Midrasch. 6 vols. Munich: Beck, 1922–1961
-
-46
-
-6.4.8
 
 Aufstieg und Niedergang der römischen Welt (ANRW)
 
@@ -2663,7 +2659,10 @@ Aufstieg und Niedergang der römischen Welt (ANRW)
 editor = {Temporini, Hildegard and Haase, Wolfgang},
 title = {Aufstieg und Niedergang der römischen Welt: Geschichte und Kultur
 Roms im Spiegel der neueren Forschung.},
-shorttitle = {ANRW},
+
+46
+
+shorttitle = {ANRW},
 titleaddon = {Part 2, \mkbibemph{Principat}},
 location = {Berlin},
 publisher = {de Gruyter},
@@ -2707,21 +2706,21 @@ Berlin: de Gruyter, 1972–.
 
 ANRW
 
+6.4.9
+
 Aufstieg und Niedergang der römischen Welt: Geschichte und Kultur Roms
 im Spiegel der neueren Forschung. Part 2, Principat. Edited by Hildegard
 Temporini and Wolfgang Haase. Berlin: de Gruyter, 1972–
-
-47
-
-6.4.9
-
 Bible Commentaries
 
 @commentary{hooker:1991,
 author = {Hooker, Morna},
 title = {The Gospel according to Saint Mark},
 series = {Black's New Testament Commentaries},
-shortseries = {BNTC},
+
+47
+
+shortseries = {BNTC},
 number = {2},
 location = {Peabody, MA},
 publisher = {Hendrickson},
@@ -2769,6 +2768,7 @@ ed. Harold W. Attridge et al. (San Francisco: HarperSanFrancisco, 2006), 1096–
 
 Petersen, David L. “Ezekiel.” Pages 1096–167 in The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard Version, with the Apocryphal/Deuterocanonical Books. Edited by Harold W. Attridge et al. San Francisco: HarperSanFrancisco,
 2006.
+
 48
 
 6.4.9.2 Single-Volume Commentaries on the Entire Bible
@@ -3504,6 +3504,8 @@ CT: American Society of Papyrologists, 2001.
 Olson, Dennis T. “Numbers, Book of.” Pages 611–18 in Dictionary of the Old Testament:
 Pentateuch. Edited by T. Desmond Alexander and David W. Baker. Downers Grove,
 IL: InterVarsity, 2003.
+“The One Hundred Most Important Cuneiform Objects.” cdli:wiki. http://cdli.ox.ac.uk/
+wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
 Partain, Jack G. “Numbers.” Pages 175–79 in Mercer Commentary on the Bible. Edited
 by Watson E. Mills et al. Macon, GA: Mercer University Press, 1995.
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
@@ -3524,12 +3526,13 @@ Princeton: Princeton University Press, 1969.
 Reventlow, Henning Graf. From the Old Testament to Origen. Vol. 1 of History of Biblical
 Interpretation. Translated by Leo G. Perdue. Atlanta: Society of Biblical Literature,
 2009. Nook edition.
-Robinson, James M., and Helmut Koester. Trajectories through Early Christianity.
-Philadelphia: Fortress, 1971.
-Saldarini, Anthony J. “Babatha’s Story.” BAR 24.2 (1998): 23–33, 36–37, 72–74.
+
 62
 
-Schillebeeckx, Edward. The Schillebeeckx Reader. Edited by Robert J. Schreiter. Edinburgh: T&T Clark, 1986.
+Robinson, James M., and Helmut Koester. Trajectories through Early Christianity.
+Philadelphia: Fortress, 1971.
+Saldarini, Anthony J. “Babatha’s Story.” BAR 24.2 (1998): 23–33, 36–37, 72–74.
+Schillebeeckx, Edward. The Schillebeeckx Reader. Edited by Robert J. Schreiter. Edinburgh: T&T Clark, 1986.
 Scott, Bernard Brandon, Margaret Dean, Kristen Sparks, and Frances LaZar. Reading
 New Testament Greek. Peabody, MA: Hendrickson, 1993.
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press, 2014.
@@ -3549,8 +3552,6 @@ André Feuillet. JBR 34 (1966): 368–70.
 Temporini, Hildegard, and Wolfgang Haase, eds. Aufstieg und Niedergang der römischen
 Welt: Geschichte und Kultur Roms im Spiegel der neueren Forschung. Part 2, Principat.
 Berlin: de Gruyter, 1972–.
-“The One Hundred Most Important Cuneiform Objects.” cdli:wiki. http://cdli.ox.ac.uk/
-wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects.
 Tigay, Jeffrey H., ed. Empirical Models for Biblical Criticism. Philadelphia: University of
 Pennsylvania Press, 1985.
 Truehart, Charles. “Welcome to the Next Church.” Atlantic Monthly 278 (August 1996):
@@ -3575,7 +3576,6 @@ Winter, Bruce W., and Andrew D. Clarke, eds. The Book of Acts in Its Ancient Lit
 Setting. Vol. 1 of The Book of Acts in Its First Century Setting. Edited by Bruce W.
 Winter. Grand Rapids: Eerdmans, 1993.
 Wright, Jacob L. David, King of Israel, and Caleb in Biblical Memory. Cambridge: Cambridge University Press, 2014. Kindle edition.
-
 63
 
 Author Index

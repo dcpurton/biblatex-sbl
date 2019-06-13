@@ -12,7 +12,7 @@ Contents
 
 2 Requirements
 
-1
+2
 
 3 Usage
 3.1 Localization . . . . . . . .
@@ -22,13 +22,13 @@ Contents
 2
 2
 3
-4
+5
 
 4 Database Guide
 4.1 Entry Types . . . . . . . .
 
-8
-8
+9
+9
 
 4.2
 4.3
@@ -56,13 +56,13 @@ References
 
 Author Index
 
-25
+26
 
 1 Introduction
 provides support to biblatex and LaTeX for citations, bibliography, and a
 list of abbreviations in the style recommended by the Society of Biblical Literature (SBL).
 The style conforms to the second edition of the SBLHS and includes updates from the SBL
-Handbook of Style Blog..¹
+Handbook of Style Blog.¹
 The style supports all examples given in the handbook and any relevant updates given on
 the Blog (see biblatex-sbl-examples.pdf). Shorthand citations and a list of abbreviations
 containing journals, series, and shorthands are handled automatically. Repeated authors in
@@ -76,7 +76,7 @@ Note: This package should be considered as beta software and its output carefull
 checked when you use it.
 biblatex-sbl
 
-1. SBL Press, “SBL Handbook of Style: Explanations, Clarifications, and Expansions,” https://sblhs2.com/.
+1. “SBL Handbook of Style: Explanations, Clarifications, and Expansions,” 2016–, https://sblhs2.com/.
 
 1
 
@@ -824,19 +824,26 @@ and series is then automatically inserted into the list of abbreviations.
 shorttitle field (literal)
 
 The title in abridged form. This is printed instead of the full title on subsequent citations.
+sorttitle
+
+field (literal)
+A field used to modify the sorting order of the bibliography. If present, this field is used
+instead of the title field when sorting the bibliography. This field is automatically populated
+if it doesn’t exist and the title field begins with ‘A’, ‘An’, or ‘The’ so that these articles do
+not affect sorting.
+
 withauthor
 
 list (name)
 The author(s) who assist the author. See witheditortype, below, for an example.
 
-withauthortype field (literal)
+15
+
+withauthortype field (literal)
 
 The type of withauthor. This field will affect the string used to introduce the author(s) who
 assist the author. If unspecified, the bibliography string with is used.
-
-15
-
-witheditor list (name)
+witheditor list (name)
 
 The editor(s) who assist the editor.
 witheditortype field (literal)
@@ -880,13 +887,12 @@ withbookeditor
 list (name)
 The editor(s) who assist the bookeditor.
 
-withbookeditortype field (literal)
-
-This field is analogous to the witheditortype, but for the bookeditor.
-
 16
 
-withbooktranslator list (name)
+withbookeditortype field (literal)
+
+This field is analogous to the witheditortype, but for the bookeditor.
+withbooktranslator list (name)
 
 The translator(s) who assist the booktranslator.
 withbooktranslatortype
@@ -933,13 +939,13 @@ true
 
 Do not include the shorthand in the list of abbreviations.
 
-false
+17
+
+false
 
 Include the shorthand in the list of abbreviations.
 
-17
-
-skipbiblistshortseries=true, false
+skipbiblistshortseries=true, false
 
 default: false
 
@@ -1003,13 +1009,13 @@ true
 
 Include the shorttitle or title in subsequent citations.
 
-false
-
-Suppress the shorttitle or title in subsequent citations, so only the author(s) or editor(s) are printed.
-
 18
 
-usevolume=true, false
+Suppress the shorttitle or title in subsequent citations, so only the author(s) or editor(s) are printed.
+
+false
+
+usevolume=true, false
 
 default: true
 
@@ -1302,8 +1308,8 @@ Princeton: Princeton University Press, 1969.
 Robinson, James M., and Helmut Koester. Trajectories through Early Christianity. Philadelphia: Fortress, 1971.
 Sasson, Jack M., ed. Civilizations of the Ancient Near East. 4 vols. New York: Scribner’s Sons,
 1995. Repr., 4 vols. in 2. Peabody, MA: Hendrickson, 2000.
-SBL Press. “SBL Handbook of Style: Explanations, Clarifications, and Expansions.” https:
-//sblhs2.com/.
+“SBL Handbook of Style: Explanations, Clarifications, and Expansions.” 2016–. https://
+sblhs2.com/.
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press, 2014.
 Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
 Student Supplement for the SBL Handbook of Style, Second Edition, compiled by Melanie
@@ -1334,33 +1340,35 @@ of Prolegomena zur Geschichte Israels. 2nd ed. Berlin: Reimer, 1883.
 Author Index
 Augustine, 11
 
-Petersen, David L., 6
+Liefeld, Walter L., 12
 
 Dahn, Karl, 12
 
-Robinson, James M., 8
+Petersen, David L., 6
 
 Freedman, David Noel, 5
 
-Sasson, Jack M., 20
-SBL Press, 1
+Robinson, James M., 8
 
 Heraclitus, 18
+
+Sasson, Jack M., 20
+
 Irvine, Stuart A., 5
 
 Tacitus, 11
 Talbert, Charles H., 8
 
 Josephus, 4, 18
-Koester, Helmut, 8
 
 Van Seters, John, 19
 
-Leyerle, Blake, 5
-Liefeld, Walter L., 12
+Koester, Helmut, 8
 
 Wellhausen, Julius, 21
 Wildberger, Hans, 5
+
+Leyerle, Blake, 5
 
 26
 
