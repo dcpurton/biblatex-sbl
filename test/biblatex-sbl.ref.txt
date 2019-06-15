@@ -62,7 +62,7 @@ Author Index
 provides support to biblatex and LaTeX for citations, bibliography, and a
 list of abbreviations in the style recommended by the Society of Biblical Literature (SBL).
 The style conforms to the second edition of the SBLHS and includes updates from the SBL
-Handbook of Style Blog.¹
+Handbook of Style blog.¹
 The style supports all examples given in the handbook and any relevant updates given on
 the Blog (see biblatex-sbl-examples.pdf). Shorthand citations and a list of abbreviations
 containing journals, series, and shorthands are handled automatically. Repeated authors in
@@ -76,7 +76,7 @@ Note: This package should be considered as beta software and its output carefull
 checked when you use it.
 biblatex-sbl
 
-1. “SBL Handbook of Style: Explanations, Clarifications, and Expansions,” 2016–, https://sblhs2.com/.
+1. SBL Handbook of Style: Explanations, Clarifications, and Expansions, https://sblhs2.com.
 
 1
 
@@ -1308,8 +1308,7 @@ Princeton: Princeton University Press, 1969.
 Robinson, James M., and Helmut Koester. Trajectories through Early Christianity. Philadelphia: Fortress, 1971.
 Sasson, Jack M., ed. Civilizations of the Ancient Near East. 4 vols. New York: Scribner’s Sons,
 1995. Repr., 4 vols. in 2. Peabody, MA: Hendrickson, 2000.
-“SBL Handbook of Style: Explanations, Clarifications, and Expansions.” 2016–. https://
-sblhs2.com/.
+SBL Handbook of Style: Explanations, Clarifications, and Expansions. https://sblhs2.com.
 Society of Biblical Literature Handbook of Style. 2nd ed. Atlanta, GA: SBL Press, 2014.
 Stendahl, Krister. “Biblical Theology, Contemporary.” IDB 1:418–32.
 Student Supplement for the SBL Handbook of Style, Second Edition, compiled by Melanie
@@ -1340,35 +1339,33 @@ of Prolegomena zur Geschichte Israels. 2nd ed. Berlin: Reimer, 1883.
 Author Index
 Augustine, 11
 
-Liefeld, Walter L., 12
+Petersen, David L., 6
 
 Dahn, Karl, 12
 
-Petersen, David L., 6
+Robinson, James M., 8
 
 Freedman, David Noel, 5
 
-Robinson, James M., 8
+Sasson, Jack M., 20
+SBL Handbook of Style, 1
 
 Heraclitus, 18
-
-Sasson, Jack M., 20
-
 Irvine, Stuart A., 5
 
 Tacitus, 11
 Talbert, Charles H., 8
 
 Josephus, 4, 18
+Koester, Helmut, 8
 
 Van Seters, John, 19
 
-Koester, Helmut, 8
+Leyerle, Blake, 5
+Liefeld, Walter L., 12
 
 Wellhausen, Julius, 21
 Wildberger, Hans, 5
-
-Leyerle, Blake, 5
 
 26
 

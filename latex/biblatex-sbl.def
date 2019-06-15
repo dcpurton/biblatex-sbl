@@ -804,10 +804,6 @@
       \step[fieldset=shorttitle, fieldvalue={$1}]
     }
     \map{
-      \step[fieldsource=journaltitle, match=\regexp{(.*?):}, final]
-      \step[fieldset=shortjournal, fieldvalue={$1}]
-    }
-    \map{
       \step[fieldsource=revdtitle, match=\regexp{(.*?):}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$1}]
     }
@@ -846,16 +842,6 @@
       \pertype{periodical}
       \step[fieldsource=subtitle, final]
       \step[fieldset=journalsubtitle, origfieldval]
-    }
-    \map{
-      \pertype{periodical}
-      \step[fieldsource=shorttitle, final]
-      \step[fieldset=shortjournal, origfieldval]
-    }
-    \map{
-      \step[fieldsource=journalsubtitle, final]
-      \step[fieldsource=journaltitle, final]
-      \step[fieldset=shortjournal, origfieldval]
     }
     \map{
       \step[fieldsource=entrysubtype, match=\regexp{ANRW}, final]
@@ -1248,7 +1234,10 @@
 
 \newbibmacro*{shortjournal}{%
   \iffieldundef{shortjournal}
-    {\printfield{journaltitle}}
+    {\printtext[journaltitle]{%
+      \printfield[titlecase]{journaltitle}%
+      \setunit*{\subtitlepunct}%
+      \printfield[titlecase]{journalsubtitle}}}
     {\printtext[shortjournal]{%
        \bibhyperlink{\strfield{shortjournal}}{\thefield{shortjournal}}}}}
 
