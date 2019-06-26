@@ -865,10 +865,11 @@
       \pertype{ancienttext}
       \pertype{classictext}
       \step[fieldsource=related, final]
-      \step[fieldset=relatedtype, fieldvalue=ancienttext]
       \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
       \step[fieldset=relatedoptions, fieldvalue={skipbib=false,skipbiblist=false,}]
       \step[fieldset=relatedoptions, fieldvalue={$1}, append]
+      \step[notfield=relatedtype, final]
+      \step[fieldset=relatedtype, fieldvalue=ancienttext]
     }
     \map[overwrite]{
       \step[fieldsource=shortseries, final]
