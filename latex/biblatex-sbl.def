@@ -2436,23 +2436,27 @@
 \newtoggle{blx@testpostnotedelim}
 
 \newbibmacro*{volume+part+postnote}{%
-  \usebibmacro{volume}%
-  \iffieldundef{part}
-    {}
-    {\setunit{\addperiod}%
-     \printfield{part}}%
-  \iftoggle{blx@testpostnotedelim}{\usebibmacro{setpostnotedelim}}{}%
-  \ifbool{usevolpostnotedelim}
-    {\setunit{\volpostnotedelim}}
-    {\setunit{\postnotedelim}}%
   \ifboolexpr{
     test {\ifciteseen}
-    or
-    test {\iffieldundef{pages}}
+    and
+    test {\iffieldundef{postnote}}
   }
-    {\printfield{postnote}}
-    {\usebibmacro{pages}}%
-  \global\booltrue{suppresspostnote}}
+    {}
+    {\usebibmacro{volume}%
+     \iffieldundef{part}
+       {}
+       {\setunit{\addperiod}%
+        \printfield{part}}%
+     \iftoggle{blx@testpostnotedelim}{\usebibmacro{setpostnotedelim}}{}%
+     \ifbool{usevolpostnotedelim}
+       {\setunit{\volpostnotedelim}}
+       {\setunit{\postnotedelim}}%
+     \ifciteseen
+       {\printfield{postnote}}
+       {\iffieldundef{pages}
+          {\printfield{postnote}}
+          {\usebibmacro{pages}}}%
+     \global\booltrue{suppresspostnote}}}
 
 \newbibmacro*{classic:translator+series}{%
   \ifnameundef{translator}
