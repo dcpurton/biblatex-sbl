@@ -194,8 +194,8 @@ and \citeshorthand inserts the respective abbreviation into
 the text and also adds it to the list of abbreviations. The abbreviation is hyperlinked to the
 list of abbreviations if the hyperref package is loaded.
 
-These commands ignore the prenote and postnote fields, so can safely be used anywhere
-within a database entry.
+These commands do not take a prenote or postnote field, and can safely be used nested
+within a citation.
 \printbiblist
 
 This command prints a bibliography list. In biblatex-sbl all abbreviations (journals, series,

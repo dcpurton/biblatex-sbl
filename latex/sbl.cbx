@@ -319,23 +319,25 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\DeclareCiteCommand{\citeseries}
-  {}
+% Thanks to @moewe (https://tex.stackexchange.com/a/497548/87678)
+\newcommand*{\DeclareNestableCiteCommand}[2]{%
+  \newcommand*{#1}[1]{%
+    \nocite{##1}%
+    \blx@ifdata{##1}
+      {\begingroup
+       \blx@blxinit
+       \entrydata{##1}{#2}%
+       \endgroup}
+      {\abx@missing@entry{##1}}}}
+
+\DeclareNestableCiteCommand{\citeseries}
   {\usebibmacro{shortseries}}
-  {}
-  {}
 
-\DeclareCiteCommand{\citejournal}
-  {}
+\DeclareNestableCiteCommand{\citejournal}
   {\usebibmacro{shortjournal}}
-  {}
-  {}
 
-\DeclareCiteCommand{\citeshorthand}
-  {}
+\DeclareNestableCiteCommand{\citeshorthand}
   {\usebibmacro{shorthand}}
-  {}
-  {}
 
 \newbibmacro*{textcite}{%
   \ifnameundef{labelname}
