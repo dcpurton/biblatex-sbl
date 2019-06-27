@@ -322,7 +322,7 @@
 % Thanks to @moewe (https://tex.stackexchange.com/a/497548/87678)
 \newcommand*{\DeclareNestableCiteCommand}[2]{%
   \newcommand*{#1}[1]{%
-    \nocite{##1}%
+    \blx@xsanitizeafter\blx@nocite@do{##1}%
     \blx@ifdata{##1}
       {\begingroup
        \blx@blxinit
