@@ -1714,15 +1714,13 @@
     {}}
 
 \newbibmacro*{byauthor/byeditor+others/bytranslator+others}{%
-  \iffieldundef{title}
-    {}
-    {\usebibmacro{byauthor}%
+  \usebibmacro{byauthor}%
+  \newunit
+  \usebibmacro{ifbooktitleormaintitle}
+    {\usebibmacro{byeditor/bytranslator}}
+    {\usebibmacro{byeditor+others}%
      \newunit
-     \usebibmacro{ifbooktitleormaintitle}
-       {\usebibmacro{byeditor/bytranslator}}
-       {\usebibmacro{byeditor+others}%
-        \newunit
-        \usebibmacro{bytranslator+others}}}}
+     \usebibmacro{bytranslator+others}}}
 
 \newbibmacro*{bybookeditor}{%
   \ifnameundef{bookeditor}
