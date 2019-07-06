@@ -2399,10 +2399,11 @@
     \usedriver
       {\renewbibmacro*{related:init}{}%
        \ifbibliography
-         {\renewbibmacro*{parens+publisher+location+date}{%
-            \newunit
-            \usebibmacro{publisher+location+date}}}
-         {}}
+         {}
+         {\renewcommand*{\newunitpunct}{\addsemicolon\space}}%
+       \renewbibmacro*{parens+publisher+location+date}{%
+         \newunit
+         \usebibmacro{publisher+location+date}}}
       {\ifbibliography
          {\thefield{entrytype}}
          {cite:\thefield{entrytype}}}}}

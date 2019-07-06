@@ -1084,8 +1084,8 @@ date = {2000}
 \autocite[1:40]{sasson:2000}
 
 1. Jack M. Sasson, ed., Civilizations of the Ancient Near East, 4 vols. (New
-York: Scribner’s Sons, 1995; repr., 4 vols. in 2 [Peabody, MA: Hendrickson,
-2000]), 1:40.
+York: Scribner’s Sons, 1995; repr., 4 vols. in 2; Peabody, MA: Hendrickson,
+2000), 1:40.
 \printbibliography
 
 Sasson, Jack M., ed. Civilizations of the Ancient Near East. 4 vols. New York:
