@@ -127,7 +127,7 @@
 \def\cbx@opt@citepages@separate{%
   \renewbibmacro*{pages}{%
     \iffieldundef{pages}
-      {\ifool{bx@inset}
+      {\ifbool{bbx@inset}
          {}
          {\printfield{postnote}%
           \global\booltrue{suppresspostnote}}}
