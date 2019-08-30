@@ -144,25 +144,7 @@
               {\bibstring{thiscite}%
                \setunit{\addspace}}
               {}%
-            \printfield{postnote}}}}}%
-  \renewbibmacro*{postnote}{%
-    \iftoggle{blx@unit}
-      {}
-      {\newunit}%
-    \iffieldundef{postnote}
-      {\printfield{pages}}
-      {\iffieldpages{postnote}
-         {\printfield{postnote}}
-         {\iffieldundef{pages}
-            {\printfield{postnote}}
-            {\printfield{pages}%
-             \setunit*{\addspace}%
-             \printtext[parens]{%
-               \iffieldpages{postnote}
-                 {\bibstring{thiscite}%
-                  \setunit{\addspace}}
-                 {}%
-               \printfield{postnote}}}}}}}
+            \printfield{postnote}}}}}}
 
 % ------------------------------------------------------------------
 % IDEM MACROS
