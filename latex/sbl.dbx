@@ -2,8 +2,12 @@
 
 \DeclareDatamodelEntrytypes{
   ancienttext,
+  classictext,
   conferencepaper,
+  mvcommentary,
   incommentary,
+  lexicon,
+  mvlexicon,
   inlexicon,
   review,
   seminarpaper}
