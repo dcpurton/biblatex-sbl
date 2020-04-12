@@ -134,7 +134,12 @@
        {\printfield[shorthandwidth]{shortseries}}
        {\iffieldsequal{shorthand}{shorttitle}
           {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-          {\printfield[shorthandwidth]{shorthand}}}}%
+          {\printfield[shorthandwidth]{shorthand}}}%
+     \ifentrytype{classictext}
+       {\iffieldequalstr{entrysubtype}{churchfather}
+          {}
+          {\printfield[shorthandwidth]{shorttitle}}}
+       {}}%
   \renewcommand*{\bibhypertarget}[2]{##2}%
   \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
 }
@@ -484,9 +489,9 @@
     {\let\ifciteseen\@firstoftwo}%
   \usebibmacro{author}%
   \newunit
-  \usebibmacro{shorttitlenohyperlink}%
   \iffieldequalstr{entrysubtype}{churchfather}
-    {\setunit{\addspace}%
+    {\usebibmacro{shorttitlenohyperlink}%
+     \setunit{\addspace}%
      \printfield{altpostnote}%
      \DeclareFieldFormat{related}{\mkbibparens{##1}}%
      \renewcommand*{\begrelateddelim}{\addspace}%
@@ -494,7 +499,8 @@
      \usebibmacro{related:init}%
      \usebibmacro{related}%
      \global\toggletrue{relatedseen}}
-    {\clearfield{pages}%
+    {\usebibmacro{classictexttitle}%
+     \clearfield{pages}%
      \usebibmacro{volume+part+postnote}%
      \usebibmacro{classic:translator+series}}%
   \usebibmacro{finentry}}

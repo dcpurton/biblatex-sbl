@@ -674,6 +674,11 @@
 % LIST OF ABBREVIATIONS
 % ------------------------------------------------------------------
 
+\DeclareFieldFormat[classictext]{shorttitlewidth}{%
+  \iffieldequalstr{entrysubtype}{churchfather}
+    {}
+    {\mkbibemph{#1}}}
+
 \newtoggle{blx@abbrevcite}
 
 \newlength{\abbrevwidth}
@@ -691,10 +696,14 @@
         {\printfield[shorthandwidth]{shortseries}}
         {\iffieldsequal{shorthand}{shorttitle}
            {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-           {\printfield[shorthandwidth]{shorthand}}}}
+           {\printfield[shorthandwidth]{shorthand}}}%
+      \ifentrytype{classictext}
+        {\printfield[shorthandwidth]{shorttitle}}
+        {}}
      {\setmaxlength{\abbrevwidth}{\shorthandwidth}%
       \setmaxlength{\abbrevwidth}{\shortserieswidth}%
       \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
+      \setmaxlength{\abbrevwidth}{\shorttitlewidth}%
       \addtolength{\abbrevwidth}{\biblabelsep}%
       \setlength{\labelwidth}{\abbrevwidth}%
       \setlength{\leftmargin}{\labelwidth}%
@@ -729,9 +738,33 @@
        {\toggletrue{blx@abbrevcite}}
        {}%
      \usebibmacro{bibentrycite}}%
+  \iffieldundef{shorttitle}
+    {}
+    {\ifentrytype{classictext}
+       {\bibhypertarget{\strfield{shorttitle}}{}%
+        \usebibmacro{author}%
+        \newunit
+        \printfield{title}%
+        \setunit*{\subtitlepunct}%
+        \printfield{subtitle}}
+       {}}%
   \usebibmacro{finentry}}
 
 \DeclareBiblistFilter{abbreviations}{
+  \filteror{
+    \filter[type=field,filter=shorthand]
+    \filter[type=field,filter=shortjournal]
+    \filter[type=field,filter=shortseries]
+    \filter[type=field,filter=shorttitle]
+  }
+}
+
+\DeclareBiblistFilter{primary}{
+  \filter[type=type,filter=classictext]
+  \filter[type=field,filter=shorttitle]
+}
+
+\DeclareBiblistFilter{secondary}{
   \filteror{
     \filter[type=field,filter=shorthand]
     \filter[type=field,filter=shortjournal]
@@ -762,13 +795,35 @@
              {\savefieldcs{series}{sbl\therefsection\strfield{shortseries}=\strfield{series}}}}}
        {\ifcsdef{sbl\therefsection\strfield{shorthand}=\strfield{title}}
           {\skipentry}
-          {\savefieldcs{shorthand}{sbl\therefsection\strfield{shorthand}=\strfield{title}}}}}}
+          {\savefieldcs{shorthand}{sbl\therefsection\strfield{shorthand}=\strfield{title}}}}%
+     \iffieldundef{shorttitle}
+       {}
+       {\ifentrytype{classictext}
+          {\ifboolexpr{%
+             not togl {blx@useshorttitle}
+             or
+             test {\iffieldequalstr{entrysubtype}{churchfather}}
+           }
+             {\skipentry}
+             {\ifcsdef{sbl\therefsection\strfield{shorttitle}=\strfield{entrykey}\strfield{title}}
+                {\skipentry}
+                {\savefieldcs{title}{sbl\therefsection\strfield{shorttitle}=\strfield{entrykey}\strfield{title}}}}}
+          {\ifboolexpr{
+             test {\iffieldundef{shortjournal}}
+             and
+             test {\iffieldundef{shorthand}}
+             and
+             test {\iffieldundef{shortseries}}
+           }
+             {\skipentry}
+             {}}}}}
 
 \DeclareSortingTemplate{abbreviations}{%
   \sort{%
     \field{shorthand}%
     \field{shortjournal}%
     \field{shortseries}%
+    \field{shorttitle}%
   }%
 }
 
@@ -1113,6 +1168,24 @@
        {\printtext[maintitle]{\printfield[titlecase]{maintitle}}}}
     {\printtext[maintitle]{\printfield[titlecase]{shortmaintitle}}}%
   \newunit}
+
+\newbibmacro*{classictexttitle}{%
+  \ifboolexpr{%
+    not togl {blx@useshorttitle}
+    or
+    test {\iffieldundef{shorttitle}}
+  }
+    {\iffieldundef{title}
+       {}
+       {\printtext[title]{%
+          \printfield[titlecase]{title}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{subtitle}}%
+        \newunit
+        \printfield{titleaddon}%
+        \usebibmacro{language}}}
+    {\printtext[shorttitle]{%
+       \bibhyperlink{\strfield{shorttitle}}{\thefield{shorttitle}}}}}
 
 \renewbibmacro*{title}{%
   \ifciteseen
