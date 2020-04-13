@@ -674,10 +674,12 @@
 % LIST OF ABBREVIATIONS
 % ------------------------------------------------------------------
 
-\DeclareFieldFormat[classictext]{shorttitlewidth}{%
-  \iffieldequalstr{entrysubtype}{churchfather}
-    {}
-    {\mkbibemph{#1}}}
+\DeclareFieldFormat{shorttitlewidth}{%
+  \ifentrytype{classictext}
+    {\iffieldequalstr{entrysubtype}{churchfather}
+       {}
+       {\mkbibemph{#1}}}
+    {}}
 
 \newtoggle{blx@abbrevcite}
 
