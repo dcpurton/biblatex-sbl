@@ -692,7 +692,8 @@
 }
 
 \defbibenvironment{abbreviations}
-  {\list
+  {\setlength{\abbrevwidth}{0pt}%
+   \list
      {\printfield[shorthandwidth]{shortjournal}%
       \iffieldundef{shorthand}
         {\printfield[shorthandwidth]{shortseries}}
