@@ -808,9 +808,9 @@
              test {\iffieldequalstr{entrysubtype}{churchfather}}
            }
              {\skipentry}
-             {\ifcsdef{sbl\therefsection\strfield{shorttitle}=\strfield{entrykey}\strfield{title}}
+             {\ifcsdef{sbl\therefsection\strfield{shorttitle}=\strname{author}\strfield{title}}
                 {\skipentry}
-                {\savefieldcs{title}{sbl\therefsection\strfield{shorttitle}=\strfield{entrykey}\strfield{title}}}}}
+                {\savefieldcs{title}{sbl\therefsection\strfield{shorttitle}=\strname{author}\strfield{title}}}}}
           {\ifboolexpr{
              test {\iffieldundef{shortjournal}}
              and
