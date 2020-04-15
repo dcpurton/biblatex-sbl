@@ -130,16 +130,23 @@
   \sloppy
   \hangindent 6em\rlap
     {\printfield[shorthandwidth]{shortjournal}%
-     \iffieldundef{shorthand}
-       {\printfield[shorthandwidth]{shortseries}}
-       {\iffieldsequal{shorthand}{shorttitle}
-          {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
-          {\printfield[shorthandwidth]{shorthand}}}%
-     \ifentrytype{classictext}
-       {\iffieldequalstr{entrysubtype}{churchfather}
-          {}
-          {\printfield[shorthandwidth]{shorttitle}}}
-       {}}%
+      \iffieldsequal{shorthand}{shorttitle}
+        {\printtext{\mkbibemph{\printfield[shorthandwidth]{shorthand}}}}
+        {\printfield[shorthandwidth]{shorthand}}%
+      \ifentrytype{classictext}
+        {\printfield{shorttitle}}
+        {}%
+      \ifboolexpr{
+        not test {\iffieldundef{shorthand}}
+        or
+          (
+            test {\ifentrytype{classictext}}
+            and
+            not test {\iffieldundef{shorttitle}}
+          )
+      }
+        {}
+        {\printfield{shortseries}}}%
   \renewcommand*{\bibhypertarget}[2]{##2}%
   \hskip 6em \setunit{}\usedriver{}{abbreviations}\par
 }
