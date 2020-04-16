@@ -521,6 +521,8 @@
 \DeclareFieldFormat[patent]{title}{#1}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{primarysource}}
+    or
     test {\iffieldequalstr{entrysubtype}{inscription}}
     or
     test {\iffieldequalstr{entrysubtype}{chronicle}}
@@ -531,6 +533,8 @@
        {\mkbibquote{#1}}}}
 \DeclareFieldFormat[ancienttext]{shorttitle}{%
   \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{primarysource}}
+    or
     test {\iffieldequalstr{entrysubtype}{inscription}}
     or
     test {\iffieldequalstr{entrysubtype}{chronicle}}
@@ -783,8 +787,14 @@
 }
 
 \DeclareBiblistFilter{primary}{
-  \filter[type=type,filter=classictext]
-  \filter[type=field,filter=shorttitle]
+  \filteror{
+    \filter[type=subtype,filter=primarysource]
+    \filter[type=type,filter=classictext]
+  }
+  \filteror{
+    \filter[type=field,filter=shorthand]
+    \filter[type=field,filter=shorttitle]
+  }
 }
 
 \DeclareBiblistFilter{secondary}{
