@@ -1074,6 +1074,13 @@
   \iftoggle{cbx:involcite}
     {\renewcommand*{\postnotedelim}{\addspace}}
     {}%
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    and
+    test {\usebibmacro{ifuseshorthand}}
+  }
+    {\renewcommand*{\postnotedelim}{\addspace}}
+    {}%
   \iffieldundef{postnote}
     {}
     {\IfInStringT{.}{\abx@field@postnote}
