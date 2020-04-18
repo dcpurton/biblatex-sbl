@@ -1081,6 +1081,13 @@
   }
     {\renewcommand*{\postnotedelim}{\addspace}}
     {}%
+  \ifboolexpr{
+    test {\ifentrytype{classictext}}
+    and
+    not test {\iffieldundef{shorttitle}}
+  }
+    {\renewcommand*{\postnotedelim}{\addspace}}
+    {}%
   \iffieldundef{postnote}
     {}
     {\IfInStringT{.}{\abx@field@postnote}
