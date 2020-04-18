@@ -862,14 +862,20 @@
        {\skipentry}
        {}}}
 
-\DeclareSortingTemplate{abbreviations}{%
-  \sort{%
-    \field{sortshorthand}%
-    \field{shorthand}%
-    \field{shortjournal}%
-    \field{shortseries}%
-    \field{shorttitle}%
-  }%
+\DeclareSortingTemplate{abbreviations}{
+  \sort{
+    \field{sortshorthand}
+    \field{shorthand}
+    \field{shortjournal}
+    \field{shortseries}
+    \field{shorttitle}
+  }
+  \sort{
+    \field{journaltitle}
+    \field{author}
+    \field{title}
+    \field{series}
+  }
 }
 
 % ------------------------------------------------------------------
