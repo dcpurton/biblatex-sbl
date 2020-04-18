@@ -754,7 +754,7 @@
   \ifentrytype{classictext}
     {\iffieldundef{shorttitle}
        {}
-       {\bibhypertarget{\strfield{shorttitle}}{}%
+       {\bibhypertarget{\strfield{shorttitle}\strname{author}}{}%
         \usebibmacro{author}%
         \newunit
         \printfield{title}%
@@ -1258,7 +1258,7 @@
         \printfield{titleaddon}%
         \usebibmacro{language}}}
     {\printtext[shorttitle]{%
-       \bibhyperlink{\strfield{shorttitle}}{\thefield{shorttitle}}}}}
+     \bibhyperlink{\strfield{shorttitle}\strname{author}}{\thefield{shorttitle}}}}}
 
 \renewbibmacro*{title}{%
   \ifciteseen
