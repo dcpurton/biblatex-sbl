@@ -564,6 +564,18 @@
   \iffieldundef{type}
     {#1}
     {\mkbibemph{#1}}}
+\DeclareFieldFormat[classictext]{title}{%
+  \ifnameundef{author}
+    {#1}
+    {\mkbibemph{#1}}}
+\DeclareFieldFormat[classictext]{subtitle}{%
+  \ifnameundef{author}
+    {#1}
+    {\mkbibemph{#1}}}
+\DeclareFieldFormat[classictext]{shorttitle}{%
+  \ifnameundef{author}
+    {#1}
+    {\mkbibemph{#1}}}
 
 \DeclareBibliographyAlias{cite:mvbook}{cite:book}
 \DeclareBibliographyAlias{cite:mvcollection}{cite:collection}
@@ -755,8 +767,10 @@
     {\iffieldundef{shorttitle}
        {}
        {\bibhypertarget{\strfield{shorttitle}\strname{author}}{}%
-        \usebibmacro{author}%
-        \newunit
+        \ifnameundef{author}
+          {}
+          {\usebibmacro{author}%
+           \newunit}%
         \printfield{title}%
         \setunit*{\subtitlepunct}%
         \printfield{subtitle}}}
@@ -1070,64 +1084,82 @@
     {#2}}
 
 \ExplSyntaxOn
-\cs_new_protected:Nn \sbl_ifinstringt:nnn {
-   \tl_if_in:nnT {#2}{#1}{#3}}
-\cs_generate_variant:Nn \sbl_ifinstringt:nnn { non }
-\cs_new_eq:NN \IfInStringT \sbl_ifinstringt:non
+\cs_new_protected:Nn \sbl_ifinstringtf:nnnn {
+  \tl_if_in:nnTF {#2}{#1}{#3}{#4}}
+\cs_generate_variant:Nn \sbl_ifinstringtf:nnnn { nonn }
+\cs_new_eq:NN \IfInStringTF \sbl_ifinstringtf:nonn
+
+\DeclareExpandableDocumentCommand \iffirstcharsec { m m m }
+  {
+    \exp_args:Nnf \IfInStringTF { § } { \tl_use:N \tl_head:f { #1 } }
+      { #2 }
+      {
+        \exp_args:Nnf \IfInStringTF { \textsection } { \tl_use:N \tl_head:f { #1 } }
+          { #2 }
+          { #3 }
+      }
+  }
+
+\DeclareExpandableDocumentCommand \iffirstcharnum { m m m }
+ {
+   \exp_args:Nf \ifnumeral { \tl_use:N \tl_head:f { #1 } }
+     { #2 }
+     { #3 }
+ }
 \ExplSyntaxOff
 
 \newbibmacro*{setpostnotedelim}{%
   \iftoggle{cbx:involcite}
     {\renewcommand*{\postnotedelim}{\addspace}}
     {}%
-  \ifboolexpr{
-    test {\ifentrytype{ancienttext}}
-    and
-    test {\usebibmacro{ifuseshorthand}}
-  }
-    {\renewcommand*{\postnotedelim}{\addspace}}
-    {}%
-  \ifboolexpr{
-    test {\ifentrytype{classictext}}
-    and
-    not test {\iffieldundef{shorttitle}}
-  }
-    {\renewcommand*{\postnotedelim}{\addspace}}
-    {}%
   \iffieldundef{postnote}
     {}
-    {\IfInStringT{.}{\abx@field@postnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{:}{\abx@field@postnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{§}{\abx@field@postnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{\textsection}{\abx@field@postnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}}}
+    {\iffirstcharnum{\abx@field@postnote}
+       {\ifboolexpr{
+          test {\ifentrytype{ancienttext}}
+          and
+          test {\usebibmacro{ifuseshorthand}}
+        }
+          {\renewcommand*{\postnotedelim}{\addspace}}
+          {}%
+        \ifboolexpr{
+          test {\ifentrytype{classictext}}
+          and
+          not test {\iffieldundef{shorttitle}}
+        }
+          {\renewcommand*{\postnotedelim}{\addspace}}
+          {}%
+        \IfInStringTF{.}{\abx@field@postnote}
+          {\renewcommand*{\postnotedelim}{\addspace}}{}%
+        \IfInStringTF{:}{\abx@field@postnote}
+          {\renewcommand*{\postnotedelim}{\addspace}}{}}
+       {\iffirstcharsec{\abx@field@postnote}
+          {\renewcommand*{\postnotedelim}{\addspace}}
+          {}}}}
 
 \newbibmacro*{setaltpostnotedelim}{%
   \iffieldundef{altpostnote}
     {}
-    {\IfInStringT{.}{\abx@field@altpostnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{:}{\abx@field@altpostnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{§}{\abx@field@altpostnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}%
-     \IfInStringT{\textsection}{\abx@field@altpostnote}
-       {\renewcommand*{\postnotedelim}{\addspace}}}}
+    {\IfInStringTF{.}{\abx@field@altpostnote}
+       {\renewcommand*{\postnotedelim}{\addspace}}{}%
+     \IfInStringTF{:}{\abx@field@altpostnote}
+       {\renewcommand*{\postnotedelim}{\addspace}}{}%
+     \IfInStringTF{§}{\abx@field@altpostnote}
+       {\renewcommand*{\postnotedelim}{\addspace}}{}%
+     \IfInStringTF{\textsection}{\abx@field@altpostnote}
+       {\renewcommand*{\postnotedelim}{\addspace}}{}}}
 
 \newbibmacro*{setpagesdelim}{%
   \iffieldundef{pages}
     {}
-    {\IfInStringT{.}{\abx@field@pages}
-       {\setunit{\addspace}}%
-     \IfInStringT{:}{\abx@field@pages}
-       {\setunit{\addspace}}%
-     \IfInStringT{§}{\abx@field@pages}
-       {\setunit{\addspace}}%
-     \IfInStringT{\textsection}{\abx@field@pages}
-       {\setunit{\addspace}}}}
+    {\IfInStringTF{.}{\abx@field@pages}
+       {\setunit{\addspace}}{}%
+     \IfInStringTF{:}{\abx@field@pages}
+       {\setunit{\addspace}}{}%
+     \IfInStringTF{§}{\abx@field@pages}
+       {\setunit{\addspace}}{}%
+     \IfInStringTF{\textsection}{\abx@field@pages}
+       {\setunit{\addspace}}{}}}
 
 % ------------------------------------------------------------------
 % JOINING WORD MACROS
@@ -2600,7 +2632,10 @@
        \iftoggle{blx@useseries}
          {\newunit
           \usebibmacro{shortseries}}
-         {}}}}
+         {}%
+       \usebibmacro{setaltpostnotedelim}%
+       \setunit{\postnotedelim}%
+       \printfield{altpostnote}}}}
 
 % ------------------------------------------------------------------
 % ALTERNATE POSTNOTE MACROS
