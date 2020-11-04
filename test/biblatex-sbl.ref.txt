@@ -3,7 +3,8 @@ SBL Style Using biblatex
 David Purton
 dcpurton@marshwiggle.net
 
-Version 0.11+ 2019-2019
+Version 0.12 2020-11-04
+4 November 2020
 
 Contents
 1 Introduction
@@ -1141,7 +1142,7 @@ Israels. 2nd ed. Berlin: Reimer, 1883.
 5 Important Changes
 0.12
 
-yyyy-mm-dd
+2020-11-04
 
 • Ibid. and idem are no longer used by default.
 • Only the author family name is printed for subsequent citations of a different work
