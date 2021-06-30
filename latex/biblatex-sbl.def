@@ -2682,7 +2682,9 @@
     {\printfield{prenote}%
      \setunit{\prenotedelim}}}
 
-\DeclareFieldFormat{altpostnote}{\mkcomprange{#1}}
+% sections and parts of ancient works shouldn't be compressed
+% See SBLHS2 §4.2.6
+\DeclareFieldFormat{altpostnote}{\mknormrange{#1}}
 
 % ------------------------------------------------------------------
 % BIBLIOGRAPHY REPEATED AUTHOR MACROS
