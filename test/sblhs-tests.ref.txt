@@ -1346,10 +1346,10 @@ Biblatex Output
 \autocite{doomedprince}
 
 34. “The Doomed Prince” (Miriam Lichtheim, Ancient Egyptian Literature [Berkeley: University of California Press,
-1976], 2:200–3).
+1976], 2:200–203).
 \autocite[200-203]{doomedprince}
 
-36. “The Doomed Prince” (AEL 2:200–3).
+36. “The Doomed Prince” (AEL 2:200–203).
 \printbibliography
 
 Lichtheim, Miriam. Ancient Egyptian Literature. Vol. 2. Berkeley: University of California Press, 1976.
@@ -1362,22 +1362,20 @@ Ancient Egyptian Literature. Miriam Lichtheim. 3 vols. Berkeley: University of C
 Reference Implementation
 
 34. “The Doomed Prince” (Miriam Lichtheim, Ancient Egyptian Literature [Berkeley: University of California Press,
-1976], 2:200–203).15
-36. “The Doomed Prince” (AEL 2:200–203).16
+1976], 2:200–203).
+36. “The Doomed Prince” (AEL 2:200–203).
 Lichtheim, Miriam. Ancient Egyptian Literature. Vol 2. Berkeley: University of California Press, 1976.
 AEL
 
 Ancient Egyptian Literature. Miriam Lichtheim. 3 vols. Berkeley: University of California Press, 1971–1980
 
-15. Should be “200–3”?
-16. Should be “200–3”?
-
-Biblatex Output
+Biblatex Output
 \autocite[(§3 \mkbibparens{A I 11--17})26]{disappearanceofsungod}
 
 12. “The Disappearance of the Sun God,” §3 (A I 11–17) (Harry A. Hoffner Jr., Hittite Myths, ed. Gary M. Beckman,
 WAW 2 [Atlanta: Scholars Press, 1990], 26).
-\printbibliography
+
+\printbibliography
 
 Hoffner, Harry A., Jr. Hittite Myths. Edited by Gary M. Beckman. WAW 2. Atlanta: Scholars Press, 1990.
 \printbiblist{abbreviations}
@@ -1389,7 +1387,7 @@ Writings from the Ancient World
 Reference Implementation
 
 12. “The Disappearance of the Sun God,” §3 (A I 11–17) (Harry A. Hoffner Jr., Hittite Myths [ed. Gary M. Beckman;
-WAW 2;17 Atlanta: Scholars Press, 1990], 26).
+WAW 2;15 Atlanta: Scholars Press, 1990], 26).
 Hoffner, Harry A., Jr. Hittite Myths. Edited by Gary M. Beckman. WAW 2. Atlanta: Scholars Press, 1990.
 WAW
 
@@ -1459,13 +1457,13 @@ TCS
 
 Texts from Cuneiform Sources
 
-17. Editor, series, and number should be outside of parentheses?
-
-Biblatex Output
+Biblatex Output
 \autocite[1.3]{ARM1}
 
 45. ARM 1.3.
-\printbibliography
+15. Editor, series, and number should be outside of parentheses?
+
+\printbibliography
 
 Dossin, Georges. Lettres. ARM 1. 1946. Repr., Paris: Geuthner, 1967.
 \printbiblist{abbreviations}
@@ -1498,7 +1496,7 @@ Archives royales de Mari, transcrite et traduite
 Reference Implementation
 
 45. ARMT 1.3.
-Georges Dossin,18 Correspondance de Šamši-Addu et de ses fils. ARMT 1. Paris: Imprimerei nationale, 1950.
+Georges Dossin,16 Correspondance de Šamši-Addu et de ses fils. ARMT 1. Paris: Imprimerei nationale, 1950.
 ARMT
 6.4.2
 
@@ -1544,9 +1542,7 @@ LCL
 
 Loeb Classical Library
 
-18. Should be “Dossin, Georges.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
-
-Reference Implementation
+Reference Implementation
 
 4. Tacitus, Ann. 15.18–19.
 Tacitus. The Histories and The Annals. Translated by Clifford H. Moore and John Jackson. 4 vols. LCL. Cambridge: Harvard
@@ -1555,7 +1551,9 @@ LCL
 
 Loeb Classical Library
 
-Biblatex Output
+16. Should be “Dossin, Georges.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
+
+Biblatex Output
 \parencite[2.233-235]{josephus:ant:thackery}
 
 (Josephus, Ant. 2.233–235 [Thackeray, LCL])
@@ -1635,11 +1633,11 @@ Biblatex Output
 \parencite[59003]{p.cair.zen.}
 
 (P.Cair.Zen. 59003)
-
-\autocite[59003]{p.cair.zen.}
+\autocite[59003]{p.cair.zen.}
 
 22. P.Cair.Zen. 59003.
-\printbiblist{abbreviations}
+
+\printbiblist{abbreviations}
 
 P.Cair.Zen.
 
@@ -1719,17 +1717,18 @@ PGM
 Papyri Graecae Magicae: Die griechischen Zauberpapyri. Edited by Karl Preisendaz. 2nd ed. Stuttgart:
 Teubner, 1973–1974
 
-Reference Implementation
+Reference Implementation
 
 22. PGM III. 1–164 (Betz).
 Betz, Hans Dieter. The Greek Magical Papyri in Translation, Including the Demotic Spells. 2nd ed. Chicago: University of
 Chicago Press, 1996.
 PGM
 
-6.4.4
-
 Papyri Graecae Magicae: Die griechischen Zauberpapyri. Edited by Karl Preisendanz. 2nd ed. Stuttgart:
 Teubner, 1973–1974
+
+6.4.4
+
 Ancient Epistles and Homilies
 
 Biblatex Output
@@ -1792,15 +1791,13 @@ The Ante-Nicene Fathers
 Reference Implementation
 
 14. The Clementine Homilies 1.3 (ANF 8:223).
-The Ante-Nicene Fathers. Edited by Alexander Roberts and James Donaldson. 1885–1887. 10 vols.19 Repr., Peabody, MA:
+The Ante-Nicene Fathers. Edited by Alexander Roberts and James Donaldson. 1885–1887. 10 vols.17 Repr., Peabody, MA:
 Hendrickson, 1994.
 ANF
 
 Ante-Nicene Fathers
 
-19. Should be “10 vols. 1885–1887.”?
-
-Biblatex Output
+Biblatex Output
 \autocite[(28.3.5)252]{augustine:letters}
 
 44. Augustine, Letters of St. Augustin 28.3.5 (NPNF1 1:252).
@@ -1808,7 +1805,9 @@ Ante-Nicene Fathers
 
 Augustine. The Letters of St. Augustin. In vol. 1 of The Nicene and Post-Nicene Fathers, Series 1. Edited by Philip Schaff.
 14 vols. 1886–1889. Repr., Peabody, MA: Hendrickson, 1994.
-\printbiblist{abbreviations}
+17. Should be “10 vols. 1885–1887.”?
+
+\printbiblist{abbreviations}
 
 NPNF1
 
@@ -1818,7 +1817,7 @@ Reference Implementation
 
 44. Augustine, Letters of St. Augustin 28.3.5 (NPNF1 1:252).
 Augustine. The Letters of St. Augustin. In vol. 1 of The Nicene and Post-Nicene Fathers, Series 1. Edited by Philip Schaff.
-1886–1889. 14 vols.20 Repr., Peabody, MA: Hendrickson, 1994.
+1886–1889. 14 vols.18 Repr., Peabody, MA: Hendrickson, 1994.
 NPNF1
 
 The Nicene and Post-Nicene Fathers, Series 1
@@ -1849,7 +1848,7 @@ Reference Implementation
 
 6. Gregory of Nazianzus, Orationes theologicae 4 (PG 36:12c).
 Patrologia Graeca. Edited by J.-P. Migne. 162 vols. Paris, 1857–1886.
-Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.21
+Patrologia Latina. Edited by J.-P. Migne. 217 vols. Paris, 1844–1864.19
 PG
 
 Patrologia Graeca. Edited by Jacques-Paul Migne. 162 vols. Paris, 1857–1886
@@ -1858,7 +1857,7 @@ PL
 
 Patrologia Latina. Edited by Jacques-Paul Migne. 217 vols. Paris, 1844–1864
 
-22
+20
 
 6.4.7
 
@@ -1886,16 +1885,10 @@ Strack, Hermann L., and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmu
 Beck, 1922–1961.
 Str-B
 
-Strack, Hermann Leberecht23 and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und
+6.4.8
+
+Strack, Hermann Leberecht21 and Paul Billerbeck. Kommentar zum Neuen Testament aus Talmud und
 Midrasch. 6 vols. Munich: Beck, 1922–1961
-
-20. Should be “14 vols. 1886–1889.”?
-21. Should be “1844–1855”?
-22. Should be “1844–1855”?
-23. Should be “Strack, Hermann L.,”?
-
-6.4.8
-
 Aufstieg und Niedergang der römischen Welt (ANRW)
 
 Biblatex Output
@@ -1903,7 +1896,12 @@ Biblatex Output
 
 76. Graham Anderson, “The pepaideumenos in Action: Sophists and Their Outlook in the Early Empire,” ANRW
 33.1:80–208.
-\autocite[86]{anderson:pepaideumenos}
+18. Should be “14 vols. 1886–1889.”?
+19. Should be “1844–1855”?
+20. Should be “1844–1855”?
+21. Should be “Strack, Hermann L.,”?
+
+\autocite[86]{anderson:pepaideumenos}
 
 79. Anderson, “Pepaideumenos,” ANRW 33.1:86.
 \printbibliography
@@ -1977,9 +1975,9 @@ HarperSanFrancisco, 2006.
 
 3. David L. Petersen, “Ezekiel,” in The HarperCollins Study Bible Fully Revised and Updated: New Revised Standard
 Version, with the Apocryphal/Deuterocanonical Books, ed. Harold W. Attridge et al. (San Francisco: HarperSanFrancisco,
-2006), 1096.24
+2006), 1096.22
 5. Petersen, “Ezekiel,” 1096.
-Petersen, David L. “Ezekiel.” Pages 1096–116725 in The HarperCollins Study Bible Fully Revised and Updated, New Revised
+Petersen, David L. “Ezekiel.” Pages 1096–116723 in The HarperCollins Study Bible Fully Revised and Updated, New Revised
 Standard Version, with the Apocryphal/Deuterocanonical Books. Edited by Harold W. Attridge et al. San Francisco:
 HarperSanFrancisco, 2006.
 6.4.9.2 Single-Volume Commentaries on the Entire Bible
@@ -2025,9 +2023,9 @@ Anchor Bible
 
 Reference Implementation
 
-4. Mitchell Dahood, Psalms, 3 vols., AB 16–17A (Garden City, N.Y.:26 Doubleday, 1965–1970), 3:127.
+4. Mitchell Dahood, Psalms, 3 vols., AB 16–17A (Garden City, N.Y.:24 Doubleday, 1965–1970), 3:127.
 7. Dahood, Psalms, 2:121.
-Dahood, Mitchell. Psalms. 3 vols. AB 16–17A. Garden City, N.Y.:27 Doubleday, 1965–1970.
+Dahood, Mitchell. Psalms. 3 vols. AB 16–17A. Garden City, N.Y.:25 Doubleday, 1965–1970.
 AB
 
 Anchor Bible
@@ -2039,10 +2037,10 @@ Biblatex Output
 \autocite[78]{dahood:1965}
 
 79. Dahood, Psalms I: 1–50, 78.
-24. Should be “1096–167.”?
-25. Should be “1096–167”?
-26. Should be “NY:”?
-27. Should be “NY:”?
+22. Should be “1096–167.”?
+23. Should be “1096–167”?
+24. Should be “NY:”?
+25. Should be “NY:”?
 
 \autocite[374]{dahood:1968}
 
@@ -2064,7 +2062,7 @@ Reference Implementation
 82. Mitchell Dahood, Psalms II: 51–100, AB 17 (Garden City, NY: Doubleday, 1968), 347.
 86. Dahood, Psalms II: 51–100, 351.
 Dahood, Mitchell. Psalms I: 1–50. Vol. 1 of Psalms. AB 16. Garden City, NY: Doubleday, 1965.
-. Psalms II: 51–100. Vol. 2 of Psalms. AB 17. Garden City, N.Y.:28 Doubleday, 1968.
+. Psalms II: 51–100. Vol. 2 of Psalms. AB 17. Garden City, N.Y.:26 Doubleday, 1968.
 AB
 
 Anchor Bible
@@ -2094,7 +2092,7 @@ Reference Implementation
 1. Patrick D. Miller, NIB 6:577.
 Miller, Patrick D. “The Book of Jeremiah: Introduction, Commentary, and Reflections.” Pages 553–926 in Introduction to
 Prophetic Literature, Isaiah, Jeremiah, Baruch, Letter of Jeremiah, Lamentations, Ezekiel. Vol. 6 of New Interpreter’s
-Bible. Edited by Leander E. Keck.29 Nashville: Abingdon, 2001.
+Bible. Edited by Leander E. Keck.27 Nashville: Abingdon, 2001.
 Miller, Patrick D. “The Book of Jeremiah: Introduction, Commentary, and Reflections.” NIB 6:553–926.
 NIB
 6.4.11
@@ -2117,15 +2115,15 @@ SBLSP
 
 Society of Biblical Literature Seminar Papers
 
-28. Should be “NY:”?
-29. Should include “12 vols.”?
+26. Should be “NY:”?
+27. Should include “12 vols.”?
 
 Reference Implementation
 
 33. James L. Crenshaw, “Theodicy in the Book of the Twelve,” Society of Biblical Literature 2001 Seminar Papers,
-SBLSPS30 40 (Atlanta: Society of Biblical Literature, 2001), 1–18.
+SBLSPS28 40 (Atlanta: Society of Biblical Literature, 2001), 1–18.
 Crenshaw, James L. “Theodicy in the Book of the Twelve.” Pages 1–18 in Society of Biblical Literature 2001 Seminar Papers.
-SBLSPS31 40. Atlanta: Society of Biblical Literature, 2001.
+SBLSPS29 40. Atlanta: Society of Biblical Literature, 2001.
 SBLSP
 6.4.12
 
@@ -2155,7 +2153,7 @@ Reference Implementation
 2. Gernot Wilhelm, ed., “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I),” released 24
 February 2013, doi:hethiter.net/: CTH 51.I (INTR 2013-02-24).
 4. Wilhelm, “Der Vertrag Šuppiluliumas I.”
-Gernot Wilhelm, ed.32 “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I).”33 doi:hethiter.net/:
+Gernot Wilhelm, ed.30 “Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani (CTH 51.I).”31 doi:hethiter.net/:
 CTH 51.I (INTR 2013-02-24).
 6.4.14
 
@@ -2184,10 +2182,10 @@ Biblatex Output
 \autocite{caraher:2013}
 
 17. Caraher, “Pyla-Koutsopetria Archaeological Project.”
-30. Should be “SBLSP”?
-31. Should be “SBLSP”?
-32. Should be “Wilhelm, Gernot, ed.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
-33. Should this include “Released 24 February 2013.”?
+28. Should be “SBLSP”?
+29. Should be “SBLSP”?
+30. Should be “Wilhelm, Gernot, ed.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
+31. Should this include “Released 24 February 2013.”?
 
 \printbibliography
 
@@ -2198,7 +2196,7 @@ Reference Implementation
 15. William R. Caraher, ed., “Pyla-Koutsopetria Archaeological Project: (Overview),” Open Context, released 5
 November 2013, http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2, doi:10.6078/M7B56GNS.
 17. Caraher, “Pyla-Koutsopetria Archaeological Project.”
-William R. Caraher, ed.34 “Pyla-Koutsopetria Archaeological Project: (Overview).” Open Context. Released 5 November
+William R. Caraher, ed.32 “Pyla-Koutsopetria Archaeological Project: (Overview).” Open Context. Released 5 November
 2013. http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2. doi:10.6078/M7B56GNS.
 6.4.15
 
@@ -2255,7 +2253,7 @@ Biblatex Output
 \autocite[432]{BDB}
 
 2. BDB, 432.
-34. Should be “Caraher, William R., ed.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
+32. Should be “Caraher, William R., ed.” See https://sblhs2.com/2016/06/02/first-last-name-order/.
 
 \printbibliography
 
@@ -2633,9 +2631,9 @@ Wright, Jacob L. David, King of Israel, and Caleb in Biblical Memory. Cambridge:
 Kindle edition.
 
 Author Index
-Anderson, Graham, 25
+Anderson, Graham, 24, 25
 Attridge, Harold W., 4
-Augustine, 24
+Augustine, 23
 Beyer, Hermann W., 14, 15
 Blass, Friedrich, 4
 Blenkinsopp, Joseph, 6

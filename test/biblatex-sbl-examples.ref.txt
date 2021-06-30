@@ -1909,10 +1909,10 @@ Biblatex Output
 \autocite{doomedprince}
 
 34. “The Doomed Prince” (Miriam Lichtheim, Ancient Egyptian Literature [Berkeley:
-University of California Press, 1976], 2:200–3).
+University of California Press, 1976], 2:200–203).
 \autocite[200-203]{doomedprince}
 
-36. “The Doomed Prince” (AEL 2:200–3).
+36. “The Doomed Prince” (AEL 2:200–203).
 \printbibliography
 
 Lichtheim, Miriam. Ancient Egyptian Literature. Vol. 2. Berkeley: University of

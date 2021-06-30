@@ -2686,6 +2686,31 @@
 % See SBLHS2 §4.2.6
 \DeclareFieldFormat{altpostnote}{\mknormrange{#1}}
 
+% page ranges beginning with a multiple of 100 shouldn't be compressed
+\def\blx@comprange@check#1#2{%
+  \blx@imc@ifinteger{#1}
+    {\blx@imc@ifinteger{#2}
+       {\@firstoftwo}
+       {\@secondoftwo}}
+    {\@secondoftwo}
+    {\blx@tempcnta=#1
+     \divide\blx@tempcnta by 100
+     \multiply\blx@tempcnta by 100
+     \multiply\blx@tempcnta by -1
+     \advance\blx@tempcnta by #1\relax
+     \ifnum\blx@tempcnta=0
+       \blx@normrange@process{#1}{#2}%
+     \else
+       \blx@comprange@comp{#1}{#2}%
+     \fi}
+    {\begingroup
+     \protected@edef\blx@tempc{\endgroup
+       \blx@range@out@value{%
+         \blx@range@out@item@process{\unexpanded{#1}}%
+         \noexpand\bibrangedash
+         \blx@range@out@item@process{\unexpanded{#2}}}}%
+     \blx@tempc}}
+
 % ------------------------------------------------------------------
 % BIBLIOGRAPHY REPEATED AUTHOR MACROS
 % ------------------------------------------------------------------
