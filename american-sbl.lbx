@@ -1,0 +1,29 @@
+\ProvidesFile{american-sbl.lbx}[\sbl@abx@lbxid]
+
+\InheritBibliographyStrings{american}
+
+\InheritBibliographyExtras{american}
+
+\DeclareBibliographyExtras{%
+  \protected\def\mkdaterangecomp{%
+    \mkdaterangetrunc{long}}%
+  \protected\def\mkdaterangeterse{%
+    \mkdaterangetrunc{short}}%
+  \protected\def\mkdaterangecompextra{%
+    \mkdaterangetruncextra{long}}%
+  \protected\def\mkdaterangeterseextra{%
+    \mkdaterangetruncextra{short}}%
+  \protected\def\mkbibdatelong#1#2#3{%
+    \iffieldundef{#3}
+      {}
+      {\thefield{#3}%
+       \iffieldundef{#2}{}{\nobreakspace}}%
+    \iffieldundef{#2}
+      {}
+      {\mkbibmonth{\thefield{#2}}%
+       \iffieldundef{#1}{}{\space}}%
+    \iffieldbibstring{#1}
+      {\bibstring{\thefield{#1}}}
+      {\dateeraprintpre{#1}\stripzeros{\thefield{#1}}}}%
+  \DeclarePunctuationPairs{comma}{*!?}%
+}

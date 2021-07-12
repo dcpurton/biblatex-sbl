@@ -1,0 +1,316 @@
+\RequireCitationStyle{verbose-ibid}
+
+\blx@inputonce{biblatex-sbl.def}{biblatex-sbl definitions and macros}{}{}{}{}
+
+\ProvidesFile{sbl.cbx}[\sbl@abx@cbxid]
+
+\def\cbx@opt@citepages@omit{%
+  \renewbibmacro*{cite:citepages}{}%
+  \renewbibmacro*{cite:full:citepages}{%
+    \ifboolexpr{
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}}
+      and
+      (
+        test {\iffieldbegpages{postnote}}
+        or
+        test {\iffieldbegpages{volcitepages}}
+      )
+    }
+      {\clearfield{pages}%
+       \clearfield{pagetotal}}
+      {}}%
+  \renewbibmacro*{cite:postnote}{%
+    \usebibmacro{cite:postnote:ibidpage}}}
+
+\def\cbx@opt@citepages@separate{%
+  \providetoggle{cbx:fullcite}%
+  \renewbibmacro*{cite:citepages}{%
+    \global\togglefalse{cbx:fullcite}}%
+  \renewbibmacro*{cite:full:citepages}{%
+    \global\toggletrue{cbx:fullcite}}%
+  \renewbibmacro*{cite:postnote}{%
+    \ifboolexpr{
+      togl {cbx:fullcite}
+      and
+      (
+        test {\iffieldbegpages{postnote}}
+        or
+        test {\iffieldbegpages{volcitepages}}
+      )
+      and
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}}
+      and
+      (
+       not test {\iffieldundef{pages}}
+       or
+       not test {\iffieldundef{pagetotal}}
+       or
+       test {\iffieldequalstr{relatedtype}{multivolarticle}}
+      )
+    }
+      {\usebibmacro{cite:postnote:pages}}
+      {\usebibmacro{cite:postnote:ibidpage}}}
+  \providebibmacro*{cite:postnote:pages}{%
+    \setunit{\printdelim{postnotedelim}}%
+    \bibstring{thiscite}%
+    \setunit{\addspace}%
+    \printfield{postnote}}}
+
+\ExecuteBibliographyOptions{
+  bookpagination=page,
+  citepages=omit,
+  citetracker=true,
+  dateabbrev=false,
+  ibidtracker=false,
+  language=american,
+  maxbibnames=99,
+  mincrossrefs=2,
+  minxrefs=1,
+  pagination=none,
+  shorthandintro=false,
+  uniquework,
+}
+
+\ExecuteBibliographyOptions[ancienttext]{%
+  skipbib
+}
+
+\RequirePackage[after=title]{biblatex-source-division}
+
+\renewbibmacro{getsourcedivision}{%
+  \ifboolexpr{
+    test {\iffieldundef{postnote}}
+    or
+    (
+      not test {\iffieldundef{volcitevolume}}
+      and
+      test {\iffieldundef{volcitepages}}
+    )
+  }
+    {}
+    {\iffieldundef{volcitevolume}
+       {\usefield{\getsourcedivision@}{postnote}}
+       {\usefield{\getsourcedivision@}{volcitepages}}%
+     \ifdefempty{\blxsd@titleaddon}
+       {}
+       {\ifboolexpr{
+          test {\iffieldundef{maintitle}}
+          or
+          test {\ifdefstring{\biblatexsourcedivision@after}{title}}
+        }
+          {\restorefield{titleaddon}{\blxsd@titleaddon}}
+          {\restorefield{maintitleaddon}{\blxsd@titleaddon}}}%
+     \iffieldundef{volcitevolume}
+       {\ifdefempty{\blxsd@postnote}
+          {\clearfield{postnote}}
+          {\restorefield{postnote}{\blxsd@postnote}}}
+       {\ifdefempty{\blxsd@postnote}
+          {\clearfield{volcitepages}%
+           \edef\abx@field@postnote{{\abx@field@volcitevolume}{}}}
+          {\restorefield{volcitepages}{\blxsd@postnote}%
+           \edef\abx@field@postnote{%
+             {\unexpanded\expandafter{\abx@field@volcitevolume}}%
+             {\unexpanded\expandafter{\abx@field@volcitepages}}}}}}}
+
+\def\getsourcedivision@ii(#1)#2++{%
+  \gdef\blxsd@titleaddon{#1}%
+  \gdef\blxsd@postnote{#2}}
+
+% Thanks to @moewe (https://tex.stackexchange.com/a/497548/87678)
+\newcommand*{\DeclareNestableCiteCommand}[2]{%
+  \newcommand*{#1}[1]{%
+    \blx@xsanitizeafter\blx@nocite@do{##1}%
+    \blx@ifdata{##1}
+      {\begingroup
+       \blx@blxinit
+       \entrydata{##1}{#2}%
+       \endgroup}
+      {\abx@missing@entry{##1}}}}
+
+\DeclareNestableCiteCommand{\citeseries}
+  {\usebibmacro{abbrev:shortfield}{shortseries}{series}}
+
+\DeclareNestableCiteCommand{\citejournal}
+  {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}}
+
+\DeclareNestableCiteCommand{\citeshorthand}
+  {\usebibmacro{cite:shorthand}}
+
+\DeclareCiteCommand*{\cite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\renewbibmacro*{cite}{%
+  \usebibmacro{cite:citepages}%
+  \global\togglefalse{cbx:loccit}%
+  \ifboolexpr{
+    test {\ifciteseen}
+    or
+    (
+      not test {\iffieldundef{shorthand}}
+      and
+      not togl {sbl@blx@shorthandintro}
+    )
+  }
+    {\clearfield{pages}%
+     \clearfield{pagetotal}%
+     \iffieldundef{shorthand}
+       {\ifboolexpr{
+          test {\ifciteibid}
+          and
+          not test {\iffirstonpage}
+        }
+          {\usebibmacro{cite:ibid}}
+          {\ifdefbibmacro{cite:short:\thefield{entrytype}}
+             {\usebibmacro*{cite:short:\thefield{entrytype}}}
+             {\usebibmacro{cite:short}}}}
+       {\iffieldequalstr{pagination}{section}
+          {\delimcontext{section}}
+          {}%
+        \usebibmacro{cite:shorthand}%
+        \usebibmacro{cite:postnote}}}
+    {\ifcrossrefseen
+      {\usebibmacro{cite:full:citepages}%
+       \usebibmacro*{cite:full:\thefield{entrytype}:seen}}
+      {\usebibmacro{cite:full}}}}
+
+\newbibmacro*{cite:star}{%
+  \usebibmacro{cite:citepages}%
+  \usebibmacro{citeindex}%
+  \ifentrytype{ancienttext}
+    {\clearfield{pages}%
+     \usebibmacro{cite:title:ancienttext}%
+     \iffieldundef{postnote}
+       {}
+       {\usebibmacro{cite:collection:ancienttext}}}
+    {\let\ifciteseen\iftrue
+     \usebibmacro{cite}}}
+
+\renewbibmacro*{cite:short}{%
+  \printnames{labelname}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{cite:title}%
+  \ifuniquework
+    {}
+    {\usebibmacro{cite:label:editor}}%
+  \usebibmacro{cite:postnote}}
+
+\newbibmacro*{cite:title}{%
+  \printfield[citetitle]{labeltitle}%
+  \ifentrytype{ancienttext}
+    {\setunit{\titleaddonpunct}%
+     \printfield{titleaddon}}
+    {}}
+
+\newbibmacro*{cite:label:editor}{%
+  \setunit{\addspace}%
+  \ifnameundef{editor}
+    {\ifnameundef{bookeditor}
+       {\ifnameundef{maineditor}
+          {}
+          {\printtext[parens]{\printnames[labelname]{maineditor}}}}
+       {\printtext[parens]{\printnames[labelname]{bookeditor}}}}
+    {\printtext[parens]{\printnames[labelname]{editor}}}}
+
+\newbibmacro*{cite:short:ancienttext}{%
+  \usebibmacro{cite:title:ancienttext}%
+  \newunit
+  \usebibmacro{bytranslator}%
+  \usebibmacro{cite:collection:ancienttext}}
+
+\newbibmacro*{cite:title:ancienttext}{%
+  \usebibmacro{author}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \ifboolexpr{
+    not test {\ifciteseen}
+    and
+    not test {\iffieldundef{entrysubtype}}
+  }
+    {\usebibmacro{title}}
+    {\usebibmacro{cite:title}}}
+
+\newbibmacro*{cite:collection:ancienttext}{%
+  \iftoggle{sbl@blx@parens}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}%
+     \renewcommand*{\begrelateddelimancienttext}{}}
+    {\newunit}%
+  \usebibmacro{related:init}%
+  \usebibmacro{related}%
+  \iftoggle{sbl@blx@parens}
+    {\setunit{}%
+     \printtext{\bibcloseparen}}
+    {}}
+
+\newbibmacro*{cite:short:online}{%
+  \printnames{labelname}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{cite:title}%
+  \ifnameundef{labelname}
+    {\newunit
+     \printfield{website}}
+    {}%
+  \usebibmacro{cite:postnote}}
+
+\newbibmacro*{cite:short:inreference}{%
+  \printnames{labelname}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{cite:title}%
+  \setunit{\bibpagespunct}%
+  \usebibmacro{volume+part+pages}}
+
+\newbibmacro*{cite:short:review}{%
+  \printnames{labelname}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \biblstring{reviewof}%
+  \setunit{\addspace}%
+  \usebibmacro{revdlabeltitle}%
+  \usebibmacro{revdlabelname}%
+  \usebibmacro{cite:postnote}}
+
+\newbibmacro*{cite:full:book:seen}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{volume+part+of:}%
+  \entrydata*{\thefield{crossref}}{%
+    \renewbibmacro{cite:postnote}{}%
+    \usebibmacro{cite:short}}%
+  \usebibmacro{chapter+pages}}
+
+\newbibmacro*{cite:full:commentary:seen}{%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{volume+part+of:}%
+  \entrydata*{\thefield{crossref}}{%
+    \renewbibmacro{cite:postnote}{}%
+    \usebibmacro{cite:short}}%
+  \usebibmacro{chapter+pages}}
+
+\newbibmacro*{cite:full:incollection:seen}{%
+  \usebibmacro{author/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \entrydata*{\thefield{crossref}}{%
+    \renewbibmacro{cite:postnote}{}%
+    \usebibmacro{cite:short}}%
+  \usebibmacro{volume+part+pages}}

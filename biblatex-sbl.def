@@ -1,0 +1,1648 @@
+\RequireBiber[3]
+
+\RequirePackage{xpatch}
+
+% ## Set up the version strings
+
+\def\sbl@abx@date{2020//}
+\def\sbl@abx@version{1.0}
+\def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
+\def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
+\def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
+
+
+% ## Temporary patches
+\protected\def\blx@bbl@endentry{%
+  \csuse\blx@bbl@data
+  \ifcsundef{blx@pref@\the\c@refsection @\abx@field@entrykey}
+    {}
+    {\blx@addpageref{\abx@field@entrykey}}%
+  \nottoggle{blx@setonly}
+    {}
+    {\global\toggletrue{blx@addset}%
+     \toggletrue{blx@skipbib}%
+     \toggletrue{blx@skipbiblist}%
+     \toggletrue{blx@skiplab}}%
+  \expandafter\ifstrequal\expandafter{\blx@dlist@type}{entry}
+    {\listcsxadd{blx@type@\the\c@refsection @\abx@field@entrytype}{\abx@field@entrykey}%
+     \ifdef\abx@field@entrysubtype
+       {\listcsxadd{blx@subt@\the\c@refsection @\abx@field@entrysubtype}{\abx@field@entrykey}}
+       {}%
+     \nottoggle{blx@skipbib}
+       {\listcsxadd{blx@dlist@entry@\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}%
+        \listcsxadd{blx@dlist@centry@\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}}
+       {}}%
+    {}%
+  \nottoggle{blx@skipbiblist}
+    {\expandafter\ifstrequal\expandafter{\blx@dlist@type}{list}
+      {\blx@bbl@labelfields
+        \listcsxadd{blx@dlist@\blx@dlist@type @\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}}
+      {}}%
+    {}%
+  \nottoggle{blx@skiplab}
+    {\iftoggle{blx@labelnumber}
+       {\blx@bbl@labelnumber}
+       {}%
+     \iftoggle{blx@labelalpha}
+       {\blx@bbl@labelalpha}
+       {}%
+     \iftoggle{blx@labeltitle}
+       {\blx@bbl@labeltitle}
+       {}%
+     \iftoggle{blx@labeltitleyear}
+       {\blx@bbl@labeltitleyear}
+       {}%
+     \iftoggle{blx@labeldateparts}
+       {\blx@bbl@labeldate}
+       {}%
+     \blx@bbl@labelname}
+    {}%
+  \blx@bbl@titles
+  \blx@bbl@hooks
+  \endgroup}
+
+\def\blx@locallabelwidth@write@length#1{%
+  \blx@auxwrite\@mainaux{}
+    {\string\abx@aux@locallabelwidth
+       {\the\blx@biblioinstance}%
+       {#1}%
+       {\the\csname local#1width\endcsname}}}
+
+
+% ## Style options
+
+\DeclareBibliographyOption[string]{pagination}{%
+  \def\sbl@blx@pagination{#1}}
+
+\DeclareBibliographyOption[string]{bookpagination}{%
+  \def\sbl@blx@bookpagination{#1}}
+
+\newtoggle{sbl@blx@shorthandintro}
+\DeclareBibliographyOption[boolean]{shorthandintro}[true]{%
+  \settoggle{sbl@blx@shorthandintro}{#1}}
+
+\def\sbl@blx@shorthandformat{shorthand}
+\DeclareTypeOption[string]{shorthandformat}{%
+  \def\sbl@blx@shorthandformat{#1}}
+\DeclareEntryOption[string]{shorthandformat}{%
+  \def\sbl@blx@shorthandformat{#1}}
+
+\newtoggle{sbl@blx@parens}
+\DeclareEntryOption[boolean]{parens}[true]{%
+  \settoggle{sbl@blx@parens}{#1}}
+
+\newrobustcmd{\ifpaginationequalstr}[1]{%
+  \iffieldequalstr{pagination}{#1}
+    {\@firstoftwo}
+    {\ifboolexpr{
+       test {\ifcsstring{sbl@blx@pagination}{#1}}
+       and
+       test {\iffieldundef{pagination}}
+     }
+       {\@firstoftwo}
+       {\@secondoftwo}}}
+
+% set a field value
+\newrobustcmd{\setfield}[3][]{%
+  \ifstrequal{#1}{overwrite}
+    {\csdef{abx@field@#2}{#3}}
+    {\iffieldundef{#2}
+       {\csdef{abx@field@#2}{#3}}
+       {}}}
+
+% test if bibmacro defined
+\newrobustcmd*{\ifdefbibmacro}[1]{%
+  \ifcsdef{abx@macro@#1}
+    {\@firstoftwo}
+    {\@secondoftwo}}
+
+
+% ## Bibliography record manipulation
+
+\DeclareStyleSourcemap{
+  \maps{
+    % Split titles into titles and subtitles
+    \map[overwrite]{
+      \step[fieldsource=title, match=\regexp{(.*?):(.*)}, final]
+      \step[fieldset=title, fieldvalue={$1}]
+      \step[fieldset=subtitle, fieldvalue={$2}]
+    }
+    \map{
+      \step[fieldsource=revdtitle, match=\regexp{(.*?):(.*)}, final]
+      \step[fieldset=revdtitle, fieldvalue={$1}]
+      \step[fieldset=revdsubtitle, fieldvalue={$2}]
+    }
+    % Remove *A, An, The* from title and place in shorttitle and sorttitle
+    \map{
+      \pernottype{ancienttext}
+      \step[fieldsource=title, match=\regexp{^(A|An|The)\s+(.+)}, final]
+      \step[fieldset=shorttitle, fieldvalue={$2}]
+      \step[fieldset=sorttitle, fieldvalue={$2}]
+    }
+    \map{
+      \pertype{ancienttext}
+      \step[fieldsource=entrysubtype, final]
+      \step[fieldsource=title, match=\regexp{^(A|An|The)\s+(.+)}, final]
+      \step[fieldset=shorttitle, fieldvalue={$2}]
+      \step[fieldset=sorttitle, fieldvalue={$2}]
+    }
+    \map{
+      \step[fieldsource=revdtitle, match=\regexp{^(A|An|The)\s+(.+)}, final]
+      \step[fieldset=revdshorttitle, fieldvalue={$2}]
+    }
+    % incommentary with an xref uses inreference driver
+    \map[overwrite]{
+      \step[fieldsource=xref, final]
+      \step[typesource=incommentary, typetarget=inreference]
+    }
+    % entries with shorthand not in bibliography
+    \map[overwrite]{
+      \step[fieldsource=shorthand, final]
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbib,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    % add related entries to the list of abbreviations
+    \map[overwrite]{
+      \pernottype{ancienttext}
+      \step[fieldsource=related, final]
+      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
+      \step[fieldset=relatedoptions, fieldvalue={skipbib,}]
+      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
+    }
+    % add ancienttext related entries to bibliography and abbreviations
+    \map[overwrite]{
+      \pertype{ancienttext}
+      \step[fieldsource=related, final]
+      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
+      \step[fieldset=relatedoptions, fieldvalue={skipbib=false,skipbiblist=false,}]
+      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
+    }
+    % blog entries do not appear in the bibliography
+    \map[overwrite]{
+      \pertype{online}
+      \step[fieldsource=entrysubtype, final]
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbib,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    % ancienttext related entries
+    \map{
+      \pertype{ancienttext}
+      \step[fieldsource=related, final]
+      \step[fieldset=relatedtype, fieldvalue=ancienttext]
+    }
+    % non ancienttext with shorttitle as only label field not in abbreviations
+    \map[overwrite]{
+      \pernottype{ancienttext}
+      \step[fieldsource=shorttitle, final]
+      \step[notfield=shorthand, final]
+      \step[notfield=shortjournal, final]
+      \step[notfield=shortseries, final]
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbiblist,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    \map[overwrite]{
+      \pertype{ancienttext}
+      \step[fieldsource=entrysubtype, final]
+      \step[fieldsource=shorttitle, final]
+      \step[notfield=shorthand, final]
+      \step[notfield=shortjournal, final]
+      \step[notfield=shortseries, final]
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbiblist,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    % create new entry when there is both a shorthand and a shortseries
+    \map[overwrite]{
+      \step[fieldsource=shortseries, final]
+      \step[fieldsource=shorthand, final]
+      \step[fieldsource=entrykey, match=\regexp{(.*)}]
+      \step[fieldset=xref, fieldvalue=series-$1]
+      \step[entrynew=series-$1, entrynewtype=series]
+      \step[fieldsource=shortseries]
+      \step[fieldset=shortseries, origfieldval, entrytarget=series-$1]
+      \step[fieldsource=series]
+      \step[fieldset=series, origfieldval, entrytarget=series-$1]
+      \step[fieldset=options, fieldvalue={skipbib}, entrytarget=series-$1]
+    }
+  }
+}
+
+
+% ## Bibliography driver aliases
+
+\DeclareBibliographyAlias{commentary}{book}
+\DeclareBibliographyAlias{mvcommentary}{commentary}
+\DeclareBibliographyAlias{incommentary}{inbook}
+\DeclareBibliographyAlias{reference}{book}
+\DeclareBibliographyAlias{mvreference}{reference}
+\DeclareBibliographyAlias{series}{mvcollection}
+
+
+% ## Data inheritance rules
+
+\DeclareDataInheritance{mvbook,mvreference}{book,inbook,bookinbook,suppbook}{%
+  \inherit{author}{mainauthor}
+  \inherit{title}{maintitle}
+  \inherit{subtitle}{mainsubtitle}
+  \inherit{titleaddon}{maintitleaddon}
+  \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
+  \inherit{withauthor}{withmainauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{book,reference}{inbook,bookinbook,suppbook}{%
+  \inherit{author}{bookauthor}
+  \inherit{title}{booktitle}
+  \inherit{subtitle}{booksubtitle}
+  \inherit{titleaddon}{booktitleaddon}
+  \inherit{author}{bookauthor}
+  \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
+  \inherit{withauthor}{withbookauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{mvcollection}{collection,incollection}{%
+  \inherit{author}{mainauthor}
+  \inherit{title}{maintitle}
+  \inherit{subtitle}{mainsubtitle}
+  \inherit{titleaddon}{maintitleaddon}
+  \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
+  \inherit{withauthor}{withmainauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{collection}{incollection}{%
+  \inherit{author}{bookauthor}
+  \inherit{title}{booktitle}
+  \inherit{subtitle}{booksubtitle}
+  \inherit{titleaddon}{booktitleaddon}
+  \inherit{author}{bookauthor}
+  \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
+  \inherit{withauthor}{withbookauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{mvreference}{reference,inreference}{%
+  \inherit{author}{mainauthor}
+  \inherit{title}{maintitle}
+  \inherit{subtitle}{mainsubtitle}
+  \inherit{titleaddon}{maintitleaddon}
+  \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
+  \inherit{withauthor}{withmainauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{reference}{inreference}{%
+  \inherit{author}{bookauthor}
+  \inherit{title}{booktitle}
+  \inherit{subtitle}{booksubtitle}
+  \inherit{titleaddon}{booktitleaddon}
+  \inherit{author}{bookauthor}
+  \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
+  \inherit{withauthor}{withbookauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{mvcommentary}{commentary,incommentary}{%
+  \inherit{author}{mainauthor}
+  \inherit{title}{maintitle}
+  \inherit{subtitle}{mainsubtitle}
+  \inherit{titleaddon}{maintitleaddon}
+  \inherit{editor}{maineditor}
+  \inherit{translator}{maintranslator}
+  \inherit{withauthor}{withmainauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+\DeclareDataInheritance{commentary}{incommentary}{%
+  \inherit{author}{bookauthor}
+  \inherit{title}{booktitle}
+  \inherit{subtitle}{booksubtitle}
+  \inherit{titleaddon}{booktitleaddon}
+  \inherit{author}{bookauthor}
+  \inherit{editor}{bookeditor}
+  \inherit{translator}{booktranslator}
+  \inherit{withauthor}{withbookauthor}
+  \noinherit{shorttitle}
+  \noinherit{sorttitle}
+  \noinherit{indextitle}
+  \noinherit{indexsorttitle}
+  \noinherit{endyear}
+}
+
+
+% ## Localisation
+
+\DeclareLanguageMappingSuffix{-sbl}
+
+\NewBibliographyString{article}
+\NewBibliographyString{obverse}
+\NewBibliographyString{of}
+\NewBibliographyString{paper}
+\NewBibliographyString{parts}
+\NewBibliographyString{reverse}
+\NewBibliographyString{subverbis}
+\NewBibliographyString{subverbo}
+\NewBibliographyString{to}
+\NewBibliographyString{with}
+\NewBibliographyString{withpreface}
+
+
+% ## URLs
+
+% Use obeyspaces option from URL package
+\begingroup \lccode`+=32 \lowercase
+ {\endgroup \def\Url@ObeySp{\Url@Edit\Url@String{ }{+}}}
+ \def\Url@space{\penalty\Url@sppen\ }
+
+% use Roman style for URLs
+\urlstyle{same}
+
+% SBL line breaking rules
+\def\UrlBreaks{\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+ \do\)\do\,\do\?\do\'\do+\do\=\do\#}%
+\def\UrlSpecials{\do\.{\penalty\UrlBreakPenalty\mathchar`.}%
+  \do\-{\penalty\UrlBreakPenalty\mathchar`-}%
+  \do\ {\Url@space}\do\%{\Url@percent}\do\^^M{\Url@space}%
+  \Url@force@Tilde}% package option may force faked text-ascii-tilde
+
+
+% ## Citation delimiters and punctuation
+
+\renewcommand*{\newunitpunct}{\addcomma\space}
+\renewcommand*{\bibpagespunct}{\printdelim{bibpagesdelim}}
+\renewcommand*{\begrelateddelim}{\relateddelim}
+\newcommand*{\begrelateddelimancienttext}{\addcomma\space}
+\newcommand*{\begrelateddelimmultivolarticle}{\addspace}
+\renewcommand*{\intitlepunct}{\addspace}
+\newcommand*{\locationpublisherdelim}{\addcolon\space}
+\newcommand*{\multiseriesdelim}{\ifbibliography{\addsemicolon\space}{\addcomma\space}}
+\newcommand*{\oftitlepunct}{\addspace}
+\newcommand*{\publisherdelim}{\addsemicolon\space}
+\renewcommand*{\relateddelim}{\addsemicolon\space}
+\newcommand*{\relateddelimmultivolarticle}{\addsemicolon\space}
+\newcommand*{\reprintpunct}{\addcomma\space}
+\renewcommand*{\revsdnamedelim}{\addcomma}
+\renewcommand*{\subtitlepunct}{\addcolon\space}
+\newcommand*{\titleaddonpunct}{%
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    and
+    test {\iffieldundef{entrysubtype}}
+    and
+    test {\iffieldbegpages{titleaddon}}
+  }
+    {\addspace}
+    {\newunitpunct}}
+\newcommand*{\titlevolumedelim}{%
+  \ifpaginationequalstr{none}
+    {\addspace}
+    {\addcomma\space}}
+\newcommand*{\totitlepunct}{\intitlepunct}
+\renewcommand*{\volcitedelim}{%
+  \ifboolexpr{
+    test {\iffieldbegpages{volcitepages}}
+    and
+    test {\ifpaginationequalstr{none}}
+  }
+    {\addcolon}
+    {\addcomma\space}}
+
+\DeclareDelimFormat{bibpagesdelim}{\addcomma\space}
+\DeclareDelimFormat[shorthand]{bibpagesdelim}{%
+  \iffieldundef{volumes}
+    {\addcomma}
+    {}%
+  \space}
+\DeclareDelimFormat[volume]{bibpagesdelim}{%
+  \ifpaginationequalstr{none}
+    {\addcolon}
+    {\addcomma\space}}
+\DeclareDelimFormat[volume:article]{bibpagesdelim}{%
+  \ifboolexpr{
+    test {\ifpaginationequalstr{none}}
+    and
+    test {\iffieldundef{eid}}
+  }
+    {\addcolon}
+    {\addcomma}%
+  \space}
+\DeclareDelimFormat{namedashdelim}{\addperiod\space}
+\DeclareDelimFormat{postnotedelim}{%
+  \ifboolexpr{
+    not test {\iffieldundef{shorthand}}
+    and
+    not test {\iffieldundef{volcitevolume}}
+    and
+    test {\ifpaginationequalstr{none}}
+  }
+    {}
+    {\addcomma}%
+  \space}
+\DeclareDelimFormat[section]{postnotedelim}{\addspace}
+\DeclareDelimFormat[volume]{postnotedelim}{%
+  \ifpaginationequalstr{none}
+    {\ifboolexpr{
+       test {\iffieldbegpages{postnote}}
+       and
+       test {\iffieldundef{pages}}
+       and
+       test {\iffieldundef{volcitevolume}}
+     }
+       {\addcolon}
+       {\addcomma\space}}
+    {\addcomma\space}}
+\DeclareDelimFormat[volume:article]{postnotedelim}{%
+  \ifpaginationequalstr{none}
+    {\ifboolexpr{
+       test {\iffieldbegpages{postnote}}
+       and
+       test {\iffieldundef{pages}}
+       and
+       test {\iffieldundef{volcitevolume}}
+       and
+       test {\iffieldundef{eid}}
+     }
+       {\addcolon}
+       {\addcomma}}
+    {\addcomma}%
+  \space}
+
+
+% ## Field formats
+
+\DeclareFieldFormat[online,review,inreference]{citetitle}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat[ancienttext]{citetitle}{%
+  \iffieldundef{entrysubtype}
+    {\ifnameundef{author}
+       {#1\isdot}
+       {\mkbibemph{#1\isdot}}}
+    {\mkbibquote{#1\isdot}}}
+\DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
+\DeclareFieldFormat{edition}{%
+  \ifinteger{#1}
+    {\mkbibordedition{#1}~\bibsstring{edition}}
+    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
+\DeclareFieldFormat{eid}{\bibsstring{article}~#1}
+\DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
+\DeclareFieldFormat{eprint:hethiter}{%
+  \url{http://hethiter.net/: #1}%
+  \iffieldundef{eprintclass}
+    {}
+    {\addspace\mkbibparens{\thefield{eprintclass}}}}
+\DeclareFieldFormat{pages}{\mkpageprefix[pagination][\mkcomprange]{#1}}
+\DeclareFieldFormat[article,inbook,incollection,inreference,review]{pages}{%
+  \def\abx@str{abx@sstr}%
+  \iffieldundef{eid}
+    {}
+    {\setfield{pagination}{page}}%
+  \mkpageprefix[pagination][\mkcomprange]{#1}}
+\DeclareFieldFormat{pagesin}{\mkpageprefix[bookpagination][\mkcomprange]{#1}\space\bibstring{in}}
+\DeclareFieldFormat{part}{\bibstring{part}~#1}
+\DeclareFieldFormat{parts}{#1~\bibstring{parts}}
+\DeclareFieldFormat{inparts}{\bibstring{in}\space#1~\bibstring{parts}}
+\DeclareFieldFormat{postnote}{%
+  \def\abx@str{abx@sstr}%
+  \ifboolexpr{
+    not test {\ifciteseen}
+    and
+    not test {\iffieldundef{eid}}
+  }
+    {\setfield{pagination}{page}}
+    {}%
+  \mkpageprefix[pagination][\mkcomprange]{#1}}
+\DeclareFieldFormat{revdtitle}{\mkbibemph{#1}}
+\DeclareFieldFormat{roman}{#1}
+\DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
+\DeclareFieldFormat[series]{shorthand}{#1}
+\DeclareFieldFormat{shorttitlewidth}{}
+\DeclareFieldFormat[online,review,inreference]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[ancienttext]{title}{%
+  \iffieldundef{entrysubtype}
+    {\ifnameundef{author}
+       {#1}
+       {\mkbibemph{#1}}}
+    {\mkbibquote{#1}}}
+\DeclareFieldFormat[series]{title}{#1}
+\DeclareFieldFormat[ancienttext]{titleaddon}{\mknormrange{#1}}
+\DeclareFieldFormat[suppbook]{titlecase}{\ifcapital{\MakeCapital{#1}}{#1}}
+\DeclareFieldFormat[thesis,unpublished]{type}{\ifbibstring{#1}{\bibsstring{#1}}{#1}}
+\DeclareFieldFormat{url}{\url{#1}}
+\DeclareFieldFormat{volcitepages}{\mkpageprefix[pagination][\mkcomprange]{#1}}
+\DeclareFieldFormat{volcitevolume}{%
+  \iffieldundef{shorthand}
+    {\ifboolexpr{
+       test {\iffieldbegpages{volcitepages}}
+       and
+       test {\ifpaginationequalstr{none}}
+     }
+       {#1}
+       {\bibstring{volume}\volspace#1}}
+    {\ifpaginationequalstr{none}
+       {#1}
+       {\bibstring{volume}\volspace#1}}}
+\DeclareFieldFormat{volume}{\bibsstring{volume}\volspace#1}
+\DeclareFieldFormat[review]{volume}{#1}
+\DeclareFieldFormat{volume:postnote}{%
+  \ifpaginationequalstr{none}
+    {\ifboolexpr{
+       test {\iffieldbegpages{postnote}}
+       or
+       not test {\iffieldundef{pages}}
+       or
+       not test {\iffieldundef{shorthand}}
+     }
+       {#1}
+       {\bibsstring{volume}\volspace#1}}
+    {\bibsstring{volume}\volspace#1}}
+\DeclareFieldFormat{volumes}{#1~\bibsstring{volumes}}
+\DeclareFieldFormat{involumes}{\bibstring{in}\space#1~\bibsstring{volumes}}
+\DeclareFieldFormat{website}{%
+  \iffieldequalstr{entrysubtype}{blog}
+    {\mkbibemph{#1}}
+    {#1}}
+
+\DeclareFieldAlias{shorthandwidth}{shorthand}
+\DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
+\DeclareFieldAlias{shortjournal}{journaltitle}
+\DeclareFieldAlias{shortjournalwidth}{shortjournal}
+\DeclareFieldAlias{shortseries}{series}
+\DeclareFieldAlias{shortserieswidth}{shortseries}
+\DeclareFieldAlias[ancienttext]{shorttitle}[ancienttext]{citetitle}
+\DeclareFieldAlias[ancienttext]{shorttitlewidth}[ancienttext]{shorttitle}
+
+% set shorthand format based on the shorthandformat option
+\xapptocmd{\blx@setoptions@entry}
+  {\ifdefstring{\sbl@blx@shorthandformat}{shorthand}
+     {}
+     {\DeclareFieldAlias{shorthand}{\sbl@blx@shorthandformat}%
+      \DeclareFieldAlias{shorthandwidth}{\sbl@blx@shorthandformat}}}
+  {}
+  {}
+
+
+% ## Name formats
+
+\DeclareNameAlias{author}{default}
+\DeclareNameAlias{editor}{default}
+\DeclareNameAlias{translator}{default}
+\DeclareNameAlias{withauthor}{default}
+\DeclareNameAlias{withpreface}{default}
+%\DeclareNameAlias{byrevdauthor}{default}
+%\DeclareNameAlias{byrevdeditor}{default}
+
+\DeclareNameWrapperFormat{withauthor}{\bibstring{with}\space #1}
+
+% Family, Given von, Junior
+\renewbibmacro*{name:family-given}[4]{%
+  \ifuseprefix
+    {\usebibmacro{name:delim}{#3#1}%
+     \usebibmacro{name:hook}{#3#1}%
+     \mkbibcompletenamefamilygiven{%
+       \ifdefvoid{#3}
+         {}
+         {\ifcapital
+            {\mkbibnameprefix{\MakeCapital{#3}}\isdot}
+            {\mkbibnameprefix{#3}\isdot}%
+         \ifprefchar{}{\bibnamedelimc}}%
+       \mkbibnamefamily{#1}\isdot
+       \ifdefvoid{#2}
+         {}
+         {\revsdnamepunct\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifdefvoid{#4}
+         {}
+         {\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}
+    {\usebibmacro{name:delim}{#1}%
+     \usebibmacro{name:hook}{#1}%
+     \mkbibcompletenamefamilygiven{%
+       \mkbibnamefamily{#1}\isdot
+       \ifboolexpe{%
+         test {\ifdefvoid{#2}}
+         and
+         test {\ifdefvoid{#3}}}
+         {}
+         {\revsdnamepunct}%
+       \ifdefvoid{#2}
+         {}
+         {\bibnamedelimd\mkbibnamegiven{#2}\isdot}%
+       \ifdefvoid{#3}
+         {}
+         {\bibnamedelimd\mkbibnameprefix{#3}\isdot}%
+       \ifdefvoid{#4}
+         {}
+         {\revsdnamepunct\bibnamedelimd\mkbibnamesuffix{#4}\isdot}}}}
+
+
+% ## Bibliography format
+
+\newbibmacro*{sbl:set:bib:format}{%
+  % do not abbreviate strings
+  \def\abx@str{abx@lstr}%
+  % punctuation
+  \renewcommand*{\newunitpunct}{\addperiod\space}%
+  \renewcommand*{\publisherdelim}{\newunitpunct}%
+  \renewcommand*{\relateddelim}{\newunitpunct}%
+  % name formats
+  \DeclareNameAlias{author}{sortname}%
+  \DeclareNameAlias{editor}{sortname}%
+  \DeclareNameAlias{translator}{sortname}%
+}
+
+\renewcommand*{\bibnamedash}{%
+  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}\printdelim{namedashdelim}}
+
+
+% ## crossref tracking
+
+\def\sbl@blx@crossreftracker@global{%
+  \ifbool{citetracker}
+    {\ifdef{\abx@field@crossref}
+       {\xifinlistcs\abx@field@crossref{blx@bsee@\the\c@refsection}
+          {}
+          {\listcsxadd{blx@bsee@\the\c@refsection}\abx@field@crossref}}
+       {}}
+    {}}
+\let\sbl@blx@crossreftracker\sbl@blx@crossreftracker@global
+
+% add crossref tracker to citation printing code
+\xpatchcmd{\blx@citeprint}
+  {\blx@citetracker}
+  {\blx@citetracker
+   \sbl@blx@crossreftracker}
+  {}
+  {}
+
+% \ifcrossrefseen{<true>}{<false>}
+\protected\def\ifcrossrefseen{%
+  \iffieldundef{crossref}
+    {\@secondoftwo}
+    {\ifentryseen{\thefield{crossref}}
+       {\@firstoftwo}
+       {\@secondoftwo}}}
+
+\def\sbl@blx@trackentry@global#1{%
+  \ifbool{citetracker}
+    {\blx@xsanitizeafter{\def\sbl@blx@tempa}{#1}%
+     \xifinlistcs{\sbl@blx@tempa}{blx@bsee@\the\c@refsection}
+       {}
+       {\listcsxadd{blx@bsee@\the\c@refsection}{\sbl@blx@tempa}}}
+    {}}
+\let\sbl@blx@trackentry\sbl@blx@trackentry@global
+
+
+% ## Citation format
+
+% remove \blx@postcode from citation printing code
+\xpatchcmd{\blx@citeprint}
+  {\ifnum\c@citecount=\c@citetotal
+     \def\blx@thecheckpunct{\blx@err@nestcite\@gobble}%
+     \blx@postcode
+     \blx@postpunct@saved
+   \fi}
+  {}
+  {}
+  {}
+
+% macro to call \blx@postcode within drivers
+\newbibmacro*{sbl:postcode}{%
+  \ifnum\c@citecount=\c@citetotal
+    \def\blx@thecheckpunct{\blx@err@nestcite\@gobble}%
+    \blx@postcode
+    % clear \blx@postcode so it isn't printed twice
+    \let\blx@postcode\@empty
+    \blx@postpunct@saved
+  \fi}
+
+% use pagination option as default pagination
+\xpatchcmd{\blx@imc@mkpageprefix}
+  {\def\blx@tempa{\blx@mkpageprefix{page}}}
+  {\ifcsstring{sbl@blx@#1}{none}
+     {\def\blx@tempa{\blx@mkpageprefix@i}}
+     {\def\blx@tempa{\blx@mkpageprefix{\csuse{sbl@blx@#1}}}}}
+  {}
+  {}
+
+% page range compression
+\setcounter{mincompwidth}{10}
+% if first page in range is multiple of 100 don't compress
+\def\blx@comprange@check#1#2{%
+  \blx@imc@ifinteger{#1}
+    {\blx@imc@ifinteger{#2}
+       {\@firstoftwo}
+       {\@secondoftwo}}
+    {\@secondoftwo}
+    {\blx@tempcnta=#1
+     \divide\blx@tempcnta by 100
+     \multiply\blx@tempcnta by 100
+     \multiply\blx@tempcnta by -1
+     \advance\blx@tempcnta by #1\relax
+     \ifnum\blx@tempcnta=0
+       \blx@normrange@process{#1}{#2}%
+     \else
+       \blx@comprange@comp{#1}{#2}%
+     \fi}
+    {\begingroup
+     \protected@edef\blx@tempc{\endgroup
+       \blx@range@out@value{%
+         \blx@range@out@item@process{\unexpanded{#1}}%
+         \noexpand\bibrangedash
+         \blx@range@out@item@process{\unexpanded{#2}}}}%
+     \blx@tempc}}
+
+% \ifbegpages and \iffieldbegpages macros
+% building on https://tex.stackexchange.com/q/316730/87678
+\def\sbl@blx@firstword#1{\sbl@blx@firstword@i#1 \@nil}
+\def\sbl@blx@firstword@i{}
+\def\sbl@blx@firstword@i#1 #2\@nil{\unexpanded{#1}}%
+\protected\def\ifbegpages#1{%
+  \edef\sbl@blx@tempa{\sbl@blx@firstword{#1}}%
+  \expandafter\blx@imc@ifpages
+    \expandafter{\sbl@blx@tempa}}
+\protected\def\iffieldbegpages#1{%
+  \blx@imc@iffieldundef{#1}
+    {\@secondoftwo}
+    {\expandafter\expandafter
+     \expandafter\ifbegpages
+     \expandafter\expandafter
+     \expandafter{\csname abx@field@#1\endcsname}}}
+
+% define s.v. and s.vv. helper macros:
+\newcommand*{\sv}{\bibstring{subverbo}}
+\newcommand*{\svv}{\bibstring{subverbis}}
+
+% define line and lines helper macros:
+\newcommand*{\lno}{\bibstring{line}}
+\newcommand*{\llno}{\bibstring{lines}}
+
+% define col. and cols. helper macros:
+\newcommand*{\colno}{\bibstring{column}}
+\newcommand*{\colsno}{\bibstring{columns}}
+
+% define obv. and rev. helper macros:
+\newcommand*{\obv}{\bibstring{obverse}}
+\newcommand*{\rev}{\bibstring{reverse}}
+
+% \ppspace
+\renewcommand*{\ppspace}{%
+  \iffieldequalstr{pagination}{section}
+    {}
+    {\addnbspace}}
+
+% \volspace
+\newcommand*{\volspace}{\addnbspace}
+
+% ## Bibliography
+
+\xpatchcmd{\printbibliography}
+  {\begingroup}
+  {\begingroup
+   \blx@key@bibcheck{bibliography}}
+  {}
+  {}
+
+\defbibcheck{bibliography}{%
+  \sbl@blx@skipentries
+  \sbl@blx@forceskipentries
+  \sbl@blx@includeentries
+}
+
+\def\sbl@blx@skipentries{}
+\def\sbl@blx@forceskipentries{}
+\def\sbl@blx@includeentries{}
+\def\addskipentry#1{%
+  \edef\X{%
+    \noexpand\ifboolexpr{
+      test {\noexpand\iffieldequalstr{entrykey}{#1}}
+      and
+      not test {\noexpand\ifentryseen{#1}}
+    }
+      {\noexpand\toggletrue{blx@skipentry}}
+      {}}%
+  \expandafter\g@addto@macro\expandafter\sbl@blx@skipentries\expandafter{\X}}
+\def\addforceskipentry#1{%
+  \edef\X{%
+    \noexpand\iffieldequalstr{entrykey}{#1}
+      {\noexpand\toggletrue{blx@skipentry}}
+      {}}%
+  \expandafter\g@addto@macro\expandafter\sbl@blx@skipentries\expandafter{\X}}
+\def\addincludeentry#1{%
+  \edef\X{%
+    \noexpand\iffieldequalstr{entrykey}{#1}
+      {\noexpand\togglefalse{blx@skipentry}}
+      {}}%
+  \expandafter\g@addto@macro\expandafter\sbl@blx@includeentries\expandafter{\X}}
+
+
+% ## List of abbreviations
+
+\DeclareBibliographyDriver{abbreviations}{%
+  \usebibmacro{sbl:set:bib:format}%
+  \usebibmacro{begentry}%
+  \iffieldundef{shorthand}
+    {\ifentrytype{ancienttext}
+       {\usebibmacro{abbrev:author+title}}
+       {\usebibmacro{abbrev:longfield}{shortseries}{series}%
+        \usebibmacro{abbrev:longfield}{shortjournal}{journaltitle}}}
+    {\usedriver{}{\thefield{entrytype}}}%
+  \usebibmacro{finentry}}
+
+\DeclareBiblistFilter{abbreviations}{
+  \filteror{
+    \filter[type=field,filter=shorthand]
+    \filter[type=field,filter=shortjournal]
+    \filter[type=field,filter=shortseries]
+    \filter[type=field,filter=shorttitle]
+  }
+}
+
+\DeclareSortingTemplate{abbreviations}{
+  \sort{
+    \field{shorthand}
+    \field{shortjournal}
+    \field{shortseries}
+    \field{shorttitle}
+  }
+}
+
+\defbibenvironment{abbreviations}
+  {\list
+     {\usebibmacro{abbrev:printabbrev}}
+     {\usebibmacro{setabbrevwidth}%
+      \setlength{\labelwidth}{\abbrevwidth}%
+      \setlength{\leftmargin}{\labelwidth}%
+      \setlength{\labelsep}{\biblabelsep}%
+      \addtolength{\leftmargin}{\labelsep}%
+      \setlength{\itemsep}{\bibitemsep}%
+      \setlength{\parsep}{\bibparsep}%
+      \renewcommand*{\makelabel}[1]{##1\hss}}}
+  {\endlist}
+  {\item}
+
+\defbibcheck{abbreviations}{%
+  \iffieldundef{shorthand}
+    {\usebibmacro{abbrev:checkshortfield}{shortseries}{series}%
+     \usebibmacro{abbrev:checkshortfield}{shortjournal}{journaltitle}}
+    {}}
+
+\newlength{\abbrevwidth}
+
+\newcommand*{\setmaxlength}[2]{%
+  \ifdim\dimexpr#2>\dimexpr#1
+    \setlength{#1}{#2}%
+  \fi}
+
+\newbibmacro*{setabbrevwidth}{%
+  \setlength{\abbrevwidth}{0pt}%
+  \setmaxlength{\abbrevwidth}{\shorthandwidth}%
+  \setmaxlength{\abbrevwidth}{\shortserieswidth}%
+  \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
+  \setmaxlength{\abbrevwidth}{\shorttitlewidth}}
+
+\newbibmacro*{abbrev:checkshortfield}[2]{%
+  \iffieldundef{#1}
+    {}
+    {\iffieldundef{#2}
+       {}
+       {\ifcsdef{#1check@\therefsection\strfield{#1}=\strfield{#2}}
+          {\skipentry}
+          {\savefieldcs{#2}{#1check@\therefsection\strfield{#1}=\strfield{#2}}}}}}
+
+\newbibmacro*{abbrev:printabbrev}{%
+  \ifentrytype{ancienttext}
+    {\printfield[shorttitlewidth]{shorttitle}}
+    {\iffieldundef{shorthand}
+       {\printfield[shortserieswidth]{shortseries}%
+        \printfield[shortjournalwidth]{shortjournal}}
+       {\printfield[shorthandwidth]{shorthand}}}}
+
+\newbibmacro*{abbrev:longfield}[2]{%
+  \iffieldundef{#1}
+    {}
+    {\printfield{#2}%
+     \renewcommand*{\finentrypunct}{}}}
+
+\newbibmacro*{abbrev:shortfield}[2]{%
+  \iffieldundef{#1}
+    {\printfield{#2}}
+    {\printfield{#1}}}
+
+\newbibmacro*{abbrev:author+title}{%
+  \usebibmacro{author}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{title}%
+  \renewcommand*{\finentrypunct}{}}
+
+
+% ## List macros
+
+% merge two lists together
+\newcounter{lista:current}
+\newcounter{listb:current}
+\newcounter{lista:total}
+\newcounter{listb:total}
+
+\DeclareListFormat{lista}{%
+  \setcounter{lista:total}{\value{listtotal}}%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{lista:current}}{\value{listtotal}}
+    {\setcounter{lista:current}{0}}
+    {\stepcounter{lista:current}}}
+\DeclareListFormat{listb}{%
+  \setcounter{listb:total}{\value{listtotal}}%
+  \usebibmacro{list:delim}{#1}%
+  #1\isdot
+  \ifnumequal{\value{listb:current}}{\value{listtotal}}
+    {\setcounter{listb:current}{0}}
+    {\stepcounter{listb:current}}}
+
+\newbibmacro*{init:mergelists}[2]{%
+  \setcounter{lista:total}{0}%
+  \setcounter{listb:total}{0}%
+  \iflistundef{#1}
+    {\setcounter{lista:current}{0}}
+    {\setcounter{lista:current}{1}}%
+  \iflistundef{#2}
+    {\setcounter{listb:current}{0}}
+    {\setcounter{listb:current}{1}}}
+
+\newbibmacro*{loop:mergelists}[4]{%
+  \ifnumequal{\value{lista:current}}{0}
+    {}
+    {\printlist[lista][\value{lista:current}-\value{lista:current}]{#1}%
+     \setunit*{#3}}%
+  \ifnumequal{\value{listb:current}}{0}
+    {}
+    {\printlist[listb][\value{listb:current}-\value{listb:current}]{#2}}%
+  \setunit*{#4}%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{lista:total}}{1}}
+    and
+    test {\ifnumgreater{\value{lista:current}}{\value{listb:total}}}
+  }
+    {\setcounter{lista:current}{0}}
+    {}%
+  \ifboolexpr{
+    test {\ifnumgreater{\value{lista:current}}{0}}
+    or
+    test {\ifnumgreater{\value{listb:current}}{0}}
+  }
+    {\usebibmacro{loop:mergelists}{#1}{#2}{#3}{#4}}
+    {}}
+
+% \usebibmacro{mergelists}{<lista>}{<listb>}{<listalistbdelim>}{<listgroupdelim>}
+\newbibmacro*{mergelists}[4]{%
+  \usebibmacro{init:mergelists}{#1}{#2}%
+  \usebibmacro{loop:mergelists}{#1}{#2}{#3}{#4}}
+
+
+% ## Name macros
+
+\renewbibmacro*{bbx:savehash}{%
+  \savefield{fullhash}{\bbx@lasthash}%
+  \setfield{withauthorfullhash}{}%
+  \savefield{withauthorfullhash}{\sbl@bbx@lastwithhash}}
+
+\renewbibmacro*{bbx:dashcheck}[2]{%
+  \setfield{withauthorfullhash}{}%
+  \ifboolexpr{
+    test {\ifbibliography}
+    and
+    test {\iffieldequals{fullhash}{\bbx@lasthash}}
+    and
+    test {\iffieldequals{withauthorfullhash}{\sbl@bbx@lastwithhash}}
+    and
+    not test \iffirstonpage
+    and
+    (
+       not bool {bbx@inset}
+       or
+       test {\iffieldequalstr{entrysetcount}{1}}
+    )
+  }
+    {#1}
+    {#2}}
+
+\renewbibmacro*{author}{%
+  \ifboolexpr{
+    test \ifuseauthor
+    and
+    not test {\ifnameundef{author}}
+  }
+    {\usebibmacro{bbx:dashcheck}
+       {\bibnamedash}
+       {\printnames{author}%
+        \setunit{\printdelim{authortypedelim}}%
+        \usebibmacro{bbx:savehash}}%
+     \usebibmacro{authorstrg}%
+     \setunit{\addcomma\space}%
+     \printnames{withauthor}}
+    {\global\undef\bbx@lasthash}}
+    
+\renewbibmacro*{bybookauthor}{%
+  \ifboolexpr{
+    test {\ifnameundef{bookauthor}}
+    or
+    (
+      test {\ifnamesequal{bookauthor}{author}}
+      and
+      test {\ifnameundef{editor}}
+      and
+      test {\ifnameundef{bookeditor}}
+    )
+  }
+    {}
+    {\usebibmacro{bytypestrg}{bookauthor}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{bookauthor}}}
+
+\newbibmacro*{bybookeditor}{%
+  \ifboolexpr{
+    test {\ifnameundef{bookeditor}}
+    or
+    test {\ifnamesequal{bookeditor}{editor}}
+  }
+    {}
+    {\usebibmacro{bytypestrg}{bookeditor}{editor}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{bookeditor}%
+     \newunit}}
+
+\newbibmacro*{bymainauthor}{%
+  \ifboolexpr{
+    test {\ifnameundef{mainauthor}}
+    or
+    (
+      test {\ifnamesequal{mainauthor}{author}}
+      and
+      test {\ifnameundef{editor}}
+      and
+      test {\ifnameundef{maineditor}}
+    )
+    or
+    (
+      test {\ifnamesequal{mainauthor}{bookauthor}}
+      and
+      test {\ifnameundef{editor}}
+      and
+      test {\ifnameundef{maineditor}}
+    )
+  }
+    {}
+    {\usebibmacro{bytypestrg}{mainauthor}{author}%
+     \setunit{\addspace}%
+     \printnames[byauthor]{mainauthor}}}
+
+\newbibmacro*{bymaineditor}{%
+  \ifboolexpr{
+    test {\ifnameundef{maineditor}}
+    or
+    test {\ifnamesequal{maineditor}{editor}}
+    or
+    test {\ifnamesequal{maineditor}{bookeditor}}
+  }
+    {}
+    {\usebibmacro{bytypestrg}{maineditor}{editor}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{maineditor}%
+     \newunit}}
+
+\newbibmacro*{withpreface}{%
+  \ifnameundef{preface}
+    {}
+    {\bibstring{withpreface}%
+     \setunit{\addspace}%
+     \printnames[withpreface]{preface}}}
+
+\renewbibmacro*{withothers}{%
+  \newunit
+  \usebibmacro{withcommentator}%
+  \clearname{commentator}%
+  \newunit
+  \usebibmacro{withannotator}%
+  \clearname{annotator}%
+  \newunit
+  \usebibmacro{withintroduction}%
+  \clearname{introduction}%
+  \newunit
+  \usebibmacro{withforeword}%
+  \clearname{foreword}%
+  \newunit
+  \usebibmacro{withafterword}%
+  \clearname{afterword}%
+  \newunit
+  \usebibmacro{withpreface}%
+  \clearname{preface}}
+
+
+% ## Title macros
+
+\xpatchbibmacro{title}{\newunit}{\setunit{\titleaddonpunct}}{}{}
+\xpatchbibmacro{booktitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
+\xpatchbibmacro{maintitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
+
+\newbibmacro{booktitle+bybookauthor+bybookeditor}{
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookauthor}%
+     \newunit
+     \usebibmacro{bybookeditor}%
+     \newunit\newblock}}
+
+\newbibmacro{booktitle+bybookeditor}{
+  \iffieldundef{booktitle}
+    {}
+    {\usebibmacro{booktitle}%
+     \newunit
+     \usebibmacro{bybookeditor}%
+     \newunit\newblock}}
+
+\newbibmacro{maintitle+bymainauthor+bymaineditor}{
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \newunit
+     \usebibmacro{bymainauthor}%
+     \newunit
+     \usebibmacro{bymaineditor}}}
+
+\newbibmacro{maintitle+bymaineditor}{
+  \iffieldundef{maintitle}
+    {}
+    {\usebibmacro{maintitle}%
+     \newunit
+     \usebibmacro{bymaineditor}}}
+
+
+% ## Book macros
+
+\newbibmacro*{of:}{%
+  \bibstring{of}%
+  \setunit{\oftitlepunct}}
+
+\newbibmacro*{to:}{%
+  \bibstring{to}%
+  \setunit{\totitlepunct}}
+
+\newbibmacro*{pages+in:}{%
+  \ifbibliography
+    {\printfield[pagesin]{pages}%
+     \clearfield{pages}}
+    {\bibstring{in}}
+  \setunit{\intitlepunct}}
+
+\newbibmacro*{volume+part+of:}{%
+  \ifbibliography
+    {\printfield{volume}%
+     \clearfield{volume}%
+     \setunit*{\addcomma\space}%
+     \printfield{part}%
+     \clearfield{part}%
+     \iffieldundef{maintitle}
+       {}
+       {\setunit{\addspace}%
+        \usebibmacro{of:}}}
+    {\iffieldundef{part}
+       {\printfield{volume}%
+        \clearfield{volume}%
+        \iffieldundef{maintitle}
+          {}
+          {\setunit{\addspace}%
+           \usebibmacro{of:}}}
+       {}}}
+
+\newbibmacro*{volumes+parts}{%
+  \ifboolexpr{
+    test {\iffieldundef{volumes}}
+    or
+    test {\iffieldundef{parts}}
+  }
+    {\printfield{volumes}%
+     \newunit
+     \printfield{parts}}
+    {\ifnumgreater{\thefield{volumes}}{\thefield{parts}}
+       {\printfield{parts}%
+        \setunit{\addspace}%
+        \printfield[involumes]{volumes}}
+       {\printfield{volumes}%
+        \setunit{\addspace}%
+        \printfield[inparts]{parts}}}}
+
+
+% ## Journal macros
+
+% remove in: from journal articles
+\renewbibmacro*{in:}{%
+  \ifboolexpr{
+    test {\ifentrytype{article}}
+    or
+    test {\ifentrytype{review}}
+  }
+    {}
+    {\bibstring{in}%
+     \setunit{\intitlepunct}}}
+   
+% allow for no date
+\renewbibmacro*{issue+date}{%
+  \ifboolexpr{
+    test {\iffieldundef{issue}}
+    and
+    test {\iffieldundef{year}}
+  }
+    {}
+    {\iffieldundef{volume}
+       {\newunit}
+       {\setunit{\addspace}%
+        \printtext{\bibopenparen}}%
+     \printfield{website}%
+     \setunit*{\addcomma\space}%
+     \printfield{issue}%
+     \setunit*{\addcomma\space}%
+     \usebibmacro{date}%
+     \iffieldundef{volume}
+       {}
+       {\printtext{\bibcloseparen}}%
+     \newunit}}
+
+% use shortjournal if available
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}%
+  \setunit*{\addspace}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{multivolarticle}%
+  \usebibmacro{volume+number}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \printfield{eid}%
+  %\usebibmacro{issue}%
+  \newunit}
+
+\newbibmacro*{volume+number}{%
+  \printfield{volume}%
+  \setunit*{\adddot}%
+  \printfield{number}}
+
+\newbibmacro*{multivolarticle}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{relatedtype}{multivolarticle}}
+    and
+    test {\iftoggle{bbx:related}}
+  }
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}%
+     \togglefalse{bbx:related}%
+     \begingroup
+     \delimcontext{volume:article}%
+     \usebibmacro{cite:postnote}%
+     \endgroup
+     \renewbibmacro*{cite:postnote}{}%
+    }
+    {}}
+
+% ## review macros
+
+\newbibmacro*{revdtitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{revdtitle}}
+    and
+    test {\iffieldundef{revdsubtitle}}
+  }
+    {}
+    {\printtext[revdtitle]{%
+       \printfield[titlecase]{revdtitle}%
+       \setunit{\subtitlepunct}%
+       \printfield[titlecase]{revdsubtitle}}%
+     \newunit}%
+  \printfield{revdtitleaddon}}
+
+\newbibmacro*{revdlabeltitle}{%
+  \iffieldundef{shortrevdtitle}
+    {\iffieldundef{revdtitle}
+       {}
+       {\printtext[revdtitle]{\printfield[titlecase]{revdtitle}}}}%
+    {\printtext[revdtitle]{\printfield[titlecase]{revdshorttitle}}}}
+
+\newbibmacro*{byrevdauthor}{%
+  \ifnameundef{revdauthor}
+    {}
+    {\bibstring{byauthor}%
+     \setunit{\addspace}%
+     \printnames[byrevdauthor]{revdauthor}}}
+
+\newbibmacro*{byrevdeditor}{%
+  \ifnameundef{revdeditor}
+    {}
+    {\bibsstring{byeditor}%
+     \setunit{\addspace}%
+     \printnames[byrevdeditor]{revdeditor}}}
+
+\newbibmacro*{revdlabelname}{%
+  \setunit{\addspace}%
+  \ifnameundef{revdauthor}
+    {\ifnameundef{revdeditor}
+       {}
+       {\printtext[parens]{%
+          \bibstring{byeditor}%
+          \setunit{\addspace}%
+          \printnames[labelname]{revdeditor}}}}%
+    {\printtext[parens]{%
+       \bibsstring{byauthor}%
+       \setunit{\addspace}%
+       \printnames[labelname]{revdauthor}}}}
+
+\newbibmacro*{revdtitle+revdauthor/revdeditor}{%
+  \biblstring{reviewof}%
+  \setunit{\addspace}%
+  \usebibmacro{revdtitle}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byrevdauthor}%
+  \setunit{\addcomma\space}%
+  \usebibmacro{byrevdeditor}}
+
+
+% ## Series macros
+
+% use shortseries if available
+\renewbibmacro*{series+number}{%
+  \usebibmacro{abbrev:shortfield}{shortseries}{series}%
+  \setunit*{\addspace}%
+  \printfield{number}%
+  \newunit}
+
+
+% ## publisher macros
+
+% add parentheses in citations
+\renewbibmacro*{publisher+location+date}{%
+  \ifbibliography
+    {}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}}%
+  \usebibmacro{origpublisher+origlocation+origdate}%
+  \usebibmacro{mergelists}{location}{publisher}{\locationpublisherdelim}{\publisherdelim}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \usebibmacro{pubstate}%
+  \usebibmacro{reprint}%
+  \ifbibliography
+    {}
+    {\printtext{\bibcloseparen}}%
+  \newunit}
+
+\newbibmacro*{origpublisher+origlocation+origdate}{%
+  \ifboolexpr{
+    not test {\iffieldundef{origpublisher}}
+    or
+    not test {\iffieldundef{origlocation}}
+  }
+    {\usebibmacro{mergelists}{origlocation}{origpublisher}{\locationpublisherdelim}{\publisherdelim}%
+     \setunit*{\addcomma\space}}
+    {}%
+  \iffieldundef{origyear}
+    {}
+    {\usebibmacro{origdate}%
+     \setunit{\publisherdelim}%
+     \bibsstring{reprint}%
+     \setunit{\reprintpunct}}}
+
+\newbibmacro*{pubstate}{%
+  \iffieldundef{pubstate}
+    {}
+    {\setunit{\addcomma\space}%
+     \printfield{pubstate}%
+     \clearfield{pubstate}}}
+
+\newbibmacro*{reprint}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{relatedtype}{reprint}}
+    and
+    test {\iftoggle{bbx:related}}
+  }
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}%
+     \togglefalse{bbx:related}%
+    }
+    {}}
+
+
+% ## thesis macros
+
+\newbibmacro*{type+institution+location+date}{%
+  \ifbibliography
+    {}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}}%
+  \printfield{type}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{mergelists}{location}{institution}{\locationpublisherdelim}{\publisherdelim}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \ifbibliography
+    {}
+    {\printtext{\bibcloseparen}}%
+  \newunit}
+
+
+% ## unpublished macros
+
+\newbibmacro*{type+event+venue+date}{%
+  \ifbibliography
+    {}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}}%
+  \printfield{type}%
+  \setunit*{\addspace}%
+  \printfield{eventtitle}%
+  \newunit
+  \printfield{eventtitleaddon}%
+  \newunit
+  \printfield{venue}%
+  \setunit*{\addcomma\space}%
+  \printeventdate
+  \ifbibliography
+    {}
+    {\printtext{\bibcloseparen}}%
+  \newunit}
+
+\renewbibmacro*{location+date}{%
+  \printlist{location}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}%
+  \usebibmacro{cite:postnote}%
+  \renewbibmacro*{cite:postnote}{}%
+  \newunit}
+
+
+% ## online macros
+
+\newbibmacro*{website+date}{%
+  \printfield{website}%
+  \setunit*{\addcomma\space}%
+  \usebibmacro{date}}
+
+% ## Pages macros
+
+\newbibmacro*{volume+part+pages}{%
+  \printfield[volume:postnote]{volume}%
+  \setunit*{\addperiod}%
+  \printfield[noformat]{part}%
+  \begingroup
+  \iffieldundef{volume}
+    {}
+    {\delimcontext{volume}}%
+  \setunit{\bibpagespunct}%
+  \printfield{pages}%
+  \printfield{eid}%
+  \usebibmacro{cite:postnote}%
+  \endgroup
+  % clear postnote
+  \renewbibmacro*{cite:postnote}{}}
+
+\renewbibmacro*{chapter+pages}{%
+  \printfield{chapter}%
+  \setunit{\bibpagespunct}%
+  \usebibmacro{volume+part+pages}%
+  \newunit}
+
+% flexible control of \bibpagespunct in articles
+\renewbibmacro*{note+pages}{%
+  \printfield{note}%
+  \begingroup
+  \iffieldundef{volume}
+    {}
+    {\delimcontext{volume:article}}%
+  \setunit{\bibpagespunct}%
+  \printfield{pages}%
+  \usebibmacro{cite:postnote}%
+  \endgroup
+  % clear postnote
+  \renewbibmacro*{cite:postnote}{}%
+  \newunit}
+
+
+% ## Date macros
+
+\newbibmacro*{origdate}{\printorigdate}
+
+
+% ## Digital edition macros
+
+\renewbibmacro*{eprint}{%
+  \iftoggle{bbx:eprint}
+    {\iffieldundef{eprinttype}
+       {\printfield{eprint}}
+       {\printfield[eprint:\strfield{eprinttype}]{eprint}}}
+    {}}
+
+\newbibmacro*{doi+url}{%
+  \iftoggle{bbx:doi}
+    {\printfield{doi}}
+    {}%
+  \newunit\newblock
+  \iftoggle{bbx:url}
+    {\usebibmacro{url+urldate}}
+    {}}
+
+
+% ## Related macros
+
+\newbibmacro*{related:ancienttext}[1]{%
+  \savefield*{volume}{\sbl@saved@volume}%
+  \savefield*{part}{\sbl@saved@part}%
+  \savefield*{pages}{\sbl@saved@pages}%
+  \savefield*{postnote}{\sbl@saved@postnote}%
+  \entrydata*{#1}{%
+    \ifentryseen{\strfield{clonesourcekey}}
+      {\blx@citetracker}
+      {}%
+    \begingroup
+    \renewbibmacro*{cite:postnote}{}%
+    \usebibmacro{cite}%
+    \endgroup
+    \blx@citetracker
+    \usefield{\sbl@blx@trackentry}{clonesourcekey}%
+    \iffieldundef{volcitevolume}
+      {\restorefield{volume}{\sbl@saved@volume}%
+       \restorefield{part}{\sbl@saved@part}}
+      {}%
+    \restorefield{pages}{\sbl@saved@pages}%
+    \restorefield{postnote}{\sbl@saved@postnote}%
+    \iffieldundef{shorthand}
+      {}
+      {\addforceskipentry{\thefield{entrykey}}%
+       \delimcontext{shorthand}}%
+    \setunit{\bibpagespunct}%
+    \usebibmacro{volume+part+pages}}}
+
+\newbibmacro*{related:reprint}[1]{%
+  \entrydata*{#1}{%
+    \usedriver
+      {\renewbibmacro*{related:init}{}%
+       \renewbibmacro*{cite:postnote}{}%
+       \renewbibmacro*{publisher+location+date}{%
+         \usebibmacro{mergelists}{location}{publisher}{\locationpublisherdelim}{\publisherdelim}%
+         \setunit*{\addcomma\space}%
+         \usebibmacro{date}%
+         \newunit}%
+       }
+      {\thefield{entrytype}}}}
+
+\newbibmacro*{related:multivolarticle}[1]{%
+  \entrydata*{#1}{%
+    \usebibmacro{cite:full:citepages}%
+    \usebibmacro{volume+number}%
+    \setunit{\addspace}%
+    \usebibmacro{issue+date}%
+    \setunit{\addcolon\space}%
+    \printfield{eid}%
+    \begingroup
+    \iffieldundef{volume}
+      {}
+      {\delimcontext{volume:article}}%
+    \setunit{\bibpagespunct}%
+    \printfield{pages}%
+    \endgroup}}

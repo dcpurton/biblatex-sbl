@@ -1,0 +1,30 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite[319]{suppiluliumas}
+
+\AtNextCitekey{\clearname{translator}}\cite[319]{suppiluliumas}
+
+\cite[119]{ANET}
+
+\citetitle*{legendsargon} in \cite[119]{ANET}
+
+\parencite[119]{legendsargon}
+
+\cite[See][508, \colno~i, lines~30′--38′]{ANET}
+
+\parencite[284-85, lines~23--26]{ANET}
+
+\parencite[614, lines~136--138]{lamentationoversumer}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}

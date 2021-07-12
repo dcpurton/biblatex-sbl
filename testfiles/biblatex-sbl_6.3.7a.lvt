@@ -1,0 +1,30 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite[\pno 112a]{GKC}
+
+\cite[112-114]{GKC}
+
+\cite[\pno 112a, d]{GKC}
+
+\cite[\pno 39c]{davidson:1901}
+
+\cite[\pno 12a--f]{GKB}
+
+\cite[23.2]{IBHS}
+
+\cite[\pno 30.5.2b, example 3]{IBHS}
+
+\cite[\pno 132 \mkbibparens{111}]{yeivin:1980}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}

@@ -1,0 +1,28 @@
+\ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
+
+\DeclareDatamodelEntrytypes{
+  ancienttext,
+  review,
+  series}
+
+\DeclareDatamodelFields[type=field, datatype=literal]{
+  parts,
+  revdtitle,
+  revdsubtitle,
+  revdtitleaddon,
+  revdshorttitle,
+  website}
+
+\DeclareDatamodelFields[type=list, datatype=name]{
+  bookeditor,
+  booktranslator,
+  mainauthor,
+  maineditor,
+  maintranslator,
+  preface,
+  revdauthor,
+  revdeditor,
+  withauthor,
+  withbookauthor,
+  withmainauthor}
+

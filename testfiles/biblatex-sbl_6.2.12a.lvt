@@ -1,0 +1,29 @@
+\documentclass{article}
+\begin{filecontents}[overwrite]{\jobname.bib}
+@article{attridge:1987,
+  author = {Attridge, Harold W.},
+  title = {Jewish Historiography},
+  journaltitle = {Journal},
+  date = {1987}
+}
+\end{filecontents}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\addbibresource{\jobname.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite{attridge:1986}
+
+\cite{attridge:1987}
+
+\cite[314-317]{attridge:1986}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}

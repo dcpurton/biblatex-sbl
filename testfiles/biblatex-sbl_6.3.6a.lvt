@@ -1,0 +1,26 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite{mattingly:philistines}
+
+\cite[799]{mattingly:philistines}
+
+\cites[748, §IA2]{burke:home}
+
+\cite[748]{burke:home}
+
+\cite[8-10]{honigmann:libanos}
+
+\cite[8-10]{honigmann:libanos}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
