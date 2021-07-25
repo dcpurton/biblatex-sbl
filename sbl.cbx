@@ -242,6 +242,10 @@
   \iftoggle{sbl@blx@parens}
     {\setunit{}%
      \printtext{\bibcloseparen}}
+    {}%
+  \iffieldundef{related}
+    {\setunit{\bibpagespunct}%
+     \usebibmacro{cite:postnote}}
     {}}
 
 \newbibmacro*{cite:short:online}{%
