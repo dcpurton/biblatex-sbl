@@ -142,6 +142,30 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand*{\footcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\footcitetext}[\mkbibfootnotetext]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\parencite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \renewbibmacro*{cite}{%
   \usebibmacro{cite:citepages}%
   \global\togglefalse{cbx:loccit}%
