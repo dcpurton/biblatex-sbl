@@ -731,11 +731,7 @@
 
 % remove \blx@postcode from citation printing code
 \xpatchcmd{\blx@citeprint}
-  {\ifnum\c@citecount=\c@citetotal
-     \def\blx@thecheckpunct{\blx@err@nestcite\@gobble}%
-     \blx@postcode
-     \blx@postpunct@saved
-   \fi}
+  {\blx@postcode}
   {}
   {}
   {}
