@@ -201,7 +201,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{7}{\the \c@page }}
+....\write1{\abx@aux@page{8}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 A
 ....\TU/Brill(0)/m/it/10 N
 ....\TU/Brill(0)/m/it/10 E
@@ -261,7 +261,7 @@ Completed box being shipped out [1]
 ....\TU/Brill(0)/m/n/10 i
 ....\TU/Brill(0)/m/n/10 n
 ....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\write1{\abx@aux@page{9}{\the \c@page }}
+....\write1{\abx@aux@page{10}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 A
 ....\TU/Brill(0)/m/it/10 N
 ....\TU/Brill(0)/m/it/10 E
@@ -286,7 +286,7 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\TU/Brill(0)/m/n/10 (
-....\write1{\abx@aux@page{10}{\the \c@page }}
+....\write1{\abx@aux@page{11}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\kern0.2 (font)
 ....\TU/Brill(0)/m/n/10 T
@@ -375,7 +375,7 @@ Completed box being shipped out [1]
 ....\TU/Brill(0)/m/n/10 S
 ....\TU/Brill(0)/m/n/10 e
 ....\TU/Brill(0)/m/n/10 e
-....\write1{\abx@aux@page{13}{\the \c@page }}
+....\write1{\abx@aux@page{14}{\the \c@page }}
 ....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 ....\TU/Brill(0)/m/it/10 A
 ....\TU/Brill(0)/m/it/10 N
@@ -426,7 +426,7 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\TU/Brill(0)/m/n/10 (
-....\write1{\abx@aux@page{14}{\the \c@page }}
+....\write1{\abx@aux@page{15}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 A
 ....\TU/Brill(0)/m/it/10 N
 ....\TU/Brill(0)/m/it/10 E
@@ -471,7 +471,7 @@ Completed box being shipped out [1]
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
 ....\TU/Brill(0)/m/n/10 (
-....\write1{\abx@aux@page{15}{\the \c@page }}
+....\write1{\abx@aux@page{16}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\TU/Brill(0)/m/n/10 L
 ....\TU/Brill(0)/m/n/10 a
@@ -664,7 +664,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{18}{\the \c@page }}
+....\write1{\abx@aux@page{19}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 P
 ....\TU/Brill(0)/m/n/10 r
 ....\TU/Brill(0)/m/n/10 i

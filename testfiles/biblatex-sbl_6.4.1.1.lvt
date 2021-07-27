@@ -10,7 +10,7 @@
 \begin{document}
 \START
 \showoutput
-\AtNextCitekey{\clearfield{related}}\cite{greathymnaten} \pvolcite{1.26}[44-46]{COS}
+\AtNextCitekey{\toggletrue{sbl@blx@parens}}\cite{greathymnaten}
 
 \cite*[44-46]{greathymnaten}
 

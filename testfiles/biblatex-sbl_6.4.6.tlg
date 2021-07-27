@@ -119,7 +119,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{4}{\the \c@page }}
+....\write1{\abx@aux@page{5}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 G
 ....\TU/Brill(0)/m/n/10 r
 ....\kern-0.1 (font)
@@ -204,7 +204,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{5}{\the \c@page }}
+....\write1{\abx@aux@page{6}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 M
 ....\TU/Brill(0)/m/n/10 e
 ....\TU/Brill(0)/m/n/10 t
@@ -269,7 +269,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{8}{\the \c@page }}
+....\write1{\abx@aux@page{10}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 M
 ....\TU/Brill(0)/m/n/10 e
 ....\TU/Brill(0)/m/n/10 t
@@ -446,7 +446,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{9}{\the \c@page }}
+....\write1{\abx@aux@page{11}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 M
 ....\TU/Brill(0)/m/n/10 e
 ....\TU/Brill(0)/m/n/10 t
@@ -595,7 +595,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{10}{\the \c@page }}
+....\write1{\abx@aux@page{12}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 M
 ....\TU/Brill(0)/m/n/10 i
 ....\TU/Brill(0)/m/n/10 g
@@ -704,7 +704,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{11}{\the \c@page }}
+....\write1{\abx@aux@page{13}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 M
 ....\TU/Brill(0)/m/n/10 i
 ....\TU/Brill(0)/m/n/10 g

@@ -85,7 +85,6 @@ Completed box being shipped out [1]
 ....\TU/Brill(0)/m/n/10 m
 ....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 ....\TU/Brill(0)/m/n/10 (
-....\write1{\abx@aux@page{2}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 C
 ....\kern-0.1 (font)
 ....\TU/Brill(0)/m/it/10 O
@@ -116,7 +115,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{3}{\the \c@page }}
+....\write1{\abx@aux@page{4}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\kern-0.1 (font)
 ....\TU/Brill(0)/m/n/10 G
@@ -178,7 +177,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{6}{\the \c@page }}
+....\write1{\abx@aux@page{7}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 C
 ....\kern-0.1 (font)
 ....\TU/Brill(0)/m/it/10 O
@@ -208,7 +207,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{7}{\the \c@page }}
+....\write1{\abx@aux@page{8}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\kern-0.7 (font)
 ....\TU/Brill(0)/m/n/10 A
@@ -292,7 +291,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{10}{\the \c@page }}
+....\write1{\abx@aux@page{11}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\TU/Brill(0)/m/n/10 R
 ....\kern-0.15 (font)
@@ -343,7 +342,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{13}{\the \c@page }}
+....\write1{\abx@aux@page{14}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\TU/Brill(0)/m/n/10 R
 ....\kern-0.15 (font)
@@ -380,7 +379,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{14}{\the \c@page }}
+....\write1{\abx@aux@page{15}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 C
 ....\kern-0.1 (font)
 ....\TU/Brill(0)/m/it/10 O
@@ -417,7 +416,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{15}{\the \c@page }}
+....\write1{\abx@aux@page{16}{\the \c@page }}
 ....\TU/Brill(0)/m/it/10 C
 ....\kern-0.1 (font)
 ....\TU/Brill(0)/m/it/10 O
@@ -472,7 +471,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{16}{\the \c@page }}
+....\write1{\abx@aux@page{17}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 “ (ligature ``)
 ....\TU/Brill(0)/m/n/10 S
 ....\TU/Brill(0)/m/n/10 u
@@ -646,7 +645,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{19}{\the \c@page }}
+....\write1{\abx@aux@page{20}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 H
 ....\TU/Brill(0)/m/n/10 a
 ....\TU/Brill(0)/m/n/10 l

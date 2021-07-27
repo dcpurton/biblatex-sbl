@@ -264,7 +264,7 @@ Completed box being shipped out [1]
 .....\localleftbox=null
 .....\localrightbox=null
 ....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{4}{\the \c@page }}
+....\write1{\abx@aux@page{5}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 A
 ....\TU/Brill(0)/m/n/10 s
 ....\TU/Brill(0)/m/n/10 h
@@ -409,7 +409,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil
 .....\glue 5.0
 ....\penalty 0
-....\write1{\abx@aux@page{7}{\the \c@page }}
+....\write1{\abx@aux@page{9}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 G
 ....\TU/Brill(0)/m/n/10 r
 ....\kern-0.1 (font)
@@ -658,7 +658,7 @@ Completed box being shipped out [1]
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\glue 10.0
 ....\penalty 0
-....\write1{\abx@aux@page{8}{\the \c@page }}
+....\write1{\abx@aux@page{10}{\the \c@page }}
 ....\TU/Brill(0)/m/n/10 T
 ....\TU/Brill(0)/m/n/10 h
 ....\TU/Brill(0)/m/n/10 e
