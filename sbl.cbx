@@ -240,8 +240,7 @@
 
 \newbibmacro*{cite:short:ancienttext}{%
   \usebibmacro{cite:title:ancienttext}%
-  \newunit
-  \usebibmacro{bytranslator}%
+  \usebibmacro{cite:translator:ancienttext}%
   \usebibmacro{cite:collection:ancienttext}}
 
 \newbibmacro*{cite:title:ancienttext}{%
@@ -254,6 +253,22 @@
   }
     {\usebibmacro{title}}
     {\usebibmacro{cite:title}}}
+
+\newbibmacro*{cite:translator:ancienttext}{%
+  \iffieldundef{related}
+    {\setunit{\addspace}%
+     \ifnameundef{translator}
+       {\iffieldundef{xref}
+          {}
+          {\entrydata*{\thefield{xref}}{%
+             \ifnameundef{translator}
+               {}
+               {\printtext[parens]{\printnames[labelname]{translator}}}}}}
+       {\printtext[parens]{\printnames[labelname]{translator}}}}
+    {\newunit
+     \ifnameundef{translator}
+       {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
+       {\usebibmacro{bytranslator}}}}
 
 \newbibmacro*{cite:collection:ancienttext}{%
   \iftoggle{sbl@blx@parens}
