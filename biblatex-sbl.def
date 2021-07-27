@@ -91,6 +91,12 @@
 \DeclareEntryOption[boolean]{parens}[true]{%
   \settoggle{sbl@blx@parens}{#1}}
 
+\newtoggle{sbl@blx@usetitle}
+\DeclareTypeOption[boolean]{usetitle}[true]{%
+  \settoggle{sbl@blx@usetitle}{#1}}
+\DeclareEntryOption[boolean]{usetitle}[true]{%
+  \settoggle{sbl@blx@usetitle}{#1}}
+
 \newrobustcmd{\ifpaginationequalstr}[1]{%
   \iffieldequalstr{pagination}{#1}
     {\@firstoftwo}
@@ -1245,6 +1251,15 @@
           {\setunit{\addspace}%
            \usebibmacro{of:}}}
        {}}}
+
+\newbibmacro*{volume+part:}{%
+  \iffieldundef{volume}
+    {}
+    {\printfield{volume}%
+     \clearfield{volume}%
+     \setunit*{\addcomma\space}%
+     \printfield{part}%
+     \setunit{\addcolon\space}}}
 
 \newbibmacro*{volumes+parts}{%
   \ifboolexpr{

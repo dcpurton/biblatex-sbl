@@ -19,16 +19,27 @@
   \usebibmacro{begentry}%
   \usebibmacro{author/editor+others/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
-  \usebibmacro{volume+part+of:}%
-  \usebibmacro{maintitle+bymainauthor+bymaineditor}%
-  \newunit\newblock
-  \usebibmacro{byeditor+others}%
+  \iftoggle{sbl@blx@usetitle}
+    {\usebibmacro{title}%
+     \newunit
+     \printlist{language}%
+     \newunit\newblock
+     \usebibmacro{byauthor}%
+     \newunit\newblock
+     \usebibmacro{volume+part+of:}%
+     \usebibmacro{maintitle+bymainauthor+bymaineditor}%
+     \newunit\newblock
+     \usebibmacro{byeditor+others}}
+    {\usebibmacro{maintitle+bymainauthor+bymaineditor}%
+     \newunit\newblock
+     \usebibmacro{volume+part:}%
+     \usebibmacro{title}%
+     \newunit
+     \printlist{language}%
+     \newunit\newblock
+     \usebibmacro{byauthor}%
+     \newunit\newblock
+     \usebibmacro{byeditor+others}}%
   \newunit\newblock
   \printfield{edition}%
   \newunit
@@ -67,14 +78,23 @@
   \usebibmacro{begentry}%
   \usebibmacro{editor+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{volume+part+of:}%
-  \usebibmacro{maintitle+bymaineditor}%
-  \newunit\newblock
-  \usebibmacro{byeditor+others}%
+  \iftoggle{sbl@blx@usetitle}
+    {\usebibmacro{title}%
+     \newunit
+     \printlist{language}%
+     \newunit\newblock
+     \usebibmacro{volume+part+of:}%
+     \usebibmacro{maintitle+bymaineditor}%
+     \newunit\newblock
+     \usebibmacro{byeditor+others}}
+    {\usebibmacro{maintitle+bymaineditor}%
+     \newunit\newblock
+     \usebibmacro{volume+part:}%
+     \usebibmacro{title}%
+     \newunit
+     \printlist{language}%
+     \newunit\newblock
+     \usebibmacro{byeditor+others}}%
   \newunit\newblock
   \printfield{edition}%
   \newunit
