@@ -424,6 +424,7 @@
 \newcommand*{\publisherdelim}{\addsemicolon\space}
 \renewcommand*{\relateddelim}{\addsemicolon\space}
 \newcommand*{\relateddelimmultivolarticle}{\addsemicolon\space}
+\newcommand*{\reprintdelim}{\addsemicolon\space}
 \newcommand*{\reprintpunct}{\addcomma\space}
 \renewcommand*{\revsdnamedelim}{\addcomma}
 \renewcommand*{\subtitlepunct}{\addcolon\space}
@@ -683,8 +684,8 @@
   \def\abx@str{abx@lstr}%
   % punctuation
   \renewcommand*{\newunitpunct}{\addperiod\space}%
-  \renewcommand*{\publisherdelim}{\newunitpunct}%
   \renewcommand*{\relateddelim}{\newunitpunct}%
+  \renewcommand*{\reprintdelim}{\newunitpunct}%
   % name formats
   \DeclareNameAlias{author}{sortname}%
   \DeclareNameAlias{editor}{sortname}%
@@ -1457,7 +1458,7 @@
   \iffieldundef{origyear}
     {}
     {\usebibmacro{origdate}%
-     \setunit{\publisherdelim}%
+     \setunit{\reprintdelim}%
      \bibsstring{reprint}%
      \setunit{\reprintpunct}}}
 
