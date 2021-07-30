@@ -610,10 +610,12 @@
 \DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
 \DeclareFieldAlias{shortjournal}{journaltitle}
 \DeclareFieldAlias{shortjournalwidth}{shortjournal}
+\DeclareFieldAlias{shortmaintitle}{maintitle}
 \DeclareFieldAlias{shortseries}{series}
 \DeclareFieldAlias{shortserieswidth}{shortseries}
 \DeclareFieldAlias[ancienttext]{shorttitle}[ancienttext]{citetitle}
 \DeclareFieldAlias[ancienttext]{shorttitlewidth}[ancienttext]{shorttitle}
+\DeclareFieldAlias[ancienttext]{shortmaintitlewidth}[ancienttext]{shortmaintitle}
 
 % set shorthand format based on the shorthandformat option
 \xapptocmd{\blx@setoptions@entry}

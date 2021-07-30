@@ -13,6 +13,9 @@
   revdshorttitle,
   website}
 
+\DeclareDatamodelFields[type=field, datatype=literal, label=true]{
+  shortmaintitle}
+
 \DeclareDatamodelFields[type=list, datatype=name]{
   bookeditor,
   booktranslator,

@@ -247,9 +247,26 @@
   \usebibmacro{cite:translator:ancienttext}%
   \usebibmacro{cite:collection:ancienttext}}
 
+\newbibmacro*{cite:maintitle:ancienttext}{%
+  \iffieldundef{shortmaintitle}
+    {\printfield[citetitle]{maintitle}}
+    {\printfield[citetitle]{shortmaintitle}}%
+  \setunit*{\newunitpunct}}
+
 \newbibmacro*{cite:title:ancienttext}{%
   \usebibmacro{author}%
-  \setunit{\printdelim{nametitledelim}}\newblock
+  \setunit{\printdelim{nametitledelim}}%
+  \ifboolexpr{
+    test {\iffieldundef{related}}
+    and
+    test {\iffieldundef{postnote}}
+    and
+    test {\iffieldundef{titleaddon}}
+  }
+    {\clearfield{shortmaintitle}%
+     \restorefield{labeltitle}{\abx@field@title}}
+    {}%
+  \usebibmacro{cite:maintitle:ancienttext}\newblock
   \ifboolexpr{
     not test {\ifciteseen}
     and
