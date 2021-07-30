@@ -1,0 +1,27 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite*{histaug}
+
+\cite*{histaug:sev}
+
+\cite*[(1.4)]{histaug:sev}
+
+\cite*[(6.5)]{histaug:opilmacr}
+
+\printbibliography
+\printbibheading[title=Abbreviations]
+\printbiblist[heading=subbibliography, title=Primary Sources,
+  type=ancienttext]{abbreviations}
+\printbiblist[heading=subbibliography, title=Secondary Sources,
+  nottype=ancienttext]{abbreviations}
+\end{document}

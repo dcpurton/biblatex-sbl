@@ -1,0 +1,37 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\cite*[(4.19)]{augustine:conf}
+
+\cite[(15)]{tacitus:ann}
+
+\cite*[(11.2)]{apuleius:metam}
+
+\parencite[(4.19)]{augustine:conf}
+
+\parencite[(11.2)]{apuleius:metam}
+
+Translations from the \citetitle{apuleius:golden} follow that of
+\cite{apuleius:golden}.
+
+\nocite{aristotle:metaphysics:2}
+\nocite{augustine:cityofgod:1}
+\nocite{aristotle:metaphysics}
+\nocite{augustine:cityofgod}
+\nocite{augustine:selectletters}
+\printbibliography
+\printbibheading[title=Abbreviations]
+\printbiblist[heading=subbibliography, title=Primary Sources,
+  type=ancienttext]{abbreviations}
+\printbiblist[heading=subbibliography, title=Secondary Sources,
+  nottype=ancienttext]{abbreviations}
+\end{document}

@@ -1,0 +1,42 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\parencite*[(2.233-235)]{josephus:aj}
+
+\cite*[(2.233-235)]{josephus:aj}
+
+\cite*[(3.506-521)]{josephus:bj}
+
+\cite*[(3.10.7-8)]{josephus:bj}
+
+\cite*[(3.10.7--8 §§506--521)]{josephus:bj}
+
+\parencite[(2.233-235)]{josephus:aj}
+
+\cite[(3.506-521)]{josephus:bj}
+
+Translations from the \citetitle*{josephus:cap} follow that of
+\cite{josephus:life;againstapion}.
+
+\cite{josephus:jewishantiquities}
+
+\nocite{josephus:life;againstapion}
+\nocite{josephus:antiquitatum}
+\nocite{josephus:judeanantiquities}
+\nocite{worksofjosephus}
+\printbibliography
+\printbibheading[title=Abbreviations]
+\printbiblist[heading=subbibliography, title=Primary Sources,
+  type=ancienttext]{abbreviations}
+\printbiblist[heading=subbibliography, title=Secondary Sources,
+  nottype=ancienttext]{abbreviations}
+\end{document}
