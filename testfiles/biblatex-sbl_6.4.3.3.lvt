@@ -1,0 +1,25 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\frenchspacing
+\begin{document}
+\START
+\showoutput
+\pvolcite{III.~1--164}{PGM}
+
+\volcite{III.~1--164}{PGM}
+
+\volcite{III.~1--164}{PGM} \mkbibparens{\citeauthor{betz:1996}}
+
+\volcite{III.~410--424}{PGM}
+
+\volcite{xiv.~554--562}{PDM}
+
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}

@@ -83,6 +83,9 @@
 | biblatex-sbl_6.4.2b   | SBLHS §6.4.2   | [Historia Augusta](https://sblhs2.com/2017/05/09/historia-augusta/) |
 | biblatex-sbl_6.4.2c   | SBLHS §6.4.2   | [Plutarch](https://sblhs2.com/2016/10/25/plutarchs-moralia/) |
 | biblatex-sbl_6.4.2d   | SBLHS §6.4.2   | [Philo](https://sblhs2.com/2018/03/01/philo-of-alexandria/) |
+| biblatex-sbl_6.4.3.1  | SBLHA §6.4.3.1 | see [here](https://sblhs2.com/2016/10/20/inscriptions-papyri/) |
+| biblatex-sbl_6.4.3.2  | SBLHA §6.4.3.2 | see [here](https://sblhs2.com/2016/10/20/inscriptions-papyri/) |
+| biblatex-sbl_6.4.3.3  | SBLHA §6.4.3.3 | see [here](https://sblhs2.com/2017/10/13/greek-magical-papyri/) |
 | biblatex-sbl_6.4.6    | SBLHS §6.4.6   | see [here](https://sblhs2.com/2017/01/31/mignes-patrologia-latina/), [here](https://sblhs2.com/2017/02/07/mignes-patrologia-latina-update/), [here](https://sblhs2.com/2017/05/02/pg-citations/), and [here](https://sblhs2.com/2017/05/04/pg-citations-update/) |
 | biblatex-sbl_6.4.7    | SBLHS §6.4.7   | |
 | biblatex-sbl_6.4.8    | SBLHS §6.4.8   | updated rules [here](https://sblhs2.com/2016/10/18/anrw/) and [here](https://sblhs2.com/2017/04/13/citing-reference-works-5-topical-dictionaries-and-encyclopedias/) |
