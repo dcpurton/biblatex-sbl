@@ -10,15 +10,15 @@
 \begin{document}
 \START
 \showoutput
-\pvolcite{III.~1--164}{PGM}
+\parencite*[(1-164)]{PGMIII}
 
-\volcite{III.~1--164}{PGM}
+\cite*[(1-164)]{PGMIII}
 
-\volcite{III.~1--164}{PGM} \mkbibparens{\citeauthor{betz:1996}}
+\cite[(1-164)]{PGMIII}
 
-\volcite{III.~410--424}{PGM}
+\cite*[(410-424)]{PGMIII}
 
-\volcite{xiv.~554--562}{PDM}
+\cite*[(554-562)]{PDMxiv}
 
 \printbibliography
 \printbiblist{abbreviations}
