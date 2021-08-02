@@ -273,7 +273,11 @@
     not test {\iffieldundef{entrysubtype}}
   }
     {\usebibmacro{title}}
-    {\usebibmacro{cite:title}}}
+    {\usebibmacro{cite:title}}%
+  \iffieldundef{related}
+    {\setunit{\bibpagespunct}%
+     \usebibmacro{cite:postnote}}
+     {}}
 
 \newbibmacro*{cite:translator:ancienttext}{%
   \iffieldundef{related}
@@ -302,10 +306,6 @@
   \iftoggle{sbl@blx@parens}
     {\setunit{}%
      \printtext{\bibcloseparen}}
-    {}%
-  \iffieldundef{related}
-    {\setunit{\bibpagespunct}%
-     \usebibmacro{cite:postnote}}
     {}}
 
 \newbibmacro*{cite:short:online}{%
