@@ -296,6 +296,7 @@
        {\usebibmacro{bytranslator}}}}
 
 \newbibmacro*{cite:collection:ancienttext}{%
+  \ifbibliography{\togglefalse{sbl@blx@parens}}{}%
   \iftoggle{sbl@blx@parens}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}%

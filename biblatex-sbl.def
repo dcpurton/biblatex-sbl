@@ -415,7 +415,7 @@
 \renewcommand*{\newunitpunct}{\addcomma\space}
 \renewcommand*{\bibpagespunct}{\printdelim{bibpagesdelim}}
 \renewcommand*{\begrelateddelim}{\relateddelim}
-\newcommand*{\begrelateddelimancienttext}{\addcomma\space}
+\newcommand*{\begrelateddelimancienttext}{\newunitpunct}
 \newcommand*{\begrelateddelimmultivolarticle}{\addspace}
 \renewcommand*{\intitlepunct}{\addspace}
 \newcommand*{\locationpublisherdelim}{\addcolon\space}
