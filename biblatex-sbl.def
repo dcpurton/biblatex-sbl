@@ -384,6 +384,7 @@
 \NewBibliographyString{paper}
 \NewBibliographyString{parts}
 \NewBibliographyString{reverse}
+\NewBibliographyString{series}
 \NewBibliographyString{subverbis}
 \NewBibliographyString{subverbo}
 \NewBibliographyString{to}
@@ -557,6 +558,7 @@
   \mkpageprefix[pagination][\mkcomprange]{#1}}
 \DeclareFieldFormat{revdtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{roman}{#1}
+\DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{series}}
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
 \DeclareFieldFormat[series]{shorthand}{#1}
 \DeclareFieldFormat{shorttitlewidth}{}
@@ -1236,6 +1238,15 @@
     {\bibstring{in}}
   \setunit{\intitlepunct}}
 
+\newbibmacro*{inseries}{%
+  \iffieldundef{volumes}
+    {}
+    {\iffieldint{series}
+       {\setunit{\addspace}%
+        \printfield[inseries]{series}%
+        \clearfield{series}}
+       {}}}
+
 \newbibmacro*{volume+part+of:}{%
   \ifbibliography
     {\printfield{volume}%
@@ -1272,12 +1283,14 @@
     test {\iffieldundef{parts}}
   }
     {\printfield{volumes}%
+     \usebibmacro{inseries}%
      \newunit
      \printfield{parts}}
     {\ifnumgreater{\thefield{volumes}}{\thefield{parts}}
        {\printfield{parts}%
         \setunit{\addspace}%
-        \printfield[involumes]{volumes}}
+        \printfield[involumes]{volumes}%
+        \usebibmacro{inseries}}
        {\printfield{volumes}%
         \setunit{\addspace}%
         \printfield[inparts]{parts}}}}
