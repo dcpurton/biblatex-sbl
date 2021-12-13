@@ -32,7 +32,7 @@ Other Than the Author . . . . . . . . . . . . . . . . . . . . . .
 6.2.25 Electronic Book . . . . . . . . . . . . . . . . . . . . . . . . . .
 6.3 General Examples: Journal Articles, Reviews, and Dissertations . . .
 6.3.1 A Journal Article . . . . . . . . . . . . . . . . . . . . . . . . .
-6.3.2 A Journal Article with Multiple Page Locations and Volumes
+6.3.2 A Journal Article with Multiple Page Locations and Volumes .
 6.3.3 A Journal Article Republished in a Collected Volume . . . . .
 6.3.4 A Book Review . . . . . . . . . . . . . . . . . . . . . . . . . .
 6.3.5 An Unpublished Dissertation or Thesis . . . . . . . . . . . . .
