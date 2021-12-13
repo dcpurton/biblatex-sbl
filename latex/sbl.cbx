@@ -306,7 +306,8 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\newrobustcmd*{\Citefullauthor}{%
+\providecommand\Citefullauthor{}
+\renewrobustcmd*{\Citefullauthor}{%
   \@ifstar{\bibsentence\citefullauthor*}{\bibsentence\citefullauthor}}
 
 \DeclareCiteCommand{\citefullauthor}
