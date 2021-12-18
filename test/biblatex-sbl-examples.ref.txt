@@ -648,12 +648,12 @@ date = {1997}
 Biblatex Output
 \autocite[35]{vanseters:1997}
 
-5. John Van Seters, In Search of History: Histeriography in the Ancient World and
+5. John Van Seters, In Search of History: Historiography in the Ancient World and
 the Origins of Biblical History (New Haven: Yale University Press, 1983; repr., Winona
 Lake, IN: Eisenbrauns, 1997), 35.
 \printbibliography
 
-Van Seters, John. In Search of History: Histeriography in the Ancient World and the
+Van Seters, John. In Search of History: Historiography in the Ancient World and the
 Origins of Biblical History. New Haven: Yale University Press, 1983. Repr., Winona
 Lake, IN: Eisenbrauns, 1997.
 6.2.18 A Reprint Title in the Public Domain
@@ -3553,7 +3553,7 @@ Tigay, Jeffrey H., ed. Empirical Models for Biblical Criticism. Philadelphia: Un
 Pennsylvania Press, 1985.
 Truehart, Charles. “Welcome to the Next Church.” Atlantic Monthly 278 (August 1996):
 37–58. http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm.
-Van Seters, John. In Search of History: Histeriography in the Ancient World and the
+Van Seters, John. In Search of History: Historiography in the Ancient World and the
 Origins of Biblical History. New Haven: Yale University Press, 1983. Repr., Winona
 Lake, IN: Eisenbrauns, 1997.
 . “The Theology of the Yahwist: A Preliminary Sketch.” Pages 219–28 in “Wer

@@ -1050,12 +1050,12 @@ date = {1997}
 
 \autocite[90]{vanseters:1997}
 
-1. John Van Seters, In Search of History: Histeriography in the Ancient World
+1. John Van Seters, In Search of History: Historiography in the Ancient World
 and the Origins of Biblical History (New Haven: Yale University Press, 1983;
 repr., Winona Lake, IN: Eisenbrauns, 1997), 90.
 \printbibliography
 
-Van Seters, John. In Search of History: Histeriography in the Ancient World and
+Van Seters, John. In Search of History: Historiography in the Ancient World and
 the Origins of Biblical History. New Haven: Yale University Press, 1983.
 Repr., Winona Lake, IN: Eisenbrauns, 1997.
 When extra information is required, use a related entry with relatedtype = {reprint}.
@@ -1323,7 +1323,7 @@ Gospel and the Johannine Epistles. New York: Crossroad, 1992.
 Temporini, Hildegard, and Wolfgang Haase, eds. Aufstieg und Niedergang der römischen
 Welt: Geschichte und Kultur Roms im Spiegel der neueren Forschung. Part 2, Principat.
 Berlin: de Gruyter, 1972–.
-Van Seters, John. In Search of History: Histeriography in the Ancient World and the Origins
+Van Seters, John. In Search of History: Historiography in the Ancient World and the Origins
 of Biblical History. New Haven: Yale University Press, 1983. Repr., Winona Lake, IN:
 Eisenbrauns, 1997.
 Wellhausen, Julius. Prolegomena to the History of Ancient Israel. New York: Meridian Books,
