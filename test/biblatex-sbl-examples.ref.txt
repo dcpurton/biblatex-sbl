@@ -78,24 +78,24 @@ Other Than the Author . . . . . . . . . . . . . . . . . . . . . .
 24
 28
 
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
+6.3.9 An Article in a Magazine . . . . . . . . . . . . . . . . . . . . .
+6.3.10 An Electronic Journal Article . . . . . . . . . . . . . . . . . . .
+Special Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+6.4.1 Texts from the Ancient Near East . . . . . . . . . . . . . . . .
+6.4.2 Loeb Classical Library (Greek and Latin) . . . . . . . . . . . .
+6.4.3 Papyri, Ostraca, and Epigraphica . . . . . . . . . . . . . . . .
+6.4.4 Ancient Epistles and Homilies . . . . . . . . . . . . . . . . . .
+6.4.5 ANF and NPNF, First and Second Series . . . . . . . . . . . .
+6.4.6 J.-P. Migne’s Patrologia Latina and Patrologia Graeca . . . .
+6.4.7 Strack-Billerbeck, Kommentar zum Neuen Testament . . . . .
+6.4.8 Aufstieg und Niedergang der römischen Welt (ANRW) . . . . .
+6.4.9 Bible Commentaries . . . . . . . . . . . . . . . . . . . . . . .
+6.4.10 Multivolume Commentaries . . . . . . . . . . . . . . . . . . .
+6.4.11 SBL Seminar Papers . . . . . . . . . . . . . . . . . . . . . . .
+6.4.12 A CD-ROM Reference (with a Corresponding Print Edition) .
+6.4.13 Text Editions Published Online with No Print Counterpart . .
+6.4.14 Online Database . . . . . . . . . . . . . . . . . . . . . . . . .
+6.4.15 Websites and Blogs . . . . . . . . . . . . . . . . . . . . . . . .
 
 29
 29
@@ -139,25 +139,6 @@ Author Index
 64
 
 6.4
-
-6.3.9 An Article in a Magazine . . . . . . . . . . . . . . . . . . . .
-6.3.10 An Electronic Journal Article . . . . . . . . . . . . . . . . . .
-Special Examples . . . . . . . . . . . . . . . . . . . . . . . . . . . .
-6.4.1 Texts from the Ancient Near East . . . . . . . . . . . . . . .
-6.4.2 Loeb Classical Library (Greek and Latin) . . . . . . . . . . .
-6.4.3 Papyri, Ostraca, and Epigraphica . . . . . . . . . . . . . . .
-6.4.4 Ancient Epistles and Homilies . . . . . . . . . . . . . . . . .
-6.4.5 ANF and NPNF, First and Second Series . . . . . . . . . . .
-6.4.6 J.-P. Migne’s Patrologia Latina and Patrologia Graeca . . .
-6.4.7 Strack-Billerbeck, Kommentar zum Neuen Testament . . . .
-6.4.8 Aufstieg und Niedergang der römischen Welt (ANRW) . . . .
-6.4.9 Bible Commentaries . . . . . . . . . . . . . . . . . . . . . .
-6.4.10 Multivolume Commentaries . . . . . . . . . . . . . . . . . .
-6.4.11 SBL Seminar Papers . . . . . . . . . . . . . . . . . . . . . .
-6.4.12 A CD-ROM Reference (with a Corresponding Print Edition)
-6.4.13 Text Editions Published Online with No Print Counterpart .
-6.4.14 Online Database . . . . . . . . . . . . . . . . . . . . . . . .
-6.4.15 Websites and Blogs . . . . . . . . . . . . . . . . . . . . . . .
 
 2
 
@@ -505,8 +486,8 @@ Atlanta: Scholars Press, 1986), 311–43.
 6. Attridge, “Jewish Historiography,” 311–43.
 \printbibliography
 
-Attridge, Harold W. “Jewish Historiography.” Pages 311–43 in Early Judaism and Its
-Modern Interpreters. Edited by Robert A. Kraft and George W. E. Nickelsburg.
+Attridge, Harold W. “Jewish Historiography.” Pages 311–43 in Early Judaism and
+Its Modern Interpreters. Edited by Robert A. Kraft and George W. E. Nickelsburg.
 Philadelphia: Fortress; Atlanta: Scholars Press, 1986.
 6.2.13 An Article in a Festschrift
 @incollection{vanseters:1995,
@@ -1219,9 +1200,11 @@ Petersen, David L. “Hebrew Bible Textbooks: A Review Article.” CRBR 1 (1988)
 \printbiblist{abbreviations}
 
 CRBR
-6.3.5
 
 Critical Review of Books in Religion
+
+6.3.5
+
 An Unpublished Dissertation or Thesis
 
 @thesis{klosinski:1988,
@@ -1387,7 +1370,7 @@ shorthand = {TDNT}
 }
 @inlexicon{beyer:diakoneo+diakonia+ktl,
 author = {Beyer, Hermann W.},
-title = {\textgreek{διακονέω, διακονία, κτλ}},
+title = {\textgreek{διακονέω, διακονία, κτλ}},
 volume = {2},
 pages = {81-93},
 xref = {TDNT}
@@ -1429,7 +1412,7 @@ shorthand = {TLNT}
 
 @inlexicon{spicq:atakteo+ataktos+ataktos,
 author = {Spicq, Ceslas},
-title = {\textgreek{ἀτακτέω, ἄτακτος, ἀτάκτως}},
+title = {\textgreek{ἀτακτέω, ἄτακτος, ἀτάκτως}},
 volume = {1},
 pages = {223-224},
 xref = {TLNT}
@@ -1464,7 +1447,7 @@ shorthand = {TLNT}
 }
 @inlexicon{spicq:amoibe,
 author = {Spicq, Ceslas},
-title = {\textgreek{ἀμοιβή}},
+title = {\textgreek{ἀμοιβή}},
 volume = {1},
 pages = {95-96},
 xref = {TLNT}
@@ -1504,7 +1487,7 @@ shorthand = {TDNT}
 }
 @inlexicon{beyer:diakoneo,
 author = {Beyer, Hermann W.},
-title = {\textgreek{διακονέω}},
+title = {\textgreek{διακονέω}},
 volume = {2},
 pages = {81-87},
 xref = {TDNT}
@@ -1538,7 +1521,7 @@ shorthand = {NIDNTT}
 }
 @inlexicon{dahn:horao,
 author = {Dahn, Karl},
-title = {\textgreek{ὁράω}},
+title = {\textgreek{ὁράω}},
 volume = {3},
 
 27

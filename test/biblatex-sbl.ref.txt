@@ -60,7 +60,8 @@ Author Index
 26
 
 1 Introduction
-provides support to biblatex and LaTeX for citations, bibliography, and a
+biblatex-sbl provides support to biblatex and LaTeX for citations, bibliography, and a
+
 list of abbreviations in the style recommended by the Society of Biblical Literature (SBL).
 The style conforms to the second edition of the SBLHS and includes updates from the SBL
 Handbook of Style blog.¹
@@ -75,17 +76,16 @@ For anything not covered in this manual, please see the biblatex documentation. 
 and feature requests can be submitted at https://github.com/dcpurton/biblatex-sbl/.
 Note: This package should be considered as beta software and its output carefully
 checked when you use it.
-biblatex-sbl
 
 1. SBL Handbook of Style: Explanations, Clarifications, and Expansions, https://sblhs2.com.
 
 1
 
 2 Requirements
-requires at least version 3.11 of biblatex and the xparse package. biber
+biblatex-sbl requires at least version 3.11 of biblatex and the xparse package. biber
+
 must be used. bibtex is not supported. For localization babel (not polyglossia) and
 csquotes are recommended.
-biblatex-sbl
 
 3 Usage
 The following minimal example will set up biblatex-sbl to conform to the defaults of the
@@ -107,11 +107,10 @@ preamble. polyglossia is not well supported by biblatex and its use is discourag
 \usepackage[style=sbl]{biblatex}
 
 Currently english (including variants such as british, australian, etc.), spanish, and
-are supported.
+german are supported.
+
 For Greek and especially Hebrew, the set up is more complicated and you should use
 xelatex or lualatex. See sbl-paper.pdf for example Greek and Hebrew usage with babel.
-german
-
 \usepackage[nil,bidi=default]{babel}% consider bidi=basic for lualatex
 \usepackage{csquotes}
 \babelprovide[import=en-US,main]{american}
@@ -132,15 +131,12 @@ Included below are the most typical commands. For more commands and options, ref
 the biblatex manual.
 \autocite[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
 \autocite*[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
+\autocite inserts a citation as a footnote. If used in a footnote, the citation is placed in
 
-inserts a citation as a footnote. If used in a footnote, the citation is placed in
 parentheses. The starred variant suppresses the author, editor, or translator (provided the
 entry options are set to use them). It works as in the standard biblatex styles, except
 that that postnote argument can be divided into two using parentheses. This creates an
 altpostnote field which is used in some of the examples from §6.4 of the SBLHS. e.g.,
-
-\autocite
-
 \autocite[See][(1.3)8:223]{clementinehomilies}
 
 1. See The Clementine Homilies 1.3 (ANF 8:223).
@@ -150,22 +146,17 @@ To use only altpostnote surround the whole argument in parentheses. e.g.,
 1. PGM III. 1–164 (Betz).
 \cite[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
 \cite*[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
+\cite works in the same way as \autocite except that the citation is placed directly into
 
-works in the same way as \autocite except that the citation is placed directly into
 the text instead of in a footnote. The starred variant suppresses the author, editor, or
 translator (provided the entry options are set to use them).
-
-\cite
-
 \parencite[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
 \parencite*[hprenotei][(haltpostnotei)hpostnotei]{hkeyi}
+\parencite works in the same way as \autocite except that the citation is placed inside
 
-works in the same way as \autocite except that the citation is placed inside
 parentheses instead of in a footnote. The starred variant suppresses the author, editor, or
 translator (provided the entry options are set to use them). This is most useful for citing
 primary sources. e.g.,
-
-\parencite
 
 3
 
@@ -189,12 +180,10 @@ plural) list of names.
 \citejournal{hkeyi}
 \citeseries{hkeyi}
 \citeshorthand{hkeyi}
-\citejournal, \citeseries,
+\citejournal, \citeseries, and \citeshorthand inserts the respective abbreviation into
 
-and \citeshorthand inserts the respective abbreviation into
 the text and also adds it to the list of abbreviations. The abbreviation is hyperlinked to the
 list of abbreviations if the hyperref package is loaded.
-
 These commands do not take a prenote or postnote field, and can safely be used nested
 within a citation.
 \printbiblist
@@ -212,10 +201,9 @@ arguments.
 4
 
 3.3 Package Options
-defaults to the recommendations of the SBL, but it also supports many of
-the standard options from biblatex as well as a few custom ones outlined below.
-biblatex-sbl
+biblatex-sbl defaults to the recommendations of the SBL, but it also supports many of
 
+the standard options from biblatex as well as a few custom ones outlined below.
 accessdate=true, false
 
 default: false
@@ -406,7 +394,7 @@ default: true
 This option controls whether ibidem and idem are used across page breaks or not.
 true
 
-Enable the tracker in automatic mode. This is like
+Enable the tracker in automatic mode. This is like spread if LaTeX is in
 twoside mode, and like page otherwise.
 
 false
@@ -424,10 +412,6 @@ Enable the tracker in spread mode. In this mode, tracking works on a
 per-spread (double page) basis.
 
 sblfootnotes=true, false
-
-spread
-
-if LaTeX is in
 
 default: true
 
@@ -499,9 +483,7 @@ fields are omitted for subsequent citations. e.g.,
 Pritchard, James B., ed. Ancient Near Eastern Texts Relating to the Old Testament. 3rd ed.
 Princeton: Princeton University Press, 1969.
 If the entry contains options = {skipbib=false}, then the bibliography entry will be like
-Any shorthand is also printed in the same way as a @book shorthand.
-
-@book.
+@book. Any shorthand is also printed in the same way as a @book shorthand.
 
 The following values for the entrysubtype field are supported:
 ANRW
@@ -582,14 +564,9 @@ e.g.,
 
 Tacitus. The Histories and The Annals. Translated by Clifford H. Moore and John Jackson.
 4 vols. LCL. Cambridge: Harvard University Press, 1937.
-The series can be suppressed by setting options
-
-= {useseries=false}.
-
+The series can be suppressed by setting options = {useseries=false}.
 If the entry contains options = {skipbib=false}, then the bibliography entry will be like
-except that the title is set in italics instead of within quotation marks.
-
-@incollection
+@incollection except that the title is set in italics instead of within quotation marks.
 
 The following values for the entrysubtype field are supported:
 churchfather
@@ -650,9 +627,8 @@ A multi-volume lexicon or theological dictionary. This is similar to a @mvbook.
 inlexicon An article in a lexicon or theological dictionary. This is a custom type for biblatex-sbl.
 
 The required xref field must contain the entry name of a @lexicon or @mvlexicon. The
-entry does not appear in the bibliography. Instead the lexicon pointed to by
+@inlexicon entry does not appear in the bibliography. Instead the lexicon pointed to by
 xref appears in the bibliography.
-@inlexicon
 
 Subsequent citations do not include the title, only the name of the lexicon (specified by
 the xref entry). e.g.,
@@ -667,10 +643,12 @@ the xref entry). e.g.,
 Brown, Colin, ed. New International Dictionary of New Testament Theology. 4 vols. Grand
 Rapids: Zondervan, 1975–1985.
 misc
-online
 
 A fallback type for entries which do not fit into any other category. Use the howpublished
 field to supply publishing information in free format, if applicable.
+
+online
+
 An online resource without a print counterpart. This is similar to an @article.
 
 periodical A complete issue of a periodical, such as a special issue of a journal. The title of the
@@ -707,11 +685,10 @@ This type could also be used to place a series in the list of abbreviations. In 
 use series, shortseries, and set options = {skipbib}.
 
 4.2 Entry Fields
-supports all entry fields from the biblatex manual except for pagetotal.
+biblatex-sbl supports all entry fields from the biblatex manual except for pagetotal.
+
 There are also a number of custom entry fields and specially handled fields supported by
 biblatex-sbl. These are documented below.
-biblatex-sbl
-
 bookeditor
 
 list (name)
@@ -724,13 +701,9 @@ applies to title.
 booktranslator list (name)
 
 The translator(s) of the booktitle.
-The behaviour of translator, booktranslator, and
+The behaviour of translator, booktranslator, and maintranslator is the same as for
 editor, bookeditor, and maineditor.
 eprintdate
-
-maintranslator
-
-is the same as for
 
 field (date)
 The date a text edition published online with no print counterpart or an article in an online
@@ -925,10 +898,9 @@ withmaintranslatortype field (literal)
 This field is analogous to the withtranslatortype, but for the maintranslator.
 
 4.3 Type and Entry Options
-supports many of the entry options outlined in the biblatex manual. There
-are also a number of custom entry options supported by biblatex-sbl. These are documented below.
-biblatex-sbl
+biblatex-sbl supports many of the entry options outlined in the biblatex manual. There
 
+are also a number of custom entry options supported by biblatex-sbl. These are documented below.
 skipbiblistshorthand=true, false
 
 default: false
@@ -1031,11 +1003,10 @@ false
 Print the volume field as part of the postnote. e.g., “1:”
 
 4.4 Reprints
-supports three different ways of doing reprints with varying complexity.
+biblatex-sbl supports three different ways of doing reprints with varying complexity.
+
 If only the original publisher, location, and/or year are required, then use the fields
 origpublisher, origlocation, and origdate. e.g.,
-biblatex-sbl
-
 @book{vanseters:1997,
 author = {Van Seters, John},
 title = {In Search of History: Histeriography in the Ancient
@@ -1169,13 +1140,9 @@ by the same author within a footnote or citation.
 2018-05-20
 • Support and require biblatex 3.11.
 • Use ibid. and idem by default.
-•
-
-polyglossia
+• polyglossia is no longer supported. You should use babel instead.
 
 0.8.2
-
-is no longer supported. You should use babel instead.
 
 2017-11-16
 

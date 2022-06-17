@@ -882,9 +882,11 @@ Reference Implementation
 14. Petersen, “Hebrew Bible Textbooks,” 8.
 Petersen, David. “Hebrew Bible Textbooks: A Review Article.” CRBR 1 (1988): 1–18.
 CRBR
-6.3.5
 
 Critical Review of Books in Religion
+
+6.3.5
+
 An Unpublished Dissertation or Thesis
 
 Biblatex Output
