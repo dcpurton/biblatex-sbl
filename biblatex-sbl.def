@@ -1474,13 +1474,13 @@
 
 \newbibmacro*{origpublisher+origlocation+origdate}{%
   \ifboolexpr{
-    not test {\iffieldundef{origpublisher}}
-    or
-    not test {\iffieldundef{origlocation}}
+    test {\iflistundef{origpublisher}}
+    and
+    test {\iflistundef{origlocation}}
   }
+    {}
     {\usebibmacro{mergelists}{origlocation}{origpublisher}{\locationpublisherdelim}{\publisherdelim}%
-     \setunit*{\addcomma\space}}
-    {}%
+     \setunit*{\addcomma\space}}%
   \iffieldundef{origyear}
     {}
     {\usebibmacro{origdate}%
