@@ -226,12 +226,12 @@
   \usebibmacro{cite:postnote}}
 
 \newbibmacro*{cite:title}{%
-  \printtext[bibhyperlink]{%
-    \printfield[citetitle]{labeltitle}%
+  \printtext[citetitle]{%
+    \printfield[bibhyperlink]{labeltitle}}%
     \ifentrytype{ancienttext}
       {\setunit{\titleaddonpunct}%
        \printfield{titleaddon}}
-      {}}}
+      {}}
 
 \newbibmacro*{cite:label:editor}{%
   \setunit{\addspace}%
