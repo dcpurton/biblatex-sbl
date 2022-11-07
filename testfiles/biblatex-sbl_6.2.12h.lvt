@@ -1,12 +1,13 @@
+\DocumentMetadata{}
 \documentclass{article}
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl, citepages=separate]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
 \START
 \showoutput

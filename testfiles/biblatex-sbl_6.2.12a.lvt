@@ -1,3 +1,4 @@
+\DocumentMetadata{}
 \documentclass{article}
 \begin{filecontents}[overwrite]{\jobname.bib}
 @article{attridge:1987,
@@ -10,12 +11,12 @@
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \addbibresource{\jobname.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
 \START
 \showoutput
