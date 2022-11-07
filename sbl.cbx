@@ -4,6 +4,16 @@
 
 \ProvidesFile{sbl.cbx}[\sbl@abx@cbxid]
 
+\DeclareFieldFormat{bibhypertarget}{%
+  \ifboolexpr{
+    not test {\iffieldundef{crossref}}
+    and
+    not test {\ifcrossrefseen}
+  }
+    {\bibhypertarget{\iffootnote{f}{t}:\cbx@resetcount:\thefield{crossref}}{}}
+    {}%
+  \bibhypertarget{\iffootnote{f}{t}:\cbx@resetcount:\thefield{entrykey}}{#1}}
+
 \def\cbx@opt@citepages@omit{%
   \renewbibmacro*{cite:citepages}{}%
   \renewbibmacro*{cite:full:citepages}{%
