@@ -608,6 +608,11 @@
     {\mkbibemph{#1}}
     {#1}}
 
+\DeclareFieldFormat{shortjournaltarget}{\bibhypertarget{shortjournal:\thefield{shortjournal}}{#1}}
+\DeclareFieldFormat{shortjournallink}{\bibhyperlink{shortjournal:\thefield{shortjournal}}{#1}}
+\DeclareFieldFormat{shortseriestarget}{\bibhypertarget{shortseries:\thefield{shortseries}}{#1}}
+\DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\thefield{shortseries}}{#1}}
+
 \DeclareFieldAlias{shorthandwidth}{shorthand}
 \DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
 \DeclareFieldAlias{shortjournal}{journaltitle}
@@ -956,8 +961,8 @@
   \ifentrytype{ancienttext}
     {\printfield[shorttitlewidth]{shorttitle}}
     {\iffieldundef{shorthand}
-       {\printfield[shortserieswidth]{shortseries}%
-        \printfield[shortjournalwidth]{shortjournal}}
+       {\printtext[shortseriestarget]{\printfield[shortserieswidth]{shortseries}}%
+        \printtext[shortjournaltarget]{\printfield[shortjournalwidth]{shortjournal}}}
        {\printfield[shorthandwidth]{shorthand}}}}
 
 \newbibmacro*{abbrev:longfield}[2]{%
@@ -969,7 +974,7 @@
 \newbibmacro*{abbrev:shortfield}[2]{%
   \iffieldundef{#1}
     {\printfield{#2}}
-    {\printfield{#1}}}
+    {\printtext[#1link]{\printfield{#1}}}}
 
 \newbibmacro*{abbrev:author+title}{%
   \usebibmacro{author}%
