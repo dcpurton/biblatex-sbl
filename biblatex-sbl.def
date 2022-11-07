@@ -608,9 +608,15 @@
     {\mkbibemph{#1}}
     {#1}}
 
-\DeclareFieldFormat{shortjournaltarget}{\bibhypertarget{shortjournal:\thefield{shortjournal}}{#1}}
+\DeclareFieldFormat{shortjournaltarget}{%
+  \iffieldundef{shortjournal}
+    {#1}
+    {\bibhypertarget{shortjournal:\thefield{shortjournal}}{#1}}}
 \DeclareFieldFormat{shortjournallink}{\bibhyperlink{shortjournal:\thefield{shortjournal}}{#1}}
-\DeclareFieldFormat{shortseriestarget}{\bibhypertarget{shortseries:\thefield{shortseries}}{#1}}
+\DeclareFieldFormat{shortseriestarget}{%
+  \iffieldundef{shortseries}
+    {#1}
+    {\bibhypertarget{shortseries:\thefield{shortseries}}{#1}}}
 \DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\thefield{shortseries}}{#1}}
 
 \DeclareFieldAlias{shorthandwidth}{shorthand}
