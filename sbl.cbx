@@ -211,7 +211,7 @@
         \usebibmacro{cite:postnote}}}
     {\ifcrossrefseen
       {\usebibmacro{cite:full:citepages}%
-       \usebibmacro*{cite:full:\thefield{entrytype}:seen}}
+       \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
       {\usebibmacro{cite:full}}}}
 
 \newbibmacro*{cite:star}{%
