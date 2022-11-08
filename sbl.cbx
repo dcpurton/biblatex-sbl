@@ -338,14 +338,16 @@
   \usebibmacro{volume+part+pages}}
 
 \newbibmacro*{cite:short:review}{%
-  \printnames{labelname}%
-  \setunit{\printdelim{nametitledelim}}\newblock
-  \printtext[bibhyperlink]{%
-   \biblstring{reviewof}%
-    \setunit{\addspace}%
-    \usebibmacro{revdlabeltitle}}%
-  \usebibmacro{revdlabelname}%
-  \usebibmacro{cite:postnote}}
+  \iffieldundef{title}
+    {\printnames{labelname}%
+     \setunit{\printdelim{nametitledelim}}\newblock
+     \printtext[bibhyperlink]{%
+      \biblstring{reviewof}%
+       \setunit{\addspace}%
+       \usebibmacro{revdlabeltitle}}%
+     \usebibmacro{revdlabelname}%
+     \usebibmacro{cite:postnote}}
+    {\usebibmacro{cite:short}}}
 
 \newbibmacro*{cite:full:book:seen}{%
   \usebibmacro{author/editor+others/translator+others}%
