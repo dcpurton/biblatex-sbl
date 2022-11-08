@@ -608,6 +608,11 @@
     {\mkbibemph{#1}}
     {#1}}
 
+\DeclareFieldFormat{shorthandtarget}{%
+  \iffieldundef{shorthand}
+    {#1}
+    {\bibhypertarget{shorthand:\thefield{shorthand}}{#1}}}
+\DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\thefield{shorthand}}{#1}}
 \DeclareFieldFormat{shortjournaltarget}{%
   \iffieldundef{shortjournal}
     {#1}
@@ -969,7 +974,7 @@
     {\iffieldundef{shorthand}
        {\printtext[shortseriestarget]{\printfield[shortserieswidth]{shortseries}}%
         \printtext[shortjournaltarget]{\printfield[shortjournalwidth]{shortjournal}}}
-       {\printfield[shorthandwidth]{shorthand}}}}
+       {\printtext[shorthandtarget]{\printfield[shorthandwidth]{shorthand}}}}}
 
 \newbibmacro*{abbrev:longfield}[2]{%
   \iffieldundef{#1}

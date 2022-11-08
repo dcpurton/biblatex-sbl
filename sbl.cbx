@@ -235,6 +235,9 @@
     {\usebibmacro{cite:label:editor}}%
   \usebibmacro{cite:postnote}}
 
+\renewbibmacro*{cite:shorthand}{%
+  \printtext[shorthandlink]{\printfield{shorthand}}}
+
 \newbibmacro*{cite:title}{%
   \printtext[citetitle]{%
     \printfield[bibhyperlink]{labeltitle}}%
