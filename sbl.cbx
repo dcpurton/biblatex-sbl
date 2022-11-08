@@ -323,16 +323,6 @@
      \printtext{\bibcloseparen}}
     {}}
 
-\newbibmacro*{cite:short:online}{%
-  \printnames{labelname}%
-  \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{cite:title}%
-  \ifnameundef{labelname}
-    {\newunit
-     \printfield{website}}
-    {}%
-  \usebibmacro{cite:postnote}}
-
 \newbibmacro*{cite:short:inreference}{%
   \printnames{labelname}%
   \setunit{\printdelim{nametitledelim}}\newblock

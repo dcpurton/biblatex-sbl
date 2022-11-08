@@ -1,22 +1,19 @@
+\DocumentMetadata{}
 \documentclass{article}
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
 \START
 \showoutput
-\cite{fb:womenscholarspage}
+\cite{fb:sblwomenscholars}
 
-\cite{fb:womenscholarspage}
-
-\cite{fb:womenscholars}
-
-\cite{fb:womenscholars}
+\cite{fb:sblwomenscholars}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
