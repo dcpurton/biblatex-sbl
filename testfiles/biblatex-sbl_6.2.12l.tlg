@@ -309,6 +309,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{2}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:freyne:2006} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 S
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 a
@@ -728,6 +733,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{5}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:lohr:2007} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 W
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 n

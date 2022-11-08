@@ -304,6 +304,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{2}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:hogarth:1925} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 D
 .....\kern-0.4 (font)
 .....\TU/Brill(0)/m/n/10 .
@@ -841,6 +846,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{5}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:oates:1991} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 J
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 o
@@ -1299,6 +1309,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{8}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:cook:1923} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 S
 .....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
@@ -1731,6 +1746,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:vaux:1971} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 R
 .....\kern-0.15 (font)
 .....\TU/Brill(0)/m/n/10 o
@@ -2199,6 +2219,11 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{14}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:cameron:2000} xyz
+.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 A
 .....\kern-0.4 (font)
 .....\TU/Brill(0)/m/n/10 v

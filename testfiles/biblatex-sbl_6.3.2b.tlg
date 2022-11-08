@@ -2,666 +2,765 @@ This is a generated file for the l3build validation system.
 Don't change this file in any respect.
 Completed box being shipped out [1]
 \vbox(633.0+0.0)x407.0, direction TLT
-.\glue 16.0
-.\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
-..\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
-...\glue 0.0 plus 1.0fil
-...\hbox(0.0+0.0)x345.0, direction TLT
-..\glue 25.0
-..\glue(\lineskip) 0.0
-..\vbox(550.0+0.0)x345.0, glue set 374.97992fil, direction TLT
-...\write-{}
-...\glue(\topskip) 3.32
-...\hbox(6.68+2.5)x345.0, glue set 13.13fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{1}{\the \c@page }}
-....\TU/Brill(0)/m/n/10 J
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\penalty 25
-....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 W
-....\kern-0.65 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 l
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 a
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 n
-....\TU/Brill(0)/m/n/10 ,
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 “ (ligature ``)
-....\TU/Brill(0)/m/n/10 D
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 e
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 C
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 m
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 p
-....\TU/Brill(0)/m/n/10 o
-....\discretionary (penalty 50)
-.....< \kern0.1 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 i
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 n
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 d
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 s
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 H
-....\TU/Brill(0)/m/n/10 e
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 x
-....\discretionary (penalty 50)
-.....< \kern-0.25 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 a
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 c
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 s
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 ,
-....\kern-0.6 (font)
-....\TU/Brill(0)/m/n/10 ” (ligature '')
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/it/10 J
-....\TU/Brill(0)/m/it/10 D
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/it/10 T
-....\kern0.93 (italic)
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 1
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 6
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 :
-....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
-....\TU/Brill(0)/m/n/10 3
-....\TU/Brill(0)/m/n/10 9
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 –
-....\penalty 50
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 5
-....\TU/Brill(0)/m/n/10 0
-....\TU/Brill(0)/m/n/10 ;
-....\glue(\spaceskip) 1.98 plus 0.99396 minus 0.65736
-....\TU/Brill(0)/m/n/10 2
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 2
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 :
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty 300
-...\glue(\baselineskip) 5.29
-...\hbox(4.21+1.81)x345.0, glue set 158.79999fil, direction TLT
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 0
-....\TU/Brill(0)/m/n/10 7
-....\TU/Brill(0)/m/n/10 –
-....\penalty 50
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.35 (font)
-....\TU/Brill(0)/m/n/10 9
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 3.51001
-...\hbox(6.68+2.5)x345.0, glue set 12.255fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{6}{\the \c@page }}
-....\TU/Brill(0)/m/n/10 J
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\penalty 25
-....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 W
-....\kern-0.65 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 l
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 a
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 n
-....\TU/Brill(0)/m/n/10 ,
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 “ (ligature ``)
-....\TU/Brill(0)/m/n/10 D
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 e
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 C
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 m
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 p
-....\TU/Brill(0)/m/n/10 o
-....\discretionary (penalty 50)
-.....< \kern0.1 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 i
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 n
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 d
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 s
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 H
-....\TU/Brill(0)/m/n/10 e
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 x
-....\discretionary (penalty 50)
-.....< \kern-0.25 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 a
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 c
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 s
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 ,
-....\kern-0.6 (font)
-....\TU/Brill(0)/m/n/10 ” (ligature '')
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/it/10 J
-....\TU/Brill(0)/m/it/10 D
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/it/10 T
-....\kern0.93 (italic)
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 1
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 6
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 ;
-....\glue(\spaceskip) 1.98 plus 0.99396 minus 0.65736
-....\TU/Brill(0)/m/n/10 2
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 2
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 ,
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 :
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 3
-....\TU/Brill(0)/m/n/10 4
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 2.85
-...\hbox(6.65+2.39)x345.0, glue set 68.73999fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x0.0, direction TLT
-....\write1{\abx@aux@page{11}{\the \c@page }}
-....\TU/Brill(0)/m/n/10 W
-....\kern-0.65 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 l
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 a
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 n
-....\TU/Brill(0)/m/n/10 ,
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 “ (ligature ``)
-....\TU/Brill(0)/m/n/10 D
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 e
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 C
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 m
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 p
-....\TU/Brill(0)/m/n/10 o
-....\discretionary (penalty 50)
-.....< \kern0.1 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 i
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 n
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 d
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 s
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 H
-....\TU/Brill(0)/m/n/10 e
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 x
-....\discretionary (penalty 50)
-.....< \kern-0.25 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 a
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 c
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 s
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 ,
-....\kern-0.6 (font)
-....\TU/Brill(0)/m/n/10 ” (ligature '')
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 :
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 3
-....\TU/Brill(0)/m/n/10 4
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty -300
-...\glue 14.175 plus 4.05 minus 0.80998
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 6.03401
-...\hbox(9.57599+0.2016)x345.0, glue set 141.3024fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 0.0
-....\TU/Brill(0)/b/n/14.4 R
-....\kern-0.216 (font)
-....\TU/Brill(0)/b/n/14.4 e
-....\TU/Brill(0)/b/n/14.4 f
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/b/n/14.4 -
-....\TU/Brill(0)/b/n/14.4 e
-....\TU/Brill(0)/b/n/14.4 r
-....\discretionary (penalty 50)
-.....< \kern-0.288 (font)
-.....< \TU/Brill(0)/b/n/14.4 -
-.....= \kern-0.144 (font)
-....\TU/Brill(0)/b/n/14.4 e
-....\TU/Brill(0)/b/n/14.4 n
-....\TU/Brill(0)/b/n/14.4 c
-....\TU/Brill(0)/b/n/14.4 e
-....\TU/Brill(0)/b/n/14.4 s
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\latelua0{ltx.__pdf.backend_ThisPage_gpush(tex.count["g_shipout_readonly_int"])}
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 14.99626fil, direction TLT
+..\kern0.0
+..\kern16.0
+..\kern-1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 60.99626fil, direction TLT
+...\kern0.0
+...\kern62.0
+...\kern-1.00374
+...\pdfdest name{page.1} xyz
 ...\penalty 10000
-...\glue 9.31502 plus 0.80998
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.11841
-...\hbox(6.68+2.5)x330.0, glue set 11.03001fil, shifted 15.0, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x-15.0, direction TLT
-.....\glue -15.0
-.....\glue -20.0
-.....\glue -5.0
-.....\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
-......\glue 0.0 plus 1.0fil
-.....\glue 5.0
-....\penalty 0
-....\write1{\abx@aux@page{12}{\the \c@page }}
-....\TU/Brill(0)/m/n/10 W
-....\kern-0.65 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 l
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 a
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 n
-....\TU/Brill(0)/m/n/10 ,
-....\penalty 25
-....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-....\TU/Brill(0)/m/n/10 J
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 l
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 s
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 .
-....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-....\TU/Brill(0)/m/n/10 “ (ligature ``)
-....\TU/Brill(0)/m/n/10 D
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 e
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 C
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 m
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 p
-....\TU/Brill(0)/m/n/10 o
-....\discretionary (penalty 50)
-.....< \kern0.1 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 s
-....\TU/Brill(0)/m/n/10 i
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\TU/Brill(0)/m/n/10 i
-....\TU/Brill(0)/m/n/10 o
-....\TU/Brill(0)/m/n/10 n
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 d
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 s
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 H
-....\TU/Brill(0)/m/n/10 e
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 x
-....\discretionary (penalty 50)
-.....< \kern-0.25 (font)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 a
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/n/10 -
-....\TU/Brill(0)/m/n/10 t
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 e
-....\TU/Brill(0)/m/n/10 u
-....\TU/Brill(0)/m/n/10 c
-....\TU/Brill(0)/m/n/10 h
-....\TU/Brill(0)/m/n/10 s
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 .
-....\kern-0.6 (font)
-....\TU/Brill(0)/m/n/10 ” (ligature '')
-....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-....\TU/Brill(0)/m/it/10 J
-....\TU/Brill(0)/m/it/10 D
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/it/10 T
-....\kern0.93 (italic)
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 1
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.15 (font)
-....\TU/Brill(0)/m/n/10 6
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 :
-....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
-....\TU/Brill(0)/m/n/10 3
-....\TU/Brill(0)/m/n/10 9
-....\TU/Brill(0)/m/n/10 2
-....\TU/Brill(0)/m/n/10 –
-....\penalty 50
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 5
-....\TU/Brill(0)/m/n/10 0
-....\TU/Brill(0)/m/n/10 ;
-....\glue(\spaceskip) 1.98 plus 0.99396 minus 0.65736
-....\TU/Brill(0)/m/n/10 2
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 2
-....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-....\TU/Brill(0)/m/n/10 (
-....\TU/Brill(0)/m/n/10 1
-....\TU/Brill(0)/m/n/10 8
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/n/10 7
-....\TU/Brill(0)/m/n/10 )
-....\TU/Brill(0)/m/n/10 :
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty 25000
-...\glue(\baselineskip) 5.29
-...\hbox(4.21+1.81)x330.0, glue set 150.29999fil, shifted 15.0, direction TLT
-....\TU/Brill(0)/m/n/10 4
-....\TU/Brill(0)/m/n/10 0
-....\TU/Brill(0)/m/n/10 7
-....\TU/Brill(0)/m/n/10 –
-....\penalty 50
-....\TU/Brill(0)/m/n/10 7
-....\kern-0.35 (font)
-....\TU/Brill(0)/m/n/10 9
-....\TU/Brill(0)/m/n/10 .
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty -51
-...\glue 10.0 plus 3.0 minus 5.0
-...\glue -11.81 plus -3.0 minus -5.0
-...\penalty -300
-...\glue 1.81
-...\glue 10.0 plus 3.0 minus 5.0
-...\glue -10.0 plus -3.0 minus -5.0
-...\glue 14.175 plus 4.05 minus 0.80998
-...\glue(\parskip) 0.0 plus 1.0
-...\glue(\baselineskip) 6.61401
-...\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(0.0+0.0)x0.0, direction TLT
-.....\glue 0.0
-....\TU/Brill(0)/b/n/14.4 A
-....\TU/Brill(0)/b/n/14.4 b
-....\discretionary (penalty 50)
-.....< \kern0.144 (font)
-.....< \TU/Brill(0)/b/n/14.4 -
-....\TU/Brill(0)/b/n/14.4 b
-....\TU/Brill(0)/b/n/14.4 r
-....\kern-0.144 (font)
-....\TU/Brill(0)/b/n/14.4 e
-....\discretionary (penalty 50)
-.....< \kern0.144 (font)
-.....< \TU/Brill(0)/b/n/14.4 -
-....\TU/Brill(0)/b/n/14.4 v
-....\TU/Brill(0)/b/n/14.4 i
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/b/n/14.4 -
-....\TU/Brill(0)/b/n/14.4 a
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/b/n/14.4 -
-....\TU/Brill(0)/b/n/14.4 t
-....\TU/Brill(0)/b/n/14.4 i
-....\TU/Brill(0)/b/n/14.4 o
-....\TU/Brill(0)/b/n/14.4 n
-....\TU/Brill(0)/b/n/14.4 s
-....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty 10000
-...\glue 9.31502 plus 0.80998
-...\glue(\parskip) 0.0
-...\glue(\baselineskip) 5.1484
-...\hbox(6.65+2.47)x320.26001, glue set 100.56001fil, shifted 24.73999, direction TLT
-....\localpar
-.....\localinterlinepenalty=0
-.....\localbrokenpenalty=0
-.....\localleftbox=null
-.....\localrightbox=null
-....\hbox(6.1+1.91)x0.0, direction TLT
-.....\glue 0.0
-.....\glue -14.73999
-.....\glue -10.0
-.....\hbox(6.1+1.91)x14.73999, direction TLT
-......\TU/Brill(0)/m/it/10 J
-......\TU/Brill(0)/m/it/10 D
-......\kern-0.1 (font)
-......\TU/Brill(0)/m/it/10 T
-......\kern0.93 (italic)
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(633.0+0.0)x407.0, direction TLT
+..\glue 16.0
+..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
+...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\pdflinkstate 1
+....\hbox(0.0+0.0)x345.0, direction TLT
+.....\pdfcolorstack 0 push {0 g 0 G}
+.....\hbox(0.0+0.0)x345.0, direction TLT
+.....\pdfcolorstack 0 pop
+....\pdflinkstate 0
+...\glue 25.0
+...\glue(\lineskip) 0.0
+...\vbox(550.0+0.0)x345.0, glue set 374.97992fil, direction TLT
+....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
+....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
+....\write-{}
+....\pdfdest name{Doc-Start} xyz
+....\glue(\topskip) 3.32
+....\hbox(6.68+2.5)x345.0, glue set 12.47fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\write1{\abx@aux@page{1}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:1:wellhausen:1876-1877} xyz
+.......\penalty 10000
+.....\TU/Brill(0)/m/n/10 J
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\penalty 25
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 W
+.....\kern-0.65 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 m
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 H
+.....\TU/Brill(0)/m/n/10 e
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 x
+.....\discretionary (penalty 50)
+......< \kern-0.25 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:JDT}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/it/10 J
+.....\TU/Brill(0)/m/it/10 D
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 T
+.....\kern0.93 (italic)
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 1
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 6
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 5
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 ;
+.....\glue(\spaceskip) 1.98 plus 1.485 minus 0.44
+.....\TU/Brill(0)/m/n/10 2
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 2
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 300
+....\glue(\baselineskip) 5.29
+....\hbox(4.21+1.81)x345.0, glue set 158.79999fil, direction TLT
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.35 (font)
+.....\TU/Brill(0)/m/n/10 9
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 3.51001
+....\hbox(6.68+2.5)x345.0, glue set 12.255fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\write1{\abx@aux@page{6}{\the \c@page }}
+.....\penalty 10000
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.......\pdfdest name{cite.0:t:2:wellhausen:1876-1877} xyz
+.......\penalty 10000
+.....\TU/Brill(0)/m/n/10 J
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\penalty 25
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 W
+.....\kern-0.65 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 m
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 H
+.....\TU/Brill(0)/m/n/10 e
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 x
+.....\discretionary (penalty 50)
+......< \kern-0.25 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:JDT}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/it/10 J
+.....\TU/Brill(0)/m/it/10 D
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 T
+.....\kern0.93 (italic)
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 1
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 6
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 ;
+.....\glue(\spaceskip) 1.98 plus 1.485 minus 0.44
+.....\TU/Brill(0)/m/n/10 2
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 2
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 :
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 4
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.85
+....\hbox(6.65+2.39)x345.0, glue set 68.68999fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 W
+.....\kern-0.65 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:2:wellhausen:1876-1877}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 m
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 H
+.....\TU/Brill(0)/m/n/10 e
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 x
+.....\discretionary (penalty 50)
+......< \kern-0.25 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 s
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\TU/Brill(0)/m/n/10 ,
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 :
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 4
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -300
+....\glue 14.175 plus 4.05 minus 0.80998
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 6.03401
+....\hbox(9.57599+0.2016)x345.0, glue set 141.3024fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\kern0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
+........\pdfdest name{section*.1} xyz
+........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\glue 10.0
-....\penalty 0
-....\write1{\abx@aux@page{17}{\the \c@page }}
-....\TU/Brill(0)/m/it/10 J
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/it/10 a
-....\TU/Brill(0)/m/it/10 h
-....\TU/Brill(0)/m/it/10 r
-....\kern-0.1 (font)
-....\TU/Brill(0)/m/it/10 b
-....\TU/Brill(0)/m/it/10 u
-....\TU/Brill(0)/m/it/10 c
-....\TU/Brill(0)/m/it/10 h
-....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
-....\TU/Brill(0)/m/it/10 f
-....\TU/Brill(0)/m/it/10 ^^fc
-....\TU/Brill(0)/m/it/10 r
-....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
-....\TU/Brill(0)/m/it/10 d
-....\TU/Brill(0)/m/it/10 e
-....\TU/Brill(0)/m/it/10 u
-....\TU/Brill(0)/m/it/10 t
-....\TU/Brill(0)/m/it/10 s
-....\TU/Brill(0)/m/it/10 c
-....\TU/Brill(0)/m/it/10 h
-....\TU/Brill(0)/m/it/10 e
-....\glue(\spaceskip) 1.62001 plus 0.91 minus 0.60667
-....\TU/Brill(0)/m/it/10 T
-....\TU/Brill(0)/m/it/10 h
-....\TU/Brill(0)/m/it/10 e
-....\discretionary (penalty 50)
-.....< \TU/Brill(0)/m/it/10 -
-.....= \kern-0.05 (font)
-....\TU/Brill(0)/m/it/10 o
-....\TU/Brill(0)/m/it/10 l
-....\TU/Brill(0)/m/it/10 o
-....\discretionary (penalty 50)
-.....< \kern0.1 (font)
-.....< \TU/Brill(0)/m/it/10 -
-....\TU/Brill(0)/m/it/10 g
-....\TU/Brill(0)/m/it/10 i
-....\TU/Brill(0)/m/it/10 e
-....\kern0.0 (italic)
+.....\TU/Brill(0)/b/n/14.4 R
+.....\kern-0.216 (font)
+.....\TU/Brill(0)/b/n/14.4 e
+.....\TU/Brill(0)/b/n/14.4 f
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 e
+.....\TU/Brill(0)/b/n/14.4 r
+.....\discretionary (penalty 50)
+......< \kern-0.288 (font)
+......< \TU/Brill(0)/b/n/14.4 -
+......= \kern-0.144 (font)
+.....\TU/Brill(0)/b/n/14.4 e
+.....\TU/Brill(0)/b/n/14.4 n
+.....\TU/Brill(0)/b/n/14.4 c
+.....\TU/Brill(0)/b/n/14.4 e
+.....\TU/Brill(0)/b/n/14.4 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue(\parfillskip) 0.0 plus 1.0fil
-....\glue(\rightskip) 0.0 plus 1.0fil
-...\penalty -51
-...\glue 10.0 plus 3.0 minus 5.0
-...\glue -2.47
-...\glue 0.0 plus 1.0fil
-...\glue 0.0
-...\glue 0.0 plus 0.0001fil
-..\glue(\baselineskip) 30.0
-..\hbox(0.0+0.0)x345.0, direction TLT
+....\glue 9.31502 plus 0.80998
+....\pdfdest name{cite.0@wellhausen:1876-1877} xyz
+....\penalty 10000
+....\glue -9.31502 plus -0.80998
+....\glue 9.31502 plus 0.80998
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.11841
+....\hbox(6.68+2.5)x330.0, glue set 11.03001fil, shifted 15.0, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x-15.0, direction TLT
+......\glue -15.0
+......\glue -20.0
+......\glue -5.0
+......\hbox(0.0+0.0)x20.0, glue set 20.0fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\glue 0.0 plus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 5.0
+.....\penalty 0
+.....\write1{\abx@aux@page{12}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 W
+.....\kern-0.65 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\penalty 25
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/n/10 J
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 .
+.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 m
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 H
+.....\TU/Brill(0)/m/n/10 e
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 x
+.....\discretionary (penalty 50)
+......< \kern-0.25 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 .
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:JDT}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/it/10 J
+.....\TU/Brill(0)/m/it/10 D
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 T
+.....\kern0.93 (italic)
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 1
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 6
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 5
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 ;
+.....\glue(\spaceskip) 1.98 plus 0.99396 minus 0.65736
+.....\TU/Brill(0)/m/n/10 2
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 2
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 8
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 25000
+....\glue(\baselineskip) 5.29
+....\hbox(4.21+1.81)x330.0, glue set 150.29999fil, shifted 15.0, direction TLT
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.35 (font)
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 .
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -11.81 plus -3.0 minus -5.0
+....\penalty -300
+....\glue 1.81
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -10.0 plus -3.0 minus -5.0
+....\glue 14.175 plus 4.05 minus 0.80998
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 6.61401
+....\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\kern0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
+........\pdfdest name{section*.2} xyz
+........\penalty 10000
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\TU/Brill(0)/b/n/14.4 A
+.....\TU/Brill(0)/b/n/14.4 b
+.....\discretionary (penalty 50)
+......< \kern0.144 (font)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 b
+.....\TU/Brill(0)/b/n/14.4 r
+.....\kern-0.144 (font)
+.....\TU/Brill(0)/b/n/14.4 e
+.....\discretionary (penalty 50)
+......< \kern0.144 (font)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 v
+.....\TU/Brill(0)/b/n/14.4 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 t
+.....\TU/Brill(0)/b/n/14.4 i
+.....\TU/Brill(0)/b/n/14.4 o
+.....\TU/Brill(0)/b/n/14.4 n
+.....\TU/Brill(0)/b/n/14.4 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 10000
+....\glue 9.31502 plus 0.80998
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.1484
+....\hbox(6.65+2.47)x320.26001, glue set 100.56001fil, shifted 24.73999, directi
+on TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.1+1.91)x0.0, direction TLT
+......\glue 0.0
+......\glue -14.73999
+......\glue -10.0
+......\hbox(6.1+1.91)x14.73999, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortjournal:JDT} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 J
+.......\TU/Brill(0)/m/it/10 D
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/it/10 T
+.......\kern0.93 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{17}{\the \c@page }}
+.....\TU/Brill(0)/m/it/10 J
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 b
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 h
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 f
+.....\TU/Brill(0)/m/it/10 ^^fc
+.....\TU/Brill(0)/m/it/10 r
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 d
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 s
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.62001 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 T
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 e
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+......= \kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 e
+.....\kern0.0 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -2.47
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\pdflinkstate 1
+...\glue(\baselineskip) 30.0
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 pop
+...\pdflinkstate 0
+.\kern0.0
+.\kern0.0
 (biblatex-sbl_6.3.2b.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.3.2b.run.xml'.
