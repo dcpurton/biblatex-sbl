@@ -240,11 +240,13 @@
 
 \newbibmacro*{cite:title}{%
   \printtext[citetitle]{%
-    \printfield[bibhyperlink]{labeltitle}}%
     \ifentrytype{ancienttext}
-      {\setunit{\titleaddonpunct}%
+      {\iffieldundef{shorttitle}
+         {\printfield{labeltitle}}
+         {\printtext[shorttitlelink]{\printfield{labeltitle}}}%
+        \setunit{\titleaddonpunct}%
        \printfield{titleaddon}}
-      {}}
+      {\printfield[bibhyperlink]{labeltitle}}}}
 
 \newbibmacro*{cite:label:editor}{%
   \setunit{\addspace}%

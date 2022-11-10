@@ -613,6 +613,11 @@
     {#1}
     {\bibhypertarget{shorthand:\thefield{shorthand}}{#1}}}
 \DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\thefield{shorthand}}{#1}}
+\DeclareFieldFormat{shorttitletarget}{%
+  \iffieldundef{shorttitle}
+    {#1}
+    {\bibhypertarget{shorttitle:\thefield{entrykey}}{#1}}}
+\DeclareFieldFormat{shorttitlelink}{\bibhyperlink{shorttitle:\thefield{entrykey}}{#1}}
 \DeclareFieldFormat{shortjournaltarget}{%
   \iffieldundef{shortjournal}
     {#1}
@@ -970,7 +975,7 @@
 
 \newbibmacro*{abbrev:printabbrev}{%
   \ifentrytype{ancienttext}
-    {\printfield[shorttitlewidth]{shorttitle}}
+    {\printtext[shorttitletarget]{\printfield[shorttitlewidth]{shorttitle}}}
     {\iffieldundef{shorthand}
        {\printtext[shortseriestarget]{\printfield[shortserieswidth]{shortseries}}%
         \printtext[shortjournaltarget]{\printfield[shortjournalwidth]{shortjournal}}}
