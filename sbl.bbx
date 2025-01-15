@@ -11,6 +11,8 @@
 \DeclareBibliographyDriver{ancienttext}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
+  \clearfield{shorttitle}%
+  \restorefield{labeltitle}{\abx@field@title}%
   \usebibmacro{cite:short:ancienttext}%
   \usebibmacro{finentry}}
 
