@@ -156,6 +156,30 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+\DeclareCiteCommand{\citetitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+   \usebibmacro{cite:title}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\citetitle}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexfield{indextitle}}
+     {}%
+   \clearfield{shorttitle}%
+   \restorefield{labeltitle}{\abx@field@title}%
+   \usebibmacro{cite:title}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 \DeclareCiteCommand*{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}}
