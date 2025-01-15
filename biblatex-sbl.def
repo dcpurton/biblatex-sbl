@@ -84,6 +84,10 @@
 \DeclareEntryOption[boolean]{parens}[true]{%
   \settoggle{sbl@blx@parens}{#1}}
 
+\newtoggle{sbl@blx@transinparens}
+\DeclareEntryOption[boolean]{transinparens}[true]{%
+  \settoggle{sbl@blx@transinparens}{#1}}
+
 \newtoggle{sbl@blx@usetitle}
 \DeclareTypeOption[boolean]{usetitle}[true]{%
   \settoggle{sbl@blx@usetitle}{#1}}
