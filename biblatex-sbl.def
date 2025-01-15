@@ -519,11 +519,19 @@
 
 \DeclareFieldFormat[online,review,inreference]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
-  \iffieldundef{entrysubtype}
-    {\ifnameundef{author}
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{inancientcollection}}
+    or
+    test {\iffieldequalstr{entrysubtype}{inancienttext}}
+  }
+    {\mkbibquote{#1\isdot}}
+    {\ifboolexpr{
+       test {\ifnameundef{author}}
+       and
+       not test {\iffieldequalstr{entrysubtype}{ancientbook}}
+     }
        {#1\isdot}
-       {\mkbibemph{#1\isdot}}}
-    {\mkbibquote{#1\isdot}}}
+       {\mkbibemph{#1\isdot}}}}
 \DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
 \DeclareFieldFormat{edition}{%
   \ifinteger{#1}
@@ -565,11 +573,19 @@
 \DeclareFieldFormat{shorttitlewidth}{}
 \DeclareFieldFormat[online,review,inreference]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
-  \iffieldundef{entrysubtype}
-    {\ifnameundef{author}
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{inancientcollection}}
+    or
+    test {\iffieldequalstr{entrysubtype}{inancienttext}}
+  }
+    {\mkbibquote{#1}}
+    {\ifboolexpr{
+       test {\ifnameundef{author}}
+       and
+       not test {\iffieldequalstr{entrysubtype}{ancientbook}}
+     }
        {#1}
-       {\mkbibemph{#1}}}
-    {\mkbibquote{#1}}}
+       {\mkbibemph{#1}}}}
 \DeclareFieldFormat[series]{title}{#1}
 \DeclareFieldFormat[ancienttext]{titleaddon}{\mknormrange{#1}}
 \DeclareFieldFormat[suppbook]{titlecase}{\ifcapital{\MakeCapital{#1}}{#1}}
