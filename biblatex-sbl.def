@@ -485,6 +485,7 @@
     {\addcomma}%
   \space}
 \DeclareDelimFormat[section]{postnotedelim}{\addspace}
+\DeclareDelimFormat[series]{postnotedelim}{\addspace}
 \DeclareDelimFormat[volume]{postnotedelim}{%
   \ifpaginationequalstr{none}
     {\ifboolexpr{
