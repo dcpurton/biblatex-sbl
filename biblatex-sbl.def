@@ -433,8 +433,6 @@
   \ifboolexpr{
     test {\ifentrytype{ancienttext}}
     and
-    test {\iffieldundef{entrysubtype}}
-    and
     test {\iffieldbegpages{titleaddon}}
   }
     {\addspace}
