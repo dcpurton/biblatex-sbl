@@ -61,13 +61,6 @@
   \blx@bbl@hooks
   \endgroup}
 
-\def\blx@locallabelwidth@write@length#1{%
-  \blx@auxwrite\@mainaux{}
-    {\string\abx@aux@locallabelwidth
-       {\the\blx@biblioinstance}%
-       {#1}%
-       {\the\csname local#1width\endcsname}}}
-
 
 % ## Style options
 
