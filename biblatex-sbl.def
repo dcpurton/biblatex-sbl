@@ -161,6 +161,13 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
+    % @series entries not in bibliography
+    \map[overwrite]{
+      \pertype{series}
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbib,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
     % add related entries to the list of abbreviations
     \map[overwrite]{
       \pernottype{ancienttext}
