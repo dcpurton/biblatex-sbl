@@ -1,12 +1,13 @@
+\DocumentMetadata{lang=en}
 \documentclass{article}
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
 \START
 \showoutput
@@ -24,7 +25,7 @@
 
 \cite[(3.506-521)]{josephus:bj}
 
-Translations from the \citetitle*{josephus:cap} follow that of
+Translations from the \citetitle{josephus:cap} follow that of
 \cite{josephus:life;againstapion}.
 
 \cite{josephus:jewishantiquities}

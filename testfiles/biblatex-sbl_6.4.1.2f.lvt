@@ -1,18 +1,19 @@
+\DocumentMetadata{lang=en}
 \documentclass{article}
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
 \START
 \showoutput
-\volcite{1.3}{ARM1}
+\cite[1.3]{ARM1}
 
-\volcite{1.3}{ARMT1}
+\cite[1.3]{ARMT1}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

@@ -1,13 +1,15 @@
+\DocumentMetadata{lang=en}
 \documentclass{article}
 \input{regression-test}
 \usepackage{fontspec}
 \setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\frenchspacing
 \begin{document}
+\enlargethispage{\baselineskip}
 \START
 \showoutput
 \cite*[(4.19)]{augustine:conf}
@@ -28,6 +30,7 @@ Translations from the \citetitle{apuleius:golden} follow that of
 \nocite{aristotle:metaphysics}
 \nocite{augustine:cityofgod}
 \nocite{augustine:selectletters}
+\nocite{aristotle:poetics,longinus:sublime,demetrius:style}
 \printbibliography
 \printbibheading[title=Abbreviations]
 \printbiblist[heading=subbibliography, title=Primary Sources,
