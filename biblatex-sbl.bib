@@ -1463,8 +1463,7 @@
   options = {parens}
 }
 
-@book{ARM1,
-  shorthand = {ARM},
+@book{georges:1967,
   author = {Dossin, Georges},
   title = {Lettres},
   series = {Archives royales de Mari},
@@ -1474,12 +1473,10 @@
   location = {Paris},
   publisher = {Geuthner},
   date = {1967},
-  options = {shorthandformat=series, skipbib=false, skipbiblist},
   langid = {french}
 }
 
-@book{ARMT1,
-  shorthand = {ARMT},
+@book{georges:1950,
   author = {Dossin, Georges},
   title = {Correspondance de Šamši-Addu et de ses fils},
   series = {Archives royales de Mari, transcrite et traduite},
@@ -1488,8 +1485,19 @@
   location = {Paris},
   publisher = {Imprimerei nationale},
   date = {1950},
-  options = {shorthandformat=roman, skipbib=false, skipbiblist},
   langid = {french}
+}
+
+@series{ARM1,
+  series = {Archives royales de Mari},
+  shortseries = {ARM},
+  xref = {georges:1967}
+}
+
+@series{ARMT1,
+  series = {Archives royales de Mari, transcrite et traduite},
+  shortseries = {ARMT},
+  xref = {georges:1950}
 }
 
 @mvbook{augustine:confessions,
