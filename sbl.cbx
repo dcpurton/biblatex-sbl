@@ -215,28 +215,44 @@
       and
       not togl {sbl@blx@shorthandintro}
     )
+    or
+    test {\ifentrytype{series}}
   }
     {\clearfield{pages}%
      \clearfield{pagetotal}%
-     \iffieldundef{shorthand}
-       {\ifboolexpr{
-          test {\ifciteibid}
-          and
-          not test {\iffirstonpage}
-        }
-          {\usebibmacro{cite:ibid}}
-          {\ifdefbibmacro{cite:short:\thefield{entrytype}}
-             {\usebibmacro*{cite:short:\thefield{entrytype}}}
-             {\usebibmacro{cite:short}}}}
-       {\iffieldequalstr{pagination}{section}
-          {\delimcontext{section}}
-          {}%
-        \usebibmacro{cite:shorthand}%
-        \usebibmacro{cite:postnote}}}
+     \ifboolexpr{
+       test {\ifentrytype{series}}
+       and
+       test {\iffieldundef{shorthand}}
+     }
+       {\delimcontext{series}%
+        \usebibmacro{abbrev:shortfield}{shortseries}{series}%
+        \usebibmacro*{cite:postnote}}
+       {\iffieldundef{shorthand}
+          {\ifboolexpr{
+             test {\ifciteibid}
+             and
+             not test {\iffirstonpage}
+           }
+             {\usebibmacro{cite:ibid}}
+             {\ifdefbibmacro{cite:short:\thefield{entrytype}}
+                {\usebibmacro*{cite:short:\thefield{entrytype}}}
+                {\usebibmacro{cite:short}}}}
+          {\iffieldequalstr{pagination}{section}
+             {\delimcontext{section}}
+             {}%
+           \usebibmacro{cite:shorthand}%
+           \usebibmacro{cite:postnote}}}}
     {\ifcrossrefseen
       {\usebibmacro{cite:full:citepages}%
        \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
-      {\usebibmacro{cite:full}}}}
+      {\ifboolexpr{
+         test {\ifentrytype{ancienttext}}
+         and
+         test {\iffieldundef{entrysubtype}}
+       }
+         {\usebibmacro{cite:short:ancienttext}}
+         {\usebibmacro{cite:full}}}}}
 
 \newbibmacro*{cite:star}{%
   \usebibmacro{cite:citepages}%
@@ -290,7 +306,7 @@
 \newbibmacro*{cite:maintitle:ancienttext}{%
   \iffieldundef{shortmaintitle}
     {\printfield[citetitle]{maintitle}}
-    {\printfield[citetitle]{shortmaintitle}}%
+    {\printtext[citetitle]{\printfield[shortmaintitlelink]{shortmaintitle}}}%
   \setunit*{\newunitpunct}}
 
 \newbibmacro*{cite:title:ancienttext}{%
@@ -304,6 +320,7 @@
     test {\iffieldundef{titleaddon}}
   }
     {\clearfield{shortmaintitle}%
+     \clearfield{shorttitle}%
      \restorefield{labeltitle}{\abx@field@title}}
     {}%
   \usebibmacro{cite:maintitle:ancienttext}\newblock
