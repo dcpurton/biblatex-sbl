@@ -1627,6 +1627,81 @@
   date = {1930}
 }
 
+@book{aristotle:poetics:book,
+  author = {Aristotle},
+  title = {Poetics},
+  editor = {Halliwell, Stephen},
+  translator = {Halliwell, Stephen},
+  related = {longinus:sublime:related,demetrius:style:related}
+}
+
+@book{longinus:sublime:related,
+  author = {Longinus},
+  title = {On the Sublime},
+  editora = {Fyfe, W. H.},
+  editoratype = {translator},
+  editorb = {Russell, Donald},
+  editorbtype = {reviser},
+}
+
+@book{demetrius:style:related,
+  author = {Demetrius},
+  title = {On Style},
+  editor = {Innes, Doreen C.},
+  translator = {Innes, Doreen C.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1995}
+}
+
+@book{aristotle:poetics:book:short,
+  author = {Aristotle},
+  title = {Poetics},
+  options = {skipbib}
+}
+
+@book{longinus:sublime:book,
+  author = {Longinus},
+  title = {On the Sublime},
+  related = {aristotle:poetics:book:short},
+  relatedtype = {see},
+  execute = {\nocite{aristotle:poetics:book,aristotle:poetics:book:short}}
+}
+
+@book{demetrius:style:book,
+  author = {Demetrius},
+  title = {On Style},
+  related = {aristotle:poetics:book:short},
+  relatedtype = {see},
+  execute = {\nocite{aristotle:poetics:book,aristotle:poetics:book:short}}
+}
+
+@ancienttext{aristotle:poetics,
+  author = {Aristotle},
+  title = {Poetics},
+  translator = {Halliwell, Stephen},
+  xref = {aristotle:poetics:book},
+  execute = {\nocite{aristotle:poetics:book}}
+}
+
+@ancienttext{longinus:sublime,
+  author = {Longinus},
+  title = {On the Sublime},
+  translator = {Fyfe, W. H.},
+  xref = {longinus:sublime:book},
+  execute = {\nocite{aristotle:poetics:book,longinus:sublime:book}},
+}
+
+@ancienttext{demetrius:style,
+  author = {Demetrius},
+  title = {On Style},
+  translator = {Innes, Doreen C.},
+  xref = {demetrius:style:book},
+  execute = {\nocite{aristotle:poetics:book,demetrius:style:book}},
+}
+
 @book{josephus:life;againstapion,
   author = {Josephus},
   title = {The Life; Against Apion},
