@@ -611,23 +611,30 @@
 \DeclareFieldFormat{shorthandtarget}{%
   \iffieldundef{shorthand}
     {#1}
-    {\bibhypertarget{shorthand:\thefield{shorthand}}{#1}}}
-\DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\thefield{shorthand}}{#1}}
+    {\bibhypertarget{shorthand:\strfield{shorthand}}{#1}}}
+\DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\strfield{shorthand}}{#1}}
+\DeclareFieldFormat{shortmaintitlelink}{%
+  \bibhyperlink{shorttitle:\strname{author}:\strfield{shortmaintitle}}{#1}}
 \DeclareFieldFormat{shorttitletarget}{%
   \iffieldundef{shorttitle}
     {#1}
-    {\bibhypertarget{shorttitle:\thefield{entrykey}}{#1}}}
-\DeclareFieldFormat{shorttitlelink}{\bibhyperlink{shorttitle:\thefield{entrykey}}{#1}}
+    {\bibhypertarget{shorttitle:\strname{author}:\strfield{shorttitle}}{#1}}}
+\DeclareFieldFormat{shorttitlelink}{%
+  \bibhyperlink{\iffootnote{f}{t}:\cbx@resetcount:\thefield{entrykey}}{#1}}
+\DeclareFieldFormat[ancienttext]{shorttitlelink}{%
+  \iffieldundef{entrysubtype}
+    {\bibhyperlink{shorttitle:\strname{author}:\strfield{shorttitle}}{#1}}
+    {#1}}
 \DeclareFieldFormat{shortjournaltarget}{%
   \iffieldundef{shortjournal}
     {#1}
-    {\bibhypertarget{shortjournal:\thefield{shortjournal}}{#1}}}
-\DeclareFieldFormat{shortjournallink}{\bibhyperlink{shortjournal:\thefield{shortjournal}}{#1}}
+    {\bibhypertarget{shortjournal:\strfield{shortjournal}}{#1}}}
+\DeclareFieldFormat{shortjournallink}{\bibhyperlink{shortjournal:\strfield{shortjournal}}{#1}}
 \DeclareFieldFormat{shortseriestarget}{%
   \iffieldundef{shortseries}
     {#1}
-    {\bibhypertarget{shortseries:\thefield{shortseries}}{#1}}}
-\DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\thefield{shortseries}}{#1}}
+    {\bibhypertarget{shortseries:\strfield{shortseries}}{#1}}}
+\DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\strfield{shortseries}}{#1}}
 
 \DeclareFieldAlias{shorthandwidth}{shorthand}
 \DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
