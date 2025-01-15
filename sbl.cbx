@@ -262,7 +262,8 @@
      \usebibmacro{cite:title:ancienttext}%
      \iffieldundef{postnote}
        {}
-       {\usebibmacro{cite:collection:ancienttext}}}
+       {\togglefalse{sbl@blx@transinparens}%
+        \usebibmacro{cite:collection:ancienttext}}}
     {\let\ifciteseen\@firstoftwo
      \usebibmacro{cite}}}
 
@@ -279,14 +280,14 @@
   \printtext[shorthandlink]{\printfield{shorthand}}}
 
 \newbibmacro*{cite:title}{%
-  \printtext[citetitle]{%
-    \ifentrytype{ancienttext}
-      {\iffieldundef{shorttitle}
+  \ifentrytype{ancienttext}
+    {\printtext[citetitle]{%
+       \iffieldundef{shorttitle}
          {\printfield{labeltitle}}
-         {\printtext[shorttitlelink]{\printfield{labeltitle}}}%
-        \setunit{\titleaddonpunct}%
-       \printfield{titleaddon}}
-      {\printfield[bibhyperlink]{labeltitle}}}}
+         {\printtext[shorttitlelink]{\printfield{labeltitle}}}}%
+     \setunit{\titleaddonpunct}%
+     \printfield{titleaddon}}
+    {\printtext[citetitle]{\printfield[bibhyperlink]{labeltitle}}}}
 
 \newbibmacro*{cite:label:editor}{%
   \setunit{\addspace}%
@@ -348,16 +349,25 @@
                {\printtext[parens]{\printnames[labelname]{translator}}}}}}
        {\printtext[parens]{\printnames[labelname]{translator}}}}
     {\newunit
-     \ifnameundef{translator}
-       {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
-       {\usebibmacro{bytranslator}}}}
+     \ifbibliography
+       {\togglefalse{sbl@blx@transinparens}}
+       {}%
+     \iftoggle{sbl@blx@transinparens}
+       {}
+       {\ifnameundef{translator}
+          {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
+          {\usebibmacro{bytranslator}}}}}
 
 \newbibmacro*{cite:collection:ancienttext}{%
   \ifbibliography{\togglefalse{sbl@blx@parens}}{}%
   \iftoggle{sbl@blx@parens}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}%
-     \renewcommand*{\begrelateddelimancienttext}{}}
+     \iftoggle{sbl@blx@transinparens}
+       {\ifnameundef{translator}
+          {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
+          {\usebibmacro{bytranslator}}}
+       {\renewcommand*{\begrelateddelimancienttext}{}}}
     {\newunit}%
   \usebibmacro{related:init}%
   \usebibmacro{related}%
