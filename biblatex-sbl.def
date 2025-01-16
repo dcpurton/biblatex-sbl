@@ -126,12 +126,12 @@
   \maps{
     % Split titles into titles and subtitles (ignoring braced colons)
     \map[overwrite]{
-      \step[fieldsource=title, match=\regexp{(.*)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):(.*)}, final]
+      \step[fieldsource=title, match=\regexp{(.*?)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):\s(.*)}, final]
       \step[fieldset=title, fieldvalue={$1}]
       \step[fieldset=subtitle, fieldvalue={$2}]
     }
     \map{
-      \step[fieldsource=revdtitle, match=\regexp{(.*)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):(.*)}, final]
+      \step[fieldsource=revdtitle, match=\regexp{(.*?)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):\s(.*)}, final]
       \step[fieldset=revdtitle, fieldvalue={$1}]
       \step[fieldset=revdsubtitle, fieldvalue={$2}]
     }
