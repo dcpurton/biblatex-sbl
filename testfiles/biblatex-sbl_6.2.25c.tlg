@@ -34,12 +34,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 416.46548fil, direction TLT
@@ -204,7 +202,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 0
-.....\TU/Brill(0)/m/it/10 – (ligature --)
+.....\TU/Brill(0)/m/it/10 –
 .....\TU/Brill(0)/m/it/10 3
 .....\TU/Brill(0)/m/it/10 3
 .....\TU/Brill(0)/m/it/10 2
@@ -274,7 +272,7 @@ Completed box being shipped out [1]
 ....\penalty 150
 ....\glue(\baselineskip) 2.82
 ....\hbox(6.68+2.47)x345.0, glue set 63.84999fil, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF00680074007400700073003A002F002F0064006F0069002E006F00720067002F00310030002E0031003000390033002F006F00780066006F0072006400680062002F0039003700380030003100390039003200310032003900370032002E003000300031002E0030003000300031> /A <</Type /Action /S /URI /URI (https://doi.org/10.1093/oxfordhb/9780199212972.001.0001) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -654,7 +652,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 0
-.....\TU/Brill(0)/m/it/10 – (ligature --)
+.....\TU/Brill(0)/m/it/10 –
 .....\TU/Brill(0)/m/it/10 3
 .....\TU/Brill(0)/m/it/10 3
 .....\TU/Brill(0)/m/it/10 2
@@ -722,7 +720,7 @@ Completed box being shipped out [1]
 ....\penalty 15000
 ....\glue(\baselineskip) 2.85
 ....\hbox(6.68+2.47)x330.0, glue set 55.34999fil, shifted 15.0, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF00680074007400700073003A002F002F0064006F0069002E006F00720067002F00310030002E0031003000390033002F006F00780066006F0072006400680062002F0039003700380030003100390039003200310032003900370032002E003000300031002E0030003000300031> /A <</Type /Action /S /URI /URI (https://doi.org/10.1093/oxfordhb/9780199212972.001.0001) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -812,14 +810,15 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.2.25c.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.2.25c.run.xml'.

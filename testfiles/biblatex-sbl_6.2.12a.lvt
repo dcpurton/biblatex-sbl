@@ -1,4 +1,4 @@
-\DocumentMetadata{}
+\DocumentMetadata{lang=en}
 \documentclass{article}
 \begin{filecontents}[overwrite]{\jobname.bib}
 @article{attridge:1987,

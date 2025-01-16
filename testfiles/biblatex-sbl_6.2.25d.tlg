@@ -33,12 +33,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 386.97864fil, direction TLT
@@ -232,7 +230,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 )
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F006F0069002E0075006300680069006300610067006F002E006500640075002F007000640066002F0061007300310039002E007000640066> /A <</Type /Action /S /URI /URI (http://oi.uchicago.edu/pdf/as19.pdf) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -606,7 +604,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 4
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F006F0069002E0075006300680069006300610067006F002E006500640075002F007000640066002F0061007300310039002E007000640066> /A <</Type /Action /S /URI /URI (http://oi.uchicago.edu/pdf/as19.pdf) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -795,14 +793,15 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.2.25d.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.2.25d.run.xml'.

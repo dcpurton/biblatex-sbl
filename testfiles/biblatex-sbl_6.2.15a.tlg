@@ -29,12 +29,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 374.97992fil, direction TLT
@@ -224,7 +222,7 @@ Completed box being shipped out [1]
 .....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
 .....\TU/Brill(0)/m/n/10 5
 .....\TU/Brill(0)/m/n/10 0
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 5
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 ,
@@ -240,7 +238,7 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
 .....\TU/Brill(0)/m/n/10 9
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 0
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
@@ -566,7 +564,7 @@ Completed box being shipped out [1]
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 5
 .....\TU/Brill(0)/m/n/10 0
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 5
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 ;
@@ -582,7 +580,7 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 9
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 .
@@ -683,8 +681,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x312.39001, glue set 92.41002fil, shifted 32.60999, directio
-n TLT
+....\hbox(6.65+2.47)x312.39001, glue set 92.41002fil, shifted 32.60999, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -761,8 +758,7 @@ n TLT
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x312.39001, glue set 54.73003fil, shifted 32.60999, directio
-n TLT
+....\hbox(6.65+2.47)x312.39001, glue set 54.73003fil, shifted 32.60999, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -865,15 +861,16 @@ n TLT
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.2.15a.aux)
 LaTeX Warning: There were undefined references.
 Package biblatex Warning: Please rerun LaTeX.
