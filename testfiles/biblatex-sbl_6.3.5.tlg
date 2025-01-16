@@ -30,12 +30,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 464.46036fil, direction TLT
@@ -79,7 +77,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 a
@@ -93,7 +91,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 r
 .....\TU/Brill(0)/m/n/10 k
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 (
 .....\TU/Brill(0)/m/n/10 P
@@ -191,7 +189,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:klosinski:1988}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 M
@@ -211,7 +209,7 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 2
 .....\kern-0.1 (font)
@@ -308,7 +306,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 a
@@ -324,7 +322,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 k
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 .....\TU/Brill(0)/m/n/10 P
 .....\TU/Brill(0)/m/n/10 h
@@ -394,14 +392,15 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.3.5.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.3.5.run.xml'.

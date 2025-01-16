@@ -34,12 +34,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 440.46292fil, direction TLT
@@ -84,7 +82,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 t
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\kern0.3 (font)
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.65 (font)
@@ -121,7 +119,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/it/10 A
 .....\kern-0.15 (font)
@@ -181,7 +179,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 8
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F007700770077002E00740068006500610074006C0061006E007400690063002E0063006F006D002F00610074006C0061006E007400690063002F006900730073007500650073002F00390036006100750067002F006E0078007400630068007200630068002F006E0078007400630068007200630068002E00680074006D> /A <</Type /Action /S /URI /URI (http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -309,7 +307,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 t
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:truehart:1996}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 N
@@ -330,7 +328,7 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 3
 .....\TU/Brill(0)/m/n/10 7
@@ -429,7 +427,7 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\kern0.3 (font)
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.65 (font)
@@ -466,7 +464,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 .....\TU/Brill(0)/m/it/10 A
 .....\kern-0.15 (font)
@@ -526,7 +524,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 8
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /A <<\ETC.} action user{}
+.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F007700770077002E00740068006500610074006C0061006E007400690063002E0063006F006D002F00610074006C0061006E007400690063002F006900730073007500650073002F00390036006100750067002F006E0078007400630068007200630068002F006E0078007400630068007200630068002E00680074006D> /A <</Type /Action /S /URI /URI (http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm) >> } action user{}
 .....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
@@ -636,14 +634,15 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.3.10b.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.3.10b.run.xml'.

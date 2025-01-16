@@ -29,12 +29,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 398.97736fil, direction TLT
@@ -43,7 +41,7 @@ Completed box being shipped out [1]
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
-....\hbox(6.68+2.5)x345.0, glue set 17.70001fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 19.02fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -78,7 +76,7 @@ Completed box being shipped out [1]
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 D
 .....\kern-0.05 (font)
 .....\TU/Brill(0)/m/n/10 a
@@ -104,7 +102,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\TU/Brill(0)/m/n/10 :
 .....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
-.....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
 .....\TU/Brill(0)/m/n/10 G
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
@@ -113,12 +110,12 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 :
 .....\TU/Brill(0)/m/n/10 2
 .....\TU/Brill(0)/m/n/10 6
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 3
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:TZ}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
@@ -164,7 +161,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.82
-....\hbox(6.68+2.5)x345.0, glue set 41.84001fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 43.16002fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -199,7 +196,7 @@ Completed box being shipped out [1]
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 D
 .....\kern-0.05 (font)
 .....\TU/Brill(0)/m/n/10 a
@@ -225,7 +222,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\TU/Brill(0)/m/n/10 :
 .....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
-.....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
 .....\TU/Brill(0)/m/n/10 G
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
@@ -234,12 +230,12 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 :
 .....\TU/Brill(0)/m/n/10 2
 .....\TU/Brill(0)/m/n/10 6
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 3
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:TZ}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
@@ -295,7 +291,7 @@ Completed box being shipped out [1]
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:2:wildberger:1965}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 D
@@ -325,7 +321,7 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 4
 .....\TU/Brill(0)/m/n/10 8
@@ -383,7 +379,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.11841
-....\hbox(6.68+2.5)x330.0, glue set 16.64001fil, shifted 15.0, direction TLT
+....\hbox(6.68+2.5)x330.0, glue set 17.63002fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -424,7 +420,7 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 “ (ligature ``)
+.....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 D
 .....\kern-0.05 (font)
 .....\TU/Brill(0)/m/n/10 a
@@ -450,7 +446,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\TU/Brill(0)/m/n/10 :
 .....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
 .....\TU/Brill(0)/m/n/10 G
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
@@ -459,12 +454,12 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 :
 .....\TU/Brill(0)/m/n/10 2
 .....\TU/Brill(0)/m/n/10 6
-.....\TU/Brill(0)/m/n/10 – (ligature --)
+.....\TU/Brill(0)/m/n/10 –
 .....\TU/Brill(0)/m/n/10 3
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
-.....\TU/Brill(0)/m/n/10 ” (ligature '')
+.....\TU/Brill(0)/m/n/10 ”
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortjournal:TZ}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
@@ -567,8 +562,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x324.36002, glue set 117.99fil, shifted 20.63998, direction 
-TLT
+....\hbox(6.65+2.47)x324.36002, glue set 117.99fil, shifted 20.63998, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -640,14 +634,15 @@ TLT
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.3.2a.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.3.2a.run.xml'.

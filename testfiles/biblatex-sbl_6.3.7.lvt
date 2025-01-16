@@ -1,11 +1,9 @@
-\DocumentMetadata{}
+\DocumentMetadata{lang=en}
 \documentclass{article}
 \input{regression-test}
-\usepackage{babel}
-\babelprovide[import=en-US,main]{american}
-\babelprovide[import=el]{polutonikogreek}
-\babelfont[american]{rm}{Brill}
-\babelfont[polutonikogreek]{rm}[Contextuals=Alternate]{Brill}
+\usepackage[american]{babel}
+\babelprovide[import, onchar=ids]{polytonicgreek}
+\babelfont{rm}{Brill}
 \usepackage{csquotes}
 \usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl]{biblatex}

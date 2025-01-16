@@ -1,39 +1,5 @@
 This is a generated file for the l3build validation system.
 Don't change this file in any respect.
-luaotfload | aux : font no 20 (nil) defines no feature for script grek with lang
-uage ell
-Package fontspec Warning: Font 'Brill' is using the
-(fontspec)                default features for language 'Greek'.
-(fontspec)                That's usually fine, because many languages
-(fontspec)                require no specific features, but if the output is
-(fontspec)                not as expected, consider selecting another font.
-Package fontspec Info: Font family 'Brill(1)' created for font 'Brill' with
-(fontspec)             options
-(fontspec)             [Ligatures=TeX,Script=Greek,Language=Greek,Contextuals=Alternate].
-(fontspec)              
-(fontspec)              This font family consists of the following NFSS
-(fontspec)             series/shapes:
-(fontspec)              
-(fontspec)             - 'normal' (m/n) with NFSS spec.:
-(fontspec)             <->"Brill:mode=node;script=grek;language=dflt;+tlig;+calt;"
-(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
-(fontspec)             <->"Brill:mode=node;script=grek;language=dflt;+tlig;+calt;+smcp;"
-(fontspec)             - 'bold' (b/n) with NFSS spec.:
-(fontspec)             <->"Brill/B:mode=node;script=grek;language=dflt;+tlig;+calt;"
-(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
-(fontspec)             <->"Brill/B:mode=node;script=grek;language=dflt;+tlig;+calt;+smcp;"
-(fontspec)             - 'italic' (m/it) with NFSS spec.:
-(fontspec)             <->"Brill/I:mode=node;script=grek;language=dflt;+tlig;+calt;"
-(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
-(fontspec)             <->"Brill/I:mode=node;script=grek;language=dflt;+tlig;+calt;+smcp;"
-(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
-(fontspec)             <->"Brill/BI:mode=node;script=grek;language=dflt;+tlig;+calt;"
-(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
-(fontspec)             <->"Brill/BI:mode=node;script=grek;language=dflt;+tlig;+calt;+smcp;"
-(../loadhyph-el-monoton.tex UTF-8 Hyphenation patterns for uni-accent (monotonic) Modern Greek
-(../hyph-el-monoton.tex))
-LaTeX Font Info:    Font shape `TU/Brill(0)/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/Brill(0)/b/n' tried instead on input line ....
 Completed box being shipped out [1]
 \vbox(633.0+0.0)x407.0, direction TLT
 .\hbox(0.0+0.0)x0.0, direction TLT
@@ -63,12 +29,10 @@ Completed box being shipped out [1]
 ..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
 ...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
 ....\glue 0.0 plus 1.0fil
-....\pdflinkstate 1
 ....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 push {0 g 0 G}
 .....\hbox(0.0+0.0)x345.0, direction TLT
 .....\pdfcolorstack 0 pop
-....\pdflinkstate 0
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 194.99913fil, direction TLT
@@ -192,7 +156,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.83
-....\hbox(6.7+2.47)x345.0, glue set 61.97502fil, direction TLT
+....\hbox(6.7+2.47)x345.0, glue set 61.70001fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -235,50 +199,37 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\TU/Brill(1)/m/n/10 ί
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 α
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 ί
+.....\TU/Brill(0)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.2 (font)
-.....\TU/Brill(1)/m/n/10 λ
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 λ
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -310,7 +261,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.39)x345.0, glue set 65.1fil, direction TLT
+....\hbox(6.65+2.39)x345.0, glue set 64.62502fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -346,46 +297,37 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 ἄ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ἄ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ο
-.....\TU/Brill(1)/m/n/10 ς
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ο
+.....\TU/Brill(0)/m/n/10 ς
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ά
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ά
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ς
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ς
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -455,14 +397,12 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 μ
-.....\TU/Brill(1)/m/n/10 ο
-.....\TU/Brill(1)/m/n/10 ι
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 β
-.....\TU/Brill(1)/m/n/10 ή
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 μ
+.....\TU/Brill(0)/m/n/10 ο
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 β
+.....\TU/Brill(0)/m/n/10 ή
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -493,7 +433,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.83
-....\hbox(6.7+2.47)x345.0, glue set 87.57501fil, direction TLT
+....\hbox(6.7+2.47)x345.0, glue set 87.45fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -536,25 +476,18 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -586,7 +519,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x345.0, glue set 105.48001fil, direction TLT
+....\hbox(6.65+2.47)x345.0, glue set 105.43001fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -616,13 +549,10 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ὁ
-.....\kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ρ
-.....\TU/Brill(1)/m/n/10 ά
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ὁ
+.....\TU/Brill(0)/m/n/10 ρ
+.....\TU/Brill(0)/m/n/10 ά
+.....\TU/Brill(0)/m/n/10 ω
 .....\TU/Brill(0)/m/n/10 ,
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -659,7 +589,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.83
-....\hbox(6.7+2.47)x345.0, glue set 106.04002fil, direction TLT
+....\hbox(6.7+2.47)x345.0, glue set 105.76501fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -682,50 +612,37 @@ Completed box being shipped out [1]
 .....\glue 0.0002
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:beyer:diakoneo+diakonia+ktl}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\TU/Brill(1)/m/n/10 ί
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 α
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 ί
+.....\TU/Brill(0)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.2 (font)
-.....\TU/Brill(1)/m/n/10 λ
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 λ
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
@@ -745,7 +662,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x345.0, glue set 137.85fil, direction TLT
+....\hbox(6.65+2.47)x345.0, glue set 137.80002fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -766,13 +683,10 @@ Completed box being shipped out [1]
 .....\glue 0.0002
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:dahn:horao}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
-.....\TU/Brill(1)/m/n/10 ὁ
-.....\kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ρ
-.....\TU/Brill(1)/m/n/10 ά
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ὁ
+.....\TU/Brill(0)/m/n/10 ρ
+.....\TU/Brill(0)/m/n/10 ά
+.....\TU/Brill(0)/m/n/10 ω
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
@@ -814,14 +728,12 @@ Completed box being shipped out [1]
 .....\glue 0.0002
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:spicq:amoibe}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 μ
-.....\TU/Brill(1)/m/n/10 ο
-.....\TU/Brill(1)/m/n/10 ι
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 β
-.....\TU/Brill(1)/m/n/10 ή
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 μ
+.....\TU/Brill(0)/m/n/10 ο
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 β
+.....\TU/Brill(0)/m/n/10 ή
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
@@ -887,7 +799,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.0984
-....\hbox(6.7+2.47)x330.0, glue set 86.57501fil, shifted 15.0, direction TLT
+....\hbox(6.7+2.47)x330.0, glue set 86.45fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -934,25 +846,18 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -989,7 +894,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.83
-....\hbox(6.7+1.81)x330.0, glue set 81.52003fil, shifted 15.0, direction TLT
+....\hbox(6.7+1.81)x330.0, glue set 81.24503fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -1016,50 +921,37 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-.....\TU/Brill(1)/m/n/10 δ
-.....\TU/Brill(1)/m/n/10 ι
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 δ
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ο
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 ο
 .....\discretionary (penalty 50)
-......< \kern0.1 (font)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.05 (font)
-.....\TU/Brill(1)/m/n/10 ν
-.....\TU/Brill(1)/m/n/10 ί
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 α
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 ν
+.....\TU/Brill(0)/m/n/10 ί
+.....\TU/Brill(0)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.2 (font)
-.....\TU/Brill(1)/m/n/10 λ
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 λ
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -1096,7 +988,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 3.54001
-....\hbox(6.65+2.47)x330.0, glue set 103.48001fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 103.43001fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -1131,13 +1023,10 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ὁ
-.....\kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ρ
-.....\TU/Brill(1)/m/n/10 ά
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ὁ
+.....\TU/Brill(0)/m/n/10 ρ
+.....\TU/Brill(0)/m/n/10 ά
+.....\TU/Brill(0)/m/n/10 ω
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -1346,14 +1235,12 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 μ
-.....\TU/Brill(1)/m/n/10 ο
-.....\TU/Brill(1)/m/n/10 ι
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 β
-.....\TU/Brill(1)/m/n/10 ή
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 μ
+.....\TU/Brill(0)/m/n/10 ο
+.....\TU/Brill(0)/m/n/10 ι
+.....\TU/Brill(0)/m/n/10 β
+.....\TU/Brill(0)/m/n/10 ή
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -1389,7 +1276,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.9
-....\hbox(6.63+1.81)x330.0, glue set 72.58002fil, shifted 15.0, direction TLT
+....\hbox(6.63+1.81)x330.0, glue set 72.10503fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -1416,46 +1303,37 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue -0.0002
 .....\glue 0.0002
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 έ
-.....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-......= \kern-0.1 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 έ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-.....\TU/Brill(1)/m/n/10 ἄ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 α
+.....\TU/Brill(0)/m/n/10 ἄ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 α
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ο
-.....\TU/Brill(1)/m/n/10 ς
-.....\TU/Brill(1)/m/n/10 ,
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ο
+.....\TU/Brill(0)/m/n/10 ς
+.....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-.....\TU/Brill(1)/m/n/10 ἀ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ά
+.....\TU/Brill(0)/m/n/10 ἀ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ά
 .....\discretionary (penalty 50)
-......< \TU/Brill(1)/m/n/10 -
-.....\TU/Brill(1)/m/n/10 κ
-.....\TU/Brill(1)/m/n/10 τ
-.....\kern-0.15 (font)
-.....\TU/Brill(1)/m/n/10 ω
-.....\TU/Brill(1)/m/n/10 ς
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 κ
+.....\TU/Brill(0)/m/n/10 τ
+.....\TU/Brill(0)/m/n/10 ω
+.....\TU/Brill(0)/m/n/10 ς
 .....\TU/Brill(0)/m/n/10 .
 .....\kern-0.6 (font)
 .....\TU/Brill(0)/m/n/10 ”
@@ -1546,7 +1424,8 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x302.76, glue set 21.69995fil, shifted 42.24, direction TLT.....\localpar
+....\hbox(6.65+2.47)x302.76, glue set 21.69995fil, shifted 42.24, direction TLT
+.....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
@@ -1683,7 +1562,8 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.39)x302.76, glue set 68.19499fil, shifted 42.24, direction TLT.....\TU/Brill(0)/m/n/10 4
+....\hbox(6.65+2.39)x302.76, glue set 68.19499fil, shifted 42.24, direction TLT
+.....\TU/Brill(0)/m/n/10 4
 .....\penalty 10000
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 v
@@ -1748,7 +1628,8 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.96
-....\hbox(6.65+2.47)x302.76, glue set 11.11998fil, shifted 42.24, direction TLT.....\localpar
+....\hbox(6.65+2.47)x302.76, glue set 11.11998fil, shifted 42.24, direction TLT
+.....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
@@ -1890,7 +1771,8 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 15000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x302.76, glue set 39.83998fil, shifted 42.24, direction TLT.....\TU/Brill(0)/m/it/10 T
+....\hbox(6.65+2.47)x302.76, glue set 39.83998fil, shifted 42.24, direction TLT
+.....\TU/Brill(0)/m/it/10 T
 .....\kern-0.7 (font)
 .....\TU/Brill(0)/m/it/10 e
 .....\TU/Brill(0)/m/it/10 s
@@ -2180,7 +2062,8 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x302.76, glue set 38.61499fil, shifted 42.24, direction TLT.....\TU/Brill(0)/m/n/10 b
+....\hbox(6.65+2.47)x302.76, glue set 38.61499fil, shifted 42.24, direction TLT
+.....\TU/Brill(0)/m/n/10 b
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 y
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
@@ -2264,14 +2147,15 @@ Completed box being shipped out [1]
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
-...\pdflinkstate 1
 ...\glue(\baselineskip) 30.0
 ...\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 push {0 g 0 G}
 ....\hbox(0.0+0.0)x345.0, direction TLT
 ....\pdfcolorstack 0 pop
-...\pdflinkstate 0
 .\kern0.0
 .\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
 (biblatex-sbl_6.3.7.aux)
 Package logreq Info: Writing requests to 'biblatex-sbl_6.3.7.run.xml'.
