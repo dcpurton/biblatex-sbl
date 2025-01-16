@@ -264,7 +264,10 @@
        {}
        {\togglefalse{sbl@blx@transinparens}%
         \usebibmacro{cite:collection:ancienttext}}}
-    {\let\ifciteseen\@firstoftwo
+    {\let\ifciteibid\@secondoftwo%
+     \renewbibmacro*{author}{}%
+     \renewbibmacro*{editor+others}{}%
+     \renewbibmacro*{translator+others}{}%
      \usebibmacro{cite}}}
 
 \renewbibmacro*{cite:short}{%

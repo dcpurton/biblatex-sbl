@@ -1,0 +1,18 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+An earlier version of this essay appears as \cite*{moore:2017}. Reused here
+with permission.
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
