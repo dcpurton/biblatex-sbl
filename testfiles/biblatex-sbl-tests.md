@@ -78,6 +78,7 @@
 | biblatex-sbl_6.4.1.2d | SBLHS §6.4.1.2 | RIMA clarifications |
 | biblatex-sbl_6.4.1.2e | SBLHS §6.4.1.2 | |
 | biblatex-sbl_6.4.1.2f | SBLHS §6.4.1.2 | |
+| biblatex-sbl_6.4a     | SBLHS §6.4     | see [here](https://sblhs2.com/2019/03/28/snippet-text-collections/) |
 | biblatex-sbl_6.4.2    | SBLHS §6.4.2   | [LCL](https://sblhs2.com/2018/01/18/citing-text-collections-10-lcl/) |
 | biblatex-sbl_6.4.2a   | SBLHS §6.4.2   | [Josephus](https://sblhs2.com/2018/02/15/josephus/) |
 | biblatex-sbl_6.4.2b   | SBLHS §6.4.2   | [Historia Augusta](https://sblhs2.com/2017/05/09/historia-augusta/) |
