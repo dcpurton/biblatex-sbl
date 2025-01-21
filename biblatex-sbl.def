@@ -633,16 +633,16 @@
     {\bibhypertarget{shorthand:\strfield{shorthand}}{#1}}}
 \DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\strfield{shorthand}}{#1}}
 \DeclareFieldFormat{shortmaintitlelink}{%
-  \bibhyperlink{shorttitle:\strname{author}:\strfield{shortmaintitle}}{#1}}
+  \bibhyperlink{shorttitle:\strfield{shortmaintitle}}{#1}}
 \DeclareFieldFormat{shorttitletarget}{%
   \iffieldundef{shorttitle}
     {#1}
-    {\bibhypertarget{shorttitle:\strname{author}:\strfield{shorttitle}}{#1}}}
+    {\bibhypertarget{shorttitle:\strfield{shorttitle}}{#1}}}
 \DeclareFieldFormat{shorttitlelink}{%
   \bibhyperlink{\iffootnote{f}{t}:\cbx@resetcount:\thefield{entrykey}}{#1}}
 \DeclareFieldFormat[ancienttext]{shorttitlelink}{%
   \iffieldundef{entrysubtype}
-    {\bibhyperlink{shorttitle:\strname{author}:\strfield{shorttitle}}{#1}}
+    {\bibhyperlink{shorttitle:\strfield{shorttitle}}{#1}}
     {#1}}
 \DeclareFieldFormat{shortjournaltarget}{%
   \iffieldundef{shortjournal}
@@ -932,7 +932,8 @@
   \usebibmacro{begentry}%
   \iffieldundef{shorthand}
     {\ifentrytype{ancienttext}
-       {\usebibmacro{abbrev:author+title}}
+       {\usebibmacro{abbrev:combined+author+title}
+         {\csuse{\sbl@blx@hash{shorttitle\therefsection\strfield{shorttitle}}}}}
        {\usebibmacro{abbrev:longfield}{shortseries}{series}%
         \usebibmacro{abbrev:longfield}{shortjournal}{journaltitle}}}
     {\usedriver{}{\thefield{entrytype}}}%
@@ -948,11 +949,25 @@
 }
 
 \DeclareSortingTemplate{abbreviations}{
+  \sort[final]{
+    \field{sortshorthand}
+  }
   \sort{
     \field{shorthand}
     \field{shortjournal}
     \field{shortseries}
     \field{shorttitle}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+  }
+  \sort{
+    \field{journaltitle}
+    \field{series}
+    \field{sorttitle}
+    \field{title}
   }
 }
 
@@ -972,7 +987,8 @@
 
 \defbibcheck{abbreviations}{%
   \iffieldundef{shorthand}
-    {\usebibmacro{abbrev:checkshortfield}{shortseries}{series}%
+    {\usebibmacro{abbrev:checkshorttitle}%
+     \usebibmacro{abbrev:checkshortfield}{shortseries}{series}%
      \usebibmacro{abbrev:checkshortfield}{shortjournal}{journaltitle}}
     {}}
 
@@ -989,6 +1005,52 @@
   \setmaxlength{\abbrevwidth}{\shortserieswidth}%
   \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
   \setmaxlength{\abbrevwidth}{\shorttitlewidth}}
+
+\ExplSyntaxOn
+
+\cs_set_eq:NN \sbl@blx@hash \str_mdfive_hash:e
+
+\cs_new_protected:Nn \__sbl_blx_combined_author_title:n
+  {
+    \clist_map_inline:nn { #1 }
+      {
+        \setunit* { \addsemicolon \space }
+        \entrydata* { ##1 }
+          {
+            \printnames { author }
+            \setunit { \addcomma \space }
+            \printfield { title }
+          }
+      }
+    \renewcommand* { \finentrypunct } { }
+  }
+
+\newbibmacro* { abbrev:combined+author+title } [1]
+  {
+    \exp_args:Ne \__sbl_blx_combined_author_title:n { #1 }
+  }
+
+\ExplSyntaxOff
+
+\newbibmacro*{abbrev:checkshorttitle}{%
+  \ifboolexpr{
+    test {\ifentrytype{ancienttext}}
+    and
+    not test {\iffieldundef{shorttitle}}
+  }
+    {\ifcsdef{shorttitle@check@\therefsection\strfield{shorttitle}}
+       {\skipentry
+        \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
+          \csuse{shorttitle@\therefsection\strfield{shorttitle}},
+          \strfield{entrykey}}%
+        }
+       {\savefieldcs{shorttitle}{shorttitle@check@\therefsection\strfield{shorttitle}}%
+        \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
+          \strfield{entrykey}}}%
+     \protected@write\@auxout{}{%
+       \string\csgdef{\sbl@blx@hash{shorttitle\therefsection\strfield{shorttitle}}}%
+         {\csuse{shorttitle@\therefsection\strfield{shorttitle}}}}}
+    {}}
 
 \newbibmacro*{abbrev:checkshortfield}[2]{%
   \iffieldundef{#1}
@@ -1017,12 +1079,6 @@
   \iffieldundef{#1}
     {\printfield{#2}}
     {\printtext[#1link]{\printfield{#1}}}}
-
-\newbibmacro*{abbrev:author+title}{%
-  \usebibmacro{author}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{title}%
-  \renewcommand*{\finentrypunct}{}}
 
 
 % ## List macros

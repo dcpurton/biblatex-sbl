@@ -2,6 +2,7 @@
 
 \DeclareDatamodelEntrytypes{
   ancienttext,
+  journal,
   review,
   series}
 

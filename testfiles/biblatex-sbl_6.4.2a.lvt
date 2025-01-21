@@ -36,7 +36,7 @@ Translations from the \citetitle{josephus:cap} follow that of
 \nocite{worksofjosephus}
 \printbibliography
 \printbibheading[title=Abbreviations]
-\printbiblist[heading=subbibliography, title=Primary Sources,
+\printbiblist[heading=subbibliography, title=Ancient Sources,
   type=ancienttext]{abbreviations}
 \printbiblist[heading=subbibliography, title=Secondary Sources,
   nottype=ancienttext]{abbreviations}

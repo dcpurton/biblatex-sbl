@@ -11,16 +11,10 @@
 \begin{document}
 \START
 \showoutput
-\cite*[(46 \mkbibparens{369e})]{plutarch:isos}
-
-\cite*[(1.5 \mkbibparens{328c})]{plutarch:alexfort}
-
-\parencite*[(9.2.3 \mkbibparens{738a})]{plutarch:quaestconv}
-
-\parencite[(16 \mkbibparens{426b})]{plutarch:cohibira}
-
-\printbibliography
-\printbibheading[title=Abbreviations]
+\nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
+AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
+1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant}
+\section*{Abbreviations}
 \printbiblist[heading=subbibliography, title=Ancient Sources,
   type=ancienttext]{abbreviations}
 \printbiblist[heading=subbibliography, title=Secondary Sources,

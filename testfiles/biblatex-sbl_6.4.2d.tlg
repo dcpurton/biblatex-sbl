@@ -58,7 +58,7 @@ Completed box being shipped out [1]
 .....\kern-0.25 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:\173\175\173\173\173hash=efe5174a5c6ca242e3b652a84d34b457\175\173family=\173Philo\175,\040familyi=\173P\\bibinitperiod\040\175\175\175\175:Cher\\adddot\040}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:Cher\\adddot\040}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 C
 .....\TU/Brill(0)/m/it/10 h
@@ -95,7 +95,7 @@ Completed box being shipped out [1]
 .....\kern-0.25 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:\173\175\173\173\173hash=efe5174a5c6ca242e3b652a84d34b457\175\173family=\173Philo\175,\040familyi=\173P\\bibinitperiod\040\175\175\175\175:QG}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:QG}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 Q
 .....\TU/Brill(0)/m/it/10 G
@@ -129,7 +129,7 @@ Completed box being shipped out [1]
 .....\kern-0.25 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:\173\175\173\173\173hash=efe5174a5c6ca242e3b652a84d34b457\175\173family=\173Philo\175,\040familyi=\173P\\bibinitperiod\040\175\175\175\175:Cher\\adddot\040}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:Cher\\adddot\040}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 C
 .....\TU/Brill(0)/m/it/10 h
@@ -776,7 +776,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.3464
-....\hbox(7.452+2.964)x345.0, glue set 133.89001fil, direction TLT
+....\hbox(7.452+0.168)x345.0, glue set 133.98601fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -792,15 +792,15 @@ Completed box being shipped out [1]
 ........\pdfdest name{section*.3} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/Brill(0)/b/n/12 P
-.....\TU/Brill(0)/b/n/12 r
-.....\TU/Brill(0)/b/n/12 i
+.....\TU/Brill(0)/b/n/12 A
+.....\TU/Brill(0)/b/n/12 n
 .....\discretionary (penalty 50)
 ......< \TU/Brill(0)/b/n/12 -
-.....\TU/Brill(0)/b/n/12 m
-.....\TU/Brill(0)/b/n/12 a
-.....\TU/Brill(0)/b/n/12 r
-.....\TU/Brill(0)/b/n/12 y
+.....\TU/Brill(0)/b/n/12 c
+.....\TU/Brill(0)/b/n/12 i
+.....\TU/Brill(0)/b/n/12 e
+.....\TU/Brill(0)/b/n/12 n
+.....\TU/Brill(0)/b/n/12 t
 .....\glue(\spaceskip) 2.256 plus 1.128 minus 0.752
 .....\TU/Brill(0)/b/n/12 S
 .....\TU/Brill(0)/b/n/12 o
@@ -815,9 +815,12 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 6.075 plus 0.80998
+....\write1{\csgdef{34097DB935B220F5DDA5E7EFF3B72981}{philo:cher}}
+....\penalty 10000
+....\glue 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 2.386
+....\glue(\baselineskip) 5.182
 ....\hbox(6.65+1.29)x316.02, glue set 122.46fil, shifted 28.98, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
@@ -833,7 +836,7 @@ Completed box being shipped out [1]
 .......\penalty 10000
 .......\hbox(0.0+0.0)x0.0, direction TLT
 ........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.........\pdfdest name{cite.0:shorttitle:\173\175\173\173\173hash=efe5174a5c6ca242e3b652a84d34b457\175\173family=\173Philo\175,\040familyi=\173P\\bibinitperiod\040\175\175\175\175:Cher\\adddot\040} xyz
+.........\pdfdest name{cite.0:shorttitle:Cher\\adddot\040} xyz
 .........\penalty 10000
 .......\TU/Brill(0)/m/it/10 C
 .......\TU/Brill(0)/m/it/10 h
@@ -869,6 +872,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 i
 .....\TU/Brill(0)/m/it/10 m
 .....\kern0.0 (italic)
+.....\write1{\csgdef{55BC41D76FC4EBC6E28AB71EEEAA200B}{philo:QG}}
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
@@ -892,7 +896,7 @@ Completed box being shipped out [1]
 .......\penalty 10000
 .......\hbox(0.0+0.0)x0.0, direction TLT
 ........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.........\pdfdest name{cite.0:shorttitle:\173\175\173\173\173hash=efe5174a5c6ca242e3b652a84d34b457\175\173family=\173Philo\175,\040familyi=\173P\\bibinitperiod\040\175\175\175\175:QG} xyz
+.........\pdfdest name{cite.0:shorttitle:QG} xyz
 .........\penalty 10000
 .......\TU/Brill(0)/m/it/10 Q
 .......\TU/Brill(0)/m/it/10 G
@@ -901,7 +905,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{7}{\the \c@page }}
+.....\write1{\abx@aux@page{8}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 P
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 i
@@ -1040,7 +1044,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{8}{\the \c@page }}
+.....\write1{\abx@aux@page{10}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 L
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 e
@@ -1093,4 +1097,5 @@ Completed box being shipped out [1]
 (biblatex-sbl_6.4.2d.aux)
 LaTeX Warning: There were undefined references.
 Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4.2d.run.xml'.

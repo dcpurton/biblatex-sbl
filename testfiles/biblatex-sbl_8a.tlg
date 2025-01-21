@@ -1,0 +1,1874 @@
+This is a generated file for the l3build validation system.
+Don't change this file in any respect.
+Completed box being shipped out [1]
+\vbox(633.0+0.0)x407.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\hbox(0.0+0.0)x0.0, direction TLT
+..\kern-72.26999
+..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
+...\kern-72.26999
+...\hbox(0.0+0.0)x0.0, direction TLT
+....\latelua0{ltx.__pdf.backend_ThisPage_gpush(tex.count["g_shipout_readonly_int"])}
+....\glue 0.0 plus 1.0fil minus 1.0fil
+...\glue 0.0 plus 1.0fil minus 1.0fil
+.\vbox(0.0+0.0)x0.0, glue set - 14.99626fil, direction TLT
+..\kern0.0
+..\kern16.0
+..\kern-1.00374
+..\hbox(0.0+0.0)x0.0, glue set - 60.99626fil, direction TLT
+...\kern0.0
+...\kern62.0
+...\kern-1.00374
+...\pdfdest name{page.1} xyz
+...\penalty 10000
+...\glue 0.0 plus 1.0fil minus 1.0fil
+..\glue 0.0 plus 1.0fil minus 1.0fil
+.\glue(\lineskip) 0.0
+.\vbox(633.0+0.0)x407.0, direction TLT
+..\glue 16.0
+..\vbox(617.0+0.0)x345.0, shifted 62.0, direction TLT
+...\vbox(12.0+0.0)x345.0, glue set 12.0fil, direction TLT
+....\glue 0.0 plus 1.0fil
+....\hbox(0.0+0.0)x345.0, direction TLT
+.....\pdfcolorstack 0 push {0 g 0 G}
+.....\hbox(0.0+0.0)x345.0, direction TLT
+.....\pdfcolorstack 0 pop
+...\glue 25.0
+...\glue(\lineskip) 0.0
+...\vbox(550.0+0.0)x345.0, glue set 215.34949fil, direction TLT
+....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
+....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
+....\write-{}
+....\pdfdest name{Doc-Start} xyz
+....\glue(\topskip) 0.42401
+....\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\kern0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
+........\pdfdest name{section*.1} xyz
+........\penalty 10000
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\TU/Brill(0)/b/n/14.4 A
+.....\TU/Brill(0)/b/n/14.4 b
+.....\discretionary (penalty 50)
+......< \kern0.144 (font)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 b
+.....\TU/Brill(0)/b/n/14.4 r
+.....\kern-0.144 (font)
+.....\TU/Brill(0)/b/n/14.4 e
+.....\discretionary (penalty 50)
+......< \kern0.144 (font)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 v
+.....\TU/Brill(0)/b/n/14.4 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/14.4 -
+.....\TU/Brill(0)/b/n/14.4 t
+.....\TU/Brill(0)/b/n/14.4 i
+.....\TU/Brill(0)/b/n/14.4 o
+.....\TU/Brill(0)/b/n/14.4 n
+.....\TU/Brill(0)/b/n/14.4 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 10000
+....\glue 9.31502 plus 0.80998
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 6.3464
+....\hbox(7.452+0.168)x345.0, glue set 133.98601fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\kern0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
+........\pdfdest name{section*.2} xyz
+........\penalty 10000
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\TU/Brill(0)/b/n/12 A
+.....\TU/Brill(0)/b/n/12 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/12 -
+.....\TU/Brill(0)/b/n/12 c
+.....\TU/Brill(0)/b/n/12 i
+.....\TU/Brill(0)/b/n/12 e
+.....\TU/Brill(0)/b/n/12 n
+.....\TU/Brill(0)/b/n/12 t
+.....\glue(\spaceskip) 2.256 plus 1.128 minus 0.752
+.....\TU/Brill(0)/b/n/12 S
+.....\TU/Brill(0)/b/n/12 o
+.....\TU/Brill(0)/b/n/12 u
+.....\TU/Brill(0)/b/n/12 r
+.....\kern-0.12 (font)
+.....\TU/Brill(0)/b/n/12 c
+.....\TU/Brill(0)/b/n/12 e
+.....\TU/Brill(0)/b/n/12 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 10000
+....\glue 6.075 plus 0.80998
+....\write1{\csgdef{23518D4B7204E903FFFB64C6D62784AF}{justinmartyr:1apol}}
+....\penalty 10000
+....\glue 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.212
+....\hbox(6.62+2.47)x284.03001, glue set 90.36002fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.62+2.43)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.62+2.43)x50.96999, glue set 27.24997fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:1\176Apol\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 1
+.......\penalty 10000
+.......\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 p
+.......\TU/Brill(0)/m/it/10 o
+.......\TU/Brill(0)/m/it/10 l
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{1}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 J
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 M
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 y
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 F
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 r
+.....\TU/Brill(0)/m/it/10 s
+.....\TU/Brill(0)/m/it/10 t
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 p
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 y
+.....\kern0.11 (italic)
+.....\write1{\csgdef{AF38A237C6DD707E231A30AABA96062F}{1en}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+0.14)x284.03001, glue set 127.32fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.1+0.13)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.1+0.13)x50.96999, glue set 33.68fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:1\176En\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 1
+.......\penalty 10000
+.......\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.......\TU/Brill(0)/m/n/10 E
+.......\TU/Brill(0)/m/n/10 n
+.......\TU/Brill(0)/m/n/10 .
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{3}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 1
+.....\penalty 10000
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 E
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\write1{\csgdef{871FDFCEAE1D84F7A2F9DFDD880DCBF7}{1QM}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.21
+....\hbox(6.65+1.91)x284.03001, glue set 122.445fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.21+1.91)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.21+1.91)x50.96999, glue set 33.54fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:1QM} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 1
+.......\TU/Brill(0)/m/n/10 Q
+.......\TU/Brill(0)/m/n/10 M
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{5}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 W
+.....\kern-0.55 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 S
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 l
+.....\write1{\csgdef{4206DEC0F480520F0C7D0919888B7843}{4QpNah}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 3.44
+....\hbox(6.65+2.39)x284.03001, glue set 114.06502fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.65+2.39)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.65+2.39)x50.96999, glue set 19.12999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:4QpNah} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 4
+.......\TU/Brill(0)/m/n/10 Q
+.......\TU/Brill(0)/m/n/10 p
+.......\discretionary (penalty 50)
+........< \kern0.1 (font)
+........< \TU/Brill(0)/m/n/10 -
+.......\TU/Brill(0)/m/n/10 N
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/n/10 a
+.......\TU/Brill(0)/m/n/10 h
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{7}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 P
+.....\kern-0.3 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 N
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 m
+.....\write1{\csgdef{1CA8DBDE0E2B5CBDBDC136378E4C2965}{livy:aburbe}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.99
+....\hbox(6.62+2.47)x284.03001, glue set 102.85002fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.62+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.62+0.14)x50.96999, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Ab\040urbe\040cond\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 b
+.......\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.......\TU/Brill(0)/m/it/10 u
+.......\TU/Brill(0)/m/it/10 r
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/it/10 b
+.......\TU/Brill(0)/m/it/10 e
+.......\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.......\TU/Brill(0)/m/it/10 c
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/it/10 o
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 d
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{9}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 L
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 v
+.....\TU/Brill(0)/m/n/10 y
+.....\kern-0.7 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 b
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 b
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 c
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 d
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\kern0.03 (italic)
+.....\write1{\csgdef{C3B509BBDACB234456802586E6E4B1A2}{philo:abr}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+1.29)x284.03001, glue set 104.235fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.62+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.62+0.14)x50.96999, glue set 35.79999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Abr\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 b
+.......\TU/Brill(0)/m/it/10 r
+.......\kern-0.7 (font)
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 P
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 o
+.....\kern-0.25 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 D
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 b
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 m
+.....\TU/Brill(0)/m/it/10 o
+.....\kern0.0 (italic)
+.....\write1{\csgdef{F3326FC8EF65D552A7EEABFABA977EDC}{cicero:agr}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 4.06001
+....\hbox(6.65+2.47)x284.03001, glue set 58.41003fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+2.47)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+2.47)x50.96999, glue set 35.84fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Agr\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/it/10 g
+.......\TU/Brill(0)/m/it/10 r
+.......\kern-0.7 (font)
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{13}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\kern-0.25 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 D
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 e
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 g
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 a
+.....\kern0.03 (italic)
+.....\TU/Brill(0)/m/n/10 ;
+.....\glue(\spaceskip) 1.98 plus 0.99396 minus 0.65736
+.....\TU/Brill(0)/m/n/10 P
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 o
+.....\kern-0.25 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 D
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 l
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\kern0.03 (italic)
+.....\write1{\csgdef{F3326FC8EF65D552A7EEABFABA977EDC}{cicero:agr, philo:agr}}
+.....\write1{\csgdef{982DD649C5E2D8C6788055FEC4687CD3}{graniuslicinianus:ann}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.91
+....\hbox(6.62+1.29)x284.03001, glue set 56.15002fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+0.14)x50.96999, glue set 33.25998fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Ann\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{16}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 G
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 L
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 s
+.....\kern0.0 (italic)
+.....\TU/Brill(0)/m/n/10 ;
+.....\glue(\spaceskip) 1.78 plus 0.99396 minus 0.65736
+.....\TU/Brill(0)/m/n/10 T
+.....\kern-0.6 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 c
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 s
+.....\kern0.0 (italic)
+.....\write1{\csgdef{982DD649C5E2D8C6788055FEC4687CD3}{graniuslicinianus:ann, tacitus:ann}}
+.....\write1{\csgdef{6C5D14646A84BDF68CC0030D283B8B98}{plutarch:ant}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 4.06001
+....\hbox(6.65+1.29)x284.03001, glue set 106.88501fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+0.14)x50.96999, glue set 35.34998fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Ant\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 t
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{19}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 P
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 s
+.....\kern0.0 (italic)
+.....\write1{\csgdef{DFB1FADEEA4694FF4F02C32211DC1D3A}{dionysius:ant}}
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 4.06001
+....\hbox(6.65+2.47)x284.03001, glue set 47.98999fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+0.14)x50.96999, glue set 16.40997fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorttitle:Ant\\adddotspace\040rom\\adddot\040} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 t
+.......\TU/Brill(0)/m/it/10 .
+.......\penalty 50
+.......\glue(\spaceskip) 1.82 plus 0.91182 minus 0.60545
+.......\TU/Brill(0)/m/it/10 r
+.......\kern-0.2 (font)
+.......\TU/Brill(0)/m/it/10 o
+.......\TU/Brill(0)/m/it/10 m
+.......\TU/Brill(0)/m/it/10 .
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{21}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/n/10 y
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 f
+.....\glue(\spaceskip) 2.43 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 H
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 s
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 q
+.....\discretionary (penalty 50)
+......< \kern-0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 s
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 m
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 e
+.....\kern0.0 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -12.47 plus -3.0 minus -5.0
+....\penalty -300
+....\glue 2.47
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -10.0 plus -3.0 minus -5.0
+....\glue 13.1625 plus 4.05 minus 0.80998
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 3.55
+....\hbox(7.98+2.964)x345.0, glue set 128.20802fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\glue 0.0
+.....\hbox(0.0+0.0)x0.0, direction TLT
+......\kern0.0
+......\penalty 10000
+......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
+........\pdfdest name{section*.3} xyz
+........\penalty 10000
+......\glue 0.0 plus 1.0fil minus 1.0fil
+.....\TU/Brill(0)/b/n/12 S
+.....\TU/Brill(0)/b/n/12 e
+.....\TU/Brill(0)/b/n/12 c
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/b/n/12 -
+.....\TU/Brill(0)/b/n/12 o
+.....\TU/Brill(0)/b/n/12 n
+.....\TU/Brill(0)/b/n/12 d
+.....\TU/Brill(0)/b/n/12 a
+.....\TU/Brill(0)/b/n/12 r
+.....\TU/Brill(0)/b/n/12 y
+.....\glue(\spaceskip) 2.256 plus 1.128 minus 0.752
+.....\TU/Brill(0)/b/n/12 S
+.....\TU/Brill(0)/b/n/12 o
+.....\TU/Brill(0)/b/n/12 u
+.....\TU/Brill(0)/b/n/12 r
+.....\kern-0.12 (font)
+.....\TU/Brill(0)/b/n/12 c
+.....\TU/Brill(0)/b/n/12 e
+.....\TU/Brill(0)/b/n/12 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 10000
+....\glue 6.075 plus 0.80998
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.386
+....\hbox(6.65+0.14)x284.03001, glue set 116.89001fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+0.03)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+0.03)x50.96999, glue set 39.60999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortseries:AB} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 A
+.......\TU/Brill(0)/m/n/10 B
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{23}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 A
+.....\TU/Brill(0)/m/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 B
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 b
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 e
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.21
+....\hbox(6.65+2.47)x284.03001, glue set 24.90002fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.15+0.04)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.15+0.04)x50.96999, glue set 33.87999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shorthand:ABD} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 B
+.......\TU/Brill(0)/m/it/10 D
+.......\kern0.04 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{24}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 F
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 d
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 m
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\penalty 25
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/n/10 D
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\kern-0.25 (font)
+.....\TU/Brill(0)/m/n/10 v
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 d
+.....\penalty 50
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 N
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 .
+.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 r
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 B
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 b
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 D
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 c
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 r
+.....\TU/Brill(0)/m/it/10 y
+.....\TU/Brill(0)/m/n/10 .
+.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\TU/Brill(0)/m/n/10 6
+.....\penalty 10000
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 v
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 s
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 .
+.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\TU/Brill(0)/m/n/10 N
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 w
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 Y
+.....\kern-0.8 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 k
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 25000
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+2.47)x284.03001, glue set 110.39001fil, shifted 60.96999, direction TLT
+.....\TU/Brill(0)/m/n/10 D
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 u
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 b
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 a
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/n/10 y
+.....\kern-0.7 (font)
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/n/10 1
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 .
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+2.47)x284.03001, glue set 40.85fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.21+1.91)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.21+1.91)x50.96999, glue set 33.37997fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortjournal:AJSL} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\TU/Brill(0)/m/it/10 J
+.......\TU/Brill(0)/m/it/10 S
+.......\TU/Brill(0)/m/it/10 L
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{25}{\the \c@page }}
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 m
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+......= \kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 c
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 J
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 l
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 f
+.....\glue(\spaceskip) 2.33 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 S
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 m
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 c
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 L
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 g
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 s
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 d
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 L
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 t
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+......= \kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+......= \kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\kern0.0 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+2.47)x284.03001, glue set 11.38496fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.62+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.62+0.14)x50.96999, glue set 21.55997fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortjournal:Atlantis} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 A
+.......\kern-0.15 (font)
+.......\TU/Brill(0)/m/it/10 t
+.......\discretionary (penalty 50)
+........< \kern-0.2 (font)
+........< \TU/Brill(0)/m/it/10 -
+.......\TU/Brill(0)/m/it/10 l
+.......\TU/Brill(0)/m/it/10 a
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 t
+.......\TU/Brill(0)/m/it/10 i
+.......\TU/Brill(0)/m/it/10 s
+.......\kern0.0 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{26}{\the \c@page }}
+.....\TU/Brill(0)/m/it/10 A
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/it/10 t
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 s
+.....\TU/Brill(0)/m/it/10 :
+.....\glue(\spaceskip) 1.82 plus 0.91455 minus 0.60365
+.....\TU/Brill(0)/m/it/10 J
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 l
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 f
+.....\glue(\spaceskip) 2.33 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 e
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 S
+.....\TU/Brill(0)/m/it/10 p
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 s
+.....\TU/Brill(0)/m/it/10 h
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 s
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 s
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 n
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 f
+.....\glue(\spaceskip) 2.33 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 g
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+......= \kern0.1 (font)
+......= \TU/Brill(0)/m/it/10 -
+......= \kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 A
+.....\TU/Brill(0)/m/it/10 m
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 c
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 n
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 S
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 u
+.....\TU/Brill(0)/m/it/10 d
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 s
+.....\kern0.0 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+2.47)x284.03001, glue set 98.05fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.65+0.03)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.65+0.03)x50.96999, glue set 30.40999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortseries:AzTh} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 A
+.......\TU/Brill(0)/m/n/10 z
+.......\TU/Brill(0)/m/n/10 T
+.......\TU/Brill(0)/m/n/10 h
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{27}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 A
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 b
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 z
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 T
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 g
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.91
+....\hbox(6.62+2.43)x284.03001, glue set 100.92502fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.62+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.62+0.14)x50.96999, glue set 27.68999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortjournal:BibInt} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 B
+.......\TU/Brill(0)/m/it/10 i
+.......\TU/Brill(0)/m/it/10 b
+.......\discretionary (penalty 50)
+........< \kern0.1 (font)
+........< \TU/Brill(0)/m/it/10 -
+.......\TU/Brill(0)/m/it/10 I
+.......\TU/Brill(0)/m/it/10 n
+.......\TU/Brill(0)/m/it/10 t
+.......\kern0.39 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{28}{\the \c@page }}
+.....\TU/Brill(0)/m/it/10 B
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 b
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 c
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 l
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 I
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 p
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 e
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 n
+.....\kern0.0 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.92001
+....\hbox(6.65+2.39)x284.03001, glue set 87.19fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.65+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.65+0.14)x50.96999, glue set 26.90999fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortseries:BibInt} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 B
+.......\TU/Brill(0)/m/n/10 i
+.......\TU/Brill(0)/m/n/10 b
+.......\discretionary (penalty 50)
+........< \kern0.1 (font)
+........< \TU/Brill(0)/m/n/10 -
+.......\TU/Brill(0)/m/n/10 I
+.......\TU/Brill(0)/m/n/10 n
+.......\TU/Brill(0)/m/n/10 t
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{29}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 B
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 b
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 l
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 I
+.....\TU/Brill(0)/m/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 S
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.99
+....\hbox(6.62+0.14)x284.03001, glue set 109.65501fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.21+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.21+0.14)x50.96999, glue set 32.59fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortjournal:BSac} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/it/10 B
+.......\TU/Brill(0)/m/it/10 S
+.......\TU/Brill(0)/m/it/10 a
+.......\TU/Brill(0)/m/it/10 c
+.......\kern0.03 (italic)
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{30}{\the \c@page }}
+.....\TU/Brill(0)/m/it/10 B
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 b
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 l
+.....\TU/Brill(0)/m/it/10 i
+.....\TU/Brill(0)/m/it/10 o
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 h
+.....\TU/Brill(0)/m/it/10 e
+.....\kern-0.05 (font)
+.....\TU/Brill(0)/m/it/10 c
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
+.....\TU/Brill(0)/m/it/10 S
+.....\TU/Brill(0)/m/it/10 a
+.....\TU/Brill(0)/m/it/10 c
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
+.....\kern0.03 (italic)
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 5.21
+....\hbox(6.65+2.47)x284.03001, glue set 24.74004fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.21+2.39)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.21+2.39)x50.96999, glue set 17.58002fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortseries:JSOTSup} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 J
+.......\TU/Brill(0)/m/n/10 S
+.......\TU/Brill(0)/m/n/10 O
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/n/10 T
+.......\discretionary (penalty 50)
+........< \kern-0.5 (font)
+........< \TU/Brill(0)/m/n/10 -
+.......\TU/Brill(0)/m/n/10 S
+.......\TU/Brill(0)/m/n/10 u
+.......\TU/Brill(0)/m/n/10 p
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{31}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 J
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 l
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 f
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 S
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 d
+.....\TU/Brill(0)/m/n/10 y
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 f
+.....\glue(\spaceskip) 2.43 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 O
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 d
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 T
+.....\kern-0.7 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 m
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 t
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 S
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 p
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 p
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 m
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 t
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 S
+.....\TU/Brill(0)/m/n/10 e
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 0.0
+....\glue(\parskip) 0.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.88
+....\hbox(6.65+2.47)x284.03001, glue set 100.145fil, shifted 60.96999, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(6.21+0.14)x0.0, direction TLT
+......\glue 0.0
+......\glue -50.96999
+......\glue -10.0
+......\hbox(6.21+0.14)x50.96999, glue set 35.59fil, direction TLT
+.......\pdfcolorstack 0 push {0 g 0 G}
+.......\penalty 10000
+.......\hbox(0.0+0.0)x0.0, direction TLT
+........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
+.........\pdfdest name{cite.0:shortseries:LCL} xyz
+.........\penalty 10000
+.......\TU/Brill(0)/m/n/10 L
+.......\kern-0.1 (font)
+.......\TU/Brill(0)/m/n/10 C
+.......\TU/Brill(0)/m/n/10 L
+.......\glue 0.0 plus 1.0fil minus 1.0fil
+.......\pdfcolorstack 0 pop
+......\glue 10.0
+.....\penalty 0
+.....\write1{\abx@aux@page{32}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 L
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 b
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 C
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 s
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 l
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 L
+.....\TU/Brill(0)/m/n/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 b
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 y
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty -51
+....\glue 10.0 plus 3.0 minus 5.0
+....\glue -2.47
+....\glue 0.0 plus 1.0fil
+....\glue 0.0
+....\glue 0.0 plus 0.0001fil
+...\glue(\baselineskip) 30.0
+...\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 push {0 g 0 G}
+....\hbox(0.0+0.0)x345.0, direction TLT
+....\pdfcolorstack 0 pop
+.\kern0.0
+.\kern0.0
+.\kern-633.0
+.\hbox(0.0+0.0)x0.0, direction TLT
+.\kern633.0
+(biblatex-sbl_8a.aux)
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+Package logreq Info: Writing requests to 'biblatex-sbl_8a.run.xml'.
