@@ -1,8 +1,11 @@
 module = "biblatex-sbl"
 
-unpackexe          = ""
-sourcefiles        = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
-installfiles       = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
+unpackexe        = ""
+sourcefiles      = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
+installfiles     = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
+typesetdemofiles = {"sblhs-blog.tex"}
+
+typesetexe = "lualatex"
 
 stdengine    = "luatex"
 checkengines = {"luatex"}

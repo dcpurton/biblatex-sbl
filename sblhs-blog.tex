@@ -1,0 +1,431 @@
+\DocumentMetadata{lang=en}
+\documentclass[a4paper]{article}
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{fancyvrb,fvextra}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
+\setcounter{secnumdepth}{0}
+\usepackage[american]{babel}
+\babelprovide[import, onchar=ids]{polytonicgreek}
+\babelfont{rm}{Brill}
+\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
+\usepackage{csquotes}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl, refsection=section, locallabelwidth]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\makeatletter
+\NewDocumentCommand{\examplecite}{d()om}{%
+  \par
+  \IfNoValueTF{#2}
+    {\texttt{\textbackslash autocite\{#3\}}\par
+     \@afterheading
+     \IfNoValueF{#1}{\quad #1.\space}%
+     \cite{#3}}
+    {\texttt{\textbackslash autocite[#2]\{#3\}}\par
+     \@afterheading
+     \IfNoValueF{#1}{\quad #1.\space}%
+     \cite[#2]{#3}}.}
+
+\NewDocumentCommand{\exampleabbreviations}{}{%
+  \par
+  \texttt{\textbackslash printbiblist\{abbreviations\}}
+  \@afterheading
+  \printbiblist[heading=none]{abbreviations}}
+
+\NewDocumentCommand{\exampleancientsources}{}{%
+  \par
+  \texttt{\textbackslash printbiblist[heading=subbibliography, title=Ancient Sources,\\
+  \strut\quad type=ancienttext]\{abbreviations\}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Ancient Sources,
+    type=ancienttext]{abbreviations}}
+
+\NewDocumentCommand{\examplesecondarysources}{}{%
+  \par
+  \texttt{\textbackslash printbiblist[heading=subbibliography, title=Secondary Sources,\\
+  \strut\quad nottype=ancienttext]\{abbreviations\}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Secondary Sources,
+    nottype=ancienttext]{abbreviations}}
+
+\NewDocumentCommand{\examplebibliography}{}{%
+  \par
+  \texttt{\textbackslash printbibliography}
+  \@afterheading
+  \printbibliography[heading=none]}
+
+\NewDocumentCommand{\examplereferences}{m}{%
+  \subsection*{References}
+  \url{#1}}
+\makeatother
+
+\begin{document}
+\title{SBL Handbook of Style}
+\author{Explanations, Clarifications, and Expansions}
+\date{SBL Press}
+\maketitle
+
+\tableofcontents
+
+\section{Brill Dictionary of Ancient Greek (20 April 2021)}
+
+\begin{verbatim}
+@reference{MGS,
+  shorthand = {MGS},
+  author = {Montanari, Franco},
+  title = {The Brill Dictionary of Ancient Greek},
+  editor = {Goh, Madeleine and Schroeder, Chad},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2015},
+  options = {shorthandformat=roman}
+}
+\end{verbatim}
+
+\examplecite(1){MGS}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2021/04/20/brill-dictionary-of-ancient-greek/}
+
+\section{Snippet Text Collections (28 March 2019)}
+
+\begin{verbatim}
+@series{ACCS,
+  series = {Ancient Christian Commentary on Scripture},
+  shortseries = {ACCS}
+}
+
+@book{edwards:1999,
+  editor = {Edwards, Mark J.},
+  title = {Galatians, Ephesians, Philippians},
+  series = {\citeseries{ACCS} New Testament},
+  number = {8},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {1999}
+}
+
+@ancienttext{victorinus:ephesians,
+  author = {Victorinus},
+  title = {Epistle to the Ephesians},
+  related = {edwards:1999},
+  relatedstring = {quoted in}
+}
+
+@ancienttext{theodoret:galatians,
+  author = {Theodoret},
+  title = {Epistle to the Galatians},
+  related = {edwards:1999},
+  relatedstring = {quoted in}
+}
+\end{verbatim}
+
+\nocite{ACCS}
+\examplecite(4)[(1.2.12)129]{victorinus:ephesians}
+\examplecite(8)[(5.13)77]{theodoret:galatians}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2019/03/28/snippet-text-collections/}
+
+\section{Update: Citing an Untitled Introduction (18 January 2019)}
+
+\begin{verbatim}
+@suppbook{boers:1996,
+  author = {Boers, Hendrikus},
+  title = {introduction},
+  booktitle = {How to Read the New Testament},
+  booksubtitle = {An Introduction to Linguistic and Historical-Critical Methodology},
+  bookauthor = {Egger, Wilhelm},
+  translator = {Heinegg, Peter},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1996}
+}
+\end{verbatim}
+
+\examplecite(15){boers:1996}
+\examplebibliography
+\examplereferences{https://sblhs2.com/2019/01/18/update-citing-an-untitled-introduction/}
+
+\section{Citing a Chapter from a Single-Authored Work with Editors (10 January 2019)}
+
+\begin{verbatim}
+@inbook{lawson:2016,
+  author = {Younger, Jr., K. Lawson},
+  title = {The Origins of the Arameans},
+  pages = {35-107},
+  booktitle = {A Political History of the Arameans},
+  booksubtitle = {From Their Origins to the End of Their Polities},
+  series = {Archaeology and Biblical Studies},
+  shortseries = {ABS},
+  number = {13},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2016}
+}
+
+@book{matassa:2018,
+  author = {Matassa, Lidia D.},
+  title = {Invention of the First-Century Synagogue},
+  editor = {Silverman, Jason M. and Watson, J. Murray},
+  series = {Ancient Near East Monographs},
+  shortseries = {ANEM},
+  number = {22},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2018}
+}
+
+@inbook{matassa:delos:2018,
+  author = {Matassa, Lidia D.},
+  title = {Delos},
+  pages = {37-77},
+  crossref = {matassa:2018}
+}
+\end{verbatim}
+
+\examplecite(16)[35-107]{lawson:2016}
+\examplecite(12){matassa:delos:2018}
+\citereset
+\examplecite(12)[37-77]{matassa:2018}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2019/01/10/citing-a-chapter-from-a-single-authored-work-with-editors/}
+
+\section{Citing Reference Works 11: Cambridge History of Christianity (23 August 2018)}
+
+\begin{verbatim}
+@collection{CHC1,
+ editor = {Mitchell, Margaret M. and Young, Frances M.},
+ title = {Origins to Constantine},
+ series = {Cambridge History of Christianity},
+ shortseries = {CHC},
+ number = {1},
+ location = {Cambridge},
+ publisher = {Cambridge University Press},
+ date = {2006}
+}
+
+@collection{CHC2,
+ editor = {Casiday, Augustine and Norris, Frederick W.},
+ title = {Constantine to c.~600},
+ series = {Cambridge History of Christianity},
+ shortseries = {CHC},
+ number = {2},
+ location = {Cambridge},
+ publisher = {Cambridge University Press},
+ date = {2007}
+}
+
+@incollection{marcus:2006,
+  author = {Marcus, Joel},
+  title = {Jewish Christianity},
+  pages = {87-102},
+  crossref = {CHC1}
+}
+
+@incollection{freyne:2006,
+  author = {Freyne, Sean},
+  title = {Galilee and Judaea in the First Century},
+  pages = {37-52},
+  crossref = {CHC1}
+}
+
+@incollection{vandam:2007,
+  author = {Van Dam, Raymond},
+  title = {Bishops and Society},
+  pages = {343-366},
+  crossref = {CHC2}
+}
+
+@incollection{lohr:2007,
+  author = {Löhr, Winrich},
+  title = {Western Christanities},
+  pages = {9-51},
+  crossref = {CHC2}
+}
+\end{verbatim}
+
+\examplecite(22){marcus:2006}
+\examplecite(23){freyne:2006}
+\examplecite(23){vandam:2007}
+\examplecite(23){lohr:2007}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/08/23/citing-reference-works-11-cambridge-history-of-christianity/}
+
+\section{Special Footnotes (28 June 2018)}
+
+\begin{verbatim}
+@inbook{moore:2017,
+  author = {Moore, Stephen D.},
+  title = {Why the Johannine Jesus Weeps at the Tomb of Lazarus},
+  booktitle = {Mixed Feelings and Vexed Passions: Exploring Emotions in Biblical
+               Literature},
+  editor = {Spencer, F. Scott},
+  series = {Resources for Biblical Study},
+  shortseries = {RBS},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2017}
+}
+\end{verbatim}
+
+\texttt{An earlier version of this essay appears as \textbackslash
+cite*\{moore:2017\}. Reused here\\ with permission.}
+
+An earlier version of this essay appears as \cite*{moore:2017}. Reused here
+with permission.
+
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/06/28/special-footnotes/}
+
+\section{Abbreviations Lists (24 May 2018)}
+
+\begin{verbatim}
+@series{AB,
+  series = {Anchor Bible},
+  shortseries = {AB}
+}
+
+@mvreference{ABD,
+  shorthand = {ABD},
+  editor = {Freedman, David Noel},
+  title = {Anchor Bible Dictionary},
+  volumes = {6},
+  location = {New York},
+  publisher = {Doubleday},
+  date = {1992}
+}
+
+@ancienttext{philo:abr,
+  author = {Philo},
+  title = {De Abrahamo},
+  shorttitle = {Abr\adddot},
+}
+
+@ancienttext{philo:agr,
+  author = {Philo},
+  title = {De agricultura},
+  shorttitle = {Agr\adddot},
+}
+
+@ancienttext{graniuslicinianus:ann,
+  author = {{Granius Licinianus}},
+  title = {Annales},
+  shorttitle = {Ann\adddot}
+}
+
+@mvbook{tacitus:histories,
+  author = {Tacitus},
+  title = {The Histories and The Annals},
+  translator = {Moore, Clifford H. and Jackson, John},
+  volumes = {4},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1937}
+}
+
+@ancienttext{tacitus:ann,
+  author = {Tacitus},
+  title = {Annales},
+  shorttitle = {Ann\adddot},
+  xref = {tacitus:histories}
+}
+
+@journal{AJSL,
+  journaltitle = {American Journal of Semitic Languages and Literature},
+  shortjournal = {AJSL}
+}
+
+@journal{atlantis,
+  journaltitle = {Atlantis: Journal of the Spanish Association of Anglo-American
+                  Studies},
+  shortjournal = {Atlantis}
+}
+
+@series{AzTh,
+  series = {Arbeiten zur Theologie},
+  shortseries = {AzTh}
+}
+
+@journal{BibInt,
+  journaltitle = {Biblical Interpretation},
+  shortjournal = {BibInt}
+}
+
+@series{BibIntSeries,
+  series = {Biblical Interpretation Series},
+  shortseries = {BibInt}
+}
+
+@journal{BSac,
+  journaltitle = {Bibliotheca Sacra},
+  shortjournal = {BSac}
+}
+
+@series{JSOTSup,
+  series = {Journal for the Study of the Old Testament Supplement Series},
+  shortseries = {JSOTSup}
+}
+
+@ancienttext{justinmartyr:1apol,
+  author = {{Justin Martyr}},
+  title = {First Apology},
+  shorttitle = {1~Apol\adddot}
+}
+
+@ancienttext{1en,
+  title = {1~Enoch},
+  shorttitle = {1~En\adddot}
+}
+
+@ancienttext{1QM,
+  title = {War Scroll},
+  shorttitle = {1QM}
+}
+
+@ancienttext{4QpNah,
+  title = {Pesher Nahum},
+  shorttitle = {4QpNah}
+}
+
+@ancienttext{livy:aburbe,
+  author = {Livy},
+  title = {Ab urbe condita},
+  shorttitle = {Ab urbe cond\adddot}
+}
+
+@ancienttext{cicero:agr,
+  author = {Cicero},
+  title = {De lege agraria},
+  shorttitle = {Agr\adddot}
+}
+
+@ancienttext{plutarch:ant,
+  author = {Plutarch},
+  title = {Antonius},
+  shorttitle = {Ant\adddot}
+}
+
+@ancienttext{dionysius:ant,
+  author = {{Dionysius of Halicarnassus}},
+  title = {Antiquitates romanae},
+  shorttitle = {Ant\adddotspace rom\adddot}
+}
+\end{verbatim}
+
+\nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
+AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
+1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant}
+\exampleancientsources
+\examplesecondarysources
+\examplereferences{https://sblhs2.com/2018/05/24/abbreviations-lists/}
+
+\section{Series Volume Identifiers: Old/New and Concurrent Series (17 May 2018)}
+
+\end{document}
