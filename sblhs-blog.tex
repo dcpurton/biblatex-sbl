@@ -28,6 +28,18 @@
      \IfNoValueF{#1}{\quad #1.\space}%
      \cite[#2]{#3}}.}
 
+\NewDocumentCommand{\examplevolcite}{d()mom}{%
+  \par
+  \IfNoValueTF{#3}
+    {\texttt{\textbackslash avolcite\{#2\}\{#4\}}\par
+     \@afterheading
+     \IfNoValueF{#1}{\quad #1.\space}%
+     \volcite{#2}{#4}}
+    {\texttt{\textbackslash avolcite\{#2\}[#3]\{#4\}}\par
+     \@afterheading
+     \IfNoValueF{#1}{\quad #1.\space}%
+     \volcite{#2}[#3]{#4}}.}
+
 \NewDocumentCommand{\exampleabbreviations}{}{%
   \par
   \texttt{\textbackslash printbiblist\{abbreviations\}}
@@ -428,4 +440,178 @@ AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
 
 \section{Series Volume Identifiers: Old/New and Concurrent Series (17 May 2018)}
 
+\begin{verbatim}
+@book{robinson:1952,
+  author = {Robinson, John A. T.},
+  title = {The Body: A Study in Pauline Theology},
+  series = {Studies in Biblical Theology},
+  shortseries = {SBT},
+  number = {1/5},
+  location = {London},
+  publisher = {SCM},
+  date = {1952}
+}
+
+@book{jeremias:1967,
+  author = {Jeremias, Joachim},
+  title = {The Prayers of Jesus},
+  shorttitle = {Prayers},
+  series = {Studies in Biblical Theology},
+  shortseries = {SBT},
+  number = {2/6},
+  location = {Naperville, IL},
+  publisher = {Allenson},
+  date = {1967}
+}
+
+@book{frances:2014,
+  author = {Young, Frances},
+  title = {Ways of Reading Scripture},
+  series = {Wissenschaftliche Untersuchungen zum Neuen Testament},
+  shortseries = {WUNT},
+  number = {1/369},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {2014}
+}
+
+@book{reynolds+etal:2014,
+  editor = {Reynolds, Benjamin E. and Lugioyo, Brian and Vanhoozer, Kevin J.},
+  title = {Reconsidering the Relationship between Biblical and Systematic Theology in
+           the New Testament},
+  series = {Wissenschaftliche Untersuchungen zum Neuen Testament},
+  shortseries = {WUNT},
+  number = {2/369},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {2014}
+}
+
+@book{witte:2015,
+  author = {Witte, Markus},
+  title = {Texte und Kontexte des Sirachbuchs: Gesammelte Studien zu Ben Sira und zur
+           frühjüdischen Weisheit},
+  series = {Forschungen zum Alten Testament},
+  shortseries = {FAT},
+  number = {1/98},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {2015},
+  langid = {ngerman}
+}
+
+@book{tucker:2015,
+  author = {Tucker, Paavo N.},
+  title = {The Holiness Composition in the Book of Exodus},
+  series = {Forschungen zum Alten Testament},
+  shortseries = {FAT},
+  number = {2/98},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {2015}
+}
+\end{verbatim}
+
+\nocite{robinson:1952, jeremias:1967, frances:2014, reynolds+etal:2014,
+witte:2015, tucker:2015}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/05/17/series-volume-identifiers-old-new-and-concurrent-series/}
+
+\section{Series Volume Identifiers (10 May 2018)}
+
+\begin{verbatim}
+@book{johnson:2018,
+  editor = {Johnson, Sara R. and Dupertuis, Rubén R. and Shea, Christine},
+  title = {Reading and Teaching Ancient Fiction},
+  subtitle = {Jewish, Christian, and Greco-Roman Narratives},
+  series = {Writings from the Greco-Roman World Supplement Series},
+  shortseries = {WGRWSup},
+  number = {11},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2018}
+}
+
+@commentary{salters:2010,
+  author = {Salters, R. B.},
+  title = {Lamentations},
+  series = {International Critical Commentary},
+  shortseries = {ICC},
+  location = {London},
+  publisher = {T\&T Clark},
+  date = {2010}
+}
+
+@commentary{aune:1997,
+  author = {Aune, David E.},
+  title = {Revelation 1--11},
+  series = {Word Biblical Commentary},
+  shortseries = {WBC},
+  number = {52A},
+  location = {Nashville},
+  publisher = {Nelson},
+  date = {1997}
+}
+
+@commentary{aune:1998,
+  author = {Aune, David E.},
+  title = {Revelation 17--22},
+  series = {Word Biblical Commentary},
+  shortseries = {WBC},
+  number = {52C},
+  location = {Nashville},
+  publisher = {Nelson},
+  date = {1998}
+}
+
+@commentary{seebass:1993,
+  author = {Seebass, Horst},
+  title = {Numeri},
+  subtitle = {Kapitel 1,1--10,10},
+  shorttitle = {Numeri: 1,1--10,10},
+  series = {Biblischer Kommentar, Altes Testament},
+  shortseries = {BKAT},
+  number = {4.1},
+  location = {Neukirchen-Vluyn},
+  publisher = {Neukirchener Verlag},
+  date = {1993},
+  langid = {german}
+}
+
+@mvcommentary{aune:1997-1998,
+  author = {Aune, David E.},
+  title = {Revelation},
+  volumes = {3},
+  series = {Word Biblical Commentary},
+  shortseries = {WBC},
+  number = {52A--C},
+  location = {Nashville},
+  publisher = {Nelson},
+  date = {1997/1998}
+}
+
+@mvcommentary{seebass:1993-2007,
+  author = {Seebass, Horst},
+  title = {Numeri},
+  volumes = {3},
+  series = {Biblischer Kommentar, Altes Testament},
+  shortseries = {BKAT},
+  number = {4.1--3},
+  location = {Neukirchen-Vluyn},
+  publisher = {Neukirchener Verlag},
+  date = {1993/2007},
+  langid = {german}
+}
+\end{verbatim}
+
+\nocite{johnson:2018, salters:2010, aune:1998, seebass:1993,
+seebass:1993-2007}
+\examplecite(1)[589]{aune:1997}
+\examplecite(2)[589]{aune:1997}
+\examplevolcite(3){1}[589]{aune:1997-1998}
+\examplevolcite(4){1}[589]{aune:1997-1998}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/05/10/series-volume-identifiers/}
 \end{document}
