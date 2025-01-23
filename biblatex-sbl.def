@@ -153,6 +153,21 @@
       \step[fieldsource=revdtitle, match=\regexp{^(A|An|The)\s+(.+)}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$2}]
     }
+    % articles with an integer issue and no volume treat issue like volume
+    \map{
+      \pertype{article}
+      \step[notfield=volume, final]
+      \step[fieldsource=issue, match=\regexp{\d+}, final]
+      \step[fieldset=volume, origfieldval]
+      \step[fieldset=issue, null]
+    }
+    % articles with an integer issue and volume drop issue
+    \map{
+      \pertype{article}
+      \step[fieldsource=volume, final]
+      \step[fieldsource=issue, match=\regexp{\d+}, final]
+      \step[fieldset=issue, null]
+    }
     % incommentary with an xref uses inreference driver
     \map[overwrite]{
       \step[fieldsource=xref, final]

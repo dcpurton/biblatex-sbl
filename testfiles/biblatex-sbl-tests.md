@@ -48,6 +48,7 @@
 | biblatex-sbl_6.2.25b  | SBLHS §6.2.25  | |
 | biblatex-sbl_6.2.25c  | SBLHS §6.2.25  | |
 | biblatex-sbl_6.2.25d  | SBLHS §6.2.25  | |
+| biblatex-sbl_6.3a     | SBLHS §6.3     | [journals and volume/issue](https://sblhs2.com/2018/04/12/journals-identified-by-issue-number/) |
 | biblatex-sbl_6.3.1    | SBLHS §6.3.1   | |
 | biblatex-sbl_6.3.2a   | SBLHS §6.3.2   | |
 | biblatex-sbl_6.3.2b   | SBLHS §6.3.2   | [but see comments](https://sblhs2.com/2018/02/08/citing-page-numbers-for-chapters-and-articles/) |
