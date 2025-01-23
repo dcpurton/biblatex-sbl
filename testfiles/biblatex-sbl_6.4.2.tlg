@@ -1057,7 +1057,7 @@ Completed box being shipped out [1]
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 2.88
-.....\hbox(6.65+2.47)x330.0, glue set 24.34001fil, shifted 15.0, direction TLT
+.....\hbox(6.65+2.47)x330.0, glue set 26.32fil, shifted 15.0, direction TLT
 ......\localpar
 .......\localinterlinepenalty=0
 .......\localbrokenpenalty=0
@@ -1079,7 +1079,6 @@ Completed box being shipped out [1]
 ........\rule(0.4+0.0)x*
 .......\kern0.0
 ......\TU/Brill(0)/m/n/10 .
-......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\TU/Brill(0)/m/it/10 M
 ......\TU/Brill(0)/m/it/10 e
@@ -1984,7 +1983,7 @@ Completed box being shipped out [1]
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 2.88
-.....\hbox(6.65+2.47)x330.0, glue set - 0.05972, shifted 15.0, direction TLT
+.....\hbox(6.65+2.47)x330.0, glue set 1.40001fil, shifted 15.0, direction TLT
 ......\localpar
 .......\localinterlinepenalty=0
 .......\localbrokenpenalty=0
@@ -2006,7 +2005,6 @@ Completed box being shipped out [1]
 ........\rule(0.4+0.0)x*
 .......\kern0.0
 ......\TU/Brill(0)/m/n/10 .
-......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\TU/Brill(0)/m/it/10 C
 ......\TU/Brill(0)/m/it/10 i
@@ -2176,7 +2174,7 @@ Completed box being shipped out [1]
 .....\glue(\parskip) 0.0
 .....\glue(\parskip) 0.0
 .....\glue(\baselineskip) 2.88
-.....\hbox(6.65+2.47)x330.0, glue set 25.32002fil, shifted 15.0, direction TLT
+.....\hbox(6.65+2.47)x330.0, glue set 27.30002fil, shifted 15.0, direction TLT
 ......\localpar
 .......\localinterlinepenalty=0
 .......\localbrokenpenalty=0
@@ -2198,7 +2196,6 @@ Completed box being shipped out [1]
 ........\rule(0.4+0.0)x*
 .......\kern0.0
 ......\TU/Brill(0)/m/n/10 .
-......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
 ......\TU/Brill(0)/m/it/10 C
 ......\TU/Brill(0)/m/it/10 o

@@ -1289,7 +1289,7 @@
 \xpatchbibmacro{booktitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
 \xpatchbibmacro{maintitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
 
-\newbibmacro{booktitle+bybookauthor+bybookeditor}{
+\newbibmacro{booktitle+bybookauthor+bybookeditor}{%
   \iffieldundef{booktitle}
     {}
     {\usebibmacro{booktitle}%
@@ -1299,7 +1299,7 @@
      \usebibmacro{bybookeditor}%
      \newunit\newblock}}
 
-\newbibmacro{booktitle+bybookeditor}{
+\newbibmacro{booktitle+bybookeditor}{%
   \iffieldundef{booktitle}
     {}
     {\usebibmacro{booktitle}%
@@ -1307,7 +1307,7 @@
      \usebibmacro{bybookeditor}%
      \newunit\newblock}}
 
-\newbibmacro{maintitle+bymainauthor+bymaineditor}{
+\newbibmacro{maintitle+bymainauthor+bymaineditor}{%
   \iffieldundef{maintitle}
     {}
     {\usebibmacro{maintitle}%
@@ -1316,7 +1316,7 @@
      \newunit
      \usebibmacro{bymaineditor}}}
 
-\newbibmacro{maintitle+bymaineditor}{
+\newbibmacro{maintitle+bymaineditor}{%
   \iffieldundef{maintitle}
     {}
     {\usebibmacro{maintitle}%
