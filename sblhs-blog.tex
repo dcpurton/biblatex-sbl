@@ -16,6 +16,12 @@
 \addbibresource{biblatex-sbl.bib}
 
 \makeatletter
+\NewDocumentCommand{\examplenocite}{m}{%
+  \texttt{\textbackslash nocite\{*\}}\par
+  \@afterheading
+  \nocite{#1}%
+}
+
 \NewDocumentCommand{\examplecite}{d()om}{%
   \par
   \IfNoValueTF{#2}
@@ -133,7 +139,7 @@
 }
 \end{verbatim}
 
-\nocite{ACCS}
+\examplenocite{ACCS}
 \examplecite(4)[(1.2.12)129]{victorinus:ephesians}
 \examplecite(8)[(5.13)77]{theodoret:galatians}
 \exampleabbreviations
@@ -431,9 +437,10 @@ with permission.
 }
 \end{verbatim}
 
-\nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
-AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
-1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant}
+\examplenocite{AB, ABD, philo:abr, philo:agr, tacitus:ann,
+graniuslicinianus:ann, AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac,
+JSOTSup, justinmartyr:1apol, 1en, 1QM, 4QpNah, livy:aburbe, cicero:agr,
+plutarch:ant, dionysius:ant}
 \exampleancientsources
 \examplesecondarysources
 \examplereferences{https://sblhs2.com/2018/05/24/abbreviations-lists/}
@@ -512,7 +519,7 @@ AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
 }
 \end{verbatim}
 
-\nocite{robinson:1952, jeremias:1967, frances:2014, reynolds+etal:2014,
+\examplenocite{robinson:1952, jeremias:1967, frances:2014, reynolds+etal:2014,
 witte:2015, tucker:2015}
 \exampleabbreviations
 \examplebibliography
@@ -605,7 +612,7 @@ witte:2015, tucker:2015}
 }
 \end{verbatim}
 
-\nocite{johnson:2018, salters:2010, aune:1998, seebass:1993,
+\examplenocite{johnson:2018, salters:2010, aune:1998, seebass:1993,
 seebass:1993-2007}
 \examplecite(1)[589]{aune:1997}
 \examplecite(2)[589]{aune:1997}
@@ -614,4 +621,56 @@ seebass:1993-2007}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/05/10/series-volume-identifiers/}
+
+\section{Electronic Journals with Individually Paginated Articles (3 May 2018)}
+
+\begin{verbatim}
+@article{oswald:2012,
+  author = {Oswald, Wolfgang},
+  title = {Foreign Marriages and Citizenship in Persian Period Judah},
+  shorttitle = {Foreign Marriages},
+  journaltitle = {Journal of Hebrew Scriptures},
+  shortjournal = {JHebS},
+  volume = {12},
+  date = {2012},
+  eid = {6},
+  pages = {1-17},
+  doi = {10.5508/jhs.2012.v12.a6}
+}
+\end{verbatim}
+
+\examplecite(16)[3]{oswald:2012}
+\examplecite(18)[3]{oswald:2012}
+\exampleabbreviations
+\examplebibliography
+
+\section{Multiple Cities of Publication (26 April 2018)}
+
+\begin{verbatim}
+@book{hamori+stokl:2018,
+  author = {Hamori, Esther J. and Stökl, Jonathan},
+  title = {Perchance to Dream: Dream Divination in the Bible and the Ancient Near
+           East},
+  series = {Ancient Near East Monographs},
+  shortseries = {ANEM},
+  number = {21},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2018}
+}
+
+@book{wilken:2003,
+  author = {Wilken, Robert Louis},
+  title = {The Christians as the Romans Saw Them},
+  edition = {2},
+  location =  {New Haven and London},
+  publisher = {Yale University Press},
+  date = {2003}
+}
+\end{verbatim}
+
+\examplenocite{hamori+stokl:2018, wilken:2003}
+\exampleabbreviations
+\examplebibliography
+
 \end{document}
