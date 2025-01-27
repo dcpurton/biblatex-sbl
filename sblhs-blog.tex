@@ -16,10 +16,24 @@
 \addbibresource{biblatex-sbl.bib}
 
 \makeatletter
+
+\NewDocumentCommand{\examplenobreak}{}{%
+  \par
+  \@afterheading
+}
+
 \NewDocumentCommand{\examplenocite}{m}{%
+  \par
   \texttt{\textbackslash nocite\{*\}}\par
   \@afterheading
   \nocite{#1}%
+}
+
+\NewDocumentCommand{\exampleciteauthor}{m}{%
+  \par
+  \texttt{\textbackslash citeauthor\{#1\}}\par
+  \@afterheading
+  \citeauthor{#1}%
 }
 
 \NewDocumentCommand{\examplecite}{d()om}{%
@@ -643,6 +657,7 @@ seebass:1993-2007}
 \examplecite(18)[3]{oswald:2012}
 \exampleabbreviations
 \examplebibliography
+\examplereferences{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}
 
 \section{Multiple Cities of Publication (26 April 2018)}
 
@@ -672,5 +687,192 @@ seebass:1993-2007}
 \examplenocite{hamori+stokl:2018, wilken:2003}
 \exampleabbreviations
 \examplebibliography
+\examplereferences{https://sblhs2.com/2018/04/26/multiple-cities-of-publication/}
+
+\section{Journals Identified by Issue Number (12 April 2018)}
+
+\begin{verbatim}
+@article{miller:1984,
+  author = {Miller, Jr., Patrick D.},
+  title = {Meter, Parallelism, and Tropes: The Search for Poetic Style},
+  journaltitle = {Journal for the Study of the Old Testament},
+  shortjournal = {JSOT},
+  issue = {28},
+  date = {1984},
+  pages = {99-106}
+}
+
+@article{stott:2005-2006,
+  author = {Stott, Katherine},
+  title = {Finding the Lost Book of the Law: Re-reading the Story of \mkbibquote{The
+           Book of the Law} (Deuteronomy--2~Kings) in Light of Classical Literature},
+  journaltitle = {Journal for the Study of the Old Testament},
+  shortjournal = {JSOT},
+  volume = {30},
+  date = {2005/2006},
+  pages = {153-169}
+}
+
+@article{roth:1959-1960,
+  author = {Roth, Cecil},
+  title = {The Zealots and Qumran: The Basic Issue},
+  journaltitle = {Revue de Qumran},
+  shortjournal = {RevQ},
+  volume = {2},
+  issue = {5},
+  date = {1959/1960},
+  pages = {81-84}
+}
+\end{verbatim}
+
+\examplecite(3){miller:1984}
+\examplecite(4){stott:2005-2006}
+\examplecite(5){roth:1959-1960}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/04/12/journals-identified-by-issue-number/}
+
+\section{Modern Author Names (6 April 2018)}
+
+\begin{verbatim}
+@book{wellhausen:1883,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena zur Geschichte Israels},
+  edition = {2},
+  location = {Berlin},
+  publisher = {Reimer},
+  date = {1883},
+  langid = {german}
+}
+
+@book{scott:1989,
+  author = {Scott, Bernard Brandon},
+  title = {Hear Then the Parable: A Commentary on the Parables of Jesus},
+  location = {Philadelphia},
+  publisher = {Fortress},
+  date = {1989}
+}
+
+@book{logan+wedderburn:1983,
+  editor = {Logan, Alastair H. B. and Wedderburn, Alexander J. M.},
+  title = {The New Testament and Gnosis: Essays in Honour of Robert McL. Wilson},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
+  date = {1983}
+}
+
+@book{barbour:2012,
+  author = {Barbour, Jennie},
+  title = {The Story of Israel in the Book of Qohelet: Ecclesiastes as Cultural
+           Memory},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {2012}
+}
+
+@article{grillo:2017,
+  author = {Grillo, Jennie},
+  title = {\mkbibquote{From a Far Country}: Daniel in Isaiah’s Babylon},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {136},
+  date = {2017},
+  pages = {363-380}
+}
+
+@misc{barbour:seealso,
+  author = {Barbour, Jennie},
+  title = {See also \mkbibemph{Grillo, Jennie}},
+  sorttitle = {zzz}
+}
+
+@misc{grillo:seealso,
+  author = {Grillo, Jennie},
+  title = {See also \mkbibemph{Barbour, Jennie}},
+  sortyear = {zzz}
+}
+
+@article{eilberg-schwartz:1991,
+  author = {Eilberg-Schwartz, Howard},
+  title = {The Problem of the Body for the People of the Book},
+  journaltitle = {Journal of the History of Sexuality},
+  volume = {2},
+  date = {1991},
+  pages = {1-24}
+}
+
+@article{schusslerfiorenza:1986,
+  author = {Schüssler Fiorenza, Elisabeth},
+  title = {A Feminist Critical Interpretation for Liberation: Martha and Mary; Luke
+           10:38–42},
+  journaltitle = {Religion and Intellectual Life},
+  shortjournal = {RIL},
+  volume = {3},
+  date = {1986},
+  pages = {21-35}
+}
+
+@incollection{trebollebarrera:2013,
+  author = {family=Trebolle Barrera, given=Julio, shortfamily=Barrera},
+  title = {Agreements between LXX\textsuperscript{BL}, Medieval Hebrew Readings, and
+           Variants of the Aramaic, Syriac and Vulgate Versions in \mkbibemph{Kaige}
+           and Non-\mkbibemph{kaige} Sections of 3–4 Reigns},
+  pages = {193-206},
+  booktitle = {XIV Congress of the IOSCS: Helsinki, 2010},
+  editor = {Peters, Melvin K. H.},
+  series = {Septuagint and Cognate Studies},
+  shortseries = {SCS},
+  number = {59},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2013}
+}
+
+@book{hooks:1990,
+  author = {family=hooks, given=bell},
+  title = {Yearning: Race, Gender, and Cultural Politics},
+  location = {Boston},
+  publisher = {South End},
+  date = {1990}
+}
+\end{verbatim}
+
+\exampleciteauthor{wellhausen:1883}
+\exampleciteauthor{scott:1989}
+\exampleciteauthor{tigay:1985}
+\exampleciteauthor{wellhausen:1883, scott:1989, tigay:1985}
+
+\verb|\citeauthor{eilberg-schwartz:1991} has stated ….|
+\examplenobreak
+\citeauthor{eilberg-schwartz:1991} has stated ….
+
+\verb|\citeauthor{eilberg-schwartz:1991} goes on to argue ….|
+\examplenobreak
+\citeauthor{eilberg-schwartz:1991} goes on to argue ….
+
+\verb|\citeauthor{schusslerfiorenza:1986} has stated ….|
+\examplenobreak
+\citeauthor{schusslerfiorenza:1986} has stated ….
+
+\verb|\citeauthor{schusslerfiorenza:1986} goes on to argue ….|
+\examplenobreak
+\citeauthor{schusslerfiorenza:1986} goes on to argue ….
+
+\verb|\citeauthor{trebollebarrera:2013} has stated ….|
+\examplenobreak
+\citeauthor{trebollebarrera:2013} has stated ….
+
+\verb|\citeauthor{trebollebarrera:2013} goes on to argue ….|
+\examplenobreak
+\citeauthor{trebollebarrera:2013} goes on to argue ….
+
+\verb|As \citeauthor{hooks:1990} offers ….|
+\examplenobreak
+As \citeauthor{hooks:1990} offers ….
+\examplenocite{logan+wedderburn:1983, barbour:2012, grillo:2017,
+barbour:seealso, grillo:seealso}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/04/06/modern-author-names/}
 
 \end{document}
