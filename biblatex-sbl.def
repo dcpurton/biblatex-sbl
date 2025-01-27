@@ -120,6 +120,95 @@
     {\@secondoftwo}}
 
 
+% ## Name tracker
+
+\newbool{nametracker}
+
+% define global and context name trackers for labelname
+\def\sbl@blx@nametracker@global{%
+  \ifbool{nametracker}
+    {\ifdef{\abx@field@namehash}
+       {\xifinlistcs\abx@field@namehash{sbl@blx@name@bsee@\the\c@refsection}
+          {}
+          {\listcsxadd{sbl@blx@name@bsee@\the\c@refsection}\abx@field@namehash}}
+       {}}
+    {}}
+
+\def\sbl@blx@nametracker@context{%
+  \ifbool{nametracker}
+    {\ifdef{\abx@field@namehash}
+       {\iftoggle{blx@footnote}
+          {\xifinlistcs\abx@field@namehash{sbl@blx@name@fsee@\the\c@refsection}
+             {}
+             {\listcsxadd{sbl@blx@name@fsee@\the\c@refsection}\abx@field@namehash}}
+          {\xifinlistcs\abx@field@namehash{sbl@blx@name@bsee@\the\c@refsection}
+             {}
+             {\listcsxadd{sbl@blx@name@bsee@\the\c@refsection}\abx@field@namehash}}}
+       {}}
+    {}}
+
+% define global and context tests for if a labelname has previously been seen
+\def\sbl@blx@ifnameseen@global{%
+  \ifbool{nametracker}
+    {\xifinlistcs{\abx@field@namehash}{sbl@blx@name@bsee@\the\c@refsection}}
+    {\@secondoftwo}}
+
+\def\sbl@blx@ifnameseen@context{%
+  \ifbool{nametracker}
+    {\iftoggle{blx@footnote}
+       {\xifinlistcs{\abx@field@namehash}{sbl@blx@name@fsee@\the\c@refsection}}
+       {\xifinlistcs{\abx@field@namehash}{sbl@blx@name@bsee@\the\c@refsection}}}
+    {\@secondoftwo}}
+
+% define command to reset the name tracker
+\newrobustcmd*{\citeauthorreset}{%
+  \global\cslet{sbl@blx@name@bsee@\the\c@refsection}\@empty
+  \global\cslet{sbl@blx@name@fsee@\the\c@refsection}\@empty}
+
+% patch \citereset so that it also calls \citeauthorreset
+\patchcmd{\citereset}
+  {\blx@ibidreset@force}
+  {\citeauthorreset
+   \blx@ibidreset@force}
+  {}
+  {}
+
+% disable name tracker in floats unless the trackfloats option is set
+\AtEndPreamble{%
+  \iftoggle{blx@trackfloats}
+    {}
+    {\apptocmd\@floatboxreset
+       {\boolfalse{nametracker}}
+       {}
+       {\blx@err@patch{floats}}}}
+
+\DeclareBiblatexOption{global,type,entry}[string]{nametracker}[true]{%
+  \ifcsdef{sbl@blx@opt@nametracker@#1}
+    {\csuse{sbl@blx@opt@nametracker@#1}}
+    {\blx@err@invopt{nametracker=#1}{}}}
+\def\sbl@blx@opt@nametracker@true{%
+  \let\ifnameseen\sbl@blx@ifnameseen@global
+  \let\nametracker\sbl@blx@nametracker@global
+  \booltrue{nametracker}}
+\def\sbl@blx@opt@nametracker@false{%
+  \let\ifnameseen\@secondoftwo
+  \let\nametracker\relax}
+\def\sbl@blx@opt@nametracker@context{%
+  \let\ifnameseen\sbl@blx@ifnameseen@context
+  \let\nametracker\sbl@blx@nametracker@context
+  \booltrue{nametracker}}
+\def\sbl@blx@opt@nametracker@strict{%
+  \let\ifnameseen\sbl@blx@ifnameseen@global
+  \def\nametracker{%
+    \blx@ifcitesingle{\sbl@blx@nametracker@global}{}}%
+  \booltrue{nametracker}}
+\def\sbl@blx@opt@nametracker@constrict{%
+  \let\ifnameseen\sbl@blx@ifnameseen@context
+  \def\nametracker{%
+    \blx@ifcitesingle{\sbl@blx@nametracker@context}{}}%
+  \booltrue{nametracker}}
+
+
 % ## Bibliography record manipulation
 
 \DeclareStyleSourcemap{
@@ -702,6 +791,37 @@
 %\DeclareNameAlias{byrevdeditor}{default}
 
 \DeclareNameWrapperFormat{withauthor}{\bibstring{with}\space #1}
+
+\DeclareNameFormat{labelname}{%
+  \ifdefempty{\namepartshortfamily}
+    {}
+    {\def\namepartfamily{\namepartshortfamily}}%
+  \ifcase\value{uniquename}%
+    \usebibmacro{name:family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \or
+    \ifuseprefix
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefix}
+        {\namepartsuffixi}}
+      {\usebibmacro{name:given-family}
+        {\namepartfamily}
+        {\namepartgiveni}
+        {\namepartprefixi}
+        {\namepartsuffixi}}%
+  \or
+    \usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}%
+  \fi
+  \usebibmacro{name:andothers}}
 
 % Family, Given von, Junior
 \renewbibmacro*{name:family-given}[4]{%

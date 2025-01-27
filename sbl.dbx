@@ -1,5 +1,7 @@
 \ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
 
+\DeclareDatamodelConstant[type=list]{nameparts}{prefix,family,suffix,given,shortfamily}
+
 \DeclareDatamodelEntrytypes{
   ancienttext,
   journal,

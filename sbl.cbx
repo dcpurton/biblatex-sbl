@@ -76,6 +76,7 @@
   maxbibnames=99,
   mincrossrefs=2,
   minxrefs=1,
+  nametracker=context,
   pagination=none,
   shorthandintro=false,
   uniquework,
@@ -155,6 +156,34 @@
   {\usebibmacro{cite:star}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \ifnameseen
+     {\printnames{labelname}}
+     {\printnames[given-family]{labelname}%
+      \nametracker}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand*{\citeauthor}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\ifciteindex
+     {\indexnames{labelname}}
+     {}%
+   \ifnameseen
+     {\printnames[][1-1]{labelname}}
+     {\printnames[given-family][1-1]{labelname}%
+      \nametracker}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
 
 \DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%

@@ -1,0 +1,37 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\citeauthor{wellhausen:1883}
+
+\citeauthor{scott:1989}
+
+\citeauthor{tigay:1985}
+
+\citeauthor{wellhausen:1883, scott:1989, tigay:1985}
+
+\citeauthor{eilberg-schwartz:1991} has stated ….
+\citeauthor{eilberg-schwartz:1991} goes on to argue ….
+
+\citeauthor{schusslerfiorenza:1986} has stated ….
+\citeauthor{schusslerfiorenza:1986} goes on to argue ….
+
+\citeauthor{trebollebarrera:2013} has stated ….
+\citeauthor{trebollebarrera:2013} goes on to argue ….
+
+As \citeauthor{hooks:1990} offers ….
+
+\nocite{logan+wedderburn:1983, barbour:2012, grillo:2017, barbour:seealso,
+grillo:seealso}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
