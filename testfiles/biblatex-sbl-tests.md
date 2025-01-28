@@ -4,6 +4,7 @@
 
 | Test name             | Reference      | Notes |
 | :-------------------- | :------------- | :---- |
+| biblatex-sbl_6.1.2.1a | SBLHS §6.1.2.1 | See [here](https://sblhs2.com/2018/04/06/modern-author-names/) |
 | biblatex-sbl_6.2.1    | SBLHS §6.2.1   | |
 | biblatex-sbl_6.2.2    | SBLHS §6.2.2   | |
 | biblatex-sbl_6.2.3    | SBLHS §6.2.3   | |
