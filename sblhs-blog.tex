@@ -17,6 +17,10 @@
 
 \makeatletter
 
+\newcommand*{\pno}{\textbackslash pno }
+\newcommand*{\ppno}{\textbackslash ppno }
+\newcommand*{\nopp}{\textbackslash nopp }
+
 \NewDocumentCommand{\examplenobreak}{}{%
   \par
   \@afterheading
@@ -47,6 +51,20 @@
      \@afterheading
      \IfNoValueF{#1}{\quad #1.\space}%
      \cite[#2]{#3}}.}
+
+\NewDocumentCommand{\exampleparencite}{sd()om}{%
+  \par
+  \IfNoValueTF{#3}
+    {\texttt{\textbackslash parencite\IfBooleanT{#1}{*}\{#4\}}\par
+     \@afterheading
+     \IfNoValueF{#2}{\quad #2.\space}%
+     \cite{#4}}
+    {\texttt{\textbackslash parencite\IfBooleanT{#1}{*}[#3]\{#4\}}\par
+     \@afterheading
+     \IfNoValueF{#2}{\quad #2.\space}%
+     \IfBooleanTF{#1}
+       {\parencite*[#3]{#4}}
+       {\parencite[#3]{#4}}}.}
 
 \NewDocumentCommand{\examplevolcite}{d()mom}{%
   \par
@@ -874,5 +892,162 @@ barbour:seealso, grillo:seealso}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/04/06/modern-author-names/}
+
+\section{Citing Journals and Magazines: Issue Numbers (22 March 2018)}
+
+\begin{verbatim}
+@article{yee:2017,
+  author = {Yee, Gale A.},
+  title = {\mkbibquote{He Will Take the Best of Your Fields}: Royal Feasts and Rural
+           Extraction},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {136},
+  date = {2017},
+  pages = {821-838}
+}
+
+@article{cross:1999,
+  author = {Cross, Frank Moore},
+  title = {King Hezekiah's Seal Bears Phoenician Imagery},
+  journaltitle = {Biblical Archeology Review},
+  shortjournal = {BAR},
+  volume = {25},
+  number = {2},
+  date = {1999},
+  pages = {42-45, 60}
+}
+\end{verbatim}
+
+\examplecite(7){yee:2017}
+\examplecite(8){cross:1999}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/03/22/citing-journals-and-magazines-issue-numbers/}
+
+\section{Citing Smyth's \emph{Greek Grammar} (8 March 2018)}
+
+\begin{verbatim}
+@book{smyth:1956,
+  shorthand = {Smyth},
+  author = {Smyth, Herbert Weir},
+  title = {Greek Grammar},
+  editor = {Messing, Gordon M.},
+  editortype = {reviser},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1956},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{smyth:1920,
+  author = {Smyth, Herbert Weir},
+  title = {A Greek Grammar for Colleges},
+  location = {New York},
+  publisher = {American Book Company},
+  date = {1920},
+  pagination = {section}
+}
+
+@book{smyth:1916,
+  author = {Smyth, Herbert Weir},
+  title = {A Greek Grammar for Schools and Colleges},
+  location = {New York},
+  publisher = {American Book Company},
+  date = {1916},
+  pagination = {section}
+}
+\end{verbatim}
+
+\examplecite(42)[\pno 1765a]{smyth:1956}
+\examplenocite{smyth:1920,smyth:1916}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/03/08/citing-smyths-greek-grammar/}
+
+\section{Philo of Alexandria (1 March 2018)}
+
+\begin{verbatim}
+@book{philo:cherubim,
+  author = {Philo},
+  title = {On the Cherubim; The Sacrifices of Abel and Cain; The Worse Attacks the
+           Better; On the Posterity and Exile of Cain; On the Giants},
+  translator = {Colson, F. H. and Whitaker, G. H.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1929}
+}
+
+@ancienttext{philo:cher,
+  author = {Philo},
+  title = {De cherubim},
+  shorttitle = {Cher\adddot},
+  translator = {Colson},
+  xref = {philo:cherubim}
+}
+
+@book{philo:questionsongenesis,
+  author = {Philo},
+  title = {Questions on Genesis},
+  translator = {Marcus, Ralph},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1953}
+}
+
+@ancienttext{philo:QG,
+  author = {Philo},
+  title = {Quaestiones et solutiones in Genesin},
+  shorttitle = {QG},
+  xref = {philo:questionsongenesis}
+}
+
+@book{geljion+runia:2013,
+  author = {Geljion, Albert C. and Runia, David T.},
+  title = {Philo of Alexandria: \mkbibquote{On Cultivation}; Introduction, Translation
+           and Commentary},
+  shorttitle = {Philo of Alexandria: \mkbibquote{On Cultivation}},
+  series = {Philo of Alexandria Commentary Series},
+  shortseries = {PACS},
+  number = {4},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2013}
+}
+
+@book{wilson:2011,
+  author = {Wilson, Walter T.},
+  title = {Philo of Alexandria: \mkbibquote{On Virtues}; Introduction, Translation,
+           and Commentary},
+  shorttitle = {Philo of Alexandria: \mkbibquote{On Virtues}},
+  series = {Philo of Alexandria Commentary Series},
+  shortseries = {PACS},
+  number = {3},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2011}
+}
+\end{verbatim}
+
+\exampleparencite[(50)]{philo:cher}
+\exampleparencite[(1.6)]{philo:QG}
+
+\verb|As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes|\\
+\verb|what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.|
+\examplenobreak
+As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes
+what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.
+
+\examplecite(1){geljion+runia:2013}
+\examplecite(2){wilson:2011}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/03/01/philo-of-alexandria/}
 
 \end{document}
