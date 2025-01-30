@@ -11,15 +11,15 @@
 \begin{document}
 \START
 \showoutput
-\parencite*[(1-164)]{PGMIII}
-
-\cite*[(1-164)]{PGMIII}
+\parencite[(1-164)]{PGMIII}
 
 \cite[(1-164)]{PGMIII}
 
-\cite*[(410-424)]{PGMIII}
+\transcite[(1-164)]{PGMIII}
 
-\cite*[(554-562)]{PDMxiv}
+\cite[(410-424)]{PGMIII}
+
+\cite[(554-562)]{PDMxiv}
 
 \printbibliography
 \printbiblist{abbreviations}

@@ -11,11 +11,11 @@
 \begin{document}
 \START
 \showoutput
-\parencite*[10]{heraclitus:epistle1}
-
-\cite*[10]{heraclitus:epistle1}
+\parencite[10]{heraclitus:epistle1}
 
 \cite[10]{heraclitus:epistle1}
+
+\transcite[10]{heraclitus:epistle1}
 
 \nocite{malherbe:1977}
 \printbibliography

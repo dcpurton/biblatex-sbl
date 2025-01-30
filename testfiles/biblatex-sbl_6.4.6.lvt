@@ -13,11 +13,11 @@
 \showoutput
 \volcite{36}[(4.19)128c]{gregory:orationestheologicae}
 
-\cite*[(4.19)]{gregory:orationestheologicae}
+\cite[(4.19)]{gregory:orationestheologicae}
 
 \volcite{18}[(2.4)52c]{methodius:symp}
 
-\cite*[(2.4)]{methodius:symp}
+\cite[(2.4)]{methodius:symp}
 \nocite{PL}
 \printbibliography
 \printbibheading[title=Abbreviations]

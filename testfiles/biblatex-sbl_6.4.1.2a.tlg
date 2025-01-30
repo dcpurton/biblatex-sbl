@@ -50,11 +50,6 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{1}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:suppiluliumas} xyz
-.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 S
 .....\TU/Brill(0)/m/n/10 u
@@ -346,11 +341,6 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\TU/Brill(0)/m/n/10 (
 .....\write1{\abx@aux@page{10}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:legendsargon} xyz
-.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 “
 .....\kern0.2 (font)
 .....\TU/Brill(0)/m/n/10 T
@@ -554,19 +544,18 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\TU/Brill(0)/m/n/10 (
 .....\write1{\abx@aux@page{15}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:lamentationoversumer} xyz
-.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 L
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 m
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
 .....\TU/Brill(0)/m/n/10 t
 .....\TU/Brill(0)/m/n/10 a
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
 .....\TU/Brill(0)/m/n/10 t
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 o

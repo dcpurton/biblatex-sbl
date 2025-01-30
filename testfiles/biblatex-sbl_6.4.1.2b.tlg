@@ -49,11 +49,6 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{1}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:erraandishum:dalley} xyz
-.......\penalty 10000
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 r
@@ -213,7 +208,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{5}{\the \c@page }}
+.....\write1{\abx@aux@page{4}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 r
@@ -294,12 +289,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{9}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:erraandishum:foster} xyz
-.......\penalty 10000
+.....\write1{\abx@aux@page{7}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 r
@@ -494,7 +484,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{13}{\the \c@page }}
+.....\write1{\abx@aux@page{10}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 r
@@ -574,12 +564,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{17}{\the \c@page }}
-.....\penalty 10000
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:doomedprince} xyz
-.......\penalty 10000
+.....\write1{\abx@aux@page{13}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
 .....\kern0.2 (font)
 .....\TU/Brill(0)/m/n/10 T
@@ -637,7 +622,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{21}{\the \c@page }}
+.....\write1{\abx@aux@page{16}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
 .....\TU/Brill(0)/m/n/10 D
 .....\TU/Brill(0)/m/n/10 o
@@ -740,7 +725,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 5.0
 .....\penalty 0
-.....\write1{\abx@aux@page{25}{\the \c@page }}
+.....\write1{\abx@aux@page{19}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 D
 .....\kern-0.05 (font)
 .....\TU/Brill(0)/m/n/10 a
@@ -873,7 +858,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 5.0
 .....\penalty 0
-.....\write1{\abx@aux@page{26}{\the \c@page }}
+.....\write1{\abx@aux@page{20}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 F
 .....\kern-0.4 (font)
 .....\TU/Brill(0)/m/n/10 o
@@ -1105,7 +1090,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{27}{\the \c@page }}
+.....\write1{\abx@aux@page{21}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 L
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 c

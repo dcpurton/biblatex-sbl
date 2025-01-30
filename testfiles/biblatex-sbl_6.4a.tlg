@@ -325,7 +325,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{6}{\the \c@page }}
+.....\write1{\abx@aux@page{5}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 T
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 e
@@ -527,7 +527,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 5.0
 .....\penalty 0
-.....\write1{\abx@aux@page{10}{\the \c@page }}
+.....\write1{\abx@aux@page{8}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 d
 .....\discretionary (penalty 50)
@@ -795,7 +795,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{12}{\the \c@page }}
+.....\write1{\abx@aux@page{10}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 n
 .....\discretionary (penalty 50)

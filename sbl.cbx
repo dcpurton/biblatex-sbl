@@ -153,7 +153,8 @@
 
 \DeclareCiteCommand*{\cite}
   {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
@@ -211,27 +212,100 @@
 
 \DeclareCiteCommand*{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
 \DeclareCiteCommand*{\footcitetext}[\mkbibfootnotetext]
   {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
 \DeclareCiteCommand*{\parencite}[\mkbibparens]
   {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
 \DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\transcite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\transcite}
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\ptranscite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\ptranscite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\ftranscite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\ftranscite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\stranscite}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\stranscite}[\iffootnote\mkbibparens\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite:trans:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareMultiCiteCommand{\transcites}{\transcite}{\multicitedelim}
+\DeclareMultiCiteCommand{\ftranscites}[\mkbibfootnote]{\ftranscite}{\multicitedelim}
+\DeclareMultiCiteCommand{\ptranscites}[\mkbibparens]{\ptranscite}{\multicitedelim}
+\DeclareMultiCiteCommand{\stranscites}[\iffootnote\mkbibfootnote\mkbibparens]{\stranscite}{\multicitedelim}
+
+\newrobustcmd*{\voltranscite}{\volcitecmd\transcite}
+\newrobustcmd*{\pvoltranscite}{\volcitecmd\ptranscite}
+\newrobustcmd*{\fvoltranscite}{\volcitecmd\ftranscite}
+\newrobustcmd*{\svoltranscite}{\volcitecmd\stranscite}
+\newrobustcmd*{\avoltranscite}{\volcitecmd\stranscite}
+
+\newrobustcmd*{\voltranscites}{\multivolcitecmd\transcites}
+\newrobustcmd*{\pvoltranscites}{\multivolcitecmd\ptranscites}
+\newrobustcmd*{\fvoltranscites}{\multivolcitecmd\ftranscites}
+\newrobustcmd*{\svoltranscites}{\multivolcitecmd\stranscites}
+\newrobustcmd*{\avoltranscites}{\multivolcitecmd\stranscites}
 
 \renewbibmacro*{cite}{%
   \usebibmacro{cite:citepages}%
@@ -247,8 +321,10 @@
     or
     test {\ifentrytype{series}}
   }
-    {\clearfield{pages}%
-     \clearfield{pagetotal}%
+    {\ifentrytype{ancienttext}
+       {}
+       {\clearfield{pages}%
+        \clearfield{pagetotal}}%
      \ifboolexpr{
        test {\ifentrytype{series}}
        and
@@ -275,29 +351,15 @@
     {\ifcrossrefseen
       {\usebibmacro{cite:full:citepages}%
        \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
-      {\ifboolexpr{
-         test {\ifentrytype{ancienttext}}
-         and
-         test {\iffieldundef{entrysubtype}}
-       }
+      {\ifentrytype{ancienttext}
          {\usebibmacro{cite:short:ancienttext}}
          {\usebibmacro{cite:full}}}}}
 
 \newbibmacro*{cite:star}{%
-  \usebibmacro{cite:citepages}%
-  \usebibmacro{citeindex}%
-  \ifentrytype{ancienttext}
-    {\clearfield{pages}%
-     \usebibmacro{cite:title:ancienttext}%
-     \iffieldundef{postnote}
-       {}
-       {\togglefalse{sbl@blx@transinparens}%
-        \usebibmacro{cite:collection:ancienttext}}}
-    {\let\ifciteibid\@secondoftwo%
-     \renewbibmacro*{author}{}%
-     \renewbibmacro*{editor+others}{}%
-     \renewbibmacro*{translator+others}{}%
-     \usebibmacro{cite}}}
+  \let\ifciteibid\@secondoftwo%
+  \renewbibmacro*{author}{}%
+  \renewbibmacro*{editor+others}{}%
+  \renewbibmacro*{translator+others}{}}
 
 \renewbibmacro*{cite:short}{%
   \printnames{labelname}%
@@ -331,10 +393,57 @@
        {\printtext[parens]{\printnames[labelname]{bookeditor}}}}
     {\printtext[parens]{\printnames[labelname]{editor}}}}
 
-\newbibmacro*{cite:short:ancienttext}{%
+\newbibmacro*{cite:trans:ancienttext}{%
+  \ifentrytype{ancienttext}
+    {}
+    {\sbl@blx@warning{%
+       \string\transcite\space and related macros should only be used for
+       'ancienttext'\MessageBreak entry types.}}%
+  \usebibmacro{cite:citepages}%
+  \ifciteseen
+    {\iffieldundef{postnote}
+       {}
+       {\clearfield{pages}}}
+    {\usebibmacro{cite:full:citepages}}%
   \usebibmacro{cite:title:ancienttext}%
   \usebibmacro{cite:translator:ancienttext}%
+  \usebibmacro{cite:testcollection:ancienttext}%
   \usebibmacro{cite:collection:ancienttext}}
+
+\newbibmacro*{cite:short:ancienttext}{%
+  \usebibmacro{cite:title:ancienttext}%
+  \usebibmacro{cite:testcollection:ancienttext}%
+  \togglefalse{sbl@blx@transinparens}%
+  \usebibmacro{cite:collection:ancienttext}}
+
+\newbibmacro*{cite:testcollection:ancienttext}{%
+  \iffieldundef{postnote}
+    {}
+    {\clearfield{pages}}%
+  \ifboolexpr{
+    (
+      not test {\iffieldundef{titleaddon}}
+      or
+      not test {\iffieldundef{maintitleaddon}}
+    )
+    and
+    test {\iffieldundef{postnote}}
+  }
+    {\clearfield{pages}}
+    {}%
+  \ifboolexpr{
+    test {\iffieldundef{pages}}
+    and
+    (
+      test {\iffieldundef{postnote}}
+      or
+      not test {\iffieldundef{volcitevolume}}
+      and
+      test {\iffieldundef{volcitepages}}
+    )
+  }
+    {\clearfield{related}}
+    {}}
 
 \newbibmacro*{cite:maintitle:ancienttext}{%
   \iffieldundef{shortmaintitle}
@@ -391,7 +500,17 @@
           {\usebibmacro{bytranslator}}}}}
 
 \newbibmacro*{cite:collection:ancienttext}{%
-  \ifbibliography{\togglefalse{sbl@blx@parens}}{}%
+  \ifboolexpr{
+    test {\ifbibliography}
+    or
+    (
+      test {\iffieldundef{related}}
+      and
+      test {\ifnameundef{translator}}
+    )
+  }
+    {\togglefalse{sbl@blx@parens}}
+    {}%
   \iftoggle{sbl@blx@parens}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}%

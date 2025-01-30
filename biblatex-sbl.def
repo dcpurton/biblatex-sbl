@@ -10,6 +10,12 @@
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
 
+\protected\def\sbl@blx@warning#1{%
+  \begingroup
+  \blx@safe@actives
+  \PackageWarning{biblatex-sbl}{#1}%
+  \endgroup}
+
 
 % ## Temporary patches
 \protected\def\blx@bbl@endentry{%

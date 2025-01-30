@@ -12,15 +12,15 @@
 \enlargethispage{\baselineskip}
 \START
 \showoutput
-\cite*[(4.19)]{augustine:conf}
+\cite[(4.19)]{augustine:conf}
 
-\cite[(15)]{tacitus:ann}
+\transcite[(15)]{tacitus:ann}
 
-\cite*[(11.2)]{apuleius:metam}
+\cite[(11.2)]{apuleius:metam}
 
-\parencite[(4.19)]{augustine:conf}
+\ptranscite[(4.19)]{augustine:conf}
 
-\parencite[(11.2)]{apuleius:metam}
+\ptranscite[(11.2)]{apuleius:metam}
 
 Translations from the \citetitle{apuleius:golden} follow that of
 \cite{apuleius:golden}.

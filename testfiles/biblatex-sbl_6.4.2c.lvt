@@ -11,13 +11,13 @@
 \begin{document}
 \START
 \showoutput
-\cite*[(46 \mkbibparens{369e})]{plutarch:isos}
+\cite[(46 \mkbibparens{369e})]{plutarch:isos}
 
-\cite*[(1.5 \mkbibparens{328c})]{plutarch:alexfort}
+\cite[(1.5 \mkbibparens{328c})]{plutarch:alexfort}
 
-\parencite*[(9.2.3 \mkbibparens{738a})]{plutarch:quaestconv}
+\parencite[(9.2.3 \mkbibparens{738a})]{plutarch:quaestconv}
 
-\parencite[(16 \mkbibparens{426b})]{plutarch:cohibira}
+\ptranscite[(16 \mkbibparens{426b})]{plutarch:cohibira}
 
 \printbibliography
 \printbibheading[title=Abbreviations]

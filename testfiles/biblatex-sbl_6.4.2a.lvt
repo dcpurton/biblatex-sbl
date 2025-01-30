@@ -11,19 +11,19 @@
 \begin{document}
 \START
 \showoutput
-\parencite*[(2.233-235)]{josephus:aj}
-
-\cite*[(2.233-235)]{josephus:aj}
-
-\cite*[(3.506-521)]{josephus:bj}
-
-\cite*[(3.10.7-8)]{josephus:bj}
-
-\cite*[(3.10.7--8 §§506--521)]{josephus:bj}
-
 \parencite[(2.233-235)]{josephus:aj}
 
+\cite[(2.233-235)]{josephus:aj}
+
 \cite[(3.506-521)]{josephus:bj}
+
+\cite[(3.10.7-8)]{josephus:bj}
+
+\cite[(3.10.7--8 §§506--521)]{josephus:bj}
+
+\ptranscite[(2.233-235)]{josephus:aj}
+
+\transcite[(3.506-521)]{josephus:bj}
 
 Translations from the \citetitle{josephus:cap} follow that of
 \cite{josephus:life;againstapion}.

@@ -11,13 +11,13 @@
 \begin{document}
 \START
 \showoutput
-\cite*{histaug}
+\cite{histaug}
 
-\cite*{histaug:sev}
+\cite{histaug:sev}
 
-\cite*[(1.4)]{histaug:sev}
+\cite[(1.4)]{histaug:sev}
 
-\cite*[(6.5)]{histaug:opilmacr}
+\cite[(6.5)]{histaug:opilmacr}
 
 \printbibliography
 \printbibheading[title=Abbreviations]

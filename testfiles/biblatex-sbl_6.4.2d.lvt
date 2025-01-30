@@ -11,11 +11,11 @@
 \begin{document}
 \START
 \showoutput
-\parencite*[(50)]{philo:cher}
-
-\parencite*[(1.6)]{philo:QG}
-
 \parencite[(50)]{philo:cher}
+
+\parencite[(1.6)]{philo:QG}
+
+\ptranscite[(50)]{philo:cher}
 
 \printbibliography
 \printbibheading[title=Abbreviations]
