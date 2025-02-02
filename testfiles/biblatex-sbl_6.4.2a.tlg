@@ -435,7 +435,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.85
-....\hbox(6.65+2.47)x345.0, glue set 34.90997fil, direction TLT
+....\hbox(6.65+2.47)x345.0, glue set 18.37996fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -472,18 +472,27 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 e
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shorttitle:C.\\@\040Ap\\adddot\040}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 C
-.....\TU/Brill(0)/m/it/10 .
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 t
+.....\TU/Brill(0)/m/it/10 r
+.....\kern-0.2 (font)
+.....\TU/Brill(0)/m/it/10 a
 .....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
 .....\TU/Brill(0)/m/it/10 A
 .....\TU/Brill(0)/m/it/10 p
-.....\kern-0.25 (font)
-.....\TU/Brill(0)/m/it/10 .
-.....\pdfcolorstack 0 pop
-.....\pdfendlink
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\TU/Brill(0)/m/it/10 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/it/10 -
+.....\TU/Brill(0)/m/it/10 o
+.....\TU/Brill(0)/m/it/10 n
+.....\TU/Brill(0)/m/it/10 e
+.....\TU/Brill(0)/m/it/10 m
+.....\kern0.0 (italic)
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 f
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 l
@@ -547,7 +556,10 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 n
 .....\kern0.0 (italic)
 .....\TU/Brill(0)/m/n/10 ,
-.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 300
+....\glue(\baselineskip) 2.85
+....\hbox(6.68+2.5)x345.0, glue set 24.15002fil, direction TLT
 .....\TU/Brill(0)/m/n/10 t
 .....\TU/Brill(0)/m/n/10 r
 .....\kern-0.1 (font)
@@ -556,10 +568,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 300
-....\glue(\baselineskip) 2.85
-....\hbox(6.68+2.5)x345.0, glue set 35.78003fil, direction TLT
+.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
 .....\TU/Brill(0)/m/n/10 H
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
