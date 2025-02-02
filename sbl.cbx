@@ -238,122 +238,93 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand{\transcite}
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+% Define transcite commands to cite @ancienttext entry types with a translator
 
-\DeclareCiteCommand*{\transcite}
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}%
-   \usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+\newtoggle{sbl@blx@transcite}
 
-\DeclareCiteCommand{\ptranscite}[\mkbibparens]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+\newrobustcmd*{\transcitecmd}{\AtNextCite{\toggletrue{sbl@blx@transcite}}}
 
-\DeclareCiteCommand*{\ptranscite}[\mkbibparens]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}%
-   \usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+\newrobustcmd*{\transcite}{\transcitecmd\cite}
+\newrobustcmd*{\ptranscite}{\transcitecmd\parencite}
+\newrobustcmd*{\ftranscite}{\transcitecmd\footcite}
+\newrobustcmd*{\fttranscite}{\transcitecmd\footcitetext}
+\newrobustcmd*{\stranscite}{\transcitecmd\smartcite}
+\newrobustcmd*{\atranscite}{\transcitecmd\autocite}
 
-\DeclareCiteCommand{\ftranscite}[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
-
-\DeclareCiteCommand*{\ftranscite}[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}%
-   \usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
-
-\DeclareCiteCommand{\stranscite}[\iffootnote\mkbibparens\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
-
-\DeclareCiteCommand*{\stranscite}[\iffootnote\mkbibparens\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\usebibmacro{cite:star}%
-   \usebibmacro{cite:trans:ancienttext}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
-
-\DeclareMultiCiteCommand{\transcites}{\transcite}{\multicitedelim}
-\DeclareMultiCiteCommand{\ftranscites}[\mkbibfootnote]{\ftranscite}{\multicitedelim}
-\DeclareMultiCiteCommand{\ptranscites}[\mkbibparens]{\ptranscite}{\multicitedelim}
-\DeclareMultiCiteCommand{\stranscites}[\iffootnote\mkbibfootnote\mkbibparens]{\stranscite}{\multicitedelim}
+\newrobustcmd*{\transcites}{\transcitecmd\cites}
+\newrobustcmd*{\ptranscites}{\transcitecmd\parencites}
+\newrobustcmd*{\ftranscites}{\transcitecmd\footcites}
+\newrobustcmd*{\fttranscites}{\transcitecmd\footcitetexts}
+\newrobustcmd*{\stranscites}{\transcitecmd\smartcites}
+\newrobustcmd*{\atranscites}{\transcitecmd\autocites}
 
 \newrobustcmd*{\voltranscite}{\volcitecmd\transcite}
 \newrobustcmd*{\pvoltranscite}{\volcitecmd\ptranscite}
 \newrobustcmd*{\fvoltranscite}{\volcitecmd\ftranscite}
+\newrobustcmd*{\ftvoltranscite}{\volcitecmd\fttranscite}
 \newrobustcmd*{\svoltranscite}{\volcitecmd\stranscite}
-\newrobustcmd*{\avoltranscite}{\volcitecmd\stranscite}
+\newrobustcmd*{\avoltranscite}{\volcitecmd\atranscite}
 
 \newrobustcmd*{\voltranscites}{\multivolcitecmd\transcites}
 \newrobustcmd*{\pvoltranscites}{\multivolcitecmd\ptranscites}
 \newrobustcmd*{\fvoltranscites}{\multivolcitecmd\ftranscites}
+\newrobustcmd*{\ftvoltranscites}{\multivolcitecmd\fttranscites}
 \newrobustcmd*{\svoltranscites}{\multivolcitecmd\stranscites}
-\newrobustcmd*{\avoltranscites}{\multivolcitecmd\stranscites}
+\newrobustcmd*{\avoltranscites}{\multivolcitecmd\atranscites}
 
 \renewbibmacro*{cite}{%
-  \usebibmacro{cite:citepages}%
-  \global\togglefalse{cbx:loccit}%
   \ifboolexpr{
-    test {\ifciteseen}
-    or
-    (
-      not test {\iffieldundef{shorthand}}
-      and
-      not togl {sbl@blx@shorthandintro}
-    )
-    or
-    test {\ifentrytype{series}}
+    test {\ifentrytype{ancienttext}}
+    and
+    togl {sbl@blx@transcite}
   }
-    {\ifentrytype{ancienttext}
-       {}
-       {\clearfield{pages}%
-        \clearfield{pagetotal}}%
+    {\usebibmacro{cite:trans:ancienttext}}
+    {\usebibmacro{cite:citepages}%
+     \global\togglefalse{cbx:loccit}%
      \ifboolexpr{
+       test {\ifciteseen}
+       or
+       (
+         not test {\iffieldundef{shorthand}}
+         and
+         not togl {sbl@blx@shorthandintro}
+       )
+       or
        test {\ifentrytype{series}}
-       and
-       test {\iffieldundef{shorthand}}
      }
-       {\delimcontext{series}%
-        \usebibmacro{abbrev:shortfield}{shortseries}{series}%
-        \usebibmacro*{cite:postnote}}
-       {\iffieldundef{shorthand}
-          {\ifboolexpr{
-             test {\ifciteibid}
-             and
-             not test {\iffirstonpage}
-           }
-             {\usebibmacro{cite:ibid}}
-             {\ifdefbibmacro{cite:short:\thefield{entrytype}}
-                {\usebibmacro*{cite:short:\thefield{entrytype}}}
-                {\usebibmacro{cite:short}}}}
-          {\iffieldequalstr{pagination}{section}
-             {\delimcontext{section}}
-             {}%
-           \usebibmacro{cite:shorthand}%
-           \usebibmacro{cite:postnote}}}}
-    {\ifcrossrefseen
-      {\usebibmacro{cite:full:citepages}%
-       \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
-      {\ifentrytype{ancienttext}
-         {\usebibmacro{cite:short:ancienttext}}
-         {\usebibmacro{cite:full}}}}}
+       {\ifentrytype{ancienttext}
+          {}
+          {\clearfield{pages}%
+           \clearfield{pagetotal}}%
+        \ifboolexpr{
+          test {\ifentrytype{series}}
+          and
+          test {\iffieldundef{shorthand}}
+        }
+          {\delimcontext{series}%
+           \usebibmacro{abbrev:shortfield}{shortseries}{series}%
+           \usebibmacro*{cite:postnote}}
+          {\iffieldundef{shorthand}
+             {\ifboolexpr{
+                test {\ifciteibid}
+                and
+                not test {\iffirstonpage}
+              }
+                {\usebibmacro{cite:ibid}}
+                {\ifdefbibmacro{cite:short:\thefield{entrytype}}
+                   {\usebibmacro*{cite:short:\thefield{entrytype}}}
+                   {\usebibmacro{cite:short}}}}
+             {\iffieldequalstr{pagination}{section}
+                {\delimcontext{section}}
+                {}%
+              \usebibmacro{cite:shorthand}%
+              \usebibmacro{cite:postnote}}}}
+       {\ifcrossrefseen
+         {\usebibmacro{cite:full:citepages}%
+          \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
+         {\ifentrytype{ancienttext}
+            {\usebibmacro{cite:short:ancienttext}}
+            {\usebibmacro{cite:full}}}}}}
 
 \newbibmacro*{cite:star}{%
   \let\ifciteibid\@secondoftwo%
