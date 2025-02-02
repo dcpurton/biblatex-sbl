@@ -18,6 +18,44 @@
   \usebibmacro{cite:collection:ancienttext}%
   \usebibmacro{finentry}}
 
+\DeclareBibliographyDriver{article}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \setunit{\printdelim{languagedelim}}%
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{bytranslator+others}%
+  \newunit\newblock
+  \printfield{version}%
+  \newunit\newblock
+  \usebibmacro{in:}%
+  \usebibmacro{journal+issuetitle}%
+  \newunit
+  \usebibmacro{byeditor+others}%
+  \newunit
+  \usebibmacro{note+pages}%
+  \newunit\newblock
+  \iftoggle{bbx:isbn}
+    {\printfield{issn}}
+    {}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
 \DeclareBibliographyDriver{book}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -25,7 +63,7 @@
   \setunit{\printdelim{nametitledelim}}\newblock
   \iftoggle{sbl@blx@usetitle}
     {\usebibmacro{title}%
-     \newunit
+     \setunit{\printdelim{languagedelim}}%
      \printlist{language}%
      \newunit\newblock
      \usebibmacro{byauthor}%
@@ -38,7 +76,7 @@
      \newunit\newblock
      \usebibmacro{volume+part:}%
      \usebibmacro{title}%
-     \newunit
+     \setunit{\printdelim{languagedelim}}%
      \printlist{language}%
      \newunit\newblock
      \usebibmacro{byauthor}%
@@ -84,7 +122,7 @@
   \setunit{\printdelim{nametitledelim}}\newblock
   \iftoggle{sbl@blx@usetitle}
     {\usebibmacro{title}%
-     \newunit
+     \setunit{\printdelim{languagedelim}}%
      \printlist{language}%
      \newunit\newblock
      \usebibmacro{volume+part+of:}%
@@ -95,7 +133,7 @@
      \newunit\newblock
      \usebibmacro{volume+part:}%
      \usebibmacro{title}%
-     \newunit
+     \setunit{\printdelim{languagedelim}}%
      \printlist{language}%
      \newunit\newblock
      \usebibmacro{byeditor+others}}%
@@ -137,7 +175,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -183,7 +221,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -229,7 +267,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -275,7 +313,7 @@
   \usebibmacro{author/editor+others/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -323,7 +361,7 @@
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -363,7 +401,7 @@
   \usebibmacro{author}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
@@ -398,7 +436,7 @@
   \usebibmacro{author}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
-  \newunit
+  \setunit{\printdelim{languagedelim}}%
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%

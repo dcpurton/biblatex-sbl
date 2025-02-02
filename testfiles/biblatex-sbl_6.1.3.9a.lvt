@@ -1,0 +1,39 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\usepackage[russian, american]{babel}
+\babelprovide[import, onchar=fonts]{armenian}
+\babelfont{rm}{Brill}
+\babelfont[armenian]{rm}[Scale=0.85, Renderer=Harfbuzz]{Noto Serif Armenian}
+\usepackage{csquotes}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\cite{fidler:2005}
+
+\cite{fidler:2005}
+
+\cite{niehoff:1993}
+
+\cite[339]{niehoff:1993}
+
+\cite{taisija:2002}
+
+\cite{taisija:2002}
+
+\cite{cerenc:1995}
+
+\cite[68]{cerenc:1995}
+
+\cite{havea:1998}
+
+\cite[63]{havea:1998}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}

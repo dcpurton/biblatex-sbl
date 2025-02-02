@@ -14,6 +14,9 @@
   revdsubtitle,
   revdtitleaddon,
   revdshorttitle,
+  translatedtitle,
+  translatedbooktitle,
+  translatedmaintitle,
   website}
 
 \DeclareDatamodelFields[type=field, datatype=literal, label=true]{

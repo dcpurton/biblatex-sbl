@@ -5,6 +5,7 @@
 | Test name             | Reference      | Notes |
 | :-------------------- | :------------- | :---- |
 | biblatex-sbl_6.1.2.1a | SBLHS §6.1.2.1 | See [here](https://sblhs2.com/2018/04/06/modern-author-names/) |
+| biblatex-sbl_6.1.3.9a | SBLHS §6.1.3.9 | See [here](https://sblhs2.com/2018/02/22/titles-in-non-latin-alphabets/) |
 | biblatex-sbl_6.2.1    | SBLHS §6.2.1   | |
 | biblatex-sbl_6.2.2    | SBLHS §6.2.2   | |
 | biblatex-sbl_6.2.3    | SBLHS §6.2.3   | |
@@ -130,6 +131,8 @@
   [ANET](https://sblhs2.com/2017/06/01/citing-text-collections-2-anet/) and
   [Inscriptions and
   Papyri](https://sblhs2.com/2016/10/20/inscriptions-papyri/)
+- How to format short citations for non-latin titles?
+    - See [here](https://sblhs2.com/2018/02/22/titles-in-non-latin-alphabets/)
 
 ## Ancient Works Examples
 

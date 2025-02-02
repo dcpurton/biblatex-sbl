@@ -86,6 +86,24 @@
 \DeclareEntryOption[string]{shorthandformat}{%
   \def\sbl@blx@shorthandformat{#1}}
 
+\def\sbl@blx@nonenglishtitleformat{title}
+\DeclareBiblatexOption{entry}[boolean]{nonlatintitle}[true]{%
+  \ifstrequal{#1}{true}
+    {\def\sbl@blx@nonenglishtitleformat{nonlatin}}
+    {\def\sbl@blx@nonenglishtitleformat{title}}}
+
+\def\sbl@blx@nonenglishbooktitleformat{booktitle}
+\DeclareBiblatexOption{entry}[boolean]{nonlatinbooktitle}[true]{%
+  \ifstrequal{#1}{true}
+    {\def\sbl@blx@nonenglishbooktitleformat{nonlatin}}
+    {\def\sbl@blx@nonenglishbooktitleformat{booktitle}}}
+
+\def\sbl@blx@nonenglishmaintitleformat{maintitle}
+\DeclareBiblatexOption{entry}[boolean]{nonlatinmaintitle}[true]{%
+  \ifstrequal{#1}{true}
+    {\def\sbl@blx@nonenglishmaintitleformat{nonlatin}}
+    {\def\sbl@blx@nonenglishmaintitleformat{maintitle}}}
+
 \newtoggle{sbl@blx@parens}
 \DeclareEntryOption[boolean]{parens}[true]{%
   \settoggle{sbl@blx@parens}{#1}}
@@ -556,6 +574,7 @@
     {\addspace}
     {\addcomma\space}}
 \newcommand*{\totitlepunct}{\intitlepunct}
+\newcommand*{\translatedtitlepunct}{\addspace}
 \renewcommand*{\volcitedelim}{%
   \ifboolexpr{
     test {\iffieldbegpages{volcitepages}}
@@ -584,6 +603,7 @@
     {\addcolon}
     {\addcomma}%
   \space}
+\DeclareDelimFormat{languagedelim}{\addspace}
 \DeclareDelimFormat{namedashdelim}{\addperiod\space}
 \DeclareDelimFormat{postnotedelim}{%
   \ifboolexpr{
@@ -629,7 +649,17 @@
 
 % ## Field formats
 
-\DeclareFieldFormat[online,review,inreference]{citetitle}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat{citetitle}{%
+  \ifdefstring{\sbl@blx@nonenglishtitleformat}{nonlatin}
+    {#1}
+    {\mkbibemph{#1}}}
+\DeclareFieldFormat
+  [article,inbook,incollection,inproceedings,patent,thesis,unpublished,online,
+   review,inreference]
+     {citetitle}{%
+      \ifdefstring{\sbl@blx@nonenglishtitleformat}{nonlatin}
+        {#1}
+        {\mkbibquote{#1\isdot}}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
@@ -656,6 +686,7 @@
   \iffieldundef{eprintclass}
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
+\DeclareFieldFormat{nonlatin}{#1}
 \DeclareFieldFormat{pages}{\mkpageprefix[pagination][\mkcomprange]{#1}}
 \DeclareFieldFormat[article,inbook,incollection,inreference,review]{pages}{%
   \def\abx@str{abx@sstr}%
@@ -777,7 +808,9 @@
 \DeclareFieldAlias[ancienttext]{shorttitlewidth}[ancienttext]{shorttitle}
 \DeclareFieldAlias[ancienttext]{shortmaintitlewidth}[ancienttext]{shortmaintitle}
 
-% set shorthand format based on the shorthandformat option
+\DeclareListWrapperFormat{language}{\mkbibbrackets{#1}}
+
+% set formats based on options
 \xapptocmd{\blx@setoptions@entry}
   {\ifdefstring{\sbl@blx@shorthandformat}{shorthand}
      {}
@@ -1427,9 +1460,73 @@
 
 % ## Title macros
 
-\xpatchbibmacro{title}{\newunit}{\setunit{\titleaddonpunct}}{}{}
-\xpatchbibmacro{booktitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
-\xpatchbibmacro{maintitle}{\newunit}{\setunit{\titleaddonpunct}}{}{}
+\renewbibmacro*{title}{%
+  \ifboolexpr{
+    test {\iffieldundef{title}}
+    and
+    test {\iffieldundef{subtitle}}
+  }
+    {}
+    {\iffieldundef{translatedtitle}
+       {\printtext[title]{%
+        \printfield[titlecase]{title}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{subtitle}}}
+       {\clearlist{language}%
+        \printtext[\sbl@blx@nonenglishtitleformat]{%
+          \printfield[titlecase]{title}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{subtitle}}%
+        \setunit{\translatedtitlepunct}%
+        \printtext[brackets]{%
+          \printtext[title]{%
+            \printfield[titlecase]{translatedtitle}}}}%
+     \setunit{\titleaddonpunct}}%
+  \printfield{titleaddon}}
+
+\renewbibmacro*{booktitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{booktitle}}
+    and
+    test {\iffieldundef{booksubtitle}}
+  }
+    {}
+    {\iffieldundef{translatedbooktitle}
+       {\printtext[booktitle]{%
+        \printfield[titlecase]{booktitle}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{booksubtitle}}}
+       {\printtext[\sbl@blx@nonenglishbooktitleformat]{%
+          \printfield[titlecase]{booktitle}%
+          \setunit{\subtitlepunct}%
+          \printfield[titlecase]{booksubtitle}}%
+        \setunit{\translatedtitlepunct}%
+        \printtext[brackets]{%
+          \printtext[booktitle]{%
+            \printfield[titlecase]{translatedbooktitle}}}}}%
+  \printfield{booktitleaddon}}
+
+\renewbibmacro*{maintitle}{%
+  \ifboolexpr{
+    test {\iffieldundef{maintitle}}
+    and
+    test {\iffieldundef{mainsubtitle}}
+  }
+    {}
+    {\iffieldundef{translatedmaintitle}
+       {\printtext[maintitle]{%
+        \printfield[titlecase]{maintitle}%
+        \setunit{\subtitlepunct}%
+        \printfield[titlecase]{mainsubtitle}}}
+       {\printtext[\sbl@blx@nonenglishmaintitleformat]{%
+          \printfield{maintitle}%
+          \setunit{\subtitlepunct}%
+          \printfield{mainsubtitle}}%
+        \setunit{\translatedtitlepunct}%
+        \printtext[brackets]{%
+          \printtext[maintitle]{%
+            \printfield[titlecase]{translatedmaintitle}}}}}%
+  \printfield{maintitleaddon}}
 
 \newbibmacro{booktitle+bybookauthor+bybookeditor}{%
   \iffieldundef{booktitle}
