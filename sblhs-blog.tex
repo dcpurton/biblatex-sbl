@@ -8,11 +8,14 @@
 \setcounter{secnumdepth}{0}
 \usepackage[american]{babel}
 \babelprovide[import, onchar=ids]{polytonicgreek}
+\babelprovide[import, onchar=ids]{russian}
+\babelprovide[import, onchar=ids fonts]{armenian}
 \babelfont{rm}{Brill}
-\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
+\babelfont{tt}[Scale=MatchLowercase, Renderer=Harfbuzz]{DejaVu Sans Mono}
+\babelfont[armenian]{rm}[Scale=0.85, Renderer=Harfbuzz]{Noto Serif Armenian}
 \usepackage{csquotes}
 \usepackage[colorlinks]{hyperref}
-\usepackage[style=sbl, refsection=section, locallabelwidth]{biblatex}
+\usepackage[style=sbl, refsection=section, locallabelwidth, autocite=plain]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \makeatletter
@@ -40,43 +43,74 @@
   \citeauthor{#1}%
 }
 
-\NewDocumentCommand{\examplecite}{d()om}{%
+% \examplecite(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
+% \examplecite*(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
+\NewDocumentCommand{\examplecite}{sO{auto}d()oom}{%
   \par
-  \IfNoValueTF{#2}
-    {\texttt{\textbackslash autocite\{#3\}}\par
-     \@afterheading
-     \IfNoValueF{#1}{\quad #1.\space}%
-     \cite{#3}}
-    {\texttt{\textbackslash autocite[#2]\{#3\}}\par
-     \@afterheading
-     \IfNoValueF{#1}{\quad #1.\space}%
-     \cite[#2]{#3}}.}
+  \texttt{%
+    \textbackslash #2cite%
+    \IfBooleanT{#1}{*}%
+    \IfNoValueF{#4}{[#4]}%
+    \IfNoValueF{#5}{[#5]}%
+    \{#6\}}\par
+  \@afterheading
+  \IfNoValueF{#3}{\quad #3.\space}%
+  \IfBooleanTF{#1}
+    {\printexamplecite*{#2cite}{#4}{#5}{#6}}
+    {\printexamplecite{#2cite}{#4}{#5}{#6}}%
+  \IfNoValueF{#3}{.}}
 
-\NewDocumentCommand{\exampleparencite}{sd()om}{%
+% \examplecite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplecite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+\NewDocumentCommand{\examplevolcite}{sO{a}d()omom}{%
   \par
-  \IfNoValueTF{#3}
-    {\texttt{\textbackslash parencite\IfBooleanT{#1}{*}\{#4\}}\par
-     \@afterheading
-     \IfNoValueF{#2}{\quad #2.\space}%
-     \cite{#4}}
-    {\texttt{\textbackslash parencite\IfBooleanT{#1}{*}[#3]\{#4\}}\par
-     \@afterheading
-     \IfNoValueF{#2}{\quad #2.\space}%
-     \IfBooleanTF{#1}
-       {\parencite*[#3]{#4}}
-       {\parencite[#3]{#4}}}.}
+  \texttt{%
+    \textbackslash #2volcite%
+    \IfBooleanT{#1}{*}%
+    \IfNoValueF{#4}{[#4]}%
+    \{#5\}%
+    \IfNoValueF{#6}{[#6]}%
+    \{#7\}}\par
+  \@afterheading
+  \IfNoValueF{#3}{\quad #3.\space}%
+  \IfBooleanTF{#1}
+    {\printexamplevolcite*{#2volcite}{#4}{#5}{#6}{#7}}
+    {\printexamplevolcite{#2volcite}{#4}{#5}{#6}{#7}}%
+  \IfNoValueF{#3}{.}}
 
-\NewDocumentCommand{\examplevolcite}{d()mom}{%
-  \par
+\NewDocumentCommand{\printexamplecite}{smmmm}{%
+  \IfNoValueTF{#4}
+    {\IfNoValueTF{#3}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#5}}
+          {\csname #2\endcsname{#5}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#5}}
+          {\csname #2\endcsname[#3]{#5}}}}
+    {\IfNoValueTF{#3}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3][]{#5}}
+          {\csname #2\endcsname[#3][]{#5}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3][#4]{#5}}
+          {\csname #2\endcsname[#3][#4]{#5}}}}}
+
+\NewDocumentCommand{\printexamplevolcite}{smmmmm}{%
   \IfNoValueTF{#3}
-    {\texttt{\textbackslash avolcite\{#2\}\{#4\}}\par
-     \@afterheading
-     \IfNoValueF{#1}{\quad #1.\space}%
-     \volcite{#2}{#4}}
-    {\texttt{\textbackslash avolcite\{#2\}[#3]\{#4\}}\par
-     \@afterheading
-     \IfNoValueF{#1}{\quad #1.\space}%
-     \volcite{#2}[#3]{#4}}.}
+    {\IfNoValueTF{#5}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#4}{#6}}
+          {\csname #2\endcsname{#4}{#6}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#4}[#5]{#6}}
+          {\csname #2\endcsname{#4}[#5]{#6}}}}
+    {\IfNoValueTF{#5}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#4}{#6}}
+          {\csname #2\endcsname[#3]{#4}{#6}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#4}[#5]{#6}}
+          {\csname #2\endcsname[#3]{#4}[#5]{#6}}}}}
 
 \NewDocumentCommand{\exampleabbreviations}{}{%
   \par
@@ -1034,8 +1068,8 @@ barbour:seealso, grillo:seealso}
 }
 \end{verbatim}
 
-\exampleparencite[(50)]{philo:cher}
-\exampleparencite[(1.6)]{philo:QG}
+\examplecite[paren][(50)]{philo:cher}
+\examplecite[paren][(1.6)]{philo:QG}
 
 \verb|As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes|\\
 \verb|what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.|
@@ -1049,5 +1083,184 @@ what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.
 \examplesecondarysources
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/03/01/philo-of-alexandria/}
+
+\section{Titles in Non-Latin Alphabets (22 February 2018)}
+
+\begin{verbatim}
+@book{fidler:2005,
+  author = {Fidler, Ruth},
+  title = {\mkbibquote{Dreams Speak Falsely?} Dream Theophanies in the Bible: Their
+           Place in Ancient Israelite Faith and Traditions},
+  language = {Hebrew},
+  location = {Jerusalem},
+  publisher = {Magnes},
+  date = {2005}
+}
+
+@article{niehoff:1993,
+  author = {Niehoff, Maren R.},
+  title = {Associative Thinking in Rabbinic Midrash: The Example of Abraham’s and
+           Sarah’s Journey to Egypt},
+  language = {Hebrew},
+  journaltitle = {Tarbiz},
+  volume = {62},
+  date = {1993},
+  pages = {339–361}
+}
+
+@book{taisija:2002,
+  author = {Taisija},
+  title = {Акафист святому преподобному Симеону Богоприимцу: Творение игум; Таисии
+           Леушинской},
+  language = {langrussian},
+  translatedtitle = {Akathistos for the Holy Simeon, the God-Receiver: A Work by
+                     Abbess Taisija of Leušino},
+  location = {Saint Petersburg},
+  publisher = {Leušinskoe izdatel’stvo},
+  date = {2002},
+  options = {nonlatintitle}
+}
+
+@incollection{cerenc:1995,
+  author = {Cerenc, Grigor},
+  title = {Յայլմէ ասացեալ բան վասն խորանաց աւետարանիս},
+  translatedtitle = {The Writing of Another One on the Canon-Tables of the Gospel},
+  booktitle = {Խորանների մեկնություններ},
+  translatedbooktitle = {Commentaries on the Canon Tables},
+  editor = {Łazaryan, V.},
+  location = {Erevan},
+  publisher = {Sargis Xač‘enc‘},
+  date = {1995},
+  pages = {68-78},
+  options = {nonlatintitle, nonlatinbooktitle}
+}
+
+@article{havea:1998,
+  author = {Havea, Jione},
+  title = {Tau lave!},
+  translatedtitle = {Let’s Talk},
+  journaltitle = {Pacific Journal of Theology},
+  shortjournal = {PJT},
+  series = {2},
+  volume = {20},
+  date = {1998},
+  pages = {63-73}
+}
+\end{verbatim}
+
+\examplecite(3){fidler:2005}
+\examplecite(7){niehoff:1993}
+\examplecite(12){taisija:2002}
+\examplecite(15){cerenc:1995}
+\examplecite(15){havea:1998}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/02/22/titles-in-non-latin-alphabets/}
+
+\section{Josephus (15 February 2018)}
+
+\begin{verbatim}
+@book{josephus:life;againstapion,
+  author = {Josephus},
+  title = {The Life; Against Apion},
+  translator = {Thackeray, Henry St.\@ J.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1926}
+}
+
+@book{josephus:antiquitatum,
+  author = {Josephus},
+  title = {Antiquitatum Iudaicarum libri VI--X},
+  volume = {2},
+  maintitle = {Flavii Iosephi opera},
+  editor = {Niese, Benedictus},
+  location = {Berlin},
+  publisher = {Weidmann},
+  date = {1888}
+}
+
+@book{josephus:judeanantiquities,
+  author = {Josephus},
+  title = {Judean Antiquities 15},
+  editor = {van Henten, Jan Willem},
+  series = {Flavius Josephus: Translation and Commentary},
+  shortseries = {FJTC},
+  number = {7b},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2014}
+}
+
+@book{worksofjosephus,
+  author = {Josephus},
+  title = {The Works of Flavius Josephus},
+  translator = {Whiston, A. M. William},
+  volumes = {2},
+  location = {London},
+  publisher = {Bohn},
+  date = {1862}
+}
+
+@book{josephus:jewishwar,
+  author = {Josephus},
+  title = {The Jewish War},
+  translator = {Thackery, Henry St.\@ J.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1927/1928}
+}
+
+@book{josephus:jewishantiquities,
+  author = {Josephus},
+  title = {The Jewish Antiquities},
+  translator = {Thackery, Henry St.\@ J.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1930/1965}
+}
+
+@ancienttext{josephus:bj,
+  author = {Josephus},
+  title = {Bellum judaicum},
+  shorttitle = {B.J\adddot},
+  xref = {josephus:jewishwar}
+}
+
+@ancienttext{josephus:aj,
+  author = {Josephus},
+  title = {Antiquitates judaicae},
+  shorttitle = {A.J\adddot},
+  xref = {josephus:jewishantiquities}
+}
+
+@ancienttext{josephus:cap,
+  author = {Josephus},
+  title = {Contra Apionem},
+  shorttitle = {C.\@ Ap\adddot},
+  xref = {josephus:life;againstapion}
+}
+\end{verbatim}
+
+\examplecite[paren][(3.506–521)]{josephus:bj}
+\examplecite[ptrans][(2.233–235)]{josephus:aj}
+\examplecite[atrans](5)[See also][(3.506–521)]{josephus:bj}
+
+\verb|\footnote{All translations of Josephus’s \citetitle*{josephus:cap} follow the|
+\examplenobreak
+\verb|translation in \cite{Josephus:life;againstapion}.}|
+\examplenobreak
+\quad 8.\space All translations of Josephus’s \citetitle*{josephus:cap} follow
+the translation in \cite{josephus:life;againstapion}.
+\examplenocite{josephus:antiquitatum,josephus:judeanantiquities,worksofjosephus}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
 
 \end{document}
