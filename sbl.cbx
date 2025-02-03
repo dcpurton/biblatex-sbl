@@ -279,7 +279,10 @@
     togl {sbl@blx@transcite}
   }
     {\usebibmacro{cite:trans:ancienttext}}
-    {\usebibmacro{cite:citepages}%
+    {\iffieldequalstr{relatedtype}{multivolarticle}
+       {\cbx@opt@citepages@separate}
+       {}%
+     \usebibmacro{cite:citepages}%
      \global\togglefalse{cbx:loccit}%
      \ifboolexpr{
        test {\ifciteseen}

@@ -6,6 +6,7 @@
 | :-------------------- | :------------- | :---- |
 | biblatex-sbl_6.1.2.1a | SBLHS §6.1.2.1 | See [here](https://sblhs2.com/2018/04/06/modern-author-names/) |
 | biblatex-sbl_6.1.3.9a | SBLHS §6.1.3.9 | See [here](https://sblhs2.com/2018/02/22/titles-in-non-latin-alphabets/) |
+| biblatex-sbl_6.1.5a   | SBLHS §6.1.5   | See [here](https://sblhs2.com/2018/02/08/citing-page-numbers-for-chapters-and-articles/) |
 | biblatex-sbl_6.2.1    | SBLHS §6.2.1   | |
 | biblatex-sbl_6.2.2    | SBLHS §6.2.2   | |
 | biblatex-sbl_6.2.3    | SBLHS §6.2.3   | |
