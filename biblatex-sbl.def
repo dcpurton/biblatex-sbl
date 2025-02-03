@@ -239,14 +239,33 @@
   \maps{
     % Split titles into titles and subtitles (ignoring braced colons)
     \map[overwrite]{
+      \step[notfield=subtitle, final]
       \step[fieldsource=title, match=\regexp{(.*?)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):\s(.*)}, final]
       \step[fieldset=title, fieldvalue={$1}]
       \step[fieldset=subtitle, fieldvalue={$2}]
     }
-    \map{
+    \map[overwrite]{
+      \step[notfield=revdsubtitle, final]
       \step[fieldsource=revdtitle, match=\regexp{(.*?)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):\s(.*)}, final]
       \step[fieldset=revdtitle, fieldvalue={$1}]
       \step[fieldset=revdsubtitle, fieldvalue={$2}]
+    }
+    \map[overwrite]{
+      \step[notfield=translatedsubtitle, final]
+      \step[fieldsource=translatedtitle, match=\regexp{(.*?)(?=(?:[^{}]*\{[^{}]*\})*[^{}]*$):\s(.*)}, final]
+      \step[fieldset=translatedtitle, fieldvalue={$1}]
+      \step[fieldset=translatedsubtitle, fieldvalue={$2}]
+    }
+    % Populate shorttitle from translatedtitle, removing *A, And, The*
+    \map{
+      \pernottype{ancienttext}
+      \step[fieldsource=translatedtitle, match=\regexp{^(A|An|The)\s+(.+)}, final]
+      \step[fieldset=shorttitle, fieldvalue={$2}]
+    }
+    \map{
+      \pernottype{ancienttext}
+      \step[fieldsource=translatedtitle, final]
+      \step[fieldset=shorttitle, origfieldval]
     }
     % Remove *A, An, The* from title and place in shorttitle and sorttitle
     \map{
@@ -385,6 +404,8 @@
   \inherit{author}{mainauthor}
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
+  \inherit{translatedtitle}{translatedmaintitle}
+  \inherit{translatedsubtitle}{translatedmainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
@@ -401,6 +422,8 @@
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
+  \inherit{translatedtitle}{translatedbooktitle}
+  \inherit{translatedsubtitle}{translatedbooksubtitle}
   \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
@@ -417,6 +440,8 @@
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
+  \inherit{translatedtitle}{translatedmaintitle}
+  \inherit{translatedsubtitle}{translatedmainsubtitle}
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
@@ -432,6 +457,8 @@
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
+  \inherit{translatedtitle}{translatedbooktitle}
+  \inherit{translatedsubtitle}{translatedbooksubtitle}
   \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
@@ -448,6 +475,8 @@
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
+  \inherit{translatedtitle}{translatedmaintitle}
+  \inherit{translatedsubtitle}{translatedmainsubtitle}
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
@@ -463,6 +492,8 @@
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
+  \inherit{translatedtitle}{translatedbooktitle}
+  \inherit{translatedsubtitle}{translatedbooksubtitle}
   \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
@@ -479,6 +510,8 @@
   \inherit{title}{maintitle}
   \inherit{subtitle}{mainsubtitle}
   \inherit{titleaddon}{maintitleaddon}
+  \inherit{translatedtitle}{translatedmaintitle}
+  \inherit{translatedsubtitle}{translatedmainsubtitle}
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
@@ -494,6 +527,8 @@
   \inherit{title}{booktitle}
   \inherit{subtitle}{booksubtitle}
   \inherit{titleaddon}{booktitleaddon}
+  \inherit{translatedtitle}{translatedbooktitle}
+  \inherit{translatedsubtitle}{translatedbooksubtitle}
   \inherit{author}{bookauthor}
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
@@ -649,17 +684,7 @@
 
 % ## Field formats
 
-\DeclareFieldFormat{citetitle}{%
-  \ifdefstring{\sbl@blx@nonenglishtitleformat}{nonlatin}
-    {#1}
-    {\mkbibemph{#1}}}
-\DeclareFieldFormat
-  [article,inbook,incollection,inproceedings,patent,thesis,unpublished,online,
-   review,inreference]
-     {citetitle}{%
-      \ifdefstring{\sbl@blx@nonenglishtitleformat}{nonlatin}
-        {#1}
-        {\mkbibquote{#1\isdot}}}
+\DeclareFieldFormat[online,review,inreference]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
@@ -1480,7 +1505,9 @@
         \setunit{\translatedtitlepunct}%
         \printtext[brackets]{%
           \printtext[title]{%
-            \printfield[titlecase]{translatedtitle}}}}%
+            \printfield[titlecase]{translatedtitle}%
+            \setunit{\subtitlepunct}%
+            \printfield[titlecase]{translatedsubtitle}}}}%
      \setunit{\titleaddonpunct}}%
   \printfield{titleaddon}}
 
@@ -1503,7 +1530,9 @@
         \setunit{\translatedtitlepunct}%
         \printtext[brackets]{%
           \printtext[booktitle]{%
-            \printfield[titlecase]{translatedbooktitle}}}}}%
+            \printfield[titlecase]{translatedbooktitle}%
+            \setunit{\subtitlepunct}%
+            \printfield[titlecase]{translatedbooksubtitle}}}}}%
   \printfield{booktitleaddon}}
 
 \renewbibmacro*{maintitle}{%
@@ -1519,13 +1548,15 @@
         \setunit{\subtitlepunct}%
         \printfield[titlecase]{mainsubtitle}}}
        {\printtext[\sbl@blx@nonenglishmaintitleformat]{%
-          \printfield{maintitle}%
+          \printfield[titlecase]{maintitle}%
           \setunit{\subtitlepunct}%
-          \printfield{mainsubtitle}}%
+          \printfield[titlecase]{mainsubtitle}}%
         \setunit{\translatedtitlepunct}%
         \printtext[brackets]{%
           \printtext[maintitle]{%
-            \printfield[titlecase]{translatedmaintitle}}}}}%
+            \printfield[titlecase]{translatedmaintitle}%
+            \setunit{\subtitlepunct}%
+            \printfield[titlecase]{translatedmainsubtitle}}}}}%
   \printfield{maintitleaddon}}
 
 \newbibmacro{booktitle+bybookauthor+bybookeditor}{%
