@@ -11,15 +11,19 @@
 \begin{document}
 \START
 \showoutput
-\parencite[(1-164)]{PGMIII}
+\parencite[(III. 1–164)]{PGM}
 
-\cite[(1-164)]{PGMIII}
+\cite[(III. 1–164)]{PGM}
 
-\transcite[(1-164)]{PGMIII}
+\cite[(III. 410-424)]{PGM}
 
-\cite[(410-424)]{PGMIII}
+\cite[(xiv. 554-562)]{PDM}
 
-\cite[(554-562)]{PDMxiv}
+\cite[The prayer of deliverance in][(I. 195-222)]{PGM}
+
+\parencite[(IV. 1275-1322; IV. 1331-1389; VII. 686-702)]{PGM}
+
+\parencite[(\pnfmt{I. 195-200} \mkbibbrackets{O'Neil in Betz})]{PGM}
 
 \printbibliography
 \printbiblist{abbreviations}

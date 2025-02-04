@@ -143,6 +143,19 @@
     {\@firstoftwo}
     {\@secondoftwo}}
 
+% preserve semicolons in page ranges (default uses \bibgrangessep)
+\begingroup
+\catcode`\&=3
+\global\def\blx@range@chunk@semcol#1;#2&{%
+  \notblank{#1}
+    {\blx@range@chunk@comma#1,&}
+    {}%
+  \notblank{#2}
+    {\notblank{#1}{\blx@range@out@delim{\addsemicolon\space}}{}%
+     \blx@range@chunk@semcol#2&}
+    {}}
+\endgroup
+
 
 % ## Name tracker
 

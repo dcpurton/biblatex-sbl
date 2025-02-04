@@ -426,8 +426,10 @@
   \setunit*{\newunitpunct}}
 
 \newbibmacro*{cite:title:ancienttext}{%
-  \usebibmacro{author}%
-  \setunit{\printdelim{nametitledelim}}%
+  \ifnameundef{author}
+    {}
+    {\usebibmacro{author}%
+     \setunit{\printdelim{nametitledelim}}}%
   \ifboolexpr{
     test {\iffieldundef{related}}
     and
