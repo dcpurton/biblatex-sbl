@@ -4,6 +4,7 @@
 \usepackage{parskip}
 \usepackage{xcolor}
 \usepackage{fancyvrb,fvextra}
+\usepackage{enverb}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
 \setcounter{secnumdepth}{0}
 \usepackage[american]{babel}
@@ -112,6 +113,35 @@
           {\csname #2\endcsname*[#3]{#4}[#5]{#6}}
           {\csname #2\endcsname[#3]{#4}[#5]{#6}}}}}
 
+\NewDocumentEnvironment{verbcite}{}{%
+  \enverb{}%
+}{%
+  \par
+  \enverbListing{Verbatim}{}%
+  \par
+  \@afterheading
+  \enverbExecute
+}
+
+\NewDocumentEnvironment{fverbcite}{m}{%
+  \enverb{}%
+}{%
+  \par
+  \enverbListing{Verbatim}{}%
+  \par
+  \@afterheading
+  \renewcommand\footnote[1]{##1}%
+  \quad #1.\space\enverbExecute
+}
+
+\NewDocumentEnvironment{verbtext}{}{%
+  \enverb{}%
+}{%
+  \par
+  \enverbListing{Verbatim}{}%
+  \par
+}
+
 \NewDocumentCommand{\exampleabbreviations}{}{%
   \par
   \texttt{\textbackslash printbiblist\{abbreviations\}}
@@ -153,7 +183,7 @@
 
 \tableofcontents
 
-\section{Brill Dictionary of Ancient Greek (20 April 2021)}
+\section{\emph{Brill Dictionary of Ancient Greek} (20 April 2021)}
 
 \begin{verbatim}
 @reference{MGS,
@@ -205,9 +235,9 @@
 }
 \end{verbatim}
 
-\examplenocite{ACCS}
 \examplecite(4)[(1.2.12)129]{victorinus:ephesians}
 \examplecite(8)[(5.13)77]{theodoret:galatians}
+\examplenocite{ACCS}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2019/03/28/snippet-text-collections/}
@@ -893,34 +923,27 @@ seebass:1993-2007}
 \exampleciteauthor{scott:1989}
 \exampleciteauthor{tigay:1985}
 \exampleciteauthor{wellhausen:1883, scott:1989, tigay:1985}
-
-\verb|\citeauthor{eilberg-schwartz:1991} has stated ….|
-\examplenobreak
-\citeauthor{eilberg-schwartz:1991} has stated ….
-
-\verb|\citeauthor{eilberg-schwartz:1991} goes on to argue ….|
-\examplenobreak
-\citeauthor{eilberg-schwartz:1991} goes on to argue ….
-
-\verb|\citeauthor{schusslerfiorenza:1986} has stated ….|
-\examplenobreak
-\citeauthor{schusslerfiorenza:1986} has stated ….
-
-\verb|\citeauthor{schusslerfiorenza:1986} goes on to argue ….|
-\examplenobreak
-\citeauthor{schusslerfiorenza:1986} goes on to argue ….
-
-\verb|\citeauthor{trebollebarrera:2013} has stated ….|
-\examplenobreak
-\citeauthor{trebollebarrera:2013} has stated ….
-
-\verb|\citeauthor{trebollebarrera:2013} goes on to argue ….|
-\examplenobreak
-\citeauthor{trebollebarrera:2013} goes on to argue ….
-
-\verb|As \citeauthor{hooks:1990} offers ….|
-\examplenobreak
-As \citeauthor{hooks:1990} offers ….
+\begin{verbcite}
+  \citeauthor{eilberg-schwartz:1991} has stated ….
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{eilberg-schwartz:1991} goes on to argue ….
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{schusslerfiorenza:1986} has stated ….
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{schusslerfiorenza:1986} goes on to argue ….
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{trebollebarrera:2013} has stated ….
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{trebollebarrera:2013} goes on to argue ….
+\end{verbcite}
+\begin{verbcite}
+  As \citeauthor{hooks:1990} offers ….
+\end{verbcite}
 \examplenocite{logan+wedderburn:1983, barbour:2012, grillo:2017,
 barbour:seealso, grillo:seealso}
 \exampleabbreviations
@@ -1070,13 +1093,10 @@ barbour:seealso, grillo:seealso}
 
 \examplecite[paren][(50)]{philo:cher}
 \examplecite[paren][(1.6)]{philo:QG}
-
-\verb|As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes|\\
-\verb|what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.|
-\examplenobreak
-As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes
-what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.
-
+\begin{verbcite}
+  As \citeauthor{philo:cher} states, “when God consorts with the soul, He makes
+  what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.
+\end{verbcite}
 \examplecite(1){geljion+runia:2013}
 \examplecite(2){wilson:2011}
 \exampleancientsources
@@ -1251,16 +1271,303 @@ what before was a woman into a virgin again” \ptranscite*[(50)]{philo:cher}.
 \examplecite[paren][(3.506–521)]{josephus:bj}
 \examplecite[ptrans][(2.233–235)]{josephus:aj}
 \examplecite[atrans](5)[See also][(3.506–521)]{josephus:bj}
-
-\verb|\footnote{All translations of Josephus’s \citetitle*{josephus:cap} follow the|
-\examplenobreak
-\verb|translation in \cite{Josephus:life;againstapion}.}|
-\examplenobreak
-\quad 8.\space All translations of Josephus’s \citetitle*{josephus:cap} follow
-the translation in \cite{josephus:life;againstapion}.
+\begin{fverbcite}{8}
+  \footnote{All translations of Josephus’s \citetitle*{josephus:cap} follow the
+  translation in \cite{Josephus:life;againstapion}.}
+\end{fverbcite}
 \examplenocite{josephus:antiquitatum,josephus:judeanantiquities,worksofjosephus}
 \exampleancientsources
 \examplesecondarysources
 \examplebibliography
 
+\section{Citing Page Numbers for Chapters and Articles (8 February 2018)}
+
+\begin{verbatim}
+@incollection{geurts:2017,
+  author = {Geurts, Bart},
+  title = {Presupposition and Givenness},
+  booktitle = {The Oxford Handbook of Pragmatics},
+  editor = {Huang, Yan},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {2017},
+  pages = {180-198}
+}
+
+@article{wellhausen:1876-1877,
+  author = {Wellhausen, Julius},
+  title = {Die Composition des Hexateuchs},
+  journaltitle = {Jahrbuch für deutsche Theologie},
+  shortjournal = {JDT},
+  related = {wellhausen:1876, wellhausen:1877},
+  relatedtype = {multivolarticle},
+  langid = {german}
+}
+
+@article{wellhausen:1876,
+  volume = {21},
+  date = {1876},
+  pages = {392-450}
+}
+
+@article{wellhausen:1877,
+  volume = {22},
+  date = {1877},
+  pages = {407-479}
+}
+\end{verbatim}
+
+\examplecite(5){geurts:2017}
+\citereset
+\examplecite(5)[181]{geurts:2017}
+\examplevolcite(6){21}[434]{wellhausen:1876-1877}
+\examplevolcite(7){21}[434]{wellhausen:1876-1877}
+\exampleabbreviations
+\examplebibliography
+\citereset
+\begin{verbtext}
+  \usepackage[style=sbl,citepages=separate]{biblatex}
+\end{verbtext}
+\makeatletter
+{\cbx@opt@citepages@separate
+ \examplecite(5)[181]{geurts:2017}
+ \examplevolcite(6){21}[434]{wellhausen:1876-1877}
+}
+\makeatother
+\examplereferences{https://sblhs2.com/2018/02/08/citing-page-numbers-for-chapters-and-articles/}
+
+\section{Citing Text Collections 10: LCL (18 January 2018)}
+
+\begin{verbatim}
+@mvbook{augustine:confessions,
+  author = {Augustine},
+  title = {Confessions},
+  translator = {Hammond, Carolyn J.-B.},
+  volumes = {2},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {2014/2016}
+}
+
+@ancienttext{augustine:conf,
+  author = {Augustine},
+  title = {Confessions},
+  shorttitle = {Conf\adddot},
+  xref = {augustine:confessions}
+}
+
+@mvbook{tacitus:histories,
+  author = {Tacitus},
+  title = {The Histories and The Annals},
+  translator = {Moore, Clifford H. and Jackson, John},
+  volumes = {4},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1937}
+}
+
+@ancienttext{tacitus:ann,
+  author = {Tacitus},
+  title = {Annales},
+  shorttitle = {Ann\adddot},
+  xref = {tacitus:histories}
+}
+
+@mvbook{apuleius:golden,
+  author = {Apuleius},
+  title = {The Golden Ass},
+  editora = {Adlington, W.},
+  editoratype = {translator},
+  editorb = {Gaselee, S.},
+  editorbtype = {reviser},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {London and New York},
+  publisher = {Heinemann and Putnam's Sons},
+  date = {1922}
+}
+
+@ancienttext{apuleius:metam,
+  author = {Apuleius},
+  title = {Metamorphoses},
+  shorttitle = {Metam\adddot},
+  translator = {Adlington and Gaselee},
+  xref = {apuleius:golden}
+}
+
+@book{aristotle:metaphysics:2,
+  author = {Aristotle},
+  maintitle = {Metaphysics},
+  shorttitle = {Metaphysics},
+  volume = {2},
+  title = {Books 10–14; Oeconomica; Magna Moralia},
+  translator = {Tredennick, Hugh and Armstrong, G. Cyril},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1935},
+  options = {usetitle=false},
+  sorttitle = {Metaphysics 2}
+}
+
+@book{augustine:cityofgod:1,
+  author = {Augustine},
+  maintitle = {City of God},
+  shorttitle = {City of God},
+  volume = {1},
+  title = {Books 1–3},
+  translator = {McCracken, George E.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1957},
+  options = {usetitle=false},
+  sorttitle = {City of God 1}
+}
+
+@mvbook{aristotle:metaphysics,
+  author = {Aristotle},
+  title = {Metaphysics},
+  translator = {Tredennick, Hugh and Armstrong, G. Cyril},
+  volumes = {2},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1933/1935}
+}
+
+@mvbook{augustine:cityofgod,
+  author = {Augustine},
+  title = {City of God},
+  translator = {McCracken, George E. and Green, William M. and Wiesen, David S. and Levine, Philip and Sanford, Eva M.},
+  volumes = {7},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1957/1972}
+}
+
+@book{augustine:selectletters,
+  author = {Augustine},
+  title = {Select Letters},
+  translator = {Baxter, James Houston},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1930}
+}
+
+@book{aristotle:poetics:book,
+  author = {Aristotle},
+  title = {Poetics},
+  editor = {Halliwell, Stephen},
+  translator = {Halliwell, Stephen},
+  related = {longinus:sublime:related,demetrius:style:related}
+}
+
+@book{longinus:sublime:related,
+  author = {Longinus},
+  title = {On the Sublime},
+  editora = {Fyfe, W. H.},
+  editoratype = {translator},
+  editorb = {Russell, Donald},
+  editorbtype = {reviser},
+}
+
+@book{demetrius:style:related,
+  author = {Demetrius},
+  title = {On Style},
+  editor = {Innes, Doreen C.},
+  translator = {Innes, Doreen C.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1995}
+}
+
+@book{aristotle:poetics:book:short,
+  author = {Aristotle},
+  title = {Poetics},
+  options = {skipbib}
+}
+
+@book{longinus:sublime:book,
+  author = {Longinus},
+  title = {On the Sublime},
+  related = {aristotle:poetics:book:short},
+  relatedtype = {see},
+  execute = {\nocite{aristotle:poetics:book,aristotle:poetics:book:short}}
+}
+
+@book{demetrius:style:book,
+  author = {Demetrius},
+  title = {On Style},
+  related = {aristotle:poetics:book:short},
+  relatedtype = {see},
+  execute = {\nocite{aristotle:poetics:book,aristotle:poetics:book:short}}
+}
+
+@ancienttext{aristotle:poetics,
+  author = {Aristotle},
+  title = {Poetics},
+  translator = {Halliwell, Stephen},
+  xref = {aristotle:poetics:book},
+  execute = {\nocite{aristotle:poetics:book}}
+}
+
+@ancienttext{longinus:sublime,
+  author = {Longinus},
+  title = {On the Sublime},
+  translator = {Fyfe, W. H.},
+  xref = {longinus:sublime:book},
+  execute = {\nocite{aristotle:poetics:book,longinus:sublime:book}},
+}
+
+@ancienttext{demetrius:style,
+  author = {Demetrius},
+  title = {On Style},
+  translator = {Innes, Doreen C.},
+  xref = {demetrius:style:book},
+  execute = {\nocite{aristotle:poetics:book,demetrius:style:book}},
+}
+\end{verbatim}
+
+\examplecite[paren][(8.29)]{augustine:conf}
+\begin{verbcite}
+  \cite[(15)]{tacitus:ann} details the activities of Nero.
+\end{verbcite}
+\examplecite(4)[For a similar example, see][(11.2)]{apuleius:metam}
+\begin{verbcite}
+  “These were my words, and in grief of heart I wept bitterly”
+  \ptranscite[(8.29)]{augustine:conf}.
+\end{verbcite}
+\begin{fverbcite}{4}
+  \footnote{“Thou, which dost luminate all the cities of the earth by Thy
+  feminine light; Thou, which nourishes all the seeds of the world by Thy Damp
+  heat, giving Thy Changing light according to the wanderings, near or far, of
+  the sun” \ptranscite[11.2]{apuleius:metam}.}
+\end{fverbcite}
+\begin{fverbcite}{3}
+\footnote{Translations from the \citetitle{apuleius:golden} follow that of
+\cite{apuleius:golden}}.
+\end{fverbcite}
+\cite{apuleius:golden}.
+\examplenocite{aristotle:metaphysics:2, augustine:cityofgod:1,
+aristotle:metaphysics, augustine:cityofgod, augustine:selectletters,
+aristotle:poetics, longinus:sublime, demetrius:style,
+aristotle:poetics:book:short}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2018/01/18/citing-text-collections-10-lcl/}
 \end{document}
