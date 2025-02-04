@@ -337,6 +337,7 @@
 
 \renewbibmacro*{cite:short}{%
   \printnames{labelname}%
+  \clearname{\thefield{labelnamesource}}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{cite:title}%
   \ifuniquework
