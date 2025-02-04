@@ -652,7 +652,7 @@
     {\addcomma}%
   \space}
 \DeclareDelimFormat{languagedelim}{\addspace}
-\DeclareDelimFormat{namedashdelim}{\addperiod\space}
+\DeclareDelimFormat{namedashdelim}{\addcomma\space}
 \DeclareDelimFormat{postnotedelim}{%
   \ifboolexpr{
     not test {\iffieldundef{shorthand}}
@@ -957,7 +957,8 @@
 }
 
 \renewcommand*{\bibnamedash}{%
-  \leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}\printdelim{namedashdelim}}
+  \printtext{\leavevmode\raise 0.6ex\hbox to 3em{\hrulefill}}%
+  \setunit{\printdelim{namedashdelim}}}
 
 
 % ## crossref tracking
