@@ -2966,7 +2966,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 14.45007fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 15.28008fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -2987,9 +2987,9 @@ Completed box being shipped out [1]
 ......\leaders 0.0 plus 1.0fill
 .......\rule(0.4+0.0)x*
 ......\kern0.0
-.....\TU/Brill(0)/m/n/10 .
-.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 E
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 s
 .....\kern-0.1 (font)

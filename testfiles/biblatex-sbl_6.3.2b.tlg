@@ -35,13 +35,13 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 374.97992fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 362.9812fil, direction TLT
 ....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
 ....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
-....\hbox(6.68+2.5)x345.0, glue set 12.47fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 10.49fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -49,6 +49,7 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{1}{\the \c@page }}
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\penalty 10000
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
@@ -191,7 +192,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 3.51001
-....\hbox(6.68+2.5)x345.0, glue set 12.255fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 10.49fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -199,6 +200,7 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{6}{\the \c@page }}
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\penalty 10000
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
@@ -298,6 +300,16 @@ Completed box being shipped out [1]
 .....\kern-0.15 (font)
 .....\TU/Brill(0)/m/n/10 6
 .....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 5
+.....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 ;
 .....\glue(\spaceskip) 1.98 plus 1.485 minus 0.44
 .....\TU/Brill(0)/m/n/10 2
@@ -312,8 +324,27 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 7
 .....\TU/Brill(0)/m/n/10 )
+.....\TU/Brill(0)/m/n/10 :
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 300
+....\glue(\baselineskip) 2.85
+....\hbox(6.65+1.81)x345.0, glue set 135.98fil, direction TLT
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 7
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 7
+.....\kern-0.35 (font)
+.....\TU/Brill(0)/m/n/10 9
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 r
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 e
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 2
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 :
@@ -325,8 +356,8 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 2.85
-....\hbox(6.65+2.39)x345.0, glue set 68.68999fil, direction TLT
+....\glue(\baselineskip) 3.54001
+....\hbox(6.65+2.39)x345.0, glue set 67.79999fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -334,6 +365,7 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.65 (font)
 .....\TU/Brill(0)/m/n/10 e
