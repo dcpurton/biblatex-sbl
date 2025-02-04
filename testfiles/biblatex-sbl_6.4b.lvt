@@ -1,0 +1,29 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\cite{VLB:26.2}
+
+\cite{VLB:26.2.8}
+
+\citereset
+\cite[625]{VLB:26.2}
+
+\citereset
+\cite[625 \mkbibparens{upper}]{VLB:26.2}
+
+\cite[625 \mkbibparens{middle}]{VLB:26.2}
+
+\cite[625 \mkbibparens{lower}]{VLB:26.2}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
