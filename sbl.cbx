@@ -254,6 +254,18 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
+\DeclareCiteCommand{\citecollection}
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\renewcommand*{\relateddelim}{\addspace}%
+   \usebibmacro{cite:testcollection:ancienttext}%
+   \togglefalse{sbl@blx@parens}%
+   \togglefalse{sbl@blx@transinparens}%
+   \usebibmacro{cite:collection:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
 \DeclareCiteCommand*{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
