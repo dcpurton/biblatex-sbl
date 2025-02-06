@@ -406,6 +406,8 @@
 \DeclareBibliographyAlias{commentary}{book}
 \DeclareBibliographyAlias{mvcommentary}{commentary}
 \DeclareBibliographyAlias{incommentary}{inbook}
+\DeclareBibliographyAlias{proceedings}{collection}
+\DeclareBibliographyAlias{mvproceedings}{collection}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{mvreference}{reference}
 \DeclareBibliographyAlias{series}{mvcollection}
@@ -1704,7 +1706,11 @@
     test {\iffieldundef{year}}
   }
     {}
-    {\iffieldundef{volume}
+    {\ifboolexpr{
+       test {\iffieldundef{volume}}
+       and
+       test {\iffieldundef{number}}
+     }
        {\newunit}
        {\setunit{\addspace}%
         \printtext{\bibopenparen}}%
@@ -1713,27 +1719,33 @@
      \printfield{issue}%
      \setunit*{\addcomma\space}%
      \usebibmacro{date}%
-     \iffieldundef{volume}
+     \ifboolexpr{
+       test {\iffieldundef{volume}}
+       and
+       test {\iffieldundef{number}}
+     }
        {}
        {\printtext{\bibcloseparen}}%
      \newunit}}
 
-% use shortjournal if available
-\renewbibmacro*{journal+issuetitle}{%
-  \usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}%
-  \setunit*{\addspace}%
-  \iffieldundef{series}
-    {}
-    {\newunit
-     \printfield{series}%
-     \setunit{\slash}}%
-  \usebibmacro{multivolarticle}%
-  \usebibmacro{volume+number}%
+% use shortjournal if available or treat series like journal if not journaltitle
+\newbibmacro*{journal+issuetitle/series}{%
+  \iffieldundef{journaltitle}
+    {\usebibmacro{series+number}%
+     \delimcontext{volume:article}}
+    {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}%
+     \setunit*{\addspace}%
+     \iffieldundef{series}
+       {}
+       {\newunit
+        \printfield{series}%
+        \setunit{\slash}}%
+     \usebibmacro{multivolarticle}%
+     \usebibmacro{volume+number}}%
   \setunit{\addspace}%
   \usebibmacro{issue+date}%
   \setunit{\addcolon\space}%
   \printfield{eid}%
-  %\usebibmacro{issue}%
   \newunit}
 
 \newbibmacro*{volume+number}{%

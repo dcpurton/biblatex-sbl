@@ -567,3 +567,8 @@
     \renewbibmacro{cite:postnote}{}%
     \usebibmacro{cite:short}}%
   \usebibmacro{volume+part+pages}}
+
+\newbibmacro*{cite:full:inproceedings:seen}{%
+  \iffieldundef{booktitle}
+    {\usebibmacro{cite:full}}
+    {\usebibmacro{cite:full:incollection:seen}}}

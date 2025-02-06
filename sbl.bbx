@@ -34,7 +34,7 @@
   \printfield{version}%
   \newunit\newblock
   \usebibmacro{in:}%
-  \usebibmacro{journal+issuetitle}%
+  \usebibmacro{journal+issuetitle/series}%
   \newunit
   \usebibmacro{byeditor+others}%
   \newunit
@@ -340,6 +340,13 @@
     {}%
   \usebibmacro{finentry}}
 
+\DeclareBibliographyDriver{inproceedings}{%
+  \iffieldundef{booktitle}
+    {\renewbibmacro{in:}{}%
+     \delimcontext{volume:article}%
+     \usedriver{}{article}}
+    {\usedriver{}{incollection}}}
+
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -373,7 +380,7 @@
   \usebibmacro{revdtitle+revdauthor/revdeditor}%
   \newunit\newblock
   \usebibmacro{in:}%
-  \usebibmacro{journal+issuetitle}%
+  \usebibmacro{journal+issuetitle/series}%
   \newunit
   \usebibmacro{byeditor+others}%
   \newunit
