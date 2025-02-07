@@ -1080,6 +1080,8 @@
 % define line and lines helper macros:
 \newcommand*{\lno}{\bibstring{line}}
 \newcommand*{\llno}{\bibstring{lines}}
+\newcommand*{\lineno}{\biblstring{line}}
+\newcommand*{\linesno}{\biblstring{lines}}
 
 % define col. and cols. helper macros:
 \newcommand*{\colno}{\bibstring{column}}
@@ -1088,6 +1090,8 @@
 % define obv. and rev. helper macros:
 \newcommand*{\obv}{\bibstring{obverse}}
 \newcommand*{\rev}{\bibstring{reverse}}
+
+\DeclarePageCommands*{\lno\llno\lineno\linesno\colno\colsno}
 
 % \ppspace
 \renewcommand*{\ppspace}{%
@@ -1731,8 +1735,7 @@
 % use shortjournal if available or treat series like journal if not journaltitle
 \newbibmacro*{journal+issuetitle/series}{%
   \iffieldundef{journaltitle}
-    {\usebibmacro{series+number}%
-     \delimcontext{volume:article}}
+    {\usebibmacro{series+number}}
     {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}%
      \setunit*{\addspace}%
      \iffieldundef{series}
