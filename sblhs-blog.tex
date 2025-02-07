@@ -1744,4 +1744,124 @@ aristotle:poetics:book:short}
 \examplenocite{RITA,RITANC}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2017/09/02/citing-text-collections-9-kitchens-ramesside-inscriptions/}
+
+\section{Citing Text Collections 8: \emph{NTApoc} (17 August 2017)}
+
+\begin{verbatim}
+@mvbook{NTApoc,
+  shorthand = {NTApoc},
+  editor = {Schneemelcher, Wilhelm},
+  title = {New Testament Apocrypha},
+  volumes = {2},
+  editora = {Wilson, Robert McL.},
+  editorastring = {Rev.\@ ed.\@ English trans.\@ ed\adddot},
+  location = {Cambridge and Louisville},
+  publisher = {Clarke and Westminster John Knox},
+  date = {2003}
+}
+
+@ancienttext{actsandrew,
+  title = {Acts of Andrew},
+  related = {NTApoc},
+  volume = {2},
+  pages = {101-151}
+}
+
+@ancienttext{actsandrew,
+  title = {Acts of Andrew},
+  related = {NTApoc},
+  volume = {2},
+  pages = {101-151}
+}
+
+@ancienttext{murfrag,
+  title = {Muratorian Fragment},
+  shorttitle = {Mur.\@ Frag\adddot},
+  translator = {Schneemelcher, Wilhelm},
+  related = {NTApoc},
+  volume = {1}
+}
+
+@ancienttext{actsjohn,
+  title = {Acts John},
+  related = {NTApoc},
+  volume = {2},
+  options={parens}
+}
+\end{verbatim}
+
+\begin{fverbcite}{13}
+  \footnote{For the \citetitle{actsandrew}, see \citecollection{actsandrew}.}
+\end{fverbcite}
+\begin{fverbcite}{22}
+  \footnote{The Muratorian Fragment offers the following about Acts of the
+  Apostles: “But the acts of all apostles are written in one book. For the
+  ‘most excellent Theophilus’ Luke summarises the several things that in his
+  own presence have come to pass, as also by the omission of the passion of
+  Peter he makes quite clear, and equally by (the omission) of the journey of
+  Paul, who from the city (of Rome) proceeded to Spain” \ptranscite[(lines
+  \pnfmt{34-39})35]{murfrag}.}
+\end{fverbcite}
+\begin{fverbcite}{22}
+  \autocite[For Lycomedes’s lament over his wife Cleopatra’s paralysis,
+  see][(20)173]{actsjohn}
+\end{fverbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplereferences{https://sblhs2.com/2017/08/17/citing-text-collections-8-_ntapoc-_/}
+
+\section{Canon Muratori/The Muratorian Fragment (10 August 2017)}
+
+\begin{verbatim}
+@ancienttext{murfrag,
+  title = {Muratorian Fragment},
+  shorttitle = {Mur.\@ Frag\adddot},
+}
+\end{verbatim}
+
+\begin{verbcite}
+  The Epistle of Jude is referenced in \cite[(68)]{murfrag}.
+\end{verbcite}
+\begin{verbcite}
+  \parencite[(\lineno~68)]{murfrag}
+\end{verbcite}
+\begin{verbcite}
+  line~68 of the \citetitle*{murfrag}
+\end{verbcite}
+\exampleancientsources
+\examplereferences{https://sblhs2.com/2017/08/10/canon-muratorithe-muratorian-fragment/}
+
+\section{Corpus Caesarianum in \emph{BNP} (3 August 2017)}
+
+\begin{verbatim}
+@mvreference{BNP,
+  shorthand = {BNP},
+  editor = {Cancik, Hubert},
+  title = {Brill’s New Pauly: Encyclopaedia of the Ancient World},
+  volumes = {22},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2002/2011}
+}
+
+@inreference{elabbadi:alexandria:history,
+  author = {El-Abbadi, Mostafa},
+  title = {Alexandria: History},
+  xref = {BNP},
+  volume = {A1},
+  pages = {82-85}
+}
+
+@inreference{rupke:corpus:caesarianum,
+  author = {Rüpke, Jörg},
+  title = {Corpus Caesarianum},
+  xref = {BNP},
+  url = {http://referenceworks.brillonline.com/browse/brill-s-new-pauly}
+}
+\end{verbatim}
+
+\examplecite{elabbadi:alexandria:history}
+\examplecite{rupke:corpus:caesarianum}
+\exampleabbreviations
+\examplebibliography
 \end{document}
