@@ -1799,8 +1799,8 @@ aristotle:poetics:book:short}
   ‘most excellent Theophilus’ Luke summarises the several things that in his
   own presence have come to pass, as also by the omission of the passion of
   Peter he makes quite clear, and equally by (the omission) of the journey of
-  Paul, who from the city (of Rome) proceeded to Spain” \ptranscite[(lines
-  \pnfmt{34-39})35]{murfrag}.}
+  Paul, who from the city (of Rome) proceeded to Spain”
+  \ptranscite[(\linesno~34-39)35]{murfrag}.}
 \end{fverbcite}
 \begin{fverbcite}{22}
   \autocite[For Lycomedes’s lament over his wife Cleopatra’s paralysis,
@@ -1844,6 +1844,11 @@ aristotle:poetics:book:short}
   date = {2002/2011}
 }
 
+@xdata{BNPonline,
+  xref = {BNP},
+  url = {http://referenceworks.brillonline.com/browse/brill-s-new-pauly}
+}
+
 @inreference{elabbadi:alexandria:history,
   author = {El-Abbadi, Mostafa},
   title = {Alexandria: History},
@@ -1855,8 +1860,7 @@ aristotle:poetics:book:short}
 @inreference{rupke:corpus:caesarianum,
   author = {Rüpke, Jörg},
   title = {Corpus Caesarianum},
-  xref = {BNP},
-  url = {http://referenceworks.brillonline.com/browse/brill-s-new-pauly}
+  xdata = {BNPonline}
 }
 \end{verbatim}
 
@@ -1864,4 +1868,86 @@ aristotle:poetics:book:short}
 \examplecite{rupke:corpus:caesarianum}
 \exampleabbreviations
 \examplebibliography
+\examplereferences{https://sblhs2.com/2017/08/03/corpus-caesarianum-in-bnp/}
+
+\section{Corpus Caesarianum: Anatomy of an Error (27 July 2017)}
+
+\begin{verbatim}
+@ancienttext{aulusgellius:noctatt,
+  author = {{Aulus Gellius}},
+  title = {Noctes attica},
+  shorttitle = {Noct.\@ att\adddot}
+}
+
+@ancienttext{bellafr,
+  title = {Bellum africum},
+  shorttitle = {Bell.\@ afr\adddot}
+}
+
+@ancienttext{bellalex,
+  title = {Bellum alexandrinum},
+  shorttitle = {Bell.\@ alex\adddot}
+}
+
+@ancienttext{bellhisp,
+  title = {Bellum hispaniense},
+  shorttitle = {Bell.\@ hisp\adddot}
+}
+
+@ancienttext{bion:epitaphadon,
+  author = {Bion},
+  title = {Epitaphius Adonis},
+  shorttitle = {Epitaph.\@ Adon\adddot}
+}
+
+@ancienttext{bion:epitaphachil,
+  author = {Bion},
+  title = {Epithalamium Achillis et Deidameiae},
+  shorttitle = {Epith.\@ Achil\adddot}
+}
+
+@ancienttext{caesar:bellciv,
+  author = {Caesar},
+  title = {Bellum civile},
+  shorttitle = {Bell.\@ civ.\adddot}
+}
+
+@ancienttext{caesar:bellgall,
+  author = {Caesar},
+  title = {Bellum gallicum},
+  shorttitle = {Bell.\@ gall\adddot}
+}
+\end{verbatim}
+
+\examplenocite{aulusgellius:noctatt, bellafr, bellalex, bellhisp,
+bion:epitaphadon, bion:epitaphachil, caesar:bellciv, caesar:bellgall}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/07/27/corpus-caesarianum-anatomy-of-an-error/}
+
+\section{Citing Text Collections 7: \emph{ARAB}}
+
+\begin{verbatim}
+@mvbook{ARAB,
+  shorthand = {ARAB},
+  author = {Luckenbill, Daniel David},
+  title = {Ancient Records of Assyria and Babylonia},
+  volumes = {2},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1926/1927},
+  pagination = {paragraph}
+}
+\end{verbatim}
+
+\begin{fverbcite}{28}
+  \footnote{For a translation of a bull inscription from Sennacherib’s palace,
+  see \volcite{2}[407-416]{ARAB}.}
+\end{fverbcite}
+\begin{fverbcite}{5}
+  \footnote{The Prism Inscription of Tiglath-pileser I concludes with a series
+  of blessings and curses reminiscent of those found within the Hebrew Bible
+  \pvolcite[see]{1}[265-266]{ARAB}.}
+\end{fverbcite}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/07/20/citing-text-collections-7-arab/}
 \end{document}
