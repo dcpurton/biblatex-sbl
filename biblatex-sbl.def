@@ -1993,6 +1993,20 @@
   \renewbibmacro*{cite:postnote}{}%
   \newunit}
 
+\newbibmacro*{inproceedings:note+pages}{%
+  \printfield{note}%
+  \begingroup
+  \iffieldundef{series}
+    {}
+    {\delimcontext{volume:article}}%
+  \setunit{\bibpagespunct}%
+  \printfield{pages}%
+  \usebibmacro{cite:postnote}%
+  \endgroup
+  % clear postnote
+  \renewbibmacro*{cite:postnote}{}%
+  \newunit}
+
 
 % ## Date macros
 

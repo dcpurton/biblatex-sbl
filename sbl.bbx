@@ -342,8 +342,8 @@
 
 \DeclareBibliographyDriver{inproceedings}{%
   \iffieldundef{booktitle}
-    {\renewbibmacro{in:}{}%
-     \delimcontext{volume:article}%
+    {\renewbibmacro*{in:}{}%
+     \renewbibmacro*{note+pages}{\usebibmacro{inproceedings:note+pages}}%
      \usedriver{}{article}}
     {\usedriver{}{incollection}}}
 
