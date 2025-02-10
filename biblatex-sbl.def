@@ -626,12 +626,14 @@
 \newcommand*{\totitlepunct}{\intitlepunct}
 \newcommand*{\translatedtitlepunct}{\addspace}
 \renewcommand*{\volcitedelim}{%
-  \ifboolexpr{
-    test {\iffieldbegpages{volcitepages}}
-    and
-    test {\ifpaginationequalstr{none}}
-  }
-    {\addcolon}
+  \iffieldbegpages{volcitepages}
+    {\ifboolexpr{
+       test {\ifpaginationequalstr{none}}
+       or
+       test {\ifpaginationequalstr{page}}
+     }
+       {\addcolon}
+       {\adddot}}
     {\addcomma\space}}
 
 \DeclareDelimFormat{bibpagesdelim}{\addcomma\space}
@@ -641,15 +643,15 @@
     {}%
   \space}
 \DeclareDelimFormat[volume]{bibpagesdelim}{%
-  \ifpaginationequalstr{none}
+  \ifboolexpr{
+    test {\ifpaginationequalstr{none}}
+    or
+    test {\ifpaginationequalstr{page}}
+  }
     {\addcolon}
     {\addcomma\space}}
 \DeclareDelimFormat[volume:article]{bibpagesdelim}{%
-  \ifboolexpr{
-    test {\ifpaginationequalstr{none}}
-    and
-    test {\iffieldundef{eid}}
-  }
+  \iffieldundef{eid}
     {\addcolon}
     {\addcomma}%
   \space}
@@ -657,11 +659,9 @@
 \DeclareDelimFormat{namedashdelim}{\addcomma\space}
 \DeclareDelimFormat{postnotedelim}{%
   \ifboolexpr{
-    not test {\iffieldundef{shorthand}}
-    and
     not test {\iffieldundef{volcitevolume}}
     and
-    test {\ifpaginationequalstr{none}}
+    not test {\iffieldundef{shorthand}}
   }
     {}
     {\addcomma}%
@@ -775,19 +775,15 @@
 \DeclareFieldFormat[suppbook]{titlecase}{\ifcapital{\MakeCapital{#1}}{#1}}
 \DeclareFieldFormat[thesis,unpublished]{type}{\ifbibstring{#1}{\bibsstring{#1}}{#1}}
 \DeclareFieldFormat{url}{\url{#1}}
-\DeclareFieldFormat{volcitepages}{\mkpageprefix[pagination][\mkcomprange]{#1}}
+\DeclareFieldFormat{volcitepages}{\mkcomprange{#1}}
 \DeclareFieldFormat{volcitevolume}{%
-  \iffieldundef{shorthand}
-    {\ifboolexpr{
-       test {\iffieldbegpages{volcitepages}}
-       and
-       test {\ifpaginationequalstr{none}}
-     }
-       {#1}
-       {\bibstring{volume}\volspace#1}}
-    {\ifpaginationequalstr{none}
-       {#1}
-       {\bibstring{volume}\volspace#1}}}
+  \ifboolexpr{
+    test {\iffieldundef{shorthand}}
+    and
+    not test {\iffieldbegpages{volcitepages}}
+  }
+    {\bibsstring{volume}\volspace#1}
+    {#1}}
 \DeclareFieldFormat{volume}{\bibsstring{volume}\volspace#1}
 \DeclareFieldFormat[review]{volume}{#1}
 \DeclareFieldFormat{volume:postnote}{%
@@ -1701,7 +1697,7 @@
     {}
     {\bibstring{in}%
      \setunit{\intitlepunct}}}
-   
+
 % allow for no date
 \renewbibmacro*{issue+date}{%
   \ifboolexpr{

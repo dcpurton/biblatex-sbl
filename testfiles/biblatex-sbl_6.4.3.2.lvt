@@ -17,23 +17,23 @@
 
 \volcite{2}{BGU}
 
-\volcite{1a.7.2}{IEph}
+\volcite{1a}[7.2]{IEph}
 
 \volcite{3.457}{P.Ryl}
 
-\volcite{2.447}{BGU}
+\volcite{2}[447]{BGU}
 
-\volcite{1a.7}{IEph}
+\volcite{1a}[7]{IEph}
 
-\volcite{7.1.3025}{IEph}
+\volcite{7}[1.3025]{IEph}
 
-\volcite{1a.7.2, \lno~11}{IEph}
+\volcite{1a}[7.2, \lno~11]{IEph}
 
-\volcite{1a.8, \llno~16--17}{IEph}
+\volcite{1a}[8, \llno~16-17]{IEph}
 
 \volcite{2}{IG}
 
-\volcite{9.2.21}{IG}
+\volcite{9}[2.21]{IG}
 
 \printbibliography
 \printbiblist{abbreviations}
