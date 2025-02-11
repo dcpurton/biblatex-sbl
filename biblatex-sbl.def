@@ -695,6 +695,7 @@
        {\addcomma}}
     {\addcomma}%
   \space}
+\DeclareDelimFormat{voltextnumdelim}{\addperiod}
 
 
 % ## Field formats
@@ -1982,6 +1983,21 @@
   % clear postnote
   \renewbibmacro*{cite:postnote}{}}
 
+\newbibmacro*{volume+textnumber+pages}{%
+  \printfield[volume:postnote]{volume}%
+  \setunit*{\printdelim{voltextnumdelim}}%
+  \printfield{textnumber}%
+  \begingroup
+  \iffieldundef{volume}
+    {}
+    {\delimcontext{volume}}%
+  \setunit{\bibpagespunct}%
+  \printfield{pages}%
+  \usebibmacro{cite:postnote}%
+  \endgroup
+  % clear postnote
+  \renewbibmacro*{cite:postnote}{}}
+
 \renewbibmacro*{chapter+pages}{%
   \printfield{chapter}%
   \setunit{\bibpagespunct}%
@@ -2046,7 +2062,7 @@
 
 \newbibmacro*{related:ancienttext}[1]{%
   \savefield*{volume}{\sbl@saved@volume}%
-  \savefield*{part}{\sbl@saved@part}%
+  \savefield*{textnumber}{\sbl@saved@textnumber}%
   \savefield*{pages}{\sbl@saved@pages}%
   \savefield*{postnote}{\sbl@saved@postnote}%
   \entrydata*{#1}{%
@@ -2061,7 +2077,7 @@
     \usefield{\sbl@blx@trackentry}{clonesourcekey}%
     \iffieldundef{volcitevolume}
       {\restorefield{volume}{\sbl@saved@volume}%
-       \restorefield{part}{\sbl@saved@part}}
+       \restorefield{textnumber}{\sbl@saved@textnumber}}
       {}%
     \restorefield{pages}{\sbl@saved@pages}%
     \restorefield{postnote}{\sbl@saved@postnote}%
@@ -2070,7 +2086,7 @@
       {\addforceskipentry{\thefield{entrykey}}%
        \delimcontext{shorthand}}%
     \setunit{\bibpagespunct}%
-    \usebibmacro{volume+part+pages}}}
+    \usebibmacro{volume+textnumber+pages}}}
 
 \newbibmacro*{related:reprint}[1]{%
   \entrydata*{#1}{%
