@@ -23,6 +23,8 @@
 
 \makeatletter
 
+\colorlet{cmdcolour}{black!65}
+
 \newcommand*{\pno}{\textbackslash pno }
 \newcommand*{\ppno}{\textbackslash ppno }
 \newcommand*{\nopp}{\textbackslash nopp }
@@ -32,16 +34,9 @@
   \@afterheading
 }
 
-\NewDocumentCommand{\examplenocite}{m}{%
-  \par
-  \texttt{\textbackslash nocite\{*\}}\par
-  \@afterheading
-  \nocite{#1}%
-}
-
 \NewDocumentCommand{\exampleciteauthor}{m}{%
   \par
-  \texttt{\textbackslash citeauthor\{#1\}}\par
+  \textcolor{cmdcolour}{\texttt{\textbackslash citeauthor\{#1\}}}\par
   \@afterheading
   \citeauthor{#1}%
 }
@@ -50,12 +45,13 @@
 % \examplecite*(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
 \NewDocumentCommand{\examplecite}{sO{auto}d()oom}{%
   \par
-  \texttt{%
-    \textbackslash #2cite%
-    \IfBooleanT{#1}{*}%
-    \IfNoValueF{#4}{[#4]}%
-    \IfNoValueF{#5}{[#5]}%
-    \{#6\}}\par
+  \textcolor{cmdcolour}{%
+    \texttt{%
+      \textbackslash #2cite%
+      \IfBooleanT{#1}{*}%
+      \IfNoValueF{#4}{[#4]}%
+      \IfNoValueF{#5}{[#5]}%
+      \{#6\}}}\par
   \@afterheading
   \IfNoValueF{#3}{\quad #3.\space}%
   \IfBooleanTF{#1}
@@ -67,13 +63,14 @@
 % \examplecite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
 \NewDocumentCommand{\examplevolcite}{sO{a}d()omom}{%
   \par
-  \texttt{%
-    \textbackslash #2volcite%
-    \IfBooleanT{#1}{*}%
-    \IfNoValueF{#4}{[#4]}%
-    \{#5\}%
-    \IfNoValueF{#6}{[#6]}%
-    \{#7\}}\par
+  \textcolor{cmdcolour}{%
+    \texttt{%
+      \textbackslash #2volcite%
+      \IfBooleanT{#1}{*}%
+      \IfNoValueF{#4}{[#4]}%
+      \{#5\}%
+      \IfNoValueF{#6}{[#6]}%
+      \{#7\}}}\par
   \@afterheading
   \IfNoValueF{#3}{\quad #3.\space}%
   \IfBooleanTF{#1}
@@ -119,9 +116,11 @@
   \enverb{}%
 }{%
   \par
+  \color{cmdcolour}%
   \enverbListing{Verbatim}{}%
   \par
   \@afterheading
+  \normalcolor
   \enverbExecute
 }
 
@@ -129,9 +128,11 @@
   \enverb{}%
 }{%
   \par
+  \color{cmdcolour}%
   \enverbListing{Verbatim}{}%
   \par
   \@afterheading
+  \normalcolor
   \renewcommand\footnote[1]{##1}%
   \quad #1.\space\enverbExecute
 }
@@ -140,35 +141,39 @@
   \enverb{}%
 }{%
   \par
+  \color{cmdcolour}%
   \enverbListing{Verbatim}{}%
+  \normalcolor
   \par
 }
 
 \NewDocumentCommand{\exampleabbreviations}{}{%
   \par
-  \texttt{\textbackslash printbiblist\{abbreviations\}}
+  \textcolor{cmdcolour}{\texttt{\textbackslash printbiblist\{abbreviations\}}}
   \@afterheading
   \printbiblist[heading=none]{abbreviations}}
 
 \NewDocumentCommand{\exampleancientsources}{}{%
   \par
-  \texttt{\textbackslash printbiblist[heading=subbibliography, title=Ancient Sources,\\
-  \strut\quad type=ancienttext]\{abbreviations\}}
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Ancient Sources,\\
+      \strut\quad type=ancienttext]\{abbreviations\}}}
   \@afterheading
   \printbiblist[heading=subbibliography, title=Ancient Sources,
     type=ancienttext]{abbreviations}}
 
 \NewDocumentCommand{\examplesecondarysources}{}{%
   \par
-  \texttt{\textbackslash printbiblist[heading=subbibliography, title=Secondary Sources,\\
-  \strut\quad nottype=ancienttext]\{abbreviations\}}
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Secondary Sources,\\
+      \strut\quad nottype=ancienttext]\{abbreviations\}}}
   \@afterheading
   \printbiblist[heading=subbibliography, title=Secondary Sources,
     nottype=ancienttext]{abbreviations}}
 
 \NewDocumentCommand{\examplebibliography}{}{%
   \par
-  \texttt{\textbackslash printbibliography}
+  \textcolor{cmdcolour}{\texttt{\textbackslash printbibliography}}
   \@afterheading
   \printbibliography[heading=none]}
 
@@ -239,7 +244,7 @@
 
 \examplecite(4)[(1.2.12)129]{victorinus:ephesians}
 \examplecite(8)[(5.13)77]{theodoret:galatians}
-\examplenocite{ACCS}
+\nocite{ACCS}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2019/03/28/snippet-text-collections/}
@@ -535,10 +540,12 @@ with permission.
 }
 \end{verbatim}
 
-\examplenocite{AB, ABD, philo:abr, philo:agr, tacitus:ann,
-graniuslicinianus:ann, AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac,
-JSOTSup, justinmartyr:1apol, 1en, 1QM, 4QpNah, livy:aburbe, cicero:agr,
-plutarch:ant, dionysius:ant}
+\begin{verbcite}
+  \nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
+    AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup,
+    justinmartyr:1apol, 1en, 1QM, 4QpNah, livy:aburbe, cicero:agr,
+    plutarch:ant, dionysius:ant}
+\end{verbcite}
 \exampleancientsources
 \examplesecondarysources
 \examplereferences{https://sblhs2.com/2018/05/24/abbreviations-lists/}
@@ -617,8 +624,10 @@ plutarch:ant, dionysius:ant}
 }
 \end{verbatim}
 
-\examplenocite{robinson:1952, jeremias:1967, frances:2014, reynolds+etal:2014,
-witte:2015, tucker:2015}
+\begin{verbcite}
+  \nocite{robinson:1952, jeremias:1967, frances:2014, reynolds+etal:2014,
+    witte:2015, tucker:2015}
+\end{verbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/05/17/series-volume-identifiers-old-new-and-concurrent-series/}
@@ -710,8 +719,10 @@ witte:2015, tucker:2015}
 }
 \end{verbatim}
 
-\examplenocite{johnson:2018, salters:2010, aune:1998, seebass:1993,
-seebass:1993-2007}
+\begin{verbcite}
+  \nocite{johnson:2018, salters:2010, aune:1998, seebass:1993,
+    seebass:1993-2007}
+\end{verbcite}
 \examplecite(1)[589]{aune:1997}
 \examplecite(2)[589]{aune:1997}
 \examplevolcite(3){1}[589]{aune:1997-1998}
@@ -768,7 +779,9 @@ seebass:1993-2007}
 }
 \end{verbatim}
 
-\examplenocite{hamori+stokl:2018, wilken:2003}
+\begin{verbcite}
+  \nocite{hamori+stokl:2018, wilken:2003}
+\end{verbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/04/26/multiple-cities-of-publication/}
@@ -946,8 +959,10 @@ seebass:1993-2007}
 \begin{verbcite}
   As \citeauthor{hooks:1990} offers ….
 \end{verbcite}
-\examplenocite{logan+wedderburn:1983, barbour:2012, grillo:2017,
-barbour:seealso, grillo:seealso}
+\begin{verbcite}
+  \nocite{logan+wedderburn:1983, barbour:2012, grillo:2017, barbour:seealso,
+    grillo:seealso}
+\end{verbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/04/06/modern-author-names/}
@@ -1020,7 +1035,9 @@ barbour:seealso, grillo:seealso}
 \end{verbatim}
 
 \examplecite(42)[\pno 1765a]{smyth:1956}
-\examplenocite{smyth:1920,smyth:1916}
+\begin{verbcite}
+  \nocite{smyth:1920, smyth:1916}
+\end{verbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/03/08/citing-smyths-greek-grammar/}
@@ -1277,7 +1294,9 @@ barbour:seealso, grillo:seealso}
   \footnote{All translations of Josephus’s \citetitle*{josephus:cap} follow the
   translation in \cite{josephus:life;againstapion}.}
 \end{fverbcite}
-\examplenocite{josephus:antiquitatum,josephus:judeanantiquities,worksofjosephus}
+\begin{verbcite}
+  \nocite{josephus:antiquitatum, josephus:judeanantiquities, worksofjosephus}
+\end{verbcite}
 \exampleancientsources
 \examplesecondarysources
 \examplebibliography
@@ -1560,14 +1579,16 @@ barbour:seealso, grillo:seealso}
   the sun” \ptranscite[11.2]{apuleius:metam}.}
 \end{fverbcite}
 \begin{fverbcite}{3}
-\footnote{Translations from the \citetitle{apuleius:golden} follow that of
+  \footnote{Translations from the \citetitle{apuleius:golden} follow that of
 \cite{apuleius:golden}}.
 \end{fverbcite}
 \cite{apuleius:golden}.
-\examplenocite{aristotle:metaphysics:2, augustine:cityofgod:1,
-aristotle:metaphysics, augustine:cityofgod, augustine:selectletters,
-aristotle:poetics, longinus:sublime, demetrius:style,
-aristotle:poetics:book:short}
+\begin{verbcite}
+  \nocite{aristotle:metaphysics:2, augustine:cityofgod:1,
+    aristotle:metaphysics, augustine:cityofgod, augustine:selectletters,
+    aristotle:poetics, longinus:sublime, demetrius:style}
+\end{verbcite}
+\nocite{aristotle:poetics:book:short}
 \exampleancientsources
 \examplesecondarysources
 \examplebibliography
@@ -1741,7 +1762,9 @@ aristotle:poetics:book:short}
   one would cite line 10 of the Merenptah Lachish bowl as \volcite{4}[39, line
   10]{KRI}.
 \end{verbcite}
-\examplenocite{RITA,RITANC}
+\begin{verbcite}
+  \nocite{RITA, RITANC}
+\end{verbcite}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2017/09/02/citing-text-collections-9-kitchens-ramesside-inscriptions/}
 
@@ -1919,8 +1942,10 @@ aristotle:poetics:book:short}
 }
 \end{verbatim}
 
-\examplenocite{aulusgellius:noctatt, bellafr, bellalex, bellhisp,
-bion:epitaphadon, bion:epitaphachil, caesar:bellciv, caesar:bellgall}
+\begin{verbcite}
+  \nocite{aulusgellius:noctatt, bellafr, bellalex, bellhisp, bion:epitaphadon,
+    bion:epitaphachil, caesar:bellciv, caesar:bellgall}
+\end{verbcite}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2017/07/27/corpus-caesarianum-anatomy-of-an-error/}
 
@@ -1950,4 +1975,312 @@ bion:epitaphadon, bion:epitaphachil, caesar:bellciv, caesar:bellgall}
 \end{fverbcite}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2017/07/20/citing-text-collections-7-arab/}
+
+\section{Citing Text Collections 6: \emph{ANF} and \emph{NPNF} (13 July 2017)}
+
+\begin{verbatim}
+@mvcollection{ANF,
+  shorthand = {ANF},
+  editor = {Roberts, Alexander and Donaldson, James},
+  title = {The Ante-Nicene Fathers},
+  subtitle = {Translations of the Writings of the Fathers Down to A.D. 325},
+  origdate = {1885/1887},
+  volumes = {10},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@ancienttext{clementinehomilies,
+  entrysubtype = {ancientbook},
+  title = {The Clementine Homilies},
+  related = {ANF},
+  options = {parens}
+}
+
+@mvcollection{NPNF,
+  shorthand = {NPNF},
+  editor = {Schaff, Philip},
+  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian Church},
+  origdate = {1886/1889},
+  volumes = {28},
+  series = {2},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@ancienttext{augustine:letters,
+  entrysubtype = {ancientbook},
+  author = {Augustine},
+  title = {The Letters of St.\@ Augustin},
+  translator = {Cunningham, J. G.},
+  related = {NPNF},
+  volume = {1/1},
+  pages = {209-593},
+  options = {parens, transinparens}
+}
+
+@ancienttext{eusebius:constantine,
+  entrysubtype = {inancienttext},
+  author = {{Eusebius of Caesarea}},
+  title = {The Life of Constantine},
+  translator = {Richardson, Ernest Cushing},
+  related = {NPNF},
+  volume = {2/1},
+  pages = {481-559},
+  options = {parens, transinparens, skipbib=false}
+}
+\end{verbatim}
+
+\examplevolcite[]{2/12}[85-96]{NPNF}
+\examplecite(44)[(28.3.5)252]{augustine:letters}
+\examplecite[atrans](44)[(28.3.5)252]{augustine:letters}
+\begin{verbcite}
+  \nocite{ANF, eusebius:constantine}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/07/13/citing-text-collections-6-anf-and-npnf/}
+
+\section{Citing Text Collections 5: \emph{COS} (29 June 2017)}
+
+\begin{verbatim}
+@mvcollection{COS,
+  shorthand = {COS},
+  editor = {Hallo, William W. and Younger, Jr., K. Lawson},
+  title = {The Context of Scripture},
+  volumes = {4},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1997/2016}
+}
+
+@ancienttext{bedouin:allen,
+  entrysubtype = {inancientcollection},
+  title = {A Report of Bedouin},
+  translator = {Allen, James P.},
+  related = {COS},
+  volume = {3},
+  textnumber = {5},
+  pages = {16–17}
+}
+
+@ancienttext{summaryinscription8,
+  entrysubtype = {inancientcollection},
+  title = {Summary Inscription 8},
+  translator = {Younger, Jr., K. Lawson},
+  related = {COS}
+}
+\end{verbatim}
+
+\begin{fverbcite}{13}
+  \footnote{For a New Kingdom model letter reporting the arrival of bedouin at
+  a border fortress, see \citecollection{bedouin:allen}.}
+\end{fverbcite}
+\begin{fverbcite}{13}
+  \footnote{For a New Kingdom model letter reporting the arrival of bedouin at
+  a border fortress, see \cite{bedouin:allen}.}
+\end{fverbcite}
+\begin{fverbcite}{13}
+  \footnote{Egypt’s attempt to exercise rigorous control over its borders is
+  clearly reflected in a letter reporting the arrival of bedouin at a border
+  fortress: “We have just let the Shasu tribes of Edom pass the Fortress of
+  Merneptah-hetephermaat, LPH, of Tjeku, to the pool of Pithom of
+  Merneptah-hetephermaat, of Tjeku, in order to revive themselves and revive
+  their flocks from the great life force of Pharaoh, LPH, the perfect Sun of
+  every land” \ptranscite{bedouin:allen}.}
+\end{fverbcite}
+\examplevolcite(21)[For the ritual of praise, see]{1.170}[175, §14]{COS}
+\begin{fverbcite}{37}
+  \footnote{For Shalmaneser’s account of his defeat of Hadad-ezer of Damascus
+  and thirteen allied kings, see \volcite{2.113D}[267, \colno~ii,
+  \linesno~13-25]{COS}.}
+\end{fverbcite}
+\begin{fverbcite}{42}
+  \footnote{Tiglath-pileser III states: “[…] I filled [the plain] with the
+  bodies of their warriors [like gras]s, [together with] their belongings,
+  their cattle, their sheep, their asses […] […] within his palace […] […] I
+  accepted their plea to [forgive] their rebellion (lit.\@ ‘sin’) and s[pared]
+  their land” \pvoltranscite{2.117E}[290,
+  \linesno~10′-13′]{summaryinscription8}.}
+\end{fverbcite}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/06/29/citing-text-collections-5-cos/}
+
+\section{Citing Text Collections 4: \emph{MOTP} (22 June 2017)}
+
+\begin{verbatim}
+@mvcollection{MOTP,
+  shorthand = {MOTP}
+  editor = {Bauckham, Richard, Davila, James R. and Panayotov, Alexander},
+  title = {Old Testament Pseudepigrapha: More Noncanonical Scriptures},
+  volumes = {2},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {2013/}
+}
+
+@ancienttext{apocrseth,
+  title = {The Apocryphon of Seth},
+  shorttitle = {Apocr.\@ Seth},
+  related = {MOTP},
+  volume = {1},
+  pages = {33-39}
+}
+
+@ancienttext{bknoah,
+  title = {The Book of Noah},
+  shorttitle = {Bk.\@ Noah},
+  related = {MOTP},
+  volume = {1},
+  pages = {40-46}
+}
+\end{verbatim}
+
+\begin{fverbcite}{13}
+  \footnote{For an introduction to the \citetitle*{apocrseth}, see
+  \citecollection{apocrseth}.}
+\end{fverbcite}
+\begin{fverbcite}{15}
+  \footnote{The \citetitle*{bknoah} reports: “Then all the children of Noah
+  together with their children came and reported their afflictions to Noah
+  their father and told him about the pains their children endured”
+  \ptranscite[46]{bknoah}.}
+\end{fverbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplereferences{https://sblhs2.com/2017/06/22/citing-text-collections-3-motp/}
+
+\section{Pseudepigraphic Testaments (15 June 2017)}
+
+\begin{verbatim}
+@mvcollection{OTP,
+  shorthand = {OTP},
+  editor = {Charlesworth, James H.},
+  title = {Old Testament Pseudepigrapha},
+  volumes = {2},
+  location = {New York},
+  publisher = {Doubleday},
+  date = {1983/1985}
+}
+
+@article{conybeare:1898,
+  translator = {Conybeare, F. C.},
+  title = {The Testament of Solomon},
+  journaltitle = {Jewish Quarterly Review},
+  shortjournal = {JQR},
+  volume = {11},
+  pages = {1-45},
+  date = {1898},
+  options = {usetranslator}
+}
+
+@ancienttext{t.sol.,
+  title = {Testament of Solomon},
+  shorttitle = {T. Sol\adddot},
+  xref = {conybeare:1898}
+}
+
+@ancienttext{t.reu.,
+  title = {Testament of Reuben},
+  shorttitle = {T. Reu\adddot},
+  translator = {Kee, H. C.},
+  related = {OTP},
+  volume = {1},
+  pages = {782-785},
+  options = {parens}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  “So King Solomon called the boy one day, and questioned him, saying: ‘Do I
+  not love thee more than all the artisans who are working in the Temple of
+  God? Do I not give thee double wages and a double supply of food? How is it
+  that day by day and hour by hour thou growest thinner?’”
+  \ptranscite[(1.3)]{t.sol.}.
+\end{verbcite}
+\begin{fverbcite}{15}
+  \footnote{The testament goes on to say, “Do not devote your attention to the beauty of
+  women, my children, nor occupy your minds with their activities”
+  \ptranscite[(4.1)783]{t.reu.}.}
+\end{fverbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/06/15/pseudepigraphic-testaments/}
+
+\section{Citing Text Collections 3: \emph{OTP} (8 June 2017)}
+
+\begin{verbatim}
+@mvcollection{OTP,
+  shorthand = {OTP},
+  editor = {Charlesworth, James H.},
+  title = {Old Testament Pseudepigrapha},
+  volumes = {2},
+  location = {New York},
+  publisher = {Doubleday},
+  date = {1983/1985}
+}
+
+@ancienttext{apoc.zeph.,
+  title = {Apocalypse of Zephaniah},
+  shorttitle = {Apoc.\@ Zeph\adddot},
+  translator = {Wintermute, O. S.},
+  related = {OTP},
+  volume = {1},
+  pages = {508-515},
+  options = {parens, transinparens}
+}
+
+@ancienttext{sib.or.,
+  title = {Sibylline Oracles},
+  shorttitle = {Sib.\@ Or\adddot},
+  translator = {Collins, J. J.},
+  related = {OTP},
+  volume = {1},
+  pages = {317-472},
+  options = {parens, transinparens}
+}
+
+@ancienttext{ezek.trag.,
+  title = {Ezekiel the Tragedian},
+  shorttitle = {Ezek.\@ Trag\adddot},
+  translator = {Robertson, R. G.},
+  related = {OTP},
+  volume = {2},
+  pages = {803-820},
+  options = {parens, transinparens}
+}
+
+@ancienttext{jos.asen.,
+  title = {Joseph and Aseneth},
+  shorttitle = {Jos.\@ Asen\adddot},
+  translator = {Burchard, C.},
+  related = {OTP},
+  volume = {2},
+  pages = {177-248},
+  options = {parens, transinparens}
+}
+\end{verbatim}
+
+\begin{fverbcite}{13}
+  \footnote{For an example of an apocalypse likely written 100 BCE–70 CE, see
+  the \fullcite{apoc.zeph.}.}
+\end{fverbcite}
+\begin{fverbcite}{13}
+  \footnote{The imagery of flying angels blowing trumpets was common to
+  apocalyptic literature, as in \citetitle[(9.1)]{apoc.zeph.}: “Then a great
+  angel came forth having a golden trumpet in his hand, and he blew it three
+  times over my head” \ptranscitecollection[514]{apoc.zeph.}.}
+\end{fverbcite}
+\examplecite(27)[For a Christian insertion, see][(12.30-34)445]{sib.or.}
+\examplecite(31)[Moses addresses God at the burning bush in][(90-95)812]{ezek.trag.}
+\begin{fverbcite}{17}
+  \footnote{For the account of Levi attempting to save Pharaoh’s son,
+  see \cite[(29.1-6)]{jos.asen.}.}
+\end{fverbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplereferences{https://sblhs2.com/2017/06/08/citing-text-collections-3-otp/}
 \end{document}
