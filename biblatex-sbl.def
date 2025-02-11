@@ -1070,33 +1070,47 @@
      \expandafter{\csname abx@field@#1\endcsname}}}
 
 % define s.v. and s.vv. helper macros:
-\newcommand*{\sv}{\bibstring{subverbo}}
-\newcommand*{\svv}{\bibstring{subverbis}}
+\appto\blx@blxinit{%
+  \def\sv{\bibstring{subverbo}}%
+  \def\svv{\bibstring{subverbis}}}
 
 % define line and lines helper macros:
-\newcommand*{\lno}{\bibstring{line}}
-\newcommand*{\llno}{\bibstring{lines}}
-\newcommand*{\lineno}{\biblstring{line}}
-\newcommand*{\linesno}{\biblstring{lines}}
+\appto\blx@blxinit{%
+  \def\lno{\bibstring{line}}%
+  \def\llno{\bibstring{lines}}%
+  \def\lineno{\biblstring{line}}%
+  \def\linesno{\biblstring{lines}}}
 
 % define col. and cols. helper macros:
-\newcommand*{\colno}{\bibstring{column}}
-\newcommand*{\colsno}{\bibstring{columns}}
+\appto\blx@blxinit{%
+  \def\colno{\bibstring{column}}%
+  \def\colsno{\bibstring{columns}}}
 
 % define obv. and rev. helper macros:
-\newcommand*{\obv}{\bibstring{obverse}}
-\newcommand*{\rev}{\bibstring{reverse}}
+\appto\blx@blxinit{%
+  \def\obv{\bibstring{obverse}}%
+  \def\rev{\bibstring{reverse}}}
+
+% \ppspace
+\appto\blx@blxinit{%
+  \def\ppspace{%
+  \iffieldequalstr{pagination}{section}
+    {}
+    {\addnbspace}}}
+
+% \volspace
+\appto\blx@blxinit{%
+  \def\volspace{\addnbspace}}
 
 \DeclarePageCommands*{\lno\llno\lineno\linesno\colno\colsno}
 
-% \ppspace
-\renewcommand*{\ppspace}{%
-  \iffieldequalstr{pagination}{section}
-    {}
-    {\addnbspace}}
-
-% \volspace
-\newcommand*{\volspace}{\addnbspace}
+% Add ′ (prime) as number for Unicode engines
+\ExplSyntaxOn
+\bool_lazy_or:nnT \sys_if_engine_luatex_p: \sys_if_engine_xetex_p:
+  {
+    \DeclareNumChars* { ′ }
+  }
+\ExplSyntaxOff
 
 % ## Bibliography
 
