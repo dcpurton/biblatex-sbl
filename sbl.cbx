@@ -262,6 +262,24 @@
    \usebibmacro{cite:testcollection:ancienttext}%
    \togglefalse{sbl@blx@parens}%
    \togglefalse{sbl@blx@transinparens}%
+   \iftoggle{sbl@blx@transcite}
+     {\usebibmacro{cite:translator:ancienttext}}
+     {}%
+   \usebibmacro{cite:collection:ancienttext}}
+  {\multicitedelim}
+  {\usebibmacro{postnote}}
+
+\DeclareCiteCommand{\parencitecollection}[\mkbibparens]
+  {\boolfalse{citetracker}%
+   \boolfalse{pagetracker}%
+   \usebibmacro{prenote}}
+  {\renewcommand*{\relateddelim}{\addspace}%
+   \usebibmacro{cite:testcollection:ancienttext}%
+   \togglefalse{sbl@blx@parens}%
+   \togglefalse{sbl@blx@transinparens}%
+   \iftoggle{sbl@blx@transcite}
+     {\usebibmacro{cite:translator:ancienttext}}
+     {}%
    \usebibmacro{cite:collection:ancienttext}}
   {\multicitedelim}
   {\usebibmacro{postnote}}
@@ -290,6 +308,33 @@
 \DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\fullcite}
+  {\usebibmacro{prenote}}
+  {\let\ifciteseen\@secondoftwo
+   \restorefield{labeltitle}{\abx@field@title}%
+   \clearfield{shorttitle}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
+  {\usebibmacro{prenote}}
+  {\let\ifciteseen\@secondoftwo
+   \restorefield{labeltitle}{\abx@field@title}%
+   \clearfield{shorttitle}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand{\parenfullcite}[\mkbibparens]
+  {\usebibmacro{prenote}}
+  {\let\ifciteseen\@secondoftwo
+   \restorefield{labeltitle}{\abx@field@title}%
+   \clearfield{shorttitle}%
    \usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
@@ -327,6 +372,13 @@
 \newrobustcmd*{\ftvoltranscites}{\multivolcitecmd\fttranscites}
 \newrobustcmd*{\svoltranscites}{\multivolcitecmd\stranscites}
 \newrobustcmd*{\avoltranscites}{\multivolcitecmd\atranscites}
+
+\newrobustcmd*{\transfullcite}{\transcitecmd\fullcite}
+\newrobustcmd*{\ftransfullcite}{\transcitecmd\footfullcite}
+\newrobustcmd*{\ptransfullcite}{\transcitecmd\parenfullcite}
+
+\newrobustcmd*{\transcitecollection}{\transcitecmd\citecollection}
+\newrobustcmd*{\ptranscitecollection}{\transcitecmd\parencitecollection}
 
 \renewbibmacro*{cite}{%
   \ifboolexpr{
@@ -473,7 +525,8 @@
       test {\iffieldundef{volcitepages}}
     )
   }
-    {\clearfield{related}}
+    {\clearfield{related}%
+     \togglefalse{sbl@blx@parens}}
     {}}
 
 \newbibmacro*{cite:maintitle:ancienttext}{%

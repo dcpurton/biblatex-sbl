@@ -1,0 +1,32 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\fullcite{apoc.zeph.}
+
+\citetitle[(9.1)]{apoc.zeph.}
+
+\ptranscitecollection[514]{apoc.zeph.}
+
+\parencitecollection[514]{apoc.zeph.}
+
+\cite[For a Christian insertion, see][(12.30-34)445]{sib.or.}
+
+\cite[Moses addresses God at the burning bush in][(90-95)812]{ezek.trag.}
+
+\cite[(29.1-6)]{jos.asen.}
+\printbibliography
+\printbiblist[heading=subbibliography, title=Ancient Sources,
+  type=ancienttext]{abbreviations}
+\printbiblist[heading=subbibliography, title=Secondary Sources,
+  nottype=ancienttext]{abbreviations}
+\end{document}
