@@ -1860,7 +1860,27 @@
 
 % add parentheses in citations
 \renewbibmacro*{publisher+location+date}{%
-  \ifbibliography
+  \ifboolexpr{
+    test {\ifbibliography}
+    or
+    (
+      test {\iffieldundef{origpublisher}}
+      and
+      test {\iffieldundef{origlocation}}
+      and
+      test {\iffieldundef{origdate}}
+      and
+      test {\iffieldundef{publisher}}
+      and
+      test {\iffieldundef{location}}
+      and
+      test {\iffieldundef{year}}
+      and
+      test {\iffieldundef{pubstate}}
+      and
+      not test {\iffieldequalstr{relatedtype}{reprint}}
+    )
+  }
     {}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}}%
@@ -1870,9 +1890,30 @@
   \usebibmacro{date}%
   \usebibmacro{pubstate}%
   \usebibmacro{reprint}%
-  \ifbibliography
+  \ifboolexpr{
+    test {\ifbibliography}
+    or
+    (
+      test {\iffieldundef{origpublisher}}
+      and
+      test {\iffieldundef{origlocation}}
+      and
+      test {\iffieldundef{origdate}}
+      and
+      test {\iffieldundef{publisher}}
+      and
+      test {\iffieldundef{location}}
+      and
+      test {\iffieldundef{year}}
+      and
+      test {\iffieldundef{pubstate}}
+      and
+      not test {\iffieldequalstr{relatedtype}{reprint}}
+    )
+  }
     {}
     {\printtext{\bibcloseparen}}%
+  \clearfield{pubstate}%
   \newunit}
 
 \newbibmacro*{origpublisher+origlocation+origdate}{%
@@ -1895,8 +1936,7 @@
   \iffieldundef{pubstate}
     {}
     {\setunit{\addcomma\space}%
-     \printfield{pubstate}%
-     \clearfield{pubstate}}}
+     \printfield{pubstate}}}
 
 \newbibmacro*{reprint}{%
   \ifboolexpr{
