@@ -410,7 +410,8 @@
 \DeclareBibliographyAlias{mvproceedings}{collection}
 \DeclareBibliographyAlias{reference}{book}
 \DeclareBibliographyAlias{mvreference}{reference}
-\DeclareBibliographyAlias{series}{mvcollection}
+\DeclareBibliographyAlias{series}{collection}
+\DeclareBibliographyAlias{mvseries}{mvcollection}
 
 
 % ## Data inheritance rules
@@ -700,7 +701,7 @@
 
 % ## Field formats
 
-\DeclareFieldFormat[online,review,inreference]{citetitle}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat[online,review,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
@@ -756,7 +757,7 @@
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
 \DeclareFieldFormat[series]{shorthand}{#1}
 \DeclareFieldFormat{shorttitlewidth}{}
-\DeclareFieldFormat[online,review,inreference]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[online,review,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
@@ -2060,7 +2061,7 @@
   \renewbibmacro*{cite:postnote}{}%
   \newunit}
 
-\newbibmacro*{inproceedings:note+pages}{%
+\newbibmacro*{short:note+pages}{%
   \printfield{note}%
   \begingroup
   \iffieldundef{series}

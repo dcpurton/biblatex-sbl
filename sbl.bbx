@@ -168,7 +168,6 @@
     {}%
   \usebibmacro{finentry}}
 
-
 \DeclareBibliographyDriver{inbook}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -341,11 +340,12 @@
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{inproceedings}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
   \iffieldundef{booktitle}
-    {\renewbibmacro*{in:}{}%
-     \renewbibmacro*{note+pages}{\usebibmacro{inproceedings:note+pages}}%
-     \usedriver{}{article}}
-    {\usedriver{}{incollection}}}
+    {\usedriver{}{inseries}}
+    {\usedriver{}{incollection}}%
+  \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
@@ -402,6 +402,14 @@
     {\usebibmacro{related:init}%
      \usebibmacro{related}}
     {}%
+  \usebibmacro{finentry}}
+
+\DeclareBibliographyDriver{inseries}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \renewbibmacro*{in:}{}%
+  \renewbibmacro*{note+pages}{\usebibmacro{short:note+pages}}%
+  \usedriver{}{article}%
   \usebibmacro{finentry}}
 
 \DeclareBibliographyDriver{thesis}{%
