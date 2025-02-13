@@ -1,0 +1,33 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\parencite[(21.33-35)]{musoniusrufus:diatr}
+
+\parencite[(38)]{musoniusrufus:frag}
+
+\ptranscite[(21.33-35)]{musoniusrufus:diatr}
+
+\ptranscite[(38)]{musoniusrufus:frag}
+
+\parencite[(38-39)]{musoniusrufus:frag}
+
+\cite{musoniusrufus:frag}
+
+\nocite{musoniusrufusfrag:abbrev}
+\section*{Abbreviations}
+\printbiblist[heading=subbibliography, title=Ancient Sources,
+  type=ancienttext]{abbreviations}
+\printbiblist[heading=subbibliography, title=Secondary Sources,
+  nottype=ancienttext]{abbreviations}
+\printbibliography
+\end{document}
