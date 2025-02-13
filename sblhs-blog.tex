@@ -25,9 +25,22 @@
 
 \colorlet{cmdcolour}{black!65}
 
-\newcommand*{\pno}{\textbackslash pno }
-\newcommand*{\ppno}{\textbackslash ppno }
-\newcommand*{\nopp}{\textbackslash nopp }
+\ExplSyntaxOn
+% Thanks to https://tex.stackexchange.com/a/44444/87678
+\cs_new_protected:Npn \sblhsblog_verb_print:n #1
+  {
+    \tl_set:Nn \l_tmpa_tl {#1}
+    \regex_replace_all:nnN { . } { \c{string} \0 } \l_tmpa_tl
+    \tl_set:Nx \l_tmpb_tl { \l_tmpa_tl }
+    \tl_use:N \l_tmpb_tl
+  }
+\cs_set_eq:NN \verbprint \sblhsblog_verb_print:n
+\ExplSyntaxOff
+
+% hack to include a space after a control sequence that would normally be
+% removed by \verbprint above
+\usepackage{newunicodechar}
+\newunicodechar{ }{\relax}% this is U+00A0
 
 \NewDocumentCommand{\examplenobreak}{}{%
   \par
@@ -49,8 +62,8 @@
     \texttt{%
       \textbackslash #2cite%
       \IfBooleanT{#1}{*}%
-      \IfNoValueF{#4}{[#4]}%
-      \IfNoValueF{#5}{[#5]}%
+      \IfNoValueF{#4}{[\verbprint{#4}]}%
+      \IfNoValueF{#5}{[\verbprint{#5}]}%
       \{#6\}}}\par
   \@afterheading
   \IfNoValueF{#3}{\quad #3.\space}%
@@ -59,17 +72,17 @@
     {\printexamplecite{#2cite}{#4}{#5}{#6}}%
   \IfNoValueF{#3}{.}}
 
-% \examplecite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
-% \examplecite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplevolcite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplevolcite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
 \NewDocumentCommand{\examplevolcite}{sO{a}d()omom}{%
   \par
   \textcolor{cmdcolour}{%
     \texttt{%
       \textbackslash #2volcite%
       \IfBooleanT{#1}{*}%
-      \IfNoValueF{#4}{[#4]}%
+      \IfNoValueF{#4}{[\verbprint{#4}]}%
       \{#5\}%
-      \IfNoValueF{#6}{[#6]}%
+      \IfNoValueF{#6}{[\verbprint{#6}]}%
       \{#7\}}}\par
   \@afterheading
   \IfNoValueF{#3}{\quad #3.\space}%
@@ -1034,7 +1047,7 @@ with permission.
 }
 \end{verbatim}
 
-\examplecite(42)[\pno 1765a]{smyth:1956}
+\examplecite(42)[\pno 1765a]{smyth:1956}
 \begin{verbcite}
   \nocite{smyth:1920, smyth:1916}
 \end{verbcite}
@@ -2327,9 +2340,7 @@ with permission.
     and the statement of Sargon: “she [Sargon’s mother] set me in a basket of
     rushes, with bitumen she sealed my lid” \ptranscite{legendsargon}.}
 \end{fverbcite}
-\begin{fverbcite}{21}
-  \autocite[508, \colno~i, \linesno~30′-38′]{ANET}
-\end{fverbcite}
+\examplecite(21)[508, \colno~i, \linesno~30′-38′]{ANET}
 \begin{fverbcite}{37}
   \footnote{See further Sargon II’s annalistic record of the taking of Samaria
     \parencite[284-285, \linesno~23-26]{ANET}.}
@@ -2778,4 +2789,83 @@ with permission.
 \examplecite(22)[99]{davies:2006}
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/05/18/citing-reference-works-8-handbooks-companions-and-the-like/}
+
+\section{Citing Reference Works 8: English-Language Dictionaries (16 May 2017)}
+
+\begin{verbatim}
+@reference{webster11,
+  title = {Merriam-Webster’s Collegiate Dictionary},
+  edition = {11},
+  options = {skipbib}
+}
+
+@reference{oxford2,
+  title = {Oxford English Dictionary},
+  edition = {2},
+  options = {skipbib}
+}
+
+@reference{OED2,
+  shorthand = {OED},
+  title = {Oxford English Dictionary},
+  edition = {2},
+  options = {skipbib}
+}
+\end{verbatim}
+
+\examplecite[][\sv~\mkbibquote{pericope}]{webster11}
+\examplecite[][\sv~\mkbibquote{pericope}]{oxford2}
+\examplecite[][\sv~\mkbibquote{pericope}]{OED2}
+\exampleabbreviations
+
+\section{Musonius Rufus (11 May 2017)}
+
+\begin{verbatim}
+@inseries{lutz:1947,
+  author = {Lutz, Cora E.},
+  title = {Musonius Rufus: \mkbibquote{The Roman Socrates}},
+  series = {Yale Classical Studies},
+  shortseries = {YCS},
+  date = {1947},
+  number = {10},
+  pages = {3-147}
+}
+
+@ancienttext{musoniusrufus:diatr,
+  author = {{Musonius Rufus}},
+  title = {Diatribai},
+  shorttitle = {Diatr\adddot},
+  translator = {Lutz},
+  xref = {lutz:1947}
+}
+
+@ancienttext{musoniusrufusfrag:abbrev,
+  author = {{Musonius Rufus}},
+  title = {\textup{fragment(s)}},
+  shorttitle = {\textup{frag(s)\adddot}},
+  sorttitle = {frag(s)\adddot}
+}
+
+@ancienttext{musoniusrufus:frag,
+  author = {{Musonius Rufus}},
+  title = {\bibhyperlink{shorttitle:\detokenize{\textup{frag(s)\adddot}}}
+           {\textup{\iffieldnum{titleaddon}{\bibstring{fragment}}
+           {\bibstring{fragments}}}}},
+  sorttitle = {frag(s)\adddot},
+  translator = {Lutz},
+  xref = {lutz:1947},
+  options = {skipbiblist},
+  execute = {\nocite{musoniusrufusfrag:abbrev}}
+}
+\end{verbatim}
+
+\examplecite[paren][(21.33-35)]{musoniusrufus:diatr}
+\examplecite[paren][(38)]{musoniusrufus:frag}
+\examplecite[ptrans][(21.33-35)]{musoniusrufus:diatr}
+\examplecite[ptrans][(38)]{musoniusrufus:frag}
+\nocite{musoniusrufusfrag:abbrev}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/05/11/musonius-rufus/}
 \end{document}
