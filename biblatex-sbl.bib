@@ -3282,3 +3282,57 @@
   date = {1984/},
   langid = {ngerman}
 }
+
+@reference{webster11,
+  title = {Merriam-Webster’s Collegiate Dictionary},
+  edition = {11},
+  options = {skipbib}
+}
+
+@reference{oxford2,
+  title = {Oxford English Dictionary},
+  edition = {2},
+  options = {skipbib}
+}
+
+@reference{OED2,
+  shorthand = {OED},
+  title = {Oxford English Dictionary},
+  edition = {2},
+  options = {skipbib}
+}
+
+@inseries{lutz:1947,
+  author = {Lutz, Cora E.},
+  title = {Musonius Rufus: \mkbibquote{The Roman Socrates}},
+  series = {Yale Classical Studies},
+  shortseries = {YCS},
+  date = {1947},
+  number = {10},
+  pages = {3-147}
+}
+
+@ancienttext{musoniusrufus:diatr,
+  author = {{Musonius Rufus}},
+  title = {Diatribai},
+  shorttitle = {Diatr\adddot},
+  translator = {Lutz},
+  xref = {lutz:1947}
+}
+
+@ancienttext{musoniusrufusfrag:abbrev,
+  author = {{Musonius Rufus}},
+  title = {\textup{fragment(s)}},
+  shorttitle = {\textup{frag(s)\adddot}},
+  sorttitle = {frag(s)\adddot}
+}
+
+@ancienttext{musoniusrufus:frag,
+  author = {{Musonius Rufus}},
+  title = {\bibhyperlink{shorttitle:\detokenize{\textup{frag(s)\adddot}}}{\textup{\iffieldnum{titleaddon}{\bibstring{fragment}}{\bibstring{fragments}}}}},
+  sorttitle = {frag(s)\adddot},
+  translator = {Lutz},
+  xref = {lutz:1947},
+  options = {skipbiblist},
+  execute = {\nocite{musoniusrufusfrag:abbrev}}
+}
