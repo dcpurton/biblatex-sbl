@@ -1159,6 +1159,7 @@
 
 \DeclareBibliographyDriver{abbreviations}{%
   \usebibmacro{sbl:set:bib:format}%
+  \renewcommand*{\finentrypunct}{}%
   \renewbibmacro*{bbx:savehash}{}%
   \usebibmacro{begentry}%
   \iffieldundef{shorthand}
