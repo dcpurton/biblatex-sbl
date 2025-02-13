@@ -1014,7 +1014,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x289.1, glue set 102.43001fil, shifted 55.9, direction TLT
+....\hbox(6.65+2.47)x289.1, glue set 103.43001fil, shifted 55.9, direction TLT
 .....\TU/Brill(0)/m/n/10 D
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 u
@@ -1046,7 +1046,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 9
 .....\TU/Brill(0)/m/n/10 8
 .....\TU/Brill(0)/m/n/10 5
-.....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
