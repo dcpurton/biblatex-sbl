@@ -562,6 +562,8 @@
 \DeclareLanguageMappingSuffix{-sbl}
 
 \NewBibliographyString{article}
+\NewBibliographyString{fragment}
+\NewBibliographyString{fragments}
 \NewBibliographyString{obverse}
 \NewBibliographyString{of}
 \NewBibliographyString{paper}
