@@ -2868,4 +2868,290 @@ with permission.
 \examplesecondarysources
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/05/11/musonius-rufus/}
+
+\section{Historia Augusta (9 May 2017)}
+
+\begin{verbatim}
+@mvbook{scriptoreshistoriaeaugustae,
+  translator = {Magie, David},
+  title = {The Scriptores historiae Augustae},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge and London},
+  publisher = {Harvard University Press and Heinemann},
+  date = {1921/1932},
+  options = {usetranslator}
+}
+
+@ancienttext{histaug,
+  title = {Historia Augusta},
+  shorttitle = {Hist.\@ Aug\adddot},
+  xref = {scriptoreshistoriaeaugustae}
+}
+
+@ancienttext{histaug:sev,
+  maintitle = {Historia Augusta},
+  shortmaintitle = {Hist.\@ Aug\adddot},
+  title = {Severus},
+  shorttitle = {Sev\adddot},
+  xref = {scriptoreshistoriaeaugustae},
+  execute = {\nocite{histaug}}
+}
+
+@ancienttext{histaug:opilmacr,
+  maintitle = {Historia Augusta},
+  shortmaintitle = {Hist.\@ Aug\adddot},
+  title = {Opilius Macrinus},
+  shorttitle = {Opil.\@ Macr\adddot},
+  xref = {scriptoreshistoriaeaugustae},
+  execute = {\nocite{histaug}}
+}
+\end{verbatim}
+
+\examplecite[full]{histaug:sev}
+\examplecite[][(1.4)]{histaug:sev}
+\examplecite[][(6.5)]{histaug:opilmacr}
+\nocite{histaug}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/05/09/historia-augusta/}
+
+\section{PG Citations: Update (4 May 2017)}
+
+\begin{verbatim}
+@series{PG,
+  shorthand = {PG},
+  title = {Patrologia Graeca},
+  editor = {Migne, J.-P.},
+  volumes = {161},
+  location = {Paris},
+  date = {1857/1886}
+}
+
+@ancienttext{gregory:orationestheologicae,
+  author = {{Gregory of Nazianzus}},
+  title = {Orationes theologicae},
+  related = {PG},
+  volume = {36},
+  options = {parens}
+}
+\end{verbatim}
+
+\examplecite(6)[(4.19)128c]{gregory:orationestheologicae}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/05/04/pg-citations-update/}
+
+\section{PG Citations (2 May 2017)}
+
+\begin{verbatim}
+@series{PG,
+  shorthand = {PG},
+  title = {Patrologia Graeca},
+  editor = {Migne, J.-P.},
+  volumes = {161},
+  location = {Paris},
+  date = {1857/1886}
+}
+
+@ancienttext{methodius:symp,
+  author = {{Methodius of Olympus}},
+  title = {Symposium \mkbibparens{Convivium decem virginum}},
+  shorttitle = {Symp\adddot},
+  related = {PG},
+  volume = {18},
+  options = {parens}
+}
+\end{verbatim}
+
+\examplecite[][(2.4)52c]{methodius:symp}
+\exampleancientsources
+\examplesecondarysources
+\examplereferences{https://sblhs2.com/2017/05/02/pg-citations/}
+
+\section{Citing Reference Works 7: Greek Language Tools (20 April 2017)}
+
+\begin{verbatim}
+@book{BDF,
+  shorthand = {BDF},
+  author = {Blass, Friedrich and Debrunner, Albert and Funk, Robert W.},
+  title = {A Greek Grammar of the New Testament and Other Early Christian Literature},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1961},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{burton:1903,
+  author = {Burton, Ernest DeWitt},
+  title = {Syntax of the Moods and Tenses in New Testament Greek},
+  edition = {5},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1903},
+  pagination = {section}
+}
+
+@book{burton,
+  shorthand = {Burton},
+  crossref = {burton:1903},
+  options = {shorthandformat=roman}
+}
+
+@book{dana+mantey:1927,
+  author = {Dana, H. E. and Mantey, Julius R.},
+  title = {A Manual Grammar of the Greek New Testament},
+  location = {New York},
+  publisher = {Macmillan},
+  date = {1927},
+  pagination = {section}
+}
+
+@book{funk:2013,
+  author = {Funk, Robert W.},
+  title = {A Beginning-Intermediate Grammar of Hellenistic Greek},
+  edition = {3},
+  location = {Salem, OR},
+  publisher = {Polebridge},
+  date = {2013},
+  pagination = {section}
+}
+
+@book{funk,
+  shorthand = {Funk},
+  crossref = {funk:2013},
+  options = {shorthandformat=roman}
+}
+
+@book{goodwin:1930,
+  author = {Goodwin, William W.},
+  title = {Greek Grammar},
+  editora = {Gulick, Charles Burton},
+  editorastring = {revby},
+  location = {Boston},
+  publisher = {Ginn},
+  date = {1930},
+  pagination = {section}
+}
+
+@mvbook{moulton:1908-1976,
+  author = {Moulton, James Hope},
+  withauthor = {Howard, W. F. and Turner, Nigel},
+  title = {A Grammar of New Testament Greek},
+  volumes = {4},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
+  date = {1908/1976}
+}
+
+@book{moulton:vol1,
+  author = {Moulton, James Hope},
+  title = {Prolegomena},
+  titleaddon = {\mkbibordinal{3}~\bibsstring{edition}},
+  volume = {1},
+  date = {1908/1976},
+  crossref = {moulton:1908-1976}
+}
+
+@book{moulton:vol2,
+  author = {Moulton, James Hope and Howard, W. F.},
+  title = {Accidence and Word Formation: With an Appendix on Semitisms in the New
+           Testament},
+  volume = {2},
+  date = {1908/1976},
+  crossref = {moulton:1908-1976}
+}
+
+@book{moulton:vol4,
+  author = {Turner, Nigel},
+  title = {Style},
+  volume = {4},
+  date = {1908/1976},
+  crossref = {moulton:1908-1976}
+}
+
+@book{smyth:1956,
+  shorthand = {Smyth},
+  author = {Smyth, Herbert Weir},
+  title = {Greek Grammar},
+  editor = {Messing, Gordon M.},
+  editortype = {reviser},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1956},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{robertson,
+  shorthand = {Robertson},
+  xdata = {robertson:1923},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{robertson:1923,
+  author = {Robertson, A. T.},
+  title = {A Grammar of the Greek New Testament in the Light of Historical Research},
+  edition = {4},
+  location = {London},
+  publisher = {Hodder \& Stoughton},
+  date = {1923},
+  options = {shorthandformat=roman}
+}
+
+@book{zerwick:2011,
+  author = {Zerwick, Maximilian},
+  title = {Biblical Greek Illustrated by Examples},
+  origlanguage = {from the 4th Latin ed\adddot},
+  translator = {Smith, Joseph},
+  series = {Scripta Pontificii Instituti Biblici},
+  number = {114},
+  location = {Rome},
+  publisher = {Editrice Pontificio Istituto biblico},
+  date = {1963},
+  related = {zerwick:repr},
+  relatedtype = {reprint},
+  pagination = {section}
+}
+
+@book{zerwick:repr,
+  series = {Subsidia Biblica},
+  shortseries = {SubBi},
+  number = {41},
+  location = {Rome},
+  publisher = {Gregorian \& Biblical Press},
+  date = {2011}
+}
+
+@book{zerwick,
+  shorthand = {Zerwick},
+  xdata = {zerwick:2011},
+  options = {shorthandformat=roman}
+}
+\end{verbatim}
+
+\examplecite(76)[151]{BDF}
+\examplecite(67)[148-152]{BDF}
+\examplecite(58)[\pno 151.1, 4]{BDF}
+\examplecite(71)[150]{BDF}
+\examplecite(14)[151.2]{BDF}
+\examplecite(17)[89-94]{burton:1903}
+\examplecite(36)[193.1]{burton}
+\examplecite(63)[155]{dana+mantey:1927}
+\examplecite(16)[431]{funk:2013}
+\examplecite(22)[310-311]{funk}
+\examplecite(83)[718]{goodwin:1930}
+\examplecite(22)[108-110]{moulton:vol1}
+\examplecite[afull](5)[178]{moulton:vol2}
+\examplecite[afull](56)[71]{moulton:vol4}
+\examplecite(33)[523]{robertson:1923}
+\examplecite(21)[\pno 11.10e \mkbibparens{523}]{robertson}
+\examplecite(42)[\pno 1765a]{smyth:1956}
+\examplecite(19)[360-362]{zerwick:2011}
+\examplecite(19)[360-362]{zerwick}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/04/20/citing-reference-works-7-greek-language-tools/}
 \end{document}
