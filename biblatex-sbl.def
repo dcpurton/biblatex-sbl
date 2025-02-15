@@ -1649,6 +1649,9 @@
        {}}}
 
 \newbibmacro*{volume+part+of:}{%
+  \iffieldundef{volume}
+    {}
+    {\clearfield{volumes}}%
   \ifbibliography
     {\printfield{volume}%
      \clearfield{volume}%
