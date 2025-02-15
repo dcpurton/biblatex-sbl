@@ -17,21 +17,48 @@
 
 \cite[\pno 151.1, 4]{BDF}
 
-\cite[108-110]{moulton:1908}
+\cite[89-94]{burton:1903}
 
-\cite[108-110]{moulton:1908}
+\cite[193.1]{burton}
 
-\cite[178]{moulton+howard:1970}
+\cite[155]{dana+mantey:1927}
 
-\cite[178]{moulton+howard:1970}
+\cite[431]{funk:2013}
 
-\cite[71]{turner:1976}
+\cite[310-311]{funk}
 
-\cite[71]{turner:1976}
+\cite[718]{goodwin:1930}
+
+\cite[108-110]{moulton:vol1}
+
+\cite[108-110]{moulton:vol1}
+
+\cite[178]{moulton:vol2}
+
+\cite[178]{moulton:vol2}
+
+\cite[71]{moulton:vol4}
+
+\cite[71]{moulton:vol4}
+
+\fullcite[108-110]{moulton:vol1}
+
+\fullcite[178]{moulton:vol2}
+
+\fullcite[71]{moulton:vol4}
+
+\cite[523]{robertson:1923}
+
+\AtNextCite{\setfield[overwrite]{pagination}{section}}
+\cite[\pno 11.10e \mkbibparens{523}]{robertson}
+
+\cite[\pno 1765a]{smyth:1956}
 
 \cite[360-362]{zerwick:2011}
 
 \cite[360-362]{zerwick:2011}
+
+\cite[360-362]{zerwick}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
