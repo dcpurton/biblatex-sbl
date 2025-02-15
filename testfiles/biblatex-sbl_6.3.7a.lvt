@@ -25,6 +25,8 @@
 
 \cite[\pno 30.5.2b, example 3]{IBHS}
 
+\cite[56-58]{Jouon}
+
 \cite[\pno 132 \mkbibparens{111}]{yeivin:1980}
 \printbibliography
 \printbiblist{abbreviations}
