@@ -312,39 +312,45 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand{\fullcite}
-  {\usebibmacro{prenote}}
-  {\let\ifciteseen\@secondoftwo
-   \restorefield{labeltitle}{\abx@field@title}%
-   \clearfield{shorttitle}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+% define \fullcite commands which always produce a full citation
 
-\DeclareCiteCommand{\footfullcite}[\mkbibfootnote]
-  {\usebibmacro{prenote}}
-  {\let\ifciteseen\@secondoftwo
-   \restorefield{labeltitle}{\abx@field@title}%
-   \clearfield{shorttitle}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+\newtoggle{sbl@blx@usefullcite}
+\newrobustcmd*{\fullcitecmd}{\AtNextCite{\toggletrue{sbl@blx@usefullcite}}}
 
-\DeclareCiteCommand{\parenfullcite}[\mkbibparens]
-  {\usebibmacro{prenote}}
-  {\let\ifciteseen\@secondoftwo
-   \restorefield{labeltitle}{\abx@field@title}%
-   \clearfield{shorttitle}%
-   \usebibmacro{cite}}
-  {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+\renewrobustcmd*{\fullcite}{\fullcitecmd\cite}
+\newrobustcmd*{\pfullcite}{\fullcitecmd\parencite}
+\newrobustcmd*{\ffullcite}{\fullcitecmd\footcite}
+\newrobustcmd*{\ftfullcite}{\fullcitecmd\footcitetext}
+\newrobustcmd*{\sfullcite}{\fullcitecmd\smartcite}
+\newrobustcmd*{\afullcite}{\fullcitecmd\autocite}
+
+\newrobustcmd*{\fullcites}{\fullcitecmd\cites}
+\newrobustcmd*{\pfullcites}{\fullcitecmd\parencites}
+\newrobustcmd*{\ffullcites}{\fullcitecmd\footcites}
+\newrobustcmd*{\ftfullcites}{\fullcitecmd\footcitetext}
+\newrobustcmd*{\sfullcites}{\fullcitecmd\smartcites}
+\newrobustcmd*{\afullcites}{\fullcitecmd\autocites}
+
+\newrobustcmd*{\volfullcite}{\volcitecmd\fullcite}
+\newrobustcmd*{\pvolfullcite}{\volcitecmd\pfullcite}
+\newrobustcmd*{\fvolfullcite}{\volcitecmd\ffullcite}
+\newrobustcmd*{\ftvolfullcite}{\volcitecmd\ftfullcite}
+\newrobustcmd*{\svolfullcite}{\volcitecmd\sfullcite}
+\newrobustcmd*{\avolfullcite}{\volcitecmd\afullcite}
+
+\newrobustcmd*{\volfullcites}{\multivolcitecmd\fullcites}
+\newrobustcmd*{\pvolfullcites}{\multivolcitecmd\pfullcites}
+\newrobustcmd*{\fvolfullcites}{\multivolcitecmd\ffullcites}
+\newrobustcmd*{\ftvolfullcites}{\multivolcitecmd\ftfullcites}
+\newrobustcmd*{\svolfullcites}{\multivolcitecmd\sfullcites}
+\newrobustcmd*{\avolfullcites}{\multivolcitecmd\afullcites}
 
 % Define transcite commands to cite @ancienttext entry types with a translator
 
 \newtoggle{sbl@blx@transcite}
-
 \newrobustcmd*{\transcitecmd}{\AtNextCite{\toggletrue{sbl@blx@transcite}}}
 
+% transcite variants
 \newrobustcmd*{\transcite}{\transcitecmd\cite}
 \newrobustcmd*{\ptranscite}{\transcitecmd\parencite}
 \newrobustcmd*{\ftranscite}{\transcitecmd\footcite}
@@ -373,14 +379,43 @@
 \newrobustcmd*{\svoltranscites}{\multivolcitecmd\stranscites}
 \newrobustcmd*{\avoltranscites}{\multivolcitecmd\atranscites}
 
-\newrobustcmd*{\transfullcite}{\transcitecmd\fullcite}
-\newrobustcmd*{\ftransfullcite}{\transcitecmd\footfullcite}
-\newrobustcmd*{\ptransfullcite}{\transcitecmd\parenfullcite}
-
 \newrobustcmd*{\transcitecollection}{\transcitecmd\citecollection}
 \newrobustcmd*{\ptranscitecollection}{\transcitecmd\parencitecollection}
 
+% transcite and fullcite variants
+\newrobustcmd*{\transfullcite}{\transcitecmd\fullcite}
+\newrobustcmd*{\ptransfullcite}{\transcitecmd\pfullcite}
+\newrobustcmd*{\ftransfullcite}{\transcitecmd\ffullcite}
+\newrobustcmd*{\fttransfullcite}{\transcitecmd\ftfullcite}
+\newrobustcmd*{\stransfullcite}{\transcitecmd\sfullcite}
+\newrobustcmd*{\atransfullcite}{\transcitecmd\afullcite}
+
+\newrobustcmd*{\transfullcites}{\transcitecmd\fullcites}
+\newrobustcmd*{\ptransfullcites}{\transcitecmd\pfullcites}
+\newrobustcmd*{\ftransfullcites}{\transcitecmd\ffullcites}
+\newrobustcmd*{\fttransfullcites}{\transcitecmd\ftfullcites}
+\newrobustcmd*{\stransfullcites}{\transcitecmd\sfullcites}
+\newrobustcmd*{\atransfullcites}{\transcitecmd\afullcites}
+
+\newrobustcmd*{\voltransfullcite}{\volcitecmd\transfullcite}
+\newrobustcmd*{\pvoltransfullcite}{\volcitecmd\ptransfullcite}
+\newrobustcmd*{\fvoltransfullcite}{\volcitecmd\ftransfullcite}
+\newrobustcmd*{\ftvoltransfullcite}{\volcitecmd\fttransfullcite}
+\newrobustcmd*{\svoltransfullcite}{\volcitecmd\stransfullcite}
+\newrobustcmd*{\avoltransfullcite}{\volcitecmd\atransfullcite}
+
+\newrobustcmd*{\voltransfullcites}{\multivolcitecmd\transfullcites}
+\newrobustcmd*{\pvoltransfullcites}{\multivolcitecmd\ptransfullcites}
+\newrobustcmd*{\fvoltransfullcites}{\multivolcitecmd\ftransfullcites}
+\newrobustcmd*{\ftvoltransfullcites}{\multivolcitecmd\fttransfullcites}
+\newrobustcmd*{\svoltransfullcites}{\multivolcitecmd\stransfullcites}
+\newrobustcmd*{\avoltransfullcites}{\multivolcitecmd\atransfullcites}
+
+
+% main citation macros
+
 \renewbibmacro*{cite}{%
+  \usebibmacro{cite:usefull}%
   \ifboolexpr{
     test {\ifentrytype{ancienttext}}
     and
@@ -436,6 +471,15 @@
          {\ifentrytype{ancienttext}
             {\usebibmacro{cite:short:ancienttext}}
             {\usebibmacro{cite:full}}}}}}
+
+\newbibmacro*{cite:usefull}{%
+  \iftoggle{sbl@blx@usefullcite}
+    {\let\ifciteseen\@secondoftwo
+     \let\ifcrossrefseen\@secondoftwo
+     \DeclareFieldAlias{bibhypertarget}{default}%
+     \restorefield{labeltitle}{\abx@field@title}%
+     \clearfield{shorttitle}}
+    {}}
 
 \newbibmacro*{cite:star}{%
   \let\ifciteibid\@secondoftwo%
