@@ -476,6 +476,8 @@
   \iftoggle{sbl@blx@usefullcite}
     {\let\ifciteseen\@secondoftwo
      \let\ifcrossrefseen\@secondoftwo
+     \boolfalse{citetracker}%
+     \boolfalse{pagetracker}%
      \DeclareFieldAlias{bibhypertarget}{default}%
      \restorefield{labeltitle}{\abx@field@title}%
      \clearfield{shorttitle}}
