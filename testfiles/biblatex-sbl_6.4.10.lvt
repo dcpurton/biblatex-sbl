@@ -15,9 +15,13 @@
 
 \volcite{2}[121]{dahood:1965-1970}
 
-\cite[44]{dahood:1965}
+\fullcite[44]{dahood:1965}
 
 \cite[78]{dahood:1965}
+
+\cite[78]{dahood:1965}
+
+\fullcite[347]{dahood:1968}
 
 \cite[347]{dahood:1968}
 
