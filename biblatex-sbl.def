@@ -562,6 +562,7 @@
 \DeclareLanguageMappingSuffix{-sbl}
 
 \NewBibliographyString{article}
+\NewBibliographyString{bytranslatorrev}
 \NewBibliographyString{fragment}
 \NewBibliographyString{fragments}
 \NewBibliographyString{obverse}
