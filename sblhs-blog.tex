@@ -7,6 +7,7 @@
 \usepackage{enverb}
 \usepackage{tocloft}
 \setlength{\cftbeforesecskip}{2pt plus 0.5pt}
+\setcounter{tocdepth}{1}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
 \setcounter{secnumdepth}{0}
 \usepackage[american]{babel}
@@ -24,6 +25,8 @@
 \makeatletter
 
 \colorlet{cmdcolour}{black!65}
+
+\newcommand*{\pkg}[1]{\textsf{#1}}
 
 \ExplSyntaxOn
 % Thanks to https://tex.stackexchange.com/a/44444/87678
@@ -3153,5 +3156,170 @@ with permission.
 \examplecite(19)[360-362]{zerwick}
 \exampleabbreviations
 \examplebibliography
+
+\subsection{Notes}
+
+\begin{itemize}
+  \item SBLHS~§6.2.21 states “It is unnecessary when citing a single volume to
+    give information about the total number of volumes in the series.”
+    Accordingly, although this blog post includes the total volumes for the
+    three individual \citeshortauthor{moulton:1908-1976} volumes,
+    \pkg{biblatex-sbl} omits them.
+  \item The format of the translator in \citeshortauthor{zerwick:2011} differs
+    from a similar example in SBLHS~§6.2.20. I've opted to use the latter as I
+    think it's more consistent with how SBL generally prefers formatting in
+    the bibliography.
+\end{itemize}
+
 \examplereferences{https://sblhs2.com/2017/04/20/citing-reference-works-7-greek-language-tools/}
+
+\section{Citing Reference Works 6: Hebrew Language Tools (18 April 2017)}
+
+\begin{verbatim}
+@book{BHRG,
+  shorthand = {BHRG},
+  author = {Merwe, Christo H. J. and van der Naudé, Jackie A. and Kroeze, Jan H},
+  title = {A Biblical Hebrew Reference Grammar},
+  series = {Biblical Languages: Hebrew},
+  number = {3},
+  location = {Sheffield},
+  publisher = {Sheffield Academic},
+  date = {1999},
+  pagination = {section},
+  options = {shorthandformat=roman},
+}
+
+@book{BL,
+  shorthand = {BL},
+  author = {Bauer, Hans and Leander, Pontus},
+  title = {Historische Grammatik der hebräischen Sprache des Alten Testamentes},
+  origlocation = {Halle},
+  origpublisher = {Niemeyer},
+  origdate = {1922},
+  location = {Hildesheim},
+  publisher = {Olms},
+  date = {1991},
+  pagination = {section},
+  options = {shorthandformat=roman},
+  langid = {german}
+}
+
+@book{davidson:1901,
+  author = {Davidson, A. B.},
+  title = {Hebrew Syntax},
+  edition = {3},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
+  date = {1901},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@mvbook{GKB,
+  shorthand = {GKB},
+  author = {Gesenius, Wilhelm},
+  title = {Hebräische Grammatik},
+  editor = {Kautzsch, Emil and Bergsträsser, Gotthelf},
+  parts = {2},
+  volumes = {3},
+  location = {Leipzig},
+  publisher = {Vogel},
+  date = {1918/1929},
+  pagination = {section},
+  options = {shorthandformat=roman},
+  langid = {german}
+}
+
+@book{GKC,
+  shorthand = {GKC},
+  author = {Gesenius, Wilhelm},
+  title = {Gesenius' Hebrew Grammar},
+  editor = {Kautzsch, Emil},
+  translator = {Cowley, Arthur E.},
+  edition = {2},
+  location = {Oxford},
+  publisher = {Clarendon},
+  date = {1910},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{IBHS,
+  shorthand = {IBHS},
+  author = {Waltke, Bruce K., and O'Connor, Michael},
+  title = {An Introduction to Biblical Hebrew Syntax},
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
+  date = {1990},
+  pagination = {section}
+}
+
+@mvbook{Jouon,
+  shorthand = {Joüon},
+  author = {Joüon, Paul},
+  title = {A Grammar of Biblical Hebrew},
+  editor = {Muraoka, T.},
+  editortype = {translatorrev},
+  volumes = {2},
+  location = {Rome},
+  publisher = {Pontifical Biblical Institute},
+  date = {1991},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{lambdin:1971,
+  author = {Lambdin, Thomas O.},
+  title = {Introduction to Biblical Hebrew},
+  location = {New York},
+  publisher = {Scribner’s Sons},
+  date = {1971},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{williams:1976,
+  author = {Williams, Ronald J},
+  title = {Hebrew Syntax: An Outline},
+  edition = {2},
+  location = {Toronto},
+  publisher = {University of Toronto Press},
+  date = {1976},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@book{yeivin:1980,
+  author = {Yeivin, Israel},
+  title = {Introduction to the Tiberian Masorah},
+  editor = {Revell, E. J.},
+  translator = {Revell, E. J.},
+  series = {Masoretic Studies},
+  shortseries = {MasS},
+  number = {5},
+  location = {Missoula, MT},
+  publisher = {Scholars Press},
+  date = {1980},
+  pagination = {section}
+}
+\end{verbatim}
+
+\examplecite(76)[\pno 112a]{GKC}
+\examplecite(67)[112-114]{GKC}
+\examplecite(58)[\pno 112a, d]{GKC}
+\examplecite(51)[30.1]{BHRG}
+\examplecite(3)[\pno 25.3.2.i.a]{BHRG}
+\examplecite(71)[\pno 48d′]{BL}
+\examplecite(36)[\pno 39c]{davidson:1901}
+\examplecite(33)[\pno 12a--f]{GKB}
+\examplecite(76)[\pno 112a, d]{GKC}
+\examplecite(13)[23.2]{IBHS}
+\examplecite(25)[\pno 30.5.2b, example 3]{IBHS}
+\examplecite(76)[56-58]{Jouon}
+\examplecite(5)[\pno 107c]{lambdin:1971}
+\examplecite(6)[446]{williams:1976}
+\examplecite(31)[132 \mkbibparens{111}]{yeivin:1980}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/04/18/citing-reference-works-6-hebrew-language-tools/}
 \end{document}
