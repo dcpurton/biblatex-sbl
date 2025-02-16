@@ -19,7 +19,7 @@
 \babelfont[armenian]{rm}[Scale=0.85, Renderer=Harfbuzz]{Noto Serif Armenian}
 \usepackage{csquotes}
 \usepackage[colorlinks]{hyperref}
-\usepackage[style=sbl, refsection=section, locallabelwidth, autocite=plain]{biblatex}
+\usepackage[style=sbl, refsection=section, locallabelwidth]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
 \makeatletter
@@ -45,6 +45,20 @@
 \usepackage{newunicodechar}
 \newunicodechar{ }{\relax}% this is U+00A0
 
+% Redefine \smartcite so autocite prints inline with a period.
+\DeclareCiteCommand{\smartcite}[\bibfootnotewrapper]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\smartcite}[\bibfootnotewrapper]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \NewDocumentCommand{\examplenobreak}{}{%
   \par
   \@afterheading
@@ -69,11 +83,10 @@
       \IfNoValueF{#5}{[\verbprint{#5}]}%
       \{#6\}}}\par
   \@afterheading
-  \IfNoValueF{#3}{\quad #3.\space}%
+  \IfNoValueF{#3}{\quad #3.\space\strut}%
   \IfBooleanTF{#1}
     {\printexamplecite*{#2cite}{#4}{#5}{#6}}
-    {\printexamplecite{#2cite}{#4}{#5}{#6}}%
-  \IfNoValueF{#3}{.}}
+    {\printexamplecite{#2cite}{#4}{#5}{#6}}}
 
 % \examplevolcite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
 % \examplevolcite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
@@ -88,11 +101,10 @@
       \IfNoValueF{#6}{[\verbprint{#6}]}%
       \{#7\}}}\par
   \@afterheading
-  \IfNoValueF{#3}{\quad #3.\space}%
+  \IfNoValueF{#3}{\quad #3.\space\strut}%
   \IfBooleanTF{#1}
     {\printexamplevolcite*{#2volcite}{#4}{#5}{#6}{#7}}
-    {\printexamplevolcite{#2volcite}{#4}{#5}{#6}{#7}}%
-  \IfNoValueF{#3}{.}}
+    {\printexamplevolcite{#2volcite}{#4}{#5}{#6}{#7}}}
 
 \NewDocumentCommand{\printexamplecite}{smmmm}{%
   \IfNoValueTF{#4}
@@ -150,7 +162,7 @@
   \@afterheading
   \normalcolor
   \renewcommand\footnote[1]{##1}%
-  \quad #1.\space\enverbExecute
+  \quad #1.\space\strut\enverbExecute
 }
 
 \NewDocumentEnvironment{verbtext}{}{%
@@ -1483,7 +1495,8 @@ with permission.
 @mvbook{augustine:cityofgod,
   author = {Augustine},
   title = {City of God},
-  translator = {McCracken, George E. and Green, William M. and Wiesen, David S. and Levine, Philip and Sanford, Eva M.},
+  translator = {McCracken, George E. and Green, William M. and Wiesen, David S. and
+                Levine, Philip and Sanford, Eva M.},
   volumes = {7},
   series = {Loeb Classical Library},
   shortseries = {LCL},
@@ -1713,7 +1726,8 @@ with permission.
 \begin{verbatim}
 @inproceedings{husek:2010,
   author = {Hušek, Vít},
-  title = {Human Freedom according to the Earliest Latin Commentaries on Paul’s Letters},
+  title = {Human Freedom according to the Earliest Latin Commentaries on Paul’s
+           Letters},
   series = {Studia Patristica},
   shortseries = {StPatr},
   number = {44},
@@ -1903,8 +1917,8 @@ with permission.
 }
 \end{verbatim}
 
-\examplecite{elabbadi:alexandria:history}
-\examplecite{rupke:corpus:caesarianum}
+\examplecite(1){elabbadi:alexandria:history}
+\examplecite(2){rupke:corpus:caesarianum}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/08/03/corpus-caesarianum-in-bnp/}
@@ -3246,7 +3260,7 @@ with permission.
 
 @book{IBHS,
   shorthand = {IBHS},
-  author = {Waltke, Bruce K., and O'Connor, Michael},
+  author = {Waltke, Bruce K. and O'Connor, Michael},
   title = {An Introduction to Biblical Hebrew Syntax},
   location = {Winona Lake, IN},
   publisher = {Eisenbrauns},
@@ -3322,4 +3336,562 @@ with permission.
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/04/18/citing-reference-works-6-hebrew-language-tools/}
+
+\section{Citing Reference Works 5: Topical Dictionaries and Encyclopedias (13 April 2017)}
+
+\begin{verbatim}
+@mvreference{ABD,
+  shorthand = {ABD},
+  editor = {Freedman, David Noel},
+  title = {Anchor Bible Dictionary},
+  volumes = {6},
+  location = {New York},
+  publisher = {Doubleday},
+  date = {1992}
+}
+
+@inreference{hanson+etal:apocalypses,
+  author = {Hanson, Paul D. and Grayson, Kirk and Collins, john J. and Yarbro Collins,
+            Adela},
+  title = {Apocalypses and Apocalypticism},
+  xref = {ABD},
+  volume = {1},
+  pages = {279-292}
+}
+
+@inreference{yarbrocollins:earlychristian,
+  author = {Yarbro Collins, Adela},
+  title = {Apocalypses and Apocalypticism: Early Christian},
+  xref = {ABD},
+  volume = {1},
+  pages = {288-292}
+}
+
+@mvreference{ANRW,
+  shorthand = {ANRW},
+  editor = {Temporini, Hildegard and Haase, Wolfgang},
+  title = {Aufstieg und Niedergang der römischen Welt},
+  subtitle = {Geschichte und Kultur Roms im Spiegel der neueren Forschung},
+  titleaddon = {Part 2, \mkbibemph{Principat}},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1972/},
+  langid = {german}
+}
+
+@inreference{anderson:pepaideumenos,
+  author = {Anderson, Graham},
+  title = {The \mkbibemph{pepaideumenos} in Action},
+  subtitle = {Sophists and Their Outlook in the Early Empire},
+  shorttitle = {\mkbibemph{Pepaideumenos}},
+  xref = {ANRW},
+  volume = {33},
+  part = {1},
+  pages = {80-208}
+}
+
+@mvreference{DBI,
+  shorthand = {DBI},
+  editor = {Hayes, John},
+  title = {Dictionary of Biblical Interpretation},
+  volumes = {2},
+  location = {Nashville},
+  publisher = {Abingdon},
+  date = {1999}
+}
+
+@inreference{tiroshsamuelson:kabbalah,
+  author = {Tirosh-Samuelson, Hava},
+  title = {Kabbalah},
+  xref = {DBI},
+  volume = {2},
+  pages = {1-7}
+}
+
+@reference{DDD,
+  shorthand = {DDD},
+  editor = {van der Toorn, Karel and Becking, Bob and van der Horst, Pieter},
+  title = {Dictionary of Deities and Demons in the Bible},
+  edition = {2},
+  location = {Leiden and Grand Rapids},
+  publisher = {Brill and Eerdmans},
+  date = {1999}
+}
+
+@inreference{assmann:amun,
+  author = {Assmann, Jan},
+  title = {Amun},
+  xref = {DDD},
+  pages = {28-32}
+}
+
+@reference{DJG,
+  shorthand = {DJG},
+  editor = {Green, Joel B. and McKnight, Scot},
+  title = {Dictionary of Jesus and the Gospels},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {1992}
+}
+
+@inreference{wise:languagespalestine,
+  author = {Wise, Michael O},
+  title = {Languages of Palestine},
+  xref ={DJG},
+  pages = {434-443}
+}
+
+@reference{DLNT,
+  shorthand = {DLNT},
+  editor = {Martin, Ralph P. and Davids, Peter H.},
+  title = {Dictionary of the Later New Testament and Its Developments},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {1997}
+}
+
+@reference{DNTB,
+  shorthand = {DNTB},
+  editor = {Evans, Craig A. and Porter, Stanley E. Porter},
+  title = {Dictionary of New Testament Background},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {2000}
+}
+
+@reference{DOTHB,
+  shorthand = {DOTHB},
+  editor = {Arnold, Bill T. and Williamson, H. G. M.},
+  title = {Dictionary of the Old Testament: Historical Books},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {2005}
+}
+
+@reference{DPL,
+  shorthand = {DPL},
+  editor = {Hawthorne, Gerald F. and Martin, Ralph P.},
+  title = {Dictionary of Paul and His Letters},
+  location = {Downers Grove, IL},
+  publisher = {InterVarsity Press},
+  date = {1993}
+}
+
+@mvreference{EBR,
+  shorthand = {EBR},
+  editor = {Klauck, Hans-Josef and others},
+  title = {Encyclopedia of the Bible and Its Reception},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {2009/}
+}
+
+@inreference{crawford:genesisiii,
+  author = {Crawford, Sidnie White},
+  title = {Genesis: III. Judaism A. Second Temple and Hellenistic Judaism},
+  xref = {EBR},
+  volume = {9},
+  pages = {1156-1160}
+}
+
+@reference{EDB,
+  shorthand = {EDB},
+  editor = {Freedman, David Noel},
+  title = {Eerdmans Dictionary of the Bible},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {2000}
+}
+
+@inreference{dever:abel,
+  author = {Dever, William G.},
+  title = {Abel-Beth-Maacah},
+  xref = {EDB},
+  pages = {3-4}
+}
+
+@mvreference{EncJud,
+  shorthand = {EncJud},
+  editor = {Skolnik, Fred and Berenbaum, Michael},
+  title = {Encyclopedia Judaica},
+  edition = {2},
+  volumes = {22},
+  location = {Detroit},
+  publisher = {Macmillan Reference USA},
+  date = {2007}
+}
+
+@inreference{stone:isaactest,
+  author = {Stone, Michael E.},
+  title = {Isaac, Testament Of},
+  xref = {EncJud},
+  volume = {10},
+  pages = {36}
+}
+
+@reference{HBD,
+  shorthand = {HDB},
+  editor = {Powell, Mark Allan and others},
+  title = {HarperCollins Bible Dictionary},
+  edition = {3},
+  location = {San Francisco},
+  publisher = {HarperOne},
+  date = {2011}
+}
+
+@inreference{mattingly:philistines,
+  author = {Mattingly, Gerald L.},
+  title = {Philistines},
+  xref = {HBD},
+  pages = {797-800}
+}
+
+@inreference{schaub:holywar,
+  author = {Schaub, Marilyn M.},
+  title = {Holy War},
+  xref = {HBD},
+  pages = {387}
+}
+
+@reference{HWBI,
+  shorthand = {HWBI},
+  editor = {Taylor, Marion Ann},
+  title = {Handbook of Women Biblical Interpreters},
+  location = {Grand Rapids},
+  publisher = {Baker Academic},
+  date = {2012}
+}
+
+@inreference{popelevison:truth,
+  author = {Pope-Levison, Priscilla},
+  title = {Truth, Sojouner},
+  xref ={HWBI},
+  pages = {509-511}
+}
+
+@mvreference{IDB,
+  shorthand = {IDB},
+  editor = {Buttrick, George A.},
+  title = {The Interpreter’s Dictionary of the Bible},
+  volumes = {4},
+  location = {New York},
+  publisher = {Abingdon},
+  date = {1962}
+}
+
+@inreference{dentan:apple,
+  author = {Dentan, Robert C.},
+  title = {Apple of the Eye},
+  xref = {IDB},
+  volume = {1},
+  pages = {176}
+}
+
+@reference{IDBSup,
+  shorthand = {IDBSup},
+  author = {Crim, Keith},
+  title = {Interpreter’s Dictionary of the Bible: Supplementary Volume},
+  location = {Nashville},
+  publisher = {Abingdon},
+  date = {1976}
+}
+
+@inreference{sperling:mount,
+  author = {Sperling, David},
+  title = {Mount, Mountain},
+  xref = {IDBSup},
+  pages = {608-609}
+}
+
+@mvreference{ISBE,
+  shorthand = {ISBE},
+  editor = {Bromiley, Geoffrey W.},
+  title = {International Standard Bible Encyclopedia},
+  edition = {Rev\adddotspace ed\adddot},
+  volumes = {4},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1979/1988}
+}
+
+@inreference{burke:home,
+  author = {Burke, David G.},
+  title = {Home},
+  xref = {ISBE},
+  volume = {2},
+  pages = {746-749}
+}
+
+@mvreference{JE,
+  shorthand = {JE},
+  editor = {Singer, Isidore},
+  title = {The Jewish Encyclopedia},
+  volumes = {12},
+  location = {New York},
+  publisher = {Funk \& Wagnalls},
+  date = {1901/1906}
+}
+
+@inreference{jacobs:typography,
+  author = {Jacobs, Joseph},
+  title = {Typography},
+  xref = {JE},
+  volume = {12},
+  pages = {295-335}
+}
+
+@mvreference{NEAEHL,
+  shorthand = {NEAEHL},
+  editor = {Stern, Ephraim},
+  title = {The New Encyclopedia of Archaeological Excavations in the Holy Land},
+  volumes = {4},
+  location = {Jerusalem and New York},
+  publisher = {{Israel Exploration Society and Carta} and Simon \& Schuster},
+  date = {1993}
+}
+
+@inreference{negev:petra,
+  author = {Negev, Abraham},
+  title = {Petra},
+  xref = {NEAEHL},
+  volume = {4},
+  pages = {1181-1193}
+}
+
+@inreference{dothan+dunayevsky:qasiletell,
+  author = {Dothan, Trude and Dunayevsky, Imanuel},
+  title = {Qasile, Tell: Excavations in Area A},
+  xref = {NEAEHL},
+  volume = {4},
+  pages = {1204-1207}
+}
+
+@inreference{reich+shukron:jerusalem,
+  author = {Reich, Ronny and Shukron, Eli},
+  title = {Jerusalem: The Gihon Spring and Eastern Slope of the City of David},
+  xref = {NEAEHL},
+  volume = {5},
+  pages = {1801-1807}
+}
+
+@mvreference{NIDB,
+  shorthand = {NIDB},
+  editor = {Sakenfeld, Katharine Doob},
+  title = {New Interpreter's Dictionary of the Bible},
+  volumes = {5},
+  location = {Nashville},
+  publisher = {Abingdon},
+  date = {2006/2009}
+}
+
+@inreference{meyers:menorah,
+  author = {Meyers, Carol},
+  title = {Menorah},
+  xref = {NIDB},
+  volume = {4},
+  pages = {42-43}
+}
+
+@inreference{graf:arab,
+  author = {Graf, David},
+  title = {Arab, Arabian, Arabia},
+  xref = {NIDB},
+  volume = {1},
+  pages = {212-220}
+}
+
+@reference{OCD,
+  shorthand = {OCD},
+  editor = {Hornblower, Simon and Spawforth, Antony},
+  title = {Oxford Classical Dictionary},
+  edition = {4},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {2012}
+}
+
+@inreference{taylor:protogoras,
+  author = {Taylor, Christopher C. W.},
+  title = {Protagoras},
+  xref = {OCD},
+  pages = {1227-1228}
+}
+
+@reference{ODCC,
+  shorthand = {ODCC},
+  editor = {Cross, F. L. and Livingston, E. A.},
+  title = {The Oxford Dictionary of the Christian Church},
+  edition = {3},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {2005}
+}
+
+@mvreference{OEANE,
+  shorthand = {OEANE},
+  editor = {Meyers, Eric M.},
+  title = {The Oxford Encyclopedia of Archaeology in the Near East},
+  volumes = {5},
+  location = {New York},
+  publisher = {Oxford University Press},
+  date = {1997}
+}
+
+@inreference{pitard:aleppo,
+  author = {Pitard, Wayne T.},
+  title = {Aleppo},
+  xref = {OEANE},
+  volume = {1},
+  pages = {63-65}
+}
+
+@mvreference{PW,
+  shorthand = {PW},
+  editor = {Wissowa, Georg and Kroll, Wilhelm},
+  title = {Paulys Real-Encyclopädie der classischen Altertumswissenschaft},
+  volumes = {50},
+  parts = {84},
+  location = {Stuttgart},
+  publisher = {Metzler and Druckenmüller},
+  date = {1894/1980},
+  langid = {german},
+  options = {shorthandformat=roman}
+}
+
+@inreference{honigmann:libanos,
+  author = {Honigmann, Ernest},
+  title = {Libanos},
+  xref = {PW},
+  volume = {13},
+  part = {1},
+  pages = {1-11}
+}
+
+@reference{RGG,
+  shorthand = {RGG},
+  editor = {Betz, Hans Dieter and others},
+  title = {Religion in Geschichte und Gegenwart},
+  edition = {4},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {1998/2007},
+  langid = {german}
+}
+
+@mvreference{RlA,
+  shorthand = {RlA},
+  editor = {Ebeling, Erich and others},
+  title = {Reallexikon der Assyriologie},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1928/},
+  langid = {german}
+}
+
+@inreference{westbrook:mitgift,
+  author = {Westbrook, Raymond},
+  title = {Mitgift},
+  xref = {RlA},
+  volume = {8},
+  pages = {273-283}
+}
+
+@mvreference{RPP,
+  shorthand = {RPP},
+  editor = {Betz, Hans Dieter and others},
+  title = {Religion Past and Present: Encyclopedia of Theology and Religion},
+  volumes = {14},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2007/2013}
+}
+
+@inreference{wandrey:ascension,
+  author = {Wandrey, Irina},
+  title = {Ascension and Martyrdom of Isaiah},
+  xref = {RPP},
+  volume = {1},
+  pages = {428}
+}
+
+@inreference{blum:abraham,
+  author = {Blum, Erhard},
+  title = {Abraham: Old Testament},
+  xref = {RPP},
+  volume = {1},
+  pages = {11-13}
+}
+
+@mvreference{TRE,
+  shorthand = {TRE},
+  editor = {Krause, Gerhard and Müller, Gerhard},
+  title = {Theologische Realenzyklopädie},
+  volumes = {36},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1976/2004},
+  langid = {german}
+}
+
+@inreference{albertz:magie,
+  author = {Albertz, Rainer},
+  title = {Magie: Altes Testament},
+  xref = {TRE},
+  volume = {21},
+  pages = {691-695},
+  langid = {german}
+}
+\end{verbatim}
+
+\examplecite(17)[\sv~\mkbibquote{Onycha}]{HBD}
+\examplevolcite(18){1}[\sv~\mkbibquote{Baladan}]{NIDB}
+\examplecite(12)[\svv~\mkbibquote{Alamoth,} \mkbibquote{Sheminith}]{HBD}
+\begin{fverbcite}{38}
+  \avolcites{1}[\sv~\mkbibquote{Baladan}]{NIDB}{4}[\sv~\mkbibquote{Menna}]{NIDB}
+\end{fverbcite}
+\examplecite(46)[799]{mattingly:philistines}
+\examplecite(38)[42]{meyers:menorah}
+\examplecite(49)[43]{meyers:menorah}
+\examplecite(51)[748]{burke:home}
+\examplecite[afull](51)[748, §IA2]{burke:home}
+\examplecite(14){hanson+etal:apocalypses}
+\examplecite(15)[289]{yarbrocollins:earlychristian}
+\examplevolcite(71){1}[\sv~\mkbibquote{Baal \mkbibparens{Place}}]{ABD}
+\examplecite(76){anderson:pepaideumenos}
+\examplecite(23)[5]{tiroshsamuelson:kabbalah}
+\examplecite(42)[30]{assmann:amun}
+\examplecite(84)[441-443]{wise:languagespalestine}
+\examplecite(9)[1158]{crawford:genesisiii}
+\examplecite(25)[\sv~\mkbibquote{Abilene}]{EDB}
+\examplecite(26)[3]{dever:abel}
+\examplecite(40){stone:isaactest}
+\examplecite(18)[\sv~\mkbibquote{Honey}]{HBD}
+\examplecite(80){schaub:holywar}
+\examplecite(54)[510]{popelevison:truth}
+\examplevolcite(22){1}[\sv~\mkbibquote{Ara}]{IDB}
+\examplecite(27){dentan:apple}
+\examplecite(32)[\sv~\mkbibquote{Hillel}]{IDBSup}
+\examplecite(14)[608]{sperling:mount}
+\examplevolcite(37){4}[\sv~\mkbibquote{Sosipater}]{ISBE}
+\examplecite[afull](51)[748]{burke:home}
+\examplecite(12)[301]{jacobs:typography}
+\examplecite(51)[1184]{negev:petra}
+\examplecite(18)[1205]{dothan+dunayevsky:qasiletell}
+\examplecite(43)[1805-1806]{reich+shukron:jerusalem}
+\examplevolcite(5){1}[\sv~\mkbibquote{Baladan}]{NIDB}
+\examplecite(72)[215]{graf:arab}
+\examplecite(16)[1227]{taylor:protogoras}
+\examplecite(57)[\sv~\mkbibquote{Mendicant Friars}]{ODCC}
+\examplecite(17)[65]{pitard:aleppo}
+\examplecite(56)[8-10]{honigmann:libanos}
+\examplecite(42)[282]{westbrook:mitgift}
+\examplecite(42)[428]{wandrey:ascension}
+\examplecite(67)[12]{blum:abraham}
+\examplecite(12)[692]{albertz:magie}
+\begin{verbcite}
+  \nocite{DLNT, DNTB, DOTHB, DPL, RGG}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/04/13/citing-reference-works-5-topical-dictionaries-and-encyclopedias/}
 \end{document}
