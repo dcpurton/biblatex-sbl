@@ -11,19 +11,19 @@
 \begin{document}
 \START
 \showoutput
-\cite[\sv~\mkbibquote{Onycha}]{HBD}
+\cite[Onycha]{HBD}
 
-\cite[\svv~{\mkbibquote{Alamoth},} \mkbibquote{Sheminith}]{HBD}
+\cite[Alamoth, Sheminith]{HBD}
 
-\volcite{20}[\sv~\mkbibquote{ubšukkinakku}]{CAD}
+\volcite{20}[ubšukkinakku]{CAD}
 
 \volcite{17.1}[299-301]{CAD}
 
-\volcite{4}[\sv~\mkbibquote{Sosipater}]{ISBE}
+\volcite{4}[Sosipater]{ISBE}
 
-\volcite{4}[\sv~\mkbibquote{Sosipater}]{ISBE}
+\volcite{4}[Sosipater]{ISBE}
 
-\volcites{1}[\sv~\mkbibquote{Baladan}]{NIDB}{4}[\sv~\mkbibquote{Menna}]{NIDB}
+\volcites{1}[Baladan]{NIDB}{4}[Menna]{NIDB}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
