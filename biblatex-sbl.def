@@ -426,6 +426,7 @@
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
+  \inherit{witheditor}{withmaineditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -443,6 +444,7 @@
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
   \inherit{withauthor}{withbookauthor}
+  \inherit{witheditor}{withbookeditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -459,6 +461,7 @@
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
+  \inherit{witheditor}{withmaineditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -476,6 +479,7 @@
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
   \inherit{withauthor}{withbookauthor}
+  \inherit{witheditor}{withbookeditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -492,6 +496,7 @@
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
+  \inherit{witheditor}{withmaineditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -509,6 +514,7 @@
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
   \inherit{withauthor}{withbookauthor}
+  \inherit{witheditor}{withbookeditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -525,6 +531,7 @@
   \inherit{editor}{maineditor}
   \inherit{translator}{maintranslator}
   \inherit{withauthor}{withmainauthor}
+  \inherit{witheditor}{withmaineditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -542,6 +549,7 @@
   \inherit{editor}{bookeditor}
   \inherit{translator}{booktranslator}
   \inherit{withauthor}{withbookauthor}
+  \inherit{witheditor}{withbookeditor}
   \noinherit{shorttitle}
   \noinherit{sorttitle}
   \noinherit{indextitle}
@@ -567,6 +575,7 @@
 \NewBibliographyString{subverbo}
 \NewBibliographyString{to}
 \NewBibliographyString{with}
+\NewBibliographyString{withassistance}
 \NewBibliographyString{withpreface}
 
 
@@ -874,11 +883,22 @@
 \DeclareNameAlias{editor}{default}
 \DeclareNameAlias{translator}{default}
 \DeclareNameAlias{withauthor}{default}
+\DeclareNameAlias{witheditor}{default}
 \DeclareNameAlias{withpreface}{default}
 %\DeclareNameAlias{byrevdauthor}{default}
 %\DeclareNameAlias{byrevdeditor}{default}
 
-\DeclareNameWrapperFormat{withauthor}{\bibstring{with}\space #1}
+\DeclareNameWrapperFormat{withauthor}{%
+  \usebibmacro{withtypestrg}{withauthor}{with}\space #1}
+\DeclareNameWrapperFormat{witheditor}{%
+  \usebibmacro{withtypestrg}{witheditor}{with}\space #1}
+
+\newbibmacro*{withtypestrg}[2]{%
+  \iffieldundef{#1type}
+    {\bibstring{#2}}
+    {\ifbibxstring{\thefield{#1type}}
+       {\bibstring{\thefield{#1type}}}
+       {\printtext{\thefield{#1type}}}}}
 
 \DeclareNameFormat{labelname}{%
   \ifdefempty{\namepartshortfamily}
@@ -952,6 +972,40 @@
 
 
 % ## Bibliography format
+
+% New sorting template that includes withauthor and witheditor
+\DeclareSortingTemplate{nwty}{
+  \sort{
+    \field{presort}
+  }
+  \sort[final]{
+    \field{sortkey}
+  }
+  \sort{
+    \field{sortname}
+    \field{author}
+    \field{editor}
+    \field{translator}
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{withauthor}
+    \field{witheditor}
+  }
+  \sort{
+    \field{sorttitle}
+    \field{title}
+  }
+  \sort{
+    \field{sortyear}
+    \field{year}
+  }
+  \sort{
+    \field{volume}
+    \literal{0}
+  }
+}
 
 \newbibmacro*{sbl:set:bib:format}{%
   % do not abbreviate strings
@@ -1419,19 +1473,36 @@
 
 % ## Name macros
 
+% patch editor+othersstrg to use plural string when witheditor defined
+\xpatchbibmacro{editor+othersstrg}
+  {test {\ifandothers{editor}}}
+  {test {\ifandothers{editor}}
+   or
+   not test {\ifnameundef{witheditor}}}
+  {}
+  {}
+
 \renewbibmacro*{bbx:savehash}{%
   \savefield{fullhash}{\bbx@lasthash}%
   \setfield{withauthorfullhash}{}%
-  \savefield{withauthorfullhash}{\sbl@bbx@lastwithhash}}
+  \savefield{withauthorfullhash}{\sbl@bbx@lastwithauthorhash}%
+  \setfield{witheditorfullhash}{}%
+  \savefield{witheditorfullhash}{\sbl@bbx@lastwitheditorhash}%
+}
 
 \renewbibmacro*{bbx:dashcheck}[2]{%
   \setfield{withauthorfullhash}{}%
+  \setfield{witheditorfullhash}{}%
   \ifboolexpr{
     test {\ifbibliography}
     and
     test {\iffieldequals{fullhash}{\bbx@lasthash}}
     and
-    test {\iffieldequals{withauthorfullhash}{\sbl@bbx@lastwithhash}}
+    (
+      test {\iffieldequals{withauthorfullhash}{\sbl@bbx@lastwithauthorhash}}
+      or
+      test {\iffieldequals{witheditorfullhash}{\sbl@bbx@lastwitheditorhash}}
+    )
     and
     not test \iffirstonpage
     and
@@ -1454,12 +1525,30 @@
        {\bibnamedash}
        {\printnames{author}%
         \setunit{\printdelim{authortypedelim}}%
-        \usebibmacro{bbx:savehash}}%
-     \usebibmacro{authorstrg}%
-     \setunit{\addcomma\space}%
-     \printnames{withauthor}}
+        \usebibmacro{bbx:savehash}%
+        \usebibmacro{authorstrg}%
+        \setunit{\addcomma\space}%
+        \printnames{withauthor}}}
     {\global\undef\bbx@lasthash}}
-    
+
+\renewbibmacro*{bbx:editor}[1]{%
+  \ifboolexpr{
+    test \ifuseeditor
+    and
+    not test {\ifnameundef{editor}}
+  }
+    {\usebibmacro{bbx:dashcheck}
+       {\bibnamedash}
+       {\printnames{editor}%
+        \setunit{\addcomma\space}%
+        \printnames{witheditor}%
+        \setunit{\printdelim{editortypedelim}}%
+        \usebibmacro{bbx:savehash}}%
+     \usebibmacro{#1}%
+     \clearname{witheditor}%
+     \clearname{editor}}
+    {\global\undef\bbx@lasthash}}
+
 \renewbibmacro*{bybookauthor}{%
   \ifboolexpr{
     test {\ifnameundef{bookauthor}}

@@ -22,7 +22,13 @@
   translatedbooksubtitle,
   translatedmaintitle,
   translatedmainsubtitle,
-  website}
+  website,
+  withauthortype,
+  withbookauthortype,
+  withmainauthortype,
+  witheditortype,
+  withbookeditortype,
+  withmaineditortype}
 
 \DeclareDatamodelFields[type=field, datatype=literal, label=true]{
   shortmaintitle}
@@ -38,5 +44,8 @@
   revdeditor,
   withauthor,
   withbookauthor,
-  withmainauthor}
+  withmainauthor,
+  witheditor,
+  withbookeditor,
+  withmaineditor}
 
