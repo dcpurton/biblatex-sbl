@@ -441,7 +441,9 @@
      }
        {\ifentrytype{ancienttext}
           {}
-          {\clearfield{pages}%
+          {\iffieldundef{postnote}
+             {}
+             {\clearfield{pages}}%
            \clearfield{pagetotal}}%
         \ifboolexpr{
           test {\ifentrytype{series}}

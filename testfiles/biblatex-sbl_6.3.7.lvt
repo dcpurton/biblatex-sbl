@@ -30,6 +30,8 @@
 \cite[511]{dahn:horao}
 
 \cite[95]{spicq:amoibe}
+
+\cite{spicq:amoibe}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
