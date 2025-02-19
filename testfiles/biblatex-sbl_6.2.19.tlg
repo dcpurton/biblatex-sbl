@@ -168,7 +168,7 @@ Completed box being shipped out [1]
 ....\penalty 300
 ....\glue(\baselineskip) 3.41
 ....\hbox(6.68+2.5)x345.0, glue set 86.295fil, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortseries:WGRWSup}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A0057004700520057005300750070> } action goto name{cite.0:shortseries:WGRWSup}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.2 (font)
@@ -274,7 +274,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:t:1:harrison+welborn:forthcoming}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A006800610072007200690073006F006E002B00770065006C0062006F0072006E003A0066006F0072007400680063006F006D0069006E0067> } action goto name{cite.0:t:1:harrison+welborn:forthcoming}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 R
 .....\kern-0.15 (font)
@@ -486,7 +486,7 @@ Completed box being shipped out [1]
 ....\penalty 25000
 ....\glue(\baselineskip) 3.44
 ....\hbox(6.65+2.47)x330.0, glue set 80.455fil, shifted 15.0, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] } action goto name{cite.0:shortseries:WGRWSup}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A0057004700520057005300750070> } action goto name{cite.0:shortseries:WGRWSup}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.2 (font)
