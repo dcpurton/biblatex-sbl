@@ -11,9 +11,9 @@
 \begin{document}
 \START
 \showoutput
-\cite{lawson:2016}
+\cite{younger:origins:2016}
 
-\cite{lawson:2016}
+\cite{younger:origins:2016}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

@@ -52,7 +52,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:lawson:2016} xyz
+.......\pdfdest name{cite.0:t:1:younger:origins:2016} xyz
 .......\penalty 10000
 .....\TU/Brill(0)/m/n/10 K
 .....\TU/Brill(0)/m/n/10 .
@@ -322,7 +322,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 “
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A006C006100770073006F006E003A0032003000310036> } action goto name{cite.0:t:1:lawson:2016}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A0079006F0075006E006700650072003A006F0072006900670069006E0073003A0032003000310036> } action goto name{cite.0:t:1:younger:origins:2016}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 O
 .....\TU/Brill(0)/m/n/10 r
@@ -399,7 +399,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 9.31502 plus 0.80998
-....\pdfdest name{cite.0@lawson:2016} xyz
+....\pdfdest name{cite.0@younger:origins:2016} xyz
 ....\penalty 10000
 ....\glue -9.31502 plus -0.80998
 ....\glue 9.31502 plus 0.80998
