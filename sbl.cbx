@@ -79,8 +79,8 @@
   nametracker=context,
   pagination=none,
   shorthandintro=false,
-  uniquework,
   sorting=nwty,
+  uniquework,
 }
 
 \ExecuteBibliographyOptions[ancienttext]{%
@@ -594,7 +594,8 @@
      \clearfield{shorttitle}%
      \restorefield{labeltitle}{\abx@field@title}}
     {}%
-  \usebibmacro{cite:maintitle:ancienttext}\newblock
+  \usebibmacro{cite:maintitle:ancienttext}%
+  \newblock
   \ifboolexpr{
     not test {\ifciteseen}
     and
