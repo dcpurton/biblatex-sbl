@@ -17,57 +17,6 @@
   \endgroup}
 
 
-% ## Temporary patches
-\protected\def\blx@bbl@endentry{%
-  \csuse\blx@bbl@data
-  \ifcsundef{blx@pref@\the\c@refsection @\abx@field@entrykey}
-    {}
-    {\blx@addpageref{\abx@field@entrykey}}%
-  \nottoggle{blx@setonly}
-    {}
-    {\global\toggletrue{blx@addset}%
-     \toggletrue{blx@skipbib}%
-     \toggletrue{blx@skipbiblist}%
-     \toggletrue{blx@skiplab}}%
-  \expandafter\ifstrequal\expandafter{\blx@dlist@type}{entry}
-    {\listcsxadd{blx@type@\the\c@refsection @\abx@field@entrytype}{\abx@field@entrykey}%
-     \ifdef\abx@field@entrysubtype
-       {\listcsxadd{blx@subt@\the\c@refsection @\abx@field@entrysubtype}{\abx@field@entrykey}}
-       {}%
-     \nottoggle{blx@skipbib}
-       {\listcsxadd{blx@dlist@entry@\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}%
-        \listcsxadd{blx@dlist@centry@\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}}
-       {}}%
-    {}%
-  \nottoggle{blx@skipbiblist}
-    {\expandafter\ifstrequal\expandafter{\blx@dlist@type}{list}
-      {\blx@bbl@labelfields
-        \listcsxadd{blx@dlist@\blx@dlist@type @\the\c@refsection @\blx@dlist@name}{\abx@field@entrykey}}
-      {}}%
-    {}%
-  \nottoggle{blx@skiplab}
-    {\iftoggle{blx@labelnumber}
-       {\blx@bbl@labelnumber}
-       {}%
-     \iftoggle{blx@labelalpha}
-       {\blx@bbl@labelalpha}
-       {}%
-     \iftoggle{blx@labeltitle}
-       {\blx@bbl@labeltitle}
-       {}%
-     \iftoggle{blx@labeltitleyear}
-       {\blx@bbl@labeltitleyear}
-       {}%
-     \iftoggle{blx@labeldateparts}
-       {\blx@bbl@labeldate}
-       {}%
-     \blx@bbl@labelname}
-    {}%
-  \blx@bbl@titles
-  \blx@bbl@hooks
-  \endgroup}
-
-
 % ## Style options
 
 \DeclareBibliographyOption[string]{pagination}{%
