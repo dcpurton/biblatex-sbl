@@ -362,24 +362,10 @@
       \step[fieldsource=related, final]
       \step[fieldset=relatedtype, fieldvalue=ancienttext]
     }
-    % non ancienttext with shorttitle as only label field not in abbreviations
-    \map[overwrite]{
-      \pernottype{ancienttext}
-      \step[fieldsource=shorttitle, final]
-      \step[notfield=shorthand, final]
-      \step[notfield=shortjournal, final]
-      \step[notfield=shortseries, final]
-      \step[fieldsource=options, match=\regexp{(.*)}]
-      \step[fieldset=options, fieldvalue={skipbiblist,}]
-      \step[fieldset=options, fieldvalue={$1}, append]
-    }
+    % ancienttext without entrysubtype not in abbreviations
     \map[overwrite]{
       \pertype{ancienttext}
       \step[fieldsource=entrysubtype, final]
-      \step[fieldsource=shorttitle, final]
-      \step[notfield=shorthand, final]
-      \step[notfield=shortjournal, final]
-      \step[notfield=shortseries, final]
       \step[fieldsource=options, match=\regexp{(.*)}]
       \step[fieldset=options, fieldvalue={skipbiblist,}]
       \step[fieldset=options, fieldvalue={$1}, append]
@@ -1314,9 +1300,20 @@
 
 \defbibcheck{abbreviations}{%
   \iffieldundef{shorthand}
-    {\usebibmacro{abbrev:checkshorttitle}%
-     \usebibmacro{abbrev:checkshortfield}{shortseries}{series}%
-     \usebibmacro{abbrev:checkshortfield}{shortjournal}{journaltitle}}
+    {\ifboolexpr{
+       test {\ifentrytype{ancienttext}}
+       and
+       test {\iffieldundef{entrysubtype}}
+     }
+       {\usebibmacro{abbrev:checkshorttitle}}
+       {\ifboolexpr{
+          test {\iffieldundef{shortjournal}}
+          and
+          test {\iffieldundef{shortseries}}
+        }
+          {\skipentry}
+          {\usebibmacro{abbrev:checkshortfield}{shortseries}{series}%
+           \usebibmacro{abbrev:checkshortfield}{shortjournal}{journaltitle}}}}
     {}}
 
 \newlength{\abbrevwidth}
@@ -1331,7 +1328,8 @@
   \setmaxlength{\abbrevwidth}{\shorthandwidth}%
   \setmaxlength{\abbrevwidth}{\shortserieswidth}%
   \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
-  \setmaxlength{\abbrevwidth}{\shorttitlewidth}}
+  \setmaxlength{\abbrevwidth}{\shorttitlewidth}%
+}
 
 \ExplSyntaxOn
 
@@ -1360,24 +1358,17 @@
 \ExplSyntaxOff
 
 \newbibmacro*{abbrev:checkshorttitle}{%
-  \ifboolexpr{
-    test {\ifentrytype{ancienttext}}
-    and
-    not test {\iffieldundef{shorttitle}}
-  }
-    {\ifcsdef{shorttitle@check@\therefsection\strfield{shorttitle}}
-       {\skipentry
-        \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
-          \csuse{shorttitle@\therefsection\strfield{shorttitle}},
-          \strfield{entrykey}}%
-        }
-       {\savefieldcs{shorttitle}{shorttitle@check@\therefsection\strfield{shorttitle}}%
-        \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
-          \strfield{entrykey}}}%
-     \protected@write\@auxout{}{%
-       \string\csgdef{\sbl@blx@hash{shorttitle\therefsection\strfield{shorttitle}}}%
-         {\csuse{shorttitle@\therefsection\strfield{shorttitle}}}}}
-    {}}
+  \ifcsdef{shorttitle@check@\therefsection\strfield{shorttitle}}
+    {\skipentry
+     \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
+       \csuse{shorttitle@\therefsection\strfield{shorttitle}},
+       \strfield{entrykey}}}
+    {\savefieldcs{shorttitle}{shorttitle@check@\therefsection\strfield{shorttitle}}%
+     \csxdef{shorttitle@\therefsection\strfield{shorttitle}}{%
+       \strfield{entrykey}}}%
+  \protected@write\@auxout{}{%
+    \string\csgdef{\sbl@blx@hash{shorttitle\therefsection\strfield{shorttitle}}}%
+      {\csuse{shorttitle@\therefsection\strfield{shorttitle}}}}}
 
 \newbibmacro*{abbrev:checkshortfield}[2]{%
   \iffieldundef{#1}
