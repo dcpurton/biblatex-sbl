@@ -10,13 +10,19 @@
 \setcounter{tocdepth}{1}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
 \setcounter{secnumdepth}{0}
-\usepackage[american]{babel}
+\usepackage[american, bidi=basic]{babel}
 \babelprovide[import, onchar=ids]{polytonicgreek}
 \babelprovide[import, onchar=ids]{russian}
 \babelprovide[import, onchar=ids fonts]{armenian}
+\babelprovide[import, onchar=ids fonts]{hebrew}
+\babelprovide[import, onchar=ids fonts]{syriac}
 \babelfont{rm}{Brill}
-\babelfont{tt}[Scale=MatchLowercase, Renderer=Harfbuzz]{DejaVu Sans Mono}
-\babelfont[armenian]{rm}[Scale=0.85, Renderer=Harfbuzz]{Noto Serif Armenian}
+\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
+\babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
+\babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
+\babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
+\babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
+\babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
 \usepackage{csquotes}
 \usepackage[colorlinks]{hyperref}
 \usepackage[style=sbl, refsection=section, locallabelwidth]{biblatex}
@@ -300,18 +306,23 @@
 \section{Citing a Chapter from a Single-Authored Work with Editors (10 January 2019)}
 
 \begin{verbatim}
-@inbook{lawson:2016,
+@book{younger:2016,
   author = {Younger, Jr., K. Lawson},
-  title = {The Origins of the Arameans},
-  pages = {35-107},
-  booktitle = {A Political History of the Arameans},
-  booksubtitle = {From Their Origins to the End of Their Polities},
+  title = {A Political History of the Arameans},
+  subtitle = {From Their Origins to the End of Their Polities},
   series = {Archaeology and Biblical Studies},
   shortseries = {ABS},
   number = {13},
   location = {Atlanta},
   publisher = {SBL Press},
   date = {2016}
+}
+
+@inbook{younger:origins:2016,
+  author = {Younger, Jr., K. Lawson},
+  title = {The Origins of the Arameans},
+  pages = {35-107},
+  crossref = {younger:2016}
 }
 
 @book{matassa:2018,
@@ -334,7 +345,7 @@
 }
 \end{verbatim}
 
-\examplecite(16)[35-107]{lawson:2016}
+\examplecite(16)[35-107]{younger:origins:2016}
 \examplecite(12){matassa:delos:2018}
 \citereset
 \examplecite(12)[37-77]{matassa:2018}
@@ -3056,6 +3067,7 @@ with permission.
 @mvbook{moulton:1908-1976,
   author = {Moulton, James Hope},
   withauthor = {Howard, W. F. and Turner, Nigel},
+  sortkey = {Moulton, James Hope, with W. F. Howard and Nigel Turner},
   title = {A Grammar of New Testament Greek},
   volumes = {4},
   location = {Edinburgh},
@@ -3902,4 +3914,706 @@ with permission.
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/04/13/citing-reference-works-5-topical-dictionaries-and-encyclopedias/}
+
+\section{Citing Reference Works 3: Dictionaries (Word) (4 April 2017)}
+
+\begin{verbatim}
+@mvreference{EDNT,
+  shorthand = {EDNT},
+  editor = {Balz, Horst and Schneider, Gerhard},
+  title = {Exegetical Dictionary of the New Testament},
+  volumes = {3},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1990/1993},
+  pagination = {subverbo}
+}
+
+@inreference{lattke:kakia,
+  author = {Lattke, Michael},
+  title = {κακία},
+  xref = {EDNT},
+  volume = {2},
+  pages = {237}
+}
+
+@mvreference{NIDNTT,
+  shorthand = {NIDNTT},
+  editor = {Brown, Colin},
+  title = {New International Dictionary of New Testament Theology},
+  volumes = {4},
+  location = {Grand Rapids},
+  publisher = {Zondervan},
+  date = {1975/1985}
+}
+
+@inreference{becker:arrabon,
+  author = {Becker, Oswald},
+  title = {ἀρραβών},
+  xref = {NIDNTT},
+  volume = {2},
+  pages = {39-40}
+}
+
+@inreference{becker+vorlander+brown:gift+pledge+corban,
+  author = {Becker, Oswald and Vorländer, Herwart and Brown, Colin},
+  title = {Gift, Pledge, Corban},
+  xref = {NIDNTT},
+  volume = {2},
+  pages = {39-44}
+}
+
+@mvreference{NIDNTTE,
+  shorthand = {NIDNTTE},
+  editor = {Silva, Moisés},
+  title = {New International Dictionary of New Testament Theology and Exegesis},
+  edition = {2},
+  volumes = {5},
+  location = {Grand Rapids},
+  publisher = {Zondervan},
+  date = {2014}
+}
+
+@inreference{silva:arche,
+  author = {Silva, Moisés},
+  title = {ἀρχή},
+  xref = {NIDNTTE},
+  volume = {1},
+  pages = {412-418}
+}
+
+@mvreference{NIDOTTE,
+  shorthand = {NIDOTTE},
+  editor = {VanGemeren, Willem A.},
+  title = {New International Dictionary of Old Testament Theology and Exegesis},
+  volumes = {5},
+  location = {Grand Rapids},
+  publisher = {Zondervan},
+  date = {1997}
+}
+
+@inreference{hadley:alyl,
+  author = {Hadley, Judith M.},
+  title = {אֱלִיל},
+  xref = {NIDOTTE},
+  volume = {1},
+  pages = {411}
+}
+
+@inreference{johnston:bth+bta,
+  author = {Johnston, Gordon H.},
+  title = {בטה/בטא},
+  xref = {NIDOTTE},
+  volume = {1},
+  pages = {642-644}
+}
+
+@mvreference{TDNT,
+  shorthand = {TDNT},
+  editor = {Kittel, Gerhard and Friedrich, Gerhard},
+  title = {Theological Dictionary of the New Testament},
+  translator = {Bromiley, Geoffrey W.},
+  volumes = {10},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1964/1976}
+}
+
+@inreference{delling:magos,
+  author = {Delling, Gerhard},
+  title = {μάγος},
+  xref = {TDNT},
+  volume = {4},
+  pages = {356-359}
+}
+
+@inreference{delling:magos+ktl,
+  author = {Delling, Gerhard},
+  title = {μάγος κτλ},
+  xref = {TDNT},
+  volume = {4},
+  pages = {356-359}
+}
+
+@inreference{herntrich+schrenk:leimma+ktl,
+  author = {Herntrich, Volkmar and Schrenk, Gottlob},
+  title = {λεῖμμα κτλ},
+  xref = {TDNT},
+  volume = {4},
+  pages = {194-214}
+}
+
+@inreference{meyer:manna,
+  author = {Meyer, Rudolf},
+  title = {μάννα},
+  xref = {TDNT},
+  volume = {4},
+  pages = {462-466}
+}
+
+@inreference{maurer:skeuos,
+  author = {Maurer, Christian},
+  title = {σκεῦος},
+  xref = {TDNT},
+  volume = {7},
+  pages = {358-367}
+}
+
+@mvreference{TDOT,
+  shorthand = {TDOT},
+  editor = {Botterweck, G. Johannes and Ringgren, Helmer and Fabry, Heinz-Josef},
+  title = {Theological Dictionary of the Old Testament},
+  translator = {Willis, John T.},
+  volumes = {15},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1974/2006}
+}
+
+@inreference{ringgren:znh,
+  author = {Ringgren, Helmer},
+  title = {זָנַח},
+  xref = {TDOT},
+  volume = {4},
+  pages = {105-106}
+}
+
+@inreference{hamp+botterweck:dyn,
+  author = {Hamp, Vinzenz and Botterweck, G. Johannes},
+  title = {דִּין},
+  xref = {TDOT},
+  volume = {3},
+  pages = {187-194}
+}
+
+@mvreference{THAT,
+  shorthand = {THAT},
+  editor = {Jenni, Ernst},
+  witheditor = {Westermann, Claus},
+  witheditortype = {withassistance},
+  title = {Theologisches Handwörterbuch zum Alten Testament},
+  volumes = {2},
+  location = {Munich and Zürich},
+  publisher = {Kaiser and Theologischer Verlag},
+  date = {1971/1976},
+  langid = {german}
+}
+
+@mvreference{ThWAT,
+  shorthand = {ThWAT},
+  editor = {Botterweck, G. Johannes and Ringgren, Helmer and Fabry, Heinz-Josef},
+  title = {Theologisches Wörterbuch zum Alten Testament},
+  volumes = {10},
+  location = {Stuttgart},
+  publisher = {Kohlhammer},
+  date = {1970/2000},
+  langid = {german}
+}
+
+@mvreference{TLNT,
+  shorthand = {TLNT},
+  author = {Spicq, Ceslas},
+  title = {Theological Lexicon of the New Testament},
+  editor = {Ernest, James D.},
+  translator = {Ernest, James D.},
+  volumes = {3},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@inreference{spicq:apecho,
+  author = {Spicq, Ceslas},
+  title = {ἀπέχω},
+  xref = {TLNT},
+  volume = {1},
+  pages = {162-168}
+}
+
+@inreference{spicq:hikanos,
+  author = {Spicq, Ceslas},
+  title = {ἱκανός},
+  xref = {TLNT},
+  volume = {2},
+  pages = {217-222}
+}
+
+@mvreference{TLOT,
+  shorthand = {TLOT},
+  editor = {Jenni, Ernst and Westermann, Claus},
+  title = {Theological Lexicon of the Old Testament},
+  translator = {Biddle, Mark E.},
+  volumes = {3},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1997}
+}
+
+@inreference{jenni:lbs,
+  author = {Jenni, Ernst},
+  title = {לבשׁ},
+  xref = {TLOT},
+  volume = {2},
+  pages = {642-644}
+}
+
+@inreference{martin-achard:anh,
+  author = {Martin-Achard, Robert},
+  title = {ענה II},
+  xref = {TLOT},
+  volume = {2},
+  pages = {931-937}
+}
+
+@inreference{westermann+albertz:glh,
+  author = {Westermann, Claus and Albertz, Rainer},
+  title = {גלה},
+  xref = {TLOT},
+  volume = {1},
+  pages = {314-320}
+}
+
+@reference{TWNT,
+  shorthand = {TWNT},
+  editor = {Kittel, Gerhard and Friedrich, Gerhard},
+  title = {Theologische Wörterbuch zum Neuen Testament},
+  location = {Stuttgart},
+  publisher = {Kohlhammer},
+  date = {1932/1979},
+  langid = {german}
+}
+
+@mvreference{TWOT,
+  shorthand = {TWOT},
+  editor = {Harris, R. Laird and Archer, Jr., Gleason L. and Waltke, Bruce K.},
+  title = { Theological Wordbook of the Old Testament},
+  volumes = {2},
+  location = {Chicago},
+  publisher = {Moody Press},
+  date = {1980}
+}
+
+@inreference{hartley:qvh,
+  author = {Hartley, John E.},
+  title = {קָוָה},
+  xref = {TWOT},
+  volume = {2},
+  pages = {791-792}
+}
+\end{verbatim}
+
+\examplecite(23)[39]{becker:arrabon}
+\examplecite(17)[357]{delling:magos}
+\examplecite(17){delling:magos+ktl}
+\examplecite(45){becker+vorlander+brown:gift+pledge+corban}
+\examplecite(32){herntrich+schrenk:leimma+ktl}
+\examplecite(41){jenni:lbs}
+\examplecite(21){martin-achard:anh}
+\examplecite(36){meyer:manna}
+\examplecite(38)[464]{meyer:manna}
+\examplecite(51)[Ἅγαβος]{EDNT}
+\examplecite(42){lattke:kakia}
+\examplecite(26)[42]{vorlander:doron}
+\examplecite[afull](45){becker+vorlander+brown:gift+pledge+corban}
+\examplecite(65)[413]{silva:arche}
+\examplecite(57){hadley:alyl}
+\examplecite(58)[643]{johnston:bth+bta}
+\examplecite(36)[361]{maurer:skeuos}
+\examplecite[afull](17)[357]{delling:magos}
+\examplecite[afull](17){delling:magos+ktl}
+\examplecite[afull](32){herntrich+schrenk:leimma+ktl}
+\examplecite(44)[105]{ringgren:znh}
+\examplecite(87)[191-194]{hamp+botterweck:dyn}
+\examplecite(15)[164]{spicq:apecho}
+\examplecite(4)[221]{spicq:hikanos}
+\examplecite[full](41){jenni:lbs}
+\examplecite(43)[317]{westermann+albertz:glh}
+\examplecite(67)[791]{hartley:qvh}
+\begin{verbcite}
+  \nocite{THAT, ThWAT, TWNT}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/04/04/citing-reference-works-3-dictionaries-word/}
+
+\section{Citing Reference Works 2: Lexica (30 March 2017)}
+
+\begin{verbatim}
+@reference{BAG,
+  shorthand = {BAG},
+  author = {Bauer, Walter and Arndt, William F. and Gingrich, F. Wilbur},
+  title = {Greek-English Lexicon of the New Testament and Other Early Christian
+           Literature},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1957},
+  options = {shorthandformat=roman},
+  pagination = {subverbo}
+}
+
+@reference{BAGD,
+  shorthand = {BAGD},
+  author = {Bauer, Walter and Arndt, William F. and Gingrich, F. Wilbur and Danker,
+            Frederick W.},
+  title = {Greek-English Lexicon of the New Testament and Other Early Christian
+           Literature},
+  edition = {2},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1979},
+  options = {shorthandformat=roman},
+  pagination = {subverbo}
+}
+
+@reference{BDAG,
+  shorthand = {BDAG},
+  author = {Danker, Frederick W. and Bauer, Walter and Arndt, William F. and Gingrich,
+            F. Wilbur},
+  title = {Greek-English Lexicon of the New Testament and Other Early Christian
+           Literature},
+  edition = {3},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {2000},
+  options = {shorthandformat=roman},
+  pagination = {subverbo}
+}
+
+@reference{BDB,
+  shorthand = {BDB},
+  author = {Brown, Francis and Driver, S. R. and Briggs, Charles A.},
+  title = {A Hebrew and English Lexicon of the Old Testament},
+  location = {Oxford},
+  publisher = {Clarendon},
+  date = {1907},
+  options = {shorthandformat=roman},
+  pagination = {subverbo}
+}
+
+@mvreference{CAD,
+  shorthand = {CAD},
+  editor = {Gelb, Ignace J. and others},
+  title = {The Assyrian Dictionary of the Oriental Institute of the University of
+           Chicago},
+  volumes = {21},
+  location = {Chicago},
+  publisher = {The Oriental Institute of the University of Chicago},
+  date = {1956/2010},
+  pagination = {subverbo}
+}
+
+@reference{CDME,
+  shorthand = {CDME},
+  author = {Faulkner, Raymond O.},
+  title = {A Concise Dictionary of Middle Egyptian},
+  location = {Oxford},
+  publisher = {Griffith Institute},
+  date = {1962},
+  pagination = {subverbo}
+}
+
+@mvreference{CHD,
+  shorthand = {CHD},
+  editor = {Güterbock, Hans G. and Hoffner, Jr., Harry A. and van den Hout, Theo
+            P. J.},
+  title = {The Hittite Dictionary of the Oriental Institute of the University of
+           Chicago},
+  location = {Chicago},
+  publisher = {The Oriental Institute of the University of Chicago},
+  date = {1980/},
+  pagination = {subverbo}
+}
+
+@mvreference{DCH,
+  shorthand = {DCH},
+  editor = {Clines, David J. A.},
+  title = {Dictionary of Classical Hebrew},
+  volumes = {9},
+  location = {Sheffield},
+  publisher = {Sheffield Phoenix},
+  date = {1993/2016},
+  pagination = {subverbo}
+}
+
+@mvreference{DNWSI,
+  shorthand = {DNWSI},
+  author = {Hoftijzer, Jacob and Jongeling, Karen},
+  title = {Dictionary of the North-West Semitic Inscriptions},
+  volumes = {2},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1995},
+  pagination = {subverbo}
+}
+
+@mvreference{DULAT,
+  shorthand = {DULAT},
+  author = {del Olmo Lete, Gregorio and Sanmartín, Joaquín},
+  title = {A Dictionary of the Ugaritic Language in the Alphabetic Tradition},
+  translator = {Watson, W. G. E.},
+  editor = {Watson, W. G. E.},
+  edition = {3},
+  volumes = {2},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2015},
+  pagination = {subverbo}
+}
+
+@reference{GELS,
+  shorthand = {GELS},
+  author = {Muraoka, Takamitsu},
+  title = {A Greek-English Lexicon of the Septuagint},
+  location = {Leuven},
+  publisher = {Peeters},
+  date = {2009},
+  pagination = {subverbo}
+}
+
+@reference{HAL,
+  shorthand = {HAL},
+  author = {Koehler, Ludwig and Baumgartner, Walter and Stamm, Johann J.},
+  title = {Hebräisches und aramäisches Lexicon zum Alten Testament},
+  edition = {3},
+  location = {Leiden},
+  publisher = {Brill},
+  year = {1995, 2004},
+  sortyear = {1995},
+  pagination = {subverbo},
+  langid = {german}
+}
+
+@mvreference{HALOT,
+  shorthand = {HALOT},
+  author = {Koehler, Ludwig and Baumgartner, Walter and Stamm, Johann J.},
+  title = {The Hebrew and Aramaic Lexicon of the Old Testament},
+  shorttitle = {HALOT},
+  editor = {Richardson, Mervyn E. J.},
+  editortype = {Translated and edited under the supervision of},
+  volumes = {2},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2001},
+  pagination = {subverbo}
+}
+
+@reference{HED,
+  shorthand = {HED},
+  author = {Puhvel, Jaan},
+  title = {Hittite Etymological Dictionary},
+  location = {Berlin},
+  publisher = {Mouton},
+  date = {1984/},
+  pagination = {subverbo}
+}
+
+@reference{Jastrow,
+  shorthand = {Jastrow},
+  editor = {Jastrow, Morris},
+  editortype = {compiler},
+  title = {A Dictionary of the Targumim, the Talmud Babli and Yerushalmi, and the
+           Midrashic Literature with an Index of Scriptural Quotations},
+  location = {London and New York},
+  publisher = {Luzac and G. P. Putnam’s Sons},
+  date = {1903},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{KBL,
+  shorthand = {KBL},
+  author = {Koehler, Ludwig and Baumgartner, Walter},
+  title = {Lexicon in Veteris Testamenti libros},
+  edition = {2},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1958},
+  pagination = {subverbo},
+  options = {shorthandformat=roman},
+  langid = {latin}
+}
+
+@mvreference{Lane,
+  shorthand = {Lane},
+  author = {Lane, Edward W.},
+  title = {An Arabic-English Lexicon},
+  volumes = {8},
+  origlocation = {London},
+  origpublisher = {Williams \& Norgate},
+  origdate = {1863},
+  location = {Beirut},
+  publisher = {Libr.\@ du Liban},
+  date = {1980},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{LEH,
+  shorthand = {LEH},
+  editor = {Lust, Johan and Eynikel, Erik and Hauspie, Katrin},
+  title = {Greek-English Lexicon of the Septuagint},
+  edition = {Rev\adddot},
+  location = {Stuttgart},
+  publisher = {Deutsche Bibelgesellschaft},
+  date = {2003},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{LexSyr,
+  shorthand = {LexSyr},
+  author = {Brockelmann, Carl},
+  title = {Lexicon Syriacum},
+  edition = {2},
+  location = {Halle},
+  publisher = {Niemeyer},
+  date = {1928},
+  pagination = {subverbo}
+}
+
+@reference{LS,
+  shorthand = {LS},
+  author = {Liddell, Henry George and Scott, Robert},
+  title = {An Intermediate Greek-English Lexicon: Founded upon the Seventh Edition of
+           Liddell and Scott’s Greek-English Lexicon},
+  location = {New York},
+  publisher = {Harper \& Brothers},
+  date = {1889},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{LSJ,
+  shorthand = {LSJ},
+  author = {Liddell, Henry George and Scott, Robert and Jones, Henry Stuart},
+  title = {A Greek-English Lexicon},
+  edition = {\mkbibordinal{9} \bibsstring{edition} with revised supplement},
+  location = {Oxford},
+  publisher = {Clarendon},
+  date = {1996},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{OLD,
+  shorthand = {OLD},
+  editor = {Glare, P. G. W.},
+  title = {Oxford Latin Dictionary},
+  location = {Oxford},
+  publisher = {Clarendon},
+  date = {1982},
+  pagination = {subverbo}
+}
+
+@reference{PGL,
+  shorthand = {PGL},
+  editor = {Lampe, Geoffrey W. H.},
+  title = {Patristic Greek Lexicon},
+  location = {Oxford},
+  publisher = {Clarendon},
+  date = {1961},
+  pagination = {subverbo}
+}
+
+@reference{SyrLex,
+  shorthand = {SyrLex},
+  author = {Sokoloff, Michael},
+  title = {A Syriac Lexicon: A Translation from the Latin, Correction, Expansion, and
+           Update of C.~Brockelmann’s Lexicon Syriacum},
+  location = {Winona Lake, IN and Piscataway, NJ},
+  publisher = {Eisenbrauns and Gorgias},
+  date = {2009},
+  pagination = {subverbo}
+}
+
+@mvreference{WAS,
+  shorthand = {WÄS},
+  author = {Erman, Adolf and Hermann Grapow},
+  title = {Wörterbuch der ägyptischen Sprache},
+  volumes = {5},
+  location = {Leipzig and Berlin},
+  publisher = {Hinrichs and Akademie},
+  date = {1926/1931},
+  pagination = {subverbo}
+}
+\end{verbatim}
+
+
+\examplecite(17)[ἐνθύημα]{LEH}
+\examplevolcite(21){20}[ubšukkinakku]{CAD}
+\examplecite(17)[ἐνθύημα, λεαίνω]{LEH}
+\begin{fverbcite}{21}
+  \volcites{20}[ubšukkinakku]{CAD}{21}[zaqātu]{CAD}
+\end{fverbcite}
+\examplevolcite(21){21}[zaqāpu A]{CAD}
+\examplecite(25)[\sv~\mkbibquote{יָתֵיב ,יָתֵב}]{Jastrow}
+\examplevolcite(21){21}[\sv~\mkbibquote{zaqāpu A}, 1c2′]{CAD}
+\examplecite(42)[παρρησία]{BDAG}
+\examplecite(31)[מָחָה]{BDB}
+\examplevolcite(21){21}[\sv~\mkbibquote{zaqāpu A}, 1c2′]{CAD}
+\examplecite(31)[\nopp 562a]{BDB}
+\examplecite(14)[nsry]{CDME}
+\examplevolcite(5){7}[קנה II]{DCH}
+\examplecite(15)[mlk\textsubscript{5}]{DNWSI}
+\examplecite(37)[b-r-k I]{DULAT}
+\examplecite(28)[θερμασία]{GELS}
+\examplecite(17)[חֹזֶה II]{HALOT}
+\examplecite(25)[\sv~\mkbibquote{יָתֵיב ,יָתֵב}]{Jastrow}
+\examplecite(17)[ἐνθύημα]{LEH}
+\examplecite(80)[ὁρμή]{LS}
+\examplecite(8)[κύρτος]{LSJ}
+\examplecite(27)[coagmentatio]{OLD}
+\examplecite(49)[ἐπιστασία]{PGL}
+\examplecite(14)[\mkbibbrackets{plš}]{SyrLex}
+\examplecite(14)[ܦܠܫ]{SyrLex}
+\begin{verbcite}
+  \nocite{BAG, BAGD, CHD, HAL, HED, KBL, Lane, LexSyr, WAS}
+\end{verbcite}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/03/30/citing-reference-works-2-lexica/}
+
+\section{Citing a Chapter from a Single-Authored Work (23 March 2017)}
+
+\begin{verbatim}
+@collection{kraft+nickelsburg:1986,
+  editor = {Kraft, Robert A. and Nickelsburg, George W. E.},
+  title = {Early Judaism and Its Modern Interpreters},
+  shorttitle = {Early Judaism},
+  location = {Philadelphia and Atlanta},
+  publisher = {Fortress and Scholars Press},
+  date = {1986}
+}
+
+@incollection{attridge:1986,
+  author = {Attridge, Harold W.},
+  title = {Jewish Historiography},
+  pages = {311-343},
+  crossref = {kraft+nickelsburg:1986}
+}
+
+@book{younger:2016,
+  author = {Younger, Jr., K. Lawson},
+  title = {A Political History of the Arameans: From Their Origins to the End of Their
+           Polities},
+  series = {Archaeology and Biblical Studies},
+  shortseries = {ABS},
+  number = {13},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2016}
+}
+
+@inbook{younger:origins:2016,
+  author = {Younger, Jr., K. Lawson},
+  title = {The Origins of the Arameans},
+  pages = {35-107},
+  crossref = {younger:2016}
+}
+\end{verbatim}
+
+\examplecite(15){attridge:1986}
+\examplecite(16){younger:origins:2016}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/03/23/citing-chapter-single-authored-work/}
 \end{document}
