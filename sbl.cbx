@@ -439,13 +439,7 @@
        or
        test {\ifentrytype{series}}
      }
-       {\ifentrytype{ancienttext}
-          {}
-          {\iffieldundef{postnote}
-             {}
-             {\clearfield{pages}}%
-           \clearfield{pagetotal}}%
-        \ifboolexpr{
+       {\ifboolexpr{
           test {\ifentrytype{series}}
           and
           test {\iffieldundef{shorthand}}
@@ -663,6 +657,9 @@
     {}}
 
 \newbibmacro*{cite:short:inreference}{%
+  \iffieldundef{postnote}
+    {}
+    {\clearfield{pages}}%
   \printnames{labelname}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{cite:title}%
