@@ -1169,20 +1169,29 @@
 \ExplSyntaxOn
 \cs_new_protected:Nn \__sbl_blx_mksubverbo:n
   {
-    \clist_set:Nn \l_tmpa_clist { #1 }
-    \clist_if_empty:NF \l_tmpa_clist
+    \bool_lazy_any:nTF
       {
-        \int_set:Nn \l_tmpa_int { \clist_count:N \l_tmpa_clist }
-        \int_compare:nNnTF \l_tmpa_int = \c_one_int
-          { \bibstring { subverbo } }
-          { \bibstring { subverbis } }
-        \ppspace
-        \clist_map_inline:Nn \l_tmpa_clist
+        { \tl_if_head_eq_meaning_p:nN { #1 } \sv }
+        { \tl_if_head_eq_meaning_p:nN { #1 } \svv }
+        { \tl_if_head_eq_meaning_p:nN { #1 } \nopp }
+      }
+      { #1 }
+      {
+        \clist_set:Nn \l_tmpa_clist { #1 }
+        \clist_if_empty:NF \l_tmpa_clist
           {
-            \mkbibquote { ##1 }
-            \int_compare:nNnT \l_tmpa_int > \c_one_int
-              { \addcomma \space }
-            \int_decr:N \l_tmpa_int
+            \int_set:Nn \l_tmpa_int { \clist_count:N \l_tmpa_clist }
+            \int_compare:nNnTF \l_tmpa_int = \c_one_int
+              { \bibstring { subverbo } }
+              { \bibstring { subverbis } }
+            \ppspace
+            \clist_map_inline:Nn \l_tmpa_clist
+              {
+                \mkbibquote { ##1 }
+                \int_compare:nNnT \l_tmpa_int > \c_one_int
+                  { \addcomma \space }
+                \int_decr:N \l_tmpa_int
+              }
           }
       }
   }
