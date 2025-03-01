@@ -222,6 +222,12 @@
 \date{SBL Press}
 \maketitle
 
+\begin{abstract}
+  This document contains all note and bibliography examples from the
+  \href{https://sblhs2.com/}{SBL Handbook of Style Blog}. Each section shows
+  what the various bib entries should look like and how to cite them.
+\end{abstract}
+
 \tableofcontents
 
 \section{\emph{Brill Dictionary of Ancient Greek} (20 April 2021)}
@@ -4080,7 +4086,7 @@ with permission.
 
 @inreference{hamp+botterweck:dyn,
   author = {Hamp, Vinzenz and Botterweck, G. Johannes},
-  title = {דִּין},
+  title = {דִּין},
   xref = {TDOT},
   volume = {3},
   pages = {187-194}
@@ -4616,4 +4622,231 @@ with permission.
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/03/23/citing-chapter-single-authored-work/}
+
+\section{Festschrift (16 March 2017)}
+
+\begin{verbatim}
+@collection{calduch-benages+vermeylen:1999,
+  editor = {Calduch-Benages, Núria and Vermeylen Jacques},
+  title = {Treasures of Wisdom: Studies in Ben Sira and the Book of Wisdom;
+           Festschrift M. Gilbert},
+  series = {Bibliotheca Ephemeridum Theologicarum Lovaniensium},
+  shortseries = {BETL},
+  number = {143},
+  location = {Leuven},
+  publisher = {Leuven University Press},
+  date = {1999}
+}
+
+@collection{campbell+hartin:2016,
+  editor = {Campbell, Joan Cecelia and Hartin, P. J.},
+  title = {Exploring Biblical Kinship: Festschrift in Honor of John J. Pilch},
+  series = {Catholic Biblical Quarterly Monograph Series},
+  shortseries = {CBQMS},
+  number = {55},
+  location = {Washington, DC},
+  publisher = {The Catholic Biblical Association of America},
+  date = {2016}
+}
+
+@collection{kuntzmann:1995,
+  editor = {Kuntzmann, Raymond},
+  title = {Ce dieu qui vient: Études sur l’Ancien et le Nouveau Testament offertes au
+           professeur Bernard Renaud à l’occasion de son soixante-cinquième
+           anniversaire},
+  series = {Lectio Divina},
+  shortseries = {LD},
+  number = {159},
+  location = {Paris},
+  publisher = {Cerf},
+  date = {1995},
+  langid = {french}
+}
+
+@collection{hogan+etal:2017,
+  editor = {Hogan, Karina Martin and Goff, Matthew and Wasserman, Emma},
+  title = {Pedagogy in Ancient Judaism and Early Christianity},
+  series = {Early Judaism and Its Literature},
+  shortseries = {EJL},
+  number = {41},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2017}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{calduch-benages+vermeylen:1999, campbell+hartin:2016,
+    kuntzmann:1995, hogan+etal:2017}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/03/16/festschrift/}
+
+\section{Separating Multiple Series (2 March 2017)}
+
+\begin{verbatim}
+@book{gerhardsson:1961,
+  author = {Gerhardsson, Birger},
+  title = {Memory and Manuscript},
+  subtitle = {Oral Tradition and Written Transmission in Rabbinic Judaism and Early
+              Christianity},
+  series = {Acta Seminarii Neotestamentici Upsaliensis},
+  shortseries = {ASNU},
+  number = {22},
+  location = {Lund and Copenhagen},
+  publisher = {Gleerup and Munksgaard},
+  date = {1961}
+}
+
+@book{evans:2004,
+  editor = {Evans, Craig A.},
+  title = {Of Scribes and Sages},
+  subtitle = {Early Jewish Interpretation and Transmission of Scripture},
+  volumes = {2},
+  note = {\citeseries{LSTS} 50--51\multiseriesdelim\citeseries{SSEJC} 9--10},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
+  date = {2004}
+}
+
+@series{LSTS,
+  series = {Library of Second Temple Studies},
+  shortseries = {LSTS},
+  options = {skipbib}
+}
+
+@series{SSEJC,
+  series = {Studies in Scripture in Early Judaism and Christianity},
+  shortseries = {SSEJC},
+  options = {skipbib}
+}
+\end{verbatim}
+
+\examplecite(15){gerhardsson:1961}
+\examplecite(16){evans:2004}
+\nocite{LSTS, SSEJC}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/03/02/separating-multiple-series/}
+
+\section{Lengthy Titles (28 February 2017)}
+
+\begin{verbatim}
+@book{young:1880,
+  author = {Young, Robert},
+  title = {Analytical Concordance to the Bible on an Entirely New Plan: Containing
+           Every Word in Alphabetical Order, Arranged under Its Hebrew or Greek
+           Original\bibellipsis},
+  location = {New York},
+  publisher = {American Book Exchange},
+  date = {1880}
+}
+\end{verbatim}
+
+\examplecite(4){young:1880}
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/02/28/lengthy-titles/}
+
+\section{Twitter (23 February 2017)}
+
+\begin{verbatim}
+@online{twitterpage:sblpress,
+  website = {SBL Press Twitter page},
+  url = {http://tinyurl.com/hwsjd9y},
+  options = {skipbib}
+}
+
+@online{twitter:sblpress,
+  title = {SBL Press},
+  website = {Twitter},
+  url = {http://tinyurl.com/hwsjd9y},
+  options = {skipbib}
+}
+
+@online{twittercomment:sblpress,
+  author = {SBL Press},
+  note = {Twitter comment},
+  date = {2017-02-12},
+  url = {http://twitter.com/SBLPress},
+  options = {skipbib}
+}
+
+@article{barone:2017,
+  author = {Barone, Joshua},
+  title = {Met Museum Makes 375,000 Images Free},
+  journaltitle = {New York Times},
+  date = {2017-02-07},
+  url = {http://tinyurl.com/h6z4ob7}
+}
+\end{verbatim}
+
+\examplecite[]{twitterpage:sblpress}
+\examplecite[]{twitter:sblpress}
+\examplecite(2){twittercomment:sblpress}
+\begin{fverbcite}{4}
+  \footnote{In a comment on Twitter on 12 February 2017, SBL Press
+  (\href{https://twitter.com/SBLPress}{@SBLPress}) stated…}
+\end{fverbcite}
+\begin{fverbcite}{5}
+  \footnote{Commenting on the recent \emph{New York Times} article about the
+  Met Museum \parencite{barone:2017}, Jane Doe stated on Twitter (12 February
+  2017) ….}
+\end{fverbcite}
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/02/23/twitter/}
+
+\section{Facebook (21 February 2017)}
+
+\begin{verbatim}
+@online{fb:sblwomenscholars,
+  title = {Society of Biblical Literature – Women Scholars},
+  website = {Facebook},
+  url = {http://tinyurl.com/z2cyvcb},
+  options = {skipbib}
+}
+
+@online{fbpage:sblwomenscholars,
+  website = {Society of Biblical Literature – Women Scholars Facebook page},
+  url = {http://tinyurl.com/z2cyvcb},
+  options = {skipbib}
+}
+
+@online{fbcomment:smith,
+  author = {Smith, John},
+  note = {personal Facebook comment},
+  date = {2017-02-12},
+  options = {skipbib}
+}
+
+@online{fbcomment:doe,
+  author = {Doe, Jane},
+  note = {comment on Society of Biblical Literature – Women Scholars Facebook page},
+  date = {2017-02-12},
+  options = {skipbib}
+}
+
+@article{barone:2017,
+  author = {Barone, Joshua},
+  title = {Met Museum Makes 375,000 Images Free},
+  journaltitle = {New York Times},
+  date = {2017-02-07},
+  url = {http://tinyurl.com/h6z4ob7}
+}
+\end{verbatim}
+
+\examplecite(5){fb:sblwomenscholars}
+\examplecite[]{fbpage:sblwomenscholars}
+\examplecite[]{fbcomment:smith}
+\begin{verbcite}
+  In a private comment on Facebook on 12 February 2017, John Smith stated …
+\end{verbcite}
+\examplecite[]{fbcomment:doe}
+\begin{verbcite}
+  Commenting on the recent New York Times article about the Met Museum
+  \parencite{barone:2017}, Jane Doe stated privately on Facebook (12 February
+  2017) ….
+\end{verbcite}
+\examplebibliography
+\examplereferences{https://sblhs2.com/2017/02/21/facebook/}
 \end{document}
