@@ -535,6 +535,7 @@
 
 % ## Citation delimiters and punctuation
 
+\renewcommand*{\bibellipsis}{\textellipsis\midsentence}
 \renewcommand*{\newunitpunct}{\addcomma\space}
 \renewcommand*{\bibpagespunct}{\printdelim{bibpagesdelim}}
 \renewcommand*{\begrelateddelim}{\relateddelim}
