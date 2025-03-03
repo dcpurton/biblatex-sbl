@@ -667,6 +667,26 @@
   \setunit{\bibpagespunct}%
   \usebibmacro{volume+part+pages}}
 
+\newbibmacro*{cite:short:online}{%
+  \printnames{labelname}%
+  \setunit{\printdelim{nametitledelim}}%
+  \begingroup
+  \iffieldundef{title}
+    {}
+    {\usebibmacro{cite:title}%
+     \DeclareFieldAlias{shorttitlelink}{default}}%
+  \ifboolexpr{
+    not test {\ifnameundef{labelname}}
+    and
+    not test {\iffieldundef{title}}
+  }
+    {}
+    {\newunit
+     \iffieldundef{type}
+       {\printfield[shorttitlelink]{website}}
+       {\printfield[shorttitlelink]{type}}}%
+  \endgroup}
+
 \newbibmacro*{cite:short:review}{%
   \iffieldundef{title}
     {\printnames{labelname}%
