@@ -2107,10 +2107,10 @@
   % clear postnote
   \renewbibmacro*{cite:postnote}{}}
 
-\newbibmacro*{volume+textnumber+pages}{%
+\newbibmacro*{volume+text+pages}{%
   \printfield[volume:postnote]{volume}%
   \setunit*{\printdelim{voltextnumdelim}}%
-  \printfield{textnumber}%
+  \printfield{text}%
   \begingroup
   \iffieldundef{volume}
     {}
@@ -2186,7 +2186,7 @@
 
 \newbibmacro*{related:ancienttext}[1]{%
   \savefield*{volume}{\sbl@saved@volume}%
-  \savefield*{textnumber}{\sbl@saved@textnumber}%
+  \savefield*{text}{\sbl@saved@text}%
   \savefield*{pages}{\sbl@saved@pages}%
   \savefield*{postnote}{\sbl@saved@postnote}%
   \entrydata*{#1}{%
@@ -2201,7 +2201,7 @@
     \usefield{\sbl@blx@trackentry}{clonesourcekey}%
     \iffieldundef{volcitevolume}
       {\restorefield{volume}{\sbl@saved@volume}%
-       \restorefield{textnumber}{\sbl@saved@textnumber}}
+       \restorefield{text}{\sbl@saved@text}}
       {}%
     \restorefield{pages}{\sbl@saved@pages}%
     \restorefield{postnote}{\sbl@saved@postnote}%
@@ -2210,7 +2210,7 @@
       {\addforceskipentry{\thefield{entrykey}}%
        \delimcontext{shorthand}}%
     \setunit{\bibpagespunct}%
-    \usebibmacro{volume+textnumber+pages}}}
+    \usebibmacro{volume+text+pages}}}
 
 \newbibmacro*{related:reprint}[1]{%
   \entrydata*{#1}{%
