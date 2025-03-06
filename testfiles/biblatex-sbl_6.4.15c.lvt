@@ -13,7 +13,19 @@
 \showoutput
 \cite{fb:sblwomenscholars}
 
+\cite{fbpage:sblwomenscholars}
+
+\cite{fbcomment:smith}
+
+\cite{fbcomment:doe}
+
 \cite{fb:sblwomenscholars}
+
+\cite{fbpage:sblwomenscholars}
+
+\cite{fbcomment:smith}
+
+\cite{fbcomment:doe}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

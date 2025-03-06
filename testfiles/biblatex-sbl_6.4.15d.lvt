@@ -13,7 +13,15 @@
 \showoutput
 \cite{twitter:sblpress}
 
+\cite{twitterpage:sblpress}
+
+\cite{twittercomment:sblpress}
+
 \cite{twitter:sblpress}
+
+\cite{twitterpage:sblpress}
+
+\cite{twittercomment:sblpress}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
