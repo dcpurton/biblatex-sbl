@@ -267,6 +267,20 @@
       \step[fieldsource=xref, final]
       \step[typesource=incommentary, typetarget=inreference]
     }
+    % ensure all entries (included related clones) are considered for the list of abbreviations
+    \map[overwrite]{
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbiblist=false,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
+    % ancienttext without entrysubtype not in abbreviations
+    \map[overwrite]{
+      \pertype{ancienttext}
+      \step[fieldsource=entrysubtype, final]
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbiblist,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
     % entries with shorthand not in bibliography
     \map[overwrite]{
       \step[fieldsource=shorthand, final]
@@ -281,23 +295,7 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
-    % add related entries to the list of abbreviations
-    \map[overwrite]{
-      \pernottype{ancienttext}
-      \step[fieldsource=related, final]
-      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
-      \step[fieldset=relatedoptions, fieldvalue={skipbib,}]
-      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
-    }
-    % add ancienttext related entries to bibliography and abbreviations
-    \map[overwrite]{
-      \pertype{ancienttext}
-      \step[fieldsource=related, final]
-      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
-      \step[fieldset=relatedoptions, fieldvalue={skipbib=false,skipbiblist=false,}]
-      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
-    }
-    % blog entries do not appear in the bibliography
+    % blog and comment entrysubtypes do not appear in the bibliography
     \map[overwrite]{
       \pertype{online}
       \step[fieldsource=entrysubtype, final]
@@ -305,19 +303,19 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
-    % ancienttext related entries
+    % add ancienttext related entries to bibliography (consider reimplementing with xref)
+    \map[overwrite]{
+      \pertype{ancienttext}
+      \step[fieldsource=related, final]
+      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
+      \step[fieldset=relatedoptions, fieldvalue={skipbib=false,}]
+      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
+    }
+    % ancienttext related entries (consider reimplementing with xref)
     \map{
       \pertype{ancienttext}
       \step[fieldsource=related, final]
       \step[fieldset=relatedtype, fieldvalue=ancienttext]
-    }
-    % ancienttext without entrysubtype not in abbreviations
-    \map[overwrite]{
-      \pertype{ancienttext}
-      \step[fieldsource=entrysubtype, final]
-      \step[fieldsource=options, match=\regexp{(.*)}]
-      \step[fieldset=options, fieldvalue={skipbiblist,}]
-      \step[fieldset=options, fieldvalue={$1}, append]
     }
     % create new entry when there is both a shorthand and a shortseries
     \map[overwrite]{
@@ -704,7 +702,6 @@
 \DeclareFieldFormat[article]{series}{#1}
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
 \DeclareFieldFormat[series]{shorthand}{#1}
-\DeclareFieldFormat{shorttitlewidth}{}
 \DeclareFieldFormat[online,review,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
@@ -791,15 +788,16 @@
 \DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\strfield{shortseries}}{#1}}
 
 \DeclareFieldAlias{shorthandwidth}{shorthand}
-\DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
-\DeclareFieldAlias{shortjournal}{journaltitle}
-\DeclareFieldAlias{shortjournalwidth}{shortjournal}
-\DeclareFieldAlias{shortmaintitle}{maintitle}
-\DeclareFieldAlias{shortseries}{series}
-\DeclareFieldAlias{shortserieswidth}{shortseries}
-\DeclareFieldAlias[ancienttext]{shorttitle}[ancienttext]{citetitle}
-\DeclareFieldAlias[ancienttext]{shorttitlewidth}[ancienttext]{shorttitle}
-\DeclareFieldAlias[ancienttext]{shortmaintitlewidth}[ancienttext]{shortmaintitle}
+\DeclareFieldAlias{shortjournalwidth}{journaltitle}
+\DeclareFieldAlias{shortserieswidth}{series}
+\DeclareFieldFormat{shorttitlewidth}{}
+\DeclareFieldFormat[ancienttext]{shorttitlewidth}{%
+  \iffieldundef{entrysubtype}
+    {\ifnameundef{author}
+       {#1\isdot}
+       {\mkbibemph{#1\isdot}}}
+    {}}
+\DeclareFieldAlias[ancienttext]{shortmaintitlewidth}[ancienttext]{maintitle}
 
 \DeclareListWrapperFormat{language}{\mkbibbrackets{#1}}
 
@@ -821,8 +819,6 @@
 \DeclareNameAlias{withauthor}{default}
 \DeclareNameAlias{witheditor}{default}
 \DeclareNameAlias{withpreface}{default}
-%\DeclareNameAlias{byrevdauthor}{default}
-%\DeclareNameAlias{byrevdeditor}{default}
 
 \DeclareNameWrapperFormat{withauthor}{%
   \usebibmacro{withtypestrg}{withauthor}{with}\space #1}
@@ -1340,11 +1336,11 @@
 
 \newbibmacro*{abbrev:printabbrev}{%
   \ifentrytype{ancienttext}
-    {\printtext[shorttitletarget]{\printfield[shorttitlewidth]{shorttitle}}}
+    {\printtext[shorttitletarget]{\printfield[citetitle]{shorttitle}}}
     {\iffieldundef{shorthand}
-       {\printtext[shortseriestarget]{\printfield[shortserieswidth]{shortseries}}%
-        \printtext[shortjournaltarget]{\printfield[shortjournalwidth]{shortjournal}}}
-       {\printtext[shorthandtarget]{\printfield[shorthandwidth]{shorthand}}}}}
+       {\printtext[shortseriestarget]{\printfield[series]{shortseries}}%
+        \printtext[shortjournaltarget]{\printfield[journaltitle]{shortjournal}}}
+       {\printtext[shorthandtarget]{\printfield{shorthand}}}}}
 
 \newbibmacro*{abbrev:longfield}[2]{%
   \iffieldundef{#1}
@@ -1355,7 +1351,7 @@
 \newbibmacro*{abbrev:shortfield}[2]{%
   \iffieldundef{#1}
     {\printfield{#2}}
-    {\printtext[#1link]{\printfield{#1}}}}
+    {\printtext[#1link]{\printtext[#2]{\printfield{#1}}}}}
 
 
 % ## List macros
