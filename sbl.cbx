@@ -14,6 +14,25 @@
     {}%
   \bibhypertarget{\iffootnote{f}{t}:\cbx@resetcount:\thefield{entrykey}}{#1}}
 
+% toggle to put details (translator, edition, text collection) in parentheses
+% after the title and source division. By default this is true except when all
+% of the following conditions are satisfied:
+%   - a text collection or edition is included in the bib entry (using the
+%     xref field)
+%   - a postnote is specified for the text collection or edition in the
+%     citation (without this, the text collection is not printed)
+%   - the citation is a \parencite or some derivative
+\newtoggle{sbl@blx@ancienttext@useparens}
+\toggletrue{sbl@blx@ancienttext@useparens}
+
+% test if currently in brackets or parentheses
+\newrobustcmd*{\ifinparens}[2]{%
+  \ifnum\blx@parenlevel>\z@
+    #1%
+  \else
+    #2%
+  \fi}
+
 \def\cbx@opt@citepages@omit{%
   \renewbibmacro*{cite:citepages}{}%
   \renewbibmacro*{cite:full:citepages}{%
@@ -259,12 +278,10 @@
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\renewcommand*{\relateddelim}{\addspace}%
-   \usebibmacro{cite:testcollection:ancienttext}%
-   \togglefalse{sbl@blx@parens}%
-   \togglefalse{sbl@blx@transinparens}%
+  {\usebibmacro{cite:setformat:ancienttext}%
    \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}}
+     {\usebibmacro{cite:translator:ancienttext}%
+      \newunit}
      {}%
    \usebibmacro{cite:collection:ancienttext}}
   {\multicitedelim}
@@ -274,12 +291,10 @@
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\renewcommand*{\relateddelim}{\addspace}%
-   \usebibmacro{cite:testcollection:ancienttext}%
-   \togglefalse{sbl@blx@parens}%
-   \togglefalse{sbl@blx@transinparens}%
+  {\usebibmacro{cite:setformat:ancienttext}%
    \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}}
+     {\usebibmacro{cite:translator:ancienttext}%
+      \newunit}
      {}%
    \usebibmacro{cite:collection:ancienttext}}
   {\multicitedelim}
@@ -477,7 +492,8 @@
      \boolfalse{pagetracker}%
      \DeclareFieldAlias{bibhypertarget}{default}%
      \restorefield{labeltitle}{\abx@field@title}%
-     \clearfield{shorttitle}}
+     \clearfield{shorttitle}%
+     \clearfield{shortmaintitle}}
     {}}
 
 \newbibmacro*{cite:star}{%
@@ -501,12 +517,7 @@
 
 \newbibmacro*{cite:title}{%
   \ifentrytype{ancienttext}
-    {\printtext[citetitle]{%
-       \iffieldundef{shorttitle}
-         {\printfield{labeltitle}}
-         {\printtext[shorttitlelink]{\printfield{labeltitle}}}}%
-     \setunit{\titleaddonpunct}%
-     \printfield{titleaddon}}
+    {\usebibmacro{cite:shorttitle:ancienttext}}
     {\printtext[citetitle]{\printfield[bibhyperlink]{labeltitle}}}}
 
 \newbibmacro*{cite:label:editor}{%
@@ -518,144 +529,6 @@
           {\printtext[parens]{\printnames[labelname]{maineditor}}}}
        {\printtext[parens]{\printnames[labelname]{bookeditor}}}}
     {\printtext[parens]{\printnames[labelname]{editor}}}}
-
-\newbibmacro*{cite:trans:ancienttext}{%
-  \ifentrytype{ancienttext}
-    {}
-    {\sbl@blx@warning{%
-       \string\transcite\space and related macros should only be used for
-       'ancienttext'\MessageBreak entry types.}}%
-  \usebibmacro{cite:citepages}%
-  \ifciteseen
-    {\iffieldundef{postnote}
-       {}
-       {\clearfield{pages}}}
-    {\usebibmacro{cite:full:citepages}}%
-  \usebibmacro{cite:title:ancienttext}%
-  \usebibmacro{cite:translator:ancienttext}%
-  \usebibmacro{cite:testcollection:ancienttext}%
-  \usebibmacro{cite:collection:ancienttext}}
-
-\newbibmacro*{cite:short:ancienttext}{%
-  \usebibmacro{cite:title:ancienttext}%
-  \usebibmacro{cite:testcollection:ancienttext}%
-  \togglefalse{sbl@blx@transinparens}%
-  \usebibmacro{cite:collection:ancienttext}}
-
-\newbibmacro*{cite:testcollection:ancienttext}{%
-  \iffieldundef{postnote}
-    {}
-    {\clearfield{pages}}%
-  \ifboolexpr{
-    (
-      not test {\iffieldundef{titleaddon}}
-      or
-      not test {\iffieldundef{maintitleaddon}}
-    )
-    and
-    test {\iffieldundef{postnote}}
-  }
-    {\clearfield{pages}}
-    {}%
-  \ifboolexpr{
-    test {\iffieldundef{pages}}
-    and
-    (
-      test {\iffieldundef{postnote}}
-      or
-      not test {\iffieldundef{volcitevolume}}
-      and
-      test {\iffieldundef{volcitepages}}
-    )
-  }
-    {\clearfield{related}%
-     \togglefalse{sbl@blx@parens}}
-    {}}
-
-\newbibmacro*{cite:maintitle:ancienttext}{%
-  \iffieldundef{shortmaintitle}
-    {\printfield[citetitle]{maintitle}}
-    {\printtext[citetitle]{\printfield[shortmaintitlelink]{shortmaintitle}}}%
-  \setunit*{\newunitpunct}}
-
-\newbibmacro*{cite:title:ancienttext}{%
-  \ifnameundef{author}
-    {}
-    {\usebibmacro{author}%
-     \setunit{\printdelim{nametitledelim}}}%
-  \ifboolexpr{
-    test {\iffieldundef{related}}
-    and
-    test {\iffieldundef{postnote}}
-    and
-    test {\iffieldundef{titleaddon}}
-  }
-    {\clearfield{shortmaintitle}%
-     \clearfield{shorttitle}%
-     \restorefield{labeltitle}{\abx@field@title}}
-    {}%
-  \usebibmacro{cite:maintitle:ancienttext}%
-  \newblock
-  \ifboolexpr{
-    not test {\ifciteseen}
-    and
-    not test {\iffieldundef{entrysubtype}}
-  }
-    {\usebibmacro{title}}
-    {\usebibmacro{cite:title}}%
-  \iffieldundef{related}
-    {\setunit{\bibpagespunct}%
-     \usebibmacro{cite:postnote}}
-     {}}
-
-\newbibmacro*{cite:translator:ancienttext}{%
-  \iffieldundef{related}
-    {\setunit{\addspace}%
-     \ifnameundef{translator}
-       {\iffieldundef{xref}
-          {}
-          {\entrydata*{\thefield{xref}}{%
-             \ifnameundef{translator}
-               {}
-               {\printtext[parens]{\printnames[labelname]{translator}}}}}}
-       {\printtext[parens]{\printnames[labelname]{translator}}}}
-    {\newunit
-     \ifbibliography
-       {\togglefalse{sbl@blx@transinparens}}
-       {}%
-     \iftoggle{sbl@blx@transinparens}
-       {}
-       {\ifnameundef{translator}
-          {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
-          {\usebibmacro{bytranslator}}}}}
-
-\newbibmacro*{cite:collection:ancienttext}{%
-  \ifboolexpr{
-    test {\ifbibliography}
-    or
-    (
-      test {\iffieldundef{related}}
-      and
-      test {\ifnameundef{translator}}
-    )
-  }
-    {\togglefalse{sbl@blx@parens}}
-    {}%
-  \iftoggle{sbl@blx@parens}
-    {\setunit{\addspace}%
-     \printtext{\bibopenparen}%
-     \iftoggle{sbl@blx@transinparens}
-       {\ifnameundef{translator}
-          {\entrydata*{\thefield{related}}{\usebibmacro{bytranslator}}}
-          {\usebibmacro{bytranslator}}}
-       {\renewcommand*{\begrelateddelimancienttext}{}}}
-    {\newunit}%
-  \usebibmacro{related:init}%
-  \usebibmacro{related}%
-  \iftoggle{sbl@blx@parens}
-    {\setunit{}%
-     \printtext{\bibcloseparen}}
-    {}}
 
 \newbibmacro*{cite:short:inreference}{%
   \iffieldundef{postnote}
@@ -751,3 +624,207 @@
 
 \newbibmacro*{cite:full:reference:seen}{%
   \usebibmacro{cite:full:book:seen}}
+
+
+% ancienttext citation macros
+
+\newbibmacro*{cite:setformat:ancienttext}{%
+  % no pages if postnote is set
+  \iffieldundef{postnote}
+    {}
+    {\clearfield{pages}}%
+  % no pages if no source division and no postnote
+  \ifboolexpr{
+    (
+      not test {\iffieldundef{titleaddon}}
+      or
+      not test {\iffieldundef{maintitleaddon}}
+    )
+    and
+    test {\iffieldundef{postnote}}
+  }
+    {\clearfield{pages}}
+    {}%
+  % don't print xref if no reference attached to it
+  \ifboolexpr{
+    test {\iffieldundef{pages}}
+    and
+    (
+      test {\iffieldundef{postnote}}
+      or
+      not test {\iffieldundef{volcitevolume}}
+      and
+      test {\iffieldundef{volcitepages}}
+    )
+  }
+    {\togglefalse{sbl@blx@usexref}}
+    {}%
+  % smuggle translator from xref to main entry if needed
+  \iffieldundef{xref}
+    {\togglefalse{sbl@blx@usexref}}
+    {\ifnameundef{translator}
+       {\entrydata*{\thefield{xref}}{%
+          \savename{translator}{\sbl@saved@translator}%
+          \setcounter{sbl@savedtranslator}{\value{translator}}}%
+        \restorename{translator}{\sbl@saved@translator}%
+        \setcounter{translator}{\value{sbl@savedtranslator}}}
+       {}}%
+  % clear translator if not needed
+  \iftoggle{sbl@blx@transcite}
+    {}
+    {\clearname{translator}}%
+  % disable printing of parentheses if no translator and no xref
+  % or if xref and in parentheses already or in the presence of xrefstring
+  \ifboolexpr{
+    not test {\iffieldundef{xrefstring}}
+    or
+    (
+      not togl {sbl@blx@usexref}
+      and
+      test {\ifnameundef{translator}}
+    )
+    or
+    (
+      togl {sbl@blx@usexref}
+      and
+      test {\ifinparens}
+    )
+  }
+    {\togglefalse{sbl@blx@ancienttext@useparens}}
+    {}}
+
+% cite ancienttext without translator
+\newbibmacro*{cite:short:ancienttext}{%
+  \usebibmacro{cite:setformat:ancienttext}%
+  \usebibmacro{cite:title:ancienttext}%
+  \newunit
+  \iftoggle{sbl@blx@ancienttext@useparens}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}}
+    {}%
+  \usebibmacro{cite:collection:ancienttext}%
+  \iftoggle{sbl@blx@ancienttext@useparens}
+    {\printtext{\bibcloseparen}}
+    {}}
+
+% cite ancienttext with translator
+\newbibmacro*{cite:trans:ancienttext}{%
+  \usebibmacro{cite:citepages}%
+  \ifciteseen
+    {\iffieldundef{postnote}
+       {}
+       {\clearfield{pages}}}
+    {\usebibmacro{cite:full:citepages}}%
+  \usebibmacro{cite:setformat:ancienttext}%
+  \usebibmacro{cite:title:ancienttext}%
+  \newunit
+  \iftoggle{sbl@blx@ancienttext@useparens}
+    {\setunit{\addspace}%
+     \printtext{\bibopenparen}}
+    {}%
+  \usebibmacro{cite:translator:ancienttext}%
+  \setunit*{\newunitpunct}%
+  \usebibmacro{cite:collection:ancienttext}%
+  \iftoggle{sbl@blx@ancienttext@useparens}
+    {\setunit{\nopunct}%
+     \printtext{\bibcloseparen}}
+    {}}
+
+% ancienttext title macros
+\newbibmacro*{cite:title:ancienttext}{%
+  \ifnameundef{author}
+    {}
+    {\usebibmacro{author}%
+     \setunit{\printdelim{nametitledelim}}}%
+  \ifboolexpr{
+    test {\iffieldundef{xref}}
+    and
+    test {\iffieldundef{postnote}}
+    and
+    test {\iffieldundef{titleaddon}}
+  }
+    {\clearfield{shortmaintitle}%
+     \clearfield{shorttitle}%
+     \restorefield{labeltitle}{\abx@field@title}}
+    {}%
+  \usebibmacro{cite:maintitle:ancienttext}%
+  \newblock
+  \ifboolexpr{
+    not test {\ifciteseen}
+    and
+    not test {\iffieldundef{entrysubtype}}
+  }
+    {\usebibmacro{title}}
+    {\usebibmacro{cite:title}}%
+  \iftoggle{sbl@blx@usexref}
+    {}
+    {\setunit{\bibpagespunct}%
+     \usebibmacro{cite:postnote}}}
+
+\newbibmacro*{cite:shorttitle:ancienttext}{%
+  \printtext[citetitle]{%
+    \iffieldundef{shorttitle}
+      {\printfield{labeltitle}}
+      {\printtext[shorttitlelink]{\printfield{labeltitle}}}}%
+  \setunit{\titleaddonpunct}%
+  \printfield{titleaddon}}
+
+\newbibmacro*{cite:maintitle:ancienttext}{%
+  \iffieldundef{shortmaintitle}
+    {\printfield[citetitle]{maintitle}}
+    {\printtext[citetitle]{\printfield[shortmaintitlelink]{shortmaintitle}}}%
+  \setunit*{\newunitpunct}}
+
+% ancienttext translator macro
+\newbibmacro*{cite:translator:ancienttext}{%
+  \iftoggle{sbl@blx@usexref}
+    {\ifnameundef{translator}
+       {}
+       {\usebibmacro{bytranslator}}}
+    {\ifnameundef{translator}
+       {}
+       {\printnames[labelname]{translator}}}}
+
+% ancienttext collection macro
+\newbibmacro*{cite:collection:ancienttext}{%
+  \savefield*{volume}{\sbl@saved@volume}%
+  \savefield*{text}{\sbl@saved@text}%
+  \savefield*{pages}{\sbl@saved@pages}%
+  \savefield*{postnote}{\sbl@saved@postnote}%
+  \iftoggle{sbl@blx@usexref}
+    {\iffieldundef{xrefstring}
+       {}
+       {\newunit
+        \printfield{xrefstring}%
+        \setunit{\addspace}}%
+     \entrydata*{\thefield{xref}}{%
+       \begingroup
+       \renewbibmacro*{cite:postnote}{}%
+       \usebibmacro{cite}%
+       \endgroup
+       \iffieldundef{volcitevolume}
+         {\restorefield{volume}{\sbl@saved@volume}%
+          \restorefield{text}{\sbl@saved@text}}
+         {}%
+       \restorefield{pages}{\sbl@saved@pages}%
+       \restorefield{postnote}{\sbl@saved@postnote}%
+       \ifboolexpr{
+         (
+           not test {\iffieldundef{shorthand}}
+           or
+           test {\ifentrytype{series}}
+         )
+         and
+         (
+           not test {\iffieldundef{volume}}
+           or
+           not test {\iffieldundef{volcitevolume}}
+           or
+           test {\ifpaginationequalstr{section}}
+         )
+       }
+         {\setunit{\addspace}}
+         {\newunit}%
+       \usebibmacro{volume+text+pages}%
+       \blx@citetracker}}
+    {}}

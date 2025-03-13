@@ -8,32 +8,16 @@
 \addbibresource{biblatex-sbl.bib}
 \pagestyle{empty}
 \raggedright
-\def\citenotitlesec{%
-  \AtNextCitekey{%
-    \delimcontext{section}%
-    \renewbibmacro*{cite:title}{%
-      \ifentrytype{ancienttext}
-        {\printfield[citetitle]{labeltitle}%
-         \setunit{\titleaddonpunct}%
-         \printfield{titleaddon}}
-        {}}%
-  }\cite}
 \begin{document}
 \START
 \showoutput
-\parencite[(59003)]{p.cair.zen.}
+\parencite[(59003)]{p.cair.zen.:hunt+edgar:1932}
 
-\cite[(59003)]{p.cair.zen.}
+\volcite{1}[(59003)96]{p.cair.zen.:hunt+edgar:1932}
 
-\volcite{1}[(59003)96]{p.cair.zen.:hunt+edgar}
+\cite[(59003)§31]{p.cair.zen.:hunt+edgar:1932}
 
-\cite[(59003)§31]{p.cair.zen.:hunt+edgar}
-
-\citereset
-\citenotitlesec[(59003)§31]{p.cair.zen.:hunt+edgar}
-
-\citenotitlesec[(59003)§31]{p.cair.zen.:hunt+edgar}
-
+\cite[(59003)31]{p.cair.zen.:huntandedgar}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

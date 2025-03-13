@@ -36,7 +36,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 335.16168fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 363.15869fil, direction TLT
 ....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
 ....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
@@ -239,7 +239,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{5}{\the \c@page }}
+.....\write1{\abx@aux@page{6}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 t
@@ -312,7 +312,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{8}{\the \c@page }}
+.....\write1{\abx@aux@page{9}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 t
@@ -363,51 +363,6 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.95401
-....\hbox(9.57599+0.2016)x345.0, glue set 141.3024fil, direction TLT
-.....\localpar
-......\localinterlinepenalty=0
-......\localbrokenpenalty=0
-......\localleftbox=null
-......\localrightbox=null
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\glue 0.0
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\kern0.0
-......\penalty 10000
-......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
-........\pdfdest name{section*.1} xyz
-........\penalty 10000
-......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/Brill(0)/b/n/14.4 R
-.....\kern-0.216 (font)
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 f
-.....\discretionary (penalty 50)
-......< \TU/Brill(0)/b/n/14.4 -
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 r
-.....\discretionary (penalty 50)
-......< \kern-0.288 (font)
-......< \TU/Brill(0)/b/n/14.4 -
-......= \kern-0.144 (font)
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 n
-.....\TU/Brill(0)/b/n/14.4 c
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 s
-.....\penalty 10000
-.....\glue(\parfillskip) 0.0 plus 1.0fil
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 10000
-....\glue 9.31502 plus 0.80998
-....\glue -9.31502 plus -0.80998
-....\glue 9.31502 plus -0.19002
-....\glue -9.31502 plus 0.19002
-....\glue 10.0 plus 3.0 minus 5.0
-....\glue(\parskip) 0.0 plus 1.0
-....\glue(\parskip) 0.0
-....\glue(\baselineskip) 8.22241
 ....\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
@@ -421,7 +376,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\hbox(0.0+0.0)x0.0, direction TLT
 .......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
-........\pdfdest name{section*.2} xyz
+........\pdfdest name{section*.1} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\TU/Brill(0)/b/n/14.4 A
@@ -469,7 +424,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\hbox(0.0+0.0)x0.0, direction TLT
 .......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
-........\pdfdest name{section*.3} xyz
+........\pdfdest name{section*.2} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\TU/Brill(0)/b/n/12 A
@@ -530,7 +485,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{9}{\the \c@page }}
+.....\write1{\abx@aux@page{11}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 t
@@ -641,7 +596,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\hbox(0.0+0.0)x0.0, direction TLT
 .......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
-........\pdfdest name{section*.4} xyz
+........\pdfdest name{section*.3} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\TU/Brill(0)/b/n/12 S
@@ -696,7 +651,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\write1{\abx@aux@page{13}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 g
@@ -811,7 +766,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{12}{\the \c@page }}
+.....\write1{\abx@aux@page{14}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 g

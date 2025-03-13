@@ -11,13 +11,13 @@
 \begin{document}
 \START
 \showoutput
-\AtNextCitekey{\toggletrue{sbl@blx@parens}}\transcite[319]{suppiluliumas}
+\transcite[319]{suppiluliumas}
 
 \cite[319]{suppiluliumas}
 
 \cite[119]{ANET}
 
-\citetitle*{legendsargon} in \cite[119]{ANET}
+\citetitle*{legendsargon} in \citecollection{legendsargon}
 
 \ptranscite[119]{legendsargon}
 

@@ -41,7 +41,7 @@ Completed box being shipped out [1]
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.35
-....\hbox(6.65+2.43)x345.0, glue set 32.01999fil, direction TLT
+....\hbox(6.65+2.43)x345.0, glue set 3.45999fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -49,6 +49,16 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{1}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 M
+.....\TU/Brill(0)/m/n/10 a
+.....\TU/Brill(0)/m/n/10 r
+.....\discretionary (penalty 50)
+......< \kern-0.2 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 V
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 c
@@ -124,7 +134,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:5149a47bb22e7be909034e9394502fce} xyz
+.......\pdfdest name{cite.0:t:1:edwards:1999} xyz
 .......\penalty 10000
 .....\TU/Brill(0)/m/n/10 M
 .....\TU/Brill(0)/m/n/10 a
@@ -402,7 +412,7 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A00350031003400390061003400370062006200320032006500370062006500390030003900300033003400650039003300390034003500300032006600630065> } action goto name{cite.0:t:1:5149a47bb22e7be909034e9394502fce}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A0065006400770061007200640073003A0031003900390039> } action goto name{cite.0:t:1:edwards:1999}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 G
 .....\TU/Brill(0)/m/it/10 a
@@ -504,7 +514,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 9.31502 plus 0.80998
-....\pdfdest name{cite.0@5149a47bb22e7be909034e9394502fce} xyz
+....\pdfdest name{cite.0@edwards:1999} xyz
 ....\penalty 10000
 ....\glue -9.31502 plus -0.80998
 ....\glue 9.31502 plus 0.80998

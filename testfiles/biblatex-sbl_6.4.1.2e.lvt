@@ -11,9 +11,9 @@
 \begin{document}
 \START
 \showoutput
-\cite[(lines 3--4)125]{esarhaddonchronicle}
+\cite[(lines 3--4)125]{esarhaddonchronicle:grayson:1975}
 
-\cite[(lines 3--4)125]{esarhaddonchronicle}
+\cite[(lines 3--4)125]{esarhaddonchronicle:ABC}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

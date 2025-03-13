@@ -29,6 +29,11 @@
 \DeclareBibliographyOption[boolean]{shorthandintro}[true]{%
   \settoggle{sbl@blx@shorthandintro}{#1}}
 
+\newtoggle{sbl@blx@usexref}
+\toggletrue{sbl@blx@usexref}
+\DeclareBiblatexOption{entry}[boolean]{usexref}[true]{%
+  \settoggle{sbl@blx@usexref}{#1}}
+
 \def\sbl@blx@shorthandformat{shorthand}
 \DeclareTypeOption[string]{shorthandformat}{%
   \def\sbl@blx@shorthandformat{#1}}
@@ -52,14 +57,6 @@
   \ifstrequal{#1}{true}
     {\def\sbl@blx@nonenglishmaintitleformat{nonlatin}}
     {\def\sbl@blx@nonenglishmaintitleformat{maintitle}}}
-
-\newtoggle{sbl@blx@parens}
-\DeclareEntryOption[boolean]{parens}[true]{%
-  \settoggle{sbl@blx@parens}{#1}}
-
-\newtoggle{sbl@blx@transinparens}
-\DeclareEntryOption[boolean]{transinparens}[true]{%
-  \settoggle{sbl@blx@transinparens}{#1}}
 
 \newtoggle{sbl@blx@usetitle}
 \DeclareTypeOption[boolean]{usetitle}[true]{%
@@ -303,27 +300,18 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
-    % add ancienttext related entries to bibliography (consider reimplementing with xref)
-    \map[overwrite]{
-      \pertype{ancienttext}
-      \step[fieldsource=related, final]
-      \step[fieldsource=relatedoptions, match=\regexp{(.*)}]
-      \step[fieldset=relatedoptions, fieldvalue={skipbib=false,}]
-      \step[fieldset=relatedoptions, fieldvalue={$1}, append]
-    }
-    % ancienttext related entries (consider reimplementing with xref)
+    % map number to volume in ancienttext
     \map{
       \pertype{ancienttext}
-      \step[fieldsource=related, final]
-      \step[fieldset=relatedtype, fieldvalue=ancienttext]
+      \step[fieldsource=number, final]
+      \step[fieldset=volume, origfieldval]
     }
     % create new entry when there is both a shorthand and a shortseries
     \map[overwrite]{
       \step[fieldsource=shortseries, final]
       \step[fieldsource=shorthand, final]
       \step[fieldsource=entrykey, match=\regexp{(.*)}]
-      \step[fieldset=xref, fieldvalue=series-$1]
-      \step[entrynew=series-$1, entrynewtype=series]
+      \step[entrynew=series-$1, entrynewtype=series, entrynocite]
       \step[fieldsource=shortseries]
       \step[fieldset=shortseries, origfieldval, entrytarget=series-$1]
       \step[fieldsource=series]
@@ -537,7 +525,6 @@
 \renewcommand*{\newunitpunct}{\addcomma\space}
 \renewcommand*{\bibpagespunct}{\printdelim{bibpagesdelim}}
 \renewcommand*{\begrelateddelim}{\relateddelim}
-\newcommand*{\begrelateddelimancienttext}{\newunitpunct}
 \newcommand*{\begrelateddelimmultivolarticle}{\addspace}
 \renewcommand*{\intitlepunct}{\addspace}
 \newcommand*{\locationpublisherdelim}{\addcolon\space}
@@ -600,9 +587,13 @@
 \DeclareDelimFormat{namedashdelim}{\addcomma\space}
 \DeclareDelimFormat{postnotedelim}{%
   \ifboolexpr{
-    not test {\iffieldundef{volcitevolume}}
-    and
     not test {\iffieldundef{shorthand}}
+    and
+    (
+      not test {\iffieldundef{volcitevolume}}
+      or
+      test {\ifpaginationequalstr{section}}
+    )
   }
     {}
     {\addcomma}%
@@ -636,7 +627,7 @@
        {\addcomma}}
     {\addcomma}%
   \space}
-\DeclareDelimFormat{voltextnumdelim}{\addperiod}
+\DeclareDelimFormat{voltextdelim}{\addperiod}
 
 
 % ## Field formats
@@ -1084,6 +1075,11 @@
   \def\colno{\bibstring{column}}%
   \def\colsno{\bibstring{columns}}}
 
+% define § and §§ helper macros:
+\appto\blx@blxinit{%
+  \def\sno{\bibstring{section}}%
+  \def\ssno{\bibstring{sections}}}
+
 % define obv. and rev. helper macros:
 \appto\blx@blxinit{%
   \def\obv{\bibstring{obverse}}%
@@ -1100,7 +1096,7 @@
 \appto\blx@blxinit{%
   \def\volspace{\addnbspace}}
 
-\DeclarePageCommands*{\lno\llno\lineno\linesno\colno\colsno}
+\DeclarePageCommands*{\lno\llno\lineno\linesno\colno\colsno\sno\ssno}
 
 % Add ′ (prime) as number for Unicode engines
 \ExplSyntaxOn
@@ -1418,6 +1414,9 @@
 
 
 % ## Name macros
+
+% counter to save the number of translators when smuggling from xref to parent
+\newcounter{sbl@savedtranslator}
 
 % patch editor+othersstrg to use plural string when witheditor defined
 \xpatchbibmacro{editor+othersstrg}
@@ -2104,8 +2103,10 @@
   \renewbibmacro*{cite:postnote}{}}
 
 \newbibmacro*{volume+text+pages}{%
-  \printfield[volume:postnote]{volume}%
-  \setunit*{\printdelim{voltextnumdelim}}%
+  \iffieldundef{volume}
+    {}
+    {\printfield[volume:postnote]{volume}%
+     \setunit{\printdelim{voltextdelim}}}%
   \printfield{text}%
   \begingroup
   \iffieldundef{volume}
@@ -2179,34 +2180,6 @@
 
 
 % ## Related macros
-
-\newbibmacro*{related:ancienttext}[1]{%
-  \savefield*{volume}{\sbl@saved@volume}%
-  \savefield*{text}{\sbl@saved@text}%
-  \savefield*{pages}{\sbl@saved@pages}%
-  \savefield*{postnote}{\sbl@saved@postnote}%
-  \entrydata*{#1}{%
-    \ifentryseen{\strfield{clonesourcekey}}
-      {\blx@citetracker}
-      {}%
-    \begingroup
-    \renewbibmacro*{cite:postnote}{}%
-    \usebibmacro{cite}%
-    \endgroup
-    \blx@citetracker
-    \usefield{\sbl@blx@trackentry}{clonesourcekey}%
-    \iffieldundef{volcitevolume}
-      {\restorefield{volume}{\sbl@saved@volume}%
-       \restorefield{text}{\sbl@saved@text}}
-      {}%
-    \restorefield{pages}{\sbl@saved@pages}%
-    \restorefield{postnote}{\sbl@saved@postnote}%
-    \iffieldundef{shorthand}
-      {}
-      {\addforceskipentry{\thefield{entrykey}}%
-       \delimcontext{shorthand}}%
-    \setunit{\bibpagespunct}%
-    \usebibmacro{volume+text+pages}}}
 
 \newbibmacro*{related:reprint}[1]{%
   \entrydata*{#1}{%

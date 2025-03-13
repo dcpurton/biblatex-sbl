@@ -28,7 +28,8 @@
   withmainauthortype,
   witheditortype,
   withbookeditortype,
-  withmaineditortype}
+  withmaineditortype,
+  xrefstring}
 
 \DeclareDatamodelFields[type=field, datatype=literal, label=true]{
   shortmaintitle}

@@ -35,7 +35,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 386.97864fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 362.9812fil, direction TLT
 ....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
 ....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
@@ -79,7 +79,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 l
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 n
@@ -97,7 +97,7 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\hbox(0.0+0.0)x0.0, direction TLT
 ......\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.......\pdfdest name{cite.0:t:1:375fe76fe2391bb6c6adb51031382e96} xyz
+.......\pdfdest name{cite.0:t:1:grayson:1991b} xyz
 .......\penalty 10000
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 l
@@ -332,7 +332,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 l
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 n
@@ -358,7 +358,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A00330037003500660065003700360066006500320033003900310062006200360063003600610064006200350031003000330031003300380032006500390036> } action goto name{cite.0:t:1:375fe76fe2391bb6c6adb51031382e96}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A00670072006100790073006F006E003A00310039003900310062> } action goto name{cite.0:t:1:grayson:1991b}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 A
 .....\TU/Brill(0)/m/it/10 s
@@ -388,6 +388,141 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 3
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 )
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.82
+....\hbox(6.68+2.5)x345.0, glue set 106.285fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\write1{\abx@aux@page{7}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 A
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 I
+.....\TU/Brill(0)/m/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 p
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A00520049004D0041> } action goto name{cite.0:shortseries:RIMA}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/n/10 R
+.....\TU/Brill(0)/m/n/10 I
+.....\TU/Brill(0)/m/n/10 M
+.....\TU/Brill(0)/m/n/10 A
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 :
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 –
+.....\penalty 50
+.....\TU/Brill(0)/m/n/10 4
+.....\TU/Brill(0)/m/n/10 5
+.....\TU/Brill(0)/m/n/10 )
+.....\penalty 10000
+.....\glue(\parfillskip) 0.0 plus 1.0fil
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\glue(\parskip) 0.0 plus 1.0
+....\glue(\parskip) 0.0
+....\glue(\baselineskip) 2.82
+....\hbox(6.68+2.5)x345.0, glue set 75.565fil, direction TLT
+.....\localpar
+......\localinterlinepenalty=0
+......\localbrokenpenalty=0
+......\localleftbox=null
+......\localrightbox=null
+.....\hbox(0.0+0.0)x0.0, direction TLT
+.....\write1{\abx@aux@page{10}{\the \c@page }}
+.....\TU/Brill(0)/m/n/10 A
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 h
+.....\TU/Brill(0)/m/n/10 u
+.....\TU/Brill(0)/m/n/10 r
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 I
+.....\TU/Brill(0)/m/n/10 n
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 s
+.....\TU/Brill(0)/m/n/10 c
+.....\TU/Brill(0)/m/n/10 r
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 p
+.....\discretionary (penalty 50)
+......< \kern0.1 (font)
+......< \TU/Brill(0)/m/n/10 -
+.....\TU/Brill(0)/m/n/10 t
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
+.....\TU/Brill(0)/m/n/10 o
+.....\TU/Brill(0)/m/n/10 b
+.....\kern-0.1 (font)
+.....\TU/Brill(0)/m/n/10 v
+.....\kern-0.75 (font)
+.....\TU/Brill(0)/m/n/10 .
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 l
+.....\TU/Brill(0)/m/n/10 i
+.....\TU/Brill(0)/m/n/10 n
+.....\TU/Brill(0)/m/n/10 e
+.....\TU/Brill(0)/m/n/10 s
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 –
+.....\TU/Brill(0)/m/n/10 1
+.....\kern-0.15 (font)
+.....\TU/Brill(0)/m/n/10 7
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\TU/Brill(0)/m/n/10 (
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A00520049004D0041> } action goto name{cite.0:shortseries:RIMA}
+.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\TU/Brill(0)/m/n/10 R
+.....\TU/Brill(0)/m/n/10 I
+.....\TU/Brill(0)/m/n/10 M
+.....\TU/Brill(0)/m/n/10 A
+.....\pdfcolorstack 0 pop
+.....\pdfendlink
+.....\glue(\spaceskip) 1.98 plus 0.98901 minus 0.66066
+.....\TU/Brill(0)/m/n/10 2
+.....\TU/Brill(0)/m/n/10 :
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 4
 .....\TU/Brill(0)/m/n/10 3
@@ -442,7 +577,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 9.31502 plus 0.80998
-....\pdfdest name{cite.0@375fe76fe2391bb6c6adb51031382e96} xyz
+....\pdfdest name{cite.0@grayson:1991b} xyz
 ....\penalty 10000
 ....\glue -9.31502 plus -0.80998
 ....\glue 9.31502 plus 0.80998
@@ -465,7 +600,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 5.0
 .....\penalty 0
-.....\write1{\abx@aux@page{7}{\the \c@page }}
+.....\write1{\abx@aux@page{13}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 G
 .....\TU/Brill(0)/m/n/10 r
 .....\kern-0.1 (font)
@@ -735,7 +870,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{8}{\the \c@page }}
+.....\write1{\abx@aux@page{14}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 T
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 e

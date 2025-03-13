@@ -1619,7 +1619,7 @@
   entrysubtype = {inancientcollection},
   title = {The Great Hymn to the Aten},
   translator = {Lichtheim, Miriam},
-  related = {COS},
+  xref = {COS},
   volume = {1},
   text = {26},
   pages = {44-46}
@@ -1629,7 +1629,7 @@
   entrysubtype = {inancientcollection},
   title = {A Report of Bedouin},
   translator = {Allen, James P.},
-  related = {COS},
+  xref = {COS},
   volume = {3},
   text = {5},
   pages = {16–17}
@@ -1639,7 +1639,7 @@
   entrysubtype = {inancientcollection},
   title = {Summary Inscription 8},
   translator = {Younger, Jr., K. Lawson},
-  related = {COS}
+  xref = {COS}
 }
 
 @collection{ANET,
@@ -1656,7 +1656,7 @@
   entrysubtype = {inancientcollection},
   title = {Suppiluliumas and the Egyptian Queen},
   translator = {Goetz, Albrecht},
-  related = {ANET},
+  xref = {ANET},
   pages = {319}
 }
 
@@ -1664,7 +1664,7 @@
   entrysubtype = {inancientcollection},
   title = {The Legend of Sargon},
   translator = {Speiser, E. A.},
-  related = {ANET},
+  xref = {ANET},
   pages = {119}
 }
 
@@ -1672,7 +1672,7 @@
   entrysubtype = {inancientcollection},
   title = {Lamentation over the Destruction of Sumer and Ur},
   translator = {Kramer, S. N.},
-  related = {ANET},
+  xref = {ANET},
   pages = {455-463}
 }
 
@@ -1687,9 +1687,8 @@
 @ancienttext{erraandishum:dalley,
   entrysubtype = {inancientcollection},
   title = {Erra and Ishum},
-  related = {dalley:1991},
-  pages = {282-315},
-  options = {parens}
+  xref = {dalley:1991},
+  pages = {282-315}
 }
 
 @mvbook{foster:1993,
@@ -1705,10 +1704,9 @@
 @ancienttext{erraandishum:foster,
   entrysubtype = {inancientcollection},
   title = {Erra and Ishum},
-  related = {foster:1993},
+  xref = {foster:1993},
   volume = {1},
-  pages = {771-805},
-  options = {parens}
+  pages = {771-805}
 }
 
 @mvbook{AEL,
@@ -1724,10 +1722,9 @@
 @ancienttext{doomedprince,
   entrysubtype = {inancientcollection},
   title = {The Doomed Prince},
-  related = {AEL},
+  xref = {AEL},
   volume = {2},
-  pages = {200-203},
-  options = {parens}
+  pages = {200-203}
 }
 
 @book{hoffner:1990,
@@ -1745,8 +1742,12 @@
 @ancienttext{disappearanceofsungod,
   entrysubtype = {inancientcollection},
   title = {The Disappearance of the Sun God},
-  related = {hoffner:1990},
-  options = {parens}
+  xref = {hoffner:1990}
+}
+
+@series{RIMA,
+  series = {The Royal Inscriptions of Mesopotamia, Assyrian Periods},
+  shortseries = {RIMA}
 }
 
 @mvbook{grayson:1991b,
@@ -1763,8 +1764,25 @@
 
 @ancienttext{ashurinscription,
   title = {Ashur Inscription},
-  related = {grayson:1991b},
-  options = {parens}
+  xref = {grayson:1991b}
+}
+
+@ancienttext{ashurinscription:RIMA,
+  title = {Ashur Inscription},
+  xref = {RIMA},
+  number = {2},
+  pages = {142-145}
+}
+
+@book{grayson:1975,
+  author = {Grayson, Albert Kirk},
+  title = {Assyrian and Babylonian Chronicles},
+  series = {Texts from Cuneiform Sources},
+  shortseries = {TCS},
+  number = {5},
+  location = {Locust Valley, NY},
+  publisher = {Augustin},
+  date = {1975}
 }
 
 @book{ABC,
@@ -1779,10 +1797,14 @@
   date = {1975}
 }
 
-@ancienttext{esarhaddonchronicle,
+@ancienttext{esarhaddonchronicle:grayson:1975,
   title = {Esarhaddon Chronicle},
-  related = {ABC},
-  options = {parens}
+  xref = {grayson:1975}
+}
+
+@ancienttext{esarhaddonchronicle:ABC,
+  title = {Esarhaddon Chronicle},
+  xref = {ABC}
 }
 
 @book{georges:1967,
@@ -2280,7 +2302,7 @@
   date = {2011}
 }
 
-@mvbook{edgar:1925-1940,
+@mvbook{p.cair.zen.,
   shorthand = {P.Cair.Zen\adddot},
   editor = {Edgar, C. C.},
   title = {Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du Caire},
@@ -2290,12 +2312,7 @@
   options = {shorthandformat=roman}
 }
 
-@ancienttext{p.cair.zen.,
-  title = {\citeshorthand{edgar:1925-1940}},
-  xref = {edgar:1925-1940}
-}
-
-@book{hunt+edgar:1932,
+@mvbook{hunt+edgar:1932,
   author = {Hunt, Arthur S. and Edgar, Campbell C.},
   title = {Select Papyri},
   series = {Loeb Classical Library},
@@ -2305,11 +2322,27 @@
   date = {1932}
 }
 
-@ancienttext{p.cair.zen.:hunt+edgar,
-  title = {\citeshorthand{edgar:1925-1940}},
-  xref = {edgar:1925-1940},
-  related = {hunt+edgar:1932},
-  options = {parens}
+@mvbook{huntandedgar,
+  shorthand = {Hunt and Edgar},
+  author = {Hunt, Arthur S. and Edgar, Campbell C.},
+  title = {Select Papyri},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1932},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@ancienttext{p.cair.zen.:hunt+edgar:1932,
+  title = {\citeshorthand{p.cair.zen.}},
+  xref = {hunt+edgar:1932}
+}
+
+@ancienttext{p.cair.zen.:huntandedgar,
+  title = {\citeshorthand{p.cair.zen.}},
+  xref = {huntandedgar}
 }
 
 @mvbook{IEph,
@@ -2418,7 +2451,8 @@
 @ancienttext{heraclitus:epistle1,
   author = {Heraclitus},
   title = {Epistle 1},
-  xref = {heraclitus:epistle1:worley}
+  xref = {heraclitus:epistle1:worley},
+  options = {usexref=false}
 }
 
 @mvcollection{ANF,
@@ -2445,8 +2479,7 @@
 @ancienttext{clementinehomilies,
   entrysubtype = {ancientbook},
   title = {The Clementine Homilies},
-  related = {ANF},
-  options = {parens}
+  xref = {ANF}
 }
 
 @mvcollection{NPNF,
@@ -2475,10 +2508,9 @@
   author = {Augustine},
   title = {The Letters of St.\@ Augustin},
   translator = {Cunningham, J. G.},
-  related = {NPNF},
+  xref = {NPNF},
   volume = {1/1},
-  pages = {209-593},
-  options = {parens, transinparens}
+  pages = {209-593}
 }
 
 @ancienttext{eusebius:constantine,
@@ -2486,10 +2518,10 @@
   author = {{Eusebius of Caesarea}},
   title = {The Life of Constantine},
   translator = {Richardson, Ernest Cushing},
-  related = {NPNF},
+  xref = {NPNF},
   volume = {2/1},
   pages = {481-559},
-  options = {parens, transinparens, skipbib=false}
+  options = {skipbib=false}
 }
 
 @series{PL,
@@ -2513,18 +2545,16 @@
 @ancienttext{gregory:orationestheologicae,
   author = {{Gregory of Nazianzus}},
   title = {Orationes theologicae},
-  related = {PG},
-  volume = {36},
-  options = {parens}
+  xref = {PG},
+  volume = {36}
 }
 
 @ancienttext{methodius:symp,
   author = {{Methodius of Olympus}},
   title = {Symposium \mkbibparens{Convivium decem virginum}},
   shorttitle = {Symp\adddot},
-  related = {PG},
-  volume = {18},
-  options = {parens}
+  xref = {PG},
+  volume = {18}
 }
 
 @mvbook{Str-B,
@@ -2764,17 +2794,17 @@
 }
 
 @ancienttext{victorinus:ephesians,
-  author = {Victorinus},
+  author = {{Marius Victorinus}},
   title = {Epistle to the Ephesians},
-  related = {edwards:1999},
-  relatedstring = {quoted in}
+  xref = {edwards:1999},
+  xrefstring = {quoted in}
 }
 
 @ancienttext{theodoret:galatians,
   author = {Theodoret},
   title = {Epistle to the Galatians},
-  related = {edwards:1999},
-  relatedstring = {quoted in}
+  xref = {edwards:1999},
+  xrefstring = {quoted in}
 }
 
 @reference{MGS,
@@ -3319,9 +3349,10 @@
   shorthand = {NTApoc},
   editor = {Schneemelcher, Wilhelm},
   title = {New Testament Apocrypha},
-  volumes = {2},
   editora = {Wilson, Robert McL.},
-  editorastring = {Rev.\@ ed.\@ English trans.\@ ed\adddot},
+  editoratype = {English trans.\@ ed\adddot},
+  volumes = {2},
+  edition = {Rev.\@ ed\adddot},
   location = {Cambridge and Louisville},
   publisher = {Clarke and Westminster John Knox},
   date = {2003}
@@ -3329,7 +3360,7 @@
 
 @ancienttext{actsandrew,
   title = {Acts of Andrew},
-  related = {NTApoc},
+  xref = {NTApoc},
   volume = {2},
   pages = {101-151}
 }
@@ -3338,15 +3369,14 @@
   title = {Muratorian Fragment},
   shorttitle = {Mur.\@ Frag\adddot},
   translator = {Schneemelcher, Wilhelm},
-  related = {NTApoc},
+  xref = {NTApoc},
   volume = {1}
 }
 
 @ancienttext{actsjohn,
   title = {Acts John},
-  related = {NTApoc},
-  volume = {2},
-  options={parens}
+  xref = {NTApoc},
+  volume = {2}
 }
 
 @mvreference{BNP,
@@ -3445,17 +3475,19 @@
 }
 
 @ancienttext{apocrseth,
-  title = {The Apocryphon of Seth},
+  title = {Apocryphon of Seth},
   shorttitle = {Apocr.\@ Seth},
-  related = {MOTP},
+  translator = {Toepel, Alexander},
+  xref = {MOTP},
   volume = {1},
   pages = {33-39}
 }
 
 @ancienttext{bknoah,
-  title = {The Book of Noah},
+  title = {Book of Noah},
   shorttitle = {Bk.\@ Noah},
-  related = {MOTP},
+  translator = {Himmelfarb, Martha},
+  xref = {MOTP},
   volume = {1},
   pages = {40-46}
 }
@@ -3491,50 +3523,45 @@
   title = {Testament of Reuben},
   shorttitle = {T. Reu\adddot},
   translator = {Kee, H. C.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {782-785},
-  options = {parens, transinparens}
+  pages = {782-785}
 }
 
 @ancienttext{apoc.zeph.,
   title = {Apocalypse of Zephaniah},
   shorttitle = {Apoc.\@ Zeph\adddot},
   translator = {Wintermute, O. S.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {508-515},
-  options = {parens, transinparens}
+  pages = {508-515}
 }
 
 @ancienttext{sib.or.,
   title = {Sibylline Oracles},
   shorttitle = {Sib.\@ Or\adddot},
   translator = {Collins, J. J.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {317-472},
-  options = {parens, transinparens}
+  pages = {317-472}
 }
 
 @ancienttext{ezek.trag.,
   title = {Ezekiel the Tragedian},
   shorttitle = {Ezek.\@ Trag\adddot},
   translator = {Robertson, R. G.},
-  related = {OTP},
+  xref = {OTP},
   volume = {2},
-  pages = {803-820},
-  options = {parens, transinparens}
+  pages = {803-820}
 }
 
 @ancienttext{jos.asen.,
   title = {Joseph and Aseneth},
   shorttitle = {Jos.\@ Asen\adddot},
   translator = {Burchard, C.},
-  related = {OTP},
+  xref = {OTP},
   volume = {2},
-  pages = {177-248},
-  options = {parens, transinparens}
+  pages = {177-248}
 }
 
 @mvcollection{APOT,

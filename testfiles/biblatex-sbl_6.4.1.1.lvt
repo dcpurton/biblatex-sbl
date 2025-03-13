@@ -11,19 +11,19 @@
 \begin{document}
 \START
 \showoutput
-\AtNextCitekey{\toggletrue{sbl@blx@parens}}\transcite{greathymnaten}
+\transcite{greathymnaten}
 
-\cite[44-46]{greathymnaten}
+\cite{greathymnaten}
 
 \volcite{3.5}[16-17]{COS}
 
 \transcite[17]{bedouin:allen}
 
-\transcite{bedouin:allen}
+\ptranscite{bedouin:allen}
 
 \cite[16]{bedouin:allen}
 
-\cite{bedouin:allen}
+\parencite{bedouin:allen}
 
 \citetitle{bedouin:allen}
 
@@ -33,7 +33,7 @@
 
 \volcite{2.113D}[267, col.~ii, lines 13--25]{COS}
 
-\voltranscite{2.117E}[290, lines 10′--13′]{summaryinscription8}
+\pvoltranscite{2.117E}[290, lines 10′--13′]{summaryinscription8}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

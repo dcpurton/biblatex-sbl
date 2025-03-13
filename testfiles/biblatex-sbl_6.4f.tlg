@@ -36,7 +36,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 290.48148fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 319.49088fil, direction TLT
 ....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
 ....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
@@ -282,7 +282,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 e
-.....\write1{\abx@aux@page{11}{\the \c@page }}
+.....\write1{\abx@aux@page{8}{\the \c@page }}
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A005300690062002E005C00400020004F0072005C0061006400640064006F00740020> } action goto name{cite.0:shorttitle:Sib.\\@\040Or\\adddot\040}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
@@ -386,7 +386,7 @@ Completed box being shipped out [1]
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 n
-.....\write1{\abx@aux@page{14}{\the \c@page }}
+.....\write1{\abx@aux@page{10}{\the \c@page }}
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A0045007A0065006B002E005C004000200054007200610067005C0061006400640064006F00740020> } action goto name{cite.0:shorttitle:Ezek.\\@\040Trag\\adddot\040}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
@@ -445,7 +445,7 @@ Completed box being shipped out [1]
 ......\localleftbox=null
 ......\localrightbox=null
 .....\hbox(0.0+0.0)x0.0, direction TLT
-.....\write1{\abx@aux@page{17}{\the \c@page }}
+.....\write1{\abx@aux@page{12}{\the \c@page }}
 .....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A004A006F0073002E005C00400020004100730065006E005C0061006400640064006F00740020> } action goto name{cite.0:shorttitle:Jos.\\@\040Asen\\adddot\040}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/n/10 J
@@ -474,55 +474,10 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -300
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 13.1625 plus 4.05 minus 0.80998
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 6.514
-....\hbox(9.57599+0.2016)x345.0, glue set 141.3024fil, direction TLT
-.....\localpar
-......\localinterlinepenalty=0
-......\localbrokenpenalty=0
-......\localleftbox=null
-......\localrightbox=null
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\glue 0.0
-.....\hbox(0.0+0.0)x0.0, direction TLT
-......\kern0.0
-......\penalty 10000
-......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(0.0+0.0)x0.0, shifted -18.0, direction TLT
-........\pdfdest name{section*.1} xyz
-........\penalty 10000
-......\glue 0.0 plus 1.0fil minus 1.0fil
-.....\TU/Brill(0)/b/n/14.4 R
-.....\kern-0.216 (font)
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 f
-.....\discretionary (penalty 50)
-......< \TU/Brill(0)/b/n/14.4 -
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 r
-.....\discretionary (penalty 50)
-......< \kern-0.288 (font)
-......< \TU/Brill(0)/b/n/14.4 -
-......= \kern-0.144 (font)
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 n
-.....\TU/Brill(0)/b/n/14.4 c
-.....\TU/Brill(0)/b/n/14.4 e
-.....\TU/Brill(0)/b/n/14.4 s
-.....\penalty 10000
-.....\glue(\parfillskip) 0.0 plus 1.0fil
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 10000
-....\glue 9.31502 plus 0.80998
-....\glue -9.31502 plus -0.80998
-....\glue 9.31502 plus -0.19002
-....\glue -9.31502 plus 0.19002
-....\glue 10.0 plus 3.0 minus 5.0
-....\glue(\parskip) 0.0 plus 1.0
-....\glue(\parskip) 0.0
-....\glue(\baselineskip) 6.3464
+....\glue(\baselineskip) 4.638
 ....\hbox(7.452+0.168)x345.0, glue set 133.98601fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
@@ -536,7 +491,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\hbox(0.0+0.0)x0.0, direction TLT
 .......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
-........\pdfdest name{section*.2} xyz
+........\pdfdest name{section*.1} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\TU/Brill(0)/b/n/12 A
@@ -600,7 +555,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{18}{\the \c@page }}
+.....\write1{\abx@aux@page{13}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 p
 .....\TU/Brill(0)/m/n/10 o
@@ -675,7 +630,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{20}{\the \c@page }}
+.....\write1{\abx@aux@page{15}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 z
 .....\kern-0.1 (font)
@@ -746,7 +701,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{22}{\the \c@page }}
+.....\write1{\abx@aux@page{17}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 J
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 o
@@ -806,7 +761,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{24}{\the \c@page }}
+.....\write1{\abx@aux@page{19}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 S
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 b
@@ -858,7 +813,7 @@ Completed box being shipped out [1]
 ......\penalty 10000
 ......\hbox(0.0+0.0)x0.0, direction TLT
 .......\hbox(0.0+0.0)x0.0, shifted -14.0, direction TLT
-........\pdfdest name{section*.3} xyz
+........\pdfdest name{section*.2} xyz
 ........\penalty 10000
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 .....\TU/Brill(0)/b/n/12 S
@@ -915,7 +870,7 @@ Completed box being shipped out [1]
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
 .....\penalty 0
-.....\write1{\abx@aux@page{26}{\the \c@page }}
+.....\write1{\abx@aux@page{21}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 C
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 a

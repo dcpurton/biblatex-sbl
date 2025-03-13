@@ -11,9 +11,13 @@
 \begin{document}
 \START
 \showoutput
-\cite[(\obv\space lines 10--17)143-144]{ashurinscription}
+\cite[(obv.\ lines 10--17)143-144]{ashurinscription}
 
-\cite[(\obv\space lines 10--17)143-144]{ashurinscription}
+\cite[(obv.\ lines 10--17)143-144]{ashurinscription}
+
+\cite{ashurinscription:RIMA}
+
+\cite[(obv.\ lines 10--17)143-144]{ashurinscription:RIMA}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

@@ -268,17 +268,17 @@
 }
 
 @ancienttext{victorinus:ephesians,
-  author = {Victorinus},
+  author = {{Marius Victorinus}},
   title = {Epistle to the Ephesians},
-  related = {edwards:1999},
-  relatedstring = {quoted in}
+  xref = {edwards:1999},
+  xrefstring = {quoted in}
 }
 
 @ancienttext{theodoret:galatians,
   author = {Theodoret},
   title = {Epistle to the Galatians},
-  related = {edwards:1999},
-  relatedstring = {quoted in}
+  xref = {edwards:1999},
+  xrefstring = {quoted in}
 }
 \end{verbatim}
 
@@ -1333,9 +1333,9 @@ with permission.
 }
 \end{verbatim}
 
-\examplecite[paren][(3.506–521)]{josephus:bj}
-\examplecite[ptrans][(2.233–235)]{josephus:aj}
-\examplecite[atrans](5)[See also][(3.506–521)]{josephus:bj}
+\examplecite[][(3.506-521)]{josephus:bj}
+\examplecite[ptrans][(2.233-235)]{josephus:aj}
+\examplecite[atrans](5)[See also][(3.506-521)]{josephus:bj}
 \begin{fverbcite}{8}
   \footnote{All translations of Josephus’s \citetitle*{josephus:cap} follow the
     translation in \cite{josephus:life;againstapion}.}
@@ -1346,6 +1346,7 @@ with permission.
 \exampleancientsources
 \examplesecondarysources
 \examplebibliography
+\examplereferences{https://sblhs2.com/2018/02/15/josephus/}
 
 \section{Citing Page Numbers for Chapters and Articles (8 February 2018)}
 
@@ -1623,13 +1624,12 @@ with permission.
   \footnote{“Thou, which dost luminate all the cities of the earth by Thy
     feminine light; Thou, which nourishes all the seeds of the world by Thy
     Damp heat, giving Thy Changing light according to the wanderings, near or
-    far, of the sun” \ptranscite[11.2]{apuleius:metam}.}
+    far, of the sun” \ptranscite[(11.2)]{apuleius:metam}.}
 \end{fverbcite}
 \begin{fverbcite}{3}
   \footnote{Translations from the \citetitle{apuleius:golden} follow that of
     \cite{apuleius:golden}}.
 \end{fverbcite}
-\cite{apuleius:golden}.
 \begin{verbcite}
   \nocite{aristotle:metaphysics:2, augustine:cityofgod:1,
     aristotle:metaphysics, augustine:cityofgod, augustine:selectletters,
@@ -1822,9 +1822,10 @@ with permission.
   shorthand = {NTApoc},
   editor = {Schneemelcher, Wilhelm},
   title = {New Testament Apocrypha},
-  volumes = {2},
   editora = {Wilson, Robert McL.},
-  editorastring = {Rev.\@ ed.\@ English trans.\@ ed\adddot},
+  editoratype = {English trans.\@ ed\adddot},
+  edition = {Rev.\@ ed\adddot},
+  volumes = {2},
   location = {Cambridge and Louisville},
   publisher = {Clarke and Westminster John Knox},
   date = {2003}
@@ -1832,14 +1833,7 @@ with permission.
 
 @ancienttext{actsandrew,
   title = {Acts of Andrew},
-  related = {NTApoc},
-  volume = {2},
-  pages = {101-151}
-}
-
-@ancienttext{actsandrew,
-  title = {Acts of Andrew},
-  related = {NTApoc},
+  xref = {NTApoc},
   volume = {2},
   pages = {101-151}
 }
@@ -1848,15 +1842,14 @@ with permission.
   title = {Muratorian Fragment},
   shorttitle = {Mur.\@ Frag\adddot},
   translator = {Schneemelcher, Wilhelm},
-  related = {NTApoc},
+  xref = {NTApoc},
   volume = {1}
 }
 
 @ancienttext{actsjohn,
   title = {Acts John},
-  related = {NTApoc},
-  volume = {2},
-  options={parens}
+  xref = {NTApoc},
+  volume = {2}
 }
 \end{verbatim}
 
@@ -1878,6 +1871,19 @@ with permission.
 \end{fverbcite}
 \exampleancientsources
 \examplesecondarysources
+
+
+\subsection{Notes}
+
+SBLHS~§6.1.1 gives the following sequence for publication information:
+\begin{itemize}
+  \item Editor, compiler, and/or translator
+  \item Edition if not the first
+  \item Volumes
+\end{itemize}
+\pkg{biblatex-sbl} follows this order rather than the one given in the blog
+for \cite{NTApoc}.
+
 \examplereferences{https://sblhs2.com/2017/08/17/citing-text-collections-8-_ntapoc-_/}
 
 \section{Canon Muratori/The Muratorian Fragment (10 August 2017)}
@@ -2041,14 +2047,14 @@ with permission.
 @ancienttext{clementinehomilies,
   entrysubtype = {ancientbook},
   title = {The Clementine Homilies},
-  related = {ANF},
-  options = {parens}
+  xref = {ANF}
 }
 
 @mvcollection{NPNF,
   shorthand = {NPNF},
   editor = {Schaff, Philip},
-  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian Church},
+  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian
+           Church},
   origdate = {1886/1889},
   volumes = {28},
   series = {2},
@@ -2062,10 +2068,9 @@ with permission.
   author = {Augustine},
   title = {The Letters of St.\@ Augustin},
   translator = {Cunningham, J. G.},
-  related = {NPNF},
+  xref = {NPNF},
   volume = {1/1},
-  pages = {209-593},
-  options = {parens, transinparens}
+  pages = {209-593}
 }
 
 @ancienttext{eusebius:constantine,
@@ -2073,10 +2078,10 @@ with permission.
   author = {{Eusebius of Caesarea}},
   title = {The Life of Constantine},
   translator = {Richardson, Ernest Cushing},
-  related = {NPNF},
+  xref = {NPNF},
   volume = {2/1},
   pages = {481-559},
-  options = {parens, transinparens, skipbib=false}
+  options = {skipbib=false}
 }
 \end{verbatim}
 
@@ -2107,7 +2112,7 @@ with permission.
   entrysubtype = {inancientcollection},
   title = {A Report of Bedouin},
   translator = {Allen, James P.},
-  related = {COS},
+  xref = {COS},
   volume = {3},
   text = {5},
   pages = {16–17}
@@ -2117,7 +2122,7 @@ with permission.
   entrysubtype = {inancientcollection},
   title = {Summary Inscription 8},
   translator = {Younger, Jr., K. Lawson},
-  related = {COS}
+  xref = {COS}
 }
 \end{verbatim}
 
@@ -2169,17 +2174,19 @@ with permission.
 }
 
 @ancienttext{apocrseth,
-  title = {The Apocryphon of Seth},
+  title = {Apocryphon of Seth},
   shorttitle = {Apocr.\@ Seth},
-  related = {MOTP},
+  translator = {Toepel, Alexander},
+  xref = {MOTP},
   volume = {1},
   pages = {33-39}
 }
 
 @ancienttext{bknoah,
-  title = {The Book of Noah},
+  title = {Book of Noah},
   shorttitle = {Bk.\@ Noah},
-  related = {MOTP},
+  translator = {Himmelfarb, Martha},
+  xref = {MOTP},
   volume = {1},
   pages = {40-46}
 }
@@ -2193,7 +2200,7 @@ with permission.
   \footnote{The \citetitle*{bknoah} reports: “Then all the children of Noah
     together with their children came and reported their afflictions to Noah
     their father and told him about the pains their children endured”
-    \ptranscite[46]{bknoah}.}
+    \ptranscite[(3)46]{bknoah}.}
 \end{fverbcite}
 \exampleancientsources
 \examplesecondarysources
@@ -2233,10 +2240,9 @@ with permission.
   title = {Testament of Reuben},
   shorttitle = {T. Reu\adddot},
   translator = {Kee, H. C.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {782-785},
-  options = {parens}
+  pages = {782-785}
 }
 \end{verbatim}
 
@@ -2255,6 +2261,18 @@ with permission.
 \exampleancientsources
 \examplesecondarysources
 \examplebibliography
+
+\subsection{Notes}
+
+SBL is not consistent with how they cite an ancient source with translator and
+text collection. The most common option is:
+
+Author, \emph{Title} Source division (trans.\@ A. N. Translator, Collection
+Vol:Page).
+
+\pkg{biblatex-sbl} adopts this format even when it departs from the blog or
+handbook (as in the case of the \citetitle*{t.reu.} above).
+
 \examplereferences{https://sblhs2.com/2017/06/15/pseudepigraphic-testaments/}
 
 \section{Citing Text Collections 3: \emph{OTP} (8 June 2017)}
@@ -2274,40 +2292,36 @@ with permission.
   title = {Apocalypse of Zephaniah},
   shorttitle = {Apoc.\@ Zeph\adddot},
   translator = {Wintermute, O. S.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {508-515},
-  options = {parens, transinparens}
+  pages = {508-515}
 }
 
 @ancienttext{sib.or.,
   title = {Sibylline Oracles},
   shorttitle = {Sib.\@ Or\adddot},
   translator = {Collins, J. J.},
-  related = {OTP},
+  xref = {OTP},
   volume = {1},
-  pages = {317-472},
-  options = {parens, transinparens}
+  pages = {317-472}
 }
 
 @ancienttext{ezek.trag.,
   title = {Ezekiel the Tragedian},
   shorttitle = {Ezek.\@ Trag\adddot},
   translator = {Robertson, R. G.},
-  related = {OTP},
+  xref = {OTP},
   volume = {2},
-  pages = {803-820},
-  options = {parens, transinparens}
+  pages = {803-820}
 }
 
 @ancienttext{jos.asen.,
   title = {Joseph and Aseneth},
   shorttitle = {Jos.\@ Asen\adddot},
   translator = {Burchard, C.},
-  related = {OTP},
+  xref = {OTP},
   volume = {2},
-  pages = {177-248},
-  options = {parens, transinparens}
+  pages = {177-248}
 }
 \end{verbatim}
 
@@ -2348,7 +2362,7 @@ with permission.
   entrysubtype = {inancientcollection},
   title = {The Legend of Sargon},
   translator = {Speiser, E. A.},
-  related = {ANET},
+  xref = {ANET},
   pages = {119}
 }
 
@@ -2356,7 +2370,7 @@ with permission.
   entrysubtype = {inancientcollection},
   title = {Lamentation over the Destruction of Sumer and Ur},
   translator = {Kramer, S. N.},
-  related = {ANET},
+  xref = {ANET},
   pages = {455-463}
 }
 \end{verbatim}
@@ -2473,7 +2487,8 @@ with permission.
 @mvcollection{NPNF:firsted,
   shorthand = {NPNF},
   editor = {Schaff, Philip},
-  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian Church},
+  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian
+           Church},
   volumes = {28},
   series = {2},
   date = {1886/1889}
@@ -2966,9 +2981,8 @@ with permission.
 @ancienttext{gregory:orationestheologicae,
   author = {{Gregory of Nazianzus}},
   title = {Orationes theologicae},
-  related = {PG},
-  volume = {36},
-  options = {parens}
+  xref = {PG},
+  volume = {36}
 }
 \end{verbatim}
 
@@ -2992,9 +3006,8 @@ with permission.
   author = {{Methodius of Olympus}},
   title = {Symposium \mkbibparens{Convivium decem virginum}},
   shorttitle = {Symp\adddot},
-  related = {PG},
-  volume = {18},
-  options = {parens}
+  xref = {PG},
+  volume = {18}
 }
 \end{verbatim}
 
