@@ -472,10 +472,7 @@
                 {\ifdefbibmacro{cite:short:\thefield{entrytype}}
                    {\usebibmacro*{cite:short:\thefield{entrytype}}}
                    {\usebibmacro{cite:short}}}}
-             {\iffieldequalstr{pagination}{section}
-                {\delimcontext{section}}
-                {}%
-              \usebibmacro{cite:shorthand}%
+             {\usebibmacro{cite:shorthand}%
               \usebibmacro{cite:postnote}}}}
        {\ifcrossrefseen
          {\usebibmacro{cite:full:citepages}%

@@ -592,13 +592,18 @@
     (
       not test {\iffieldundef{volcitevolume}}
       or
-      test {\ifpaginationequalstr{section}}
+      (
+        not test {\ifpaginationequalstr{none}}
+        and
+        not test {\ifpaginationequalstr{page}}
+        and
+        not test {\ifpaginationequalstr{subverbo}}
+      )
     )
   }
     {}
     {\addcomma}%
   \space}
-\DeclareDelimFormat[section]{postnotedelim}{\addspace}
 \DeclareDelimFormat[series]{postnotedelim}{\addspace}
 \DeclareDelimFormat[volume]{postnotedelim}{%
   \ifpaginationequalstr{none}
