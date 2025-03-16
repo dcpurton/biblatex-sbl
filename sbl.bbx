@@ -354,18 +354,20 @@
 \DeclareBibliographyDriver{inreference}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
-  \usebibmacro{author/translator+others}%
-  \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{title}%
-  \newunit\newblock
-  \iffieldundef{xref}
-    {}
-    {\addskipentry{\thefield{xref}}%
-     \entrydata*{\thefield{xref}}{\usebibmacro{cite:shorthand}}}%
-  \setunit{\titlevolumedelim}%
-  \usebibmacro{volume+part+pages}%
-  \newunit\newblock
-  \usebibmacro{doi+eprint+url}%
+  \iffieldundef{booktitle}
+    {\usebibmacro{author/translator+others}%
+     \setunit{\printdelim{nametitledelim}}\newblock
+     \usebibmacro{title}%
+     \newunit\newblock
+     \iffieldundef{xref}
+       {}
+       {\addskipentry{\thefield{xref}}%
+        \entrydata*{\thefield{xref}}{\usebibmacro{cite:shorthand}}}%
+     \setunit{\titlevolumedelim}%
+     \usebibmacro{volume+part+pages}%
+     \newunit\newblock
+     \usebibmacro{doi+eprint+url}}
+    {\usedriver{}{incollection}}%
   \usebibmacro{finentry}}
   
 \DeclareBibliographyDriver{review}{%
