@@ -665,6 +665,7 @@
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
 \DeclareFieldFormat{nonlatin}{#1}
+\DeclareFieldFormat{number}{\mknormrange{#1}}
 \DeclareFieldFormat{pages}{\mkpageprefix[pagination][\mkcomprange]{#1}}
 \DeclareFieldFormat[article,inbook,incollection,inreference,review]{pages}{%
   \def\abx@str{abx@sstr}%
@@ -1731,6 +1732,12 @@
         \printfield[inseries]{series}%
         \clearfield{series}}
        {}}}
+
+\newbibmacro*{parts}{%
+  \iffieldundef{volumes}
+    {\printfield{parts}%
+     \clearfield{parts}}
+    {}}
 
 \newbibmacro*{volume+part+of:}{%
   \iffieldundef{volume}
