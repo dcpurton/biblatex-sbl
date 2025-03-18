@@ -91,11 +91,13 @@
   citetracker=true,
   dateabbrev=false,
   ibidtracker=false,
+  idemtracker=citation,
   language=american,
   maxbibnames=99,
   mincrossrefs=2,
   minxrefs=1,
   nametracker=context,
+  pagetracker=true,
   pagination=none,
   shorthandintro=false,
   sorting=nwty,
@@ -471,10 +473,14 @@
                 {\usebibmacro{cite:ibid}}
                 {\ifdefbibmacro{cite:short:\thefield{entrytype}}
                    {\usebibmacro*{cite:short:\thefield{entrytype}}}
-                   {\usebibmacro{cite:short}}}}
+                   {\usebibmacro{cite:short}}}%
+                 \AtNextCitekey{\blx@idemreset}}
              {\usebibmacro{cite:shorthand}%
               \usebibmacro{cite:postnote}}}}
-       {\ifcrossrefseen
+       {\ifciteidem
+          {\DeclareNameAlias{default}{labelname}}
+          {}%
+        \ifcrossrefseen
          {\usebibmacro{cite:full:citepages}%
           \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
          {\ifentrytype{ancienttext}

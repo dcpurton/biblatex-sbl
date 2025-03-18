@@ -75,6 +75,31 @@
        {\@firstoftwo}
        {\@secondoftwo}}}
 
+% idem settings
+\def\blx@opt@idemtracker@citation{%
+  \let\blx@imc@ifciteidem\blx@ifciteidem@citation
+  \let\blx@idemtracker\blx@idemtracker@constrict
+  \let\blx@idemreset\blx@idemreset@context
+  \booltrue{citetracker}}
+
+\def\blx@ifciteidem@citation{%
+  \ifbool{citetracker}
+    {\iftoggle{blx@footnote}
+       {\blx@ifmpfncheckidem
+          {\blx@imc@iffieldequals{fullhash}\blx@lasthash@foot}
+          {\@secondoftwo}}
+       {\iffirstcitekey
+          {\@secondoftwo}
+          {\blx@imc@iffieldequals{fullhash}\blx@lasthash@text}}}
+    {\@secondoftwo}}
+
+\def\blx@ifmpfncheckidem{%
+  \ifnum\numexpr\value\@mpfn-\blx@lastmpfn<\@ne
+    \expandafter\@firstoftwo
+  \else
+    \expandafter\@secondoftwo
+  \fi}
+
 % set a field value
 \newrobustcmd{\setfield}[3][]{%
   \ifstrequal{#1}{overwrite}

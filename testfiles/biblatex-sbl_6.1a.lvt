@@ -1,0 +1,57 @@
+\DocumentMetadata{lang=en}
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\cites{moore:2010}{moore:2014}
+
+\citereset
+
+\cite{moore:2010}
+
+\cites{moore:2010}{moore:2014}
+
+\citereset
+
+\cite{moore:2010}
+
+\cite{moore:2014}
+
+\citereset
+\cites{moore:2010}{moore:2014}{cadwallader:2016}
+
+\citereset
+\cite{harrison:2016}
+
+\cites{harrison:2016}{moore:2010}{moore:2014}
+
+\citereset
+Filler text \autocites{moore:2010}{moore:2014}.
+\citereset
+Filler text.\footnote{\cite{moore:2010}; \cite{moore:2014}.}
+\citereset
+Filler text \autocite{moore:2010}. Filler text
+\autocites{moore:2010}{moore:2014}
+\citereset
+Filler text \autocite{moore:2010}. Filler text.\footnote{\cite{moore:2010};
+\cite{moore:2014}.}
+\citereset
+Filler text \autocite{moore:2010}. Filler text \autocite{moore:2014}.
+\citereset
+Filler text \autocite{harrison:2016}.
+Filler text \autocites{harrison:2016}{moore:2010}{moore:2014}
+\citereset
+Filler text \autocite{harrison:2016}.
+Filler text.\footnote{\cite{harrison:2016}; \cite{moore:2010};
+\cite{moore:2014}.}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
