@@ -723,6 +723,7 @@
 \DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{series}}
 \DeclareFieldFormat[article]{series}{#1}
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
+\DeclareFieldFormat[abbreviation]{shorthand}{#1\isdot}
 \DeclareFieldFormat[series]{shorthand}{#1}
 \DeclareFieldFormat[online,review,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
@@ -1184,6 +1185,10 @@
    \blx@key@bibcheck{bibliography}}
   {}
   {}
+
+\DeclareBiblistFilter{bibliography}{
+  \filter[type=nottype,filter=abbreviation]
+}
 
 \defbibcheck{bibliography}{%
   \sbl@blx@skipentries

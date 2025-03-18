@@ -218,7 +218,17 @@
       \strut\quad nottype=ancienttext]\{abbreviations\}}}
   \@afterheading
   \printbiblist[heading=subbibliography, title=Secondary Sources,
-    nottype=ancienttext]{abbreviations}}
+    nottype=ancienttext, nottype=abbreviation]{abbreviations}}
+
+\NewDocumentCommand{\examplesigla}{}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Sigla
+      and Grammatical \\
+      \strut\quad Abbreviations, type=abbreviation]\{abbreviations\}}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Sigla and Grammatical
+    Abbreviations, type=abbreviation]{abbreviations}}
 
 \NewDocumentCommand{\examplebibliography}{}{%
   \par
@@ -599,16 +609,29 @@ with permission.
   title = {Antiquitates romanae},
   shorttitle = {Ant\adddotspace rom\adddot}
 }
+
+@abbreviation{abl.,
+  entrysubtype = {abbreviation},
+  shorthand = {abl.},
+  definition = {ablative}
+}
+
+@abbreviation{>,
+  entrysubtype = {sigla},
+  shorthand = {>},
+  definition = {omits the lemma}
+}
 \end{verbatim}
 
 \begin{verbcite}
   \nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
     AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup,
     justinmartyr:1apol, 1en, 1QM, 4QpNah, livy:aburbe, cicero:agr,
-    plutarch:ant, dionysius:ant}
+    plutarch:ant, dionysius:ant, abl., >}
 \end{verbcite}
 \exampleancientsources
 \examplesecondarysources
+\examplesigla
 \examplereferences{https://sblhs2.com/2018/05/24/abbreviations-lists/}
 
 \section{Series Volume Identifiers: Old/New and Concurrent Series (17 May 2018)}
@@ -5243,4 +5266,20 @@ this feature by default. See
 \url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.
 
 \examplereferences{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}
+
+\section{Research Methods (29 December 2016)}
+
+\begin{verbatim}
+@abbreviation{SRI,
+  entrysubtype = {acronym},
+  shorthand = {SRI},
+  definition = {sociorhetorical interpretation}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{SRI}
+\end{verbcite}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/12/29/research-methods/}
 \end{document}

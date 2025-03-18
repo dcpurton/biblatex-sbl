@@ -173,6 +173,12 @@
 \DeclareNestableCiteCommand{\citeshorthand}
   {\usebibmacro{cite:shorthand}}
 
+\DeclareCiteCommand{\abbrev}
+  {}
+  {\cite{cite:shorthand}}
+  {\multicitedelim}
+  {}
+
 \DeclareCiteCommand*{\cite}
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%

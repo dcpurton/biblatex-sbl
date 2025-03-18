@@ -8,6 +8,11 @@
   \usebibmacro{sbl:set:bib:format}%
 }
 
+\DeclareBibliographyDriver{abbreviation}{%
+  \usebibmacro{begentry}%
+  \printfield{definition}%
+  \usebibmacro{finentry}}
+
 \DeclareBibliographyDriver{ancienttext}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%

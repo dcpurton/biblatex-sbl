@@ -13,10 +13,13 @@
 \showoutput
 \nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
 AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
-1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant}
+1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant, abl.,
+>}
 \section*{Abbreviations}
 \printbiblist[heading=subbibliography, title=Ancient Sources,
   type=ancienttext]{abbreviations}
 \printbiblist[heading=subbibliography, title=Secondary Sources,
-  nottype=ancienttext]{abbreviations}
+  nottype=ancienttext, nottype=abbreviation]{abbreviations}
+\printbiblist[heading=subbibliography, title=Sigla and Grammatical
+  Abbreviations, type=abbreviation]{abbreviations}
 \end{document}
