@@ -51,6 +51,21 @@
 \usepackage{newunicodechar}
 \newunicodechar{ }{\relax}% this is U+00A0
 
+% redefine hyperlink anchors to be independent of \iffootnote
+\DeclareFieldFormat{bibhyperlink}{%
+  \bibhyperlink{\cbx@resetcount:\thefield{entrykey}}{#1}}
+\DeclareFieldFormat{bibhypertarget}{%
+  \ifboolexpr{
+    not test {\iffieldundef{crossref}}
+    and
+    not test {\ifcrossrefseen}
+  }
+    {\bibhypertarget{\cbx@resetcount:\thefield{crossref}}{}}
+    {}%
+  \bibhypertarget{\cbx@resetcount:\thefield{entrykey}}{#1}}
+\DeclareFieldFormat{shorttitlelink}{%
+  \bibhyperlink{\cbx@resetcount:\thefield{entrykey}}{#1}}
+
 % Redefine \smartcite so autocite prints inline with a period.
 \DeclareCiteCommand{\smartcite}[\bibfootnotewrapper]
   {\usebibmacro{prenote}}
@@ -5162,11 +5177,70 @@ and formats the title of the \emph{Oxford Classical Dictionary} article as
   \citereset
 \end{verbcite}
 \examplecite(8){moore:2010}
-\begin{Verbatim}[formatcom=\color{cmdcolour}]
-\autocites[See][25]{moore:2010}[57]{moore:2014}
-\end{Verbatim}
-\quad 9.\space\strut\cites[See][25]{moore:2010}[57]{moore:2014}
+\begin{fverbcite}{9}
+  \autocites[See][25]{moore:2010}[57]{moore:2014}
+\end{fverbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2017/01/10/idem/}
+
+\section{Subsequent Bibliographic References (5 January 2017)}
+
+\begin{verbatim}
+@book{gruca-macaulay:2016,
+  author = {Gruca-Macaulay, Alexandra},
+  title = {Lydia as a Rhetorical Construct in Acts},
+  shorttitle = {Lydia as a Rhetorical Construct},
+  series = {Emory Studies in Early Christianity},
+  shortseries = {ESEC},
+  number = {18},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2016}
+}
+
+@incollection{patterson:2016,
+  author = {Patterson, Stephen J.},
+  title = {The Baptists of Corinth: Paul, the Partisans of Apollos, and the History of
+           Baptism in Nascent Christianity},
+  booktitle = {Stones, Bones, and the Sacred: Essays on Material Culture and Ancient
+               Religion in Honor of Dennis E. Smith},
+  editor = {Cadwallader, Alan H.},
+  series = {Early Christianity and Its Literature},
+  shortseries = {ECL},
+  number = {21},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2016},
+  pages = {315-327}
+}
+\end{verbatim}
+
+\examplecite(4){gruca-macaulay:2016}
+\examplecite(6){patterson:2016}
+\examplecite(8)[5]{gruca-macaulay:2016}
+\examplecite(9)[320]{patterson:2016}
+\begin{verbcite}
+  \citereset
+\end{verbcite}
+\examplecite(4){gruca-macaulay:2016}
+\examplecite(5)[5]{gruca-macaulay:2016}
+\examplecite(6){patterson:2016}
+\examplecite(7)[321]{patterson:2016}
+\examplecite(6)[320]{patterson:2016}
+\examplecite(7)[320]{patterson:2016}
+\begin{fverbcite}{9}
+  \autocites[5]{gruca-macaulay:2016}[320]{patterson:2016}
+\end{fverbcite}
+\examplecite(10)[322]{patterson:2016}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{Notes}
+
+SBL now discourages the use of \emph{ibid.}, so \pkg{biblatex-sbl} disables
+this feature by default. See
+\url{https://sblhs2.com/2018/02/01/cms-update-ibid/}.
+
+\examplereferences{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/}
 \end{document}
