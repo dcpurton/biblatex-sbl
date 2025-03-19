@@ -5032,7 +5032,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 
 \examplecite[][(4)]{nicolaus:prog}
 \examplecite[][(3)]{aphthonius:prog}
-\examplevolcite[]{2}[(4)\unexpanded{73,28--74,15}]{theon:prog}
+\examplevolcite[]{2}[(4)\nopnfmt{73,28--74,15}]{theon:prog}
 \examplecite[][(1)]{libanius:prog}
 \examplecite[][(1.2)]{libanius:prog}
 \examplecite[][(1.2.2)]{libanius:prog}
@@ -5282,4 +5282,254 @@ this feature by default. See
 \end{verbcite}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2016/12/29/research-methods/}
+
+\section{Sifre Deuteronomy (22 December 2016)}
+
+\begin{verbatim}
+@book{Finkelstein,
+  shorthand = {Finkelstein},
+  author = {Finkelstein, Louis},
+  title = {Siphre ad Deuteronomium},
+  location = {New York},
+  publisher = {Jewish Theological Seminary of America},
+  date = {1969},
+  options = {shorthandformat=roman}
+}
+
+@ancienttext{sifredeut,
+  shorttitle = {Sifre Deut\adddot},
+  title = {Sifre Deuteronomy},
+  xref = {Finkelstein}
+}
+
+@book{hammer:1986,
+  author = {Hammer, Reuven},
+  title = {Sifre: A Tannaitic Commentary on the Book of Deuteronomy},
+  series = {Yale Judaica Series},
+  number = {24},
+  location = {New Haven},
+  publisher = {Yale University Press},
+  date = {1986}
+}
+
+@mvbook{neusner:1987,
+  author = {Neusner, Jacob},
+  title = {Sifre to Deuteronomy: An Analytical Translation},
+  volumes = {2},
+  series = {Brown Judaic Studies},
+  shortseries = {BJS},
+  number = {98, 101},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1987}
+}
+\end{verbatim}
+
+\examplecite[][(49)]{sifredeut}
+\examplecite[][(49 on 11:22)]{sifredeut}
+\begin{verbcite}
+  \nocite{hammer:1986, neusner:1987}
+\end{verbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/12/22/sifre-deuteronomy/}
+
+\section{Herodian of Antioch (20 December 2016)}
+
+\begin{verbatim}
+@ancienttext{herodian:hist,
+  author = {Herodian},
+  title = {History of the Empire from the Death of Marcus},
+  shorttitle = {Hist\adddot},
+  translator = {Whittaker}
+}
+\end{verbatim}
+
+\examplecite[paren][(2.2)]{herodian:hist}
+\examplecite[ptrans][(2.2)]{herodian:hist}
+\exampleancientsources
+\examplereferences{https://sblhs2.com/2016/12/20/herodian-antioch/}
+
+\section{Sifre Numbers (15 December 2016)}
+
+\begin{verbatim}
+@book{Horovitz,
+  shorthand = {Horovitz},
+  editor = {Horovitz, Haim Shaul Horovitz},
+  title = {Sifre ʻal sefer Ba-midbar ve-sifre zuṭa},
+  location = {Leipzig},
+  publisher = {Fock},
+  date = {1917},
+  options = {shorthandformat=roman}
+}
+
+@ancienttext{sifrenum,
+  shorttitle = {Sifre Num\adddot},
+  title = {Sifre Numbers},
+  xref = {Horovitz}
+}
+
+@book{neusner:1998,
+  author = {Neusner, Jacob},
+  title = {Sifré Numbers},
+  parts = {4},
+  volume = {12},
+  maintitle = {The Components of the Rabbinic Documents: From the Whole to the Parts},
+  series = {South Florida Academic Commentary Series},
+  number = {104-107},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1998}
+}
+\end{verbatim}
+
+\examplecite[][(42)]{sifrenum}
+\examplecite[][(42.2)]{sifrenum}
+\examplecite[][(42.2.3)]{sifrenum}
+\examplecite[][(\pnfmt{42.2.3F})]{sifrenum}
+\examplecite[][(42)\nopnfmt{46,9--10}]{sifrenum}
+\begin{verbcite}
+  \nocite{neusner:1998}
+\end{verbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/12/15/sifre-numbers/}
+
+\section{Polybius of Megalopolis (13 December 2016)}
+
+\begin{verbatim}
+@ancienttext{polybius:hist,
+  author = {Polybius},
+  title = {Historiae},
+  shorttitle = {Hist\adddot},
+  translator = {Paton}
+}
+\end{verbatim}
+
+\examplecite[paren][(2.2)]{polybius:hist}
+\examplecite[ptrans][(2.2)]{polybius:hist}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/12/13/polybius-megalopolis/}
+
+\section{Diodorus Siculus (29 November 2016)}
+
+\begin{verbatim}
+@ancienttext{diodorussiculus:bibhist,
+  author = {{Diodorus Siculus}},
+  title = {Bibliotheca historica},
+  shorttitle = {Bib\addotspace Hist\adddot},
+  translator = {Oldfather}
+}
+\end{verbatim}
+
+\examplecite[paren][(9.1)]{diodorussiculus:bibhist}
+\examplecite[ptrans][(9.1)]{diodorussiculus:bibhist}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/11/29/diodorus-siculus/}
+
+\section{Le Monde de la Bible (22 November 2016)}
+
+\begin{verbatim}
+@book{lance:1990,
+  author = {Lance, Darrell H.},
+  title = {Archéologie et Ancien Testament},
+  series = {Le Monde de la Bible},
+  shortseries = {MdB},
+  number = {21},
+  location = {Geneva},
+  publisher = {Labor et Fides},
+  date = {1990},
+  langid = {french}
+}
+
+@article{magness:2003,
+  author = {Magness, Jodi},
+  title = {Dernieres nouvelles de Qumrân},
+  journaltitle = {Le Monde de la Bible},
+  shortjournal = {MdB},
+  volume = {151},
+  date = {2003},
+  pages = {14-17},
+  langid = {french}
+}
+
+@journal{WoB,
+  journaltitle = {The World of the Bible},
+  shortjournal = {WoB}
+}
+
+@article{cannuyer:2016,
+  author = {Cannuyer, Christian},
+  title = {Vivere l’eternità di Rê e Osiride},
+  journaltitle = {Il Mondo della Bibbia},
+  shortjournal = {MdelB},
+  volume = {132},
+  date = {2016},
+  pages = {2-9},
+  langid = {italian}
+}
+
+@article{zimmerling:2016,
+  author = {Zimmerling, Peter},
+  title = {Was ist Mystik? Hintergründe und Zugänge},
+  shorttitle = {Was ist Mystik?},
+  journaltitle = {Welt und Umwelt der Bibel},
+  shortjournal = {WUB},
+  volume = {3},
+  date = {2016},
+  pages = {8-13},
+  langid = {german}
+}
+
+@book{mondedelabible:2016,
+  author = {{Le Monde de la Bible}},
+  sortname = {{Monde de la Bible}},
+  title = {Des chrétiens vers Pékin: Sur la route de la soie},
+  location = {Montrouge cedex},
+  publisher = {Bayard},
+  date = {2016},
+  langid = {french}
+}
+
+@book{worldofthebible:2015,
+  author = {{The World of the Bible}},
+  sortname = {{World of the Bible}},
+  title = {The Bible and the Koran},
+  location = {Montrouge cedex},
+  publisher = {Bayard},
+  date = {2015}
+}
+
+@book{alexander+etal:1996,
+  author = {Alexander, Pat and Drane, John William and Field, David and Millard, Alan and Huser, Etienne},
+  title = {Le monde de la Bible},
+  shorttitle = {Monde de la Bible},
+  sorttitle = {Monde de la Bible},
+  location = {Bale and Turnhout},
+  publisher = {Brunnen and Brepols},
+  date = {1996}
+}
+
+@book{lemaire:1998,
+  author = {Lemaire, André},
+  title = {Le monde de la Bible},
+  shorttitle = {Monde de la Bible},
+  sorttitle = {Monde de la Bible},
+  location = {Paris},
+  publisher = {Gallimard},
+  date = {1998},
+  langid = {french}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{lance:1990, magness:2003, WoB, cannuyer:2016, zimmerling:2016,
+    mondedelabible:2016, worldofthebible:2015, alexander+etal:1996,
+    lemaire:1998}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/11/22/le-monde-de-la-bible/}
 \end{document}
