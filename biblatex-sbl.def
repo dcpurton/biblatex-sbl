@@ -1082,11 +1082,25 @@
 
 % \ifbegpages and \iffieldbegpages macros
 % building on https://tex.stackexchange.com/q/316730/87678
+\ExplSyntaxOn
+% this function ensures a field beginning with \pnfmt always gives true for
+% \ifbegpages
+\cs_new_protected:Nn \__sbl_blx_haspnfmt:n
+  {
+    \tl_if_blank:nF { #1 }
+      {
+        \tl_if_head_eq_meaning:nNT { #1 } \pnfmt
+          { \def\sbl@blx@tempa { 1 } }
+      }
+  }
+\cs_generate_variant:Nn \__sbl_blx_haspnfmt:n { o }
+\cs_set_eq:NN \sbl@blx@haspnfmt \__sbl_blx_haspnfmt:o
+\ExplSyntaxOff
 \def\sbl@blx@firstword#1{\sbl@blx@firstword@i#1 \@nil}
-\def\sbl@blx@firstword@i{}
 \def\sbl@blx@firstword@i#1 #2\@nil{\unexpanded{#1}}%
 \protected\def\ifbegpages#1{%
   \edef\sbl@blx@tempa{\sbl@blx@firstword{#1}}%
+  \sbl@blx@haspnfmt{\sbl@blx@tempa}%
   \expandafter\blx@imc@ifpages
     \expandafter{\sbl@blx@tempa}}
 \protected\def\iffieldbegpages#1{%
@@ -1096,6 +1110,16 @@
      \expandafter\ifbegpages
      \expandafter\expandafter
      \expandafter{\csname abx@field@#1\endcsname}}}
+
+% define macro to suppress formatting of postnote
+% (useful if you want 12,13 without a space)
+\appto\blx@blxinit{%
+  \let\nopnfmt\unexpanded}%
+
+% redefine \pnfmt so it uses current field format rather than hard coding
+% postnote
+\appto\blx@blxinit{%
+  \protected\def\pnfmt{\printtext[\currentfield]}}%
 
 % define s.v. and s.vv. helper macros:
 \appto\blx@blxinit{%
