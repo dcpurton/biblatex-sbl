@@ -317,6 +317,13 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
+    % @journal entries not in bibliography
+    \map[overwrite]{
+      \pertype{journal}
+      \step[fieldsource=options, match=\regexp{(.*)}]
+      \step[fieldset=options, fieldvalue={skipbib,}]
+      \step[fieldset=options, fieldvalue={$1}, append]
+    }
     % blog and comment entrysubtypes do not appear in the bibliography
     \map[overwrite]{
       \pertype{online}
