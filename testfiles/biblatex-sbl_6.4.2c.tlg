@@ -2483,6 +2483,7 @@ Completed box being shipped out [1]
 .\hbox(0.0+0.0)x0.0, direction TLT
 .\kern633.0
 (biblatex-sbl_6.4.2c.aux)
+LaTeX Warning: There were undefined references.
 Package biblatex Warning: Please rerun LaTeX.
 (biblatex)                Page breaks have changed.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4.2c.run.xml'.
