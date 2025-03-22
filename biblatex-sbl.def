@@ -509,6 +509,10 @@
   \noinherit{indexsorttitle}
 }
 
+\DeclareDatafieldSet{names}{
+  \member[datatype=name, fieldtype=list]
+}
+
 
 % ## Localisation
 
