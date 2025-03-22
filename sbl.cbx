@@ -154,23 +154,54 @@
   \gdef\blxsd@postnote{#2}}
 
 % Thanks to @moewe (https://tex.stackexchange.com/a/497548/87678)
-\newcommand*{\DeclareNestableCiteCommand}[2]{%
-  \newcommand*{#1}[1]{%
-    \blx@xsanitizeafter\blx@nocite@do{##1}%
-    \blx@ifdata{##1}
-      {\begingroup
-       \blx@blxinit
-       \entrydata{##1}{#2}%
-       \endgroup}
-      {\abx@missing@entry{##1}}}}
+\ExplSyntaxOn
+\NewDocumentCommand \DeclareNestableCiteCommand { s m m }
+  {
+    \cs_set_nopar:cpn { __sbl_cite_temp } ##1
+      {
+        \blx@xsanitizeafter \blx@nocite@do { ##1 }
+        \blx@ifdata { ##1 }
+          {
+            \begingroup
+            \blx@blxinit
+            \entrydata{##1}{#3}
+            \endgroup
+          }
+          { \abx@missing@entry { ##1 } }
+      }
+    \bool_if:nTF { #1 }
+      {
+        \cs_set_eq:cc { __sbl_cite_star_#2 } { __sbl_cite_temp }
+      }
+      {
+        \cs_set_eq:cc { __sbl_cite_#2 } { __sbl_cite_temp }
+      }
+    \cs_set_nopar:cpn { #2 }
+      {
+        \peek_meaning_remove:NTF *
+          {
+            \cs_if_exist:cTF { __sbl_cite_star_#2 }
+              { \use:c { __sbl_cite_star_#2 } }
+              { \use:c { __sbl_cite_#2 } }
+          }
+          { \use:c { __sbl_cite_#2 } }
+      }
+  }
+\ExplSyntaxOff
 
-\DeclareNestableCiteCommand{\citeseries}
-  {\usebibmacro{abbrev:shortfield}{shortseries}{series}}
-
-\DeclareNestableCiteCommand{\citejournal}
+\DeclareNestableCiteCommand{citejournal}
   {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}}
 
-\DeclareNestableCiteCommand{\citeshorthand}
+\DeclareNestableCiteCommand*{citejournal}
+  {\printfield{journaltitle}}
+
+\DeclareNestableCiteCommand{citeseries}
+  {\usebibmacro{abbrev:shortfield}{shortseries}{series}}
+
+\DeclareNestableCiteCommand*{citeseries}
+  {\printfield{series}}
+
+\DeclareNestableCiteCommand{citeshorthand}
   {\usebibmacro{cite:shorthand}}
 
 \DeclareCiteCommand{\abbrev}
