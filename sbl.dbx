@@ -1,6 +1,12 @@
 \ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
 
-\DeclareDatamodelConstant[type=list]{nameparts}{prefix,family,suffix,given,shortfamily}
+\DeclareDatamodelConstant[type=list]{nameparts}{
+  prefix,
+  family,
+  suffix,
+  given,
+  postnominal,
+  shortfamily}
 
 \DeclareDatamodelEntrytypes{
   abbreviation,

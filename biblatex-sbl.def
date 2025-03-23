@@ -567,6 +567,7 @@
 \newcommand*{\locationpublisherdelim}{\addcolon\space}
 \newcommand*{\multiseriesdelim}{\ifbibliography{\addsemicolon\space}{\addcomma\space}}
 \newcommand*{\oftitlepunct}{\addspace}
+\newcommand*{\postnominaldelim}{\addcomma\bibnamedelimc}
 \newcommand*{\publisherdelim}{\addsemicolon\space}
 \renewcommand*{\relateddelim}{\addsemicolon\space}
 \newcommand*{\relateddelimmultivolarticle}{\addsemicolon\space}
@@ -896,6 +897,59 @@
       {\namepartprefix}
       {\namepartsuffix}%
   \fi
+  \usebibmacro{name:andothers}}
+
+% Patch in postnominal name part
+\DeclareNameFormat{given-family}{%
+  \ifgiveninits
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiveni}
+      {\namepartprefix}
+      {\namepartsuffix}}
+    {\usebibmacro{name:given-family}
+      {\namepartfamily}
+      {\namepartgiven}
+      {\namepartprefix}
+      {\namepartsuffix}}%
+  \ifdefempty{\namepartpostnominal}
+    {}
+    {\postnominaldelim\namepartpostnominal\isdot}%
+  \usebibmacro{name:andothers}}
+
+\DeclareNameFormat{family-given/given-family}{%
+  \ifnumequal{\value{listcount}}{1}
+    {\ifgiveninits
+       {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffix}}
+       {\usebibmacro{name:family-given}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}}%
+     \ifboolexpe{%
+       test {\ifdefvoid\namepartgiven}
+       and
+       test {\ifdefvoid\namepartprefix}}
+       {}
+       {\usebibmacro{name:revsdelim}}}
+    {\ifgiveninits
+       {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiveni}
+         {\namepartprefix}
+         {\namepartsuffix}}
+       {\usebibmacro{name:given-family}
+         {\namepartfamily}
+         {\namepartgiven}
+         {\namepartprefix}
+         {\namepartsuffix}}}%
+  \ifdefempty{\namepartpostnominal}
+    {}
+    {\postnominaldelim\namepartpostnominal\isdot}%
   \usebibmacro{name:andothers}}
 
 % Family, Given von, Junior
