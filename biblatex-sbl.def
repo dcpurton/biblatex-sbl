@@ -1620,6 +1620,19 @@
      \clearname{editor}}
     {\global\undef\bbx@lasthash}}
 
+\newbibmacro*{byeditor+others}{%
+  \ifnameundef{editor}
+    {}
+    {\usebibmacro{byeditor+othersstrg}%
+     \setunit{\addspace}%
+     \printnames[byeditor]{editor}%
+     \setunit{\addspace}%
+     \printnames{witheditor}%
+     \clearname{editor}%
+     \newunit}%
+  \usebibmacro{byeditorx}%
+  \usebibmacro{bytranslator+others}}
+
 \renewbibmacro*{bybookauthor}{%
   \ifboolexpr{
     test {\ifnameundef{bookauthor}}
