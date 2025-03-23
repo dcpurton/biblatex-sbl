@@ -284,10 +284,11 @@
       \step[fieldsource=issue, match=\regexp{\d+}, final]
       \step[fieldset=issue, null]
     }
-    % incommentary with an xref uses inreference driver
+    % incommentary and incollection with an xref uses inreference driver
     \map[overwrite]{
       \step[fieldsource=xref, final]
       \step[typesource=incommentary, typetarget=inreference]
+      \step[typesource=incollection, typetarget=inreference]
     }
     % ensure all entries (included related clones) are considered for the list of abbreviations
     \map[overwrite]{
@@ -1829,11 +1830,14 @@
 
 \newbibmacro*{volume+part:}{%
   \iffieldundef{volume}
-    {}
+    {\printfield{part}%
+     \clearfield{part}%
+     \setunit*{\addcomma\space}}
     {\printfield{volume}%
      \clearfield{volume}%
      \setunit*{\addcomma\space}%
      \printfield{part}%
+     \clearfield{part}%
      \setunit{\addcolon\space}}}
 
 \newbibmacro*{volumes+parts}{%
