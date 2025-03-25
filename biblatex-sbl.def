@@ -2090,15 +2090,15 @@
     test {\ifbibliography}
     or
     (
-      test {\iffieldundef{origpublisher}}
+      test {\iflistundef{origpublisher}}
       and
-      test {\iffieldundef{origlocation}}
+      test {\iflistundef{origlocation}}
       and
-      test {\iffieldundef{origdate}}
+      test {\iffieldundef{origyear}}
       and
-      test {\iffieldundef{publisher}}
+      test {\iflistundef{publisher}}
       and
-      test {\iffieldundef{location}}
+      test {\iflistundef{location}}
       and
       test {\iffieldundef{year}}
       and
@@ -2120,15 +2120,15 @@
     test {\ifbibliography}
     or
     (
-      test {\iffieldundef{origpublisher}}
+      test {\iflistundef{origpublisher}}
       and
-      test {\iffieldundef{origlocation}}
+      test {\iflistundef{origlocation}}
       and
-      test {\iffieldundef{origdate}}
+      test {\iffieldundef{origyear}}
       and
-      test {\iffieldundef{publisher}}
+      test {\iflistundef{publisher}}
       and
-      test {\iffieldundef{location}}
+      test {\iflistundef{location}}
       and
       test {\iffieldundef{year}}
       and
