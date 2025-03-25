@@ -67,13 +67,13 @@
   \bibhyperlink{\cbx@resetcount:\thefield{entrykey}}{#1}}
 
 % Redefine \smartcite so autocite prints inline with a period.
-\DeclareCiteCommand{\smartcite}[\bibfootnotewrapper]
+\DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\bibfootnotewrapper]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand*{\smartcite}[\bibfootnotewrapper]
+\DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\bibfootnotewrapper]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
    \usebibmacro{cite}}
@@ -182,7 +182,7 @@
   \par
   \@afterheading
   \normalcolor
-  \renewcommand\footnote[1]{##1}%
+  \renewcommand\footnote[1]{\toggletrue{blx@footnote}##1}%
   \quad #1.\space\strut\enverbExecute
 }
 
@@ -5503,7 +5503,8 @@ this feature by default. See
 }
 
 @book{alexander+etal:1996,
-  author = {Alexander, Pat and Drane, John William and Field, David and Millard, Alan and Huser, Etienne},
+  author = {Alexander, Pat and Drane, John William and Field, David and Millard, Alan
+            and Huser, Etienne},
   title = {Le monde de la Bible},
   shorttitle = {Monde de la Bible},
   sorttitle = {Monde de la Bible},
@@ -5532,4 +5533,643 @@ this feature by default. See
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2016/11/22/le-monde-de-la-bible/}
+
+\section{Separating Author Names (8 November 2016)}
+
+\begin{verbatim}
+@book{talbert:1992,
+  author = {Talbert, Charles H.},
+  title = {Reading John},
+  subtitle = {A Literary and Theological Commentary on the Fourth Gospel and the
+              Johannine Epistles},
+  location = {New York},
+  publisher = {Crossroad},
+  date = {1992}
+}
+
+@book{tigay:1985,
+  editor = {Tigay, Jeffrey H.},
+  title = {Empirical Models for Biblical Criticism},
+  shorttitle = {Empiracle Models},
+  location = {Philadelphia},
+  publisher = {University of Pennsylvania Press},
+  date = {1985}
+}
+
+@book{robinson+koester:1971,
+  author = {Robinson, James M. and Koester, Helmut},
+  title = {Trajectories through Early Christianity},
+  location = {Philadelphia},
+  publisher = {Fortress},
+  date = {1971}
+}
+
+@book{kaltner+mckenzie:2002,
+  editor = {Kaltner, John and McKenzie, Steven L.},
+  title = {Beyond Babel},
+  subtitle = {A Handbook for Biblical Hebrew and Related Languages},
+  series = {Resources for Biblical Study},
+  shortseries = {RBS},
+  number = {42},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2002}
+}
+
+@book{boda+floyd+toffelmire:2015,
+  editor = {Boda, Mark J. and Floyd, Michael H. and Colin M. Toffelmire},
+  title = {The Book of the Twelve and the New Form Criticism},
+  series = {Ancient Near East Monographs},
+  shortseries = {ANEM},
+  number = {10},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2015}
+}
+
+@book{oates+etal:2001,
+  editor = {Oates, John F. and Willis, William H. and Bagnall, Roger S. and Worp,
+            Klass A.},
+  title = {Checklist of Editions of Greek and Latin Papyri, Ostraca, and Tablets},
+  edition = {5},
+  series = {Bulletin of the American Society of Papyrologists, Supplements},
+  shortseries = {BASPSup},
+  number = {9},
+  location = {Oakville, CT},
+  publisher = {American Society of Papyrologists},
+  date = {2001}
+}
+
+@book{harrison+welborn:forthcoming,
+  editor = {Harrison, James R. and Welborn, L. L.},
+  title = {The First Urban Churches 2},
+  subtitle = {Roman Corinth},
+  shorttitle = {Roman Corinth},
+  series = {Writings from the Greco-Roman World Supplement Series},
+  shortseries = {WGRWSup},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  pubstate = {forthcoming}
+}
+\end{verbatim}
+
+\examplecite[]{talbert:1992}
+\examplecite[]{tigay:1985}
+\examplecite[]{robinson+koester:1971}
+\examplecite[]{kaltner+mckenzie:2002}
+\examplecite[]{boda+floyd+toffelmire:2015}
+\examplecite[]{oates+etal:2001}
+\begin{verbcite}
+  \nocite{harrison+welborn:forthcoming}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{Notes}
+
+The Blog incorrectly uses “Jeffrey H. Tigay, ed.” rather than “Tigay, Jeffrey
+H., ed.” for the bibliography format of this reference.
+
+\examplereferences{https://sblhs2.com/2016/11/08/separating-author-names/}
+
+\section{Hyphens, En Dashes, and Em Dashes (1 November 2016)}
+
+\begin{verbatim}
+@book{moore:2010,
+  author = {Moore, Stephen D.},
+  title = {The Bible in Theory: Critical and Postcritical Essays},
+  series = {Resources for Biblical Study},
+  shortseries = {RBS},
+  number = {57},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2010}
+}
+
+@book{moore:2006,
+  author = {Moore, Stephen D.},
+  title = {Empire and Apocalypse: Postcolonialism and the New Testament},
+  location = {Sheffield},
+  publisher = {Sheffield Phoenix},
+  date = {2006}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{moore:2010, moore:2006}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/11/01/hyphens-en-dashes-em-dashes/}
+
+\section{Formatting Titles (27 October 2016)}
+
+% TODO: finish section
+
+\begin{verbcite}
+  Ron Hendel's \citetitle*{hendel:2016}
+\end{verbcite}
+\begin{verbcite}
+  the \citejournal*{mckenzie:2010}
+\end{verbcite}
+\begin{verbcite}
+  Philo's \citetitle*{philo:contempl}
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{mckenzie:2010}'s \citejournal{mckenzie:2010} article
+  \citetitle*{mckenzie:2010}
+\end{verbcite}
+\begin{verbcite}
+  chapter 3, \citetitle*{hendel:2016:ch3}, in Ron Hendel's
+  \citefield{hendel:2016:ch3}[booktitle]{booktitle}
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{aymer:2016}'s essay \citetitle*{aymer:2016} in the volume
+  \citetitle*{byron+lovelace:2016}
+\end{verbcite}
+\begin{verbcite}
+  part 3 of \citefield{byron+lovelace:2016:part3}[booktitle]{booktitle},
+  \citetitle*{byron+lovelace:2016:part3}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/10/27/formatting-titles/}
+
+\section{Plutarch’s \emph{Moralia} (25 October 2016)}
+
+\begin{verbatim}
+@ancienttext{plutarch:isos,
+  author = {Plutarch},
+  title = {De Iside et Osiride},
+  shorttitle = {Is.\@ Os\adddot},
+  xref = {plutarch:isisoris}
+}
+
+@ancienttext{plutarch:alexfort,
+  author = {Plutarch},
+  title = {De Alexandri magni fortuna aut virtute},
+  shorttitle = {Alex.\@ fort\adddot},
+  xref = {plutarch:romanquestions}
+}
+
+@ancienttext{plutarch:quaestconv,
+  author = {Plutarch},
+  title = {Quaestionum convivialum libri IX},
+  shorttitle = {Quaest.\@ conv\adddot},
+  translator = {Sandbach},
+  xref = {plutarch:tabletalk7}
+}
+
+@ancienttext{plutarch:cohibira,
+  author = {Plutarch},
+  title = {De cohibenda ira},
+  shorttitle = {Cohib.\@ ira\adddot},
+  xref = {plutarch:canvirtue}
+}
+
+@book{plutarch:isisoris,
+  author = {Plutarch},
+  title = {Isis and Oris; The E at Delphi; The Oracles at Delphi No Longer Given in
+           Verse; The Obsolescence of Oracles},
+  translator = {Babbitt, Frank Cole},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1936}
+}
+
+@book{plutarch:romanquestions,
+  author = {Plutarch},
+  title = {The Roman Questions; The Greek Questions; Greek and Roman Parallel Stories;
+           On the Fortune of the Romans; On the Fortune or the Virtue of Alexander;
+           Were the Athenians More Famous in War or in Wisdom?},
+  translator = {Babbitt, Frank Cole},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge and London},
+  publisher = {Harvard University Press and William Heinemann},
+  date = {1936}
+}
+
+@book{plutarch:tabletalk7,
+  author = {Plutarch},
+  title = {Table-Talk, Books 7–9; The Dialogue on Love},
+  translator = {Minar, Jr., Edwin L. and Sandbach, F. H. and Helmbold, W. C.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge and London},
+  publisher = {Harvard University Press and William Heinemann},
+  date = {1961}
+}
+
+@book{plutarch:canvirtue,
+  author = {Plutarch},
+  title = {Can Virtue be Taught?; On Moral Virtue; On the Control of Anger; On
+           Tranquility of Mind; On Brotherly Love; On Affection for Offspring; Whether
+           Vice Be Sufficient to Cause Unhappiness; Whether the Affections of the Soul
+           are Worse than those of the Body; Concerning Talkativeness; On Being a
+           Busybody},
+  translator = {Helmbold, W. C.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1939}
+}
+\end{verbatim}
+
+\examplecite[][(46 \mkbibparens{369a})]{plutarch:isos}
+\examplecite[][(1.5)]{plutarch:alexfort}
+\examplecite[][(9.2.3)]{plutarch:quaestconv}
+\examplecite[][(1.5 \mkbibparens{328c})]{plutarch:alexfort}
+\examplecite[paren][(9.2.3 \mkbibparens{738a})]{plutarch:quaestconv}
+\begin{verbcite}
+  Surely we should allow no place to anger even in jest, for that brings
+  enmity in where friendliness was; nor in learned discussions, for that turns
+  love of learning into strife. \ptranscite[(16
+  \mkbibparens{462b})]{plutarch:cohibira}
+\end{verbcite}
+\exampleancientsources
+\examplesecondarysources
+\examplebibliography
+
+\subsection{Notes}
+
+\begin{itemize}
+  \item The SBLHS blog has a typo for the translator. It should be
+    \emph{Helmbold}, not \emph{Helmhold}.
+  \item I've also chosen to use leave out the LCL qualifier for the translator
+    as elsewhere SBL does not include the edition.
+\end{itemize}
+
+\examplereferences{https://sblhs2.com/2016/10/25/plutarchs-moralia/}
+
+\section{Inscriptions and Papyri (20 October 2016)}
+
+\begin{verbatim}
+@mvbook{IEph,
+  shorthand = {IEph},
+  editor = {Wankel, Hermann and others},
+  title = {Die Inschriten von Ephesos},
+  volumes = {8},
+  location = {Bonn},
+  publisher = {Habelt},
+  date = {1979/1984},
+  pagination = {text},
+  options = {shorthandformat=roman},
+  langid = {german}
+}
+
+@mvbook{P.Ryl,
+  shorthand = {P.Ryl},
+  editor = {Hunt, Arthur S. and others},
+  title = {Catalogue of the Greek and Latin Papyri in the John Rylands Library,
+           Manchester},
+  volumes = {4},
+  location = {Manchester},
+  publisher = {Manchester University Press},
+  date = {1911/1952},
+  pagination = {text},
+  options = {shorthandformat=roman}
+}
+
+@mvbook{BGU,
+  shorthand = {BGU},
+  title = {Aegyptische Urkunden aus den Königlichen Staatlichen Museen zu Berlin,
+           Griechische Urkunden},
+  volumes = {15},
+  location = {Berlin},
+  publisher = {Weidmann},
+  date = {1895/1937},
+  pagination = {text},
+  langid = {german}
+}
+
+@mvbook{IG,
+  shorthand = {IG},
+  title = {Inscriptions Graecae},
+  edition = {Editio Minor},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1924/},
+  pagination = {text}
+}
+\end{verbatim}
+
+\examplevolcite[]{1a}{IEph}
+\examplevolcite[]{3}{P.Ryl}
+\examplevolcite[]{2}{BGU}
+\examplevolcite[]{1a}[7.2]{IEph}
+\examplevolcite[]{3}[457]{P.Ryl}
+\examplevolcite[]{2}[447]{BGU}
+\examplevolcite[]{7.1}[3025]{IEph}
+\examplevolcite[]{1a}[7.2, \lno~11]{IEph}
+\examplevolcite[]{1a}[8, \llno~16-17]{IEph}
+\examplevolcite[]{2}{IG}
+\examplevolcite[]{9.2}[21]{IG}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/10/20/inscriptions-papyri/}
+
+\section{\emph{Aufstieg und Niedergang der römischen Welt (ANRW)} (18 October
+  2016)}
+
+\begin{verbatim}
+@mvcollection{ANRW,
+  shorthand = {ANRW},
+  editor = {Temporini, Hildegard and Haase, Wolfgang},
+  maintitle = {Aufstieg und Niedergang der römischen Welt},
+  mainsubtitle = {Geschichte und Kultur Roms im Spiegel der neueren Forschung},
+  part = {2},
+  title = {Principat},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1972/},
+  langid = {german},
+  options = {usetitle=false}
+}
+
+@incollection{anderson:pepaideumenos,
+  author = {Anderson, Graham},
+  title = {The \mkbibemph{pepaideumenos} in Action},
+  subtitle = {Sophists and Their Outlook in the Early Empire},
+  shorttitle = {\mkbibemph{Pepaideumenos}},
+  xref = {ANRW},
+  volume = {33},
+  part = {1},
+  pages = {80-208}
+}
+\end{verbatim}
+
+\examplecite(76){anderson:pepaideumenos}
+\examplecite(79)[86]{anderson:pepaideumenos}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/10/18/anrw/}
+
+\section{Placement of Citations: Traditional Style (11 October 2016)}
+
+\begin{verbatim}
+@commentary{jewett:2007,
+  author = {Jewett, Robert},
+  title = {Romans: A Commentary},
+  series = {Hermeneia},
+  location = {Minneapolis},
+  publisher = {Fortress},
+  date = {2007}
+}
+
+@commentary{kasemann:1981,
+  author = {Käsemann, Ernst},
+  title = {Commentary on Romans},
+  translator = {Bromiley, Geoffrey W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1981}
+}
+
+@book{ramsay:1906,
+  author = {Ramsay, William Mitchell},
+  title = {The Letters to the Seven Churches of Asia and Their Place in the Plan of
+           the Apocalypse},
+  shorttitle = {Letters to the Seven Churches},
+  edition = {2},
+  location = {London},
+  publisher = {Hodder \& Stoughton},
+  date = {1906}
+}
+
+@book{ricoeur:1978,
+  author = {Ricoeur, Paul},
+  title = {The Rule of Metaphor: Multi-disciplinary Studies in the Creation of Meaning
+           in Language},
+  editor = {Czerny, Robert},
+  editortype = {translator},
+  witheditor = {McLaughlin, Kathleen and family=Constell, given=John,
+                postnominal=S.J.},
+  location = {London},
+  publisher = {Routledge \& Kegan Paul},
+  date = {1978}
+}
+
+@book{koller:2004,
+  author = {Koller, Veronika},
+  title = {Metaphor and Gender in Business Media Discourse: A Critical Cognitive
+           Study},
+  location = {Hampshire},
+  publisher = {Palgrave Macmillan},
+  date = {2004}
+}
+
+@article{gordon:1953,
+  author = {Gordon, Cyrus H.},
+  title = {Near East Seals in Princeton and Philadelphia},
+  journaltitle = {Orientalia \mkbibparens{NS}},
+  shortjournal = {Or},
+  volume = {22},
+  date = {1953},
+  pages = {242-250}
+}
+
+@book{gordon:1965,
+  author = {Gordon, Cyrus H.},
+  title = {Ugaritic Textbook},
+  series = {Analecta Orientalia},
+  shortseries = {AnOr},
+  number = {38},
+  location = {Rome},
+  publisher = {Pontifical Biblical Institute},
+  date = {1965}
+}
+
+@article{desilva:1998,
+  author = {DeSilva, David A.},
+  title = {Honor Discourse and the Rhetorical Strategy of the Apocalypse of John},
+  journaltitle = {Journal for the Study of the New Testament},
+  shortjournal = {JSNT},
+  volume = {71},
+  date = {1998},
+  pages = {79-110}
+}
+
+@book{richards:1965,
+  author = {Richards, I. A.},
+  title = {The Philosophy of Rhetoric},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {1965}
+}
+
+@book{evans+green:2006,
+  author = {Evans, Vyvyan and Green, Melanie},
+  title = {Cognitive Linguistics: An Introduction},
+  location = {New York},
+  publisher = {Routledge},
+  date = {2006}
+}
+\end{verbatim}
+
+\begingroup
+\DeclareDocumentCommand{\autocites}{omom}{\footnotemark{}}
+\setcounter{footnote}{5}
+\begin{verbcite}
+  Using the latter term, Jewett claims that believers are “members of the
+  realm of Christ” in that “their very being is shaped by Spirit rather than
+  flesh,” and Ernst Käsemann states: “Commitment to one or the other power
+  makes one a member of a worldwide domain which can be defined by the
+  alternatives of righteousness and unrighteousness, Christ and Adam, Spirit
+  and flesh, or Spirit and
+  law.”\autocites[489]{jewett:2007}[220]{kasemann:1981}
+\end{verbcite}
+\endgroup
+\par
+\strut\quad\raisebox{2ex}{\hypertarget{Hfootnote.1}{}}6.
+\cites[489]{jewett:2007}[220]{kasemann:1981}.
+\par
+\begingroup
+\DeclareDocumentCommand{\autocite}{om}{\footnotemark{}}
+\setcounter{footnote}{2}
+\begin{verbcite}
+  In the \citetitle{ramsay:1906}, originally published in 1904, classical
+  archaeologist and New Testament scholar Sir William Ramsay famously paired
+  detailed descriptions of the cities of Revelation, drawing upon ancient
+  texts, archaeological resources, and his own experiences in Turkey, with
+  discussions of the corresponding messages. This approach is based upon his
+  assumption that John “imparts to [the letters] many touches, specially
+  suitable to the individual Churches … showing his intimate knowledge of them
+  all.”\autocite[39]{ramsay:1906}
+\end{verbcite}
+\endgroup
+\par
+\strut\quad\raisebox{2ex}{\hypertarget{Hfootnote.2}{}}3.
+\cites[39]{ramsay:1906}.
+\begin{fverbcite}{3}
+  \autocites[16]{ricoeur:1978}[16]{koller:2004}
+\end{fverbcite}
+\begin{fverbcite}{97}
+  \footnote{\citeauthor{gordon:1953} argued that \emph{brh} in Isa 27:1 should
+  be translated “evil,” based on an Arabic cognate
+  \mkbibparens{\cite*[243]{gordon:1953}; \cite[see also][376]{gordon:1965}}.}
+\end{fverbcite}
+\begin{fverbcite}{77}
+  This is in line with \citeauthor*{desilva:1998}’s treatment of Rev 2–3 as
+  part of the text’s use of honor discourse. \cite[See][]{desilva:1998}.
+\end{fverbcite}
+\examplecite(52){richards:1965}
+\begin{fverbcite}{53}
+  \footnote{It is interesting to note that Richards also seems to anticipate
+  Lakoff and Johnson’s basic definition of metaphor when he writes that
+  metaphor includes “those processes in which we perceive or think of or feel
+  about one thing in terms of another” \autocite[116-117]{richards:1965}.}
+\end{fverbcite}
+\examplecite(54){evans+green:2006}
+\begin{fverbcite}{55}
+  \footnote{Entailments are “rich inferences” or knowledge (“sometimes quite
+  detailed”) that we can infer from conceptual metaphors
+  \autocite[298-299]{evans+green:2006}.}
+\end{fverbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/10/11/placement-citations-traditional/}
+
+\section{Citing Films (6 October 2016)}
+
+\begin{verbatim}
+@movie{scorsese:aviator,
+  author = {Scorsese, Martin},
+  authortype = {director},
+  title = {The Aviator},
+  organization = {Forward Pass},
+  date = {2004}
+}
+
+@movie{scorsese:aviator:dvd,
+  author = {Scorsese, Martin},
+  authortype = {dir\adddot},
+  title = {The Aviator},
+  howpublished = {DVD},
+  location = {Burbank, CA},
+  organization = {Warner},
+  date = {2005}
+}
+
+@video{scorsese+schoonmaker+mann:aviator,
+  entrysubtype = {invideo},
+  author = {Scorsese, Martin and Schoonmaker, Thelma and Mann, Michael},
+  title = {Feature Commentary},
+  volume = {\autocap{d}isc 2},
+  maintitle = {The Aviator},
+  howpublished = {DVD},
+  editor = {Scorsese, Martin},
+  editortype = {director},
+  location = {Burbank, CA},
+  organization = {Warner},
+  date = {2005}
+}
+
+@review{ebert:2004,
+  author = {Ebert, Roger},
+  revdtitle = {The Aviator},
+  website = {RogerEbert.com},
+  date = {2004},
+  url = {http://tinyurl.com/n6onocs}
+}
+
+@article{dargis:2004,
+  author = {Dargis, Manohla},
+  title = {Savoring a Legend before It Curdled},
+  journaltitle = {The New York Times},
+  date = {2004},
+  url = {http://tinyurl.com/j82pukj}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  Ironically, \citetitle*{scorsese:aviator} could be
+  \citeauthor{scorsese:aviator}’s ultimate exemplar for understanding how
+  Jesus is “nothing less than one of us.”
+\end{verbcite}
+\begin{verbcite}
+  \nocite{scorsese:aviator:dvd, scorsese+schoonmaker+mann:aviator, ebert:2004,
+    dargis:2004}
+\end{verbcite}
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/10/06/citing-films/}
+
+\section{Separating Publication Information (4 October 2016)}
+
+\begin{verbatim}
+@book{kaltner+mckenzie:2002,
+  editor = {Kaltner, John and McKenzie, Steven L.},
+  title = {Beyond Babel: A Handbook for Biblical Hebrew and Related Languages},
+  series = {Resources for Biblical Study},
+  shortseries = {RBS},
+  number = {42},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2002}
+}
+
+@book{oates+etal:2001,
+  editor = {Oates, John F. and Willis, William H. and Bagnall, Roger S. and Worp,
+            Klass A.},
+  title = {Checklist of Editions of Greek and Latin Papyri, Ostraca, and Tablets},
+  edition = {5},
+  series = {Bulletin of the American Society of Papyrologists, Supplements},
+  shortseries = {BASPSup},
+  number = {9},
+  location = {Oakville, CT},
+  publisher = {American Society of Papyrologists},
+  date = {2001}
+}
+\end{verbatim}
+
+\examplecite(4)[xii]{kaltner+mckenzie:2002}
+\examplecite(5)[10]{oates+etal:2001}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/10/04/separating-publication-information/}
+
+\section{Citing a Specific Printing (29 September 2016)}
+
 \end{document}
