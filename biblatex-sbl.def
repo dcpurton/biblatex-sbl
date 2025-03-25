@@ -530,6 +530,7 @@
 \NewBibliographyString{of}
 \NewBibliographyString{paper}
 \NewBibliographyString{parts}
+\NewBibliographyString{printing}
 \NewBibliographyString{reverse}
 \NewBibliographyString{series}
 \NewBibliographyString{subverbis}
@@ -738,6 +739,10 @@
   }
     {\mksubverbo{#1}}
     {\mkpageprefix[pagination][\mkcomprange]{#1}}}
+\DeclareFieldFormat{printing}{%
+  \ifinteger{#1}
+    {\mkbibordedition{#1}~\bibsstring{printing}}
+    {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
 \DeclareFieldFormat{revdtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{roman}{#1}
 \DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{series}}
@@ -1852,6 +1857,11 @@
 
 
 % ## Book macros
+
+\newbibmacro*{edition}{%
+  \printfield{edition}%
+  \setunit*{\addcomma\space}%
+  \printfield{printing}}
 
 \newbibmacro*{of:}{%
   \bibstring{of}%

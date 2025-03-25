@@ -18,6 +18,7 @@
 \DeclareDatamodelFields[type=field, datatype=literal]{
   definition,
   parts,
+  printing,
   revdtitle,
   revdsubtitle,
   revdtitleaddon,
