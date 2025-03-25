@@ -1037,8 +1037,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 n
 .....\TU/Brill(0)/m/it/10 a
 .....\TU/Brill(0)/m/it/10 l
-.....\TU/Brill(0)/m/n/10 .
-.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
+.....\TU/Brill(0)/m/n/10 ,
+.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
 .....\TU/Brill(0)/m/n/10 1
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 9
