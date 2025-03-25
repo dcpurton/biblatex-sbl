@@ -1,10 +1,10 @@
 \ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
 
-\DeclareDatamodelConstant[type=list]{nameparts}{
-  prefix,
+\DeclareDatamodelConstant[type=list]{nameparts}{%
   family,
-  suffix,
   given,
+  prefix,
+  suffix,
   postnominal,
   shortfamily}
 
