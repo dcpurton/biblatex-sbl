@@ -219,6 +219,10 @@
 
 % ## Bibliography record manipulation
 
+% flag to control whether to insert subtitle punctuation (the biblatex
+% punctation tracker isn't quite smart enough for for SBL style)
+\newtoggle{sbl@blx@addsubtitlepunct}
+
 \DeclareStyleSourcemap{
   \maps{
     % Split titles into titles and subtitles (ignoring braced colons)
@@ -268,6 +272,25 @@
     \map{
       \step[fieldsource=revdtitle, match=\regexp{^(A|An|The)\s+(.+)}, final]
       \step[fieldset=revdshorttitle, fieldvalue={$2}]
+    }
+    % add toggle to control subtitle punctuation (taken from biblatex-chicago)
+    \map[overwrite]{
+      \step[fieldsource=subtitle, final]
+      \step[fieldsource=title,
+      match=\regexp{\\(mkbib|en)quote\{.+((\?|\!)\})$}, final]
+      \step[fieldset=title, fieldvalue=\global\toggletrue{sbl@blx@addsubtitlepunct}, append]
+    }
+    \map[overwrite]{
+      \step[fieldsource=booksubtitle, final]
+      \step[fieldsource=booktitle,
+      match=\regexp{\\(mkbib|en)quote\{.+((\?|\!)\})$}, final]
+      \step[fieldset=booktitle, fieldvalue=\global\toggletrue{sbl@blx@addsubtitlepunct}, append]
+    }
+    \map[overwrite]{
+      \step[fieldsource=mainsubtitle, final]
+      \step[fieldsource=maintitle,
+      match=\regexp{\\(mkbib|en)quote\{.+((\?|\!)\})$}, final]
+      \step[fieldset=maintitle, fieldvalue=\global\toggletrue{sbl@blx@addsubtitlepunct}, append]
     }
     % articles with an integer issue and no volume treat issue like volume
     \map{
@@ -578,7 +601,16 @@
 \newcommand*{\reprintdelim}{\addsemicolon\space}
 \newcommand*{\reprintpunct}{\addcomma\space}
 \renewcommand*{\revsdnamedelim}{\addcomma}
-\renewcommand*{\subtitlepunct}{\addcolon\space}
+% intelligently handle subtitle punctuation (taken from biblatex-chicago)
+\renewcommand*{\subtitlepunct}{%
+  \ifboolexpr{
+    test {\ifterm}
+    and
+    not togl {sbl@blx@addsubtitlepunct}
+  }
+    {\addspace}
+    {\addcolon\space
+     \global\togglefalse{sbl@blx@addsubtitlepunct}}}
 \newcommand*{\titleaddonpunct}{%
   \ifboolexpr{
     test {\ifentrytype{ancienttext}}
