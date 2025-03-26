@@ -939,7 +939,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.96
-....\hbox(6.65+2.47)x314.52, glue set - 0.13695, shifted 30.48, direction TLT
+....\hbox(6.65+2.47)x314.52, glue set - 0.13692, shifted 30.48, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -1080,8 +1080,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 .

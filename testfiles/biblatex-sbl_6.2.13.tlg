@@ -318,8 +318,8 @@ Completed box being shipped out [1]
 .....\kern-0.35 (font)
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.82 plus 0.91182 minus 0.60545
+.....\penalty 10000
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
 .....\TU/Brill(0)/m/it/10 G
 .....\TU/Brill(0)/m/it/10 e
 .....\TU/Brill(0)/m/it/10 b
@@ -867,8 +867,8 @@ Completed box being shipped out [1]
 .....\kern-0.35 (font)
 .....\TU/Brill(0)/m/it/10 0
 .....\TU/Brill(0)/m/it/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.82 plus 0.91182 minus 0.60545
+.....\penalty 10000
+.....\glue(\spaceskip) 1.82 plus 0.91 minus 0.60667
 .....\TU/Brill(0)/m/it/10 G
 .....\TU/Brill(0)/m/it/10 e
 .....\TU/Brill(0)/m/it/10 b

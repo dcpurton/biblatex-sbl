@@ -11,13 +11,13 @@
 \begin{document}
 \START
 \showoutput
-\parencite[(59003)]{p.cair.zen.:hunt+edgar:1932}
+\parencite[(59003)]{pcairzen:hunt+edgar:1932}
 
-\volcite{1}[(59003)96]{p.cair.zen.:hunt+edgar:1932}
+\volcite{1}[(59003)96]{pcairzen:hunt+edgar:1932}
 
-\cite[(59003)§31]{p.cair.zen.:hunt+edgar:1932}
+\cite[(59003)§31]{pcairzen:hunt+edgar:1932}
 
-\cite[(59003)31]{p.cair.zen.:huntandedgar}
+\cite[(59003)31]{pcairzen:huntandedgar}
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}

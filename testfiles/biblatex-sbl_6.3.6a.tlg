@@ -1088,8 +1088,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 .

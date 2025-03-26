@@ -11,19 +11,19 @@
 \begin{document}
 \START
 \showoutput
-\fullcite{apoc.zeph.}
+\fullcite{apoczeph}
 
-\citetitle[(9.1)]{apoc.zeph.}
+\citetitle[(9.1)]{apoczeph}
 
-\ptranscitecollection[514]{apoc.zeph.}
+\ptranscitecollection[514]{apoczeph}
 
-\parencitecollection[514]{apoc.zeph.}
+\parencitecollection[514]{apoczeph}
 
-\cite[For a Christian insertion, see][(12.30-34)445]{sib.or.}
+\cite[For a Christian insertion, see][(12.30-34)445]{sibor}
 
-\cite[Moses addresses God at the burning bush in][(90-95)812]{ezek.trag.}
+\cite[Moses addresses God at the burning bush in][(90-95)812]{ezektrag}
 
-\cite[(29.1-6)]{jos.asen.}
+\cite[(29.1-6)]{josasen}
 \printbibliography
 \printbiblist[heading=subbibliography, title=Ancient Sources,
   type=ancienttext]{abbreviations}

@@ -13,7 +13,7 @@
 \showoutput
 \nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
 AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup, justinmartyr:1apol,
-1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant, abl.,
+1en, 1QM, 4QpNah, livy:aburbe, cicero:agr, plutarch:ant, dionysius:ant, abl,
 >}
 \section*{Abbreviations}
 \printbiblist[heading=subbibliography, title=Ancient Sources,

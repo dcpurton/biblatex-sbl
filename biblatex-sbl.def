@@ -681,19 +681,23 @@
 
 \DeclareFieldFormat[online,review,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
+  \begingroup
+  \frenchspacing
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
     or
     test {\iffieldequalstr{entrysubtype}{inancienttext}}
   }
-    {\mkbibquote{#1\isdot}}
+    {\mkbibquote{#1}}
     {\ifboolexpr{
        test {\ifnameundef{author}}
        and
        not test {\iffieldequalstr{entrysubtype}{ancientbook}}
      }
-       {#1\isdot}
-       {\mkbibemph{#1\isdot}}}}
+       {#1}
+       {\mkbibemph{#1}}}%
+  \endgroup
+  \isdot}
 \DeclareFieldFormat[video]{citetitle}{%
   \iffieldequalstr{entrysubtype}{invideo}
     {\mkbibquote{#1}}
@@ -748,7 +752,12 @@
 \DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{series}}
 \DeclareFieldFormat[article]{series}{#1}
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
-\DeclareFieldFormat[abbreviation]{shorthand}{#1\isdot}
+\DeclareFieldFormat[abbreviation]{shorthand}{%
+  \begingroup
+  \frenchspacing
+  #1%
+  \endgroup
+  \isdot}
 \DeclareFieldFormat[series]{shorthand}{#1}
 \DeclareFieldFormat[online,review,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
@@ -814,30 +823,48 @@
 \DeclareFieldFormat{shorthandtarget}{%
   \iffieldundef{shorthand}
     {#1}
-    {\bibhypertarget{shorthand:\strfield{shorthand}}{#1}}}
-\DeclareFieldFormat{shorthandlink}{\bibhyperlink{shorthand:\strfield{shorthand}}{#1}}
+    {\bibhypertarget{shorthand:\strfield{shorthand}}{#1}}%
+  \isdot}
+\DeclareFieldFormat{shorthandlink}{%
+  \bibhyperlink{shorthand:\strfield{shorthand}}{#1}%
+  \isdot}
 \DeclareFieldFormat{shortmaintitlelink}{%
-  \bibhyperlink{shorttitle:\strfield{shortmaintitle}}{#1}}
+  \begingroup
+  \frenchspacing
+  \bibhyperlink{shorttitle:\strfield{shortmaintitle}}{#1}%
+  \endgroup
+  \isdot}
 \DeclareFieldFormat{shorttitletarget}{%
   \iffieldundef{shorttitle}
     {#1}
-    {\bibhypertarget{shorttitle:\strfield{shorttitle}}{#1}}}
+    {\bibhypertarget{shorttitle:\strfield{shorttitle}}{#1}}%
+  \isdot}
 \DeclareFieldFormat{shorttitlelink}{%
   \bibhyperlink{\iffootnote{f}{t}:\cbx@resetcount:\thefield{entrykey}}{#1}}
 \DeclareFieldFormat[ancienttext]{shorttitlelink}{%
   \iffieldundef{entrysubtype}
-    {\bibhyperlink{shorttitle:\strfield{shorttitle}}{#1}}
+    {\begingroup
+     \frenchspacing
+     \bibhyperlink{shorttitle:\strfield{shorttitle}}{#1}%
+     \endgroup
+     \isdot}
     {#1}}
 \DeclareFieldFormat{shortjournaltarget}{%
   \iffieldundef{shortjournal}
     {#1}
-    {\bibhypertarget{shortjournal:\strfield{shortjournal}}{#1}}}
-\DeclareFieldFormat{shortjournallink}{\bibhyperlink{shortjournal:\strfield{shortjournal}}{#1}}
+    {\bibhypertarget{shortjournal:\strfield{shortjournal}}{#1}}%
+  \isdot}
+\DeclareFieldFormat{shortjournallink}{%
+  \bibhyperlink{shortjournal:\strfield{shortjournal}}{#1}%
+  \isdot}
 \DeclareFieldFormat{shortseriestarget}{%
   \iffieldundef{shortseries}
     {#1}
-    {\bibhypertarget{shortseries:\strfield{shortseries}}{#1}}}
-\DeclareFieldFormat{shortserieslink}{\bibhyperlink{shortseries:\strfield{shortseries}}{#1}}
+    {\bibhypertarget{shortseries:\strfield{shortseries}}{#1}}%
+  \isdot}
+\DeclareFieldFormat{shortserieslink}{%
+  \bibhyperlink{shortseries:\strfield{shortseries}}{#1}%
+  \isdot}
 
 \DeclareFieldAlias{shorthandwidth}{shorthand}
 \DeclareFieldAlias{shortjournalwidth}{journaltitle}
@@ -845,11 +872,20 @@
 \DeclareFieldFormat{shorttitlewidth}{}
 \DeclareFieldFormat[ancienttext]{shorttitlewidth}{%
   \iffieldundef{entrysubtype}
-    {\ifnameundef{author}
-       {#1\isdot}
-       {\mkbibemph{#1\isdot}}}
+    {\begingroup
+     \frenchspacing
+     \ifnameundef{author}
+       {#1}
+       {\mkbibemph{#1}}
+     \endgroup
+     \isdot}
     {}}
-\DeclareFieldAlias[ancienttext]{shortmaintitlewidth}[ancienttext]{maintitle}
+\DeclareFieldFormat[ancienttext]{shortmaintitlewidth}{
+  \begingroup
+  \frenchspacing
+  \mkbibemph{#1}%
+  \endgroup
+  \isdot}
 
 \DeclareListWrapperFormat{language}{\mkbibbrackets{#1}}
 

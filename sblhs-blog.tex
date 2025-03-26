@@ -463,12 +463,10 @@
 }
 \end{verbatim}
 
-\texttt{An earlier version of this essay appears as \textbackslash
-cite*\{moore:2017\}. Reused here\\ with permission.}
-
-An earlier version of this essay appears as \cite*{moore:2017}. Reused here
-with permission.
-
+\begin{verbcite}
+  An earlier version of this essay appears as \cite*{moore:2017}. Reused here
+  with permission.
+\end{verbcite}
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2018/06/28/special-footnotes/}
@@ -495,19 +493,19 @@ with permission.
 @ancienttext{philo:abr,
   author = {Philo},
   title = {De Abrahamo},
-  shorttitle = {Abr\adddot},
+  shorttitle = {Abr.},
 }
 
 @ancienttext{philo:agr,
   author = {Philo},
   title = {De agricultura},
-  shorttitle = {Agr\adddot},
+  shorttitle = {Agr.},
 }
 
 @ancienttext{graniuslicinianus:ann,
   author = {{Granius Licinianus}},
   title = {Annales},
-  shorttitle = {Ann\adddot}
+  shorttitle = {Ann.}
 }
 
 @mvbook{tacitus:histories,
@@ -525,7 +523,7 @@ with permission.
 @ancienttext{tacitus:ann,
   author = {Tacitus},
   title = {Annales},
-  shorttitle = {Ann\adddot},
+  shorttitle = {Ann.},
   xref = {tacitus:histories}
 }
 
@@ -568,12 +566,12 @@ with permission.
 @ancienttext{justinmartyr:1apol,
   author = {{Justin Martyr}},
   title = {First Apology},
-  shorttitle = {1~Apol\adddot}
+  shorttitle = {1~Apol.}
 }
 
 @ancienttext{1en,
   title = {1~Enoch},
-  shorttitle = {1~En\adddot}
+  shorttitle = {1~En.}
 }
 
 @ancienttext{1QM,
@@ -589,28 +587,28 @@ with permission.
 @ancienttext{livy:aburbe,
   author = {Livy},
   title = {Ab urbe condita},
-  shorttitle = {Ab urbe cond\adddot}
+  shorttitle = {Ab urbe cond.}
 }
 
 @ancienttext{cicero:agr,
   author = {Cicero},
   title = {De lege agraria},
-  shorttitle = {Agr\adddot}
+  shorttitle = {Agr.}
 }
 
 @ancienttext{plutarch:ant,
   author = {Plutarch},
   title = {Antonius},
-  shorttitle = {Ant\adddot}
+  shorttitle = {Ant.}
 }
 
 @ancienttext{dionysius:ant,
   author = {{Dionysius of Halicarnassus}},
   title = {Antiquitates romanae},
-  shorttitle = {Ant\adddotspace rom\adddot}
+  shorttitle = {Ant. rom.}
 }
 
-@abbreviation{abl.,
+@abbreviation{abl,
   entrysubtype = {abbreviation},
   shorthand = {abl.},
   definition = {ablative}
@@ -627,7 +625,7 @@ with permission.
   \nocite{AB, ABD, philo:abr, philo:agr, tacitus:ann, graniuslicinianus:ann,
     AJSL, atlantis, AzTh, BibIntSeries, BibInt, BSac, JSOTSup,
     justinmartyr:1apol, 1en, 1QM, 4QpNah, livy:aburbe, cicero:agr,
-    plutarch:ant, dionysius:ant, abl., >}
+    plutarch:ant, dionysius:ant, abl, >}
 \end{verbcite}
 \exampleancientsources
 \examplesecondarysources
@@ -1144,7 +1142,7 @@ with permission.
 @ancienttext{philo:cher,
   author = {Philo},
   title = {De cherubim},
-  shorttitle = {Cher\adddot},
+  shorttitle = {Cher.},
   translator = {Colson},
   xref = {philo:cherubim}
 }
@@ -1352,21 +1350,21 @@ with permission.
 @ancienttext{josephus:bj,
   author = {Josephus},
   title = {Bellum judaicum},
-  shorttitle = {B.J\adddot},
+  shorttitle = {B.J.},
   xref = {josephus:jewishwar}
 }
 
 @ancienttext{josephus:aj,
   author = {Josephus},
   title = {Antiquitates judaicae},
-  shorttitle = {A.J\adddot},
+  shorttitle = {A.J.},
   xref = {josephus:jewishantiquities}
 }
 
 @ancienttext{josephus:cap,
   author = {Josephus},
   title = {Contra Apionem},
-  shorttitle = {C.\@ Ap\adddot},
+  shorttitle = {C. Ap.},
   xref = {josephus:life;againstapion}
 }
 \end{verbatim}
@@ -1460,7 +1458,7 @@ with permission.
 @ancienttext{augustine:conf,
   author = {Augustine},
   title = {Confessions},
-  shorttitle = {Conf\adddot},
+  shorttitle = {Conf.},
   xref = {augustine:confessions}
 }
 
@@ -1479,7 +1477,7 @@ with permission.
 @ancienttext{tacitus:ann,
   author = {Tacitus},
   title = {Annales},
-  shorttitle = {Ann\adddot},
+  shorttitle = {Ann.},
   xref = {tacitus:histories}
 }
 
@@ -1500,7 +1498,7 @@ with permission.
 @ancienttext{apuleius:metam,
   author = {Apuleius},
   title = {Metamorphoses},
-  shorttitle = {Metam\adddot},
+  shorttitle = {Metam.},
   translator = {Adlington and Gaselee},
   xref = {apuleius:golden}
 }
@@ -1861,8 +1859,8 @@ with permission.
   editor = {Schneemelcher, Wilhelm},
   title = {New Testament Apocrypha},
   editora = {Wilson, Robert McL.},
-  editoratype = {English trans.\@ ed\adddot},
-  edition = {Rev.\@ ed\adddot},
+  editoratype = {English trans.\@ ed.\isdot},
+  edition = {Rev.\@ ed.\isdot},
   volumes = {2},
   location = {Cambridge and Louisville},
   publisher = {Clarke and Westminster John Knox},
@@ -1878,7 +1876,7 @@ with permission.
 
 @ancienttext{murfrag,
   title = {Muratorian Fragment},
-  shorttitle = {Mur.\@ Frag\adddot},
+  shorttitle = {Mur. Frag.},
   translator = {Schneemelcher, Wilhelm},
   xref = {NTApoc},
   volume = {1}
@@ -1929,7 +1927,7 @@ for \cite{NTApoc}.
 \begin{verbatim}
 @ancienttext{murfrag,
   title = {Muratorian Fragment},
-  shorttitle = {Mur.\@ Frag\adddot},
+  shorttitle = {Mur. Frag.},
 }
 \end{verbatim}
 
@@ -1990,46 +1988,46 @@ for \cite{NTApoc}.
 @ancienttext{aulusgellius:noctatt,
   author = {{Aulus Gellius}},
   title = {Noctes attica},
-  shorttitle = {Noct.\@ att\adddot}
+  shorttitle = {Noct. att.}
 }
 
 @ancienttext{bellafr,
   title = {Bellum africum},
-  shorttitle = {Bell.\@ afr\adddot}
+  shorttitle = {Bell. afr.}
 }
 
 @ancienttext{bellalex,
   title = {Bellum alexandrinum},
-  shorttitle = {Bell.\@ alex\adddot}
+  shorttitle = {Bell. alex.}
 }
 
 @ancienttext{bellhisp,
   title = {Bellum hispaniense},
-  shorttitle = {Bell.\@ hisp\adddot}
+  shorttitle = {Bell. hisp.}
 }
 
 @ancienttext{bion:epitaphadon,
   author = {Bion},
   title = {Epitaphius Adonis},
-  shorttitle = {Epitaph.\@ Adon\adddot}
+  shorttitle = {Epitaph. Adon.}
 }
 
 @ancienttext{bion:epitaphachil,
   author = {Bion},
   title = {Epithalamium Achillis et Deidameiae},
-  shorttitle = {Epith.\@ Achil\adddot}
+  shorttitle = {Epith. Achil.}
 }
 
 @ancienttext{caesar:bellciv,
   author = {Caesar},
   title = {Bellum civile},
-  shorttitle = {Bell.\@ civ.\adddot}
+  shorttitle = {Bell. civ.}
 }
 
 @ancienttext{caesar:bellgall,
   author = {Caesar},
   title = {Bellum gallicum},
-  shorttitle = {Bell.\@ gall\adddot}
+  shorttitle = {Bell. gall.}
 }
 \end{verbatim}
 
@@ -2268,15 +2266,15 @@ for \cite{NTApoc}.
   options = {usetranslator}
 }
 
-@ancienttext{t.sol.,
+@ancienttext{tsol,
   title = {Testament of Solomon},
-  shorttitle = {T. Sol\adddot},
+  shorttitle = {T. Sol.},
   xref = {conybeare:1898}
 }
 
-@ancienttext{t.reu.,
+@ancienttext{treu,
   title = {Testament of Reuben},
-  shorttitle = {T. Reu\adddot},
+  shorttitle = {T. Reu.},
   translator = {Kee, H. C.},
   xref = {OTP},
   volume = {1},
@@ -2289,12 +2287,12 @@ for \cite{NTApoc}.
   not love thee more than all the artisans who are working in the Temple of
   God? Do I not give thee double wages and a double supply of food? How is it
   that day by day and hour by hour thou growest thinner?’”
-  \ptranscite[(1.3)]{t.sol.}.
+  \ptranscite[(1.3)]{tsol}.
 \end{verbcite}
 \begin{fverbcite}{15}
   \footnote{The testament goes on to say, “Do not devote your attention to the
     beauty of women, my children, nor occupy your minds with their activities”
-    \ptranscite[(4.1)783]{t.reu.}.}
+    \ptranscite[(4.1)783]{treu}.}
 \end{fverbcite}
 \exampleancientsources
 \examplesecondarysources
@@ -2309,7 +2307,7 @@ Author, \emph{Title} Source division (trans.\@ A. N. Translator, Collection
 Vol:Page).
 
 \pkg{biblatex-sbl} adopts this format even when it departs from the blog or
-handbook (as in the case of the \citetitle*{t.reu.} above).
+handbook (as in the case of the \citetitle*{treu} above).
 
 \examplereferences{https://sblhs2.com/2017/06/15/pseudepigraphic-testaments/}
 
@@ -2326,36 +2324,36 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
   date = {1983/1985}
 }
 
-@ancienttext{apoc.zeph.,
+@ancienttext{apoczeph,
   title = {Apocalypse of Zephaniah},
-  shorttitle = {Apoc.\@ Zeph\adddot},
+  shorttitle = {Apoc. Zeph.},
   translator = {Wintermute, O. S.},
   xref = {OTP},
   volume = {1},
   pages = {508-515}
 }
 
-@ancienttext{sib.or.,
+@ancienttext{sibor,
   title = {Sibylline Oracles},
-  shorttitle = {Sib.\@ Or\adddot},
+  shorttitle = {Sib. Or.},
   translator = {Collins, J. J.},
   xref = {OTP},
   volume = {1},
   pages = {317-472}
 }
 
-@ancienttext{ezek.trag.,
+@ancienttext{ezektrag,
   title = {Ezekiel the Tragedian},
-  shorttitle = {Ezek.\@ Trag\adddot},
+  shorttitle = {Ezek. Trag.},
   translator = {Robertson, R. G.},
   xref = {OTP},
   volume = {2},
   pages = {803-820}
 }
 
-@ancienttext{jos.asen.,
+@ancienttext{josasen,
   title = {Joseph and Aseneth},
-  shorttitle = {Jos.\@ Asen\adddot},
+  shorttitle = {Jos. Asen.},
   translator = {Burchard, C.},
   xref = {OTP},
   volume = {2},
@@ -2365,19 +2363,19 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 
 \begin{fverbcite}{13}
   \footnote{For an example of an apocalypse likely written 100 BCE–70 CE, see
-    the \fullcite{apoc.zeph.}.}
+    the \fullcite{apoczeph}.}
 \end{fverbcite}
 \begin{fverbcite}{13}
   \footnote{The imagery of flying angels blowing trumpets was common to
-    apocalyptic literature, as in \citetitle[(9.1)]{apoc.zeph.}: “Then a great
+    apocalyptic literature, as in \citetitle[(9.1)]{apoczeph}: “Then a great
     angel came forth having a golden trumpet in his hand, and he blew it three
-    times over my head” \ptranscitecollection[514]{apoc.zeph.}.}
+    times over my head” \ptranscitecollection[514]{apoczeph}.}
 \end{fverbcite}
-\examplecite(27)[For a Christian insertion, see][(12.30-34)445]{sib.or.}
-\examplecite(31)[Moses addresses God at the burning bush in][(90-95)812]{ezek.trag.}
+\examplecite(27)[For a Christian insertion, see][(12.30-34)445]{sibor}
+\examplecite(31)[Moses addresses God at the burning bush in][(90-95)812]{ezektrag}
 \begin{fverbcite}{17}
   \footnote{For the account of Levi attempting to save Pharaoh’s son, see
-    \cite[(29.1-6)]{jos.asen.}.}
+    \cite[(29.1-6)]{josasen}.}
 \end{fverbcite}
 \exampleancientsources
 \examplesecondarysources
@@ -2538,7 +2536,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
   title = {New Testament Apocrypha},
   volumes = {2},
   editora = {Wilson, Robert McL.},
-  editorastring = {Rev.\@ ed.\@ English trans.\@ ed\adddot},
+  editorastring = {Rev.\@ ed.\@ English trans.\@ ed.\isdot},
   location = {Cambridge and Louisville},
   publisher = {Clarke and Westminster John Knox},
   date = {2003}
@@ -2718,7 +2716,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 
 @collection{CAH1,
   editor = {Bury, J. B. and Cook, S. A. and Adcock, F. E.},
-  title = {Egypt and Babylonia to 1580 B.C.\isdot},
+  title = {Egypt and Babylonia to 1580 B.C.},
   xdata = {CAH},
   number = {1},
   date = {1923}
@@ -2745,7 +2743,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
   editor = {Boardman, John and Edwards, I. E. S. and Sollberger, E. and
             Hammond, N. G. L.},
   title = {The Assyrian and Babylonian Empires and Other States of the Near East,
-           from the Eighth to the Sixth Centuries B.C.\isdot},
+           from the Eighth to the Sixth Centuries B.C.},
   shorttitle = {Assyrian and Babylonian Empires},
   edition = {2},
   xdata = {CAH},
@@ -2921,7 +2919,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 @ancienttext{musoniusrufus:diatr,
   author = {{Musonius Rufus}},
   title = {Diatribai},
-  shorttitle = {Diatr\adddot},
+  shorttitle = {Diatr.},
   translator = {Lutz},
   xref = {lutz:1947}
 }
@@ -2929,16 +2927,16 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 @ancienttext{musoniusrufusfrag:abbrev,
   author = {{Musonius Rufus}},
   title = {\textup{fragment(s)}},
-  shorttitle = {\textup{frag(s)\adddot}},
-  sorttitle = {frag(s)\adddot}
+  shorttitle = {\textup{frag(s).}},
+  sorttitle = {frag(s).}
 }
 
 @ancienttext{musoniusrufus:frag,
   author = {{Musonius Rufus}},
-  title = {\bibhyperlink{shorttitle:\detokenize{\textup{frag(s)\adddot}}}
+  title = {\bibhyperlink{shorttitle:\detokenize{\textup{frag(s).}}}
            {\textup{\iffieldnum{titleaddon}{\bibstring{fragment}}
            {\bibstring{fragments}}}}},
-  sorttitle = {frag(s)\adddot},
+  sorttitle = {frag(s).},
   translator = {Lutz},
   xref = {lutz:1947},
   options = {skipbiblist},
@@ -2972,24 +2970,24 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 
 @ancienttext{histaug,
   title = {Historia Augusta},
-  shorttitle = {Hist.\@ Aug\adddot},
+  shorttitle = {Hist. Aug.},
   xref = {scriptoreshistoriaeaugustae}
 }
 
 @ancienttext{histaug:sev,
   maintitle = {Historia Augusta},
-  shortmaintitle = {Hist.\@ Aug\adddot},
+  shortmaintitle = {Hist. Aug.},
   title = {Severus},
-  shorttitle = {Sev\adddot},
+  shorttitle = {Sev.},
   xref = {scriptoreshistoriaeaugustae},
   execute = {\nocite{histaug}}
 }
 
 @ancienttext{histaug:opilmacr,
   maintitle = {Historia Augusta},
-  shortmaintitle = {Hist.\@ Aug\adddot},
+  shortmaintitle = {Hist. Aug.},
   title = {Opilius Macrinus},
-  shorttitle = {Opil.\@ Macr\adddot},
+  shorttitle = {Opil. Macr.},
   xref = {scriptoreshistoriaeaugustae},
   execute = {\nocite{histaug}}
 }
@@ -3043,7 +3041,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 @ancienttext{methodius:symp,
   author = {{Methodius of Olympus}},
   title = {Symposium \mkbibparens{Convivium decem virginum}},
-  shorttitle = {Symp\adddot},
+  shorttitle = {Symp.},
   xref = {PG},
   volume = {18}
 }
@@ -3190,7 +3188,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 @book{zerwick:2011,
   author = {Zerwick, Maximilian},
   title = {Biblical Greek Illustrated by Examples},
-  origlanguage = {from the 4th Latin ed\adddot},
+  origlanguage = {from the 4th Latin ed.\isdot},
   translator = {Smith, Joseph},
   series = {Scripta Pontificii Instituti Biblici},
   number = {114},
@@ -3680,7 +3678,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
   shorthand = {ISBE},
   editor = {Bromiley, Geoffrey W.},
   title = {International Standard Bible Encyclopedia},
-  edition = {Rev\adddotspace ed\adddot},
+  edition = {Rev.\@ ed.\isdot},
   volumes = {4},
   location = {Grand Rapids},
   publisher = {Eerdmans},
@@ -4508,7 +4506,7 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
   shorthand = {LEH},
   editor = {Lust, Johan and Eynikel, Erik and Hauspie, Katrin},
   title = {Greek-English Lexicon of the Septuagint},
-  edition = {Rev\adddot},
+  edition = {Rev.\isdot},
   location = {Stuttgart},
   publisher = {Deutsche Bibelgesellschaft},
   date = {2003},
@@ -4902,28 +4900,28 @@ handbook (as in the case of the \citetitle*{t.reu.} above).
 @ancienttext{nicolaus:prog,
   author = {Nicolaus},
   title = {Progymnasmata},
-  shorttitle = {Prog\adddot},
+  shorttitle = {Prog.},
   xref = {felten}
 }
 
 @ancienttext{aphthonius:prog,
   author = {Aphthonius},
   title = {Progymnasmata},
-  shorttitle = {Prog\adddot},
+  shorttitle = {Prog.},
   xref = {rabe}
 }
 
 @ancienttext{theon:prog,
   author = {Theon},
   title = {Progymnasmata},
-  shorttitle = {Prog\adddot},
+  shorttitle = {Prog.},
   xref = {spengel}
 }
 
 @ancienttext{libanius:prog,
   author = {Libanius},
   title = {Progymnasmata},
-  shorttitle = {Prog\adddot},
+  shorttitle = {Prog.},
   xref = {foerster}
 }
 
@@ -5297,8 +5295,8 @@ this feature by default. See
 }
 
 @ancienttext{sifredeut,
-  shorttitle = {Sifre Deut\adddot},
   title = {Sifre Deuteronomy},
+  shorttitle = {Sifre Deut.},
   xref = {Finkelstein}
 }
 
@@ -5341,7 +5339,7 @@ this feature by default. See
 @ancienttext{herodian:hist,
   author = {Herodian},
   title = {History of the Empire from the Death of Marcus},
-  shorttitle = {Hist\adddot},
+  shorttitle = {Hist.},
   translator = {Whittaker}
 }
 \end{verbatim}
@@ -5365,8 +5363,8 @@ this feature by default. See
 }
 
 @ancienttext{sifrenum,
-  shorttitle = {Sifre Num\adddot},
   title = {Sifre Numbers},
+  shorttitle = {Sifre Num.},
   xref = {Horovitz}
 }
 
@@ -5403,7 +5401,7 @@ this feature by default. See
 @ancienttext{polybius:hist,
   author = {Polybius},
   title = {Historiae},
-  shorttitle = {Hist\adddot},
+  shorttitle = {Hist.},
   translator = {Paton}
 }
 \end{verbatim}
@@ -5419,7 +5417,7 @@ this feature by default. See
 @ancienttext{diodorussiculus:bibhist,
   author = {{Diodorus Siculus}},
   title = {Bibliotheca historica},
-  shorttitle = {Bib\addotspace Hist\adddot},
+  shorttitle = {Bib. Hist.},
   translator = {Oldfather}
 }
 \end{verbatim}
@@ -5701,21 +5699,21 @@ H., ed.” for the bibliography format of this reference.
 @ancienttext{plutarch:isos,
   author = {Plutarch},
   title = {De Iside et Osiride},
-  shorttitle = {Is.\@ Os\adddot},
+  shorttitle = {Is. Os.},
   xref = {plutarch:isisoris}
 }
 
 @ancienttext{plutarch:alexfort,
   author = {Plutarch},
   title = {De Alexandri magni fortuna aut virtute},
-  shorttitle = {Alex.\@ fort\adddot},
+  shorttitle = {Alex. fort.},
   xref = {plutarch:romanquestions}
 }
 
 @ancienttext{plutarch:quaestconv,
   author = {Plutarch},
   title = {Quaestionum convivialum libri IX},
-  shorttitle = {Quaest.\@ conv\adddot},
+  shorttitle = {Quaest. conv.},
   translator = {Sandbach},
   xref = {plutarch:tabletalk7}
 }
@@ -5723,7 +5721,7 @@ H., ed.” for the bibliography format of this reference.
 @ancienttext{plutarch:cohibira,
   author = {Plutarch},
   title = {De cohibenda ira},
-  shorttitle = {Cohib.\@ ira\adddot},
+  shorttitle = {Cohib. ira.},
   xref = {plutarch:canvirtue}
 }
 
@@ -6075,7 +6073,7 @@ H., ed.” for the bibliography format of this reference.
 \section{Citing Films (6 October 2016)}
 
 \begin{verbatim}
-@movie{scorsese:aviator,
+@video{scorsese:aviator,
   author = {Scorsese, Martin},
   authortype = {director},
   title = {The Aviator},
@@ -6083,9 +6081,9 @@ H., ed.” for the bibliography format of this reference.
   date = {2004}
 }
 
-@movie{scorsese:aviator:dvd,
+@video{scorsese:aviator:dvd,
   author = {Scorsese, Martin},
-  authortype = {dir\adddot},
+  authortype = {director},
   title = {The Aviator},
   howpublished = {DVD},
   location = {Burbank, CA},
@@ -6192,16 +6190,16 @@ H., ed.” for the bibliography format of this reference.
 \section{Livy (27 September 2016)}
 
 \begin{verbatim}
-@ancienttext{livy:aburbecond,
+@ancienttext{livy:aburbe,
   author = {Livy},
   title = {Ab urbe condita},
-  shorttitle = {Ab urbe cond\adddot},
+  shorttitle = {Ab urbe cond.},
   translator = {Foster}
 }
 \end{verbatim}
 
-\examplecite[paren][(2.2)]{livy:aburbecond}
-\examplecite[ptrans][(2.2)]{livy:aburbecond}
+\examplecite[paren][(2.2)]{livy:aburbe}
+\examplecite[ptrans][(2.2)]{livy:aburbe}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2016/09/27/livy/}
 

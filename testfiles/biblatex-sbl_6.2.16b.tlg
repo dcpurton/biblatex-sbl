@@ -42,7 +42,7 @@ Completed box being shipped out [1]
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
-....\hbox(6.68+2.5)x345.0, glue set 46.31999fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 48.31999fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -132,8 +132,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 d
@@ -141,9 +140,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 .
@@ -335,7 +332,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x330.0, glue set 45.43997fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 47.43997fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -430,8 +427,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 v
 .....\kern-0.75 (font)
 .....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 d
@@ -439,9 +435,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 .
-.....\penalty 50
-.....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 .

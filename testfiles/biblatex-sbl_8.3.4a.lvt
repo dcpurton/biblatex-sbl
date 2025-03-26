@@ -11,9 +11,9 @@
 \begin{document}
 \START
 \showoutput
-\ptranscite[(1.3)]{t.sol.}
+\ptranscite[(1.3)]{tsol}
 
-\ptranscite[(4.1)783]{t.reu.}
+\ptranscite[(4.1)783]{treu}
 \section*{Abbreviations}
 \printbiblist[heading=subbibliography, title=Ancient Sources,
   type=ancienttext]{abbreviations}

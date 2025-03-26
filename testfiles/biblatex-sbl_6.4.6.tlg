@@ -267,7 +267,7 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A00530079006D0070005C0061006400640064006F00740020> } action goto name{cite.0:shorttitle:Symp\\adddot\040}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A00530079006D0070002E> } action goto name{cite.0:shorttitle:Symp.}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 S
 .....\kern-0.1 (font)
@@ -340,7 +340,7 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A00530079006D0070005C0061006400640064006F00740020> } action goto name{cite.0:shorttitle:Symp\\adddot\040}
+.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007400690074006C0065003A00530079006D0070002E> } action goto name{cite.0:shorttitle:Symp.}
 .....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 .....\TU/Brill(0)/m/it/10 S
 .....\kern-0.1 (font)
@@ -450,13 +450,13 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
 ....\glue 6.075 plus 0.80998
-....\write1{\csgdef{618A26A7D84D796175D4ACD01DA5A71D}{methodius:symp}}
+....\write1{\csgdef{8F57F9CE7BBCA6D2B3876637A7877D31}{methodius:symp}}
 ....\penalty 10000
 ....\glue 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.15201
-....\hbox(6.68+2.5)x312.59001, glue set 34.18004fil, shifted 32.40999, direction TLT
+....\hbox(6.68+2.5)x310.61002, glue set 33.19003fil, shifted 34.38998, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -464,14 +464,14 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(6.21+2.47)x0.0, direction TLT
 ......\glue 0.0
-......\glue -22.40999
+......\glue -24.38998
 ......\glue -10.0
-......\hbox(6.21+2.47)x22.40999, direction TLT
+......\hbox(6.21+2.47)x24.38998, glue set 1.98fil, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\penalty 10000
 .......\hbox(0.0+0.0)x0.0, direction TLT
 ........\hbox(0.0+0.0)x0.0, shifted -12.0, direction TLT
-.........\pdfdest name{cite.0:shorttitle:Symp\\adddot\040} xyz
+.........\pdfdest name{cite.0:shorttitle:Symp.} xyz
 .........\penalty 10000
 .......\TU/Brill(0)/m/it/10 S
 .......\kern-0.1 (font)
@@ -627,7 +627,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.386
-....\hbox(6.65+2.47)x312.59001, glue set 45.09999fil, shifted 32.40999, direction TLT
+....\hbox(6.65+2.47)x310.61002, glue set 44.11fil, shifted 34.38998, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -635,9 +635,9 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(6.21+0.14)x0.0, direction TLT
 ......\glue 0.0
-......\glue -22.40999
+......\glue -24.38998
 ......\glue -10.0
-......\hbox(6.21+0.14)x22.40999, glue set 11.11998fil, direction TLT
+......\hbox(6.21+0.14)x24.38998, glue set 13.09998fil, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\penalty 10000
 .......\hbox(0.0+0.0)x0.0, direction TLT
@@ -743,7 +743,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x312.59001, glue set 45.95998fil, shifted 32.40999, direction TLT
+....\hbox(6.65+2.47)x310.61002, glue set 44.96999fil, shifted 34.38998, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -751,9 +751,9 @@ Completed box being shipped out [1]
 ......\localrightbox=null
 .....\hbox(6.1+0.03)x0.0, direction TLT
 ......\glue 0.0
-......\glue -22.40999
+......\glue -24.38998
 ......\glue -10.0
-......\hbox(6.1+0.03)x22.40999, glue set 12.47998fil, direction TLT
+......\hbox(6.1+0.03)x24.38998, glue set 14.45998fil, direction TLT
 .......\pdfcolorstack 0 push {0 g 0 G}
 .......\penalty 10000
 .......\hbox(0.0+0.0)x0.0, direction TLT
