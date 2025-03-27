@@ -358,9 +358,10 @@
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
     }
-    % @journal entries not in bibliography
+    % @periodical entries without a title not in bibliography
     \map[overwrite]{
-      \pertype{journal}
+      \pertype{periodical}
+      \step[notfield=title, final]
       \step[fieldsource=options, match=\regexp{(.*)}]
       \step[fieldset=options, fieldvalue={skipbib,}]
       \step[fieldset=options, fieldvalue={$1}, append]
