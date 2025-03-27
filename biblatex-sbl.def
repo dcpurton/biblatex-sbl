@@ -225,6 +225,23 @@
 
 \DeclareStyleSourcemap{
   \maps{
+    % Copy title fields to journaltitle fields for @periodical entry types and
+    % then issuetitle fields to title; makes life easier
+    \map[overwrite]{
+      \pertype{periodical}
+      \step[fieldsource=title, fieldtarget=journaltitle]
+      \step[fieldsource=subtitle, fieldtarget=journalsubtitle]
+      \step[fieldsource=shorttitle, fieldtarget=shortjournal]
+      \step[fieldsource=titleaddon, fieldtarget=journaltitleaddon]
+      \step[fieldsource=issuetitle, fieldtarget=title]
+      \step[fieldsource=issuesubtitle, fieldtarget=subtitle]
+      \step[fieldsource=shortissue, fieldtarget=shorttitle]
+      \step[fieldsource=issuetitleaddon, fieldtarget=titleaddon]
+      \step[fieldset=issuetitle, null]
+      \step[fieldset=issuesubtitle, null]
+      \step[fieldset=shortissue, null]
+      \step[fieldset=issuetitleaddon, null]
+    }
     % Split titles into titles and subtitles (ignoring braced colons)
     \map[overwrite]{
       \step[notfield=subtitle, final]
