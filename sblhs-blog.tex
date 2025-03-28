@@ -249,8 +249,8 @@
 
 \begin{abstract}
   This document contains all note and bibliography examples from the
-  \href{https://sblhs2.com/}{SBL Handbook of Style Blog}. Each section shows
-  what the various bib entries should look like and how to cite them.
+  \href{https://sblhs2.com/}{\emph{SBL Handbook of Style} blog}. Each section
+  shows what the various bib entries should look like and how to cite them.
 \end{abstract}
 
 \tableofcontents
@@ -527,15 +527,14 @@
   xref = {tacitus:histories}
 }
 
-@journal{AJSL,
-  journaltitle = {American Journal of Semitic Languages and Literature},
-  shortjournal = {AJSL}
+@periodical{AJSL,
+  title = {American Journal of Semitic Languages and Literature},
+  shorttitle = {AJSL}
 }
 
-@journal{atlantis,
-  journaltitle = {Atlantis: Journal of the Spanish Association of Anglo-American
-                  Studies},
-  shortjournal = {Atlantis}
+@periodical{atlantis,
+  title = {Atlantis: Journal of the Spanish Association of Anglo-American Studies},
+  shorttitle = {Atlantis}
 }
 
 @series{AzTh,
@@ -543,7 +542,7 @@
   shortseries = {AzTh}
 }
 
-@journal{BibInt,
+@periodical{BibInt,
   journaltitle = {Biblical Interpretation},
   shortjournal = {BibInt}
 }
@@ -553,7 +552,7 @@
   shortseries = {BibInt}
 }
 
-@journal{BSac,
+@periodical{BSac,
   journaltitle = {Bibliotheca Sacra},
   shortjournal = {BSac}
 }
@@ -2902,6 +2901,7 @@ handbook (as in the case of the \citetitle*{treu} above).
 \examplecite[][\sv~\mkbibquote{pericope}]{oxford2}
 \examplecite[][\sv~\mkbibquote{pericope}]{OED2}
 \exampleabbreviations
+\examplereferences{https://sblhs2.com/2017/05/16/citing-reference-works-8-english-language-dictionaries/}
 
 \section{Musonius Rufus (11 May 2017)}
 
@@ -4950,7 +4950,8 @@ handbook (as in the case of the \citetitle*{treu} above).
 @book{gibson,
   shorthand = {Gibson},
   author = {Gibson, Craig A.},
-  title = {Libanius's Progymnasmata: Model Exercises in Greek Prose Composition and Rhetoric},
+  title = {Libanius's Progymnasmata: Model Exercises in Greek Prose Composition and
+           Rhetoric},
   series = {Writings from the Greco-Roman World},
   shortseries = {WGRW},
   number = {27},
@@ -5453,7 +5454,7 @@ this feature by default. See
   langid = {french}
 }
 
-@journal{WoB,
+@periodical{WoB,
   journaltitle = {The World of the Bible},
   shortjournal = {WoB}
 }
@@ -5662,7 +5663,103 @@ H., ed.” for the bibliography format of this reference.
 
 \section{Formatting Titles (27 October 2016)}
 
-% TODO: finish section
+\begin{verbatim}
+@book{hendel:2016,
+  author = {Hendel, Ronald S.},
+  title = {Steps to a New Edition of the Hebrew Bible},
+  series = {Text-Critical Studies},
+  shortseries = {TCSt},
+  number = {10},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2016}
+}
+
+@inbook{hendel:2016:ch3,
+  title = {The Idea of a Critical Edition of the Hebrew Bible: A Genealogy},
+  crossref = {hendel:2016},
+  pages = {65-100}
+}
+
+@article{mckenzie:2010,
+  author = {McKenzie, Steven L.},
+  title = {Elaborated Evidence for the Priority of 1~Samuel 26},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {129},
+  date = {2010},
+  pages = {437-444}
+}
+
+@ancienttext{philo:contempl,
+  author = {Philo},
+  title = {De vita contemplativa},
+  shorttitle = {Contempl.}
+}
+
+@video{scorsese:aviator,
+  author = {Scorsese, Martin},
+  authortype = {director},
+  title = {The Aviator},
+  organization = {Forward Pass},
+  date = {2004}
+}
+
+@online{sblhsblog:formattingtitles,
+  entrysubtype = {blog},
+  title = {Formatting Titles},
+  website = {SBL Handbook of Style},
+  date = {2016/10/27},
+  url = {https://sblhs2.com/2016/10/27/formatting-titles/}
+}
+
+@incollection{aymer:2016,
+  author = {Aymer, Margaret},
+  title = {Outrageous, Audacious, Courageous, Willful: Reading the Enslaved Girl of
+           Acts 12},
+  crossref = {byron+lovelace:2016},
+  pages = {265-292}
+}
+
+@incollection{byron+lovelace:2016:part3,
+  author = {Byron, Gay L. and Lovelace, Vanessa},
+  authortype = {editor},
+  title = {Foregrounding Women on the Margins},
+  crossref = {byron+lovelace:2016},
+  pages = {187-264},
+  options = {noinherit=names}
+}
+
+@unpublished{yee:2015,
+  author = {Yee, Gale A.},
+  title = {\mkbibquote{He Will Take the Best of Your Fields}: Royal Feasts and Rural
+           Extraction},
+  type = {paper},
+  eventtitle = {the the 2015 Annual Meeting of the Society of Biblical Literature},
+  venue = {Atlanta},
+  eventdate = {2015-11-22}
+}
+
+@thesis{ames:1998,
+  author = {Ames, Frank Ritchel},
+  title = {Women and War in the Hebrew Bible},
+  type = {phdthesis},
+  institution = {The Iliff School of Theology and The University of Denver},
+  date = {1998}
+}
+
+@ancienttext{enumaelish,
+  title = {Enuma Elish},
+  xref = {ANET},
+  pages = {60-72}
+}
+
+@online{perseusdigitallibrary,
+  editor = {Crane, Gregory R.},
+  website = {Perseus Digital Library},
+  url = {https://www.perseus.tufts.edu/}
+}
+\end{verbatim}
 
 \begin{verbcite}
   Ron Hendel's \citetitle*{hendel:2016}
@@ -5672,6 +5769,12 @@ H., ed.” for the bibliography format of this reference.
 \end{verbcite}
 \begin{verbcite}
   Philo's \citetitle*{philo:contempl}
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{scorsese:aviator}'s \citetitle*{scorsese:aviator}
+\end{verbcite}
+\begin{verbcite}
+  \citefield{sblhsblog:formattingtitles}[website]{website} blog
 \end{verbcite}
 \begin{verbcite}
   \citeauthor{mckenzie:2010}'s \citejournal{mckenzie:2010} article
@@ -5689,8 +5792,35 @@ H., ed.” for the bibliography format of this reference.
   part 3 of \citefield{byron+lovelace:2016:part3}[booktitle]{booktitle},
   \citetitle*{byron+lovelace:2016:part3}
 \end{verbcite}
-\exampleabbreviations
+\begin{verbcite}
+  \citeauthor{yee:2015}'s paper \citetitle*{yee:2015}
+\end{verbcite}
+\begin{verbcite}
+  \citeauthor{ames:1998}'s \citetitle*{ames:1998}
+\end{verbcite}
+\begin{verbcite}
+  the blog post \citetitle*{sblhsblog:formattingtitles} on the
+  \citefield{sblhsblog:formattingtitles}[website]{website} blog
+\end{verbcite}
+\begin{verbcite}
+  \citeseries*{byron+lovelace:2016}
+\end{verbcite}
+\begin{verbcite}
+  \citetitle*{enumaelish}
+\end{verbcite}
+\begin{verbcite}
+  the \citefield{perseusdigitallibrary}[website]{website}
+\end{verbcite}
+\exampleancientsources
+\examplesecondarysources
 \examplebibliography
+
+\subsection{Notes}
+
+Only titles which have full examples elsewhere in the blog or handbook have
+been included from those listed in this blog post. The missing ones are such
+that they may not even need a bib entry.
+
 \examplereferences{https://sblhs2.com/2016/10/27/formatting-titles/}
 
 \section{Plutarch’s \emph{Moralia} (25 October 2016)}
@@ -6211,7 +6341,8 @@ H., ed.” for the bibliography format of this reference.
   title = {Oral Culture, and Written Documents},
   shorttitle = {Oral Culture},
   type = {paper},
-  eventtitle = {the Annual Meeting of the New England Region of the Society of Biblical Literature},
+  eventtitle = {the Annual Meeting of the New England Region of the Society of
+                Biblical Literature},
   venue = {Worcester, MA},
   eventdate = {1994-03-25}
 }
@@ -6225,8 +6356,10 @@ H., ed.” for the bibliography format of this reference.
 
 \begin{verbatim}
 @collection{johnsonhodge:2013,
-  editor = {Johnson Hodge, Caroline and Olyan, Saul M. and Ullucci, Daniel and Wasserman, Emma},
-  title = {\mkbibquote{The One Who Sows Bountifully}: Essays in Honor of Stanley K. Stowers},
+  editor = {Johnson Hodge, Caroline and Olyan, Saul M. and Ullucci, Daniel and
+            Wasserman, Emma},
+  title = {\mkbibquote{The One Who Sows Bountifully}: Essays in Honor of Stanley K.
+           Stowers},
   series = {Brown Judaic Studies},
   shortseries = {BJS},
   number = {356},
@@ -6242,4 +6375,519 @@ H., ed.” for the bibliography format of this reference.
 \exampleabbreviations
 \examplebibliography
 \examplereferences{https://sblhs2.com/2016/09/13/brown-judaic-studies/}
+
+\section{Dio Cassius (1 September 2016)}
+
+\begin{verbatim}
+@ancienttext{diocassius:histrom,
+  author = {{Dio Cassius}},
+  shorttitle = {Hist. rom.},
+  title = {Historiae romanae},
+  translator = {Cary}
+}
+\end{verbatim}
+
+\examplecite[paren][(1.2)]{diocassius:histrom}
+\examplecite[][(1.2.3)]{diocassius:histrom}
+\examplecite[ptrans][(1.2)]{diocassius:histrom}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/09/01/dio-cassius/}
+
+\section{Titles with Question Marks (30 August 2016)}
+
+\begin{verbatim}
+@collection{bailey+liew+segovia:2009,
+  author = {Bailey, Randall C. and Liew, Tat-siong Benny and Segovia, Fernando F.},
+  title = {They Were All Together in One Place?},
+  subtitle = {Toward Minority Biblical Criticism},
+  series = {Semeia Studies},
+  shortseries = {SemeiaSt},
+  number = {57},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2009}
+}
+
+@incollection{vanseters:1995,
+  author = {Van Seters, John},
+  title = {The Theology of the Yahwist},
+  subtitle = {A Preliminary Sketch},
+  pages = {219-228},
+  booktitle = {\mkbibquote{Wer ist wie du, Herr, unter den Göttern?}},
+  booksubtitle = {Studien zur Theologie und Religionsgeschichte Israels für Otto
+                  Kaiser zum 70.~Geburtstag},
+  editor = {Kottsieper, Ingo and others},
+  location = {Göttingen},
+  publisher = {Vandenhoeck \& Ruprecht},
+  date = {1995}
+}
+\end{verbatim}
+
+\examplecite(15){bailey+liew+segovia:2009}
+\examplecite(21)[This argument is demonstrated in][]{bailey+liew+segovia:2009}
+\begin{verbcite}
+  Groundbreaking in this regard was the volume
+  \citetitle{bailey+liew+segovia:2009}, which was edited by
+  \citeauthor{bailey+liew+segovia:2009}.
+\end{verbcite}
+\examplecite(25)[56-58]{bailey+liew+segovia:2009}
+\begin{verbcite}
+  \nocite{vanseters:1995}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/08/30/titles-question-marks/}
+
+\section{Thucydides (11 August 2016)}
+
+\begin{verbatim}
+@ancienttext{thucydides:pw,
+  author = {Thucydides},
+  title = {Historia belli peloponnesiaci},
+  shorttitle = {P.W.},
+  translator = {Smith}
+}
+\end{verbatim}
+
+\examplecite[paren][(2.2)]{thucydides:pw}
+\examplecite[][(2.2.4)]{thucydides:pw}
+\examplecite[ptrans][(2.2)]{thucydides:pw}
+\exampleabbreviations
+
+\subsection{Notes}
+
+SBL tends to have a preference to use Latin times for ancient works rather
+than English ones. In keeping with this, I have use \citetitle*{thucydides:pw}
+rather than \emph{History of the Peloponnesian War}, even though
+\citetitle{thucydides:pw} better relates to the English title. This follows a
+2023 publication from SBL Press at
+\url{https://www.sbl-site.org/assets/pdfs/pubs/0606104P-front.pdf}.
+
+\examplereferences{https://sblhs2.com/2016/08/11/thucydides/}
+
+\section{\emph{HTS Teologiese Studies/Theological Studies} (9 August 2016)}
+
+\begin{verbatim}
+@article{neyrey:2002,
+  author = {Neyrey, Jerome H.},
+  title = {Spaced Out},
+  subtitle = {\mkbibquote{Territoriality} in the Fourth Gospel},
+  journaltitle = {Hervormde Teologiese Studies \mkbibparens{HTS Teologiese Studies/HTS
+                  Theological Studies}},
+  shortjournal = {HvTSt},
+  volume = {58},
+  date = {2002},
+  pages = {632-663},
+  doi = {10.4102/hts.v58i2.568}
+}
+
+@article{lombard:2016,
+  author = {Lombaard, Christo},
+  title = {Theological Education, Considered from South Africa},
+  subtitle = {Current Issues for Cross-Contextual Comparison},
+  journaltitle = {Hervormde Teologiese Studies \mkbibparens{HTS Teologiese Studies/HTS
+                  Theological Studies}},
+  shortjournal = {HvTSt},
+  volume = {72},
+  number = {1},
+  date = {2016},
+  eid = {2851},
+  doi = {10.4102/hts.v72i1.2851}
+}
+\end{verbatim}
+
+\examplecite(15){neyrey:2002}
+\examplecite(16)[1]{lombard:2016}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{Notes}
+
+SBL now prefers to use a full URL for the DOI. See
+\url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}.
+
+\examplereferences{https://sblhs2.com/2016/08/09/hts-teologiese-studies/}
+
+\section{La Bible d’Alexandrie and Septuaginta: VTG (4 August 2016)}
+
+\begin{verbatim}
+@book{cavalier:2012,
+  author = {Cavalier, Claudine},
+  title = {Esther},
+  series = {La Bible de’Alexandrie},
+  shortseries = {BA},
+  number = {12},
+  location = {Paris},
+  publisher = {Cerf},
+  date = {2012}
+}
+
+@book{ziegler:1967,
+  author = {Ziegler, Joseph},
+  title = {Isaias},
+  series = {Septuaginta: Vetus Testamentum Graecum},
+  shortseries = {SVTG},
+  number = {14},
+  location = {Göttingen},
+  publisher = {Vandenhoeck \& Ruprecht},
+  date = {1967}
+}
+\end{verbatim}
+
+\examplecite(15)[15]{cavalier:2012}
+\examplecite(25)[15]{cavalier:2012}
+\examplecite(18)[85]{ziegler:1967}
+\examplecite(22)[85]{ziegler:1967}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/08/04/la-bible-dalexandrie-septuaginta/}
+
+\section{Reallexikon der Assyriologie (RlA) (19 July 2016)}
+
+\begin{verbatim}
+@mvreference{RlA,
+  shorthand = {RlA},
+  editor = {Ebeling, Erich and others},
+  title = {Reallexikon der Assyriologie},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1928/},
+  langid = {german}
+}
+
+@inreference{unger:akkad,
+  author = {Unger, Eckhard},
+  title = {Akkad},
+  xref = {RlA},
+  volume = {1},
+  pages = {62}
+}
+
+@inreference{skaist:levirat,
+  author = {Skaist, Aaron},
+  title = {Levirat},
+  xref = {RlA},
+  volume = {6},
+  pages = {605-608}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{unger:akkad, skaist:levirat}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{Notes}
+
+SBL does not include the date in the bibliographic entry when citing articles
+from reference works using note style. Additionally, SBL now formats
+abbreviations in the same way as the bibliography rather than placing the
+editor after the title. See
+\url{https://sblhs2.com/2017/04/13/citing-reference-works-5-topical-dictionaries-and-encyclopedias/}.
+
+\examplereferences{https://sblhs2.com/2016/07/19/reallexikon-assyriologie/}
+
+\section{OTS versus \emph{OtSt} (7 July 2016)}
+
+\begin{verbatim}
+@article{beek:1950,
+  author = {Beek, M. A.},
+  title = {Das Problem des aramäischen Stammvaters (Deut.\@ XXVI 5)},
+  journaltitle = {Oudtestamentische Studiën},
+  shortjournal = {OtSt},
+  volume = {8},
+  date = {1950},
+  pages = {193-212},
+  langid = {german}
+}
+
+@book{ausloos:2015,
+  author = {Ausloos, Hans},
+  title = {The Deuteronomist’s History: The Role of the Deuteronomist in Historical-
+           Critical Research into Genesis–Numbers},
+  series = {Old Testament Studies},
+  shortseries = {OTS},
+  number = {67},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {2015}
+}
+
+@incollection{frankena:1972,
+  author = {Frankena, R.},
+  title = {Some Remarks on the Semitic Background of Chapters XXIX–XXXI of the Book of
+           Genesis},
+  pages = {53-64},
+  booktitle = {The Witness of Tradition: Papers Read at the Joint British-Dutch Old
+               Testament Conference Held at Woudschoten, 1970},
+  editor = {Beek, M. A. and others},
+  series = {Old Testament Studies},
+  shortseries = {OTS},
+  number = {17},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1972}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{beek:1950, ausloos:2015, frankena:1972}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/07/07/ots-otst/}
+
+\section{State Archives of Assyria (23 June 2016)}
+
+\begin{verbatim}
+@book{dietrich:2003,
+  author = {Dietrich, Manfred},
+  title = {The Babylonian Correspondence of Sargon and Sennacherib},
+  series = {State Archives of Assyria},
+  shortseries = {SAA},
+  number = {17},
+  location = {Helsinki},
+  publisher = {Helsinki University Press},
+  date = {2003}
+}
+
+@series{SAA,
+  series = {State Archives of Assyria},
+  shortseries = {SAA}
+}
+\end{verbatim}
+
+\examplecite[][25 \mkbibparens{22, r.2--8}]{dietrich:2003}
+\examplevolcite[]{17}[25, 22.r.6--8]{SAA}
+\examplevolcite[]{2}[13, 2.vi.3-4]{SAA}
+\examplevolcite[]{18}[70-71, text~87]{SAA}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/06/23/state-archives-of-assyria/}
+
+\section{Chicago Assyrian Dictionary (16 June 2016)}
+
+\begin{verbatim}
+@mvreference{CAD,
+  shorthand = {CAD},
+  editor = {Gelb, Ignace J. and others},
+  title = {The Assyrian Dictionary of the Oriental Institute of the University of
+           Chicago},
+  volumes = {21},
+  location = {Chicago},
+  publisher = {The Oriental Institute of the University of Chicago},
+  date = {1956/2010},
+  pagination = {subverbo}
+}
+\end{verbatim}
+
+\examplevolcite[]{17.1}[299-301]{CAD}
+\exampleabbreviations
+\examplereferences{https://sblhs2.com/2016/06/16/chicago-assyrian-dictionary/}
+
+\section{Semeia and Semeia Studies (14 June 2016)}
+
+\begin{verbatim}
+@article{brenner:2001,
+  author = {Brenner, Athalya},
+  title = {The Food of Love: Gendered Food and Food Imagery in the Song Songs},
+  journaltitle = {Semeia},
+  volume = {86},
+  date = {2001},
+  pages = {101-112}
+}
+
+@periodical{semeia86,
+  editor = {Brenner, Athalya and van Henten, Jan Willem},
+  issuetitle = {Food and Drink in the Biblical Worlds},
+  title = {Semeia},
+  volume = {86},
+  date = {1999}
+}
+
+@collection{wit+dyk:2015,
+  editor = {de Wit, Hans and Dyk, Janet},
+  title = {Bible and Transformation: The Promise of Intercultural Bible Reading},
+  series = {Semeia Studies},
+  shortseries = {SemeiaSt},
+  number = {81},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  date = {2015}
+}
+
+@incollection{autero:2015,
+  author = {Autero, Esa},
+  title = {Ghosts, Women, and Evangelism \mkbibparens{A Dialogue between Bolivia and
+           Indonesia}},
+  pages = {267-289},
+  crossref = {wit+dyk:2015}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{brenner:2001, semeia86, wit+dyk:2015, autero:2015}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/06/14/semeia-semeia-studies/}
+
+\section{Hippolytus or Hippolytus of Rome?  (7 June 2016)}
+
+\begin{verbatim}
+@ancienttext{hyppolytus:ref,
+  author = {Hyppolytus},
+  title = {Refutatio omnium haeresium \mkbibparens{Philosophoumena or Elenchus}},
+  shorttitle = {Ref.}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{hyppolytus:ref}
+\end{verbcite}
+\exampleancientsources
+\examplereferences{https://sblhs2.com/2016/06/07/hippolytus-or-hippolytus-rome/}
+
+\section{First and Last Name Order (2 June 2016)}
+
+\begin{verbatim}
+@book{talbert:1992,
+  author = {Talbert, Charles H.},
+  title = {Reading John},
+  subtitle = {A Literary and Theological Commentary on the Fourth Gospel and the
+              Johannine Epistles},
+  location = {New York},
+  publisher = {Crossroad},
+  date = {1992}
+}
+
+@book{wellhausen:1883,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena zur Geschichte Israels},
+  edition = {2},
+  location = {Berlin},
+  publisher = {Reimer},
+  date = {1883},
+  langid = {german}
+}
+
+@book{wellhausen:1885,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena to the History of Israel},
+  translator = {Black, J. Sutherland and Enzies, A.},
+  preface = {Smith, W. Robertson},
+  location = {Edinburgh},
+  publisher = {Black},
+  related = {wellhausen:1883},
+  relatedtype = {translationof},
+  date = {1885}
+}
+
+@book{wellhausen:1957,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena to the History of Ancient Israel},
+  location = {New York},
+  publisher = {Meridian Books},
+  related = {wellhausen:1885},
+  relatedtype = {reprintof},
+  date = {1957}
+}
+
+@book{gerhardsson:1961,
+  author = {Gerhardsson, Birger},
+  title = {Memory and Manuscript},
+  subtitle = {Oral Tradition and Written Transmission in Rabbinic Judaism and Early
+              Christianity},
+  series = {Acta Seminarii Neotestamentici Upsaliensis},
+  shortseries = {ASNU},
+  number = {22},
+  location = {Lund and Copenhagen},
+  publisher = {Gleerup and Munksgaard},
+  date = {1961}
+}
+
+@incollection{peterson:1993,
+  author = {Peterson, David},
+  title = {The Motif of Fulfilment and the Purpose of Luke-Acts},
+  shorttitle = {Motif of Fulfilment},
+  pages = {83-104},
+  booktitle = {The Book of Acts in Its Ancient Literary Setting},
+  bookeditor = {Winter, Bruce W. and Clarke, Andrew D.},
+  volume = {1},
+  maintitle = {The Book of Acts in Its First Century Setting},
+  editor = {Winter, Bruce W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1993}
+}
+
+@book{wright:2014,
+  author = {Wright, Jacob L.},
+  title = {David, King of Israel, and Caleb in Biblical Memory},
+  shorttitle = {David, King of Israel},
+  location = {Cambridge},
+  publisher = {Cambridge University Press},
+  date = {2014},
+  eprint = {Kindle},
+  eprinttype = {ebook}
+}
+
+@article{kirk:2007,
+  author = {Kirk, Alan},
+  title = {Karl Polanyi, Marshall Sahlins, and the Study of Ancient Social Relations},
+  shorttitle = {Karl Polanyi},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {126},
+  date = {2007},
+  pages = {182-191},
+  doi = {10.2307/27638428},
+  url = {http://www.jstor.org/stable/27638428}
+}
+
+@book{georges:1967,
+  author = {Dossin, Georges},
+  title = {Lettres},
+  series = {Archives royales de Mari},
+  shortseries = {ARM},
+  number = {1},
+  origdate = {1946},
+  location = {Paris},
+  publisher = {Geuthner},
+  date = {1967},
+  langid = {french}
+}
+
+@online{wilhelm:2013,
+  editor = {Wilhelm, Gernot},
+  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani
+           \mkbibparens{CTH 51.I}},
+  shorttitle = {Der Vertrag Šuppiluliumas I.},
+  date = {2013-02-24},
+  eprinttype = {hethiter},
+  eprint = {CTH 51.I},
+  eprintclass = {INTR 2013-02-24},
+  langid = {german}
+}
+
+@online{caraher:2013,
+  editor = {Caraher, William R.},
+  title = {Pyla-Koutsopetria Archaeological Project},
+  subtitle = {\mkbibparens{Overview}},
+  website = {Open Context},
+  date = {2013-11-05},
+  doi = {10.6078/M7B56GNS},
+  url = {http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2}
+}
+\end{verbatim}
+
+\examplecite(15){talbert:1992}
+\begin{verbcite}
+  \nocite{wellhausen:1957, gerhardsson:1961, peterson:1993, wright:2014,
+    georges:1967, wilhelm:2013, caraher:2013}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+\examplereferences{https://sblhs2.com/2016/06/02/first-last-name-order/}
 \end{document}
