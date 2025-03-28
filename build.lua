@@ -3,7 +3,7 @@ module = "biblatex-sbl"
 unpackexe        = ""
 sourcefiles      = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
 installfiles     = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
-typesetdemofiles = {"sblhs-blog.tex"}
+typesetdemofiles = {"biblatex-sbl-blog-examples.tex"}
 
 typesetexe = "lualatex"
 
