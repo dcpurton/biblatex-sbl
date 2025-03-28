@@ -1722,7 +1722,7 @@
      \clearname{editor}}
     {\global\undef\bbx@lasthash}}
 
-\newbibmacro*{byeditor+others}{%
+\renewbibmacro*{byeditor+others}{%
   \ifnameundef{editor}
     {}
     {\usebibmacro{byeditor+othersstrg}%
