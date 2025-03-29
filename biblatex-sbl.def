@@ -729,7 +729,7 @@
 
 % ## Field formats
 
-\DeclareFieldFormat[online,review,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat[online,review,incommentary,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
   \begingroup
   \frenchspacing
@@ -809,7 +809,7 @@
   \endgroup
   \isdot}
 \DeclareFieldFormat[series]{shorthand}{#1}
-\DeclareFieldFormat[online,review,inreference,inseries]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[online,review,incommentary,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
