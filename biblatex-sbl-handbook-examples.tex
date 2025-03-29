@@ -1,0 +1,672 @@
+\DocumentMetadata{lang=en}
+\documentclass[a4paper]{article}
+
+\input{biblatex-sbl-examples-preamble.tex}
+
+\begin{document}
+\title{SBL Handbook of Style}
+\author{Second Edition}
+\date{SBL Press}
+\maketitle
+
+\tableofcontents
+
+\section{A Book by a Single Author}
+
+\begin{verbatim}
+@book{talbert:1992,
+  author = {Talbert, Charles H.},
+  title = {Reading John},
+  subtitle = {A Literary and Theological Commentary on the Fourth Gospel and the
+              Johannine Epistles},
+  location = {New York},
+  publisher = {Crossroad},
+  date = {1992}
+}
+\end{verbatim}
+
+\examplecite(15)[127]{talbert:1992}
+\examplecite(19)[22]{talbert:1992}
+\examplebibliography
+
+\section{A Book by Two or Three Authors}
+
+\begin{verbatim}
+@book{robinson+koester:1971,
+  author = {Robinson, James M. and Koester, Helmut},
+  title = {Trajectories through Early Christianity},
+  location = {Philadelphia},
+  publisher = {Fortress},
+  date = {1971}
+}
+\end{verbatim}
+
+\examplecite(4)[237]{robinson+koester:1971}
+\examplecite(12)[23]{robinson+koester:1971}
+\examplebibliography
+
+\section{A Book by More Than Three Authors}
+
+\begin{verbatim}
+@book{scott+etal:1993,
+  author = {Scott, Bernard Brandon and Dean, Margaret and Sparks, Kristen and LaZar,
+            Frances},
+  title = {Reading New Testament Greek},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1993}
+}
+\end{verbatim}
+
+\examplecite(7)[53]{scott+etal:1993}
+\examplecite(9)[42]{scott+etal:1993}
+\examplebibliography
+
+\section{A Translated Volume}
+
+\begin{verbatim}
+@book{egger:1996,
+  author = {Egger, Wilhelm},
+  title = {How to Read the New Testament},
+  subtitle = {An Introduction to Linguistic and Historical-Critical Methodology},
+  shorttitle = {How to Read},
+  translator = {Heinegg, Peter},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1996}
+}
+\end{verbatim}
+
+\examplecite(14)[28]{egger:1996}
+\examplecite(18)[291]{egger:1996}
+\examplebibliography
+
+\section{The Full History of a Translated Volume}
+
+\begin{verbatim}
+@book{wellhausen:1883,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena zur Geschichte Israels},
+  edition = {2},
+  location = {Berlin},
+  publisher = {Reimer},
+  date = {1883},
+  langid = {german}
+}
+
+@book{wellhausen:1885,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena to the History of Israel},
+  translator = {Black, J. Sutherland and Enzies, A.},
+  preface = {Smith, W. Robertson},
+  location = {Edinburgh},
+  publisher = {Black},
+  related = {wellhausen:1883},
+  relatedtype = {translationof},
+  date = {1885}
+}
+
+@book{wellhausen:1957,
+  author = {Wellhausen, Julius},
+  title = {Prolegomena to the History of Ancient Israel},
+  location = {New York},
+  publisher = {Meridian Books},
+  related = {wellhausen:1885},
+  relatedtype = {reprintof},
+  date = {1957}
+}
+\end{verbatim}
+
+\examplecite(3)[296]{wellhausen:1957}
+\examplebibliography
+
+\subsubsection{Notes}
+
+The format of \citeshortauthor{wellhausen:1957} in the example bibliography
+entry is incorrect in the handbook. See
+\url{https://sblhs2.com/2016/06/02/first-last-name-order/}.
+
+\section{A Book with One Editor}
+
+\begin{verbatim}
+@book{tigay:1985,
+  editor = {Tigay, Jeffrey H.},
+  title = {Empirical Models for Biblical Criticism},
+  shorttitle = {Empiracle Models},
+  location = {Philadelphia},
+  publisher = {University of Pennsylvania Press},
+  date = {1985}
+}
+\end{verbatim}
+
+\examplecite(5)[35]{tigay:1985}
+\examplecite(9)[38]{tigay:1985}
+\examplebibliography
+
+\section{A Book with Two or Three Editors}
+
+\begin{verbatim}
+@book{kaltner+mckenzie:2002,
+  editor = {Kaltner, John and McKenzie, Steven L.},
+  title = {Beyond Babel: A Handbook for Biblical Hebrew and Related Languages},
+  series = {Resources for Biblical Study},
+  shortseries = {RBS},
+  number = {42},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2002}
+}
+\end{verbatim}
+
+\examplecite(44)[xii]{kaltner+mckenzie:2002}
+\examplecite(47)[viii]{kaltner+mckenzie:2002}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+The handbook leaves the short title out in the subsequent citation. But in
+light of other examples and the post at
+\url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/} this
+seems likely an error. \pkg{biblatex-sbl} includes the short title.
+
+\section{A Book with Four or More Editors}
+
+\begin{verbatim}
+@book{oates+etal:2001,
+  editor = {Oates, John F. and Willis, William H. and Bagnall, Roger S. and Worp,
+            Klass A.},
+  title = {Checklist of Editions of Greek and Latin Papyri, Ostraca, and Tablets},
+  edition = {5},
+  series = {Bulletin of the American Society of Papyrologists, Supplements},
+  shortseries = {BASPSup},
+  number = {9},
+  location = {Oakville, CT},
+  publisher = {American Society of Papyrologists},
+  date = {2001}
+}
+\end{verbatim}
+
+\examplecite(4)[10]{oates+etal:2001}
+\exampleabbreviations
+\examplebibliography
+
+\section{A Book with Both Author and Editor}
+
+\begin{verbatim}
+@book{schillebeeckx:1986,
+  author = {Schillebeeckx, Edward},
+  title = {The Schillebeeckx Reader},
+  editor = {Schreiter, Robert J.},
+  location = {Edinburgh},
+  publisher = {T\&T Clark},
+  date = {1986}
+}
+\end{verbatim}
+
+\examplecite(45)[20]{schillebeeckx:1986}
+\examplebibliography
+
+\section{A Book with Author, Editor, and Translator}
+
+\begin{verbatim}
+@book{blass+debrunner:1982,
+  author = {Blass, Friedrich and Debrunner, Albert},
+  title = {Grammatica del greco del Nuovo Testamento},
+  editor = {Rehkopf, Friedrich},
+  translator = {Pisi, Giordana},
+  location = {Brescia},
+  publisher = {Paideia},
+  date = {1982},
+  langid = {italian}
+}
+\end{verbatim}
+
+\examplecite(3){blass+debrunner:1982}
+\examplebibliography
+
+\section{A Title in a Modern Work Citing Words in a Non-Latin Alphabet}
+
+\begin{verbatim}
+@article{irvine:2014,
+  author = {Irvine, Stuart A.},
+  title = {Idols \mkbibbrackets{\mkbibemph{ktbwnm}}},
+  subtitle = {A Note on Hosea 13:2a},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {133},
+  date = {2014},
+  pages = {509-517}
+}
+\end{verbatim}
+
+\examplecite(34){irvine:2014}
+\exampleabbreviations
+\examplebibliography
+
+\section{An Article in an Edited Volume}
+
+\begin{verbatim}
+@collection{kraft+nickelsburg:1986,
+  editor = {Kraft, Robert A. and Nickelsburg, George W. E.},
+  title = {Early Judaism and Its Modern Interpreters},
+  shorttitle = {Early Judaism},
+  location = {Philadelphia and Atlanta},
+  publisher = {Fortress and Scholars Press},
+  date = {1986}
+}
+
+@incollection{attridge:1986,
+  author = {Attridge, Harold W.},
+  title = {Jewish Historiography},
+  pages = {311-343},
+  crossref = {kraft+nickelsburg:1986}
+}
+
+@incollection{collins:1986,
+  author = {Collins, John J.},
+  title = {The Testamentary Literature in Recent Scholarship},
+  pages = {268-286},
+  crossref = {kraft+nickelsburg:1986}
+}
+
+@article{knoppers:1995,
+  author = {Knoppers, Gary N.},
+  title = {Prayer and Propaganda: The Dedication of Solomon's Temple and the
+           Deuteronomist's Program},
+  journaltitle = {Catholic Biblical Quarterly},
+  shortjournal = {CBQ},
+  volume = {57},
+  date = {1995},
+  pages = {229-254}
+}
+
+@incollection{knoppers:2000,
+  author = {Knoppers, Gary N.},
+  title = {Prayer and Propaganda: The Dedication of Solomon's Temple and the
+           Deuteronomist's Program},
+  booktitle = {Reconsidering Israel and Judah: Recent Studies on the Deuteronomistic
+               History},
+  editor = {Knoppers, Gary N. and McConville, J. Gordon},
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
+  date = {2000},
+  pages = {370-396}
+}
+\end{verbatim}
+
+\examplecite(3){attridge:1986}
+\examplecite(6)[314-317]{attridge:1986}
+\examplecite(4){knoppers:1995}
+\examplecite(5){knoppers:2000}
+\examplecite(6){knoppers:2000}
+\begin{verbcite}
+  \citereset
+\end{verbcite}
+\examplecite(8){collins:1986}
+\examplecite(9){attridge:1986}
+\exampleabbreviations
+\examplebibliography
+
+\section{An Article in a Festschrift}
+
+\begin{verbatim}
+@incollection{vanseters:1995,
+  author = {Van Seters, John},
+  title = {The Theology of the Yahwist},
+  subtitle = {A Preliminary Sketch},
+  pages = {219-228},
+  booktitle = {\mkbibquote{Wer ist wie du, Herr, unter den Göttern?}},
+  booksubtitle = {Studien zur Theologie und Religionsgeschichte Israels für Otto
+                  Kaiser zum 70.~Geburtstag},
+  editor = {Kottsieper, Ingo and others},
+  location = {Göttingen},
+  publisher = {Vandenhoeck \& Ruprecht},
+  date = {1995}
+}
+\end{verbatim}
+
+\examplecite(8){vanseters:1995}
+\examplecite(17)[222]{vanseters:1995}
+\examplebibliography
+
+\section{An Introduction, Preface, or Foreword Written by Someone Other Than the Author}
+
+\begin{verbatim}
+@suppbook{boers:1996,
+  author = {Boers, Hendrikus},
+  title = {introduction},
+  booktitle = {How to Read the New Testament},
+  booksubtitle = {An Introduction to Linguistic and Historical-Critical Methodology},
+  bookauthor = {Egger, Wilhelm},
+  translator = {Heinegg, Peter},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1996}
+}
+\end{verbatim}
+
+\examplecite(2)[xi-xxi]{boers:1996}
+\examplecite(6)[xi-xx]{boers:1996}
+\examplebibliography
+
+\section{Multiple Publishers for a Single Book}
+
+\begin{verbatim}
+@book{gerhardsson:1961,
+  author = {Gerhardsson, Birger},
+  title = {Memory and Manuscript},
+  subtitle = {Oral Tradition and Written Transmission in Rabbinic Judaism and Early
+              Christianity},
+  series = {Acta Seminarii Neotestamentici Upsaliensis},
+  shortseries = {ASNU},
+  number = {22},
+  location = {Lund and Copenhagen},
+  publisher = {Gleerup and Munksgaard},
+  date = {1961}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{gerhardsson:1961}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+The format of \citeshortauthor{gerhardsson:1961} in the example bibliography
+entry is incorrect in the handbook. See
+\url{https://sblhs2.com/2016/06/02/first-last-name-order/}.
+
+\section{A Revised Edition}
+
+\begin{verbatim}
+@book{pritchard:1969,
+  editor = {Pritchard, James B.},
+  title = {Ancient Near Eastern Texts Relating to the Old Testament},
+  edition = {3},
+  location = {Princeton},
+  publisher = {Princeton University Press},
+  date = {1969}
+}
+
+@book{blenkinsopp:1996,
+  author = {Blenkinsopp, Joseph},
+  title = {A History of Prophecy in Israel},
+  edition = {rev.\@ and enl\@ ed.\isdot},
+  location = {Louisville},
+  publisher = {Westminster John Knox},
+  date = {1996}
+}
+\end{verbatim}
+
+\examplecite(87)[xxi]{pritchard:1969}
+\examplecite(56)[81]{blenkinsopp:1996}
+\examplebibliography
+
+\section{Reprint of a Recent Title}
+
+\begin{verbatim}
+@book{vanseters:1997,
+  author = {Van Seters, John},
+  title = {In Search of History},
+  subtitle = {Historiography in the Ancient World and the Origins of Biblical History},
+  origlocation = {New Haven},
+  origpublisher = {Yale University Press},
+  origdate = {1983},
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
+  date = {1997}
+}
+\end{verbatim}
+
+\examplecite(5)[35]{vanseters:1997}
+\examplebibliography
+
+\section{Reprint of a Title in the Public Domain}
+
+\begin{verbatim}
+@book{deissmann:1995,
+  author = {Deissmann, Gustav Adolf},
+  title = {Light from the Ancient East},
+  subtitle = {The New Testament Illustrated by Recently Discovered Texts of the
+              Graeco-Roman World},
+  translator = {Strachan, Lionel R. M.},
+  origdate = {1927},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1995}
+}
+\end{verbatim}
+
+\examplecite(5)[55]{deissmann:1995}
+\examplebibliography
+
+\subsubsection{Notes}
+
+Placing the translator within parenthesis is likely carried over from the
+first edition of the \emph{SBLHS}. The second edition leaves only the basic
+facts of publication (city, publisher, date) inside parenthesis. See
+\url{https://sblhs2.com/2016/10/04/separating-publication-information/}.
+
+\section{A Forthcoming Book}
+
+\begin{verbatim}
+@book{harrison+welborn:forthcoming,
+  editor = {Harrison, James R. and Welborn, L. L.},
+  title = {The First Urban Churches 2},
+  subtitle = {Roman Corinth},
+  shorttitle = {Roman Corinth},
+  series = {Writings from the Greco-Roman World Supplement Series},
+  shortseries = {WGRWSup},
+  location = {Atlanta},
+  publisher = {SBL Press},
+  pubstate = {forthcoming}
+}
+\end{verbatim}
+
+\examplecite(9){harrison+welborn:forthcoming}
+\examplecite(12)[201]{harrison+welborn:forthcoming}
+\exampleabbreviations
+\examplebibliography
+
+\section{A Multivolume Work}
+
+\begin{verbatim}
+@mvbook{harnack:1896-1905,
+  author = {Harnack, Adolf},
+  title = {History of Dogma},
+  translator = {Buchanan, Neil},
+  origlanguage = {from the 3rd German ed.\isdot},
+  volumes = {7},
+  location = {Boston},
+  publisher = {Little, Brown},
+  date = {1896/1905}
+}
+\end{verbatim}
+
+\examplecite(5){harnack:1896-1905}
+\examplevolcite(9){2}[126]{harnack:1896-1905}
+\examplebibliography
+
+\section{A Titled Volume in a Multivolume Work}
+
+\begin{verbatim}
+@collection{winter+clarke:1993,
+  editor = {Winter, Bruce W. and Clarke, Andrew D.},
+  title = {The Book of Acts in Its Ancient Literary Setting},
+  shorttitle = {Book of Acts},
+  volume = {1},
+  maintitle = {The Book of Acts in Its First Century Setting},
+  maineditor = {Winter, Bruce W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1993}
+}
+\end{verbatim}
+
+\examplecite(5)[25]{winter+clarke:1993}
+\examplecite(16)[25]{winter+clarke:1993}
+\examplebibliography
+
+\section{A Chapter within a Multivolume Work}
+
+\begin{verbatim}
+@incollection{mason:1996,
+  author = {Mason, Steve},
+  title = {Josephus on Canon and Scriptures},
+  pages = {217-235},
+  volume = {1},
+  part = {1},
+  maintitle = {Hebrew Bible\slash Old Testament},
+  mainsubtitle = {The History of Its Interpretation},
+  editor = {Sæbø, Magne},
+  location = {Göttingen},
+  publisher = {Vandenhoeck \& Ruprecht},
+  date = {1996}
+}
+\end{verbatim}
+
+\examplecite(24){mason:1996}
+\examplecite(28)[224]{mason:1996}
+\examplebibliography
+
+\subsubsection{Notes}
+
+The \emph{SBLHS} contains an error with the pages in the first citation. It
+should be 217–35 not 217–335.
+
+\section{A Chapter within a Titled Volume in a Multivolume Work}
+
+\begin{verbatim}
+@incollection{peterson:1993,
+  author = {Peterson, David},
+  title = {The Motif of Fulfilment and the Purpose of Luke-Acts},
+  shorttitle = {Motif of Fulfilment},
+  pages = {83-104},
+  booktitle = {The Book of Acts in Its Ancient Literary Setting},
+  bookeditor = {Winter, Bruce W. and Clarke, Andrew D.},
+  volume = {1},
+  maintitle = {The Book of Acts in Its First Century Setting},
+  editor = {Winter, Bruce W.},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1993}
+}
+\end{verbatim}
+
+\examplecite(66){peterson:1993}
+\examplecite(78)[92]{peterson:1993}
+\examplebibliography
+
+\section{A Work in a Series}
+
+\begin{verbatim}
+@book{hofius:1989,
+  author = {Hofius, Otfried},
+  title = {Paulusstudien},
+  series = {Wissenschaftliche Untersuchungen zum Neuen Testament},
+  shortseries = {WUNT},
+  number = {51},
+  location = {Tübingen},
+  publisher = {Mohr Siebeck},
+  date = {1989},
+  langid = {german}
+}
+
+@book{jeremias:1967,
+  author = {Jeremias, Joachim},
+  title = {The Prayers of Jesus},
+  shorttitle = {Prayers},
+  series = {Studies in Biblical Theology},
+  shortseries = {SBT},
+  number = {2/6},
+  location = {Naperville, IL},
+  publisher = {Allenson},
+  date = {1967}
+}
+\end{verbatim}
+
+\examplecite(12)[122]{hofius:1989}
+\examplecite(14)[124]{hofius:1989}
+\examplecite(23)[123-127]{jeremias:1967}
+\examplecite(32)[126]{jeremias:1967}
+\exampleabbreviations
+\examplebibliography
+
+\section{Electronic Book}
+
+\begin{verbatim}
+@book{reventlow:2009,
+  author = {Reventlow, Henning Graf},
+  title = {From the Old Testament to Origen},
+  volume = {1},
+  maintitle = {History of Biblical Interpretation},
+  translator = {Perdue, Leo G.},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2009},
+  eprint = {Nook},
+  eprinttype = {ebook},
+  pagination = {chapter}
+}
+
+@book{wright:2014,
+  author = {Wright, Jacob L.},
+  title = {David, King of Israel, and Caleb in Biblical Memory},
+  shorttitle = {David, King of Israel},
+  location = {Cambridge},
+  publisher = {Cambridge University Press},
+  date = {2014},
+  eprint = {Kindle},
+  eprinttype = {ebook},
+  pagination = {chapter}
+}
+
+@book{killebrew+steiner:2014,
+  editor = {Killebrew, Ann E. and Steiner, Margreet},
+  title = {The Oxford Handbook of the Archaeology of the Levant},
+  subtitle = {c.~8000--332 BCE},
+  shorttitle = {Archaeology of the Levant},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {2014},
+  doi = {10.1093/oxfordhb/9780199212972.001.0001}
+}
+
+@book{kaufman:1974,
+  author = {Kaufman, Stephen},
+  title = {The Akkadian Influences on Aramaic},
+  series = {Assyriological Studies},
+  shortseries = {AS},
+  number = {19},
+  location = {Chicago},
+  publisher = {The Oriental Institute of the University of Chicago},
+  date = {1974},
+  url = {http://oi.uchicago.edu/pdf/as19.pdf}
+}
+\end{verbatim}
+
+\examplecite(14)[1.3]{reventlow:2009}
+\examplecite(18)[1.3]{reventlow:2009}
+\examplecite(3)[\pnfmt{3}, \mkbibquote{Introducing David}]{wright:2014}
+\examplecite(21)[\pnfmt{5}, \mkbibquote{Evidence from Qumran}]{wright:2014}
+\examplecite(53){killebrew+steiner:2014}
+\examplecite(55){killebrew+steiner:2014}
+\examplecite(29){kaufman:1974}
+\examplecite(32)[123]{kaufman:1974}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item The period before ``Vol.~1'' in the first citation and the lack of
+    abbreviation in in the bibliography of \citeshortauthor{reventlow:2009} is
+    inconsistent with what the \emph{SBLHS} has done elsewhere and is assumed
+    to be an error.
+  \item SBL now prefers to use a full URL for the DOI. See
+    \url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}.
+\end{itemize}
+\end{document}
