@@ -1,0 +1,375 @@
+\DocumentMetadata{lang=en}
+\documentclass[a4paper]{article}
+
+\input{biblatex-sbl-examples-preamble.tex}
+
+\begin{document}
+\title{SBL Handbook of Style}
+\author{Student Supplement}
+\date{SBL Press}
+\maketitle
+
+\tableofcontents
+
+\section{Biblical Citations}
+
+\begin{verbatim}
+@inbook{petersen:2006,
+  author = {Petersen, David L.},
+  title = {Ezekiel},
+  pages = {1096-1167},
+  booktitle = {The HarperCollins Study Bible Fully Revised and Updated: New Revised
+               Standard Version, with the Apocryphal\slash Deuterocanonical Books},
+  editor = {Attridge, Harold W. and others},
+  location = {San Francisco},
+  publisher = {HarperSanFrancisco},
+  date = {2006}
+}
+\end{verbatim}
+
+\examplecite(3)[1096]{petersen:2006}
+\examplecite(5)[1096]{petersen:2006}
+\examplebibliography
+
+\section{Working with Biblical Commentaries}
+
+\subsection{Series Title Volume Title}
+
+\begin{verbatim}
+@commentary{westermann:1995,
+  author =  {Westermann, Claus},
+  title = {Genesis 12--36},
+  translator = {Scullion, John J.},
+  series = {Continental Commentaries},
+  shortseries = {CC},
+  location = {Minneapolis},
+  publisher = {Fortress},
+  date = {1995}
+}
+\end{verbatim}
+
+\examplecite(18)[25]{westermann:1995}
+\examplecite(20)[44]{westermann:1995}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{Multivolume Commentaries}
+
+\begin{verbatim}
+@mvcommentary{dahood:1965-1970,
+  author = {Dahood, Mitchell},
+  title = {Psalms},
+  volumes = {3},
+  series = {Anchor Bible},
+  shortseries = {AB},
+  number = {16--17A},
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1965/1970}
+}
+\end{verbatim}
+
+\examplevolcite(4){3}[127]{dahood:1965-1970}
+\examplevolcite(7){2}[121]{dahood:1965-1970}
+\exampleabbreviations
+\examplebibliography
+
+\newrefsection
+
+\begin{verbatim}
+@commentary{dahood:1965,
+  author = {Dahood, Mitchell},
+  title = {Psalms I: 1--50},
+  shorttitle = {Psalms I: 1--50},
+  series = {Anchor Bible},
+  shortseries = {AB},
+  number = {16},
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1965}
+}
+
+@commentary{dahood:1968,
+  author = {Dahood, Mitchell},
+  title = {Psalms II: 51--100},
+  shorttitle = {Psalms II: 51--100},
+  series = {Anchor Bible},
+  shortseries = {AB},
+  number = {17},
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1968}
+}
+\end{verbatim}
+
+\examplecite(78)[44]{dahood:1965}
+\examplecite(79)[78]{dahood:1965}
+\examplecite(82)[347]{dahood:1968}
+\examplecite(86)[351]{dahood:1968}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\pkg{biblatex-sbl} follows the \emph{SBL Handbook of Style} blog and does
+not include the entire multivolume work in the bibliography entries of the
+individual volumes. See
+\url{https://sblhs2.com/2018/05/10/series-volume-identifiers/}.
+
+\newrefsection
+
+\begin{verbatim}
+@mvcommentary{NIB,
+  shorthand = {NIB},
+  editor = {Keck, Leander E.},
+  title = {The New Interpreter's Bible},
+  volumes = {12},
+  location = {Nashville},
+  publisher = {Abingdon},
+  date = {1994/2004}
+}
+
+@incommentary{miller:jeremiah,
+  author = {Miller, Patrick D.},
+  title = {The Book of Jeremiah: Introduction, Commentary, and Reflections},
+  xref = {NIB},
+  volume = {6},
+  pages = {553-926},
+}
+\end{verbatim}
+
+\examplecite(1)[577]{miller:jeremiah}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\pkg{biblatex-sbl} follows more recent publications and includes the title in
+these citations. See, for example,
+\url{https://www.sbl-site.org/assets/pdfs/pubs/9781628375008_OA.pdf}.
+
+\subsection{Single-Volume Commentaries on the Entire Bible}
+
+\begin{verbatim}
+@incommentary{partain:1995,
+  author = {Partain, Jack G.},
+  title = {Numbers},
+  pages = {175-179},
+  booktitle = {Mercer Commentary on the Bible},
+  editor = {Mills, Watson E. and others},
+  location = {Macon, GA},
+  publisher = {Mercer University Press},
+  date = {1995}
+}
+\end{verbatim}
+
+\examplecite(5){partain:1995}
+\examplecite(8)[175]{partain:1995}
+\examplebibliography
+
+\section{Bible Dictionaries and Encyclopedias}
+
+\begin{verbatim}
+@mvreference{ABD,
+  shorthand = {ABD},
+  editor = {Freedman, David Noel},
+  title = {Anchor Bible Dictionary},
+  volumes = {6},
+  location = {New York},
+  publisher = {Doubleday},
+  date = {1992},
+  pagination = {subverbo}
+}
+
+@inreference{walters:jacobnarrative,
+  author = {Walters, Stanley D.},
+  title = {Jacob Narrative},
+  xref = {ABD},
+  volume = {3},
+  pages = {599-609}
+}
+\end{verbatim}
+
+\examplecite(1)[599-609]{walters:jacobnarrative}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item The pages for \cite{walters:jacobnarrative} are incorrect in the
+    Student Supplement bibliography entry.
+  \item SBL prefers the shorter form in the bibliography with \cite{ABD}
+    appearing in a list of abbreviations. See point 5 in
+    \url{https://sblhs2.com/2017/04/13/citing-reference-works-5-topical-dictionaries-and-encyclopedias/}.
+    This includes when multiple articles are cited from the same dictionary or
+    encyclopedia.
+\end{itemize}
+
+\section{Citations of Electronic Sources}
+
+\begin{verbatim}
+@article{mclay:2006,
+  author = {McLay, R. Timothy},
+  title = {The Goal of Teaching Biblical and Religious Studies in the Context of an
+           Undergraduate Education},
+  journaltitle = {SBL Forum},
+  date = {2006/10/6},
+  url = {http://www.sbl-site.org/publications/article.aspx?articleId=581}
+}
+\end{verbatim}
+
+\examplecite(7){mclay:2006}
+\examplecite(9){mclay:2006}
+\examplebibliography
+
+\section{Footnotes}
+
+\begin{verbatim}
+@book{vanseters:1992,
+  author = {Van Seters, John},
+  title = {Prologue to History: The Yahwist as Historian in Genesis},
+  shorttitle = {Prologue},
+  location = {Louisville},
+  publisher = {Westminster John Knox},
+  date = {1992}
+}
+\end{verbatim}
+
+\examplecite(7)[115]{vanseters:1992}
+\examplecite(8)[150]{vanseters:1992}
+\examplebibliography
+
+\section{Bibliography}
+
+\begin{verbatim}
+@mvreference{NIDNTT,
+  shorthand = {NIDNTT},
+  editor = {Brown, Colin},
+  title = {New International Dictionary of New Testament Theology},
+  volumes = {4},
+  location = {Grand Rapids},
+  publisher = {Zondervan},
+  date = {1975/1985}
+}
+
+@mvcommentary{dahood:1965-1970,
+  author = {Dahood, Mitchell},
+  title = {Psalms},
+  volumes = {3},
+  series = {Anchor Bible},
+  shortseries = {AB},
+  number = {16--17A},
+  location = {Garden City, NY},
+  publisher = {Doubleday},
+  date = {1965/1970}
+}
+
+@incollection{harrington:1986,
+  author = {Harrington, Daniel},
+  title = {Palestinian Adaptations of Biblical Narratives and Prophecies},
+  pages = {239-247},
+  booktitle = {Early Judaism and Its Modern Interpreters},
+  editor = {Kraft, R. A. and Nickelsburg, G. W. E.},
+  series = {The Bible and Its Modern Interpreters},
+  shortseries = {BMI},
+  number = {2},
+  location = {Philadelphia},
+  publisher = {Fortress},
+  date = {1986}
+}
+
+@article{harrington:1970,
+  author = {Harrington, Daniel},
+  title = {The Original Language of Pseudo-Philo’s Liber Antiquitatum Biblicarum},
+  journaltitle = {Harvard Theological Review},
+  shortjournal = {HTR},
+  volume = {63},
+  date = {1970},
+  pages = {503-514}
+}
+
+@reference{Jastrow,
+  shorthand = {Jastrow},
+  editor = {Jastrow, Morris},
+  editortype = {compiler},
+  title = {A Dictionary of the Targumim, the Talmud Babli and Yerushalmi, and the
+           Midrashic Literature with an Index of Scriptural Quotations},
+  location = {London and New York},
+  publisher = {Luzac and G. P. Putnam’s Sons},
+  date = {1903},
+  pagination = {subverbo},
+  options = {shorthandformat=roman}
+}
+
+@reference{DMBI,
+  shorthand = {DMBI},
+  editor = {McKim, Donald K.},
+  title = {Dictionary of Major Biblical Interpreters},
+  location = {Downers Grove, IN},
+  publisher = {InterVarsity Press},
+  date = {2007}
+}
+
+@article{mclay:2006,
+  author = {McLay, R. Timothy},
+  title = {The Goal of Teaching Biblical and Religious Studies in the Context of an
+           Undergraduate Education},
+  shorttitle = {Goal of Teaching},
+  journaltitle = {SBL Forum},
+  date = {2006-10-06},
+  url = {http://www.sbl-site.org/publications/article.aspx?articleId=581}
+}
+
+@mvreference{DBI,
+  shorthand = {DBI},
+  editor = {Hayes, John},
+  title = {Dictionary of Biblical Interpretation},
+  volumes = {2},
+  location = {Nashville},
+  publisher = {Abingdon},
+  date = {1999}
+}
+
+@inreference{oday:intertextuality,
+  author = {O’Day, Gail},
+  title = {Intertextuality},
+  xref = {DBI},
+  volume = {1},
+  pages = {546-548}
+}
+
+@commentary{rad:1990,
+  author = {von Rad, Gerhard},
+  title = {Genesis: A Commentary},
+  translator = {Marks, John H.},
+  series = {Old Testament Library},
+  shortseries = {OTL},
+  location = {Philadelphia},
+  publisher = {Westminster},
+  date = {1990}
+}
+\end{verbatim}
+
+\begin{verbcite}
+  \nocite{NIDNTT, dahood:1965-1970, harrington:1986, harrington:1970, Jastrow,
+    DMBI, mclay:2006, oday:intertextuality, rad:1990}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item Following the blog, \pkg{biblatex-sbl} prefers to use abbreviations
+    for dictionaries and encyclopedias.
+  \item The \emph{Student Supplement} includes the definite article in sorting
+    the two Harrington bibliography entries. In line with more recent
+    publications, \pkg{biblatex-sbl} ignores articles for the purposes of
+    sort order in the bibliography. See
+    \url{https://www.sbl-site.org/assets/pdfs/pubs/9781628375008_OA.pdf} for
+    an example of this sort order. This is also the position taken by the
+    \emph{Chicago Manual of Style}. See §14.71 “Alphabetical order for titles
+    by the same author” in the 18th edition.
+\end{itemize}
+\end{document}

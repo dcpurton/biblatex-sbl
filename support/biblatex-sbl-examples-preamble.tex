@@ -1,0 +1,240 @@
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{xcolor}
+\usepackage{fancyvrb,fvextra}
+\usepackage{enverb}
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{2pt plus 0.5pt}
+\setcounter{tocdepth}{1}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
+\setcounter{secnumdepth}{0}
+\usepackage[american, bidi=basic]{babel}
+\babelprovide[import, onchar=ids]{polytonicgreek}
+\babelprovide[import, onchar=ids]{russian}
+\babelprovide[import, onchar=ids fonts]{armenian}
+\babelprovide[import, onchar=ids fonts]{hebrew}
+\babelprovide[import, onchar=ids fonts]{syriac}
+\babelfont{rm}{Brill}
+\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
+\babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
+\babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
+\babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
+\babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
+\babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
+\usepackage{csquotes}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl, refsection=subsection+, locallabelwidth]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+\makeatletter
+
+\colorlet{cmdcolour}{black!65}
+
+\newcommand*{\pkg}[1]{\textsf{#1}}
+
+\ExplSyntaxOn
+% Thanks to https://tex.stackexchange.com/a/44444/87678
+\cs_new_protected:Npn \sblhsblog_verb_print:n #1
+  {
+    \tl_set:Nn \l_tmpa_tl {#1}
+    \regex_replace_all:nnN { . } { \c{string} \0 } \l_tmpa_tl
+    \tl_set:Nx \l_tmpb_tl { \l_tmpa_tl }
+    \tl_use:N \l_tmpb_tl
+  }
+\cs_set_eq:NN \verbprint \sblhsblog_verb_print:n
+\ExplSyntaxOff
+
+% hack to include a space after a control sequence that would normally be
+% removed by \verbprint above
+\usepackage{newunicodechar}
+\newunicodechar{ }{\relax}% this is U+00A0
+
+% redefine hyperlink anchors to be independent of \iffootnote
+\DeclareFieldFormat{bibhyperlink}{%
+  \bibhyperlink{\cbx@resetcount:\thefield{entrykey}}{#1}}
+\DeclareFieldFormat{bibhypertarget}{%
+  \ifboolexpr{
+    not test {\iffieldundef{crossref}}
+    and
+    not test {\ifcrossrefseen}
+  }
+    {\bibhypertarget{\cbx@resetcount:\thefield{crossref}}{}}
+    {}%
+  \bibhypertarget{\cbx@resetcount:\thefield{entrykey}}{#1}}
+\DeclareFieldFormat{shorttitlelink}{%
+  \bibhyperlink{\cbx@resetcount:\thefield{entrykey}}{#1}}
+
+% Redefine \smartcite so autocite prints inline with a period.
+\DeclareCiteCommand{\smartcite}[\iffootnote\mkbibparens\bibfootnotewrapper]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\bibfootnotewrapper]
+  {\usebibmacro{prenote}}
+  {\usebibmacro{cite:star}%
+   \usebibmacro{cite}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
+\NewDocumentCommand{\examplenobreak}{}{%
+  \par
+  \@afterheading
+}
+
+\NewDocumentCommand{\exampleciteauthor}{m}{%
+  \par
+  \textcolor{cmdcolour}{\texttt{\textbackslash citeauthor\{#1\}}}\par
+  \@afterheading
+  \citeauthor{#1}%
+}
+
+% \examplecite(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
+% \examplecite*(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
+\NewDocumentCommand{\examplecite}{sO{auto}d()oom}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{%
+      \textbackslash #2cite%
+      \IfBooleanT{#1}{*}%
+      \IfNoValueF{#4}{[\verbprint{#4}]}%
+      \IfNoValueF{#5}{[\verbprint{#5}]}%
+      \{#6\}}}\par
+  \@afterheading
+  \IfNoValueF{#3}{\quad #3.\space\strut}%
+  \IfBooleanTF{#1}
+    {\printexamplecite*{#2cite}{#4}{#5}{#6}}
+    {\printexamplecite{#2cite}{#4}{#5}{#6}}}
+
+% \examplevolcite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplevolcite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+\NewDocumentCommand{\examplevolcite}{sO{a}d()omom}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{%
+      \textbackslash #2volcite%
+      \IfBooleanT{#1}{*}%
+      \IfNoValueF{#4}{[\verbprint{#4}]}%
+      \{#5\}%
+      \IfNoValueF{#6}{[\verbprint{#6}]}%
+      \{#7\}}}\par
+  \@afterheading
+  \IfNoValueF{#3}{\quad #3.\space\strut}%
+  \IfBooleanTF{#1}
+    {\printexamplevolcite*{#2volcite}{#4}{#5}{#6}{#7}}
+    {\printexamplevolcite{#2volcite}{#4}{#5}{#6}{#7}}}
+
+\NewDocumentCommand{\printexamplecite}{smmmm}{%
+  \IfNoValueTF{#4}
+    {\IfNoValueTF{#3}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#5}}
+          {\csname #2\endcsname{#5}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#5}}
+          {\csname #2\endcsname[#3]{#5}}}}
+    {\IfNoValueTF{#3}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3][]{#5}}
+          {\csname #2\endcsname[#3][]{#5}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3][#4]{#5}}
+          {\csname #2\endcsname[#3][#4]{#5}}}}}
+
+\NewDocumentCommand{\printexamplevolcite}{smmmmm}{%
+  \IfNoValueTF{#3}
+    {\IfNoValueTF{#5}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#4}{#6}}
+          {\csname #2\endcsname{#4}{#6}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*{#4}[#5]{#6}}
+          {\csname #2\endcsname{#4}[#5]{#6}}}}
+    {\IfNoValueTF{#5}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#4}{#6}}
+          {\csname #2\endcsname[#3]{#4}{#6}}}
+       {\IfBooleanTF{#1}
+          {\csname #2\endcsname*[#3]{#4}[#5]{#6}}
+          {\csname #2\endcsname[#3]{#4}[#5]{#6}}}}}
+
+\NewDocumentEnvironment{verbcite}{}{%
+  \enverb{}%
+}{%
+  \par
+  \color{cmdcolour}%
+  \enverbListing{Verbatim}{}%
+  \par
+  \@afterheading
+  \normalcolor
+  \enverbExecute
+}
+
+\NewDocumentEnvironment{fverbcite}{m}{%
+  \enverb{}%
+}{%
+  \par
+  \color{cmdcolour}%
+  \enverbListing{Verbatim}{}%
+  \par
+  \@afterheading
+  \normalcolor
+  \renewcommand\footnote[1]{\toggletrue{blx@footnote}##1}%
+  \quad #1.\space\strut\enverbExecute
+}
+
+\NewDocumentEnvironment{verbtext}{}{%
+  \enverb{}%
+}{%
+  \par
+  \color{cmdcolour}%
+  \enverbListing{Verbatim}{}%
+  \normalcolor
+  \par
+}
+
+\NewDocumentCommand{\exampleabbreviations}{}{%
+  \par
+  \textcolor{cmdcolour}{\texttt{\textbackslash printbiblist\{abbreviations\}}}
+  \@afterheading
+  \printbiblist[heading=none]{abbreviations}}
+
+\NewDocumentCommand{\exampleancientsources}{}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Ancient Sources,\\
+      \strut\quad type=ancienttext]\{abbreviations\}}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Ancient Sources,
+    type=ancienttext]{abbreviations}}
+
+\NewDocumentCommand{\examplesecondarysources}{}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Secondary Sources,\\
+      \strut\quad nottype=ancienttext]\{abbreviations\}}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Secondary Sources,
+    nottype=ancienttext, nottype=abbreviation]{abbreviations}}
+
+\NewDocumentCommand{\examplesigla}{}{%
+  \par
+  \textcolor{cmdcolour}{%
+    \texttt{\textbackslash printbiblist[heading=subbibliography, title=Sigla
+      and Grammatical \\
+      \strut\quad Abbreviations, type=abbreviation]\{abbreviations\}}}
+  \@afterheading
+  \printbiblist[heading=subbibliography, title=Sigla and Grammatical
+    Abbreviations, type=abbreviation]{abbreviations}}
+
+\NewDocumentCommand{\examplebibliography}{}{%
+  \par
+  \textcolor{cmdcolour}{\texttt{\textbackslash printbibliography}}
+  \@afterheading
+  \printbibliography[heading=none]}
+
+\NewDocumentCommand{\examplereferences}{m}{%
+  \subsection*{References}
+  \url{#1}}
+\makeatother
