@@ -368,8 +368,6 @@ Completed box being shipped out [1]
 ......\TU/Brill(0)/m/n/10 h
 ......\TU/Brill(0)/m/n/10 e
 ......\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
-......\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A006100700075006C0065006900750073003A0067006F006C00640065006E> } action goto name{cite.0:t:1:apuleius:golden}
-......\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
 ......\TU/Brill(0)/m/it/10 G
 ......\TU/Brill(0)/m/it/10 o
 ......\TU/Brill(0)/m/it/10 l
@@ -380,8 +378,7 @@ Completed box being shipped out [1]
 ......\TU/Brill(0)/m/it/10 A
 ......\TU/Brill(0)/m/it/10 s
 ......\TU/Brill(0)/m/it/10 s
-......\pdfcolorstack 0 pop
-......\pdfendlink
+......\kern0.0 (italic)
 ......\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 ......\TU/Brill(0)/m/n/10 f
 ......\TU/Brill(0)/m/n/10 o
