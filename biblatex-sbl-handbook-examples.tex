@@ -2,6 +2,7 @@
 \documentclass[a4paper]{article}
 
 \input{biblatex-sbl-examples-preamble.tex}
+\setcounter{tocdepth}{2}
 
 \begin{document}
 \title{SBL Handbook of Style}
@@ -9,9 +10,17 @@
 \date{SBL Press}
 \maketitle
 
+\begin{abstract}
+  This document contains the note and bibliography examples from the \emph{SBL
+  Handbook of Style} 2nd edition §§6.2–4. Each section shows what the various
+  bib entries should look like and how to cite them.
+\end{abstract}
+
 \tableofcontents
 
-\section{A Book by a Single Author}
+\section{General Examples: Books}
+
+\subsection{A Book by a Single Author}
 
 \begin{verbatim}
 @book{talbert:1992,
@@ -29,7 +38,7 @@
 \examplecite(19)[22]{talbert:1992}
 \examplebibliography
 
-\section{A Book by Two or Three Authors}
+\subsection{A Book by Two or Three Authors}
 
 \begin{verbatim}
 @book{robinson+koester:1971,
@@ -45,7 +54,7 @@
 \examplecite(12)[23]{robinson+koester:1971}
 \examplebibliography
 
-\section{A Book by More Than Three Authors}
+\subsection{A Book by More Than Three Authors}
 
 \begin{verbatim}
 @book{scott+etal:1993,
@@ -62,7 +71,7 @@
 \examplecite(9)[42]{scott+etal:1993}
 \examplebibliography
 
-\section{A Translated Volume}
+\subsection{A Translated Volume}
 
 \begin{verbatim}
 @book{egger:1996,
@@ -81,7 +90,7 @@
 \examplecite(18)[291]{egger:1996}
 \examplebibliography
 
-\section{The Full History of a Translated Volume}
+\subsection{The Full History of a Translated Volume}
 
 \begin{verbatim}
 @book{wellhausen:1883,
@@ -126,7 +135,7 @@ The format of \citeshortauthor{wellhausen:1957} in the example bibliography
 entry is incorrect in the handbook. See
 \url{https://sblhs2.com/2016/06/02/first-last-name-order/}.
 
-\section{A Book with One Editor}
+\subsection{A Book with One Editor}
 
 \begin{verbatim}
 @book{tigay:1985,
@@ -143,7 +152,7 @@ entry is incorrect in the handbook. See
 \examplecite(9)[38]{tigay:1985}
 \examplebibliography
 
-\section{A Book with Two or Three Editors}
+\subsection{A Book with Two or Three Editors}
 
 \begin{verbatim}
 @book{kaltner+mckenzie:2002,
@@ -170,7 +179,7 @@ light of other examples and the post at
 \url{https://sblhs2.com/2017/01/05/subsequent-bibliographic-references/} this
 seems likely an error. \pkg{biblatex-sbl} includes the short title.
 
-\section{A Book with Four or More Editors}
+\subsection{A Book with Four or More Editors}
 
 \begin{verbatim}
 @book{oates+etal:2001,
@@ -191,7 +200,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \exampleabbreviations
 \examplebibliography
 
-\section{A Book with Both Author and Editor}
+\subsection{A Book with Both Author and Editor}
 
 \begin{verbatim}
 @book{schillebeeckx:1986,
@@ -207,7 +216,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \examplecite(45)[20]{schillebeeckx:1986}
 \examplebibliography
 
-\section{A Book with Author, Editor, and Translator}
+\subsection{A Book with Author, Editor, and Translator}
 
 \begin{verbatim}
 @book{blass+debrunner:1982,
@@ -225,7 +234,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \examplecite(3){blass+debrunner:1982}
 \examplebibliography
 
-\section{A Title in a Modern Work Citing Words in a Non-Latin Alphabet}
+\subsection{A Title in a Modern Work Citing Words in a Non-Latin Alphabet}
 
 \begin{verbatim}
 @article{irvine:2014,
@@ -244,7 +253,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \exampleabbreviations
 \examplebibliography
 
-\section{An Article in an Edited Volume}
+\subsection{An Article in an Edited Volume}
 
 \begin{verbatim}
 @collection{kraft+nickelsburg:1986,
@@ -308,7 +317,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \exampleabbreviations
 \examplebibliography
 
-\section{An Article in a Festschrift}
+\subsection{An Article in a Festschrift}
 
 \begin{verbatim}
 @incollection{vanseters:1995,
@@ -330,7 +339,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \examplecite(17)[222]{vanseters:1995}
 \examplebibliography
 
-\section{An Introduction, Preface, or Foreword Written by Someone Other Than the Author}
+\subsection{An Introduction, Preface, or Foreword Written by Someone Other Than the Author}
 
 \begin{verbatim}
 @suppbook{boers:1996,
@@ -350,7 +359,7 @@ seems likely an error. \pkg{biblatex-sbl} includes the short title.
 \examplecite(6)[xi-xx]{boers:1996}
 \examplebibliography
 
-\section{Multiple Publishers for a Single Book}
+\subsection{Multiple Publishers for a Single Book}
 
 \begin{verbatim}
 @book{gerhardsson:1961,
@@ -379,7 +388,7 @@ The format of \citeshortauthor{gerhardsson:1961} in the example bibliography
 entry is incorrect in the handbook. See
 \url{https://sblhs2.com/2016/06/02/first-last-name-order/}.
 
-\section{A Revised Edition}
+\subsection{A Revised Edition}
 
 \begin{verbatim}
 @book{pritchard:1969,
@@ -405,7 +414,7 @@ entry is incorrect in the handbook. See
 \examplecite(56)[81]{blenkinsopp:1996}
 \examplebibliography
 
-\section{Reprint of a Recent Title}
+\subsection{Reprint of a Recent Title}
 
 \begin{verbatim}
 @book{vanseters:1997,
@@ -424,7 +433,7 @@ entry is incorrect in the handbook. See
 \examplecite(5)[35]{vanseters:1997}
 \examplebibliography
 
-\section{Reprint of a Title in the Public Domain}
+\subsection{Reprint of a Title in the Public Domain}
 
 \begin{verbatim}
 @book{deissmann:1995,
@@ -450,7 +459,7 @@ first edition of the \emph{SBLHS}. The second edition leaves only the basic
 facts of publication (city, publisher, date) inside parenthesis. See
 \url{https://sblhs2.com/2016/10/04/separating-publication-information/}.
 
-\section{A Forthcoming Book}
+\subsection{A Forthcoming Book}
 
 \begin{verbatim}
 @book{harrison+welborn:forthcoming,
@@ -471,7 +480,7 @@ facts of publication (city, publisher, date) inside parenthesis. See
 \exampleabbreviations
 \examplebibliography
 
-\section{A Multivolume Work}
+\subsection{A Multivolume Work}
 
 \begin{verbatim}
 @mvbook{harnack:1896-1905,
@@ -490,7 +499,7 @@ facts of publication (city, publisher, date) inside parenthesis. See
 \examplevolcite(9){2}[126]{harnack:1896-1905}
 \examplebibliography
 
-\section{A Titled Volume in a Multivolume Work}
+\subsection{A Titled Volume in a Multivolume Work}
 
 \begin{verbatim}
 @collection{winter+clarke:1993,
@@ -510,7 +519,7 @@ facts of publication (city, publisher, date) inside parenthesis. See
 \examplecite(16)[25]{winter+clarke:1993}
 \examplebibliography
 
-\section{A Chapter within a Multivolume Work}
+\subsection{A Chapter within a Multivolume Work}
 
 \begin{verbatim}
 @incollection{mason:1996,
@@ -537,7 +546,7 @@ facts of publication (city, publisher, date) inside parenthesis. See
 The \emph{SBLHS} contains an error with the pages in the first citation. It
 should be 217–35 not 217–335.
 
-\section{A Chapter within a Titled Volume in a Multivolume Work}
+\subsection{A Chapter within a Titled Volume in a Multivolume Work}
 
 \begin{verbatim}
 @incollection{peterson:1993,
@@ -560,7 +569,7 @@ should be 217–35 not 217–335.
 \examplecite(78)[92]{peterson:1993}
 \examplebibliography
 
-\section{A Work in a Series}
+\subsection{A Work in a Series}
 
 \begin{verbatim}
 @book{hofius:1989,
@@ -595,7 +604,7 @@ should be 217–35 not 217–335.
 \exampleabbreviations
 \examplebibliography
 
-\section{Electronic Book}
+\subsection{Electronic Book}
 
 \begin{verbatim}
 @book{reventlow:2009,
@@ -669,4 +678,394 @@ should be 217–35 not 217–335.
   \item SBL now prefers to use a full URL for the DOI. See
     \url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}.
 \end{itemize}
+
+\section{General Examples: Journal Articles, Reviews, and Dissertations}
+
+\subsection{A Journal Article}
+
+\begin{verbatim}
+@article{leyerle:1993,
+  author = {Leyerle, Blake},
+  title = {John Chrysostom on the Gaze},
+  shorttitle = {Chrysostom},
+  journaltitle = {Journal of Early Christian Studies},
+  shortjournal = {JECS},
+  volume = {1},
+  date = {1993},
+  pages = {159-174}
+}
+\end{verbatim}
+
+\examplecite(7){leyerle:1993}
+\examplecite(23)[161]{leyerle:1993}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{A Journal Article with Multiple Page Locations and Multiple Volumes}
+
+\begin{verbatim}
+@article{wildberger:1965,
+  author = {Wildberger, Hans},
+  title = {Das Abbild Gottes: Gen 1:26--30},
+  journaltitle = {Theologische Zeitschrift},
+  shortjournal = {TZ},
+  volume = {21},
+  date = {1965},
+  pages = {245-259, 481-501},
+  langid = {german}
+}
+
+@article{wellhausen:1876-1877,
+  author = {Wellhausen, Julius},
+  title = {Die Composition des Hexateuchs},
+  journaltitle = {Jahrbuch für deutsche Theologie},
+  shortjournal = {JDT},
+  related = {wellhausen:1876, wellhausen:1877},
+  relatedtype = {multivolarticle},
+  langid = {german}
+}
+
+@article{wellhausen:1876,
+  volume = {21},
+  date = {1876},
+  pages = {392-450}
+}
+
+@article{wellhausen:1877,
+  volume = {22},
+  date = {1877},
+  pages = {407-479}
+}
+\end{verbatim}
+
+\examplecite(21){wildberger:1965}
+\examplecite(24){wellhausen:1876-1877}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{A Journal Article Republished in a Collected Volume}
+
+\begin{verbatim}
+@article{freedman:1977,
+  author = {Freedman, David Noel},
+  title = {Pottery, Poetry, and Prophecy},
+  subtitle = {An Essay on Biblical Poetry},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {96},
+  date = {1977},
+  pages = {5-26}
+}
+
+@incollection{freedman:1980,
+  author = {Freedman, David Noel},
+  title = {Pottery, Poetry, and Prophecy},
+  subtitle = {An Essay on Biblical Poetry},
+  booktitle = {Pottery, Poetry, and Prophecy},
+  booksubtitle = {Studies in Early Hebrew Poetry},
+  location = {Winona Lake, IN},
+  publisher = {Eisenbrauns},
+  date = {1980},
+  pages = {1-22}
+}
+\end{verbatim}
+
+\examplecite(20)[20]{freedman:1977}
+\examplecite(20)[14]{freedman:1980}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{A Book Review}
+
+\begin{verbatim}
+@review{teeple:1966,
+  author = {Teeple, Howard M.},
+  revdauthor = {Robert, André and Feuillet, André},
+  revdtitle = {Introduction to the New Testament},
+  journaltitle = {Journal of Bible and Religion},
+  shortjournal = {JBR},
+  volume = {34},
+  date = {1966},
+  pages = {368-370}
+}
+
+@review{pelikan:1992,
+  author = {Pelikan, Jaroslav},
+  title = {The Things That You're Liable to Read in the Bible},
+  revdeditor = {Freedman, David Noel},
+  revdtitle = {The Anchor Bible Dictionary},
+  journaltitle = {New York Times Review of Books},
+  date = {1992-12-20},
+  pages = {3}
+}
+
+@article{petersen:1988,
+  author = {Petersen, David L.},
+  title = {Hebrew Bible Textbooks},
+  subtitle = {A Review Article},
+  journaltitle = {Critical Review of Books in Religion},
+  shortjournal = {CRBR},
+  volume = {1},
+  date = {1988},
+  pages = {1-18}
+}
+\end{verbatim}
+
+\examplecite(8){teeple:1966}
+\examplecite(21)[369]{teeple:1966}
+\examplecite(9){pelikan:1992}
+\examplecite(7){petersen:1988}
+\examplecite(14)[8]{petersen:1988}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{An Unpublished Dissertation or Thesis}
+
+\begin{verbatim}
+@thesis{klosinski:1988,
+  author = {Klosinski, Lee E.},
+  title = {Meals in Mark},
+  type = {phdthesis},
+  institution = {The Claremont Graduate School},
+  date = {1988}
+}
+\end{verbatim}
+
+\examplecite(21)[22-44]{klosinski:1988}
+\examplecite(26)[23]{klosinski:1988}
+\examplebibliography
+
+\subsection{An Article in an Encyclopedia or a Dictionary}
+
+\begin{verbatim}
+@mvreference{IDB,
+  shorthand = {IDB},
+  editor = {Buttrick, George A.},
+  title = {The Interpreter’s Dictionary of the Bible},
+  volumes = {4},
+  location = {New York},
+  publisher = {Abingdon},
+  date = {1962},
+  pagination = {subverbo}
+}
+
+@inreference{stendahl:biblicaltheology,
+  author = {Stendahl, Krister},
+  title = {Biblical Theology, Contemporary},
+  shorttitle = {Biblical Theology},
+  xref = {IDB},
+  volume = {1},
+  pages = {418-432}
+}
+\end{verbatim}
+
+\examplecite(33){stendahl:biblicaltheology}
+\examplecite(36)[419]{stendahl:biblicaltheology}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{An Article in a Lexicon or a Theological Dictionary}
+
+\begin{verbatim}
+@mvreference{NIDNTT,
+  shorthand = {NIDNTT},
+  editor = {Brown, Colin},
+  title = {New International Dictionary of New Testament Theology},
+  volumes = {4},
+  location = {Grand Rapids},
+  publisher = {Zondervan},
+  date = {1975/1985}
+}
+
+@inreference{dahn+liefeld:see+vision+eye,
+  author = {Dahn, Karl and Liefeld, Walter L.},
+  title = {See, Vision, Eye},
+  xref = {NIDNTT},
+  volume = {3},
+  pages = {511-521}
+}
+
+@inreference{dahn:horao,
+  author = {Dahn, Karl},
+  title = {ὁράω},
+  xref = {NIDNTT},
+  volume = {3},
+  pages = {511-518}
+}
+
+@mvreference{TDNT,
+  shorthand = {TDNT},
+  editor = {Kittel, Gerhard and Friedrich, Gerhard},
+  title = {Theological Dictionary of the New Testament},
+  translator = {Bromiley, Geoffrey W.},
+  volumes = {10},
+  location = {Grand Rapids},
+  publisher = {Eerdmans},
+  date = {1964/1976}
+}
+
+@inreference{beyer:diakoneo+diakonia+ktl,
+  author = {Beyer, Hermann W.},
+  title = {διακονέω, διακονία, κτλ},
+  xref = {TDNT},
+  volume = {2},
+  pages = {81-93}
+}
+
+@inreference{beyer:diakoneo,
+  author = {Beyer, Hermann W.},
+  title = {διακονέω},
+  xref = {TDNT},
+  volume = {2},
+  pages = {81-87}
+}
+
+@mvreference{TLNT,
+  shorthand = {TLNT},
+  author = {Spicq, Ceslas},
+  title = {Theological Lexicon of the New Testament},
+  editor = {Ernest, James D.},
+  translator = {Ernest, James D.},
+  volumes = {3},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@inreference{spicq:atakteo+ataktos+ataktos,
+  author = {Spicq, Ceslas},
+  title = {ἀτακτέω, ἄτακτος, ἀτάκτως},
+  xref = {TLNT},
+  volume = {1},
+  pages = {223-224}
+}
+
+@inreference{spicq:amoibe,
+  author = {Spicq, Ceslas},
+  title = {ἀμοιβή},
+  xref = {TLNT},
+  volume = {1},
+  pages = {95-96}
+}
+\end{verbatim}
+
+\examplecite(3){dahn+liefeld:see+vision+eye}
+\examplecite(6){beyer:diakoneo+diakonia+ktl}
+\examplecite(7){spicq:atakteo+ataktos+ataktos}
+\examplecite(143){spicq:amoibe}
+\examplecite(23){beyer:diakoneo}
+\examplecite(26){dahn:horao}
+\examplecite(25)[83]{beyer:diakoneo}
+\examplecite(29)[511]{dahn:horao}
+\examplecite(147)[95]{spicq:amoibe}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+SBL recommendations for citing signed articles from lexicons and theological
+dictionaries have changed significantly. See
+\url{https://sblhs2.com/2017/04/04/citing-reference-works-3-dictionaries-word/}. 
+\begin{itemize}
+  \item SBL now prefers to include signed articles in the bibliography.
+  \item SBL now prefers to include the title in subsequent citations of signed
+    articles.
+  \item Dictionaries cited by abbreviation should appear in the list of
+    abbreviations, not the bibliography. The format of abbreviations now
+    matches the bibliography format rather than placing the title first when
+    the abbreviation relates to the title.
+\end{itemize}
+
+\subsection{A Paper Presented at a Professional Society}
+
+\begin{verbatim}
+@unpublished{niditch:1994,
+  author = {Niditch, Susan},
+  title = {Oral Culture, and Written Documents},
+  shorttitle = {Oral Culture},
+  type = {paper},
+  eventtitle = {the Annual Meeting of the New England Region of the Society of
+                Biblical Literature},
+  venue = {Worcester, MA},
+  eventdate = {1994-03-25}
+}
+\end{verbatim}
+
+\examplecite(31)[13-17]{niditch:1994}
+\examplecite(35)[14]{niditch:1994}
+\examplebibliography
+
+\subsection{An Article in a Magazine}
+
+\begin{verbatim}
+@article{saldarini:1998,
+  author = {Saldarini, Anthony J.},
+  title = {Babatha's Story},
+  journaltitle = {Biblical Archaeology Review},
+  shortjournal = {BAR},
+  volume = {24},
+  number = {2},
+  date = {1998},
+  pages = {23-33, 36-37, 72-74}
+}
+\end{verbatim}
+
+\examplecite(8){saldarini:1998}
+\examplecite(27)[28]{saldarini:1998}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{An Electronic Journal Article}
+
+\begin{verbatim}
+@article{springer:2014,
+  author = {Springer, Carl P. E.},
+  title = {Of Roosters and \mkbibemph{Repetitio}},
+  subtitle = {Ambrose's \mkbibemph{Aeterne rerum conditor}},
+  journaltitle = {Vigiliae Christianae},
+  shortjournal = {VC},
+  volume = {68},
+  date = {2014},
+  pages = {155-177},
+  doi = {10.1163/15700720-12341158}
+}
+
+@article{truehart:1996,
+  author = {Truehart, Charles},
+  title = {Welcome to the Next Church},
+  shorttitle = {Next Church},
+  url = {http://www.theatlantic.com/atlantic/issues/96aug/nxtchrch/nxtchrch.htm},
+  journaltitle = {Atlantic Monthly},
+  volume = {278},
+  date = {1996-08},
+  pages = {37-58}
+}
+
+@article{kirk:2007,
+  author = {Kirk, Alan},
+  title = {Karl Polanyi, Marshall Sahlins, and the Study of Ancient Social Relations},
+  shorttitle = {Karl Polanyi},
+  journaltitle = {Journal of Biblical Literature},
+  shortjournal = {JBL},
+  volume = {126},
+  date = {2007},
+  pages = {182-191},
+  doi = {10.2307/27638428},
+  url = {http://www.jstor.org/stable/27638428}
+}
+\end{verbatim}
+
+\examplecite(43){springer:2014}
+\examplecite(45)[158]{springer:2014}
+\examplecite(8){truehart:1996}
+\examplecite(12)[37]{truehart:1996}
+\examplecite(31){kirk:2007}
+\examplecite(35)[186]{kirk:2007}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+SBL now prefers to use a full URL for the DOI. See
+\url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}.
 \end{document}
