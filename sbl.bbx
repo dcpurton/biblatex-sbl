@@ -189,6 +189,10 @@
   \printlist{language}%
   \newunit\newblock
   \usebibmacro{byauthor}%
+  \ifentrytype{bookinbook}
+    {\newunit\newblock
+     \usebibmacro{byeditor+others}}
+    {}%
   \newunit\newblock
   \usebibmacro{pages+in:}%
   \usebibmacro{booktitle+bybookauthor+bybookeditor}%
