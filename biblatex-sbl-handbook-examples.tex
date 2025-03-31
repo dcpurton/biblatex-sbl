@@ -12,8 +12,8 @@
 
 \begin{abstract}
   This document contains the note and bibliography examples from the \emph{SBL
-  Handbook of Style} 2nd edition §§6.2–4. Each section shows what the various
-  bib entries should look like and how to cite them.
+  Handbook of Style} Second Edition §§6.2–4. Each section shows what the
+  various bib entries should look like and how to cite them.
 \end{abstract}
 
 \tableofcontents
@@ -420,7 +420,8 @@ entry is incorrect in the handbook. See
 @book{vanseters:1997,
   author = {Van Seters, John},
   title = {In Search of History},
-  subtitle = {Historiography in the Ancient World and the Origins of Biblical History},
+  subtitle = {Historiography in the Ancient World and the Origins of Biblical
+              History},
   origlocation = {New Haven},
   origpublisher = {Yale University Press},
   origdate = {1983},
@@ -1068,4 +1069,771 @@ dictionaries have changed significantly. See
 
 SBL now prefers to use a full URL for the DOI. See
 \url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}.
+
+\section{Special Examples}
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item There is a fair bit of variation in how SBL cites ancient texts from
+    collections. The most common option shown in the blog in footnotes is:
+
+    Author, Title SourceDivision (trans.\@ A. N. Translator,
+    TextCollection Volume:Page).
+
+    and in running text:
+
+    (Author, Title SourceDivision, trans.\@ A. N. Translator,
+    TextCollection Volume:Page)
+
+    Titles are in \emph{italics} when attributed, “enquoted” when assigned by
+    and editor or translator, and roman when unattributed.
+
+    \pkg{biblatex-sbl} adopts this format even when it departs from the blog
+    or handbook.
+  \item The blog tends to prefer for text collections cited by abbreviation to
+    appear in a list of abbreviations rather than in the bibliography.
+  \item The blog helps considerably with citations in this section, but there
+    are still some ambiguities for someone who is not familiar with the texts
+    in question.
+  \item Some adjustment will likely be needed to get the output suitable for
+    your particular work. Most things are possible.
+\end{itemize}
+
+\subsection{Texts from the Ancient Near East}
+
+\subsubsection{Citing \emph{COS}}
+
+\begin{verbatim}
+@mvcollection{COS,
+  shorthand = {COS},
+  editor = {Hallo, William W. and Younger, Jr., K. Lawson},
+  title = {The Context of Scripture},
+  volumes = {4},
+  location = {Leiden},
+  publisher = {Brill},
+  date = {1997/2016}
+}
+
+@ancienttext{greathymnaten,
+  entrysubtype = {inancientcollection},
+  title = {The Great Hymn to the Aten},
+  translator = {Lichtheim, Miriam},
+  xref = {COS},
+  volume = {1},
+  text = {26},
+  pages = {44-46}
+}
+\end{verbatim}
+
+\examplecite[atrans](7){greathymnaten}
+\examplecite(11){greathymnaten}
+\exampleabbreviations
+
+\paragraph{Notes}
+
+Since the publication of the \emph{SBL Handbook of Style} a fourth volume of
+\cite{COS} has been published.
+
+\newrefsection
+
+\subsubsection{Citing Other Texts}
+
+\begin{verbatim}
+@collection{ANET,
+  shorthand = {ANET},
+  editor = {Pritchard, James B.},
+  title = {Ancient Near Eastern Texts Relating to the Old Testament},
+  edition = {3},
+  location = {Princeton},
+  publisher = {Princeton University Press},
+  date = {1969}
+}
+
+@ancienttext{suppiluliumas,
+  entrysubtype = {inancientcollection},
+  title = {Suppiluliumas and the Egyptian Queen},
+  translator = {Goetz, Albrecht},
+  xref = {ANET},
+  pages = {319}
+}
+
+@book{dalley:1991,
+  author = {Dalley, Stephanie},
+  title = {Myths from Mesopotamia},
+  location = {Oxford},
+  publisher = {Oxford University Press},
+  date = {1991}
+}
+
+@ancienttext{erraandishum:dalley,
+  entrysubtype = {inancientcollection},
+  title = {Erra and Ishum},
+  xref = {dalley:1991},
+  pages = {282-315}
+}
+
+@mvbook{foster:1993,
+  author = {Foster, Benjamin},
+  title = {Before the Muses},
+  subtitle = {An Anthology of Akkadian Literature},
+  volumes = {2},
+  location = {Bethesda, MD},
+  publisher = {CDL},
+  date = {1993}
+}
+
+@ancienttext{erraandishum:foster,
+  entrysubtype = {inancientcollection},
+  title = {Erra and Ishum},
+  xref = {foster:1993},
+  volume = {1},
+  pages = {771-805}
+}
+
+@mvbook{AEL,
+  shorthand = {AEL},
+  author = {Lichtheim, Miriam},
+  title = {Ancient Egyptian Literature},
+  volumes = {3},
+  location = {Berkeley},
+  publisher = {University of California Press},
+  date = {1971/1980}
+}
+
+@ancienttext{doomedprince,
+  entrysubtype = {inancientcollection},
+  title = {The Doomed Prince},
+  xref = {AEL},
+  volume = {2},
+  pages = {200-203}
+}
+
+@book{hoffner:1990,
+  author = {Hoffner, Jr., Harry A.},
+  title = {Hittite Myths},
+  editor = {Beckman, Gary M.},
+  series = {Writings from the Ancient World},
+  shortseries = {WAW},
+  number = {2},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1990}
+}
+
+@ancienttext{disappearanceofsungod,
+  entrysubtype = {inancientcollection},
+  title = {The Disappearance of the Sun God},
+  xref = {hoffner:1990}
+}
+
+@series{RIMA,
+  series = {The Royal Inscriptions of Mesopotamia, Assyrian Periods},
+  shortseries = {RIMA}
+}
+
+@ancienttext{ashurinscription:RIMA,
+  title = {Ashur Inscription},
+  xref = {RIMA},
+  number = {2},
+  pages = {142-145}
+}
+
+@book{ABC,
+  shorthand = {ABC},
+  author = {Grayson, Albert Kirk},
+  title = {Assyrian and Babylonian Chronicles},
+  series = {Texts from Cuneiform Sources},
+  shortseries = {TCS},
+  number = {5},
+  location = {Locust Valley, NY},
+  publisher = {Augustin},
+  date = {1975}
+}
+
+@ancienttext{esarhaddonchronicle:ABC,
+  title = {Esarhaddon Chronicle},
+  xref = {ABC}
+}
+
+@book{georges:1967,
+  author = {Dossin, Georges},
+  title = {Lettres},
+  series = {Archives royales de Mari},
+  shortseries = {ARM},
+  number = {1},
+  origdate = {1946},
+  location = {Paris},
+  publisher = {Geuthner},
+  date = {1967},
+  langid = {french}
+}
+
+@book{georges:1950,
+  author = {Dossin, Georges},
+  title = {Correspondance de Šamši-Addu et de ses fils},
+  series = {Archives royales de Mari, transcrite et traduite},
+  shortseries = {ARMT},
+  number = {1},
+  location = {Paris},
+  publisher = {Imprimerei nationale},
+  date = {1950},
+  langid = {french}
+}
+
+@series{ARM1,
+  series = {Archives royales de Mari},
+  shortseries = {ARM},
+  xref = {georges:1967}
+}
+
+@series{ARMT1,
+  series = {Archives royales de Mari, transcrite et traduite},
+  shortseries = {ARMT},
+  xref = {georges:1950}
+}
+\end{verbatim}
+
+\examplecite[atrans](16){suppiluliumas}
+\examplecite(5){erraandishum:dalley}
+\examplecite(5){erraandishum:foster}
+\examplecite(36){doomedprince}
+\examplecite(12)[(§3 \mkbibparens{A I 11--17})26]{disappearanceofsungod}
+\examplecite(34)[(obv.\ lines 10--17)143-144]{ashurinscription:RIMA}
+\examplecite(33)[(lines 3--4)125]{esarhaddonchronicle:ABC}
+\examplecite(45)[1.3]{ARM1}
+\examplecite(45)[1.3]{ARMT1}
+\exampleabbreviations
+\examplebibliography
+
+\paragraph{Notes}
+
+\begin{itemize}
+  \item A 2024 publication, \emph{The Labors of Idrimi}, from SBL Press,
+    simply places the RIMA series name in the list of abbreviations without
+    referring to the full details of the books anywhere.
+  \item It is assumed that placing the editor and series inside the
+    parenthesis for Hoffner is an error.
+\end{itemize}
+
+\subsection{Loeb Classical Library (Greek and Latin)}
+
+\begin{verbatim}
+@book{josephus:jewishantiquities,
+  author = {Josephus},
+  title = {The Jewish Antiquities},
+  translator = {Thackery, Henry St.\@ J.},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1930/1965}
+}
+
+@ancienttext{josephus:aj,
+  author = {Josephus},
+  title = {Antiquitates judaicae},
+  shorttitle = {A.J.},
+  xref = {josephus:jewishantiquities}
+}
+
+@mvbook{tacitus:histories,
+  author = {Tacitus},
+  title = {The Histories and The Annals},
+  translator = {Moore, Clifford H. and Jackson, John},
+  volumes = {4},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1937}
+}
+
+@ancienttext{tacitus:ann,
+  author = {Tacitus},
+  title = {Annales},
+  shorttitle = {Ann.},
+  xref = {tacitus:histories}
+}
+\end{verbatim}
+
+\examplecite[paren][(2.233-235)]{josephus:aj}
+\examplecite(1)[(2.233-235)]{josephus:aj}
+\examplecite(4)[(15.18-19)]{tacitus:ann}
+\examplecite[ptrans][(2.233-235)]{josephus:aj}
+\examplecite[atrans](5)[(2.233-235)]{josephus:aj}
+\examplecite[atrans](6)[(15.18-19)]{tacitus:ann}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item SBL has revised their guidelines to promote a single set of
+    abbreviations based on the Latin titles. See
+    \url{https://sblhs2.com/2018/02/15/josephus/}.
+  \item SBL no longer recommends referring to a given author's entire corpus
+    in a single entry. See
+    \url{https://sblhs2.com/2018/01/18/citing-text-collections-10-lcl/}.
+\end{itemize}
+
+\subsection{Papyri, Ostraca, and Epigraphica}
+
+\subsubsection{Papyri and Ostraca in General}
+
+\begin{verbatim}
+@mvbook{pcairzen,
+  shorthand = {P.Cair.Zen.},
+  editor = {Edgar, C. C.},
+  title = {Zenon Papyri, Catalogue général des antiquités égyptiennes du Musée du
+           Caire},
+  volumes = {5},
+  location = {Cairo},
+  date = {1925/1940},
+  options = {shorthandformat=roman}
+}
+
+@mvbook{hunt+edgar:1932,
+  author = {Hunt, Arthur S. and Edgar, Campbell C.},
+  title = {Select Papyri},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1932}
+}
+
+@mvbook{huntandedgar,
+  shorthand = {Hunt and Edgar},
+  author = {Hunt, Arthur S. and Edgar, Campbell C.},
+  title = {Select Papyri},
+  series = {Loeb Classical Library},
+  shortseries = {LCL},
+  location = {Cambridge},
+  publisher = {Harvard University Press},
+  date = {1932},
+  pagination = {section},
+  options = {shorthandformat=roman}
+}
+
+@ancienttext{pcairzen:standard,
+  title = {\citeshorthand{pcairzen}}
+}
+
+@ancienttext{pcairzen:hunt+edgar:1932,
+  title = {\citeshorthand{pcairzen}},
+  xref = {hunt+edgar:1932}
+}
+
+@ancienttext{pcairzen:huntandedgar,
+  title = {\citeshorthand{pcairzen}},
+  xref = {huntandedgar}
+}
+\end{verbatim}
+
+\nocite{pcairzen}
+\examplecite[paren][(59003)]{pcairzen:standard}
+\examplecite(22)[(59003)]{pcairzen:standard}
+\examplevolcite(22){1}[(59003)96]{pcairzen:hunt+edgar:1932}
+\examplecite(22)[(59003)§31]{pcairzen:huntandedgar}
+\exampleabbreviations
+\examplebibliography
+
+\newrefsection
+
+\subsubsection{Greek Magical Papyri}
+
+\begin{verbatim}
+@book{betz:1996,
+  editor = {Betz, Hans Dieter},
+  title = {The Greek Magical Papyri in Translation, Including the Demotic Spells},
+  edition = {2},
+  location = {Chicago},
+  publisher = {University of Chicago Press},
+  date = {1996}
+}
+
+@mvbook{preisendaz:1973-1974,
+  shorthand = {PGM},
+  editor = {Preisendaz, Karl},
+  translator = {Preisendaz, Karl},
+  title = {Papyri Graecae Magicae: Die griechischen Zauberpapyri},
+  edition = {2},
+  volumes = {3},
+  location = {Stuttgart},
+  publisher = {Teubner},
+  date = {1973/1974}
+}
+
+@ancienttext{PGM,
+  title = {\citeshorthand{preisendaz:1973-1974}}
+}
+
+@ancienttext{PGM:betz,
+  title = {\citeshorthand{preisendaz:1973-1974}},
+  xref = {betz:1996}
+}
+\end{verbatim}
+
+\nocite{preisendaz:1973-1974}
+\examplecite[paren][(III. 1-164)]{PGM}
+\examplecite(22)[(III. 1-164)]{PGM}
+\examplecite(22)[(III. 1-164 \mkbibparens{Dillon in Betz})]{PGM:betz}
+\exampleabbreviations
+\examplebibliography
+
+\paragraph{Notes}
+
+SBL now prefers to cite the translator and edition, rather than just the
+edition. See \url{https://sblhs2.com/2017/10/13/greek-magical-papyri/}. This
+could be programmed into the bib entry, but then a different entry would be
+needed for each spell.
+
+\subsection{Ancient Epistles and Homilies}
+
+\begin{verbatim}
+@book{malherbe:1977,
+  editor = {Malherbe, Abraham J.},
+  title = {The Cynic Epistles},
+  subtitle = {A Study Edition},
+  series = {Stuttgarter Bibelstudien},
+  shortseries = {SBS},
+  number = {12},
+  location = {Atlanta},
+  publisher = {Scholars Press},
+  date = {1977}
+}
+
+@bookinbook{heraclitus:epistle1:worley,
+  author = {Heraclitus},
+  title = {Epistle 1},
+  translator = {Worley, David},
+  pages = {187},
+  crossref = {malherbe:1977}
+}
+
+@ancienttext{heraclitus:epistle1,
+  author = {Heraclitus},
+  title = {Epistle 1},
+  xref = {heraclitus:epistle1:worley},
+  options = {usexref=false}
+}
+\end{verbatim}
+
+\examplecite[paren][10]{heraclitus:epistle1}
+\examplecite(34)[10]{heraclitus:epistle1}
+\examplecite[atrans](36)[10]{heraclitus:epistle1}
+\begin{verbcite}
+  \nocite{malherbe:1977}
+\end{verbcite}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{\emph{ANF} and \emph{NPNF}, First and Second Series}
+
+\begin{verbatim}
+@mvcollection{ANF,
+  shorthand = {ANF},
+  editor = {Roberts, Alexander and Donaldson, James},
+  title = {The Ante-Nicene Fathers},
+  subtitle = {Translations of the Writings of the Fathers Down to A.D. 325},
+  origdate = {1885/1887},
+  volumes = {10},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@ancienttext{clementinehomilies,
+  entrysubtype = {ancientbook},
+  title = {The Clementine Homilies},
+  xref = {ANF},
+  volume = {8},
+  pages = {213-346}
+}
+
+@mvcollection{NPNF,
+  shorthand = {NPNF},
+  editor = {Schaff, Philip},
+  title = {A Select Library of Nicene and Post-Nicene Fathers of the Christian
+           Church},
+  origdate = {1886/1889},
+  volumes = {28},
+  series = {2},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1994}
+}
+
+@ancienttext{augustine:letters,
+  entrysubtype = {ancientbook},
+  author = {Augustine},
+  title = {The Letters of St.\@ Augustin},
+  translator = {Cunningham, J. G.},
+  xref = {NPNF},
+  volume = {1/1},
+  pages = {209-593}
+}
+\end{verbatim}
+
+\examplecite(14)[(1.3)223]{clementinehomilies}
+\examplecite[atrans](44)[(28.3.5)252]{augustine:letters}
+\exampleabbreviations
+
+\subsubsection{Notes}
+
+The blog introduces changes in citing ANF and NPNF. See
+\url{https://sblhs2.com/2017/07/13/citing-text-collections-6-anf-and-npnf/}.
+
+\begin{itemize}
+  \item ANF and NPNF should appear in the list of abbreviations rather than
+    the bibliography.
+  \item The series of NPNF should be indicated by a 1 or 2 plus a solidus,
+    rather than a superscript.
+  \item The name of the translator should be included when citing the
+    translator.
+  \item The format of NPNF is slightly adjusted. (Note that later blog posts
+    change the format of abbreviations to place the editor first rather than
+    after the title.)
+\end{itemize}
+
+\subsection{J.-P. Migne’s Patrologia Latina and Patrologia Graeca}
+
+\begin{verbatim}
+@series{PL,
+  shorthand = {PL},
+  title = {Patrologia Latina},
+  editor = {Migne, J.-P.},
+  volumes = {217},
+  location = {Paris},
+  date = {1844/1855}
+}
+
+@series{PG,
+  shorthand = {PG},
+  title = {Patrologia Graeca},
+  editor = {Migne, J.-P.},
+  volumes = {161},
+  location = {Paris},
+  date = {1857/1886}
+}
+
+@ancienttext{gregory:orationestheologicae,
+  author = {{Gregory of Nazianzus}},
+  title = {Orationes theologicae},
+  xref = {PG},
+  volume = {36}
+}
+\end{verbatim}
+
+\examplecite(6)[(4.19)128c]{gregory:orationestheologicae}
+\begin{verbcite}
+  \nocite{PL}
+\end{verbcite}
+\exampleabbreviations
+
+\subsubsection{Notes}
+
+It appears that the reference to PG 36:12c is an error. See
+\url{https://sblhs2.com/2017/05/04/pg-citations-update/}. SBL suggests that it
+may have meant to be PG 36:128c.
+
+\subsection{Strack-Billerbeck, \emph{Kommentar zum Neuen Testament}}
+
+\begin{verbatim}
+@mvbook{Str-B,
+  shorthand = {Str-B},
+  author = {Strack, Hermann L. and Billerbeck, Paul},
+  title = {Kommentar zum Neuen Testament aus Talmud und Midrasch},
+  volumes = {6},
+  location = {Munich},
+  publisher = {Beck},
+  date = {1922/1961},
+  options = {shorthandformat=roman},
+  langid = {german}
+}
+\end{verbatim}
+
+\examplevolcite(3)[See the discussion of ἐκρατοῦντο in]{2}[271]{Str-B}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{\emph{Aufstieg und Niedergang der römischen Welt (ANRW)}}
+
+\begin{verbatim}
+@mvcollection{ANRW,
+  shorthand = {ANRW},
+  editor = {Temporini, Hildegard and Haase, Wolfgang},
+  maintitle = {Aufstieg und Niedergang der römischen Welt},
+  mainsubtitle = {Geschichte und Kultur Roms im Spiegel der neueren Forschung},
+  part = {2},
+  title = {Principat},
+  location = {Berlin},
+  publisher = {de Gruyter},
+  date = {1972/},
+  langid = {german},
+  options = {usetitle=false}
+}
+
+@incollection{anderson:pepaideumenos,
+  author = {Anderson, Graham},
+  title = {The \mkbibemph{pepaideumenos} in Action},
+  subtitle = {Sophists and Their Outlook in the Early Empire},
+  shorttitle = {\mkbibemph{Pepaideumenos}},
+  xref = {ANRW},
+  volume = {33},
+  part = {1},
+  pages = {80-208}
+}
+\end{verbatim}
+
+\examplecite(76){anderson:pepaideumenos}
+\examplecite(79)[86]{anderson:pepaideumenos}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+SBL now prefers a simplified citation in the bibliography as well as in notes.
+See \url{https://sblhs2.com/2016/10/18/anrw/}. And as elsewhere the
+abbreviation format should match the bibliography format.
+
+\subsection{Bible Commentaries}
+
+\begin{verbatim}
+@commentary{hooker:1991,
+  author = {Hooker, Morna},
+  title = {The Gospel according to Saint Mark},
+  series = {Black's New Testament Commentaries},
+  shortseries = {BNTC},
+  number = {2},
+  location = {Peabody, MA},
+  publisher = {Hendrickson},
+  date = {1991}
+}
+\end{verbatim}
+
+\examplecite(8)[223]{hooker:1991}
+\exampleabbreviations
+\examplebibliography
+
+\subsection{SBL Seminar Papers}
+
+\begin{verbatim}
+@incollection{crenshaw:2001,
+  author = {Crenshaw, James L.},
+  title = {Theodicy in the Book of the Twelve},
+  booktitle = {Society of Biblical Literature 2001 Seminar Papers},
+  series = {Society of Biblical Literature Seminar Papers},
+  shortseries = {SBLSP},
+  number = {40},
+  location = {Atlanta},
+  publisher = {Society of Biblical Literature},
+  date = {2001},
+  pages = {1-18}
+}
+\end{verbatim}
+
+\examplecite(33){crenshaw:2001}
+\exampleabbreviations
+\examplebibliography
+
+\subsubsection{Notes}
+
+The abbreviation for SBL Seminar Papers is incorrect in the handbook. It
+should be SBLSP, not SBLSPS.
+
+\subsection{Text Editions Published Online with No Print Counterpart}
+
+\begin{verbatim}
+@online{wilhelm:2013,
+  editor = {Wilhelm, Gernot},
+  title = {Der Vertrag Šuppiluliumas I. von Ḫatti mit Šattiwazza von Mitrani
+           \mkbibparens{CTH 51.I}},
+  shorttitle = {Der Vertrag Šuppiluliumas I.},
+  datemodifier = {released},
+  date = {2013-02-24},
+  eprinttype = {hethiter},
+  eprint = {CTH%2051.I},
+  eprintclass = {INTR 2013-02-24},
+  langid = {german}
+}
+\end{verbatim}
+
+\examplecite(2){wilhelm:2013}
+\examplecite(4){wilhelm:2013}
+\examplebibliography
+
+\subsubsection{Notes}
+
+\begin{itemize}
+  \item In line with
+\url{https://sblhs2.com/2018/05/03/electronic-journals-with-individually-paginated-articles/}
+\pkg{biblatex-sbl} uses a full URL for the DOI.
+  \item The name format for Wilhelm in the bibliography example in the handbook
+    is incorrect.
+  \item The missing date in the bibliography entry is assumed to be an error.
+    Compare with Caraher in §6.4.14.
+\end{itemize}
+
+\subsection{Online Database}
+
+\begin{verbatim}
+@online{cobb:figurines,
+  author = {{Cobb Institute of Archaeology}},
+  title = {The Figurines of Maresha, the Persian Era},
+  shorttitle = {Figurines of Maresha},
+  website = {DigMaster},
+  url = {http://www.cobb.msstate.edu/dignew/Maresha/index.html},
+  options = {indexing=false}
+}
+
+@online{caraher:2013,
+  editor = {Caraher, William R.},
+  title = {Pyla-Koutsopetria Archaeological Project},
+  subtitle = {\mkbibparens{Overview}},
+  website = {Open Context},
+  datemodifier = {released},
+  date = {2013-11-05},
+  doi = {10.6078/M7B56GNS},
+  url = {http://opencontext.org/projects/3F6DCD13-A476-488E-ED10-47D25513FCB2}
+}
+\end{verbatim}
+
+\examplecite(37){cobb:figurines}
+\examplecite(39){cobb:figurines}
+\examplecite(15){caraher:2013}
+\examplecite(17){caraher:2013}
+\examplebibliography
+
+\subsubsection{Notes}
+
+The example in §6.3.10 of the \emph{SBLHS} places the DOI before the URL. For
+consistency I have followed this format rather than the what the handbook does
+in this section.
+
+\subsection{Websites and Blogs}
+
+\begin{verbatim}
+@online{100cuneiform,
+  title = {The One Hundred Most Important Cuneiform Objects},
+  website = {cdli:wiki},
+  url = {http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_
+         cuneiform_objects}
+}
+
+@online{goodacre:2014,
+  entrysubtype = {blog},
+  author = {Goodacre, Mark},
+  title = {Jesus' Wife Fragment},
+  subtitle = {Another Round-Up},
+  website = {NT Blog},
+  date = {2014-05-09},
+  url = {http://ntweblog.blogspot.com}
+}
+\end{verbatim}
+
+\examplecite(10){100cuneiform}
+\examplecite(3){goodacre:2014}
+\examplebibliography
 \end{document}
