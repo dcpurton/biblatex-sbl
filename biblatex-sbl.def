@@ -572,6 +572,7 @@
 \NewBibliographyString{paper}
 \NewBibliographyString{parts}
 \NewBibliographyString{printing}
+\NewBibliographyString{released}
 \NewBibliographyString{reverse}
 \NewBibliographyString{series}
 \NewBibliographyString{subverbis}
@@ -752,6 +753,7 @@
   \iffieldequalstr{entrysubtype}{invideo}
     {\mkbibquote{#1}}
     {\mkbibemph{#1}}}
+\DeclareFieldFormat{datemodifier}{\ifbibstring{#1}{\bibstring{#1}}{#1}}
 \DeclareFieldFormat{doi}{\url{https://doi.org/#1}}
 \DeclareFieldFormat{edition}{%
   \ifinteger{#1}
@@ -760,7 +762,7 @@
 \DeclareFieldFormat{eid}{\bibsstring{article}~#1}
 \DeclareFieldFormat{eprint:ebook}{#1 \biblstring{edition}}
 \DeclareFieldFormat{eprint:hethiter}{%
-  \url{http://hethiter.net/: #1}%
+  \url{http://hethiter.net/:\%20#1}%
   \iffieldundef{eprintclass}
     {}
     {\addspace\mkbibparens{\thefield{eprintclass}}}}
@@ -2190,6 +2192,15 @@
 
 
 % ## publisher macros
+
+% add datemodifier
+\renewbibmacro*{date}{%
+  \iffieldundef{datemodifier}
+    {}
+    {\newunit
+     \printfield{datemodifier}%
+     \setunit{\addspace}}%
+  \printdate}
 
 % add parentheses in citations
 \renewbibmacro*{publisher+location+date}{%

@@ -15,6 +15,7 @@
   series}
 
 \DeclareDatamodelFields[type=field, datatype=literal]{
+  datemodifier,
   definition,
   parts,
   printing,
