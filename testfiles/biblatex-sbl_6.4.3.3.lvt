@@ -23,7 +23,7 @@
 
 \parencite[(IV. 1275-1322; IV. 1331-1389; VII. 686-702)]{PGM}
 
-\parencite[(\pnfmt{I. 195-200} \mkbibbrackets{O'Neil in Betz})]{PGM}
+\parencite[(\pnfmt{I. 195-200} \mkbibbrackets{O'Neil in Betz})]{PGM:betz}
 
 \printbibliography
 \printbiblist{abbreviations}
