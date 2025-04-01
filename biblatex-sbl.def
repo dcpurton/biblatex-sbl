@@ -2546,3 +2546,19 @@
     \setunit{\bibpagespunct}%
     \printfield{pages}%
     \endgroup}}
+
+% ## Indexing macros
+
+\renewbibmacro*{bibindex}{%
+  \ifbibindex
+    {\ifentrytype{ancienttext}
+       {}
+       {\indexnames{labelname}}}
+    {}}
+
+\renewbibmacro*{citeindex}{%
+  \ifciteindex
+    {\ifentrytype{ancienttext}
+       {}
+       {\indexnames{labelname}}}
+    {}}
