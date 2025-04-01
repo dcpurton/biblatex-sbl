@@ -1176,7 +1176,30 @@
           {\listcsxadd{blx@bsee@\the\c@refsection}\abx@field@crossref}}
        {}}
     {}}
-\let\sbl@blx@crossreftracker\sbl@blx@crossreftracker@global
+\def\sbl@blx@crossreftracker@context{%
+  \ifbool{citetracker}
+    {\ifdef{\abx@field@crossref}
+       {\iftoggle{blx@footnote}
+          {\xifinlistcs\abx@field@crossref{blx@fsee@\the\c@refsection}
+             {}
+             {\listcsxadd{blx@fsee@\the\c@refsection}\abx@field@crossref}}
+          {\xifinlistcs\abx@field@crossref{blx@bsee@\the\c@refsection}
+             {}
+             {\listcsxadd{blx@bsee@\the\c@refsection}\abx@field@crossref}}}
+       {}}
+    {}}
+\appto\blx@opt@citetracker@true{%
+  \let\sbl@blx@crossreftracker\sbl@blx@crossreftracker@global}
+\appto\blx@opt@citetracker@false{%
+  \let\sbl@blx@crossreftracker\relax}
+\appto\blx@opt@citetracker@context{%
+  \let\sbl@blx@crossreftracker\sbl@blx@crossreftracker@context}
+\appto\blx@opt@citetracker@strict{%
+  \def\sbl@blx@crossreftracker{%
+    \blx@ifcitesingle{\sbl@blx@crossreftracker@global}{}}}
+\appto\blx@opt@citetracker@constrict{%
+  \def\sbl@blx@crossreftracker{%
+    \blx@ifcitesingle{\sbl@blx@crossreftracker@context}{}}}
 
 % add crossref tracker to citation printing code
 \xpatchcmd{\blx@citeprint}
