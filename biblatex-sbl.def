@@ -75,6 +75,22 @@
        {\@firstoftwo}
        {\@secondoftwo}}}
 
+% footnote style
+\let\orig@makefntext\@makefntext
+\DeclareBibliographyOption[boolean]{sblfootnotes}[true]{%
+  \ifstrequal{#1}{true}
+    {\@ifpackageloaded{footmisc}
+       {\renewcommand\@makefntext[1]{%
+          \parindent\footnotemargin%
+          \@thefnmark.\@\space
+          \footnotelayout
+          ##1}}
+       {\renewcommand\@makefntext[1]{%
+          \parindent 1em%
+          \@thefnmark.\@\space
+          ##1}}}
+    {\let\@makefntext\orig@makefntext}}
+
 % idem settings
 \def\blx@opt@idemtracker@citation{%
   \let\blx@imc@ifciteidem\blx@ifciteidem@citation
