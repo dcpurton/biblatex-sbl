@@ -36,8 +36,6 @@ Completed box being shipped out [1]
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set 273.67822fil, direction TLT
-....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
-....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
@@ -1095,7 +1093,6 @@ Completed box being shipped out [1]
 .\hbox(0.0+0.0)x0.0, direction TLT
 .\kern633.0
 (biblatex-sbl_6.4.2d.aux)
-LaTeX Warning: There were undefined references.
 Package biblatex Warning: Please rerun LaTeX.
 (biblatex)                Page breaks have changed.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4.2d.run.xml'.

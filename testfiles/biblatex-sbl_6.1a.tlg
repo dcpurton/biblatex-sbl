@@ -4,6 +4,10 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line ....
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line ....
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line ....
 Completed box being shipped out [1]
 \vbox(633.0+0.0)x407.0, direction TLT
 .\hbox(0.0+0.0)x0.0, direction TLT
@@ -40,8 +44,6 @@ Completed box being shipped out [1]
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
 ...\vbox(550.0+0.0)x345.0, glue set >20000.0fil, direction TLT
-....\latelua0{ltx.__pdf.Page.Resources.ExtGState=true}
-....\latelua0{ltx.pdf.Page_Resources_gpush(tex.count["g_shipout_readonly_int"])}
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
@@ -2933,16 +2935,20 @@ Completed box being shipped out [1]
 ....\kern-3.0
 ....\rule(0.4+0.0)x137.9979
 ....\kern2.6
-....\hbox(6.65+2.0)x345.0, glue set 0.92216, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.91216, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 1
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.32533+0.0)x14.40002, glue set 12.14203fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.32533+0.0)x2.258, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.502+0.018)x2.258, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 1
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -3320,16 +3326,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.8477, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.91216, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 2
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 11.30803fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x3.092, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+0.018)x3.092, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 2
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -3707,16 +3717,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.85199, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.91216, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 3
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 11.35602fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x3.044, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+1.086)x3.044, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 3
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -3929,16 +3943,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+1.976)x345.0, glue set 0.5073, direction TLT
+....\hbox(6.65+1.976)x345.0, glue set 0.56577, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 4
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 11.15802fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x3.242, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+0.906)x3.242, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 4
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -4163,16 +4181,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.84877, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.91216, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 5
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.45734+0.0)x14.40002, glue set 11.32002fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.45734+0.0)x3.08, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.634+1.086)x3.08, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 5
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -4385,16 +4407,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+1.976)x345.0, glue set 0.49887, direction TLT
+....\hbox(6.65+1.976)x345.0, glue set 0.56577, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 6
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(6.48933+0.0)x14.40002, glue set 11.06203fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(6.48933+0.0)x3.338, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(3.666+0.084)x3.338, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 6
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -4619,16 +4645,20 @@ Completed box being shipped out [1]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.84877, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.91216, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 7
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.27133+0.0)x14.40002, glue set 11.32002fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.27133+0.0)x3.08, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.448+1.086)x3.08, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 7
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -5213,7 +5243,6 @@ Completed box being shipped out [2]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 s
-.....\penalty 10000
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 5
@@ -5605,7 +5634,6 @@ Completed box being shipped out [2]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 s
-.....\penalty 10000
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 –
@@ -6535,16 +6563,20 @@ Completed box being shipped out [2]
 ....\kern-3.0
 ....\rule(0.4+0.0)x137.9979
 ....\kern2.6
-....\hbox(6.65+2.0)x345.0, glue set 0.22293, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.2646, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 8
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(6.48933+0.0)x14.40002, glue set 11.15802fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(6.48933+0.0)x3.242, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(3.666+0.084)x3.242, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 8
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -6737,16 +6769,20 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+1.976)x345.0, glue set 0.2025, direction TLT
+....\hbox(6.65+1.976)x345.0, glue set 0.25346, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 9
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 11.11603fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x3.284, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+1.086)x3.284, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 9
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -7054,17 +7090,21 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.30945, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.56229, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 1
-.....\TU/Brill(0)/m/n/8 0
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 9.17802fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x5.222, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+0.084)x5.222, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 1
+........\TU/Brill(0)/m/n/6 0
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -7076,8 +7116,13 @@ Completed box being shipped out [2]
 .....\TU/Brill(0)/m/n/8 H
 .....\TU/Brill(0)/m/n/8 a
 .....\TU/Brill(0)/m/n/8 r
+.....\discretionary (penalty 50)
+......< \kern-0.16 (font)
+......< \TU/Brill(0)/m/n/8 -
 .....\TU/Brill(0)/m/n/8 r
 .....\TU/Brill(0)/m/n/8 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/8 -
 .....\TU/Brill(0)/m/n/8 s
 .....\TU/Brill(0)/m/n/8 o
 .....\TU/Brill(0)/m/n/8 n
@@ -7482,17 +7527,21 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+1.976)x345.0, glue set 0.1311, direction TLT
+....\hbox(6.65+1.976)x345.0, glue set 0.25346, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 1
-.....\TU/Brill(0)/m/n/8 1
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.32533+0.0)x14.40002, glue set 10.38403fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.32533+0.0)x4.01599, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.502+0.018)x4.01599, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 1
+........\TU/Brill(0)/m/n/6 1
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -7800,17 +7849,21 @@ Completed box being shipped out [2]
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0
-....\hbox(6.65+2.0)x345.0, glue set 0.34503, direction TLT
+....\hbox(6.65+2.0)x345.0, glue set 0.56229, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
 ......\localleftbox=null
 ......\localrightbox=null
-.....\hbox(0.0+0.0)x8.0, direction TLT
-.....\TU/Brill(0)/m/n/8 1
-.....\TU/Brill(0)/m/n/8 2
-.....\TU/Brill(0)/m/n/8 .
-.....\glue(\spaceskip) 1.584 plus 0.792 minus 0.528
+.....\hbox(5.34933+0.0)x14.40002, glue set 9.55003fil, direction TLT
+......\glue 0.0 plus 1.0fil minus 1.0fil
+......\hbox(5.34933+0.0)x4.84999, direction TLT
+.......\mathon
+.......\hbox(0.0+0.0)x0.0, direction TLT
+.......\hbox(2.526+0.018)x4.84999, shifted -2.82333, direction TLT
+........\TU/Brill(0)/m/n/6 1
+........\TU/Brill(0)/m/n/6 2
+.......\mathoff
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -7822,8 +7875,13 @@ Completed box being shipped out [2]
 .....\TU/Brill(0)/m/n/8 H
 .....\TU/Brill(0)/m/n/8 a
 .....\TU/Brill(0)/m/n/8 r
+.....\discretionary (penalty 50)
+......< \kern-0.16 (font)
+......< \TU/Brill(0)/m/n/8 -
 .....\TU/Brill(0)/m/n/8 r
 .....\TU/Brill(0)/m/n/8 i
+.....\discretionary (penalty 50)
+......< \TU/Brill(0)/m/n/8 -
 .....\TU/Brill(0)/m/n/8 s
 .....\TU/Brill(0)/m/n/8 o
 .....\TU/Brill(0)/m/n/8 n
