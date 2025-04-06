@@ -558,7 +558,10 @@
 
 % ## Localisation
 
-\DeclareLanguageMappingSuffix{-sbl}
+\DeclareLanguageMapping{american}{american-sbl}
+\DeclareLanguageMapping{english}{english-sbl}
+\DeclareLanguageMapping{hebrew}{english-sbl}
+\DeclareLanguageMapping{polytonicgreek}{english-sbl}
 
 \NewBibliographyString{article}
 \NewBibliographyString{bydirector}
