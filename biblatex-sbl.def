@@ -775,7 +775,9 @@
     {}
     {\setfield{pagination}{page}}%
   \mkpageprefix[pagination][\mkcomprange]{#1}}
-\DeclareFieldFormat{pagesin}{\mkpageprefix[bookpagination][\mkcomprange]{#1}\space\bibstring{in}}
+\DeclareFieldFormat{pagesin}{%
+  \renewcommand*{\ppspace}{\addspace}%
+  \mkpageprefix[bookpagination][\mkcomprange]{#1}\space\bibstring{in}}
 \DeclareFieldFormat{part}{\bibstring{part}~#1}
 \DeclareFieldFormat{parts}{#1~\bibstring{parts}}
 \DeclareFieldFormat{inparts}{\bibstring{in}\space#1~\bibstring{parts}}
