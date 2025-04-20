@@ -2113,8 +2113,7 @@
      \setunit*{\addspace}%
      \iffieldundef{series}
        {}
-       {\newunit
-        \printfield{series}%
+       {\printfield{series}%
         \setunit{\slash}}%
      \usebibmacro{multivolarticle}%
      \usebibmacro{volume+number}}%
