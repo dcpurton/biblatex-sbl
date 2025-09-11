@@ -1608,6 +1608,19 @@
     {\printtext[#1link]{\printtext[#2]{\printfield{#1}}}}}
 
 
+% ## Indices
+
+\renewbibmacro*{bibindex}{%
+  \ifbibindex
+    {\indexnames{labelname}}
+    {}}
+
+\renewbibmacro*{citeindex}{%
+  \ifciteindex
+    {\indexnames{labelname}}
+    {}}
+
+
 % ## List macros
 
 % merge two lists together
