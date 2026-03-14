@@ -2,7 +2,7 @@ module = "biblatex-sbl"
 
 unpackexe        = ""
 sourcefiles      = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
-installfiles     = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
+installfiles     = {"*.def", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
 typesetdemofiles = {"biblatex-sbl-blog-examples.tex",
                     "biblatex-sbl-studentsupplement-examples.tex",
                     "biblatex-sbl-handbook-examples.tex"}
