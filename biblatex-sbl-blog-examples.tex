@@ -4190,8 +4190,7 @@ handbook (as in the case of the \citetitle*{treu} above).
   edition = {3},
   location = {Leiden},
   publisher = {Brill},
-  year = {1995, 2004},
-  sortyear = {1995},
+  date = {1995/2004},
   pagination = {subverbo},
   langid = {german}
 }
@@ -4351,7 +4350,6 @@ handbook (as in the case of the \citetitle*{treu} above).
 }
 \end{verbatim}
 
-
 \examplecite(17)[ἐνθύημα]{LEH}
 \examplevolcite(21){20}[ubšukkinakku]{CAD}
 \examplecite(17)[ἐνθύημα, λεαίνω]{LEH}
@@ -4384,6 +4382,11 @@ handbook (as in the case of the \citetitle*{treu} above).
 \end{verbcite}
 \exampleabbreviations
 \examplereferences{https://sblhs2.com/2017/03/30/citing-reference-works-2-lexica/}
+
+\subsection{Notes}
+
+\pkg{biblatex} does not cope well with malformed dates, so use
+\verb+date = {1995/2004}+ for \cite{HAL} which is standard.
 
 \section{Citing a Chapter from a Single-Authored Work (23 March 2017)}
 
@@ -5468,7 +5471,7 @@ H., ed.” for the bibliography format of this reference.
   entrysubtype = {blog},
   title = {Formatting Titles},
   website = {SBL Handbook of Style},
-  date = {2016/10/27},
+  date = {2016-10-27},
   url = {https://sblhs2.com/2016/10/27/formatting-titles/}
 }
 
