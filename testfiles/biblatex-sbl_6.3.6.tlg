@@ -34,7 +34,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 396.5076fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 408.50632fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.35
@@ -457,7 +457,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x320.57, glue set 17.79997fil, shifted 24.43, direction TLT
+....\hbox(6.65+2.47)x320.57, glue set - 0.28448, shifted 24.43, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -585,21 +585,6 @@ Completed box being shipped out [1]
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 N
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 w
-.....\glue(\spaceskip) 1.78 plus 0.99 minus 0.66
-.....\TU/Brill(0)/m/n/10 Y
-.....\kern-0.8 (font)
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 r
-.....\TU/Brill(0)/m/n/10 k
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 25000
-....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x320.57, glue set 131.16501fil, shifted 24.43, direction TLT
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 b
 .....\TU/Brill(0)/m/n/10 i

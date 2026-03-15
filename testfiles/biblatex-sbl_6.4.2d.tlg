@@ -465,7 +465,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 15000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 73.98003fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 97.09502fil, shifted 15.0, direction TLT
 .....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:shortseries:LCL}
 .....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/n/10 L
@@ -476,20 +476,6 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 C
-.....\TU/Brill(0)/m/n/10 a
-.....\TU/Brill(0)/m/n/10 m
-.....\discretionary (penalty 50)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 b
-.....\TU/Brill(0)/m/n/10 r
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 g
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
 .....\TU/Brill(0)/m/n/10 H
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 r
@@ -545,7 +531,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 22.32002fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 3.59fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -649,20 +635,6 @@ Completed box being shipped out [1]
 .....\pdfendlink
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 C
-.....\TU/Brill(0)/m/n/10 a
-.....\TU/Brill(0)/m/n/10 m
-.....\discretionary (penalty 50)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 b
-.....\TU/Brill(0)/m/n/10 r
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 g
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
 .....\TU/Brill(0)/m/n/10 H
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 r
@@ -675,10 +647,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 r
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 d
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 25000
-....\glue(\baselineskip) 3.43
-....\hbox(6.1+2.47)x330.0, glue set 123.515fil, shifted 15.0, direction TLT
+.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 U
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 i
@@ -704,7 +673,10 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 s
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 ,
-.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 25000
+....\glue(\baselineskip) 5.14
+....\hbox(4.39+1.81)x330.0, glue set 155.995fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/n/10 1
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 9
@@ -716,15 +688,15 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -51
 ....\glue 10.0 plus 3.0 minus 5.0
-....\glue -12.47 plus -3.0 minus -5.0
+....\glue -11.81 plus -3.0 minus -5.0
 ....\penalty -300
-....\glue 2.47
+....\glue 1.81
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
 ....\glue 14.175 plus 4.05 minus 0.80998
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 5.95401
+....\glue(\baselineskip) 6.61401
 ....\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
@@ -1088,6 +1060,7 @@ Completed box being shipped out [1]
 .\kern0.0
 .\kern0.0
 (biblatex-sbl_6.4.2d.aux)
+LaTeX Warning: There were undefined references.
 Package rerunfilecheck Info: File `biblatex-sbl_6.4.2d.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package biblatex Warning: Please rerun LaTeX.

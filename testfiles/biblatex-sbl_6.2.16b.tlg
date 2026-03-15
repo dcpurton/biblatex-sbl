@@ -39,7 +39,7 @@ Completed box being shipped out [1]
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
-....\hbox(6.68+2.5)x345.0, glue set 48.31999fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 18.92998fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -143,21 +143,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99197 minus 0.65868
 .....\TU/Brill(0)/m/n/10 (
-.....\TU/Brill(0)/m/n/10 L
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 u
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 s
-.....\TU/Brill(0)/m/n/10 v
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 300
-....\glue(\baselineskip) 2.82
-....\hbox(6.68+2.5)x345.0, glue set 109.45fil, direction TLT
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.65 (font)
 .....\TU/Brill(0)/m/n/10 e
@@ -182,7 +167,10 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 n
-.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 300
+....\glue(\baselineskip) 2.82
+....\hbox(6.68+2.5)x345.0, glue set 144.59fil, direction TLT
 .....\TU/Brill(0)/m/n/10 K
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 o
@@ -329,7 +317,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
-....\hbox(6.65+2.47)x330.0, glue set 47.43997fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 18.24995fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -436,22 +424,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 .
-.....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 L
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 u
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 s
-.....\TU/Brill(0)/m/n/10 v
-.....\TU/Brill(0)/m/n/10 i
-.....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 l
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 25000
-....\glue(\baselineskip) 2.88
-....\hbox(6.65+1.91)x330.0, glue set 108.33fil, shifted 15.0, direction TLT
+.....\glue(\spaceskip) 1.78 plus 0.99594 minus 0.65607
 .....\TU/Brill(0)/m/n/10 W
 .....\kern-0.65 (font)
 .....\TU/Brill(0)/m/n/10 e
@@ -476,7 +449,10 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 n
-.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+.....\glue(\rightskip) 0.0 plus 1.0fil
+....\penalty 25000
+....\glue(\baselineskip) 3.42
+....\hbox(6.11+1.81)x330.0, glue set 143.47fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/n/10 K
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 o
@@ -495,15 +471,15 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -51
 ....\glue 10.0 plus 3.0 minus 5.0
-....\glue -11.91 plus -3.0 minus -5.0
+....\glue -11.81 plus -3.0 minus -5.0
 ....\penalty -300
-....\glue 1.91
+....\glue 1.81
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
 ....\glue 14.175 plus 4.05 minus 0.80998
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
-....\glue(\baselineskip) 6.514
+....\glue(\baselineskip) 6.61401
 ....\hbox(9.57599+0.2016)x345.0, glue set 132.18723fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0

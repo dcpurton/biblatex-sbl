@@ -183,7 +183,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 300
 ....\glue(\baselineskip) 2.85
-....\hbox(6.68+2.5)x345.0, glue set 46.59003fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 62.27502fil, direction TLT
 .....\TU/Brill(0)/m/n/10 a
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 d
@@ -208,18 +208,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 u
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 (
-.....\TU/Brill(0)/m/n/10 O
-.....\TU/Brill(0)/m/n/10 x
-.....\discretionary (penalty 50)
-......< \kern-0.25 (font)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 f
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 r
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 2.64 plus 1.98001 minus 0.33
 .....\TU/Brill(0)/m/n/10 O
 .....\TU/Brill(0)/m/n/10 x
 .....\discretionary (penalty 50)
@@ -616,7 +604,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 8.07501fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 23.43001fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 i
@@ -677,18 +665,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 u
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 O
-.....\TU/Brill(0)/m/n/10 x
-.....\discretionary (penalty 50)
-......< \kern-0.25 (font)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 f
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 r
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
 .....\TU/Brill(0)/m/n/10 O
 .....\TU/Brill(0)/m/n/10 x
 .....\discretionary (penalty 50)
@@ -873,7 +849,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 8.07501fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 23.43001fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 d
 .....\TU/Brill(0)/m/n/10 i
@@ -944,18 +920,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 r
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
-.....\TU/Brill(0)/m/n/10 O
-.....\TU/Brill(0)/m/n/10 x
-.....\discretionary (penalty 50)
-......< \kern-0.25 (font)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 f
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 r
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 d
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 U
 .....\TU/Brill(0)/m/n/10 n
@@ -998,7 +962,7 @@ Completed box being shipped out [1]
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 11.44fil, shifted 15.0, direction TLT
+....\hbox(6.65+2.47)x330.0, glue set 13.44fil, shifted 15.0, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -1137,22 +1101,10 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 r
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 :
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
-....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 107.7fil, shifted 15.0, direction TLT
-.....\TU/Brill(0)/m/n/10 O
-.....\TU/Brill(0)/m/n/10 x
-.....\discretionary (penalty 50)
-......< \kern-0.25 (font)
-......< \TU/Brill(0)/m/n/10 -
-.....\TU/Brill(0)/m/n/10 f
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 r
-.....\kern-0.1 (font)
-.....\TU/Brill(0)/m/n/10 d
-.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
+....\glue(\baselineskip) 3.42
+....\hbox(6.11+2.47)x330.0, glue set 122.055fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/n/10 U
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 i

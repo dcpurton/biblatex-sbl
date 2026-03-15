@@ -35,11 +35,11 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 437.9932fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 450.65186fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
-....\hbox(6.68+2.5)x345.0, glue set 10.60994fil, direction TLT
+....\hbox(6.68+2.5)x345.0, glue set 15.22499fil, direction TLT
 .....\localpar
 ......\localinterlinepenalty=0
 ......\localbrokenpenalty=0
@@ -134,21 +134,6 @@ Completed box being shipped out [1]
 .....\kern0.27 (italic)
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 (
-.....\TU/Brill(0)/m/n/10 P
-.....\kern-0.3 (font)
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 a
-.....\TU/Brill(0)/m/n/10 b
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 y
-.....\kern-0.7 (font)
-.....\TU/Brill(0)/m/n/10 ,
-.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\TU/Brill(0)/m/n/10 M
-.....\TU/Brill(0)/m/n/10 A
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 H
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n
@@ -166,10 +151,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 o
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 ,
-.....\glue(\rightskip) 0.0 plus 1.0fil
-....\penalty 300
-....\glue(\baselineskip) 2.82
-....\hbox(6.68+2.5)x345.0, glue set 156.475fil, direction TLT
+.....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 1
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 9
@@ -446,7 +428,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x330.0, glue set 69.305fil, shifted 15.0, direction TLT
+....\hbox(6.65+1.81)x330.0, glue set 96.24fil, shifted 15.0, direction TLT
 .....\TU/Brill(0)/m/it/10 T
 .....\kern-0.7 (font)
 .....\TU/Brill(0)/m/it/10 e
@@ -473,21 +455,6 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 k
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\TU/Brill(0)/m/n/10 P
-.....\kern-0.3 (font)
-.....\TU/Brill(0)/m/n/10 e
-.....\TU/Brill(0)/m/n/10 a
-.....\TU/Brill(0)/m/n/10 b
-.....\TU/Brill(0)/m/n/10 o
-.....\TU/Brill(0)/m/n/10 d
-.....\TU/Brill(0)/m/n/10 y
-.....\kern-0.7 (font)
-.....\TU/Brill(0)/m/n/10 ,
-.....\glue(\spaceskip) 1.98 plus 0.99297 minus 0.65802
-.....\TU/Brill(0)/m/n/10 M
-.....\TU/Brill(0)/m/n/10 A
-.....\TU/Brill(0)/m/n/10 :
-.....\glue(\spaceskip) 1.98 plus 0.99495 minus 0.65671
 .....\TU/Brill(0)/m/n/10 H
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 n

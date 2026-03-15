@@ -2233,6 +2233,19 @@
 
 % ## publisher macros
 
+% clear location if date is recent
+\newbibmacro*{clearrecentlocations}{%
+  \iffieldundef{year}
+    {}
+    {\ifnumgreater{\thefield{year}}{1899}
+       {\clearlist{location}}
+       {}}%
+  \iffieldundef{origyear}
+    {}
+    {\ifnumgreater{\thefield{origyear}}{1899}
+       {\clearlist{origlocation}}
+       {}}}
+
 % add datemodifier
 \renewbibmacro*{date}{%
   \iffieldundef{datemodifier}
@@ -2268,6 +2281,7 @@
     {}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}}%
+  \usebibmacro{clearrecentlocations}%
   \usebibmacro{origpublisher+origlocation+origdate}%
   \usebibmacro{mergelists}{location}{publisher}{\locationpublisherdelim}{\publisherdelim}%
   \setunit*{\addcomma\space}%
@@ -2307,7 +2321,8 @@
     test {\iflistundef{origlocation}}
   }
     {}
-    {\usebibmacro{mergelists}{origlocation}{origpublisher}{\locationpublisherdelim}{\publisherdelim}%
+    {\usebibmacro{clearrecentlocations}%
+     \usebibmacro{mergelists}{origlocation}{origpublisher}{\locationpublisherdelim}{\publisherdelim}%
      \setunit*{\addcomma\space}}%
   \iffieldundef{origyear}
     {}
@@ -2349,6 +2364,7 @@
     {}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}}%
+  \usebibmacro{clearrecentlocations}%
   \usebibmacro{mergelists}{location}{organization}{\locationpublisherdelim}{\publisherdelim}%
   \setunit*{\addcomma\space}%
   \usebibmacro{date}%
@@ -2374,6 +2390,7 @@
     {}
     {\setunit{\addspace}%
      \printtext{\bibopenparen}}%
+  \usebibmacro{clearrecentlocations}%
   \printfield{type}%
   \setunit*{\addcomma\space}%
   \usebibmacro{mergelists}{location}{institution}{\locationpublisherdelim}{\publisherdelim}%
