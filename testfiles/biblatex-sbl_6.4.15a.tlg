@@ -13,7 +13,6 @@ Completed box being shipped out [1]
 ..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
 ...\kern-72.26999
 ...\hbox(0.0+0.0)x0.0, direction TLT
-....\latelua0{ltx.__pdf.backend_ThisPage_gpush(tex.count["g_shipout_readonly_int"])}
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\vbox(0.0+0.0)x0.0, glue set - 14.99626fil, direction TLT
@@ -40,7 +39,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 408.29135fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 408.08978fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.35
@@ -134,8 +133,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F00630064006C0069002E006F0078002E00610063002E0075006B002F00770069006B0069002F0064006F006B0075002E007000680070003F00690064003D007400680065005F006F006E0065005F00680075006E0064007200650064005F006D006F00730074005F0069006D0070006F007200740061006E0074005F00630075006E006500690066006F0072006D005F006F0062006A0065006300740073> /A <</Type /Action /S /URI /URI (http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -284,8 +283,8 @@ Completed box being shipped out [1]
 .....\hbox(0.0+0.0)x0.0, direction TLT
 .....\write1{\abx@aux@page{2}{\the \c@page }}
 .....\TU/Brill(0)/m/n/10 “
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A00310030003000630075006E006500690066006F0072006D> } action goto name{cite.0:t:1:100cuneiform}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:t:1:100cuneiform}
+.....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/n/10 O
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 e
@@ -503,8 +502,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F00630064006C0069002E006F0078002E00610063002E0075006B002F00770069006B0069002F0064006F006B0075002E007000680070003F00690064003D007400680065005F006F006E0065005F00680075006E0064007200650064005F006D006F00730074005F0069006D0070006F007200740061006E0074005F00630075006E006500690066006F0072006D005F006F0062006A0065006300740073> /A <</Type /Action /S /URI /URI (http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://cdli.ox.ac.uk/wiki/doku.php?id=the_one_hundred_most_important_cuneiform_objects)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -702,7 +701,6 @@ Completed box being shipped out [1]
 ....\glue 9.31502 plus -0.19002
 ....\glue -9.31502 plus 0.19002
 ....\glue 10.0 plus 3.0 minus 5.0
-....\glue -0.2016
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
@@ -713,8 +711,7 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 .\kern0.0
 .\kern0.0
-.\kern-633.0
-.\hbox(0.0+0.0)x0.0, direction TLT
-.\kern633.0
 (biblatex-sbl_6.4.15a.aux)
+Package rerunfilecheck Info: File `biblatex-sbl_6.4.15a.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4.15a.run.xml'.

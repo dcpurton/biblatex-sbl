@@ -1,4 +1,3 @@
-\DocumentMetadata{lang=en}
 \documentclass{article}
 \input{regression-test}
 \usepackage[american]{babel}

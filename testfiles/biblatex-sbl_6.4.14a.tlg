@@ -13,7 +13,6 @@ Completed box being shipped out [1]
 ..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
 ...\kern-72.26999
 ...\hbox(0.0+0.0)x0.0, direction TLT
-....\latelua0{ltx.__pdf.backend_ThisPage_gpush(tex.count["g_shipout_readonly_int"])}
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\vbox(0.0+0.0)x0.0, glue set - 14.99626fil, direction TLT
@@ -40,7 +39,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 408.29135fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 408.08978fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.35
@@ -184,8 +183,8 @@ Completed box being shipped out [1]
 ....\penalty 300
 ....\glue(\baselineskip) 2.85
 ....\hbox(6.68+2.47)x345.0, glue set 58.94499fil, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F007700770077002E0063006F00620062002E006D007300730074006100740065002E006500640075002F006400690067006E00650077002F004D006100720065007300680061002F0069006E006400650078002E00680074006D006C> /A <</Type /Action /S /URI /URI (http://www.cobb.msstate.edu/dignew/Maresha/index.html) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://www.cobb.msstate.edu/dignew/Maresha/index.html)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -323,8 +322,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
 .....\TU/Brill(0)/m/n/10 “
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A0063006F00620062003A006600690067007500720069006E00650073> } action goto name{cite.0:t:1:cobb:figurines}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:t:1:cobb:figurines}
+.....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/n/10 F
 .....\TU/Brill(0)/m/n/10 i
 .....\TU/Brill(0)/m/n/10 g
@@ -552,8 +551,8 @@ Completed box being shipped out [1]
 ....\penalty 25000
 ....\glue(\baselineskip) 2.85
 ....\hbox(6.68+2.47)x330.0, glue set 50.44499fil, shifted 15.0, direction TLT
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F007700770077002E0063006F00620062002E006D007300730074006100740065002E006500640075002F006400690067006E00650077002F004D006100720065007300680061002F0069006E006400650078002E00680074006D006C> /A <</Type /Action /S /URI /URI (http://www.cobb.msstate.edu/dignew/Maresha/index.html) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://www.cobb.msstate.edu/dignew/Maresha/index.html)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -694,7 +693,6 @@ Completed box being shipped out [1]
 ....\glue 9.31502 plus -0.19002
 ....\glue -9.31502 plus 0.19002
 ....\glue 10.0 plus 3.0 minus 5.0
-....\glue -0.2016
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
@@ -705,8 +703,7 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 .\kern0.0
 .\kern0.0
-.\kern-633.0
-.\hbox(0.0+0.0)x0.0, direction TLT
-.\kern633.0
 (biblatex-sbl_6.4.14a.aux)
+Package rerunfilecheck Info: File `biblatex-sbl_6.4.14a.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4.14a.run.xml'.

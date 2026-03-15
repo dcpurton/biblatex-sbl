@@ -12,7 +12,6 @@ Completed box being shipped out [1]
 ..\vbox(0.0+0.0)x0.0, glue set 72.26999fil, direction TLT
 ...\kern-72.26999
 ...\hbox(0.0+0.0)x0.0, direction TLT
-....\latelua0{ltx.__pdf.backend_ThisPage_gpush(tex.count["g_shipout_readonly_int"])}
 ....\glue 0.0 plus 1.0fil minus 1.0fil
 ...\glue 0.0 plus 1.0fil minus 1.0fil
 .\vbox(0.0+0.0)x0.0, glue set - 14.99626fil, direction TLT
@@ -39,7 +38,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 386.97864fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 384.50888fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
@@ -124,8 +123,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 c
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A00410053> } action goto name{cite.0:shortseries:AS}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:shortseries:AS}
+.....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 S
 .....\pdfcolorstack 0 pop
@@ -228,8 +227,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 )
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F006F0069002E0075006300680069006300610067006F002E006500640075002F007000640066002F0061007300310039002E007000640066> /A <</Type /Action /S /URI /URI (http://oi.uchicago.edu/pdf/as19.pdf) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://oi.uchicago.edu/pdf/as19.pdf)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -309,8 +308,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 n
 .....\TU/Brill(0)/m/n/10 ,
 .....\glue(\spaceskip) 1.98 plus 1.2375 minus 0.528
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A0074003A0031003A006B006100750066006D0061006E003A0031003900370034> } action goto name{cite.0:t:1:kaufman:1974}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:t:1:kaufman:1974}
+.....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/it/10 A
 .....\TU/Brill(0)/m/it/10 k
 .....\TU/Brill(0)/m/it/10 k
@@ -499,8 +498,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/it/10 c
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\pdfstartlink(*+*)x* attr{/Border [0 0 0] /H /I /C [0.701176 0.4 0.414118] /Contents <FEFF0047006F00200074006F002000640065007300740069006E006100740069006F006E00200063006900740065002E0030003A00730068006F00720074007300650072006900650073003A00410053> } action goto name{cite.0:shortseries:AS}
-.....\pdfcolorstack 0 push {0.50196 0.0 0.02353 rg 0.50196 0.0 0.02353 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 0]} action goto name{cite.0:shortseries:AS}
+.....\pdfcolorstack 0 push {0 1 0 rg 0 1 0 RG}
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 S
 .....\pdfcolorstack 0 pop
@@ -602,8 +601,8 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 4
 .....\TU/Brill(0)/m/n/10 .
 .....\glue(\spaceskip) 1.98 plus 0.99594 minus 0.65607
-.....\pdfstartlink(*+*)x* attr{/Subtype /Link /Border [0 0 0] /H /I /C [0.724708 0.4 0.717646] /Contents <FEFF0068007400740070003A002F002F006F0069002E0075006300680069006300610067006F002E006500640075002F007000640066002F0061007300310039002E007000640066> /A <</Type /Action /S /URI /URI (http://oi.uchicago.edu/pdf/as19.pdf) >> } action user{}
-.....\pdfcolorstack 0 push {0.54118 0.0 0.52941 rg 0.54118 0.0 0.52941 RG}
+.....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[0 1 1]} action user{/Subtype/Link/A<</Type/Action/S/URI/URI(http://oi.uchicago.edu/pdf/as19.pdf)>>}
+.....\pdfcolorstack 0 push {0 1 0 0 k 0 1 0 0 K}
 .....\mathon
 .....\TU/Brill(0)/m/n/10 h
 .....\TU/Brill(0)/m/n/10 t
@@ -787,7 +786,6 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -51
 ....\glue 10.0 plus 3.0 minus 5.0
-....\glue -2.47
 ....\glue 0.0 plus 1.0fil
 ....\glue 0.0
 ....\glue 0.0 plus 0.0001fil
@@ -798,8 +796,7 @@ Completed box being shipped out [1]
 ....\pdfcolorstack 0 pop
 .\kern0.0
 .\kern0.0
-.\kern-633.0
-.\hbox(0.0+0.0)x0.0, direction TLT
-.\kern633.0
 (biblatex-sbl_6.2.25d.aux)
+Package rerunfilecheck Info: File `biblatex-sbl_6.2.25d.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.2.25d.run.xml'.
