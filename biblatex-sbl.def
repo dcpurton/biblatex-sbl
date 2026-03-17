@@ -4,8 +4,8 @@
 
 % ## Set up the version strings
 
-\def\sbl@abx@date{2020//}
-\def\sbl@abx@version{1.0}
+\def\sbl@abx@date{2026-03-17}
+\def\sbl@abx@version{2.0}
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}

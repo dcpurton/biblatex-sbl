@@ -1,0 +1,132 @@
+\RequirePackage{pdfmanagement}
+\documentclass[a4paper]{l3doc}
+
+\usepackage{microtype}
+\usepackage[american, bidi=basic]{babel}
+% \babelprovide[import, onchar=ids]{polytonicgreek}
+% \babelprovide[import, onchar=ids]{russian}
+% \babelprovide[import, onchar=ids fonts]{armenian}
+% \babelprovide[import, onchar=ids fonts]{hebrew}
+% \babelprovide[import, onchar=ids fonts]{syriac}
+\babelfont{rm}[Numbers=Lining]{Brill}
+\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
+% \babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
+% \babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
+% \babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
+% \babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
+% \babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
+\usepackage{csquotes}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+
+% allow lining figures in URLs
+\renewcommand*{\url}[1]{\href{#1}{#1}}
+
+% SBL style footnotes
+\usepackage[bottom, ragged]{footmisc}
+\makeatletter
+\renewcommand*{\@makefntext}[1]{%
+  \parindent \footnotemargin
+  \@thefnmark . \enspace
+  \footnotelayout #1}
+% redefine \maketitle to better match \thanks footnote
+\renewcommand\maketitle{\par
+  \begingroup
+    \renewcommand\thefootnote{\@fnsymbol\c@footnote}%
+    \renewcommand*{\@makefntext}[1]{%
+      \parindent \footnotemargin
+      \@textsuperscript{\@thefnmark}%
+      \footnotelayout ##1}%
+    \if@twocolumn
+      \ifnum \col@number=\@ne
+        \@maketitle
+      \else
+        \twocolumn[\@maketitle]%
+      \fi
+    \else
+    \newpage
+      \global\@topnum\z@   % Prevents figures from going at top of page.
+      \@maketitle
+    \fi
+    \thispagestyle{plain}\@thanks
+  \endgroup
+  \setcounter{footnote}{0}%
+  \global\let\thanks\relax
+  \global\let\maketitle\relax
+  \global\let\@maketitle\relax
+  \global\let\@thanks\@empty
+  \global\let\@author\@empty
+  \global\let\@date\@empty
+  \global\let\@title\@empty
+  \global\let\title\relax
+  \global\let\author\relax
+  \global\let\date\relax
+  \global\let\and\relax
+}
+\makeatother
+
+\begin{document}
+
+\title{The \pkg{biblatex-sbl} Package}
+\author{David Purton\thanks{Email: \url{dcpurton@marshwiggle.net}}}
+\date{2026/03/15 v2.0}
+
+\maketitle
+
+\begin{abstract}
+  This package provides \pkg{biblatex} support for citations, bibliography and
+  abbreviations in the format specified by the second edition of the
+  \emph{Society of Biblical Literature (SBL) Handbook of Style} including
+  updates on the \emph{SBL Handbook of Style} blog.
+\end{abstract}
+
+\tableofcontents
+
+\section{Introduction}
+
+\pkg{biblatex-sbl} provides support to \pkg{biblatex} and LaTeX for citations,
+bibliography and abbreviations in the style recommended by the Society of
+Biblical Literature (SBL). Shorthand citations and a list of abbreviations
+containing journals, series, shorthands and ancient works are handled
+automatically. Only note style citations, not author-date citations, are
+supported. \pkg{biblatex-sbl} is compatible with \pkg{biblatex}'s support for
+\pkg{hyperref}.
+
+The style seeks to support the latest requirements outlined on the \emph{SBL
+Handbook of Style} blog \autocite{sblhsblog}. All examples from the
+handbook, student supplement, and blog are fully supported (noting that the
+blog updates many recommendations).
+
+There is also sophisticated handling of subsequent citations, reprints, and
+the many unique entry types required by SBL style, such as lexicons,
+dictionaries, and encyclopaedias.
+
+\pkg{biblatex-sbl} is compatible with \pkg{biblatex}'s \pkg{hyperref} and
+\pkg{babel} support, although custom strings are only provided for English at
+this stage.
+
+A companion bundle of packages and classes are distributed separately to
+\pkg{biblatex-sbl}. These provide support for referencing Bible passages
+(\pkg{bibleref-sbl}), font set up (\pkg{sblfonts}), indexing (\pkg{sblidx}),
+term papers (\pkg{sblarticle}), theses (\pkg{sblreport}) and print ready books
+(\pkg{sblbook}).
+
+This manual only covers custom features of \pkg{biblatex-sbl}. For general
+help with \pkg{biblatex} you should consult its extensive manual.
+
+\subsection*{Note}
+
+The blog has now made SBL style a rolling style that changes with each blog
+post. Because of this, preserving backward compatibility between releases is
+not feasible for time I have available to maintain this style and neither is
+it possible to provide options to vary the style to cater for different
+seminaries and theological colleges.
+
+\textbf{In particular, version 2.0 and later of \pkg{biblatex-sbl} completely
+breaks compatibility with the version 0.x releases.} If you need to access a
+legacy release, you should download it from the GitHub repository and place
+the style files locally in your project.\footnote{See
+\url{https://github.com/dcpurton/biblatex-sbl/}.} Legacy 0.x versions are no
+longer maintained or supported.
+
+\end{document}
