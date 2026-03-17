@@ -28,7 +28,7 @@ your distribution. E.g., in TeXLive by running:
 tlmgr install biblatex-sbl
 ```
 
-## Installation from Git Source
+## Installation from Git source
 
 `biblatex-sbl` uses the `l3build` system.
 
@@ -59,6 +59,22 @@ installation. You will need to download and install:
   https://fonts.google.com/noto/specimen/Noto+Serif+Armenian
 - Noto Sans Syriac available from
   https://fonts.google.com/noto/specimen/Noto+Sans+Syriac
+
+## Backwards compatibility
+
+The [*SBL Handbook of Style* blog](https://sblhs2.com/) has now made SBL style a rolling style that changes with each blog
+post. Because of this, preserving backward compatibility between releases is
+not feasible for time I have available to maintain this style and neither is
+it possible to provide options to vary the style to cater for different
+seminaries and theological colleges.
+
+**In particular, version 2.0 and later of `biblatex-sbl` completely breaks
+compatibility with the version 0.x releases.** If you need to access a legacy
+release, you should download it from the GitHub repository and place the style
+files locally in your project. See
+https://github.com/dcpurton/biblatex-sbl/releases for legacy releases and
+https://github.com/dcpurton/biblatex-sbl/tree/legacy for legacy source code.
+Legacy 0.x versions are no longer maintained or supported.
 
 ## Licence
 
