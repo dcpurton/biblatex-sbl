@@ -22,7 +22,11 @@
 \babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
 \babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
 \usepackage{csquotes}
-\usepackage[colorlinks]{hyperref}
+\makeatletter
+\@ifpackageloaded{hyperref}
+  {}
+  {\usepackage[colorlinks]{hyperref}}
+\makeatother
 \usepackage[style=sbl, refsection=subsection+, locallabelwidth, citetracker=true]{biblatex}
 \addbibresource{biblatex-sbl.bib}
 
@@ -30,7 +34,7 @@
 
 \colorlet{cmdcolour}{black!65}
 
-\newcommand*{\pkg}[1]{\textsf{#1}}
+\providecommand*{\pkg}[1]{\textsf{#1}}
 
 \ExplSyntaxOn
 % Thanks to https://tex.stackexchange.com/a/44444/87678

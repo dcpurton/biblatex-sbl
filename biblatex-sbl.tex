@@ -1,26 +1,10 @@
 \RequirePackage{pdfmanagement}
 \documentclass[a4paper]{l3doc}
 
-\usepackage{microtype}
-\usepackage[american, bidi=basic]{babel}
-% \babelprovide[import, onchar=ids]{polytonicgreek}
-% \babelprovide[import, onchar=ids]{russian}
-% \babelprovide[import, onchar=ids fonts]{armenian}
-% \babelprovide[import, onchar=ids fonts]{hebrew}
-% \babelprovide[import, onchar=ids fonts]{syriac}
-\babelfont{rm}[Numbers=Lining]{Brill}
-\babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
-% \babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
-% \babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
-% \babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
-% \babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
-% \babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
-\usepackage{csquotes}
-\usepackage[style=sbl]{biblatex}
-\addbibresource{biblatex-sbl.bib}
+\input{biblatex-sbl-examples-preamble.tex}
 
-% allow lining figures in URLs
-\renewcommand*{\url}[1]{\href{#1}{#1}}
+\setcounter{tocdepth}{2}
+\setcounter{secnumdepth}{3}
 
 % SBL style footnotes
 \usepackage[bottom, ragged]{footmisc}
@@ -29,6 +13,21 @@
   \parindent \footnotemargin
   \@thefnmark . \enspace
   \footnotelayout #1}
+\renewcommand{\thempfootnote}{\arabic{mpfootnote}}
+
+\newenvironment{showexample}{%
+  \minipage[t]{.45\linewidth}%
+  \def\showoutput{%
+    \endminipage
+    \hfill
+    \minipage[t]{.45\linewidth}
+    \parindent 0pt
+    \parskip \medskipamount}
+  \ignorespaces
+}{%
+  \endminipage
+}
+
 % redefine \maketitle to better match \thanks footnote
 \renewcommand\maketitle{\par
   \begingroup
@@ -64,6 +63,20 @@
   \global\let\and\relax
 }
 \makeatother
+
+\usepackage[skins]{tcolorbox}
+\newtcolorbox{sblexample}[1][]{%
+  bicolor, colframe=black, colback=black!15, colbacklower=white, left=2mm,
+  fonttitle=\normalsize\sffamily\bfseries,
+  subtitle style={before skip=3mm, after skip=3mm},
+  right=2mm, fontupper=\footnotesize, fontlower=\footnotesize, sidebyside,
+  sidebyside gap=6mm, sidebyside align=top, lefthand ratio=0.6, before
+  skip=\bigskipamount, after skip=\bigskipamount, #1
+}
+\tcbset{%
+  no output/.style={%
+    standard, sidebyside=false}
+}
 
 \begin{document}
 
@@ -109,12 +122,13 @@ A companion bundle of packages and classes are distributed separately to
 \pkg{biblatex-sbl}. These provide support for referencing Bible passages
 (\pkg{bibleref-sbl}), font set up (\pkg{sblfonts}), indexing (\pkg{sblidx}),
 term papers (\pkg{sblarticle}), theses (\pkg{sblreport}) and print ready books
-(\pkg{sblbook}).
+(\pkg{sblbook}). You may also find the \pkg{scripture} package helpful in
+formatting Bible quotations.
 
 This manual only covers custom features of \pkg{biblatex-sbl}. For general
 help with \pkg{biblatex} you should consult its extensive manual.
 
-\subsection*{Note}
+\subsection{Backward compatibility}
 
 The blog has now made SBL style a rolling style that changes with each blog
 post. Because of this, preserving backward compatibility between releases is
@@ -129,5 +143,112 @@ the style files locally in your project.\footnote{See
 \url{https://github.com/dcpurton/biblatex-sbl/releases} for legacy releases
 and \url{https://github.com/dcpurton/biblatex-sbl/tree/legacy} for legacy
 source code.} Legacy 0.x versions are no longer maintained or supported.
+
+\subsection{Bug reports and feature requests}
+
+Bug reports and feature requests can be made at the package GitHub repository.
+See \url{https://github.com/dcpurton/biblatex-sbl}.
+
+\section{Usage}
+
+\subsection{Basic usage}
+
+At a minimum, just load \pkg{biblatex} with |style=sbl|:
+
+\begin{sblexample}[no output]
+  \begin{verbatim}
+  \documentclass{article}
+  \usepackage[style=sbl]{biblatex}
+  \addbibresource{<bibfile.bib>}
+  \begin{dpcument}
+  Filler text \autocite{<bibentry>}.
+  \printbiblist{abbreviations}
+  \printbibliography
+  \end{document}
+  \end{verbatim}
+\end{sblexample}
+
+\subsection{Bib entry set up}
+
+Supported bib entries and fields are fully documented below. One of the best
+ways to learn how to set up the bib entries for the style is to look through
+the three example files which show every example from the handbook, the
+student supplement and the blog. These files show the bib entries, the
+citation commands and output including the list of abbreviations and
+bibliography.
+\begin{itemize}
+  \item |biblatex-sbl-handbook-examples.pdf| shows all the examples from the
+    handbook.
+  \item |biblatex-sbl-studentsupplement-examples.pdf| shows all the examples
+    from the student supplement to the handbook.
+  \item |biblatex-sbl-blog-examples.pdf| shows all the examples from the blog.
+\end{itemize}
+These files should all be accessible with |texdoc|. Also in the documentation
+directory is |biblatex-sbl.bib| which contains all bib entries used in the
+example files.
+
+\subsection{Language and font set up}
+
+Language and font set up can be done in the standard way for \pkg{biblatex}. I
+recommend using \pkg{babel} and |lualatex|, especially for right-to-left
+languages.
+
+Set up for English, Greek and Hebrew using the SBL biblical fonts can be
+simplified by using the \pkg{sblfonts} package. For example, the following
+code sets up a document with Australian English as the main language and Greek
+and Hebrew using the SBL fonts (provided they are installed). The following
+example requires |lualatex|.
+
+\begin{sblexample}
+  \begin{verbatim}
+  \documentclass[australian]{article}
+  \usepackage[sblfonts]{sblfonts}
+  \usepackage[style=sbl]{biblatex}
+  \usepackage{csquotes}
+  \addbibresource{biblatex-sbl.bib}
+  \begin{document}
+  Filler text \autocite[חֹזֶה II]{HALOT}.
+  \end{document}
+  \end{verbatim}
+
+  \tcblower
+
+  \setquotestyle{australian}
+  \stdpunctuation
+
+  \begin{NoHyper}
+    Filler text.\footcite[חֹזֶה II]{HALOT}
+  \end{NoHyper}
+\end{sblexample}
+
+The big advantage of using |lualatex| with \pkg{babel} is that inline Greek
+and Hebrew do not need to be marked up. They can just be written directly into
+the document and bib entries.
+
+\subsection{Citations}
+
+\subsubsection{Shorthands}
+
+\subsubsection{Subsequent citations}
+
+\subsubsection{Translators}
+
+\subsubsection{Reprints}
+
+\subsection{Other related works}
+
+\subsection{Bibliography}
+
+\subsection{List of abbreviations}
+
+\subsection{Index}
+
+\section{Reference}
+
+\subsection{Options}
+
+\subsection{Commands}
+
+\subsection{Entry types and fields}
 
 \end{document}
