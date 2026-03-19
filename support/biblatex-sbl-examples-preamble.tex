@@ -96,8 +96,8 @@
   \citeauthor{#1}%
 }
 
-% \examplecite(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
-% \examplecite*(<footnote number>){<citetype>}[<prenote>][<postnote>]{entryid}
+% \examplecite[<citetype>](<footnote number>)[<prenote>][<postnote>]{entryid}
+% \examplecite*[<citetype>](<footnote number>)[<prenote>][<postnote>]{entryid}
 \NewDocumentCommand{\examplecite}{sO{auto}d()oom}{%
   \par
   \textcolor{cmdcolour}{%
@@ -113,8 +113,8 @@
     {\printexamplecite*{#2cite}{#4}{#5}{#6}}
     {\printexamplecite{#2cite}{#4}{#5}{#6}}}
 
-% \examplevolcite(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
-% \examplevolcite*(<footnote number>){<citetype>}[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplevolcite[<citetype>](<footnote number>)[<prenote>]{<volume>}[<postnote>]{entryid}
+% \examplevolcite*[<citetype>](<footnote number>)[<prenote>]{<volume>}[<postnote>]{entryid}
 \NewDocumentCommand{\examplevolcite}{sO{a}d()omom}{%
   \par
   \textcolor{cmdcolour}{%
