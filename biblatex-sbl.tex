@@ -1,6 +1,10 @@
 \RequirePackage{pdfmanagement}
 \documentclass[a4paper]{l3doc}
 
+\makeatletter
+\disable@package@load{parskip}{}
+\makeatother
+
 \input{biblatex-sbl-examples-preamble.tex}
 
 \setcounter{tocdepth}{2}
@@ -69,13 +73,16 @@
   bicolor, colframe=black, colback=black!15, colbacklower=white, left=2mm,
   fonttitle=\normalsize\sffamily\bfseries,
   subtitle style={before skip=3mm, after skip=3mm},
-  right=2mm, fontupper=\footnotesize, fontlower=\footnotesize, sidebyside,
-  sidebyside gap=6mm, sidebyside align=top, lefthand ratio=0.6, before
-  skip=\bigskipamount, after skip=\bigskipamount, #1
+  right=2mm, sidebyside, sidebyside gap=6mm, sidebyside align=top, lefthand
+  ratio=0.5, before skip=\bigskipamount, after skip=\bigskipamount, before
+  lower=\parindent 0pt\parskip\medskipamount\begin{NoHyper}, after
+  lower=\end{NoHyper}, #1
 }
 \tcbset{%
-  no output/.style={%
-    standard, sidebyside=false}
+  no output/.style={standard, sidebyside=false},
+  no code/.style={standard, colback=white, sidebyside=false, before
+    upper=\parindent 0pt\parskip\medskipamount\begin{NoHyper}, after
+    upper=\end{NoHyper}}
 }
 
 \begin{document}
@@ -140,9 +147,10 @@ seminaries and theological colleges.
 breaks compatibility with the version 0.x releases.} If you need to access a
 legacy release, you should download it from the GitHub repository and place
 the style files locally in your project.\footnote{See
-\url{https://github.com/dcpurton/biblatex-sbl/releases} for legacy releases
-and \url{https://github.com/dcpurton/biblatex-sbl/tree/legacy} for legacy
-source code.} Legacy 0.x versions are no longer maintained or supported.
+\url{https://github.com/dcpurton/biblatex-sbl/releases} for legacy (and new)
+releases and \url{https://github.com/dcpurton/biblatex-sbl/tree/legacy} for
+legacy source code.} Legacy 0.x versions are no longer maintained or
+supported.
 
 \subsection{Bug reports and feature requests}
 
@@ -193,6 +201,10 @@ Language and font set up can be done in the standard way for \pkg{biblatex}. I
 recommend using \pkg{babel} and |lualatex|, especially for right-to-left
 languages.
 
+Note that \pkg{biblatex-sbl} contains many custom strings which are only
+defined for English. Offers to develop and maintain translations for other
+languages are welcome.
+
 Set up for English, Greek and Hebrew using the SBL biblical fonts can be
 simplified by using the \pkg{sblfonts} package. For example, the following
 code sets up a document with Australian English as the main language and Greek
@@ -216,9 +228,7 @@ example requires |lualatex|.
   \setquotestyle{australian}
   \stdpunctuation
 
-  \begin{NoHyper}
-    Filler text.\footcite[חֹזֶה II]{HALOT}
-  \end{NoHyper}
+  Filler text.\footcite[חֹזֶה II]{HALOT}
 \end{sblexample}
 
 The big advantage of using |lualatex| with \pkg{babel} is that inline Greek
@@ -227,19 +237,136 @@ the document and bib entries.
 
 \subsection{Citations}
 
+In general, you should use \cs{autocite} and related commands for citations.
+This will place citations in footnotes or within parentheses if already in a
+footnote.
+
 \subsubsection{Shorthands}
 
+Many reference books, dictionaries, encyclopaedias and lexicons should be
+cited by an abbreviation which should in turn appear in a list of
+abbreviations. The abbreviation for a bib entry is set using the |shorthand|
+field.
+
+The font used for the abbreviation should match the format of the field to
+which the abbreviation refers. So, for example, an abbreviation for the
+authors of a book would be set in a Roman font, while the abbreviation for the
+title of a book would be set in an italic font. By default \pkg{biblatex-sbl}
+sets all abbreviations in an italic font, but this can be changed on a per-entry
+basis by setting |shorthandformat=roman| in the entry options.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @reference{BDAG,
+    shorthand = {BDAG},
+    options = {shorthandformat=roman},
+    ...
+  }
+  @mvreference{HALOT,
+    shorthand = {HALOT},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[]{BDAG}
+
+  \examplecite[]{HALOT}
+\end{sblexample}
+
+The separator between a work cited by abbreviation and the |postnote| is
+dependent on what the |postnote| refers to. If the work is cited by page, then
+the separator should be a comma. If the work is cited by section (§), then the
+separator should be a space. This is handled by setting the |pagination| field
+in the bib entry.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @collection{ANET,
+    shorthand = {ANET},
+    ...
+  }
+  @book{BDF,
+    shorthand = {BDF},
+    pagination = {section}
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][319]{ANET}
+
+  \examplecite[][151]{BDF}
+\end{sblexample}
+
+\subsubsection{Multivolume works}
+
+SBL has particular rules around the punctuation before and after the volume
+number in a citation.
+\begin{itemize}
+  \item A multivolume work cited by abbreviation has a space before the
+    volume.
+  \item A multivolume work cited in full has a comma before the volume.
+  \item A colon should separate the volume and page number(s).
+  \item A period should separate the volume and other pagination styles (e.g.,
+    paragraph or section).
+\end{itemize}
+\pkg{biblatex-sbl} uses the \pkg{biblatex} \cs{volcite} command and related
+similar commands that cater to these requirements. You \emph{must} use
+\cs{volcite} or similar when citing multivolume works otherwise punctuation
+will be incorrect.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @mvcollection{ANF,
+    shorthand = {ANF},
+    volumes = {10},
+    ...
+  }
+  @mvbook{ARAB,
+    shorthand = {ARAB},
+    volumes = {2},
+    pagination = {paragraph},
+    ...
+  }
+  @mvcommentary{aune:1997-1998,
+    volumes = {3},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplevolcite[]{3}[63]{ANF}
+
+  \examplevolcite[]{2}[407-416]{ARAB}
+
+  \examplevolcite[]{1}[589]{aune:1997-1998}
+\end{sblexample}
+
 \subsubsection{Subsequent citations}
+
+- short citations
+
+- citations of articles in books which have been previously cited
+
+\subsubsection{Source divisions in ancient works}
 
 \subsubsection{Translators}
 
 \subsubsection{Reprints}
 
-\subsection{Other related works}
+\subsubsection{Other related works}
+
+- e.g., quoted in
 
 \subsection{Bibliography}
 
 \subsection{List of abbreviations}
+
+\subsubsection{Sigla}
 
 \subsection{Index}
 
@@ -249,6 +376,8 @@ the document and bib entries.
 
 \subsection{Commands}
 
-\subsection{Entry types and fields}
+\subsection{Entry types}
+
+\subsection{Entry fields}
 
 \end{document}
