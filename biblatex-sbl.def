@@ -1493,19 +1493,34 @@
   }
 }
 
-\defbibenvironment{abbreviations}
-  {\list
-     {\usebibmacro{abbrev:printabbrev}}
-     {\usebibmacro{setabbrevwidth}%
-      \setlength{\labelwidth}{\abbrevwidth}%
-      \setlength{\leftmargin}{\labelwidth}%
-      \setlength{\labelsep}{\biblabelsep}%
-      \addtolength{\leftmargin}{\labelsep}%
-      \setlength{\itemsep}{\bibitemsep}%
-      \setlength{\parsep}{\bibparsep}%
-      \renewcommand*{\makelabel}[1]{##1\hss}}}
-  {\endlist}
-  {\item}
+\IfDocumentMetadataTF{
+  \defbibenvironment{abbreviations}
+    {\list[label-align=left]%
+       {\usebibmacro{abbrev:printabbrev}}
+       {\usebibmacro{setabbrevwidth}%
+        \setlength{\labelwidth}{\abbrevwidth}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}}}
+    {\endlist}
+    {\item}
+}{
+  \defbibenvironment{abbreviations}
+    {\list
+       {\usebibmacro{abbrev:printabbrev}}
+       {\usebibmacro{setabbrevwidth}%
+        \setlength{\labelwidth}{\abbrevwidth}%
+        \setlength{\leftmargin}{\labelwidth}%
+        \setlength{\labelsep}{\biblabelsep}%
+        \addtolength{\leftmargin}{\labelsep}%
+        \setlength{\itemsep}{\bibitemsep}%
+        \setlength{\parsep}{\bibparsep}%
+        \renewcommand*{\makelabel}[1]{##1\hss}}}
+    {\endlist}
+    {\item}
+}
 
 \defbibcheck{abbreviations}{%
   \iffieldundef{shorthand}
