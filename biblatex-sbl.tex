@@ -19,19 +19,6 @@
   \footnotelayout #1}
 \renewcommand{\thempfootnote}{\arabic{mpfootnote}}
 
-\newenvironment{showexample}{%
-  \minipage[t]{.45\linewidth}%
-  \def\showoutput{%
-    \endminipage
-    \hfill
-    \minipage[t]{.45\linewidth}
-    \parindent 0pt
-    \parskip \medskipamount}
-  \ignorespaces
-}{%
-  \endminipage
-}
-
 % redefine \maketitle to better match \thanks footnote
 \renewcommand\maketitle{\par
   \begingroup
@@ -75,14 +62,14 @@
   subtitle style={before skip=3mm, after skip=3mm},
   right=2mm, sidebyside, sidebyside gap=6mm, sidebyside align=top, lefthand
   ratio=0.5, before skip=\bigskipamount, after skip=\bigskipamount, before
-  lower=\parindent 0pt\parskip\medskipamount\begin{NoHyper}, after
-  lower=\end{NoHyper}, #1
+  lower=\newrefsection\parindent 0pt\parskip\medskipamount\begin{NoHyper},
+  after lower=\end{NoHyper}\endrefsection, #1
 }
 \tcbset{%
   no output/.style={standard, sidebyside=false},
   no code/.style={standard, colback=white, sidebyside=false, before
-    upper=\parindent 0pt\parskip\medskipamount\begin{NoHyper}, after
-    upper=\end{NoHyper}}
+    upper=\newrefsection\parindent 0pt\parskip\medskipamount\begin{NoHyper},
+  after upper=\end{NoHyper}\endrefsection}
 }
 
 \begin{document}
@@ -161,7 +148,10 @@ See \url{https://github.com/dcpurton/biblatex-sbl}.
 
 \subsection{Basic usage}
 
-At a minimum, just load \pkg{biblatex} with |style=sbl|:
+At a minimum, just load \pkg{biblatex} with |style=sbl|. By default many entry
+types appear in the list of abbreviations rather than the bibliography so you
+will almost certainly want to use both |\printbiblist{abbreviations}| and and
+\cs{printbibliography}.
 
 \begin{sblexample}[no output]
   \begin{verbatim}
@@ -194,6 +184,10 @@ bibliography.
 These files should all be accessible with |texdoc|. Also in the documentation
 directory is |biblatex-sbl.bib| which contains all bib entries used in the
 example files.
+
+The bib entry examples shown in example citations below are usually just
+snippets showing a couple of relevant fields to the particular citation
+command. You can then look up the full entry in |biblatex-sbl.bib|.
 
 \subsection{Language and font set up}
 
@@ -258,12 +252,10 @@ basis by setting |shorthandformat=roman| in the entry options.
 \begin{sblexample}
   \begin{verbatim}
   @reference{BDAG,
-    shorthand = {BDAG},
     options = {shorthandformat=roman},
     ...
   }
   @mvreference{HALOT,
-    shorthand = {HALOT},
     ...
   }
   \end{verbatim}
@@ -284,11 +276,9 @@ in the bib entry.
 \begin{sblexample}
   \begin{verbatim}
   @collection{ANET,
-    shorthand = {ANET},
     ...
   }
   @book{BDF,
-    shorthand = {BDF},
     pagination = {section}
     ...
   }
@@ -314,19 +304,17 @@ number in a citation.
     paragraph or section).
 \end{itemize}
 \pkg{biblatex-sbl} uses the \pkg{biblatex} \cs{volcite} command and related
-similar commands that cater to these requirements. You \emph{must} use
+similar commands to cater to these requirements. You \emph{must} use
 \cs{volcite} or similar when citing multivolume works otherwise punctuation
 will be incorrect.
 
 \begin{sblexample}
   \begin{verbatim}
   @mvcollection{ANF,
-    shorthand = {ANF},
     volumes = {10},
     ...
   }
   @mvbook{ARAB,
-    shorthand = {ARAB},
     volumes = {2},
     pagination = {paragraph},
     ...
@@ -348,29 +336,314 @@ will be incorrect.
 
 \subsubsection{Subsequent citations}
 
-- short citations
+SBL style uses a full citation the first time a work is referenced, but then a
+short form for subsequent citations (usually showing only the author and a
+shortened title).
 
-- citations of articles in books which have been previously cited
+\pkg{biblatex-sbl} automates the shortening of titles if possible while also
+providing the |shorttitle| field to allow for a specific short title.
+
+If no |shorttitle| is specified in the bib entry, then the short title is
+constructed from the |title| field by:
+\begin{itemize}
+  \item Removing everything from the first colon as this is assumed to be the
+    subtitle.
+  \item Removing \emph{A}, \emph{An} or \emph{The} from the beginning.
+\end{itemize}
+
+A second feature of SBL style relates to citing chapters by different authors
+in the same collection of works. In this case, the first citation of
+subsequent chapters from the collection should use a short form of the
+collection details. \pkg{biblatex-sbl} supports this using the \pkg{biblatex}
+|crossref| field.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @collection{rogerson+lieu:2006,
+    ...
+  }
+  @incollection{dell:2006,
+    crossref = {rogerson+lieu:2006},
+    ...
+  }
+  @incollection{davies:2006,
+    crossref = {rogerson+lieu:2006},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][415-416]{dell:2006}
+
+  \examplecite[][99]{davies:2006}
+\end{sblexample}
 
 \subsubsection{Source divisions in ancient works}
 
-\subsubsection{Translators}
+Many ancient works are cited by a commonly agreed on source division (such as
+book, chapter, section) instead of or as well as a page number in a particular
+edition.
+
+\pkg{biblatex-sbl} supports this with the aid of the
+\pkg{biblatex-source-division} package.\footnote{Thanks to Maïeul Rouquette.
+See \url{https://ctan.org/package/biblatex-source-division}.}.
+
+The syntax for specifying the source division is the same as for
+\pkg{biblatex-source-division} so the source division is placed within
+parentheses at the start of the |postnote| and is then optionally followed by
+the location in the particular edition being cited. The text collection is
+indicated using an |xref| field in the |ancienttext| bib entry.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @mvcollection{NPNF,
+    ...
+  }
+  @ancienttext{augustine:letters,
+    xref = {NPNF},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][(28.3.5)252]{augustine:letters}
+\end{sblexample}
+
+\subsubsection{Translators of ancient works}
+
+It is sometimes desirable to cite a particular translation of an ancient work.
+For this purpose a set of variant citation commands are provided, e.g.,
+\cs{atranscite}. The translator needs to be included in the bib entry of the
+ancient work.
+
+The format of the translator in the citation varies depending on whether the
+source being cited is from within a text collection (indicated with the |xref|
+field) or not.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @collection{ANET,
+    ...
+  }
+  @ancienttext{legendsargon,
+    translator = {Speiser, E. A.},
+    xref = {ANET},
+    ...
+  }
+  @{herodian:hist,
+    translator = {Whittaker},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[trans]{legendsargon}
+
+  \examplecite[trans][(2.2)]{herodian:hist}
+\end{sblexample}
 
 \subsubsection{Reprints}
 
+\pkg{biblatex-sbl} supports three methods of citing reprints with varying
+degrees of complexity.
+
+If only the original publisher, location, and/or year are required, then use
+the fields |origpublisher|, |origlocation|, and |origdate|.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @book{vanseters:1997,
+    origpublisher = {Yale University Press},
+    origdate = {1983},
+    publisher = {eisenbrauns},
+    date = {1997},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][90]{vanseters:1997}
+\end{sblexample}
+
+When extra information is required, use a related entry with
+|relatedtype = {reprint}|. A custom string can be specified instead of
+``Repr.'' using the optional |relatedstring| field.  In this case no
+punctuation is inserted after the |relatedstring|. You could think of the
+default being |relatedstring = {\bibstring{reprint},}|.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @book{zerwick:2011,
+    related = {zerwick:repr},
+    relatedtype = {reprint}
+    ...
+  }
+  @book{zerwick:repr,
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][360-362]{zerwick:2011}
+\end{sblexample}
+
+Finally, a full reprint history also uses the |related| field, but with some
+other |relatedtype| apart from |relatedtype = {reprint}|.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @book{wellhausen:1883,
+    ...
+  }
+  @book{wellhausen:1885,
+    related = {wellhausen:1883},
+    relatedtype = {translationof},
+    ...
+  }
+  @book{wellhausen:1957,
+    related = {wellhausen:1885},
+    relatedtype = {reprintof},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][20]{wellhausen:1957}
+\end{sblexample}
+
 \subsubsection{Other related works}
 
-- e.g., quoted in
+\pkg{biblatex-sbl} supports a number of more specialised ways of relating one
+work to another.
+
+Some journal articles are published across multiple volumes, but can be cited
+as one article. This kind of citation uses |relatedtype = {multivolarticle}|
+and should be cited with \cs{avolcite} or similar. Note that there is no
+|@mvarticle| bib entry type, as this type of reference is very rare. Just use
+|@article|.
+
+\begin{sblexample}[lefthand ratio=0.55]
+  \begin{verbatim}
+  @article{wellhausen:1876-1887,
+    related = {wellhausen:1876, wellhausen:1877},
+    relatedtype = {multivolarticle},
+    ...
+  }
+  @article{wellhause:1876,
+    volume = {21},
+    ...
+  }
+  @article{wellhause:1877,
+    volume = {22},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplevolcite[]{21}[434]{wellhausen:1876-1877}
+\end{sblexample}
+
+A particularly niche situation arose on the SBL blog at
+\url{https://sblhs2.com/2018/01/18/citing-text-collections-10-lcl/} where a
+question was asked concerning citing from a LCL volume containing works by
+multiple authors each with a separate translator. When citing from a work
+by an author other than the first author listed in the volume's title, SBL
+suggested using a cross reference in the bibliography to point to the main
+bibliography entry. \pkg{biblatex-sbl} supports this using a combination of
+|relatedtype = {see}| and an |execute| field. It's not pretty, but it does
+work.
+
+There's a lot of bib entries that go into making this, so rather than list
+them here, you can look up |aristotle:poetics:book| and following entries in
+|biblatex-sbl.bib|. To make things more complicated the main bibliography
+entry uses the |related| field to append the other two works to the first
+title.
+
+Several more compiles and runs of |biber| are required than you wish for,
+unless you add a couple of entries to \cs{nocite}.
+
+\begin{sblexample}[no code]
+  \nocite{aristotle:poetics:book, aristotle:poetics:book:short}
+  \examplecite[]{longinus:sublime}
+
+  \examplebibliography
+\end{sblexample}
+
+A final supported type of relating one work to another deals with citing a
+quotation from within another work. Note that SBL discourages this as the
+primary source should be consulted. This type of citation uses the |xref| and
+|xrefstring| fields.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @book{edwards:1999,
+    ...
+  }
+  @ancienttext{victorinus:ephesians,
+    xref = {edwards:1999},
+    xrefstring = {quoted in},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \nocite{ACCS}
+  \examplecite[][(1.2.12)129]{victorinus:ephesians}
+\end{sblexample}
+
+\subsubsection{Reference works}
+
+Dictionaries, encyclopaedia and lexica deserve a special mention.
+\pkg{biblatex-sbl} uses the |@mvreference|, |@reference| and |@inreference|
+entry types to support these. |@inreference| is used to cite signed articles
+which should appear in the bibliography. Unsigned entries use the
+|@mvreference| or |@reference| entry directly. Typically reference works with
+unsigned entries in them use |pagination = {subverbo}| and the articles are
+referenced by word under consideration rather than page number. Unsigned
+articles do not appear in the bibliography. The reference work itself will
+appear in the list of abbreviation if cited by its abbreviation or in the
+bibliography otherwise.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @mvreference{EDNT,
+    pagination = {subverbo},
+    ...
+  }
+  @inreference{lattke:kakia,
+    xref = {EDNT},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][Ἅγαβος]{EDNT}
+
+  \examplecite[]{lattke:kakia}
+\end{sblexample}
 
 \subsection{Bibliography}
 
 \subsection{List of abbreviations}
 
+\subsubsection{Shorthands}
+
+\subsubsection{Ancient sources}
+
 \subsubsection{Sigla}
 
-\subsection{Index}
+\subsection{Index of modern authors}
 
-\section{Reference}
+\section{Package reference}
 
 \subsection{Options}
 
@@ -379,5 +652,7 @@ will be incorrect.
 \subsection{Entry types}
 
 \subsection{Entry fields}
+
+\subsection{Localisation strings}
 
 \end{document}
