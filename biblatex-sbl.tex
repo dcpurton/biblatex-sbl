@@ -338,7 +338,8 @@ will be incorrect.
 
 SBL style uses a full citation the first time a work is referenced, but then a
 short form for subsequent citations (usually showing only the author and a
-shortened title).
+shortened title). If \pkg{hyperref} is loaded, the short title is usually
+hyperlinked to the first citation.
 
 \pkg{biblatex-sbl} automates the shortening of titles if possible while also
 providing the |shorttitle| field to allow for a specific short title.
@@ -633,19 +634,186 @@ bibliography otherwise.
 
 \subsection{Bibliography}
 
+The bibliography is printed using the standard \pkg{biblatex} command,
+\cs{printbibliography}. Some bib entries are excluded from the bibliography by
+default in order to comply with SBL recommendations (e.g., references cited by
+abbreviation, most ancient sources, blogs, etc.). Often these defaults can be
+overridden by including |options = {skipbib=false}| in the bib entry.
+
 \subsection{List of abbreviations}
 
-\subsubsection{Shorthands}
+SBL style makes extensive use of abbreviations, so it is almost always
+necessary to include a list of abbreviations with
+|\printbiblist{abbreviations}|. If \pkg{hyperref} is loaded then abbreviations
+will hyperlink to the list of abbreviations.
+
+Many longer works split the list of abbreviations into three sections: a list
+of abbreviations relating to ancient sources, a list of abbreviations relating
+to secondary sources, and a list of sigla and other abbreviations.
 
 \subsubsection{Ancient sources}
 
-\subsubsection{Sigla}
+A list of abbreviations of ancient sources can be printed by passing
+|type=ancienttext| to \cs{printbiblist}. Preferred abbreviations for ancient
+sources are specified in the handbook and on the blog. SBL now prefers to use
+Latin abbreviations over English ones.
+
+To appear in the list of abbreviations and |@ancienttext| must have a
+|shorttitle|. If two works have the same short title, then SBL specifies that
+the works should be separated with a semi-colon in the list of abbreviations.
+This happens automatically.
+
+\begin{sblexample}[lefthand ratio=0.35]
+  \begin{verbatim}
+  @ancienttext{1QM,
+    title = {War Scroll},
+    shorttitle = {1QM}
+  }
+  @ancienttext{cicero:agr,
+    shorttitle = {Agr.},
+    ...
+  }
+  @ancienttext{philo:agr,
+    shorttitle = {Agr.},
+    ...
+  }
+  @ancienttext{plutarch:ant,
+    shorttitle = {Ant.},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \begin{verbtext}
+      \printbiblist
+        [heading=subbibliography,
+         title=Ancient Sources,
+         type=ancienttext]
+        {abbreviations}
+  \end{verbtext}
+
+  \nocite{1QM, cicero:agr, philo:agr, plutarch:ant}
+
+  \vspace{-\baselineskip}
+
+  \subsubsection*{Ancient Sources}
+
+  \printbiblist [heading=none, title=Ancient Sources,
+    type=ancienttext]{abbreviations}
+\end{sblexample}
+
+\subsubsection{Secondary sources}
+
+Secondary sources will be included in a list of abbreviations for bib entries
+containing any one of the fields |shorthand|, |shortseries| and/or
+|shortjournal|.
+
+\begin{sblexample}[lefthand ratio=0.35]
+  \begin{verbatim}
+  @reference{BDB,
+    shorthand = {BDB},
+    ...
+  }
+  @article{miller:1984,
+    shortjournal = {JSOT},
+    ...
+  }
+  @book{salters:2010,
+    shortseries = {ICC},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \begin{verbtext}
+      \printbiblist
+        [heading=subbibliography,
+         title=Secondary Sources,
+         nottype=ancienttext,
+         nottype=abbreviation]
+        {abbreviations}
+  \end{verbtext}
+
+  \nocite{BDB, miller:1984, salters:2010}
+
+  \vspace{-\baselineskip}
+
+  \subsubsection*{Secondary Sources}
+
+  \printbiblist [heading=none, title=Ancient Sources,
+    nottype=ancienttext, nottype=abbreviation]{abbreviations}
+\end{sblexample}
+
+\subsubsection{Sigla and grammatical abbreviations}
+
+\pkg{biblatex-sbl} includes \emph{very} basic support for general
+abbreviations, sigla and acronyms. These are supported by a basic
+|@abbreviation| bib entry type with a |shorthand| and corresponding
+|definition| field. Abbreviations can then be included in the text and added
+to the list of abbreviations using the \cs{abbrev} command. 
+
+\begin{sblexample}[lefthand ratio=0.35]
+  \begin{verbatim}
+  @reference{>,
+    shorthand = {>},
+    definition = {omits the lemma}
+  }
+  @article{abl,
+    shorthand = {abl.},
+    definition = {ablative}
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \begin{verbtext}
+      \printbiblist
+        [heading=subbibliography,
+         title=Sigla and Grammatical Abbreviations,
+         type=abbreviation]
+        {abbreviations}
+  \end{verbtext}
+
+  \nocite{>, abl}
+
+  \vspace{-\baselineskip}
+
+  \subsubsection*{Sigla and Grammatical Abbreviations}
+
+  \printbiblist [heading=none, title=Ancient Sources,
+    type=abbreviation]{abbreviations}
+\end{sblexample}
 
 \subsection{Index of modern authors}
 
+Passing the option |indexing=cite| to \pkg{biblatex-sbl} activates indexing of
+modern authors. (SBL tends not to index names in the bibliography and list of
+abbreviations, neither does it include titles in the index as \pkg{biblatex}
+does by default.)
+
+Set up for indexing of modern authors (along with subjects and ancient
+sources) according to SBL style can be simplified by using the \pkg{sblidx}
+package.
+
+\pkg{biblatex-sbl} does not include |@ancienttext| entry types in the index as
+these are often index in a similar way to Bible references and the set up will
+likely be unique to a particular project. \pkg{bibleref-sbl} could be useful
+here.
+
 \section{Package reference}
 
+Many (but by no means all) of the standard \pkg{biblatex} options, commands,
+entry types, fields and localisation strings are supported by
+\pkg{biblatex-sbl}.
+
+The following section documents things which are unique to \pkg{biblatex-sbl}
+or which behave in unique ways.
+
 \subsection{Options}
+
+
 
 \subsection{Commands}
 
