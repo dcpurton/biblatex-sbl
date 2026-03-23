@@ -4640,7 +4640,7 @@ Completed box being shipped out [2]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 156.3832fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 156.26727fil, direction TLT
 ....\glue(\topskip) 2.09409
 ....\hbox(7.90591+0.14)x345.0, glue set 71.15349fil, direction TLT
 .....\TU/Brill(0)/m/n/10 t
@@ -4771,7 +4771,7 @@ Completed box being shipped out [2]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -300
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 8.28401
@@ -4812,11 +4812,11 @@ Completed box being shipped out [2]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\pdfdest name{cite.0@cadwallader:2016} xyz
 ....\penalty 10000
-....\glue -9.31502 plus -0.80998
-....\glue 9.31502 plus 0.80998
+....\glue -9.338 plus -0.81198
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
@@ -5752,7 +5752,7 @@ Completed box being shipped out [2]
 ......\glue 5.0
 .....\penalty 0
 .....\write1{\abx@aux@page{38}{\the \c@page }}
-.....\hbox(0.4+0.0)x30.0, glue set 30.0fill, shifted -2.43002, direction TLT
+.....\hbox(0.4+0.0)x30.0, glue set 30.0fill, shifted -2.43602, direction TLT
 ......\leaders 0.0 plus 1.0fill
 .......\rule(0.4+0.0)x*
 ......\kern0.0
@@ -5904,7 +5904,7 @@ Completed box being shipped out [2]
 ....\glue 1.81
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.61401
@@ -5952,7 +5952,7 @@ Completed box being shipped out [2]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484

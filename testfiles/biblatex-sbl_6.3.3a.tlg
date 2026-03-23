@@ -34,7 +34,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 384.50888fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 384.39297fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.35
@@ -283,7 +283,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -300
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.95401
@@ -324,11 +324,11 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\pdfdest name{cite.0@freedman:1977} xyz
 ....\penalty 10000
-....\glue -9.31502 plus -0.80998
-....\glue 9.31502 plus 0.80998
+....\glue -9.338 plus -0.81198
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
@@ -511,7 +511,7 @@ Completed box being shipped out [1]
 ....\glue 2.5
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.92401
@@ -559,7 +559,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484

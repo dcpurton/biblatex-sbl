@@ -34,7 +34,7 @@ Completed box being shipped out [1]
 .....\pdfcolorstack 0 pop
 ...\glue 25.0
 ...\glue(\lineskip) 0.0
-...\vbox(550.0+0.0)x345.0, glue set 271.2085fil, direction TLT
+...\vbox(550.0+0.0)x345.0, glue set 271.03009fil, direction TLT
 ....\write-{}
 ....\pdfdest name{Doc-Start} xyz
 ....\glue(\topskip) 3.32
@@ -155,7 +155,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty -300
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.92401
@@ -196,11 +196,11 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\pdfdest name{cite.0@philo:cherubim} xyz
 ....\penalty 10000
-....\glue -9.31502 plus -0.80998
-....\glue 9.31502 plus 0.80998
+....\glue -9.338 plus -0.81198
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 5.1484
@@ -548,7 +548,7 @@ Completed box being shipped out [1]
 ......\glue 5.0
 .....\penalty 0
 .....\write1{\abx@aux@page{6}{\the \c@page }}
-.....\hbox(0.4+0.0)x30.0, glue set 30.0fill, shifted -2.43002, direction TLT
+.....\hbox(0.4+0.0)x30.0, glue set 30.0fill, shifted -2.43602, direction TLT
 ......\leaders 0.0 plus 1.0fill
 .......\rule(0.4+0.0)x*
 ......\kern0.0
@@ -693,7 +693,7 @@ Completed box being shipped out [1]
 ....\glue 1.81
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
-....\glue 14.175 plus 4.05 minus 0.80998
+....\glue 14.20999 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.61401
@@ -741,7 +741,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 9.31502 plus 0.80998
+....\glue 9.338 plus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 6.3464
@@ -783,7 +783,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 6.075 plus 0.80998
+....\glue 6.09 plus 0.81198
 ....\write1{\csgdef{A535EF07E674D5E2A9EEAD4814C7F51A}{philo:cher}}
 ....\penalty 10000
 ....\glue 0.0 plus 1.0
@@ -940,7 +940,7 @@ Completed box being shipped out [1]
 ....\glue 1.91
 ....\glue 10.0 plus 3.0 minus 5.0
 ....\glue -10.0 plus -3.0 minus -5.0
-....\glue 13.1625 plus 4.05 minus 0.80998
+....\glue 13.19499 plus 4.06 minus 0.81198
 ....\glue(\parskip) 0.0 plus 1.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 4.11
@@ -984,7 +984,7 @@ Completed box being shipped out [1]
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 10000
-....\glue 6.075 plus 0.80998
+....\glue 6.09 plus 0.81198
 ....\glue(\parskip) 0.0
 ....\glue(\parskip) 0.0
 ....\glue(\baselineskip) 2.386
@@ -1060,7 +1060,6 @@ Completed box being shipped out [1]
 .\kern0.0
 .\kern0.0
 (biblatex-sbl_6.4.2d.aux)
-LaTeX Warning: There were undefined references.
 Package rerunfilecheck Info: File `biblatex-sbl_6.4.2d.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 Package biblatex Warning: Please rerun LaTeX.
