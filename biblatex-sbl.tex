@@ -813,7 +813,36 @@ or which behave in unique ways.
 
 \subsection{Options}
 
+\pkg{biblatex-sbl} executes the following options by default:
 
+\begin{quote}
+  \ttfamily\raggedright
+  bookpagination=page, citepages=omit, citetracker=context, dateabbrev=false,
+  ibidtracker=false, idemtracker=citation, language=american, maxbibnames=99,
+  mincrossrefs=2, minxrefs=1, nametracker=context, pagetracker=true,
+  pagination=none, shorthandintro=false, sorting=nwty, uniquework=true
+\end{quote}
+
+The following options are unique to \pkg{biblatex-sbl} or behave in a unique
+way:
+
+\begin{function}{citepages}
+  \begin{syntax}
+    = omit \textbar\ separate\hfill Default: omit
+  \end{syntax}
+\end{function}
+
+By default SBL recommends that full pages for a chapter or article be included
+in the bibliography and only the page or pages under consideration be
+referenced in the first citation.
+
+If there is no bibliography, then setting |citepages=separate| includes the
+full page range in the first citation. The page under consideration is then
+included after the string |thiscite|, which is defined as `here' by default.
+
+One exception to this is in the first citation to a multi-part journal article
+spread of two volumes. In this case, the behaviour always matches that of
+|citepages=separate|.
 
 \subsection{Commands}
 
