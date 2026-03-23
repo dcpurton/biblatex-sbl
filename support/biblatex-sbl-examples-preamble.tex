@@ -14,7 +14,7 @@
 \babelprovide[import, onchar=ids fonts]{armenian}
 \babelprovide[import, onchar=ids fonts]{hebrew}
 \babelprovide[import, onchar=ids fonts]{syriac}
-\babelfont{rm}[Numbers=Lining]{Brill}
+\babelfont{rm}{Brill}
 \babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
 \babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
 \babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
@@ -32,10 +32,7 @@
 
 \makeatletter
 
-\renewcommand*\UrlFont{\addfontfeature{Renderer=Base}}
-
-\newfontface\lmr{Latin Modern Roman}
-\renewcommand{\labelitemi}{{\lmr\char"2022}}
+\renewcommand{\labelitemi}{\char"A78F}
 
 \colorlet{cmdcolour}{black!65}
 
