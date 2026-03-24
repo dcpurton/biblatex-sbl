@@ -19,12 +19,6 @@
 
 % ## Style options
 
-\DeclareBibliographyOption[string]{pagination}{%
-  \def\sbl@blx@pagination{#1}}
-
-\DeclareBibliographyOption[string]{bookpagination}{%
-  \def\sbl@blx@bookpagination{#1}}
-
 \newtoggle{sbl@blx@shorthandintro}
 \DeclareBibliographyOption[boolean]{shorthandintro}[true]{%
   \settoggle{sbl@blx@shorthandintro}{#1}}
@@ -63,17 +57,6 @@
   \settoggle{sbl@blx@usetitle}{#1}}
 \DeclareEntryOption[boolean]{usetitle}[true]{%
   \settoggle{sbl@blx@usetitle}{#1}}
-
-\newrobustcmd{\ifpaginationequalstr}[1]{%
-  \iffieldequalstr{pagination}{#1}
-    {\@firstoftwo}
-    {\ifboolexpr{
-       test {\ifcsstring{sbl@blx@pagination}{#1}}
-       and
-       test {\iffieldundef{pagination}}
-     }
-       {\@firstoftwo}
-       {\@secondoftwo}}}
 
 % idem settings
 \def\blx@opt@idemtracker@citation{%
@@ -1235,7 +1218,21 @@
     \blx@postpunct@saved
   \fi}
 
-% use pagination option as default pagination
+% use pagination=none and bookpagination=page by default
+\def\sbl@blx@pagination{none}
+\def\sbl@blx@bookpagination{page}
+
+\newrobustcmd{\ifpaginationequalstr}[1]{%
+  \iffieldequalstr{pagination}{#1}
+    {\@firstoftwo}
+    {\ifboolexpr{
+       test {\ifcsstring{sbl@blx@pagination}{#1}}
+       and
+       test {\iffieldundef{pagination}}
+     }
+       {\@firstoftwo}
+       {\@secondoftwo}}}
+
 \xpatchcmd{\blx@imc@mkpageprefix}
   {\def\blx@tempa{\blx@mkpageprefix{page}}}
   {\ifcsstring{sbl@blx@#1}{none}
