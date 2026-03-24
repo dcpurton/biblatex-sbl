@@ -14,13 +14,14 @@
 \babelprovide[import, onchar=ids fonts]{armenian}
 \babelprovide[import, onchar=ids fonts]{hebrew}
 \babelprovide[import, onchar=ids fonts]{syriac}
-\babelfont{rm}{Brill}
+\babelfont{rm}[Renderer=Harfbuzz]{Brill}
 \babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
 \babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
 \babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
 \babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
 \babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
 \babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
+\usepackage{realscripts}
 \usepackage{csquotes}
 \makeatletter
 \@ifpackageloaded{hyperref}
