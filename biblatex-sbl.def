@@ -19,23 +19,23 @@
 
 % ## Style options
 
-\def\sbl@blx@nonenglishtitleformat{title}
+\def\sbl@blx@nonlatintitleformat{title}
 \DeclareBiblatexOption{entry}[boolean]{nonlatintitle}[true]{%
   \ifstrequal{#1}{true}
-    {\def\sbl@blx@nonenglishtitleformat{nonlatin}}
-    {\def\sbl@blx@nonenglishtitleformat{title}}}
+    {\def\sbl@blx@nonlatintitleformat{nonlatin}}
+    {\def\sbl@blx@nonlatintitleformat{title}}}
 
-\def\sbl@blx@nonenglishbooktitleformat{booktitle}
+\def\sbl@blx@nonlatinbooktitleformat{booktitle}
 \DeclareBiblatexOption{entry}[boolean]{nonlatinbooktitle}[true]{%
   \ifstrequal{#1}{true}
-    {\def\sbl@blx@nonenglishbooktitleformat{nonlatin}}
-    {\def\sbl@blx@nonenglishbooktitleformat{booktitle}}}
+    {\def\sbl@blx@nonlatinbooktitleformat{nonlatin}}
+    {\def\sbl@blx@nonlatinbooktitleformat{booktitle}}}
 
-\def\sbl@blx@nonenglishmaintitleformat{maintitle}
+\def\sbl@blx@nonlatinmaintitleformat{maintitle}
 \DeclareBiblatexOption{entry}[boolean]{nonlatinmaintitle}[true]{%
   \ifstrequal{#1}{true}
-    {\def\sbl@blx@nonenglishmaintitleformat{nonlatin}}
-    {\def\sbl@blx@nonenglishmaintitleformat{maintitle}}}
+    {\def\sbl@blx@nonlatinmaintitleformat{nonlatin}}
+    {\def\sbl@blx@nonlatinmaintitleformat{maintitle}}}
 
 \def\sbl@blx@shorthandformat{shorthand}
 \DeclareBiblatexOption{entry}[string]{shorthandformat}{%
@@ -1893,7 +1893,7 @@
         \setunit{\subtitlepunct}%
         \printfield[titlecase]{subtitle}}}
        {\clearlist{language}%
-        \printtext[\sbl@blx@nonenglishtitleformat]{%
+        \printtext[\sbl@blx@nonlatintitleformat]{%
           \printfield[titlecase]{title}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{subtitle}}%
@@ -1918,7 +1918,7 @@
         \printfield[titlecase]{booktitle}%
         \setunit{\subtitlepunct}%
         \printfield[titlecase]{booksubtitle}}}
-       {\printtext[\sbl@blx@nonenglishbooktitleformat]{%
+       {\printtext[\sbl@blx@nonlatinbooktitleformat]{%
           \printfield[titlecase]{booktitle}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{booksubtitle}}%
@@ -1942,7 +1942,7 @@
         \printfield[titlecase]{maintitle}%
         \setunit{\subtitlepunct}%
         \printfield[titlecase]{mainsubtitle}}}
-       {\printtext[\sbl@blx@nonenglishmaintitleformat]{%
+       {\printtext[\sbl@blx@nonlatinmaintitleformat]{%
           \printfield[titlecase]{maintitle}%
           \setunit{\subtitlepunct}%
           \printfield[titlecase]{mainsubtitle}}%
