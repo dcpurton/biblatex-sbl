@@ -19,21 +19,6 @@
 
 % ## Style options
 
-\newtoggle{sbl@blx@shorthandintro}
-\DeclareBibliographyOption[boolean]{shorthandintro}[true]{%
-  \settoggle{sbl@blx@shorthandintro}{#1}}
-
-\newtoggle{sbl@blx@usexref}
-\toggletrue{sbl@blx@usexref}
-\DeclareBiblatexOption{entry}[boolean]{usexref}[true]{%
-  \settoggle{sbl@blx@usexref}{#1}}
-
-\def\sbl@blx@shorthandformat{shorthand}
-\DeclareTypeOption[string]{shorthandformat}{%
-  \def\sbl@blx@shorthandformat{#1}}
-\DeclareEntryOption[string]{shorthandformat}{%
-  \def\sbl@blx@shorthandformat{#1}}
-
 \def\sbl@blx@nonenglishtitleformat{title}
 \DeclareBiblatexOption{entry}[boolean]{nonlatintitle}[true]{%
   \ifstrequal{#1}{true}
@@ -52,11 +37,18 @@
     {\def\sbl@blx@nonenglishmaintitleformat{nonlatin}}
     {\def\sbl@blx@nonenglishmaintitleformat{maintitle}}}
 
+\def\sbl@blx@shorthandformat{shorthand}
+\DeclareBiblatexOption{entry}[string]{shorthandformat}{%
+  \def\sbl@blx@shorthandformat{#1}}
+
 \newtoggle{sbl@blx@usetitle}
-\DeclareTypeOption[boolean]{usetitle}[true]{%
+\DeclareBiblatexOption{type,entry}[boolean]{usetitle}[true]{%
   \settoggle{sbl@blx@usetitle}{#1}}
-\DeclareEntryOption[boolean]{usetitle}[true]{%
-  \settoggle{sbl@blx@usetitle}{#1}}
+
+\newtoggle{sbl@blx@usexref}
+\toggletrue{sbl@blx@usexref}
+\DeclareBiblatexOption{entry}[boolean]{usexref}[true]{%
+  \settoggle{sbl@blx@usexref}{#1}}
 
 % idem settings
 \def\blx@opt@idemtracker@citation{%

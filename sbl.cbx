@@ -97,7 +97,6 @@
   minxrefs=1,
   nametracker=context,
   pagetracker=true,
-  shorthandintro=false,
   sorting=nwty,
   uniquework=true,
 }
@@ -476,11 +475,7 @@
      \ifboolexpr{
        test {\ifciteseen}
        or
-       (
-         not test {\iffieldundef{shorthand}}
-         and
-         not togl {sbl@blx@shorthandintro}
-       )
+       not test {\iffieldundef{shorthand}}
        or
        test {\ifentrytype{series}}
      }
