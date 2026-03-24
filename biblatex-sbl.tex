@@ -815,7 +815,6 @@ or which behave in unique ways.
 
 \pkg{biblatex-sbl} loads the \pkg{biblatex} |verbose-ibid| style and then
 executes the following options by default:
-
 \begin{quote}
   \ttfamily\raggedright
   citepages=omit, citetracker=context, dateabbrev=false, ibidtracker=false,
@@ -823,7 +822,6 @@ executes the following options by default:
   minxrefs=1, nametracker=context, pagetracker=true, sorting=nwty,
   uniquework=true
 \end{quote}
-
 The following options are unique to \pkg{biblatex-sbl} or behave in a unique
 way.
 
@@ -833,11 +831,11 @@ way.
   \begin{syntax}
     = omit \textbar\ separate\hfill Default: omit
   \end{syntax}
-\end{function}
 
-By default SBL recommends that full pages for a chapter or article be included
-in the bibliography and only the page or pages under consideration be
-referenced in the first citation.
+  By default SBL recommends that full pages for a chapter or article be
+  included in the bibliography and only the page or pages under consideration
+  be referenced in the first citation.
+\end{function}
 
 If there is no bibliography, then setting |citepages=separate| includes the
 full page range in the first citation. The page under consideration is then
@@ -853,12 +851,12 @@ spread of two volumes. In this case, the behaviour always matches that of
   \begin{syntax}
     = \meta{boolean}\hfill Default: false
   \end{syntax}
-\end{function}
 
-This entry option controls how a title in a non-Latin alphabet is formatted,
-if you wish to cite by this title rather than a translated title. The
-translated title is then placed in |translatedtitle|, |translatedbooktitle| or
-|translatedmaintitle|.
+  This entry option controls how a title in a non-Latin alphabet is formatted,
+  if you wish to cite by this title rather than a translated title. The
+  translated title is then placed in |translatedtitle|, |translatedbooktitle| or
+  |translatedmaintitle|.
+\end{function}
 
 In such cases, the non-Latin title should be formatted in a plain Roman font,
 rather than italic or quoted Roman font. However, you need to tell
@@ -867,45 +865,44 @@ title. This can by done using |options = {nonlatintitle}| in the bib entry.
 
 \begin{function}{shorthandformat}
   \begin{syntax}
-    = roman \textbar italic\hfill Default: italic
+    = italic \textbar roman\hfill Default: italic
   \end{syntax}
-\end{function}
 
-The format of a |shorthand| field in SBL style needs to match what the
-abbreviation points to. So if the |shorthand| refers to the title of the work,
-it should be printed in italics, whereas if the |shorthand| refers to the
-authors of the work it it should be set in a Roman font. By default the
-|shorthand| is set using italics, but this can be changed for a bib entry
-using |options = {shorthandformat=roman}|.
+  The format of a |shorthand| field in SBL style needs to match what the
+  abbreviation points to. So if the |shorthand| refers to the title of the
+  work, it should be printed in italics, whereas if the |shorthand| refers to
+  the authors of the work it it should be set in a Roman font. By default the
+  |shorthand| is set using italics, but this can be changed for a bib entry
+  using |options = {shorthandformat=roman}|.
+\end{function}
 
 \begin{function}{usetitle}
   \begin{syntax}
-    = true \textbar\ false
+    = true \textbar\ false\hfill Default: true
   \end{syntax}
-\end{function}
 
-For bib entry types that can have a |maintitle| in addition to a |title|
-(|@book|, |@collection|, |@commentary|, |@reference|) SBL usually places the
-|title| first and then locates this in the |maintitle|. However, there are
-some situations where it makes more sense to reference the work by its
-|maintitle| because the |title| is overly generic (e.g., \emph{Books 1–3}). In
-these cases, set use |options = {usetitle=false}| to place the |title| after
-the |maintitle|.
+  For bib entry types that can have a |maintitle| in addition to a |title|
+  (|@book|, |@collection|, |@commentary|, |@reference|) SBL usually places the
+  |title| first and then locates this in the |maintitle|. However, there are
+  some situations where it makes more sense to reference the work by its
+  |maintitle| because the |title| is overly generic (e.g., \emph{Books 1–3}).
+  In these cases, set use |options = {usetitle=false}| to place the |title|
+  after the |maintitle|.
+\end{function}
 
 \begin{function}{usexref}
   \begin{syntax}
     = true \textbar\ false\hfill Default: true
   \end{syntax}
-\end{function}
 
-Generally, ancient works which are part of a text collection include the text
-collection in the citation. One exception to this is SBL's treatment of
-ancient epistles and homilies,\footnote{See §6.4.4 of the
-handbook.} where the
-collection does not appear in the citation, but it still needs to appear in
-the bibliography. This behaviour can be achieved by placing the text
-collection in the |xref| field as usual and then using
-|options = {usexref=false}|.
+  Generally, ancient works which are part of a text collection include the
+  text collection in the citation. One exception to this is SBL's treatment of
+  ancient epistles and homilies,\footnote{See §6.4.4 of the handbook.} where
+  the collection does not appear in the citation, but it still needs to appear
+  in the bibliography. This behaviour can be achieved by placing the text
+  collection in the |xref| field as usual and then using
+  |options = {usexref=false}|.
+\end{function}
 
 \subsection{Commands}
 
