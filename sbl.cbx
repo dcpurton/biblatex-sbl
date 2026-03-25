@@ -286,6 +286,9 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
+\newrobustcmd*{\Citefullauthor}{%
+  \@ifstar{\bibsentence\citefullauthor*}{\bibsentence\citefullauthor}}
+
 \DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
