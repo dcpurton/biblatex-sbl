@@ -39,6 +39,11 @@
 
 \providecommand*{\pkg}[1]{\textsf{#1}}
 
+\renewcommand\paragraph{\@startsection{paragraph}{4}{\z@}%
+  {-3.25ex\@plus -1ex \@minus -.2ex}%
+  {1.5ex \@plus .2ex}%
+  {\normalfont\normalsize\scshape}}
+
 \ExplSyntaxOn
 % Thanks to https://tex.stackexchange.com/a/44444/87678
 \cs_new_protected:Npn \sblhsblog_verb_print:n #1
