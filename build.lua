@@ -23,7 +23,7 @@ function runtest_tasks (name, run)
   end
 end
 
-tagfiles = {"biblatex-sbl.tex", "biblatex-sbl.def"}
+tagfiles = {"biblatex-sbl.tex", "biblatex-sbl.def", "README.md"}
 
 function update_tag(file, content, tagname, tagdate)
   content = content:gsub(
@@ -39,6 +39,11 @@ function update_tag(file, content, tagname, tagdate)
   content = content:gsub(
     "(\\def\\sbl@abx@version%{)[%d%.%a]+(%})",
     "%1" .. tagname .. "%2"
+  )
+
+  content = content:gsub(
+    "(Copyright %([Cc]%) %d%d%d%d%-)%d%d%d%d",
+    "%1" .. tagdate:sub(1, 4)
   )
 
   return content
