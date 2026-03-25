@@ -109,6 +109,9 @@
   usetitle
 }
 
+% SBL needs useprefix=true for citations, but not in sorting or bibliography
+\AtEveryCite{\toggletrue{blx@useprefix}}
+
 \RequirePackage[after=title]{biblatex-source-division}
 
 \renewbibmacro{getsourcedivision}{%
