@@ -831,7 +831,6 @@ way.
   \begin{syntax}
     = omit \textbar\ separate\hfill Default: omit
   \end{syntax}
-
   By default SBL recommends that full pages for a chapter or article be
   included in the bibliography and only the page or pages under consideration
   be referenced in the first citation.
@@ -851,7 +850,6 @@ spread of two volumes. In this case, the behaviour always matches that of
   \begin{syntax}
     = \meta{boolean}\hfill Default: false
   \end{syntax}
-
   These entry options controls how a title in a non-Latin alphabet is
   formatted, if you wish to cite by this title rather than a translated title.
   The translated title is then placed in |translatedtitle|,
@@ -867,7 +865,6 @@ title. This can by done using |options = {nonlatintitle}| in the bib entry.
   \begin{syntax}
     = italic \textbar roman\hfill Default: italic
   \end{syntax}
-
   The format of a |shorthand| field in SBL style needs to match what the
   abbreviation points to. So if the |shorthand| refers to the title of the
   work, it should be printed in italics, whereas if the |shorthand| refers to
@@ -880,7 +877,6 @@ title. This can by done using |options = {nonlatintitle}| in the bib entry.
   \begin{syntax}
     = true \textbar\ false\hfill Default: true
   \end{syntax}
-
   For bib entry types that can have a |maintitle| in addition to a |title|
   (|@book|, |@collection|, |@commentary|, |@reference|) SBL usually places the
   |title| first and then locates this in the |maintitle|. However, there are
@@ -894,7 +890,6 @@ title. This can by done using |options = {nonlatintitle}| in the bib entry.
   \begin{syntax}
     = true \textbar\ false\hfill Default: true
   \end{syntax}
-
   Generally, ancient works which are part of a text collection include the
   text collection in the citation. One exception to this is SBL's treatment of
   ancient epistles and homilies,\footnote{See §6.4.4 of the handbook.} where
@@ -908,7 +903,175 @@ title. This can by done using |options = {nonlatintitle}| in the bib entry.
 
 \subsubsection{Citation commands}
 
+\paragraph{Main citation commands}
+
+\begin{function}{\autocite, \autocite*, \Autocite, \Autocite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  \cs{autocite} inserts a citation as a footnote. If used in a footnote, the
+  citation is placed in parentheses. The starred variant suppresses the
+  author, editor, or translator (provided the entry options are set to use
+  them). It works as in the standard \pkg{biblatex} styles, except that that
+  \meta{postnote} argument can be divided into two using parentheses to
+  specify a source division for ancient works.
+\end{function}
+
+\cs{Autocite} is similar to \cs{autocite} but capitalises the name prefix of
+the first name in the citation if provided that there is a name prefix.
+This only makes a difference if the |autocite| option has been set to |plain|
+or |inline|.
+
+As with the \pkg{biblatex} package, the behaviour of \cs{autocite} can be
+changed with the |autocite| load-time option.
+
+\begin{function}{\cite, \cite*, \Cite, \Cite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  \cs{cite} works in the same way as \cs{autocite} except that the citation is
+  placed directly into the text instead of in a footnote. The starred variant
+  suppresses the author, editor, or translator (provided the entry options are
+  set to use them).
+\end{function}
+
+\cs{Cite} is similar to \cs{cite} but capitalises the name prefix of the first
+name in the citation if provided that there is a name prefix.
+
+\begin{function}{\parencite, \parencite*, \Parencite, \Parencite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  \cs{parencite} works in the same way as \cs{autocite} except that the
+  citation is placed inside parentheses instead of in a footnote. The starred
+  variant suppresses the author, editor, or translator (provided the entry
+  options are set to use them). This is most useful for citing primary
+  sources.
+\end{function}
+
+\cs{Parencite} is similar to \cs{parencite} but capitalises the name prefix of
+the first name in the citation if provided that there is a name prefix.
+
+\paragraph{Volume citation commands}
+
+Multi-volume references \emph{must} be cited using this family of citation
+commands to ensure correct delimiters before and after the volume number in
+the citation.
+
+\begin{function}{\avolcite, \avolcite*, \Avolcite, \Avolcite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{autocite}, but allows specifying the
+  \meta{volume} when citing a multi-volume work.
+\end{function}
+
+\begin{function}{\pvolcite, \pvolcite*, \Pvolcite, \Pvolcite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{parencite}, but allows specifying the
+  \meta{volume} when citing a multi-volume work.
+\end{function}
+
+\begin{function}{\volcite, \volcite*, \Volcite, \Volcite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{cite}, but allows specifying the
+  \meta{volume} when citing a multi-volume work.
+\end{function}
+
+\paragraph{Translator citation commands}
+
+When citing a translation of an ancient work, the translator of the work needs
+to be included. The following commands do this providing the translator is
+specified in the |translator| field (or inherited via the |crossref| field).
+
+These functions only make sense for |@ancienttext| entry types.
+
+\begin{function}{\atranscite, \atranscite*, \Atranscite, \Atranscite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{autocite}, but includes the translator.
+\end{function}
+
+\begin{function}{\ptranscite, \ptranscite*, \Ptranscite, \Ptranscite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{parencite}, but includes the translator.
+\end{function}
+
+\begin{function}{\transcite, \transcite*, \Transcite, \Transcite*}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{cite}, but includes the translator.
+\end{function}
+
+\begin{function}{\avoltranscite, \avoltranscite*, \Avoltranscite, \Avoltranscite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{avolcite}, but includes the translator.
+\end{function}
+
+\begin{function}{\pvoltranscite, \pvoltranscite*, \Pvoltranscite, \Pvoltranscite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{pvolcite}, but includes the translator.
+\end{function}
+
+\begin{function}{\voltranscite, \voltranscite*, \Voltranscite, \Voltranscite*}
+  \begin{syntax}
+    \oarg{prenote}\marg{volume}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  This function is analogous to \cs{volcite}, but includes the translator.
+\end{function}
+
+\paragraph{Multicite citation commands}
+
+Each of the above commands also has multicite variants (\cs{autocites},
+\cs{parencites}, \cs{cites}, etc.). See the main \pkg{biblatex} package
+documentation for syntax and usage.
+
+Each citation \meta{postnote} can by split to include a \meta{source division}
+as above.
+
+\paragraph{Specialised citation commands}
+
+The following specialised citation commands are also available.
+
+% \citeauthor, \citefullauthor, \citeshortauthor (plus starred, plus capitals)
+
+% \citetitle, \citetitle*
+
+% \citecollection, \parencitecollection, \transcitecollection, \ptranscollection
+
+% \fullcite (plus variants)
+
+\subsubsection{Bibliography and list of abbreviations}
+
+% \printbibliography
+
+% \printbiblist{abbreviations}
+
 \subsubsection{Miscellaneous commands}
+
+% \abbrev
+
+% \colno, \colsno
+
+% \lno, \llno, \lineno, \linesno
+
+% \nopnfmt
+
+% \sno, \ssno
+
+% \sv, \svv
 
 \subsection{Entry types}
 
