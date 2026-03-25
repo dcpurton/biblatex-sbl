@@ -291,6 +291,8 @@
 
 \newrobustcmd*{\Citefullauthor}{%
   \@ifstar{\bibsentence\citefullauthor*}{\bibsentence\citefullauthor}}
+\newrobustcmd*{\Citeshortauthor}{%
+  \@ifstar{\bibsentence\citeshortauthor*}{\bibsentence\citeshortauthor}}
 
 \DeclareCiteCommand{\citetitle}
   {\boolfalse{citetracker}%
@@ -396,6 +398,34 @@
 \newrobustcmd*{\svolfullcites}{\multivolcitecmd\sfullcites}
 \newrobustcmd*{\avolfullcites}{\multivolcitecmd\afullcites}
 
+\newrobustcmd*{\Fullcite}{\fullcitecmd\Cite}
+\newrobustcmd*{\Pfullcite}{\fullcitecmd\Parencite}
+\newrobustcmd*{\Ffullcite}{\fullcitecmd\Footcite}
+\newrobustcmd*{\Ftfullcite}{\fullcitecmd\Footcitetext}
+\newrobustcmd*{\Sfullcite}{\fullcitecmd\Smartcite}
+\newrobustcmd*{\Afullcite}{\fullcitecmd\Autocite}
+
+\newrobustcmd*{\Fullcites}{\fullcitecmd\Cites}
+\newrobustcmd*{\Pfullcites}{\fullcitecmd\Parencites}
+\newrobustcmd*{\Ffullcites}{\fullcitecmd\Footcites}
+\newrobustcmd*{\Ftfullcites}{\fullcitecmd\Footcitetext}
+\newrobustcmd*{\Sfullcites}{\fullcitecmd\Smartcites}
+\newrobustcmd*{\Afullcites}{\fullcitecmd\Autocites}
+
+\newrobustcmd*{\Volfullcite}{\volcitecmd\Fullcite}
+\newrobustcmd*{\Pvolfullcite}{\volcitecmd\Pfullcite}
+\newrobustcmd*{\Fvolfullcite}{\volcitecmd\Ffullcite}
+\newrobustcmd*{\Ftvolfullcite}{\volcitecmd\Ftfullcite}
+\newrobustcmd*{\Svolfullcite}{\volcitecmd\Sfullcite}
+\newrobustcmd*{\Avolfullcite}{\volcitecmd\Afullcite}
+
+\newrobustcmd*{\Volfullcites}{\multivolcitecmd\Fullcites}
+\newrobustcmd*{\Pvolfullcites}{\multivolcitecmd\Pfullcites}
+\newrobustcmd*{\Fvolfullcites}{\multivolcitecmd\Ffullcites}
+\newrobustcmd*{\Ftvolfullcites}{\multivolcitecmd\Ftfullcites}
+\newrobustcmd*{\Svolfullcites}{\multivolcitecmd\Sfullcites}
+\newrobustcmd*{\Avolfullcites}{\multivolcitecmd\Afullcites}
+
 % Define transcite commands to cite @ancienttext entry types with a translator
 
 \newtoggle{sbl@blx@transcite}
@@ -433,6 +463,34 @@
 \newrobustcmd*{\transcitecollection}{\transcitecmd\citecollection}
 \newrobustcmd*{\ptranscitecollection}{\transcitecmd\parencitecollection}
 
+\newrobustcmd*{\Transcite}{\transcitecmd\Cite}
+\newrobustcmd*{\Ptranscite}{\transcitecmd\Parencite}
+\newrobustcmd*{\Ftranscite}{\transcitecmd\Footcite}
+\newrobustcmd*{\Fttranscite}{\transcitecmd\Footcitetext}
+\newrobustcmd*{\Stranscite}{\transcitecmd\Smartcite}
+\newrobustcmd*{\Atranscite}{\transcitecmd\Autocite}
+
+\newrobustcmd*{\Transcites}{\transcitecmd\Cites}
+\newrobustcmd*{\Ptranscites}{\transcitecmd\Parencites}
+\newrobustcmd*{\Ftranscites}{\transcitecmd\Footcites}
+\newrobustcmd*{\Fttranscites}{\transcitecmd\Footcitetexts}
+\newrobustcmd*{\Stranscites}{\transcitecmd\Smartcites}
+\newrobustcmd*{\Atranscites}{\transcitecmd\Autocites}
+
+\newrobustcmd*{\Voltranscite}{\volcitecmd\Transcite}
+\newrobustcmd*{\Pvoltranscite}{\volcitecmd\Ptranscite}
+\newrobustcmd*{\Fvoltranscite}{\volcitecmd\Ftranscite}
+\newrobustcmd*{\Ftvoltranscite}{\volcitecmd\Fttranscite}
+\newrobustcmd*{\Svoltranscite}{\volcitecmd\Stranscite}
+\newrobustcmd*{\Avoltranscite}{\volcitecmd\Atranscite}
+
+\newrobustcmd*{\Voltranscites}{\multivolcitecmd\Transcites}
+\newrobustcmd*{\Pvoltranscites}{\multivolcitecmd\Ptranscites}
+\newrobustcmd*{\Fvoltranscites}{\multivolcitecmd\Ftranscites}
+\newrobustcmd*{\Ftvoltranscites}{\multivolcitecmd\Fttranscites}
+\newrobustcmd*{\Svoltranscites}{\multivolcitecmd\Stranscites}
+\newrobustcmd*{\Avoltranscites}{\multivolcitecmd\Atranscites}
+
 % transcite and fullcite variants
 \newrobustcmd*{\transfullcite}{\transcitecmd\fullcite}
 \newrobustcmd*{\ptransfullcite}{\transcitecmd\pfullcite}
@@ -461,6 +519,34 @@
 \newrobustcmd*{\ftvoltransfullcites}{\multivolcitecmd\fttransfullcites}
 \newrobustcmd*{\svoltransfullcites}{\multivolcitecmd\stransfullcites}
 \newrobustcmd*{\avoltransfullcites}{\multivolcitecmd\atransfullcites}
+
+\newrobustcmd*{\Transfullcite}{\transcitecmd\Fullcite}
+\newrobustcmd*{\Ptransfullcite}{\transcitecmd\Pfullcite}
+\newrobustcmd*{\Ftransfullcite}{\transcitecmd\Ffullcite}
+\newrobustcmd*{\Fttransfullcite}{\transcitecmd\Ftfullcite}
+\newrobustcmd*{\Stransfullcite}{\transcitecmd\Sfullcite}
+\newrobustcmd*{\Atransfullcite}{\transcitecmd\Afullcite}
+
+\newrobustcmd*{\Transfullcites}{\transcitecmd\Fullcites}
+\newrobustcmd*{\Ptransfullcites}{\transcitecmd\Pfullcites}
+\newrobustcmd*{\Ftransfullcites}{\transcitecmd\Ffullcites}
+\newrobustcmd*{\Fttransfullcites}{\transcitecmd\Ftfullcites}
+\newrobustcmd*{\Stransfullcites}{\transcitecmd\Sfullcites}
+\newrobustcmd*{\Atransfullcites}{\transcitecmd\Afullcites}
+
+\newrobustcmd*{\Voltransfullcite}{\volcitecmd\Transfullcite}
+\newrobustcmd*{\Pvoltransfullcite}{\volcitecmd\Ptransfullcite}
+\newrobustcmd*{\Fvoltransfullcite}{\volcitecmd\Ftransfullcite}
+\newrobustcmd*{\Ftvoltransfullcite}{\volcitecmd\Fttransfullcite}
+\newrobustcmd*{\Svoltransfullcite}{\volcitecmd\Stransfullcite}
+\newrobustcmd*{\Avoltransfullcite}{\volcitecmd\Atransfullcite}
+
+\newrobustcmd*{\Voltransfullcites}{\multivolcitecmd\Transfullcites}
+\newrobustcmd*{\Pvoltransfullcites}{\multivolcitecmd\Ptransfullcites}
+\newrobustcmd*{\Fvoltransfullcites}{\multivolcitecmd\Ftransfullcites}
+\newrobustcmd*{\Ftvoltransfullcites}{\multivolcitecmd\Fttransfullcites}
+\newrobustcmd*{\Svoltransfullcites}{\multivolcitecmd\Stransfullcites}
+\newrobustcmd*{\Avoltransfullcites}{\multivolcitecmd\Atransfullcites}
 
 
 % main citation macros
