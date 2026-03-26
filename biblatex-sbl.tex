@@ -1045,33 +1045,121 @@ as above.
 
 The following specialised citation commands are also available.
 
-% \citeauthor, \citefullauthor, \citeshortauthor (plus starred, plus capitals)
+\begin{function}{\citeauthor, \citeauthor*, \Citeauthor, \Citeauthor*}
+  \begin{syntax}
+    \oarg{prenote}\oarg{postnote}\marg{key}
+  \end{syntax}
+  Print the author (or editor or translator) of a work. The full author is
+  printed for the first citation and the short author is printed for
+  subsequent citations. The starred variant prints just the first author of
+  works by multiple authors. 
+\end{function}
 
-% \citetitle, \citetitle*
+\cs{Citeauthor} is similar to \cs{citeauthor} but capitalises the name prefix
+of the first name in the citation if provided that there is a name prefix.
 
-% \citecollection, \parencitecollection, \transcitecollection, \ptranscollection
+\begin{function}{\citefullauthor, \citefullauthor*, \Citefullauthor, \Citefullauthor*}
+  \begin{syntax}
+    \oarg{prenote}\oarg{postnote}\marg{key}
+  \end{syntax}
+  Similar to \cs{citeauthor}, but always cites the full author.
+\end{function}
 
-% \fullcite (plus variants)
+\begin{function}{\citeshortauthor, \citeshortauthor*, \Citeshortauthor, \Citeshortauthor*}
+  \begin{syntax}
+    \oarg{prenote}\oarg{postnote}\marg{key}
+  \end{syntax}
+  Similar to \cs{citeauthor}, but always cites the short author.
+\end{function}
+
+\begin{function}{\citetitle, \citetitle*}
+  \begin{syntax}
+    \oarg{prenote}\oarg{postnote}\marg{key}
+  \end{syntax}
+  This command prints the title. It will use the abridged title in the
+  |shorttitle| field, if available. Otherwise it falls back to the full title
+  found in the title field. The starred variant always prints the full title.
+\end{function}
+
+\begin{function}{\citecollection, \parencitecollection, \transcitecollection,
+  \transcitecollection}
+  \begin{syntax}
+    \oarg{prenote}\oarg{postnote}\marg{key}
+  \end{syntax}
+  Cite the text collection which an |@ancienttext| is included in. The key in
+  this case is the |@ancienttext| key and the text collection is included in
+  the |xref| field. The translator (if specified) is included for
+  \cs{transcitecollection} and \cs{ptranscitecollection}.
+\end{function}
+
+\begin{function}{\afullcite, \parenfullcite, \fullcite, ...}
+  \begin{syntax}
+    \oarg{prenote}[(\meta{source division})\meta{postnote}]\marg{key}
+  \end{syntax}
+  These commands are similar to \cs{autocite}, \cs{parencite} and \cs{cite},
+  but they always print the full citation. There is a full suite of starred,
+  capitalised, volume, and translator variants also defined.
+\end{function}
 
 \subsubsection{Bibliography and list of abbreviations}
 
-% \printbibliography
+\begin{function}{\printbibliography}
+  \begin{syntax}
+    \oarg{key=value, ...}
+  \end{syntax}
+  Print the bibliography. See the \pkg{biblatex} manual for a description of
+  available options.
+\end{function}
 
-% \printbiblist{abbreviations}
+\begin{function}{\printbiblist}
+  \begin{syntax}
+    \oarg{key=value, ...}\marg{abbreviations}
+  \end{syntax}
+  Print the list of abbreviations. See the \pkg{biblatex} manual for a
+  description of available options.
+\end{function}
 
 \subsubsection{Miscellaneous commands}
 
-% \abbrev
+\begin{function}{\abbrev}
+  \begin{syntax}
+    \marg{key}
+  \end{syntax}
+  Insert an abbreviation, acronym or sigla defined using the |@abbreviation|
+  entry type.
+\end{function}
 
-% \colno, \colsno
+\begin{function}{\colno, \colsno}
+  This command forces a column number prefix (col.\ or cols.) in the
+  \meta{postnote} argument to a citation command. They use the bib strings
+  |column| and |columns|.
+\end{function}
 
-% \lno, \llno, \lineno, \linesno
+\begin{function}{\lno, \llno, \lineno, \linesno}
+  This command forces a line number prefix (l.\ or ll.) in the \meta{postnote}
+  argument to a citation command. They use the bib strings |line| and |lines|.
+\end{function}
 
-% \nopnfmt
+\begin{function}{\nopnfmt}
+  This command suppresses formatting of the \meta{postnote} and it's useful if
+  you want `12,13' without a space.
+\end{function}
 
-% \sno, \ssno
+\begin{function}{\obv, \rev}
+  These commands insert the bib strings |obverse| and |reverse| (obv.\ and
+  rev.\ by default) into a \meta{postnote}.
+\end{function}
 
-% \sv, \svv
+\begin{function}{\sno, \ssno}
+  This command forces a section number prefix (§ or §§) in the \meta{postnote}
+  argument to a citation command. They use the bib strings |section| and
+  |sections|.
+\end{function}
+
+\begin{function}{\sv, \svv}
+  These commands insert the bib strings |subverbo| and |subverbis| (sv.\ and
+  svv.\ by default) into a \meta{postnote}.
+\end{function}
 
 \subsection{Entry types}
 
