@@ -715,7 +715,7 @@
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
     or
-    test {\iffieldequalstr{entrysubtype}{inancienttext}}
+    test {\iffieldequalstr{entrysubtype}{inancientbook}}
   }
     {\mkbibquote{#1}}
     {\ifboolexpr{
@@ -796,7 +796,7 @@
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
     or
-    test {\iffieldequalstr{entrysubtype}{inancienttext}}
+    test {\iffieldequalstr{entrysubtype}{inancientbook}}
   }
     {\mkbibquote{#1}}
     {\ifboolexpr{
