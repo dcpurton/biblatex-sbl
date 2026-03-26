@@ -8,13 +8,14 @@
 \setcounter{tocdepth}{1}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
 \setcounter{secnumdepth}{0}
-\usepackage[american, bidi=basic]{babel}
-\babelprovide[import, onchar=ids]{polytonicgreek}
-\babelprovide[import, onchar=ids]{russian}
+\usepackage[bidi=basic]{babel}
+\babelprovide[import, language=Default, main]{american}
+\babelprovide[import, language=Default, onchar=ids]{polytonicgreek}
+\babelprovide[import, language=Default, onchar=ids]{russian}
 \babelprovide[import, onchar=ids fonts]{armenian}
 \babelprovide[import, onchar=ids fonts]{hebrew}
 \babelprovide[import, onchar=ids fonts]{syriac}
-\babelfont{rm}[Renderer=Harfbuzz]{Brill}
+\babelfont{rm}{Brill}
 \babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
 \babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
 \babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
