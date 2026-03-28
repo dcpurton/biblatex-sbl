@@ -1927,7 +1927,8 @@
           \printtext[booktitle]{%
             \printfield[titlecase]{translatedbooktitle}%
             \setunit{\subtitlepunct}%
-            \printfield[titlecase]{translatedbooksubtitle}}}}}%
+            \printfield[titlecase]{translatedbooksubtitle}}}}%
+      \setunit{\titleaddonpunct}}%
   \printfield{booktitleaddon}}
 
 \renewbibmacro*{maintitle}{%
@@ -1951,7 +1952,8 @@
           \printtext[maintitle]{%
             \printfield[titlecase]{translatedmaintitle}%
             \setunit{\subtitlepunct}%
-            \printfield[titlecase]{translatedmainsubtitle}}}}}%
+            \printfield[titlecase]{translatedmainsubtitle}}}}%
+      \setunit{\titleaddonpunct}}%
   \printfield{maintitleaddon}}
 
 \newbibmacro{booktitle+bybookauthor+bybookeditor}{%
