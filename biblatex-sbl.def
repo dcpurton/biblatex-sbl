@@ -2290,7 +2290,15 @@
   \usebibmacro{clearrecentlocations}%
   \usebibmacro{origpublisher+origlocation+origdate}%
   \usebibmacro{mergelists}{location}{publisher}{\locationpublisherdelim}{\publisherdelim}%
-  \setunit*{\addcomma\space}%
+  \ifboolexpr{
+    not test {\ifbibliography}
+    and
+    test {\iflistundef{location}}
+    and
+    test {\iflistundef{publisher}}
+  }
+    {\setunit*{}}
+    {\setunit*{\addcomma\space}}%
   \usebibmacro{date}%
   \usebibmacro{pubstate}%
   \usebibmacro{reprint}%
@@ -2329,7 +2337,15 @@
     {}
     {\usebibmacro{clearrecentlocations}%
      \usebibmacro{mergelists}{origlocation}{origpublisher}{\locationpublisherdelim}{\publisherdelim}%
-     \setunit*{\addcomma\space}}%
+     \ifboolexpr{
+       not test {\ifbibliography}
+       and
+       test {\iflistundef{origlocation}}
+       and
+       test {\iflistundef{origpublisher}}
+     }
+       {\setunit*{}}
+       {\setunit*{\addcomma\space}}}%
   \iffieldundef{origyear}
     {}
     {\usebibmacro{origdate}%
