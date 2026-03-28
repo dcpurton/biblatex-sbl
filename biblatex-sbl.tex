@@ -7,12 +7,15 @@
 
 \input{biblatex-sbl-examples-preamble.tex}
 
-\setcounter{tocdepth}{2}
+\usepackage{multicol}
+
+\setcounter{tocdepth}{3}
 \setcounter{secnumdepth}{3}
+
+\makeatletter
 
 % SBL style footnotes
 \usepackage[bottom, ragged]{footmisc}
-\makeatletter
 \renewcommand*{\@makefntext}[1]{%
   \parindent \footnotemargin
   \@thefnmark . \enspace
@@ -53,6 +56,17 @@
   \global\let\date\relax
   \global\let\and\relax
 }
+
+% redefine \tableofcontents for two column
+\AtBeginDocument{%
+  \renewcommand\tableofcontents{%
+    \section*{\contentsname
+      \@mkboth{%
+        \MakeUppercase\contentsname}{\MakeUppercase\contentsname}}%
+    \begin{multicols}{2}%
+      \@starttoc{toc}%
+    \end{multicols}}}
+
 \makeatother
 
 \usepackage[skins]{tcolorbox}
@@ -380,72 +394,6 @@ collection details. \pkg{biblatex-sbl} supports this using the \pkg{biblatex}
   \examplecite[][99]{davies:2006}
 \end{sblexample}
 
-\subsubsection{Source divisions in ancient works}
-
-Many ancient works are cited by a commonly agreed on source division (such as
-book, chapter, section) instead of or as well as a page number in a particular
-edition.
-
-\pkg{biblatex-sbl} supports this with the aid of the
-\pkg{biblatex-source-division} package.\footnote{Thanks to Maïeul Rouquette.
-See \url{https://ctan.org/package/biblatex-source-division}.}
-
-The syntax for specifying the source division is the same as for
-\pkg{biblatex-source-division} so the source division is placed within
-parentheses at the start of the |postnote| and is then optionally followed by
-the location in the particular edition being cited. The text collection is
-indicated using an |xref| field in the |ancienttext| bib entry.
-
-\begin{sblexample}
-  \begin{verbatim}
-  @mvcollection{NPNF,
-    ...
-  }
-  @ancienttext{augustine:letters,
-    xref = {NPNF},
-    ...
-  }
-  \end{verbatim}
-
-  \tcblower
-
-  \examplecite[][(28.3.5)252]{augustine:letters}
-\end{sblexample}
-
-\subsubsection{Translators of ancient works}
-
-It is sometimes desirable to cite a particular translation of an ancient work.
-For this purpose a set of variant citation commands are provided, e.g.,
-\cs{atranscite}. The translator needs to be included in the bib entry of the
-ancient work.
-
-The format of the translator in the citation varies depending on whether the
-source being cited is from within a text collection (indicated with the |xref|
-field) or not.
-
-\begin{sblexample}
-  \begin{verbatim}
-  @collection{ANET,
-    ...
-  }
-  @ancienttext{legendsargon,
-    translator = {Speiser, E. A.},
-    xref = {ANET},
-    ...
-  }
-  @{herodian:hist,
-    translator = {Whittaker},
-    ...
-  }
-  \end{verbatim}
-
-  \tcblower
-
-  \examplecite[trans]{legendsargon}
-
-  \examplecite[trans][(2.2)]{herodian:hist}
-\end{sblexample}
-
 \subsubsection{Reprints}
 
 \pkg{biblatex-sbl} supports three methods of citing reprints with varying
@@ -523,6 +471,8 @@ other |relatedtype| apart from |relatedtype = {reprint}|.
 \pkg{biblatex-sbl} supports a number of more specialised ways of relating one
 work to another.
 
+\paragraph{Journal articles published across multiple volumes}
+
 Some journal articles are published across multiple volumes, but can be cited
 as one article. This kind of citation uses |relatedtype = {multivolarticle}|
 and should be cited with \cs{avolcite} or similar. Note that there is no
@@ -551,6 +501,8 @@ and should be cited with \cs{avolcite} or similar. Note that there is no
   \examplevolcite[]{21}[434]{wellhausen:1876-1877}
 \end{sblexample}
 
+\paragraph{Works by multiple authors bound in a single volume}
+
 A particularly niche situation arose on the SBL blog at
 \url{https://sblhs2.com/2018/01/18/citing-text-collections-10-lcl/} where a
 question was asked concerning citing from a LCL volume containing works by
@@ -577,6 +529,8 @@ unless you add a couple of entries to \cs{nocite}.
   \examplebibliography
 \end{sblexample}
 
+\paragraph{Citing quotations from within another work}
+
 A final supported type of relating one work to another deals with citing a
 quotation from within another work. Note that SBL discourages this as the
 primary source should be consulted. This type of citation uses the |xref| and
@@ -600,9 +554,60 @@ primary source should be consulted. This type of citation uses the |xref| and
   \examplecite[][(1.2.12)129]{victorinus:ephesians}
 \end{sblexample}
 
+\subsubsection{Bible commentaries}
+
+Most Bible commentaries on a single book of the Bible work in the same way as
+a |@book| bib entry.
+
+\begin{sblexample}[lefthand ratio=0.4]
+  \begin{verbatim}
+  @commentary{hooker:1991,
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[]{hooker:1991}
+
+  \exampleabbreviations
+
+  \vspace*{-2ex}
+
+  \examplebibliography
+\end{sblexample}
+
+Other commentaries are part of a single or multi-volume commentary on the
+whole Bible where the commentary is cited as a |shorthand| and included in the
+list of abbreviations. In this case, the full commentary should be cross
+referenced using the |xref| field.
+
+\begin{sblexample}[lefthand ratio=0.4]
+  \begin{verbatim}
+  @mvcommentary{NIB,
+    shorthand = {NIB},
+    ...
+  }
+  @incommentary{miller:jeremiah,
+    xref = {NIB},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[]{miller:jeremiah}
+
+  \exampleabbreviations
+
+  \vspace*{-2ex}
+  
+  \examplebibliography
+\end{sblexample}
+
 \subsubsection{Reference works}
 
-Dictionaries, encyclopaedia and lexica deserve a special mention.
+Dictionaries, encyclopaedias and lexica deserve a special mention.
 \pkg{biblatex-sbl} uses the |@mvreference|, |@reference| and |@inreference|
 entry types to support these. |@inreference| is used to cite signed articles
 which should appear in the bibliography. Unsigned entries use the
@@ -631,6 +636,213 @@ bibliography otherwise.
 
   \examplecite[]{lattke:kakia}
 \end{sblexample}
+
+\subsubsection{Ancient works}
+
+Citing ancient works and texts is particularly complicated because of the
+variety of text types and collections they are published in.
+\pkg{biblatex-sbl} uses the |@ancienttext| entry type for all ancient works.
+
+By default an |@ancienttext| entry will not appear in the bibliography.
+Include |skipbib=false| in the |options| field if you need to include the work
+in the bibliography.
+
+\paragraph{Source divisions in ancient works}
+
+Many ancient works are cited by a commonly agreed on source division (such as
+book, chapter, section) instead of or as well as a page number in a particular
+edition.
+
+\pkg{biblatex-sbl} supports this with the aid of the
+\pkg{biblatex-source-division} package.\footnote{Thanks to Maïeul Rouquette.
+See \url{https://ctan.org/package/biblatex-source-division}.}
+
+The syntax for specifying the source division is the same as for
+\pkg{biblatex-source-division} so the source division is placed within
+parentheses at the start of the |postnote| and is then optionally followed by
+the location in the particular edition being cited. The text collection is
+indicated using an |xref| field in the |ancienttext| bib entry.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @mvcollection{NPNF,
+    ...
+  }
+  @ancienttext{augustine:letters,
+    xref = {NPNF},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][(28.3.5)252]{augustine:letters}
+\end{sblexample}
+
+\paragraph{Translations of ancient works}
+
+It is sometimes desirable to cite a particular translation of an ancient work.
+For this purpose a set of variant citation commands are provided, e.g.,
+\cs{atranscite}. The translator needs to be included in the bib entry of the
+ancient work.
+
+The format of the translator in the citation varies depending on whether the
+source being cited is from within a text collection (indicated with the |xref|
+field) or not.
+
+\begin{sblexample}
+  \begin{verbatim}
+  @collection{ANET,
+    ...
+  }
+  @ancienttext{legendsargon,
+    translator = {Speiser, E. A.},
+    xref = {ANET},
+    ...
+  }
+  @{herodian:hist,
+    translator = {Whittaker},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[trans]{legendsargon}
+
+  \examplecite[trans][(2.2)]{herodian:hist}
+\end{sblexample}
+
+\paragraph{Ancient works included in text collections}
+
+Often ancient works are published as part of a collection. The collection
+should appear either in the bibliography or list of abbreviations. This
+collection should be referenced in the |xref| field.
+
+When citing an ancient work which is part of a text collection, it's possible
+to include a source division and/or location in the text collection. If no
+\meta{postnote} is included in the citation then the printing of the text
+collection is suppressed. If you need to print a full citation with
+unabbreviated name including the text collection use \cs{fullcite} (or
+variant).
+
+\begin{sblexample}[lefthand ratio=0.4]
+  \begin{verbatim}
+  @ancienttext{bknoah,
+    title = {Book of Noah},
+    shorttitle = {Bk.\@ Noah},
+    translator = {Himmelfarb, Martha},
+    xref = {MOTP},
+    volume = {1},
+    pages = {40-46}
+  }
+  @mvcollection{MOTP,
+    shorthand = {MOTP},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][(3)46]{bknoah}
+
+  \exampleabbreviations
+\end{sblexample}
+
+Many classical works are cited using an abbreviated title. In this case the
+abbreviated title should appear in the list of abbreviations. The abbreviated
+title should be placed in the |shorttitle| field. Titles are set using
+\cs{frenchspacing}, so it's safe to leave periods as is.
+
+\begin{sblexample}[lefthand ratio=0.4]
+  \begin{verbatim}
+  @ancienttext{tacitus:ann,
+    author = {Tacitus},
+    title = {Annales},
+    shorttitle = {Ann.},
+    xref = {tacitus:histories}
+  }
+  @mvbook{tacitus:histories,
+    author = {Tacitus},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][(15.18-19)]{tacitus:ann}
+
+  \exampleabbreviations
+
+  \vspace*{-2ex}
+
+  \examplebibliography
+\end{sblexample}
+
+SBL has specific rules around the formatting of titles in ancient works.
+Ancient works with an author use italics for the title. Ancient works without
+an author use either a Roman font or a Roman font enclosed in quotation marks,
+depending on whether the title is well established and independent of
+translation or whether the title was given by a translator. The former case
+uses a plain Roman font. The latter, is placed within quotation marks. Setting
+|entrysubtype = {inancientcollection}| will use quotation marks for title,
+otherwise a plain Roman font is used.
+
+\begin{sblexample}[lefthand ratio=0.45]
+  \begin{verbatim}
+  @ancienttext{legendsargon,
+    entrysubtype = {inancientcollection},
+    title = {The Legend of Sargon},
+    translator = {Speiser, E. A.},
+    xref = {ANET},
+    pages = {119}
+  }
+  @collection{ANET,
+    shorthand = {ANET},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[]{legendsargon}
+
+  \exampleabbreviations
+\end{sblexample}
+
+Other ancient works behave like a book or a part of a book. The former uses an
+italic font for the title and the latter a Roman font in quotation marks,
+similar to |@book| and |@inbook|. These two types are set using
+|entrysubtype = {ancientbook}| and |entrysubtype = {inancientbook}|
+respectively. These two entry subtypes use the |title| in the first citation
+and the |shorttitle| in subsequent citations.
+
+\begin{sblexample}[lefthand ratio=0.45]
+  \begin{verbatim}
+  @ancienttext{clementinehomilies,
+    entrysubtype = {ancientbook},
+    title = {The Clementine Homilies},
+    xref = {ANF},
+    volume = {8},
+    pages = {213-346}
+  }
+  @mvcollection{ANF,
+    shorthand = {ANF},
+    ...
+  }
+  \end{verbatim}
+
+  \tcblower
+
+  \examplecite[][(1.3)223]{clementinehomilies}
+
+  \exampleabbreviations
+\end{sblexample}
+
+The best best way to learn how to set up bib entries for ancient works is to
+look through the examples from the handbook and especially the blog for a
+similar example to what you want and from there see how to implement the set
+up in \pkg{biblatex-sbl}.
 
 \subsection{Bibliography}
 
@@ -802,7 +1014,7 @@ these are often index in a similar way to Bible references and the set up will
 likely be unique to a particular project. \pkg{bibleref-sbl} could be useful
 here.
 
-\section{Package reference}
+\section{Reference}
 
 Many (but by no means all) of the standard \pkg{biblatex} options, commands,
 entry types, fields and localisation strings are supported by
@@ -1101,7 +1313,7 @@ of the first name in the citation if provided that there is a name prefix.
   capitalised, volume, and translator variants also defined.
 \end{function}
 
-\subsubsection{Bibliography and list of abbreviations}
+\subsubsection{Bibliography}
 
 \begin{function}{\printbibliography}
   \begin{syntax}
@@ -1110,6 +1322,8 @@ of the first name in the citation if provided that there is a name prefix.
   Print the bibliography. See the \pkg{biblatex} manual for a description of
   available options.
 \end{function}
+
+\subsubsection{List of abbreviations}
 
 \begin{function}{\printbiblist}
   \begin{syntax}
@@ -1163,9 +1377,102 @@ of the first name in the citation if provided that there is a name prefix.
 
 \subsection{Entry types}
 
+The following entry types are supported by \pkg{biblatex-sbl}.
+
+\begin{function}{ancienttext}
+  This is a custom type for \pkg{biblatex-sbl} and covers all types of ancient
+  works.
+\end{function}
+The following fields are supported by the |@ancienttext| entry type:
+\begin{quote}
+  \raggedright\ttfamily
+  author, crossref, entrysubtype, execute, number, options, shortmaintitle,
+  maintitle, pages, text, shorttitle, title, translator, volume, xref,
+  xrefstring
+\end{quote}
+
+\begin{function}{article}
+  An article in a journal, magazine or newspaper. Also use this type for
+  review articles (\emph{SBLHS} §6.3.4) and electronic journal articles
+  (\emph{SBLHS} §6.3.10).
+\end{function}
+
+\begin{function}{book}
+  A single-volume book with one or more authors where the authors share credit
+  for the work as a whole.
+\end{function}
+
+\begin{function}{mvbook}
+  A multi-volume |@book|.
+\end{function}
+
+\begin{function}{inbook}
+  A part of a book which forms a self-contained unit with its own title.
+\end{function}
+
+\begin{function}{bookinbook}
+  This type is similar to |@inbook| but intended for works originally
+  published as a stand-alone book. The main difference is that the title is
+  printed in italics instead of in quotation marks.
+\end{function}
+
+\begin{function}{suppbook}
+  Supplemental material in a |@book|. Use this for an introduction, preface or
+  foreword written by someone other than the author (\emph{SBLHS} §6.2.14).
+  The |type| field is used to specify the type of supplementary material.
+\end{function}
+
+\begin{function}{collection}
+  A single-volume collection with multiple, self-contained contributions by
+  distinct authors which have their own title. The work as a whole has no
+  overall author but it will usually have an editor.
+\end{function}
+
+\begin{function}{mvcollection}
+  A multi-volume |@collection|.
+\end{function}
+
+\begin{function}{incollection}
+  A contribution to a collection which forms a self-contained unit with a
+  distinct author and title.
+\end{function}
+
+\begin{function}{commentary}
+  A single-volume commentary on the whole Bible, a book of the Bible or part
+  of a book of a book of the Bible by one or more authors. This entry type is
+  similar to |@book|.
+\end{function}
+
+\begin{function}{mvcommentary}
+  A multi-volume |@commentary|.
+\end{function}
+
+\begin{function}{incommentary}
+  A contribution to a commentary which forms a self-contained unit with a
+  distinct author and title. This is typically a commentary on a book of the
+  Bible appearing in a single or multi-volume commentary on the entire Bible.
+\end{function}
+
+If the main commentary is usually cited by abbreviation, place it in the
+|xref| field. Otherwise the details of the main commentary can be included
+within the bib entry or in the |crossref| field.
+
+\begin{function}{online}
+  An online resource without a print counterpart. Use this for online
+  databases, websites, blogs, social media posts\slash comments.
+\end{function}
+
+This entry type supports the custom field |website| to hold the name of the
+website (if applicable) and also supports the following values for
+|entrysubtype| which control the formatting and inclusion\slash exclusion in
+the bibliography:
+\begin{itemize}
+  \item |blog| for blog posts.
+  \item |comment| for social media comments.
+\end{itemize}
+
 \subsection{Entry fields}
 
 \subsection{Localisation strings}
-
 
 \end{document}
