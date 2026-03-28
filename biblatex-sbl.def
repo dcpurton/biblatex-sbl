@@ -712,7 +712,7 @@
 
 % ## Field formats
 
-\DeclareFieldFormat[online,review,incommentary,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
+\DeclareFieldFormat[review,incommentary,inreference,inseries]{citetitle}{\mkbibquote{#1\isdot}}
 \DeclareFieldFormat[ancienttext]{citetitle}{%
   \begingroup
   \frenchspacing
@@ -731,6 +731,14 @@
        {\mkbibemph{#1}}}%
   \endgroup
   \isdot}
+\DeclareFieldFormat[online]{citetitle}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{blog}}
+    and
+    test {\iffieldundef{website}}
+  }
+    {\mkbibemph{#1\isdot}}
+    {\mkbibquote{#1\isdot}}}
 \DeclareFieldFormat[video]{citetitle}{%
   \iffieldequalstr{entrysubtype}{invideo}
     {\mkbibquote{#1}}
@@ -795,7 +803,7 @@
   \endgroup
   \isdot}
 \DeclareFieldFormat[series]{shorthand}{#1}
-\DeclareFieldFormat[online,review,incommentary,inreference,inseries]{title}{\mkbibquote{#1}}
+\DeclareFieldFormat[review,incommentary,inreference,inseries]{title}{\mkbibquote{#1}}
 \DeclareFieldFormat[ancienttext]{title}{%
   \ifboolexpr{
     test {\iffieldequalstr{entrysubtype}{inancientcollection}}
@@ -810,6 +818,14 @@
      }
        {#1}
        {\mkbibemph{#1}}}}
+\DeclareFieldFormat[online]{title}{%
+  \ifboolexpr{
+    test {\iffieldequalstr{entrysubtype}{blog}}
+    and
+    test {\iffieldundef{website}}
+  }
+    {\mkbibemph{#1}}
+    {\mkbibquote{#1}}}
 \DeclareFieldFormat[series]{title}{#1}
 \DeclareFieldFormat[video]{title}{%
   \iffieldequalstr{entrysubtype}{invideo}

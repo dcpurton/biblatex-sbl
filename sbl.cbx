@@ -675,8 +675,8 @@
     {}
     {\newunit
      \iffieldundef{type}
-       {\printfield[shorttitlelink]{website}}
-       {\printfield[shorttitlelink]{type}}}%
+       {\printtext[shorttitlelink]{\printfield{website}}}
+       {\printtext[shorttitlelink]{\printfield{type}}}}%
   \endgroup}
 
 \newbibmacro*{cite:short:review}{%
