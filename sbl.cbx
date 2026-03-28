@@ -205,11 +205,8 @@
 \DeclareNestableCiteCommand{citeshorthand}
   {\usebibmacro{cite:shorthand}}
 
-\DeclareCiteCommand{\abbrev}
-  {}
-  {\cite{cite:shorthand}}
-  {\multicitedelim}
-  {}
+\DeclareNestableCiteCommand{abbrev}
+  {\usebibmacro{cite:shorthand}}
 
 \DeclareCiteCommand*{\cite}
   {\usebibmacro{prenote}}
