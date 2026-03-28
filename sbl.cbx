@@ -268,6 +268,8 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
+\providecommand{\citefullauthor}{}
+\undef\citefullauthor
 \DeclareCiteCommand{\citefullauthor}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
@@ -290,7 +292,8 @@
   {\multicitedelim}
   {\usebibmacro{postnote}}
 
-\newrobustcmd*{\Citefullauthor}{%
+\providecommand\Citefullauthor{}
+\renewrobustcmd*{\Citefullauthor}{%
   \@ifstar{\bibsentence\citefullauthor*}{\bibsentence\citefullauthor}}
 \newrobustcmd*{\Citeshortauthor}{%
   \@ifstar{\bibsentence\citeshortauthor*}{\bibsentence\citeshortauthor}}
