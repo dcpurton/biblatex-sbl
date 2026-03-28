@@ -206,6 +206,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 p
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
+.....\penalty 10000
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 9
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
@@ -692,6 +693,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 p
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
+.....\penalty 10000
 .....\glue(\spaceskip) 1.98 plus 0.99 minus 0.66
 .....\TU/Brill(0)/m/n/10 9
 .....\TU/Brill(0)/m/n/10 .

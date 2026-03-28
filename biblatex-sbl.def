@@ -608,6 +608,10 @@
     {\addspace}
     {\addcolon\space
      \global\togglefalse{sbl@blx@addsubtitlepunct}}}
+\newcommand*{\seriesnumberdelim}{%
+  \iffieldundef{shortseries}
+    {\addspace}
+    {\addnbspace}}
 \newcommand*{\titleaddonpunct}{%
   \ifboolexpr{
     test {\ifentrytype{ancienttext}}
@@ -2232,7 +2236,7 @@
 % use shortseries if available
 \renewbibmacro*{series+number}{%
   \usebibmacro{abbrev:shortfield}{shortseries}{series}%
-  \setunit*{\addspace}%
+  \setunit*{\seriesnumberdelim}%
   \printfield{number}%
   \newunit}
 
