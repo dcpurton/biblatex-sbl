@@ -2558,6 +2558,15 @@
 
 % ## Related macros
 
+% make sure editor isn't printed before title when author is cleared in
+% related entry
+\xpatchbibmacro{related:default}
+  {\clearname{author}}
+  {\clearname{author}%
+   \renewbibmacro*{editor+others}{}}
+  {}
+  {}
+
 \newbibmacro*{related:reprint}[1]{%
   \entrydata*{#1}{%
     \usedriver
