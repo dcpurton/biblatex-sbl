@@ -596,7 +596,11 @@
        {\ifciteidem
           {\DeclareNameAlias{default}{labelname}}
           {}%
-        \ifcrossrefseen
+        \ifboolexpr{
+          test {\ifcrossrefseen}
+          and
+          test {\ifdefbibmacro{cite:full:\thefield{entrytype}:seen}}
+        }
          {\usebibmacro{cite:full:citepages}%
           \printtext[bibhypertarget]{\usebibmacro*{cite:full:\thefield{entrytype}:seen}}}
          {\ifentrytype{ancienttext}
