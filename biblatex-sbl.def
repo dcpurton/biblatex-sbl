@@ -252,6 +252,9 @@
       \pernottype{ancienttext}
       \step[fieldsource=title, match=\regexp{^(A|An|The)\s+(.+)}, final]
       \step[fieldset=shorttitle, fieldvalue={$2}]
+    }
+    \map{
+      \step[fieldsource=title, match=\regexp{^(A|An|The)\s+(.+)}, final]
       \step[fieldset=sorttitle, fieldvalue={$2}]
     }
     \map{
