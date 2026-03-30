@@ -2320,7 +2320,7 @@
     and
     test {\iflistundef{publisher}}
   }
-    {\setunit*{}}
+    {\setunit*{\nopunct}}
     {\setunit*{\addcomma\space}}%
   \usebibmacro{date}%
   \usebibmacro{pubstate}%
@@ -2367,7 +2367,7 @@
        and
        test {\iflistundef{origpublisher}}
      }
-       {\setunit*{}}
+       {\setunit*{\nopunct}}
        {\setunit*{\addcomma\space}}}%
   \iffieldundef{origyear}
     {}
