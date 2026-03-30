@@ -359,10 +359,68 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+% set a boolean flag to indicate we are inside a footnote from \smartcite
+\newbool{sbl@blx@footnote}
+\newrobustcmd\mksblsmartfootcite[1]{%
+  \begingroup
+  \blx@blxinit
+  \blx@setsfcodes
+  \booltrue{sbl@blx@footnote}%
+  #1%
+  \endgroup}
+
+% format the start of a smart citation
+%   - normal behaviour for \smartcite in running text and \smartcites
+%   - if in footnote
+%       - add `\addperiod\space` and set `prenote` to
+%         `\bibstring{see}` for first citation
+%       - add opening parenthesis for subsequent citation
+\newbibmacro{smartcitestart}{%
+  \ifboolexpr{
+    test {\ifnumequal\c@citetotal\@ne}
+    and
+    test {\ifnumequal\c@multicitetotal\z@}
+    and
+    bool {sbl@blx@footnote}
+  }
+    {\ifciteseen
+       {\bibopenparen}
+       {\addperiod\space
+        \iffieldundef{prenote}
+          {\setfield{prenote}{\bibstring{see}}}
+          {}}}
+    {}}
+
+% format the end of a smart citation
+%   - normal behaviour for \smartcite in running text and \smartcites
+%   - if in footnote
+%       - add closing parenthesis if parentheses are currently mismatched
+\newbibmacro{smartciteend}{%
+  \ifboolexpr{
+    test {\ifnumequal\c@citetotal\@ne}
+    and
+    test {\ifnumequal\c@multicitetotal\z@}
+    and
+    test {\ifnumgreater\c@parenlevel\z@}
+  }
+    {\bibcloseparen}
+    {}}
+
+% integrate \ifciteseen logic into \smartcite and \smartcite* in footnotes
+\DeclareCiteCommand{\smartcite}[\iffootnote\mksblsmartfootcite\mkbibfootnote]
+  {\usebibmacro{smartcitestart}%
+   \usebibmacro{prenote}}
+  {\usebibmacro{cite}%
+   \usebibmacro{smartciteend}}
+  {\multicitedelim}
+  {\usebibmacro{cite:postnote}}
+
 \DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
-  {\usebibmacro{prenote}}
+  {\usebibmacro{smartcitestart}%
+   \usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
-   \usebibmacro{cite}}
+   \usebibmacro{cite}%
+   \usebibmacro{smartciteend}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 

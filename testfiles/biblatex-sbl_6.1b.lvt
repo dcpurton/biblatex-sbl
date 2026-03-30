@@ -1,0 +1,18 @@
+\documentclass{article}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{biblatex-sbl.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+Filler text.\footnote{Filler text \autocite{desilva:1998}.}
+
+Filler text.\footnote{Filler text \autocite{desilva:1998}.}
+\printbibliography
+\printbiblist{abbreviations}
+\end{document}
