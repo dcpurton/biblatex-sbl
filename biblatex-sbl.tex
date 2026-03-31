@@ -394,6 +394,71 @@ collection details. \pkg{biblatex-sbl} supports this using the \pkg{biblatex}
   \examplecite[][99]{davies:2006}
 \end{sblexample}
 
+\subsubsection{Footnotes}
+
+SBL style has specific requirements for citations relating to discussion or
+quotation inside footnotes. Long form citations should begin a new sentence
+and be introduced with \emph{See} (or similar). Short form citations should be
+placed within parentheses.
+
+\pkg{biblatex-sbl} supports this with \cs{autocite} in footnotes subject to
+the following limitations:
+\begin{itemize}
+  \item Only one entry key can be specified in \cs{autocite}.
+  \item You must place \cs{autocite} between text and final punctuation.
+  \item \cs{autocites} is not supported.
+  \item If there is a quotation ending immediately before the citation, this
+    must be handled specially. See below.
+\end{itemize}
+
+If the set up is correct the goal is for correct behaviour even if you move
+footnotes around the order changes.
+
+\begin{sblexample}
+  \begin{verbatim}
+  Filler text.\footnote{Discussion
+    \autocite{desilva:1998}.}
+  Filler text.\footnote{Discussion
+    \autocite{desilva:1998}.}
+  \end{verbatim}
+
+  \tcblower
+
+  Filler text.\footnote{Discussion. \cite[See][]{desilva:1998}.}
+  Filler text.\footnote{Discussion \autocite{desilva:1998}.}
+\end{sblexample}
+
+There is extra complexity if there is a quotation immediately before a
+first citation in a footnote. In this case, the period must be moved inside
+the quotation (for US style punctuation) or suppressed if the quotation
+finishes with a question or exclamation mark.
+
+This is accomplished using the \cs{sblfootquotepunct} command which is placed
+\emph{just inside the closing quotation mark}. \cs{sblfootquotepunct} takes an
+optional argument specifying the final punctuation (? or !) and a mandatory
+argument specifying the \meta{key} of the entry which will be then cited with
+\cs{autocite} after the quotation.
+
+\cs{sblfootquotepunct} works with a literal quotation mark as well as with
+\cs{mkbibquote} and the various commands from the \pkg{csquotes} package.
+
+\begin{sblexample}
+  \begin{verbatim}
+  Filler text.\footnote{“Quotation%
+    \sblfootquotepunct{richards:1965}”
+    \autocite[116-117]{richards:1965}.}
+
+  Filler text.\footnote{“Quotation%
+    \sblfootquotepunct{richards:1965}”
+    \autocite[116-117]{richards:1965}.}
+  \end{verbatim}
+
+  \tcblower
+
+  Filler text.\footnote{“Quotation.” \cite[See][116-117]{richards:1965}.}
+  Filler text.\footnote{“Quotation” \autocite[116-117]{richards:1965}.}
+\end{sblexample}
+
 \subsubsection{Reprints}
 
 \pkg{biblatex-sbl} supports three methods of citing reprints with varying
@@ -958,7 +1023,7 @@ containing any one of the fields |shorthand|, |shortseries| and/or
     nottype=ancienttext, nottype=abbreviation]{abbreviations}
 \end{sblexample}
 
-\subsubsection{Sigla and grammatical abbreviations}
+\subsubsection{Other abbreviations}
 
 \pkg{biblatex-sbl} includes \emph{very} basic support for general
 abbreviations, sigla and acronyms. These are supported by a basic
