@@ -359,6 +359,20 @@
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
+% \sblfootquotepunct is inserted at the end of a quotation immediately before
+% a citation to ensure punctuation is placed inside quotation if using us
+% style punctuation
+\newbool{sbl@blx@footquotesuppressperiod}
+\NewDocumentCommand\sblfootquotepunct{om}{%
+  \ifentryseen{#2}
+    {\IfNoValueF{#1}{#1}%
+     \global\boolfalse{sbl@blx@footquotesuppressperiod}}
+    {\blx@ifuspunct
+       {\IfNoValueTF{#1}{.}{#1}%
+        \global\booltrue{sbl@blx@footquotesuppressperiod}}
+       {\IfNoValueF{#1}
+          {#1\global\booltrue{sbl@blx@footquotesuppressperiod}}}}}
+
 % set a boolean flag to indicate we are inside a footnote from \smartcite
 \newbool{sbl@blx@footnote}
 \newrobustcmd\mksblsmartfootcite[1]{%
@@ -385,7 +399,10 @@
   }
     {\ifciteseen
        {\bibopenparen}
-       {\addperiod\space
+       {\ifbool{sbl@blx@footquotesuppressperiod}
+          {}
+          {\addperiod\space}%
+        \bibsentence
         \iffieldundef{prenote}
           {\setfield{prenote}{\bibstring{see}}}
           {}}}

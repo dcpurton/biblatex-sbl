@@ -13,6 +13,13 @@
 Filler text.\footnote{Filler text \autocite{desilva:1998}.}
 
 Filler text.\footnote{Filler text \autocite{desilva:1998}.}
+
+Filler text.\footnote{“Quoted filler text\sblfootquotepunct{richards:1965}”
+\autocite[116-117]{richards:1965}.}
+
+Filler text.\footnote{“Quoted filler text\sblfootquotepunct{richards:1965}”
+\autocite[116-117]{richards:1965}.}
+
 \printbibliography
 \printbiblist{abbreviations}
 \end{document}
