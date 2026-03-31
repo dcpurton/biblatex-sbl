@@ -12,8 +12,9 @@ and student supplement and more recent blog posts supersede older blog posts.
 
 * `biblatex-sbl.pdf`: Style usage and documentation summary.
 * `biblatex-sbl.bib`: Database entries for all example citations in the
-  handbook and on the blog
-* `biblatex-sbl-blog-examples.pdf`: Example usage for all example citations on the blog.
+  handbook, student supplement, and on the blog
+* `biblatex-sbl-blog-examples.pdf`: Example usage for all example citations on
+  the blog.
 * `biblatex-sbl-handbook-examples.pdf`: Example usage for all example
   citations in the handbook.
 * `biblatex-sbl-studentsupplement-examples.pdf`: Example usage for all example
@@ -21,8 +22,8 @@ and student supplement and more recent blog posts supersede older blog posts.
 
 ## Installation from TeXLive, or MiKTeX
 
-It is also in TeXLive and MiKTeX and can be installed in the usual way through
-your distribution. E.g., in TeXLive by running:
+`biblatex-sbl` is in TeXLive and MiKTeX and can be installed in the usual way
+through your distribution. E.g., in TeXLive by running:
 
 ```
 tlmgr install biblatex-sbl
