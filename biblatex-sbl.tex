@@ -1429,6 +1429,17 @@ of the first name in the citation if provided that there is a name prefix.
   rev.\ by default) into a \meta{postnote}.
 \end{function}
 
+\begin{function}{\sblfootquotepunct}
+  \begin{syntax}
+    \oarg{punctuation}\marg{entry key}
+  \end{syntax}
+  Use this command just before the end of a quotation in a footnote where the
+  citation (using \cs{autocite}) appears immediately after the quotation. The
+  \meta{entry key} must match the \meta{entry key} of the the \cs{autocite}
+  command. See
+  \url{https://sblhs2.com/2016/10/11/placement-citations-traditional/}.
+\end{function}
+
 \begin{function}{\sno, \ssno}
   This command forces a section number prefix (§ or §§) in the \meta{postnote}
   argument to a citation command. They use the bib strings |section| and
@@ -1442,7 +1453,15 @@ of the first name in the citation if provided that there is a name prefix.
 
 \subsection{Entry types}
 
-The following entry types are supported by \pkg{biblatex-sbl}.
+The following entry types are used by \pkg{biblatex-sbl}. Behaviour of other
+\pkg{biblatex} types should not be relied on to give correct output.
+
+\begin{function}{abbreviation}
+  This is a custom type for \pkg{biblatex-sbl}. It's used as a simple
+  implementation for acronyms, sigla and grammatical abbreviations.
+\end{function}
+|@abbrev| only supports two fields: |shorthand| for the abbreviation and
+|description| for the description of the abbreviation.
 
 \begin{function}{ancienttext}
   This is a custom type for \pkg{biblatex-sbl} and covers all types of ancient
@@ -1522,6 +1541,13 @@ If the main commentary is usually cited by abbreviation, place it in the
 |xref| field. Otherwise the details of the main commentary can be included
 within the bib entry or in the |crossref| field.
 
+\begin{function}{misc}
+  The |@misc| is a fallback entry type for references which don't fit into
+  another category. \pkg{biblatex-sbl} only uses this for including a cross
+  reference to an author whose name has changed. See
+  \url{https://sblhs2.com/2018/04/06/modern-author-names/}.
+\end{function}
+
 \begin{function}{online}
   An online resource without a print counterpart. Use this for online
   databases, websites, blogs, social media posts\slash comments.
@@ -1535,6 +1561,85 @@ the bibliography:
   \item |blog| for blog posts.
   \item |comment| for social media comments.
 \end{itemize}
+Neither of these sub types appear in the bibliography.
+
+\begin{function}{periodical}
+  A complete issue of a periodical, such as a special issue of a journal. The
+  title of the periodical is given in the |title| field. If the issue has its
+  own title in addition to the main title of the periodical, it goes in the
+  |issuetitle| field.
+\end{function}
+In \pkg{biblatex-sbl} this type is only used to insert a journal into the list
+of abbreviations.
+
+\begin{function}{inproceedings}
+  An article in a conference proceedings. This type is similar to
+  |@incollection|. \pkg{biblatex-sbl} only uses this entry type to cite
+  articles published in Studia Patristica where |series| is set to
+  Studia Patristica and |shortseries| to StPatr. See
+  \url{https://sblhs2.com/2017/09/14/studia-patristica/}.
+\end{function}
+
+\begin{function}{reference}
+  A single-volume dictionary, encyclopaedia or lexicon.
+\end{function}
+
+\begin{function}{mvreference}
+  A multi-volume dictionary, encyclopaedia or lexicon.
+\end{function}
+
+\begin{function}{inreference}
+  An article in a dictionary, encyclopaedia or lexicon, which could be signed
+  or unsigned depending on the reference.
+\end{function}
+
+\begin{function}{review}
+  A book review in a journal. This is similar to an |@article|. Use the
+  |revdauthor|\slash |revdeditor| and |revdtitle| fields to specify the
+  author/editor and title of the book being reviewed.
+\end{function}
+Note that review articles are treated like articles and should use the
+|@article| entry type.
+
+\begin{function}{series}
+  A multi-volume series used in one of two ways.
+
+  When it includes a |shorthand| and a |title|, it is similar to a |@mvbook|
+  except that an upright shaped font is used for the |title| field.
+\end{function}
+When it includes a |shortseries| and |series| it functions as a container type
+for inserting a series into the list of abbreviations. Series entries are not
+included in the bibliography.
+
+\begin{function}{inseries}
+  A titled section in a book which is part of a series. This is similar to
+  |@inbook| except that it is formatted like an |@article| with the
+  |shortseries| replacing the |shortjournal| field.
+\end{function}
+
+\begin{function}{thesis}
+  A thesis written for an educational institution to satisfy the requirements
+  for a degree.  Use the |type| field to specify the type of thesis.
+\end{function}
+
+\begin{function}{unpublished}
+  A work with an author and a title which has not been formally published,
+  such as a manuscript or the script of a talk.
+\end{function}
+\pkg{biblatex-sbl} uses this type along with |type = {paper}| for citing a
+papers presented at a conference, but not published in formal proceedings.
+
+\begin{function}{video}
+  An audio visual recording or motion picture. In \pkg{biblatex-sbl} this type
+  supports an |invideo| entry sub type for citing extra features on something
+  like a DVD.
+\end{function}
+
+\begin{function}{xdata}
+  This entry type holds data which may be inherited by other entries using the
+  |xdata| field. Entries of this type only serve as data containers; they may
+  not be cited or added to the bibliography.
+\end{function}
 
 \subsection{Entry fields}
 
