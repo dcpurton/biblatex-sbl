@@ -1,4 +1,4 @@
-\ProvidesFile{sbl.dbx}[biblatex-sbl database structure]
+\ProvidesFile{sbl.dbx}[\sbl@abx@dbxid]
 
 \DeclareDatamodelConstant[type=list]{nameparts}{%
   family,

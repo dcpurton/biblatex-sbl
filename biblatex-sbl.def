@@ -9,6 +9,7 @@
 \def\sbl@abx@bbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl bibliography style (DCP)}
 \def\sbl@abx@cbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl citation style (DCP)}
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
+\def\sbl@abx@dbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl database structure (DCP)}
 
 \protected\def\sbl@blx@warning#1{%
   \begingroup
