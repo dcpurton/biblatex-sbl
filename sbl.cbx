@@ -427,12 +427,13 @@
 \DeclareCiteCommand{\smartcite}[\iffootnote\mksblsmartfootcite\mkbibfootnote]
   {\usebibmacro{smartcitestart}%
    \usebibmacro{prenote}}
-  {\usebibmacro{cite}%
+  {\usebibmacro{citeindex}%
+   \usebibmacro{cite}%
    \usebibmacro{smartciteend}}
   {\multicitedelim}
   {\usebibmacro{cite:postnote}}
 
-\DeclareCiteCommand*{\smartcite}[\iffootnote\mkbibparens\mkbibfootnote]
+\DeclareCiteCommand*{\smartcite}[\iffootnote\mksblsmartfootcite\mkbibfootnote]
   {\usebibmacro{smartcitestart}%
    \usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
