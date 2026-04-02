@@ -23,7 +23,7 @@ function runtest_tasks (name, run)
   end
 end
 
-tagfiles = {"biblatex-sbl.tex", "biblatex-sbl.def", "README.md"}
+tagfiles = {"biblatex-sbl.tex", "biblatex-sbl.def", "README.md", "sbl.dbx"}
 
 function update_tag(file, content, tagname, tagdate)
   content = content:gsub(

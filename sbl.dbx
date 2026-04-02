@@ -1,3 +1,7 @@
+\def\sbl@abx@date{2026-04-03}
+\def\sbl@abx@version{2.0}
+\def\sbl@abx@dbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl database structure (DCP)}
+
 \ProvidesFile{sbl.dbx}[\sbl@abx@dbxid]
 
 \DeclareDatamodelConstant[type=list]{nameparts}{%
