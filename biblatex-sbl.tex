@@ -1657,48 +1657,77 @@ This section documents custom fields for \pkg{biblatex-sbl}.
 \subsubsection{Literal fields}
 
 \begin{function}{datemodifier}
+  A modifier for the |date| of a bib entry. The will affect the string (if
+  any) used before a date is printed.
 \end{function}
 
 \begin{function}{definition}
+  The definition of an abbreviation. This is only used in the |@abbreviation|
+  entry type.
 \end{function}
 
 \begin{function}{parts}
+  The number of parts a work is published in. If an entry includes both a
+  |volumes| and a |parts| field, then this information is presented as
+  |volumes| vols.\ in |parts| parts. This order can be reversed by setting
+  |options = {partsinvols}|.
 \end{function}
 
 \begin{function}{printing}
+  The printing number of the specified edition of a publication.
 \end{function}
 
 \begin{function}{revdtitle}
+  The title of a book being reviewed.
 \end{function}
 
 \begin{function}{revdsubtitle}
+  The subtitle of a book being reviewed.
 \end{function}
 
 \begin{function}{revdshorttitle}
+  The title of a book being review in an abridged form. This field is used in
+  subsequent citations of |@review| entry types.
 \end{function}
 
 \begin{function}{text}
+  The number of a text withing a volume. This is only used the |@ancientttext|
+  entry type.
 \end{function}
 
 \begin{function}{translatedtitle}
+  The |title| of a work translated into the main document language when citing
+  the work by its original title.
 \end{function}
 
 \begin{function}{translatedshorttitle}
+  The |shorttitle| of a work translated into the main document language when
+  citing the work by its original title. This is used in subsequent citations.
 \end{function}
 
 \begin{function}{translatedsubtitle}
+  The |subtitle| of a work translated into the main document language when
+  citing the work by its original title.
 \end{function}
 
 \begin{function}{translatedbooktitle}
+  The |booktitle| of a work translated into the main document language when
+  citing the work by its original title.
 \end{function}
 
 \begin{function}{translatedbooksubtitle}
+  The |booksubtitle| of a work translated into the main document language when
+  citing the work by its original title.
 \end{function}
 
 \begin{function}{translatedmaintitle}
+  The |maintitle| of a work translated into the main document language when
+  citing the work by its original title.
 \end{function}
 
 \begin{function}{translatedmainsubtitle}
+  The |mainsubtitle| of a work translated into the main document language when
+  citing the work by its original title.
 \end{function}
 
 \begin{function}{website}
