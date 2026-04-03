@@ -1367,7 +1367,7 @@
 
 % Add ′ (prime) as number for Unicode engines
 \ExplSyntaxOn
-\bool_lazy_or:nnT \sys_if_engine_luatex_p: \sys_if_engine_xetex_p:
+\bool_lazy_or:nnT { \sys_if_engine_luatex_p: } { \sys_if_engine_xetex_p: }
   {
     \DeclareNumChars* { ′ }
   }
@@ -1390,7 +1390,7 @@
         \clist_if_empty:NF \l_tmpa_clist
           {
             \int_set:Nn \l_tmpa_int { \clist_count:N \l_tmpa_clist }
-            \int_compare:nNnTF \l_tmpa_int = \c_one_int
+            \int_compare:nNnTF { \l_tmpa_int } = { \c_one_int }
               { \bibstring { subverbo } }
               { \bibstring { subverbis } }
             \ppspace
@@ -1405,8 +1405,10 @@
       }
   }
 
-\appto\blx@blxinit{%
-  \def\mksubverbo{\__sbl_blx_mksubverbo:n}}
+\appto \blx@blxinit
+  {
+    \def \mksubverbo { \__sbl_blx_mksubverbo:n }
+  }
 
 \ExplSyntaxOff
 
