@@ -1138,6 +1138,15 @@ rather than italic or quoted Roman font. However, you need to tell
 \pkg{biblatex-sbl} that your bib entry is using a non-Latin script for the
 title. This can by done using |options = {nonlatintitle}| in the bib entry.
 
+\begin{function}{partsinvols}
+  \begin{syntax}
+    = true \textbar\ false\hfill Default: false
+  \end{syntax}
+  For entries containing both a |parts| and a |volumes| field, this option
+  controls whether the bibliography record prints |volumes| vols. in |parts|
+  parts (default) or |parts| parts in |volumes| vols.
+\end{function}
+
 \begin{function}{shorthandformat}
   \begin{syntax}
     = italic \textbar roman\hfill Default: italic

@@ -38,6 +38,10 @@
     {\def\sbl@blx@nonlatinmaintitleformat{nonlatin}}
     {\def\sbl@blx@nonlatinmaintitleformat{maintitle}}}
 
+\newtoggle{sbl@blx@partsinvols}
+\DeclareBiblatexOption{entry}[boolean]{partsinvols}[true]{%
+  \settoggle{sbl@blx@partsinvols}{#1}}
+
 \def\sbl@blx@shorthandformat{shorthand}
 \DeclareBiblatexOption{entry}[string]{shorthandformat}{%
   \def\sbl@blx@shorthandformat{#1}}
@@ -2099,7 +2103,7 @@
      \usebibmacro{inseries}%
      \newunit
      \printfield{parts}}
-    {\ifnumgreater{\thefield{volumes}}{\thefield{parts}}
+    {\iftoggle{sbl@blx@partsinvols}
        {\printfield{parts}%
         \setunit{\addspace}%
         \printfield[involumes]{volumes}%
