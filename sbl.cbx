@@ -156,7 +156,7 @@
 
 % Thanks to @moewe (https://tex.stackexchange.com/a/497548/87678)
 \ExplSyntaxOn
-\NewDocumentCommand \DeclareNestableCiteCommand { s m m }
+\cs_new_protected:Nn \__sbl_declare_nestable_cite_command:nnn
   {
     \cs_set_nopar:cpn { __sbl_cite_temp:n } ##1
       {
@@ -187,6 +187,10 @@
           }
           { \use:c { __sbl_cite_#2:n } }
       }
+  }
+\NewDocumentCommand \DeclareNestableCiteCommand { s m m }
+  {
+    \__sbl_declare_nestable_cite_command:nnn {#1} {#2} {#3}
   }
 \ExplSyntaxOff
 
