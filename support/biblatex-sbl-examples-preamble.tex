@@ -8,6 +8,7 @@
 \setcounter{tocdepth}{1}
 \RecustomVerbatimEnvironment{verbatim}{Verbatim}{backgroundcolor=black!15,fontsize=\small}
 \setcounter{secnumdepth}{0}
+\usepackage{fontspec}
 \usepackage[bidi=basic]{babel}
 \babelprovide[import, language=Default, main]{american}
 \babelprovide[import, language=Default, onchar=ids]{polytonicgreek}
@@ -15,13 +16,27 @@
 \babelprovide[import, onchar=ids fonts]{armenian}
 \babelprovide[import, onchar=ids fonts]{hebrew}
 \babelprovide[import, onchar=ids fonts]{syriac}
-\babelfont{rm}{Brill}
+\IfFontExistsTF{Brill}
+  {\babelfont{rm}{Brill}}
+  {\babelfont{rm}[Numbers=OldStyle]{Alegreya}}
 \babelfont{tt}[Scale=MatchLowercase]{DejaVu Sans Mono}
-\babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}
-\babelfont[hebrew]{rm}[Scale=MatchLowercase, Contextuals=Alternate]{SBL Hebrew}
-\babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}
-\babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}
-\babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}
+\IfFontExistsTF{Noto Serif Armenian}
+  {\babelfont[armenian]{rm}[Scale=0.85]{Noto Serif Armenian}}
+  {\babelfont[armenian]{rm}[Scale=0.85]{DejaVu Serif}}
+\IfFontExistsTF{SBL Hebrew}
+  {\babelfont[hebrew]{rm}[Scale=MatchLowercase]{SBL Hebrew}}
+  {\IfFontExistsTF{SBL BibLit}
+     {\babelfont[hebrew]{rm}[Scale=MatchLowercase]{SBL BibLit}}
+     {\babelfont[hebrew]{rm}[Scale=MatchLowercase]{Frank Ruehl CLM}}}
+\IfFontExistsTF{Estrangelo Edessa}
+  {\babelfont[syriac]{rm}[Scale=MatchLowercase]{Estrangelo Edessa}}
+  {\babelfont[syriac]{rm}[Scale=MatchLowercase]{Free Sans}}
+\IfFontExistsTF{Miriam Libre Medium}
+  {\babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Libre Medium}}
+  {\babelfont[hebrew]{tt}[Scale=MatchLowercase]{Miriam Mono CLM}}
+\IfFontExistsTF{Noto Sans Syriac}
+  {\babelfont[syriac]{tt}[Scale=0.85]{Noto Sans Syriac}}
+  {\babelfont[syriac]{rm}[Scale=MatchLowercase]{Free Sans}}
 \usepackage{realscripts}
 \usepackage{csquotes}
 \makeatletter
@@ -34,7 +49,9 @@
 
 \makeatletter
 
-\renewcommand{\labelitemi}{\char"A78F}
+\IfFontExistsTF{Brill}
+  {\renewcommand{\labelitemi}{\char"A78F}}
+  {}
 
 \colorlet{cmdcolour}{black!65}
 

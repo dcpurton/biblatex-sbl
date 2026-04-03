@@ -46,8 +46,10 @@ can be installed by running:
 l3build install --full
 ```
 
-**Note:** The documentation uses several fonts not found in a standard TeXLive
-installation. You will need to download and install:
+**Note:** Although supporting fallbacks, for best results the documentation
+uses several fonts not found in a standard TeXLive installation. You can
+download and install the non-standard fonts if you want to rebuild the
+documentation:
 
 - The SBL biblical fonts available from
   https://www.sbl-site.org/resources/fonts/
