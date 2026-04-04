@@ -1731,76 +1731,121 @@ This section documents custom fields for \pkg{biblatex-sbl}.
 \end{function}
 
 \begin{function}{website}
+  The name of a website. This could be the name of a blog, a website, or an
+  online database. 
 \end{function}
 
 \begin{function}{withauthortype}
+  The type of |withauthor|. This field will affect the string used to
+  introduce the author(s) who assist the |author|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{withbookauthortype}
+  The type of |withbookauthor|. This field will affect the string used to
+  introduce the author(s) who assist the |bookauthor|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{withmainauthortype}
+  The type of |withmainauthor|. This field will affect the string used to
+  introduce the author(s) who assist the |mainauthor|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{witheditortype}
+  The type of |witheditor|. This field will affect the string used to
+  introduce the editor(s) who assist the |editor|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{withbookeditortype}
+  The type of |withbookeditor|. This field will affect the string used to
+  introduce the editors(s) who assist the |bookeditor|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{withmaineditortype}
+  The type of |withmaineditor|. This field will affect the string used to
+  introduce the editors(s) who assist the |maineditor|. If unspecified, the
+  bibliography string |with| is used.
 \end{function}
 
 \begin{function}{xrefstring}
+  With and |@ancienttext| entry this modifies the string used to introduce the
+  entry specified in the |xref| field.
 \end{function}
 
 \subsubsection{Literal label fields}
 
 \begin{function}{shortmaintitle}
+  The |maintitle| in abridged form. This is only used by the |@ancienttext|
+  entry type.
 \end{function}
 
 \subsubsection{Name list fields}
 
 \begin{function}{bookeditor}
+  The editor(s) of the |booktitle|.
+
+  The behaviour of |editor|, |bookeditor|, and |maineditor| is as follows
+  (when |editor| is not used as the overall editor): |editor| applies to
+  |maintitle| (if set) unless |maineditor| is set. In this case, |editor|
+  applies to |booktitle| (if set) unless |bookeditor| is set. In this case,
+  |editor| applies to |title|.
 \end{function}
 
 \begin{function}{booktranslator}
+  The behaviour of |translator|, |booktranslator|, and |maintranslator| is the
+  same as for |editor|, |bookeditor|, and |maineditor|.
 \end{function}
 
 \begin{function}{mainauthor}
+  The author(s) of the |maintitle|.
 \end{function}
 
 \begin{function}{maineditor}
+  The editor(s) of the |maintitle|.
 \end{function}
 
 \begin{function}{maintranslator}
+  The translator(s) of the |maintitle|.
 \end{function}
 
 \begin{function}{preface}
+  The author(s) of the preface to the |title|.
 \end{function}
 
 \begin{function}{revdauthor}
+  The author(s) of the |revdtitle|.
 \end{function}
 
 \begin{function}{revdeditor}
+  The editor(s) of the |revdtitle|.
 \end{function}
 
 \begin{function}{withauthor}
+  The author(s) who assist the |author|.
 \end{function}
 
 \begin{function}{withbookauthor}
+  The author(s) who assist the |bookauthor|.
 \end{function}
 
 \begin{function}{withmainauthor}
+  The author(s) who assist the |mainauthor|.
 \end{function}
 
 \begin{function}{witheditor}
+  The editor(s) who assist the |editor|.
 \end{function}
 
 \begin{function}{withbookeditor}
+  The editor(s) who assist the |bookeditor|.
 \end{function}
 
 \begin{function}{withmaineditor}
+  The editor(s) who assist the |maineditor|.
 \end{function}
 
 \subsubsection{Name parts}
@@ -1808,119 +1853,107 @@ This section documents custom fields for \pkg{biblatex-sbl}.
 \pkg{biblatex-sbl} supports the following custom name parts:
 
 \begin{function}{postnominal}
+  With extended name format, this can be used to specify post-nominals that
+  should be included in the name.
 \end{function}
 
 \begin{function}{shortfamily}
+  With extended name format, this can be used to specify a short family name
+  used in subsequent citations if different from a full family name used in
+  the first citation.
 \end{function}
 
 \subsection{Localisation strings}
 
-This section documents localisation strings that have been added or customised
-for \pkg{biblatex-sbl}.
+This section documents custom localisation strings for \pkg{biblatex-sbl}.
 
 \begin{function}{article}
+  The term `article', referring to an electronic article number stored in the
+  |eid| field.
 \end{function}
 
 \begin{function}{bydirector}
-\end{function}
-
-\begin{function}{byeditortr}
-\end{function}
-
-\begin{function}{byeditor}
-\end{function}
-
-\begin{function}{byreviser}
-\end{function}
-
-\begin{function}{bytranslator}
+  The expression `directed by meta{name}'.
 \end{function}
 
 \begin{function}{bytranslatorrev}
-\end{function}
-
-\begin{function}{chapter}
-\end{function}
-
-\begin{function}{compiler}
+  The expression `translated and revised by \meta{name}' or `translated from
+  \meta{language} and revised by \meta{name}'.
 \end{function}
 
 \begin{function}{director}
+  The term `director', referring to the director of a film.
 \end{function}
 
 \begin{function}{directors}
-\end{function}
-
-\begin{function}{editor}
-\end{function}
-
-\begin{function}{editors}
-\end{function}
-
-\begin{function}{editortr}
-\end{function}
-
-\begin{function}{editorstr}
+  The plural form or |director|.
 \end{function}
 
 \begin{function}{fragment}
+  The term `fragment', referring to a fragment of a manuscript.
 \end{function}
 
 \begin{function}{fragments}
+  The plural form of |fragment|.
 \end{function}
 
 \begin{function}{obverse}
+  The term `obverse' (the front side of a manuscript).
 \end{function}
 
 \begin{function}{of}
+  The term `of'.
 \end{function}
 
 \begin{function}{paper}
+  The term `paper presented at'.
 \end{function}
 
 \begin{function}{parts}
-\end{function}
-
-\begin{function}{phdthesis}
+  The term `parts'.
 \end{function}
 
 \begin{function}{printing}
-\end{function}
-
-\begin{function}{reprint}
+  The term `printing'.
 \end{function}
 
 \begin{function}{released}
+  The term `released'.
 \end{function}
 
 \begin{function}{reverse}
+  The term `reverse' (the reverse side of a manuscript).
 \end{function}
 
 \begin{function}{series}
+  The term `series'.
 \end{function}
 
 \begin{function}{subverbis}
+  The term `sub verbis' (under the words), e.g., svv.
 \end{function}
 
 \begin{function}{subverbo}
+  The term `sub verbo' (under the word), e.g., sv.
 \end{function}
 
 \begin{function}{to}
-\end{function}
-
-\begin{function}{translator}
-\end{function}
-
-\begin{function}{translators}
+  The term `to'. Used in the |@suppbook| entry type between the supplementary
+  title and the book title.
 \end{function}
 
 \begin{function}{with}
+  The term `with' (the default type for |withauthor|, |witheditor| and
+  |withtranslator|).
 \end{function}
 
 \begin{function}{withassistance}
+  The term `with assistance from' (used with |withauthor|, |witheditor| and
+  |withtranslator|).
 \end{function}
 
 \begin{function}{withpreface}
+  The term `with preface by' (used to introduced the writer of a preface).
 \end{function}
 
 \end{document}
