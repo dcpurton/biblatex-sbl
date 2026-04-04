@@ -8,6 +8,7 @@ typesetdemofiles = {"biblatex-sbl-blog-examples.tex",
                     "biblatex-sbl-studentsupplement-examples.tex",
                     "biblatex-sbl-handbook-examples.tex"}
 typesetsuppfiles = {"biblatex-sbl-examples-preamble.tex"}
+docfiles         = {"support/biblatex-sbl-examples-preamble.tex"}
 
 typesetexe = "lualatex"
 
