@@ -1004,6 +1004,4 @@ Completed box being shipped out [1]
 (biblatex-sbl_6.4f.aux)
 Package rerunfilecheck Info: File `biblatex-sbl_6.4f.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
 Package logreq Info: Writing requests to 'biblatex-sbl_6.4f.run.xml'.
