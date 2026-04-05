@@ -1,20 +1,22 @@
 module = "biblatex-sbl"
 
 unpackexe        = ""
-sourcefiles      = {"*.def", "*.bib", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
+sourcefiles      = {"*.def", "*.cbx", "*.bbx", "*.dbx", "*.lbx", "*.bib", "*.tex", "support/*"}
 installfiles     = {"*.def", "*.cbx", "*.bbx", "*.dbx", "*.lbx"}
-typesetfiles     = {"biblatex-sbl.tex"}
-typesetdemofiles = {"biblatex-sbl-blog-examples.tex",
+checkfiles       = {"biblatex-sbl.bib"}
+typesetfiles     = {"biblatex-sbl.tex",
+                    "biblatex-sbl-blog-examples.tex",
                     "biblatex-sbl-studentsupplement-examples.tex",
                     "biblatex-sbl-handbook-examples.tex"}
 typesetsuppfiles = {"biblatex-sbl-examples-preamble.tex"}
-docfiles         = {"support/biblatex-sbl-examples-preamble.tex"}
 
 typesetexe = "lualatex"
 
 stdengine    = "luatex"
 checkengines = {"luatex"}
-checkruns    = 3
+
+checkruns      = 4
+forcecheckruns = true
 
 function runtest_tasks (name, run)
   if run <= 2 then
