@@ -1293,7 +1293,7 @@
 \ExplSyntaxOn
 % this function ensures a field beginning with \pnfmt always gives true for
 % \ifbegpages
-\cs_new_protected:Nn \__sbl_blx_haspnfmt:n
+\cs_new_protected:Nn \__sblblx_haspnfmt:n
   {
     \tl_if_blank:nF { #1 }
       {
@@ -1301,8 +1301,8 @@
           { \def\sbl@blx@tempa { 1 } }
       }
   }
-\cs_generate_variant:Nn \__sbl_blx_haspnfmt:n { o }
-\cs_set_eq:NN \sbl@blx@haspnfmt \__sbl_blx_haspnfmt:o
+\cs_generate_variant:Nn \__sblblx_haspnfmt:n { o }
+\cs_set_eq:NN \sbl@blx@haspnfmt \__sblblx_haspnfmt:o
 \ExplSyntaxOff
 \def\sbl@blx@firstword#1{\sbl@blx@firstword@i#1 \@nil}
 \def\sbl@blx@firstword@i#1 #2\@nil{\unexpanded{#1}}%
@@ -1380,7 +1380,7 @@
 %  Custom \mksubverbo command
 
 \ExplSyntaxOn
-\cs_new_protected:Nn \__sbl_blx_mksubverbo:n
+\cs_new_protected:Nn \__sblblx_mksubverbo:n
   {
     \bool_lazy_any:nTF
       {
@@ -1411,7 +1411,7 @@
 
 \appto \blx@blxinit
   {
-    \def \mksubverbo { \__sbl_blx_mksubverbo:n }
+    \def \mksubverbo { \__sblblx_mksubverbo:n }
   }
 
 \ExplSyntaxOff
@@ -1578,7 +1578,7 @@
 
 \cs_set_eq:NN \sbl@blx@hash \str_mdfive_hash:e
 
-\cs_new_protected:Nn \__sbl_blx_combined_author_title:n
+\cs_new_protected:Nn \__sblblx_combined_author_title:n
   {
     \clist_map_inline:nn { #1 }
       {
@@ -1595,7 +1595,7 @@
 
 \newbibmacro* { abbrev:combined+author+title } [1]
   {
-    \exp_args:Ne \__sbl_blx_combined_author_title:n { #1 }
+    \exp_args:Ne \__sblblx_combined_author_title:n { #1 }
   }
 
 \ExplSyntaxOff
