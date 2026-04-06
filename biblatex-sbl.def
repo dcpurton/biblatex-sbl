@@ -11,11 +11,21 @@
 \def\sbl@abx@lbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl localization (DCP)}
 \def\sbl@abx@dbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl database structure (DCP)}
 
-\protected\def\sbl@blx@warning#1{%
-  \begingroup
-  \blx@safe@actives
-  \PackageWarning{biblatex-sbl}{#1}%
-  \endgroup}
+
+% ## Utilities
+
+% register sbl internal commands
+\protected\def\sbl@blx@regimc#1{%
+  \xappto\blx@blxinit{%
+    \let\noexpand#1\expandafter\noexpand\csname
+    sbl@blx@imc@\expandafter\@gobble\string#1\endcsname}}
+
+\protected\def\sbl@blx@regimcs#1{\sbl@blx@regimcs@i#1&}
+\def\sbl@blx@regimcs@i#1{%
+  \ifx#1&\else
+    \sbl@blx@regimc#1%
+    \expandafter\sbl@blx@regimcs@i
+  \fi}
 
 
 % ## Style options
@@ -81,7 +91,7 @@
   \fi}
 
 % set a field value
-\newrobustcmd{\setfield}[3][]{%
+\newrobustcmd*{\sbl@blx@imc@setfield}[3][]{%
   \ifstrequal{#1}{overwrite}
     {\csdef{abx@field@#2}{#3}}
     {\iffieldundef{#2}
@@ -89,10 +99,12 @@
        {}}}
 
 % test if bibmacro defined
-\newrobustcmd*{\ifdefbibmacro}[1]{%
+\newrobustcmd*{\sbl@blx@imc@ifdefbibmacro}[1]{%
   \ifcsdef{abx@macro@#1}
     {\@firstoftwo}
     {\@secondoftwo}}
+
+\sbl@blx@regimcs{\setfield \ifdefbibmacro}
 
 % preserve semicolons in page ranges (default uses \bibgrangessep)
 \begingroup
@@ -149,14 +161,14 @@
     {\@secondoftwo}}
 
 % define command to reset the name tracker
-\newrobustcmd*{\citeauthorreset}{%
+\newrobustcmd*{\sbl@blx@namereset@force}{%
   \global\cslet{sbl@blx@name@bsee@\the\c@refsection}\@empty
   \global\cslet{sbl@blx@name@fsee@\the\c@refsection}\@empty}
 
-% patch \citereset so that it also calls \citeauthorreset
+% patch \citereset so that it also resets the sbl name tracker
 \patchcmd{\citereset}
   {\blx@ibidreset@force}
-  {\citeauthorreset
+  {\sbl@blx@namereset@force
    \blx@ibidreset@force}
   {}
   {}
@@ -175,26 +187,28 @@
     {\csuse{sbl@blx@opt@nametracker@#1}}
     {\blx@err@invopt{nametracker=#1}{}}}
 \def\sbl@blx@opt@nametracker@true{%
-  \let\ifnameseen\sbl@blx@ifnameseen@global
-  \let\nametracker\sbl@blx@nametracker@global
+  \let\sbl@blx@imc@ifnameseen\sbl@blx@ifnameseen@global
+  \let\sbl@blx@imc@nametracker\sbl@blx@nametracker@global
   \booltrue{nametracker}}
 \def\sbl@blx@opt@nametracker@false{%
-  \let\ifnameseen\@secondoftwo
-  \let\nametracker\relax}
+  \let\sbl@blx@imc@ifnameseen\@secondoftwo
+  \let\sbl@blx@imc@nametracker\relax}
 \def\sbl@blx@opt@nametracker@context{%
-  \let\ifnameseen\sbl@blx@ifnameseen@context
-  \let\nametracker\sbl@blx@nametracker@context
+  \let\sbl@blx@imc@ifnameseen\sbl@blx@ifnameseen@context
+  \let\sbl@blx@imc@nametracker\sbl@blx@nametracker@context
   \booltrue{nametracker}}
 \def\sbl@blx@opt@nametracker@strict{%
-  \let\ifnameseen\sbl@blx@ifnameseen@global
-  \def\nametracker{%
+  \let\sbl@blx@imc@ifnameseen\sbl@blx@ifnameseen@global
+  \def\sbl@blx@imc@nametracker{%
     \blx@ifcitesingle{\sbl@blx@nametracker@global}{}}%
   \booltrue{nametracker}}
 \def\sbl@blx@opt@nametracker@constrict{%
-  \let\ifnameseen\sbl@blx@ifnameseen@context
-  \def\nametracker{%
+  \let\sbl@blx@imc@ifnameseen\sbl@blx@ifnameseen@context
+  \def\sbl@blx@imc@nametracker{%
     \blx@ifcitesingle{\sbl@blx@nametracker@context}{}}%
   \booltrue{nametracker}}
+
+\sbl@blx@regimcs{\ifnameseen \nametracker}
 
 
 % ## Bibliography record manipulation
@@ -1202,12 +1216,14 @@
   {}
 
 % \ifcrossrefseen{<true>}{<false>}
-\protected\def\ifcrossrefseen{%
+\protected\def\sbl@blx@imc@ifcrossrefseen{%
   \iffieldundef{crossref}
     {\@secondoftwo}
     {\ifentryseen{\thefield{crossref}}
        {\@firstoftwo}
        {\@secondoftwo}}}
+
+\sbl@blx@regimcs{\ifcrossrefseen}
 
 \def\sbl@blx@trackentry@global#1{%
   \ifbool{citetracker}
@@ -1242,7 +1258,7 @@
 \def\sbl@blx@pagination{none}
 \def\sbl@blx@bookpagination{page}
 
-\newrobustcmd{\ifpaginationequalstr}[1]{%
+\newrobustcmd*{\sbl@blx@imc@ifpaginationequalstr}[1]{%
   \iffieldequalstr{pagination}{#1}
     {\@firstoftwo}
     {\ifboolexpr{
@@ -1252,6 +1268,8 @@
      }
        {\@firstoftwo}
        {\@secondoftwo}}}
+
+\sbl@blx@regimcs{\ifpaginationequalstr}
 
 \xpatchcmd{\blx@imc@mkpageprefix}
   {\def\blx@tempa{\blx@mkpageprefix{page}}}
@@ -1306,18 +1324,20 @@
 \ExplSyntaxOff
 \def\sbl@blx@firstword#1{\sbl@blx@firstword@i#1 \@nil}
 \def\sbl@blx@firstword@i#1 #2\@nil{\unexpanded{#1}}%
-\protected\def\ifbegpages#1{%
+\protected\def\sbl@blx@imc@ifbegpages#1{%
   \edef\sbl@blx@tempa{\sbl@blx@firstword{#1}}%
   \sbl@blx@haspnfmt{\sbl@blx@tempa}%
   \expandafter\blx@imc@ifpages
     \expandafter{\sbl@blx@tempa}}
-\protected\def\iffieldbegpages#1{%
+\protected\def\sbl@blx@imc@iffieldbegpages#1{%
   \blx@imc@iffieldundef{#1}
     {\@secondoftwo}
     {\expandafter\expandafter
      \expandafter\ifbegpages
      \expandafter\expandafter
      \expandafter{\csname abx@field@#1\endcsname}}}
+
+\sbl@blx@regimcs{\ifbegpages \iffieldbegpages}
 
 % define macro to suppress formatting of postnote
 % (useful if you want 12,13 without a space)
@@ -1417,7 +1437,6 @@
 \ExplSyntaxOff
 
 
-
 % ## Bibliography
 
 \xpatchcmd{\printbibliography}
@@ -1433,14 +1452,10 @@
 
 \defbibcheck{bibliography}{%
   \sbl@blx@skipentries
-  \sbl@blx@forceskipentries
-  \sbl@blx@includeentries
 }
 
 \def\sbl@blx@skipentries{}
-\def\sbl@blx@forceskipentries{}
-\def\sbl@blx@includeentries{}
-\def\addskipentry#1{%
+\protected\def\sbl@blx@imc@addskipentry#1{%
   \edef\X{%
     \noexpand\ifboolexpr{
       test {\noexpand\iffieldequalstr{entrykey}{#1}}
@@ -1450,18 +1465,8 @@
       {\noexpand\toggletrue{blx@skipentry}}
       {}}%
   \expandafter\g@addto@macro\expandafter\sbl@blx@skipentries\expandafter{\X}}
-\def\addforceskipentry#1{%
-  \edef\X{%
-    \noexpand\iffieldequalstr{entrykey}{#1}
-      {\noexpand\toggletrue{blx@skipentry}}
-      {}}%
-  \expandafter\g@addto@macro\expandafter\sbl@blx@skipentries\expandafter{\X}}
-\def\addincludeentry#1{%
-  \edef\X{%
-    \noexpand\iffieldequalstr{entrykey}{#1}
-      {\noexpand\togglefalse{blx@skipentry}}
-      {}}%
-  \expandafter\g@addto@macro\expandafter\sbl@blx@includeentries\expandafter{\X}}
+
+\sbl@blx@regimcs{\addskipentry}
 
 
 % ## List of abbreviations
@@ -1517,7 +1522,7 @@
     {\list[label-align=left]%
        {\usebibmacro{abbrev:printabbrev}}
        {\usebibmacro{setabbrevwidth}%
-        \setlength{\labelwidth}{\abbrevwidth}%
+        \setlength{\labelwidth}{\sblabbrevwidth}%
         \setlength{\leftmargin}{\labelwidth}%
         \setlength{\labelsep}{\biblabelsep}%
         \addtolength{\leftmargin}{\labelsep}%
@@ -1530,7 +1535,7 @@
     {\list
        {\usebibmacro{abbrev:printabbrev}}
        {\usebibmacro{setabbrevwidth}%
-        \setlength{\labelwidth}{\abbrevwidth}%
+        \setlength{\labelwidth}{\sblabbrevwidth}%
         \setlength{\leftmargin}{\labelwidth}%
         \setlength{\labelsep}{\biblabelsep}%
         \addtolength{\leftmargin}{\labelsep}%
@@ -1559,19 +1564,21 @@
            \usebibmacro{abbrev:checkshortfield}{shortjournal}{journaltitle}}}}
     {}}
 
-\newlength{\abbrevwidth}
+\newlength{\sblabbrevwidth}
 
-\newcommand*{\setmaxlength}[2]{%
+\newcommand*{\sbl@blx@imc@setmaxlength}[2]{%
   \ifdim\dimexpr#2>\dimexpr#1
     \setlength{#1}{#2}%
   \fi}
 
+\sbl@blx@regimcs{\setmaxlength}
+
 \newbibmacro*{setabbrevwidth}{%
-  \setlength{\abbrevwidth}{0pt}%
-  \setmaxlength{\abbrevwidth}{\shorthandwidth}%
-  \setmaxlength{\abbrevwidth}{\shortserieswidth}%
-  \setmaxlength{\abbrevwidth}{\shortjournalwidth}%
-  \setmaxlength{\abbrevwidth}{\shorttitlewidth}%
+  \setlength{\sblabbrevwidth}{0pt}%
+  \setmaxlength{\sblabbrevwidth}{\shorthandwidth}%
+  \setmaxlength{\sblabbrevwidth}{\shortserieswidth}%
+  \setmaxlength{\sblabbrevwidth}{\shortjournalwidth}%
+  \setmaxlength{\sblabbrevwidth}{\shorttitlewidth}%
 }
 
 \ExplSyntaxOn
