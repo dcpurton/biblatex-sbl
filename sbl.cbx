@@ -387,6 +387,8 @@
   #1%
   \endgroup}
 
+% set a boolean flag to indicate we are inside parentheses
+\newbool{sbl@blx@footinparens}
 % format the start of a smart citation
 %   - normal behaviour for \smartcite in running text and \smartcites
 %   - if in footnote
@@ -402,7 +404,8 @@
     bool {sbl@blx@footnote}
   }
     {\ifciteseen
-       {\bibopenparen}
+       {\bibopenparen
+        \booltrue{sbl@blx@footinparens}}
        {\ifbool{sbl@blx@footquotesuppressperiod}
           {}
           {\addperiod\space}%
@@ -413,15 +416,9 @@
 % format the end of a smart citation
 %   - normal behaviour for \smartcite in running text and \smartcites
 %   - if in footnote
-%       - add closing parenthesis if parentheses are currently mismatched
+%       - add closing parenthesis if opened by smartcitestart
 \newbibmacro{smartciteend}{%
-  \ifboolexpr{
-    test {\ifnumequal\c@citetotal\@ne}
-    and
-    test {\ifnumequal\c@multicitetotal\z@}
-    and
-    test {\ifnumgreater\c@parenlevel\z@}
-  }
+  \ifbool{sbl@blx@footinparens}
     {\bibcloseparen}
     {}}
 
