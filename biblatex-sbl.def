@@ -941,6 +941,8 @@
   \isdot}
 
 \DeclareFieldAlias{shorthandwidth}{shorthand}
+\DeclareFieldAlias[abbreviation]{shorthandwidth}[abbreviation]{shorthand}
+\DeclareFieldAlias[series]{shorthandwidth}[series]{shorthand}
 \DeclareFieldAlias{shortjournalwidth}{journaltitle}
 \DeclareFieldAlias{shortserieswidth}{series}
 \DeclareFieldFormat{shorttitlewidth}{}

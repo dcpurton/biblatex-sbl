@@ -1,0 +1,34 @@
+\documentclass{article}
+\begin{filecontents}[overwrite]{\jobname.bib}
+@book{Achenbach2003VollendungTora,
+  shorttitle = {Die Vollendung der Tora},
+  author = {Achenbach, Reinhard},
+  date = {2003},
+  series = {Beihefte zur Zeitschrift für altorientalische und biblische Rechtsgeschichte},
+  number = {3},
+  publisher = {Harrassowitz},
+  location = {Wiesbaden},
+  langid = {german},
+  shortseries = {BZAR},
+  title = {Die Vollendung der Tora},
+  subtitle = {Studien zur Redaktionsgeschichte des Numeribuches im Kontext von Hexateuch und Pentateuch}
+}
+@abbreviation{4QNum-b,
+  definition = {Numbers manuscript from Cave 4 at Qumran},
+  shorthand = {4QNum\textsuperscript{b}},
+}
+\end{filecontents}
+\input{regression-test}
+\usepackage{fontspec}
+\setmainfont{Brill}
+\usepackage[colorlinks]{hyperref}
+\usepackage[style=sbl]{biblatex}
+\addbibresource{\jobname.bib}
+\pagestyle{empty}
+\raggedright
+\begin{document}
+\START
+\showoutput
+\nocite{Achenbach2003VollendungTora, 4QNum-b}
+\printbiblist{abbreviations}
+\end{document}
