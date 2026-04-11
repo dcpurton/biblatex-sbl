@@ -2556,7 +2556,7 @@
   \renewbibmacro*{cite:postnote}{}%
   \newunit}
 
-\newbibmacro*{short:note+pages}{%
+\newbibmacro*{inseries:note+pages}{%
   \printfield{note}%
   \begingroup
   \iffieldundef{series}
