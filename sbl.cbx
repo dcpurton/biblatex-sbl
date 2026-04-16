@@ -177,7 +177,7 @@
       {
         \cs_set_eq:cc { __sblblx_cite_#2:n } { __sblblx_cite_temp:n }
       }
-    \cs_set_nopar:cpn {#2}
+    \cs_set_protected_nopar:cpn {#2}
       {
         \peek_meaning_remove:NTF *
           {
