@@ -4,6 +4,8 @@
 
 \ProvidesFile{sbl.cbx}[\sbl@abx@cbxid]
 
+% Provide a hypertarget for entries using a crossref so short citations can
+% link to it
 \DeclareFieldFormat{bibhypertarget}{%
   \ifboolexpr{
     not test {\iffieldundef{crossref}}
@@ -785,22 +787,7 @@
     \usebibmacro{cite:short}}%
   \usebibmacro{chapter+pages}}
 
-\newbibmacro*{cite:full:commentary:seen}{%
-  \usebibmacro{author/editor+others/translator+others}%
-  \setunit{\printdelim{nametitledelim}}\newblock
-  \usebibmacro{title}%
-  \newunit
-  \printlist{language}%
-  \newunit\newblock
-  \usebibmacro{byauthor}%
-  \newunit\newblock
-  \usebibmacro{volume+part+of:}%
-  \entrydata*{\thefield{crossref}}{%
-    \renewbibmacro{cite:postnote}{}%
-    \usebibmacro{cite:short}}%
-  \usebibmacro{chapter+pages}}
-
-\newbibmacro*{cite:full:incollection:seen}{%
+\newbibmacro*{cite:full:inbook:seen}{%
   \usebibmacro{author/translator+others}%
   \setunit{\printdelim{nametitledelim}}\newblock
   \usebibmacro{title}%
@@ -815,6 +802,36 @@
     \usebibmacro{cite:short}}%
   \usebibmacro{volume+part+pages}}
 
+\newbibmacro*{cite:full:suppbook:seen}{%
+  \usebibmacro{author/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \setunit{\addspace}%
+  \usebibmacro{to:}%
+  \entrydata*{\thefield{crossref}}{%
+    \renewbibmacro{cite:postnote}{}%
+    \usebibmacro{cite:short}}%
+  \usebibmacro{volume+part+pages}}
+
+\newbibmacro*{cite:full:commentary:seen}{%
+  \usebibmacro{cite:full:book:seen}}
+
+\newbibmacro*{cite:full:incommentary:seen}{%
+  \usebibmacro{cite:full:inbook:seen}}
+
+\newbibmacro*{cite:full:collection:seen}{%
+  \usebibmacro{cite:full:book:seen}}
+
+\newbibmacro*{cite:full:incollection:seen}{%
+  \usebibmacro{cite:full:inbook:seen}}
+
+\newbibmacro*{cite:full:proceedings:seen}{%
+  \usebibmacro{cite:full:book:seen}}
+
 \newbibmacro*{cite:full:inproceedings:seen}{%
   \iffieldundef{booktitle}
     {\usebibmacro{cite:full}}
@@ -822,6 +839,11 @@
 
 \newbibmacro*{cite:full:reference:seen}{%
   \usebibmacro{cite:full:book:seen}}
+
+\newbibmacro*{cite:full:inreference:seen}{%
+  \iffieldundef{booktitle}
+    {\usebibmacro{cite:full}}
+    {\usebibmacro{cite:full:inbook:seen}}}
 
 
 % ancienttext citation macros
