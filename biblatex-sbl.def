@@ -560,6 +560,7 @@
 \DeclareLanguageMapping{german}{german-sbl}
 \DeclareLanguageMapping{hebrew}{english-sbl}
 \DeclareLanguageMapping{polytonicgreek}{english-sbl}
+\DeclareLanguageMapping{spanish}{spanish-sbl}
 
 \NewBibliographyString{article}
 \NewBibliographyString{bydirector}
