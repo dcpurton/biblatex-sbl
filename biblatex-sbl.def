@@ -557,6 +557,7 @@
 
 \DeclareLanguageMapping{american}{american-sbl}
 \DeclareLanguageMapping{english}{english-sbl}
+\DeclareLanguageMapping{german}{german-sbl}
 \DeclareLanguageMapping{hebrew}{english-sbl}
 \DeclareLanguageMapping{polytonicgreek}{english-sbl}
 
