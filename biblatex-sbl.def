@@ -2614,6 +2614,7 @@
       {\renewbibmacro*{related:init}{}%
        \renewbibmacro*{cite:postnote}{}%
        \renewbibmacro*{publisher+location+date}{%
+         \usebibmacro{clearrecentlocations}%
          \usebibmacro{mergelists}{location}{publisher}{\locationpublisherdelim}{\publisherdelim}%
          \setunit*{\addcomma\space}%
          \usebibmacro{date}%
