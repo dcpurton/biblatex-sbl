@@ -1248,16 +1248,6 @@
   {}
   {}
 
-% macro to call \blx@postcode within drivers
-\newbibmacro*{sbl:postcode}{%
-  \ifnum\c@citecount=\c@citetotal
-    \def\blx@thecheckpunct{\blx@err@nestcite\@gobble}%
-    \blx@postcode
-    % clear \blx@postcode so it isn't printed twice
-    \let\blx@postcode\@empty
-    \blx@postpunct@saved
-  \fi}
-
 % use pagination=none and bookpagination=page by default
 \def\sbl@blx@pagination{none}
 \def\sbl@blx@bookpagination{page}
