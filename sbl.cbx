@@ -663,7 +663,8 @@
                 and
                 not test {\iffirstonpage}
               }
-                {\usebibmacro{cite:ibid}}
+                {\usebibmacro{cite:ibid}%
+                 \usebibmacro{cite:postnote}}
                 {\ifdefbibmacro{cite:short:\thefield{entrytype}}
                    {\usebibmacro*{cite:short:\thefield{entrytype}}}
                    {\usebibmacro{cite:short}}}%
