@@ -2574,7 +2574,7 @@
 % ## Related macros
 
 % don't print the postnote within related entries
-\newbibmacro*{related:init}{%
+\renewbibmacro*{related:init}{%
   \renewbibmacro*{cite:postnote}{}%
   \csundef{bbx:relatedloop}}
 
