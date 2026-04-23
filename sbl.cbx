@@ -335,12 +335,7 @@
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\usebibmacro{cite:setformat:ancienttext}%
-   \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}%
-      \newunit}
-     {}%
-   \usebibmacro{cite:collection:ancienttext}}
+  {\usebibmacro{cite:collection}}
   {\multicitedelim}
   {}
 
@@ -348,12 +343,7 @@
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\usebibmacro{cite:setformat:ancienttext}%
-   \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}%
-      \newunit}
-     {}%
-   \usebibmacro{cite:collection:ancienttext}}
+  {\usebibmacro{cite:collection}}
   {\multicitedelim}
   {}
 
@@ -743,6 +733,18 @@
           {\printtext[parens]{\printnames[labelname]{maineditor}}}}
        {\printtext[parens]{\printnames[labelname]{bookeditor}}}}
     {\printtext[parens]{\printnames[labelname]{editor}}}}
+
+\newbibmacro*{cite:collection}{%
+  \ifentrytype{ancienttext}
+    {\usebibmacro{cite:setformat:ancienttext}%
+     \iftoggle{sbl@blx@transcite}
+       {\usebibmacro{cite:translator:ancienttext}%
+        \newunit}
+       {}%
+     \usebibmacro{cite:collection:ancienttext}}
+    {\renewbibmacro*{author/translator+others}{}%
+     \renewbibmacro*{title}{}%
+     \usebibmacro{cite:full}}}
 
 \newbibmacro*{cite:short:inreference}{%
   \iffieldundef{postnote}
