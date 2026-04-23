@@ -1,40 +1,40 @@
 \ProvidesFile{german-sbl.lbx}[\sbl@abx@lbxid]
-
+% Where possible, these bib strings follow Schwertner, IATG3, or RGG4.
 \InheritBibliographyExtras{german}
 
 \DeclareBibliographyStrings{%
   inherit          = {german},
   article          = {{Artikel}{Art\adddot}},
-% bydirector       = {{}{}},% FIXME: missing
-  byeditor         = {{herausgegeben von}{hrsg\adddotspace von}},
+  bydirector       = {{Regie durch}{Regie durch}},% FIXME: missing
+  byeditor         = {{herausgegeben von}{hg\adddot\,v\adddot}},
   byeditortr       = {{\"ubersetzt \lbx@lfromlang\isdot\space und herausgegeben von}%
-                      {\"ubers\adddotspace \lbx@sfromlang\isdot\space und hrsg\adddotspace von}},
-  byreviser        = {{\"uberarbeitet von}{\"uberarb\adddotspace von}},
-  bytranslator     = {{\"ubersetzt \lbx@lfromlang\isdot\space von}{\"ubers\adddot}},
-% bytranslatorrev  = {{\"ubersetzt und \"uberarbeitet von}{\"ubers. und \"uberarb.}},
+                      {\"ubers\adddotspace \lbx@sfromlang\isdot\space und hg\adddot\,v\adddot}},
+  byreviser        = {{\"uberarbeitet von}{\"uberarb\,v\adddot}},
+  bytranslator     = {{\"ubersetzt \lbx@lfromlang\isdot\space von}{\"ubers\adddot\,v\adddot}},
+  bytranslatorrev  = {{\"ubersetzt und \"uberarbeitet von}{\"ubers. und \"uberarb.\,v.}},
   chapter          = {{Kapitel}{Kap\adddot}},
-  compiler         = {{Komp\adddot}{Komp\adddot}},
-  compilers        = {{Komp\adddot}{Komp\adddot}},
-% director         = {{}{}},% FIXME: missing
-% directors        = {{}{}},% FIXME: missing
-  editor           = {{Hrsg\adddot}{Hrsg\adddot}},
-  editors          = {{Hrsg\adddot}{Hrsg\adddot}},
-  editortr         = {{Hrsg\adddotspace und \"Ubers\adddot}%
-                      {Hrsg\adddotspace und \"Ubers\adddot}},
-  editorstr        = {{Hrsg\adddotspace und \"Ubers\adddot}%
-                      {Hrsg\adddotspace und \"Ubers\adddot}},
-  fragment         = {{Fragment}{Frag\adddot}},% FIXME: check
-  fragments        = {{Fragmente}{Fragm\adddot}},% FIXME: check
-  obverse          = {{Vorderseite}{Vs\adddot}},% FIXME: check
-  of               = {{von}{von}},
-% paper            = {{}{}},% FIXME: missing
-% parts            = {{}{}},% FIXME: missing
+  compiler         = {{Komp\adddot}{Komp\adddot}}, %TODO
+  compilers        = {{Komp\adddot}{Komp\adddot}}, %TODO
+  director         = {{Regie}{Regie}},
+  directors        = {{Regie}{Regie}},
+  editor           = {{Hg\adddot}{Hg\adddot}},
+  editors          = {{Hgg\adddot}{Hgg\adddot}},
+  editortr         = {{Hg\adddotspace und \"Ubers\adddot}%
+                      {Hg\adddotspace und \"Ubers\adddot}},
+  editorstr        = {{Hgg\adddotspace und \"Ubers\adddot}%
+                      {Hgg\adddotspace und \"Ubers\adddot}},
+  fragment         = {{Fragment}{Frgm\adddot}},
+  fragments        = {{Fragmente}{Frgm.e}},
+  obverse          = {{Vorderseite}{Vs\adddot}},
+  of               = {{von}{v\adddot\,}},
+ paper            = {{Vortrag bei}{Vortr\adddot}},% FIXME: missing
+ parts            = {{Teile}{Teile}},% because of the German case system, this is likely going to raise problems for @mvreference{PW, because this would have to be rendered as "50 Bd.e in 84 Teilen" (note the additional n) then. Do you have any ideas on this? Probably a very infrequent case though.
   phdthesis        = {{Dissertation}{Diss\adddot}},
-% printing         = {{}{}},% FIXME: missing
-  reprint          = {{Ndr\adddot}{Ndr\adddot}},
-  released         = {{ver\"offentlicht}{ver\"offentlicht}},
-  reverse          = {{R\"uckseite}{Rs\adddot}},% FIXME: check
-% series           = {{}{}},% FIXME: missing
+  printing         = {{Druck}{Druck}},
+  reprint          = {{Nachdr\adddot}{Nachdr\adddot}},
+  released         = {{ver\"offentlicht}{ver\"off\adddot}},
+  reverse          = {{R\"uckseite}{Rs\adddot}},
+  series           = {{Reihen}{Reihen}}, %If this is only used in the plural, my proposal here is correct. Otherweise, there would be the sg. Reihe
   subverbis        = {{sub verbis}{s.\,vv\adddot}}, %Added \, according to German typographical rules
   subverbo         = {{sub verbo}{s.\,v\adddot}}, % Added \, according to German typographical rules
   thiscite         = {{hier}{hier}},
