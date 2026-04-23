@@ -2186,15 +2186,15 @@
     and
     test {\iftoggle{bbx:related}}
   }
-    {\usebibmacro{related:init}%
+    {\csundef{bbx:relatedloop}%
      \usebibmacro{related}%
      \togglefalse{bbx:related}%
      \begingroup
      \delimcontext{volume:article}%
      \usebibmacro{cite:postnote}%
      \endgroup
-     \renewbibmacro*{cite:postnote}{}%
-    }
+     % clear postnote
+     \renewbibmacro*{cite:postnote}{}}
     {}}
 
 % ## review macros
@@ -2396,7 +2396,7 @@
     and
     test {\iftoggle{bbx:related}}
   }
-    {\usebibmacro{related:init}%
+    {\csundef{bbx:relatedloop}%
      \usebibmacro{related}%
      \togglefalse{bbx:related}%
     }
@@ -2506,9 +2506,7 @@
   \printfield{pages}%
   \printfield{eid}%
   \usebibmacro{cite:postnote}%
-  \endgroup
-  % clear postnote
-  \renewbibmacro*{cite:postnote}{}}
+  \endgroup}
 
 \newbibmacro*{volume+text+pages}{%
   \iffieldundef{volume}
@@ -2523,9 +2521,7 @@
   \setunit{\bibpagespunct}%
   \printfield{pages}%
   \usebibmacro{cite:postnote}%
-  \endgroup
-  % clear postnote
-  \renewbibmacro*{cite:postnote}{}}
+  \endgroup}
 
 \renewbibmacro*{chapter+pages}{%
   \printfield{chapter}%
@@ -2544,8 +2540,6 @@
   \printfield{pages}%
   \usebibmacro{cite:postnote}%
   \endgroup
-  % clear postnote
-  \renewbibmacro*{cite:postnote}{}%
   \newunit}
 
 \newbibmacro*{inseries:note+pages}{%
@@ -2558,8 +2552,6 @@
   \printfield{pages}%
   \usebibmacro{cite:postnote}%
   \endgroup
-  % clear postnote
-  \renewbibmacro*{cite:postnote}{}%
   \newunit}
 
 
@@ -2588,6 +2580,11 @@
 
 
 % ## Related macros
+
+% don't print the postnote within related entries
+\newbibmacro*{related:init}{%
+  \renewbibmacro*{cite:postnote}{}%
+  \csundef{bbx:relatedloop}}
 
 % make sure editor isn't printed before title when author is cleared in
 % related entry
