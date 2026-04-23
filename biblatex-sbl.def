@@ -2476,14 +2476,6 @@
     {\printtext{\bibcloseparen}}%
   \newunit}
 
-\renewbibmacro*{location+date}{%
-  \printlist{location}%
-  \setunit*{\addcomma\space}%
-  \usebibmacro{date}%
-  \usebibmacro{cite:postnote}%
-  \renewbibmacro*{cite:postnote}{}%
-  \newunit}
-
 
 % ## online macros
 

@@ -321,6 +321,43 @@
     {}%
   \usebibmacro{finentry}}
 
+\DeclareBibliographyDriver{misc}{%
+  \usebibmacro{bibindex}%
+  \usebibmacro{begentry}%
+  \usebibmacro{author/editor+others/translator+others}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \usebibmacro{title}%
+  \newunit
+  \printlist{language}%
+  \newunit\newblock
+  \usebibmacro{byauthor}%
+  \newunit\newblock
+  \usebibmacro{byeditor+others}%
+  \newunit\newblock
+  \printfield{howpublished}%
+  \newunit\newblock
+  \printfield{type}%
+  \newunit
+  \printfield{version}%
+  \newunit
+  \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{organization+location+date}%
+  \newunit\newblock
+  \usebibmacro{cite:postnote}%
+  \newunit\newblock
+  \usebibmacro{doi+eprint+url}%
+  \newunit\newblock
+  \usebibmacro{addendum+pubstate}%
+  \setunit{\bibpagerefpunct}\newblock
+  \usebibmacro{pageref}%
+  \newunit\newblock
+  \iftoggle{bbx:related}
+    {\usebibmacro{related:init}%
+     \usebibmacro{related}}
+    {}%
+  \usebibmacro{finentry}}
+
 \DeclareBibliographyDriver{online}{%
   \usebibmacro{bibindex}%
   \usebibmacro{begentry}%
@@ -343,6 +380,8 @@
   \printlist{organization}%
   \newunit\newblock
   \usebibmacro{website+date}%
+  \newunit\newblock
+  \usebibmacro{cite:postnote}%
   \newunit\newblock
   \usebibmacro{doi+eprint+url}%
   \newunit\newblock
@@ -370,6 +409,8 @@
   \usebibmacro{byeditor}%
   \newunit\newblock
   \printfield{note}%
+  \newunit\newblock
+  \usebibmacro{cite:postnote}%
   \newunit\newblock
   \iftoggle{bbx:isbn}
     {\printfield{issn}}
@@ -548,6 +589,8 @@
   \printfield{note}%
   \newunit\newblock
   \usebibmacro{location+date}%
+  \newunit\newblock
+  \usebibmacro{cite:postnote}%
   \newunit\newblock
   \usebibmacro{doi+eprint+url}%
   \newunit\newblock

@@ -774,7 +774,20 @@
      \iffieldundef{type}
        {\printtext[shorttitlelink]{\printfield{website}}}
        {\printtext[shorttitlelink]{\printfield{type}}}}%
-  \endgroup}
+  \endgroup
+  \usebibmacro{cite:postnote}}
+
+\newbibmacro*{cite:short:periodical}{%
+  \printnames{labelname}%
+  \clearname{\thefield{labelnamesource}}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \iffieldundef{title}
+    {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}}
+    {\usebibmacro{cite:title}%
+     \ifuniquework
+       {}
+       {\usebibmacro{cite:label:editor}}}%
+  \usebibmacro{cite:postnote}}
 
 \newbibmacro*{cite:short:review}{%
   \iffieldundef{title}
@@ -860,7 +873,6 @@
   \iffieldundef{booktitle}
     {\usebibmacro{cite:full}}
     {\usebibmacro{cite:full:inbook:seen}}}
-
 
 % ancienttext citation macros
 
