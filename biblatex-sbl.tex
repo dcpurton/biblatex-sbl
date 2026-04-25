@@ -98,7 +98,11 @@
   This package provides \pkg{biblatex} support for citations, bibliography and
   abbreviations in the format specified by the second edition of the
   \emph{Society of Biblical Literature (SBL) Handbook of Style} including
-  updates on the \emph{SBL Handbook of Style} blog.
+  updates on the \emph{SBL Handbook of Style} blog. The design goal is that if
+  bib entries are set up and cited correctly then the output should be exactly
+  in line with SBL recommendations. No manual adjusting should be needed and
+  citations should be able to be moved within the document without errors
+  appearing.
 \end{abstract}
 
 \tableofcontents
@@ -1897,6 +1901,21 @@ This section documents custom localisation strings for \pkg{biblatex-sbl}.
   The plural form of |fragment|.
 \end{function}
 
+\begin{function}{inparts}
+  The term `parts' when used in an expression like `\meta{number} volumes in
+  \meta{number} parts'.
+\end{function}
+
+\begin{function}{inseries}
+  The term `series' when used in an expression like `\meta{number} volumes in
+  \meta{number} series'.
+\end{function}
+
+\begin{function}{involumes}
+  The term `volumes' when used in an expression like `\meta{number} parts in
+  \meta{number} volumes'.
+\end{function}
+
 \begin{function}{obverse}
   The term `obverse' (the front side of a manuscript).
 \end{function}
@@ -1926,16 +1945,12 @@ This section documents custom localisation strings for \pkg{biblatex-sbl}.
   The term `reverse' (the reverse side of a manuscript).
 \end{function}
 
-\begin{function}{series}
-  The term `series'.
-\end{function}
-
 \begin{function}{subverbis}
-  The term `sub verbis' (under the words), e.g., svv.
+  The term `sub verbis' (under the words), e.g., s.vv.
 \end{function}
 
 \begin{function}{subverbo}
-  The term `sub verbo' (under the word), e.g., sv.
+  The term `sub verbo' (under the word), e.g., s.v.
 \end{function}
 
 \begin{function}{to}

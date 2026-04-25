@@ -214,12 +214,17 @@
 \DeclareNestableCiteCommand{abbrev}
   {\usebibmacro{cite:shorthand}}
 
+% Note: biblatex-sbl does not use the postcode declared with
+% \DeclareCiteCommand so it is left blank to avoid confusion. Where
+% appropriate it is included in the loopcode in the declarations below,
+% otherwise the printing is taken care of in the cite bibmacro. This is
+% because the postnote generally does not fall at the end of the citation.
 \DeclareCiteCommand*{\cite}
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
    \usebibmacro{cite}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 \DeclareCiteCommand{\citeauthor}
   {\boolfalse{citetracker}%
@@ -231,9 +236,10 @@
    \ifnameseen
      {\printnames{labelname}}
      {\printnames[given-family]{labelname}%
-      \nametracker}}
+      \nametracker}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand*{\citeauthor}
   {\boolfalse{citetracker}%
@@ -245,9 +251,10 @@
    \ifnameseen
      {\printnames[][1-1]{labelname}}
      {\printnames[given-family][1-1]{labelname}%
-      \nametracker}}
+      \nametracker}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand{\citeshortauthor}
   {\boolfalse{citetracker}%
@@ -256,9 +263,10 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printnames{labelname}}
+   \printnames{labelname}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand*{\citeshortauthor}
   {\boolfalse{citetracker}%
@@ -267,9 +275,10 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printnames[][1-1]{labelname}}
+   \printnames[][1-1]{labelname}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \providecommand{\citefullauthor}{}
 \undef\citefullauthor
@@ -280,9 +289,10 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printnames[given-family]{labelname}}
+   \printnames[given-family]{labelname}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand*{\citefullauthor}
   {\boolfalse{citetracker}%
@@ -291,9 +301,10 @@
   {\ifciteindex
      {\indexnames{labelname}}
      {}%
-   \printnames[given-family][1-1]{labelname}}
+   \printnames[given-family][1-1]{labelname}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \providecommand\Citefullauthor{}
 \renewrobustcmd*{\Citefullauthor}{%
@@ -306,64 +317,56 @@
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
   {\DeclareFieldAlias{bibhyperlink}{default}%
-   \usebibmacro{cite:title}}
+   \usebibmacro{cite:title}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand*{\citetitle}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\usebibmacro{title}}
+  {\usebibmacro{title}%
+   \usebibmacro{postnote}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand{\citecollection}
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\usebibmacro{cite:setformat:ancienttext}%
-   \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}%
-      \newunit}
-     {}%
-   \usebibmacro{cite:collection:ancienttext}}
+  {\usebibmacro{cite:collection}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand{\parencitecollection}[\mkbibparens]
   {\boolfalse{citetracker}%
    \boolfalse{pagetracker}%
    \usebibmacro{prenote}}
-  {\usebibmacro{cite:setformat:ancienttext}%
-   \iftoggle{sbl@blx@transcite}
-     {\usebibmacro{cite:translator:ancienttext}%
-      \newunit}
-     {}%
-   \usebibmacro{cite:collection:ancienttext}}
+  {\usebibmacro{cite:collection}}
   {\multicitedelim}
-  {\usebibmacro{postnote}}
+  {}
 
 \DeclareCiteCommand*{\footcite}[\mkbibfootnote]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
    \usebibmacro{cite}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 \DeclareCiteCommand*{\footcitetext}[\mkbibfootnotetext]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
    \usebibmacro{cite}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 \DeclareCiteCommand*{\parencite}[\mkbibparens]
   {\usebibmacro{prenote}}
   {\usebibmacro{cite:star}%
    \usebibmacro{cite}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 % \sblfootquotepunct is inserted at the end of a quotation immediately before
 % a citation to ensure punctuation is placed inside quotation if using us
@@ -432,7 +435,7 @@
    \usebibmacro{cite}%
    \usebibmacro{smartciteend}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 \DeclareCiteCommand*{\smartcite}[\iffootnote\mksblsmartfootcite\mkbibfootnote]
   {\usebibmacro{smartcitestart}%
@@ -441,7 +444,7 @@
    \usebibmacro{cite}%
    \usebibmacro{smartciteend}}
   {\multicitedelim}
-  {\usebibmacro{cite:postnote}}
+  {}
 
 % define \fullcite commands which always produce a full citation
 
@@ -663,7 +666,8 @@
                 and
                 not test {\iffirstonpage}
               }
-                {\usebibmacro{cite:ibid}}
+                {\usebibmacro{cite:ibid}%
+                 \usebibmacro{cite:postnote}}
                 {\ifdefbibmacro{cite:short:\thefield{entrytype}}
                    {\usebibmacro*{cite:short:\thefield{entrytype}}}
                    {\usebibmacro{cite:short}}}%
@@ -730,6 +734,18 @@
        {\printtext[parens]{\printnames[labelname]{bookeditor}}}}
     {\printtext[parens]{\printnames[labelname]{editor}}}}
 
+\newbibmacro*{cite:collection}{%
+  \ifentrytype{ancienttext}
+    {\usebibmacro{cite:setformat:ancienttext}%
+     \iftoggle{sbl@blx@transcite}
+       {\usebibmacro{cite:translator:ancienttext}%
+        \newunit}
+       {}%
+     \usebibmacro{cite:collection:ancienttext}}
+    {\renewbibmacro*{author/translator+others}{}%
+     \renewbibmacro*{title}{}%
+     \usebibmacro{cite:full}}}
+
 \newbibmacro*{cite:short:inreference}{%
   \iffieldundef{postnote}
     {}
@@ -758,7 +774,20 @@
      \iffieldundef{type}
        {\printtext[shorttitlelink]{\printfield{website}}}
        {\printtext[shorttitlelink]{\printfield{type}}}}%
-  \endgroup}
+  \endgroup
+  \usebibmacro{cite:postnote}}
+
+\newbibmacro*{cite:short:periodical}{%
+  \printnames{labelname}%
+  \clearname{\thefield{labelnamesource}}%
+  \setunit{\printdelim{nametitledelim}}\newblock
+  \iffieldundef{title}
+    {\usebibmacro{abbrev:shortfield}{shortjournal}{journaltitle}}
+    {\usebibmacro{cite:title}%
+     \ifuniquework
+       {}
+       {\usebibmacro{cite:label:editor}}}%
+  \usebibmacro{cite:postnote}}
 
 \newbibmacro*{cite:short:review}{%
   \iffieldundef{title}
@@ -844,7 +873,6 @@
   \iffieldundef{booktitle}
     {\usebibmacro{cite:full}}
     {\usebibmacro{cite:full:inbook:seen}}}
-
 
 % ancienttext citation macros
 
