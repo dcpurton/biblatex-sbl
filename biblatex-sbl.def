@@ -569,6 +569,7 @@
 \NewBibliographyString{directors}
 \NewBibliographyString{fragment}
 \NewBibliographyString{fragments}
+\NewBibliographyString{inparts}
 \NewBibliographyString{obverse}
 \NewBibliographyString{of}
 \NewBibliographyString{paper}
@@ -576,7 +577,6 @@
 \NewBibliographyString{printing}
 \NewBibliographyString{released}
 \NewBibliographyString{reverse}
-\NewBibliographyString{series}
 \NewBibliographyString{subverbis}
 \NewBibliographyString{subverbo}
 \NewBibliographyString{to}
@@ -794,7 +794,7 @@
   \mkpageprefix[bookpagination][\mkcomprange]{#1}\space\bibstring{in}}
 \DeclareFieldFormat{part}{\bibstring{part}~#1}
 \DeclareFieldFormat{parts}{#1~\bibstring{parts}}
-\DeclareFieldFormat{inparts}{\bibstring{in}\space#1~\bibstring{parts}}
+\DeclareFieldFormat{inparts}{\bibstring{in}\space#1~\bibstring{inparts}}
 \DeclareFieldFormat{postnote}{%
   \def\abx@str{abx@sstr}%
   \ifboolexpr{
@@ -817,7 +817,7 @@
     {\ifcapital{\MakeCapital{#1}}{#1}\isdot}}
 \DeclareFieldFormat{revdtitle}{\mkbibemph{#1}}
 \DeclareFieldFormat{roman}{#1}
-\DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{series}}
+\DeclareFieldFormat{inseries}{\bibstring{in}\space#1~\bibstring{inseries}}
 \DeclareFieldFormat[article]{series}{#1}
 \DeclareFieldFormat{shorthand}{\mkbibemph{#1}}
 \DeclareFieldFormat[abbreviation]{shorthand}{%
@@ -890,7 +890,7 @@
        {\bibsstring{volume}\volspace#1}}
     {\bibsstring{volume}\volspace#1}}
 \DeclareFieldFormat{volumes}{#1~\bibsstring{volumes}}
-\DeclareFieldFormat{involumes}{\bibstring{in}\space#1~\bibsstring{volumes}}
+\DeclareFieldFormat{involumes}{\bibstring{in}\space#1~\bibsstring{involumes}}
 \DeclareFieldFormat{website}{%
   \iffieldequalstr{entrysubtype}{blog}
     {\mkbibemph{#1}}
