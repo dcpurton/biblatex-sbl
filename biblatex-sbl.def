@@ -1467,6 +1467,9 @@
 
 \DeclareBibliographyDriver{abbreviations}{%
   \usebibmacro{sbl:set:bib:format}%
+  \ifentrytype{abbreviation}
+    {\renewcommand*{\finentrypunct}{}}
+    {}%
   \renewbibmacro*{bbx:savehash}{}%
   \usebibmacro{begentry}%
   \iffieldundef{shorthand}
