@@ -1,5 +1,5 @@
-\def\sbl@abx@date{2026-04-21}
-\def\sbl@abx@version{2.0rc2}
+\def\sbl@abx@date{2026-04-26}
+\def\sbl@abx@version{2.0rc3}
 \def\sbl@abx@dbxid{\sbl@abx@date\space v\sbl@abx@version\space biblatex-sbl database structure (DCP)}
 
 \ProvidesFile{sbl.dbx}[\sbl@abx@dbxid]
