@@ -736,7 +736,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 15000
 ....\glue(\baselineskip) 3.42
-....\hbox(6.11+1.81)x314.52, glue set 137.99501fil, shifted 30.48, direction TLT
+....\hbox(6.11+1.81)x314.52, glue set 136.99501fil, shifted 30.48, direction TLT
 .....\TU/Brill(0)/m/n/10 1
 .....\kern-0.1 (font)
 .....\TU/Brill(0)/m/n/10 9
@@ -749,6 +749,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 0
+.....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
@@ -894,11 +895,12 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 5.31999
-....\hbox(4.21+0.14)x314.52, glue set 149.70001fil, shifted 30.48, direction TLT
+....\hbox(4.21+0.14)x314.52, glue set 148.70001fil, shifted 30.48, direction TLT
 .....\TU/Brill(0)/m/n/10 2
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 1
 .....\TU/Brill(0)/m/n/10 1
+.....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
@@ -1066,7 +1068,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+1.81)x314.52, glue set 117.18002fil, shifted 30.48, direction TLT
+....\hbox(6.65+1.81)x314.52, glue set 116.18002fil, shifted 30.48, direction TLT
 .....\TU/Brill(0)/m/n/10 E
 .....\TU/Brill(0)/m/n/10 e
 .....\TU/Brill(0)/m/n/10 r
@@ -1094,6 +1096,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 9
 .....\TU/Brill(0)/m/n/10 8
 .....\TU/Brill(0)/m/n/10 8
+.....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
@@ -1242,7 +1245,7 @@ Completed box being shipped out [1]
 .....\glue(\rightskip) 0.0 plus 1.0fil
 ....\penalty 25000
 ....\glue(\baselineskip) 2.88
-....\hbox(6.65+2.47)x314.52, glue set 114.915fil, shifted 30.48, direction TLT
+....\hbox(6.65+2.47)x314.52, glue set 113.915fil, shifted 30.48, direction TLT
 .....\TU/Brill(0)/m/n/10 A
 .....\TU/Brill(0)/m/n/10 b
 .....\TU/Brill(0)/m/n/10 i
@@ -1267,6 +1270,7 @@ Completed box being shipped out [1]
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 0
 .....\TU/Brill(0)/m/n/10 9
+.....\TU/Brill(0)/m/n/10 .
 .....\penalty 10000
 .....\glue(\parfillskip) 0.0 plus 1.0fil
 .....\glue(\rightskip) 0.0 plus 1.0fil
