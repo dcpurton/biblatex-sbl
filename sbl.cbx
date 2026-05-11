@@ -113,7 +113,13 @@
 }
 
 % SBL needs useprefix=true for citations, but not in sorting or bibliography
-\AtEveryCite{\toggletrue{blx@useprefix}}
+% Redefine \printnames to set useprefix=true when not in bibliography; this
+% does not affect indices which use \indexnames
+\protected\def\blx@imc@printnames{%
+  \ifbibliography
+    {}
+    {\toggletrue{blx@useprefix}}%
+  \blx@listargs\blx@printnames}
 
 \RequirePackage[after=title]{biblatex-source-division}
 
