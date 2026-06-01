@@ -71,11 +71,13 @@ Completed box being shipped out [1]
 .....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[1 0 0]} action goto name{Hfootnote.1}
 .....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .....\hbox(6.54793+0.0)x2.551, direction TLT
-......\mathon
-......\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(2.919+0.021)x2.551, shifted -3.62892, direction TLT
+......\hbox(2.919+0.021)x2.051, shifted -3.62892, direction TLT
+.......\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .......\TU/Brill(0)/m/n/7 1
-......\mathoff
+.......\pdfcolorstack 0 pop
+......\penalty 10000
+......\glue 0.5
+......\kern0.0
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\penalty 10000
@@ -109,11 +111,13 @@ Completed box being shipped out [1]
 .....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[1 0 0]} action goto name{Hfootnote.2}
 .....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .....\hbox(6.57593+0.0)x3.524, direction TLT
-......\mathon
-......\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(2.947+0.021)x3.524, shifted -3.62892, direction TLT
+......\hbox(2.947+0.021)x3.024, shifted -3.62892, direction TLT
+.......\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .......\TU/Brill(0)/m/n/7 2
-......\mathoff
+.......\pdfcolorstack 0 pop
+......\penalty 10000
+......\glue 0.5
+......\kern0.0
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\penalty 10000
@@ -147,11 +151,13 @@ Completed box being shipped out [1]
 .....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[1 0 0]} action goto name{Hfootnote.3}
 .....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .....\hbox(6.57593+0.0)x3.468, direction TLT
-......\mathon
-......\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(2.947+1.267)x3.468, shifted -3.62892, direction TLT
+......\hbox(2.947+1.267)x2.968, shifted -3.62892, direction TLT
+.......\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .......\TU/Brill(0)/m/n/7 3
-......\mathoff
+.......\pdfcolorstack 0 pop
+......\penalty 10000
+......\glue 0.5
+......\kern0.0
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\penalty 10000
@@ -185,11 +191,13 @@ Completed box being shipped out [1]
 .....\pdfstartlink(*+*)x* attr{/Border[0 0 0]/H/I/C[1 0 0]} action goto name{Hfootnote.4}
 .....\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .....\hbox(6.57593+0.0)x3.699, direction TLT
-......\mathon
-......\hbox(0.0+0.0)x0.0, direction TLT
-......\hbox(2.947+1.057)x3.699, shifted -3.62892, direction TLT
+......\hbox(2.947+1.057)x3.199, shifted -3.62892, direction TLT
+.......\pdfcolorstack 0 push {1 0 0 rg 1 0 0 RG}
 .......\TU/Brill(0)/m/n/7 4
-......\mathoff
+.......\pdfcolorstack 0 pop
+......\penalty 10000
+......\glue 0.5
+......\kern0.0
 .....\pdfcolorstack 0 pop
 .....\pdfendlink
 .....\penalty 10000
@@ -709,11 +717,13 @@ Completed box being shipped out [1]
 .....\hbox(5.32533+0.0)x14.40002, glue set 12.14203fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(5.32533+0.0)x2.258, direction TLT
-.......\mathon
-.......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(2.502+0.018)x2.258, shifted -2.82333, direction TLT
+.......\hbox(2.502+0.018)x1.758, shifted -2.82333, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
 ........\TU/Brill(0)/m/n/6 1
-.......\mathoff
+........\pdfcolorstack 0 pop
+.......\penalty 10000
+.......\glue 0.5
+.......\kern0.0
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -913,11 +923,13 @@ Completed box being shipped out [1]
 .....\hbox(5.34933+0.0)x14.40002, glue set 11.30803fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(5.34933+0.0)x3.092, direction TLT
-.......\mathon
-.......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(2.526+0.018)x3.092, shifted -2.82333, direction TLT
+.......\hbox(2.526+0.018)x2.592, shifted -2.82333, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
 ........\TU/Brill(0)/m/n/6 2
-.......\mathoff
+........\pdfcolorstack 0 pop
+.......\penalty 10000
+.......\glue 0.5
+.......\kern0.0
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -1064,11 +1076,13 @@ Completed box being shipped out [1]
 .....\hbox(5.34933+0.0)x14.40002, glue set 11.35602fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(5.34933+0.0)x3.044, direction TLT
-.......\mathon
-.......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(2.526+1.086)x3.044, shifted -2.82333, direction TLT
+.......\hbox(2.526+1.086)x2.544, shifted -2.82333, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
 ........\TU/Brill(0)/m/n/6 3
-.......\mathoff
+........\pdfcolorstack 0 pop
+.......\penalty 10000
+.......\glue 0.5
+.......\kern0.0
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000
@@ -1241,11 +1255,13 @@ Completed box being shipped out [1]
 .....\hbox(5.34933+0.0)x14.40002, glue set 11.15802fil, direction TLT
 ......\glue 0.0 plus 1.0fil minus 1.0fil
 ......\hbox(5.34933+0.0)x3.242, direction TLT
-.......\mathon
-.......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(2.526+0.906)x3.242, shifted -2.82333, direction TLT
+.......\hbox(2.526+0.906)x2.742, shifted -2.82333, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
 ........\TU/Brill(0)/m/n/6 4
-.......\mathoff
+........\pdfcolorstack 0 pop
+.......\penalty 10000
+.......\glue 0.5
+.......\kern0.0
 .....\hbox(6.65+0.0)x0.0, direction TLT
 ......\rule(6.65+0.0)x0.0
 .....\penalty 10000

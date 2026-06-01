@@ -108,11 +108,13 @@ Completed box being shipped out [1]
 .......\TU/Brill(0)/m/n/10 N
 .......\TU/Brill(0)/m/n/10 u
 .......\TU/Brill(0)/m/n/10 m
-.......\mathon
-.......\hbox(0.0+0.0)x0.0, direction TLT
-.......\hbox(4.655+0.098)x3.986, shifted -3.62892, direction TLT
+.......\hbox(4.655+0.098)x3.486, shifted -3.62892, direction TLT
+........\pdfcolorstack 0 push {0 g 0 G}
 ........\TU/Brill(0)/m/n/7 b
-.......\mathoff
+........\pdfcolorstack 0 pop
+.......\penalty 10000
+.......\glue 0.5
+.......\kern0.0
 .......\glue 0.0 plus 1.0fil minus 1.0fil
 .......\pdfcolorstack 0 pop
 ......\glue 10.0
